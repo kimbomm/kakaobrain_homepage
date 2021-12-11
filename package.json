@@ -1,0 +1,21 @@
+{
+  "name": "kakaobrain_homepage",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "core-js": "^3.15.1",
+    "nuxt": "^2.15.7",
+    "vue-device-detector": "^1.1.6"
+  },
+  "devDependencies": {
+    "@nuxtjs/style-resources": "^1.2.1",
+    "node-sass": "^6.0.1",
+    "sass-loader": "^10.2.0"
+  }
+}
