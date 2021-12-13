@@ -1,5 +1,7 @@
 <template>
-  <header class="header"></header>
+  <header class="header">
+    헤더페이지
+  </header>
 </template>
 <script>
 export default {

@@ -1,5 +1,7 @@
 <template>
-  <footer class="footer"></footer>
+  <footer class="footer">
+    푸터입니다.
+  </footer>
 </template>
 <script>
 export default {
