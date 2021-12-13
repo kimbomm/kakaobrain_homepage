@@ -1,0 +1,64 @@
+{
+  "list": [
+    {
+      "title": "Hello World.",
+      "date": "November@2021 - 1",
+      "navigation": [
+        { "name": "☀Docu. B", "link": "#"},
+        { "name": "Documentary", "link": "#"}
+      ],
+      "sticker": ["Curtis.abcd"],
+      "thumbnail": ""
+    },
+    {
+      "title": "Hello World.",
+      "date": "November@2021 - 2",
+      "navigation": [
+        { "name": "☀Docu. B", "link": "#"},
+        { "name": "interview", "link": "#"}
+      ],
+      "sticker": ["Curtis.abcd"],
+      "thumbnail": ""
+    },
+    {
+      "title": "Hello World.",
+      "date": "November@2021",
+      "navigation": [
+        { "name": "☀Docu. B", "link": "#"},
+        { "name": "News", "link": "#"}
+      ],
+      "sticker": ["Curtis.abcd"],
+      "thumbnail": ""
+    },
+    {
+      "title": "Hello World.",
+      "date": "November@2021 - 1",
+      "navigation": [
+        { "name": "☀Docu. B", "link": "#"},
+        { "name": "Documentary", "link": "#"}
+      ],
+      "sticker": ["Curtis.abcd"],
+      "thumbnail": ""
+    },
+    {
+      "title": "Hello World.",
+      "date": "November@2021 - 2",
+      "navigation": [
+        { "name": "☀Docu. B", "link": "#"},
+        { "name": "interview", "link": "#"}
+      ],
+      "sticker": ["Curtis.abcd"],
+      "thumbnail": ""
+    },
+    {
+      "title": "Hello World.",
+      "date": "November@2021",
+      "navigation": [
+        { "name": "☀Docu. B", "link": "#"},
+        { "name": "News", "link": "#"}
+      ],
+      "sticker": ["Curtis.abcd"],
+      "thumbnail": ""
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "menus": [
+    { 
+      "name": "About",
+      "link": "/about",
+      "alarm": "",
+      "sub": [
+        { "name": "Unthinkable Question!", "link": "#" },
+        { "name": "Culture", "link": "#" },
+        { "name": "Principle", "link": "#" }
+      ]
+    },
+    { 
+      "name": "Research",
+      "link": "/research",
+      "alarm": "172",
+      "sub": [
+        { "name": "Highlight", "link": "#" },
+        { "name": "Article", "link": "#" },
+        { "name": "Collaborative Research", "link": "#" }
+      ]
+    },
+    { 
+      "name": "Tech",
+      "link": "/tech",
+      "alarm": "54",
+      "sub": [
+        { "name": "Highlight", "link": "#" },
+        { "name": "Data", "link": "#" },
+        { "name": "Brain Cloud", "link": "#" },
+        { "name": "Large Scale", "link": "#" },
+        { "name": "Digital Human", "link": "#" }
+      ]
+    },
+    { 
+      "name": "Studio",
+      "link": "/studio",
+      "alarm": "2",
+      "sub": [
+        { "name": "H./Healthcare", "link": "#" },
+        { "name": "E./Education", "link": "#" }
+      ]
+    },
+    { 
+      "name": "Magazine B",
+      "link": "/magazine",
+      "alarm": "78",
+      "sub": [
+        { "name": "News", "link": "#" },
+        { "name": "Interview", "link": "#" },
+        { "name": "Documentary", "link": "#" }
+      ]
+    }
+  ],
+  "footer": [
+    { "name": "문의", "link": "#" },
+    { "name": "오시는 길", "link": "#" },
+    { "name": "사이버윤리실", "link": "#" },
+    { "name": "이용약관", "link": "#" },
+    { "name": "개인정보보호지침", "link": "#" },
+    { "name": "Pathfinder", "link": "#" },
+    { "name": "Open-MiniCon", "link": "#" },
+    { "name": "Recruit", "link": "#" }
+  ],
+  "members": {
+    "CEO": [
+      { "name": "Cutis.abcd", "profile": "" },
+      { "name": "beam.park", "profile": "" },
+      { "name": "carl.brain", "profile": "" },
+      { "name": "lyla.j", "profile": "" },
+      { "name": "zane.kim", "profile": "" },
+      { "name": "jj.mize", "profile": "" },
+      { "name": "leo.itsme", "profile": "" },
+      { "name": "noah.young", "profile": "" }
+    ],
+    "Culture": [
+      { "name": "sharon.ej", "profile": "" },
+      { "name": "brenda.ble", "profile": "" },
+      { "name": "emily.lim", "profile": "" },
+      { "name": "helena.301", "profile": "" },
+      { "name": "henry.sky", "profile": "" },
+      { "name": "isol.tony", "profile": "" },
+      { "name": "jeff.sky", "profile": "" }
+    ],
+    "Hbrand": [
+      { "name": "yang.kim", "profile": "" }
+    ],
+    "Finance": [
+      { "name": "carrie.ai", "profile": "" },
+      { "name": "evelyn.choi", "profile": "" },
+      { "name": "carl.brain", "profile": "" },
+      { "name": "jeff.sky", "profile": "" }
+    ]
+  }
+}
