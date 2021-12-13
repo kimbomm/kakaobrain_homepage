@@ -1,0 +1,70 @@
+button{
+	font-size:0px;
+	box-sizing: border-box;
+}
+.btn{ 
+	padding:8px 14px;
+	border: 1px solid $gray-9;
+	border-radius: 50px;
+	color:$gray-9;
+	font-style: italic;
+	&:not(:last-child){
+		margin-right:10px;
+	}
+	+.sub{
+			background-color: $gray-9;
+			border: none;
+			color:$gray-0;
+	}
+	+.docu{
+		background-color: $brain-orange;
+		border: none;
+		color:$gray-0;
+			.txt{
+				&::before{
+					content:"☀";
+					display: inline-block;
+					padding-right: 2px;
+				}
+			}
+	}
+	+.studio{
+		background-color: $brain-magenta;
+		border: none;
+		color:$gray-0;
+			.txt{
+				&::before{
+					content:"❖";
+					display: inline-block;
+					padding-right: 2px;
+				}
+			}
+	}
+	+.research{
+		background-color: $brain-mint;
+		border: none;
+		color:$gray-0;
+			.txt{
+				&::before{
+					content:"★";
+					display: inline-block;
+					padding-right: 2px;
+				}
+			}
+	}
+	+.tech{
+		background-color: $brain-purple;
+		border: none;
+		color:$gray-0;
+			.txt{
+				&::before{ 
+					content:"■";
+					display: inline-block;
+					padding-right: 2px;
+				}
+			}
+	}
+	.txt{
+		font-size:14px;
+	}
+}

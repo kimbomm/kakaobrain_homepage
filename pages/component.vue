@@ -3,14 +3,19 @@
     <h1>컴포넌트 페이지</h1>
     <div class="contents">
       <div class="component">
-        <h2>컴포넌트 명</h2>
+        <h2>BUTTON</h2>
         <div class="content">
-          컴포넌트를 넣어주세요
+        	<button type="button" class="btn"><span class="txt">Docu. B</span></button>
+        	<button type="button" class="btn sub"><span class="txt">Docu. B</span></button>
+        	<button type="button" class="btn docu"><span class="txt">Docu. B</span></button>
+        	<button type="button" class="btn studio"><span class="txt">Docu. B</span></button>
+        	<button type="button" class="btn research"><span class="txt">Research</span></button>
+        	<button type="button" class="btn tech"><span class="txt">Research</span></button>
         </div>
       </div>
     </div>
   </div>
-</template>
+</template> 
 <script>
 export default {
   
