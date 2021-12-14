@@ -1,0 +1,213 @@
+button{
+	font-size:0px;
+	box-sizing: border-box;
+}
+.btn{ 
+	padding:8px 14px;
+	border: 1px solid $gray-9;
+	border-radius: 50px;
+	color:$gray-9;
+	font-style: italic;
+	&:not(:last-child){
+		margin-right:10px;
+	}
+	+.sub{
+			background-color: $gray-9;
+			border: none;
+			color:$gray-0;
+	}
+	+.docu{
+		background-color: $brain-orange;
+		border: none;
+		color:$gray-0;
+			.txt{
+				&::before{
+					content:"☀";
+					display: inline-block;
+					padding-right: 2px;
+				}
+			}
+	}
+	+.studio{
+		background-color: $brain-magenta;
+		border: none;
+		color:$gray-0;
+			.txt{
+				&::before{
+					content:"❖";
+					display: inline-block;
+					padding-right: 2px;
+				}
+			}
+	}
+	+.research{
+		background-color: $brain-mint;
+		border: none;
+		color:$gray-0;
+			.txt{
+				&::before{
+					content:"★";
+					display: inline-block;
+					padding-right: 2px;
+				}
+			}
+	}
+	+.tech{
+		background-color: $brain-purple;
+		border: none;
+		color:$gray-0;
+			.txt{
+				&::before{ 
+					content:"■";
+					display: inline-block;
+					padding-right: 2px;
+				}
+			}
+	}
+	&-top{
+		width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    font-size: 0;
+    text-align: center;
+    overflow: hidden;
+    z-index: 2;
+    padding: 0;
+    // background-color: #000;
+		&:after {
+			content: "";
+			display: block;
+			width: 100%;
+			height: 100%;
+			background: url("../images/icon-top_b.svg") no-repeat 50%;
+			clear: both;
+			position: absolute;
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 0;
+		}
+		img{
+			width:100%;
+		}
+	}
+	&-arrow{
+		width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    position: fixed;
+    right: 20px;
+    bottom: 170px;
+    font-size: 0;
+    text-align: center;
+    overflow: hidden;
+    z-index: 2;
+    padding: 0;
+		&:after {
+			content: "";
+			position: absolute;
+			
+			// display: block;
+			// width: 100%;
+			// height: 100%;
+			// background: url("../images/icon-arrow.png") no-repeat 50%;
+			// clear: both;
+			// position: absolute;
+			// left: 0;
+			// top: 0;
+			// right: 0;
+			// bottom: 0;
+		}
+		img{
+			width:100%;
+		}
+	}
+	.txt{
+		font-size:14px;
+	}
+}
+.icon{
+	&-sns{
+		width:34px;
+		height:34px;
+		border-radius: 50px;
+	}
+	// 
+	&-band{
+		background: url("../images/icon-band.png") no-repeat 100%;
+		background-size: 100%;
+	}
+	&-insta{
+		background: url("../images/icon-insta.png") no-repeat 100%;
+		background-size: 100%;
+	}
+	&-facebook{
+		background: url("../images/icon-facebook.png") no-repeat 100%;
+		background-size: 100%;
+	}
+	&-youtube{
+		background: url("../images/icon-youtube.png") no-repeat 100%;
+		background-size: 100%;
+	}
+	&-kakao{
+		background: url("../images/icon-kakao.png") no-repeat 100%;
+		background-size: 100%;
+	}
+	&-naver{
+		background: url("../images/icon-naver.png") no-repeat 100%;
+		background-size: 100%;
+	}
+	// black
+	&-band-b{
+		background: url("../images/icon-band-b.png") no-repeat 100%;
+		background-size: 100%;
+	}
+	&-insta-b{
+		background: url("../images/icon-insta-b.png") no-repeat 100%;
+		background-size: 100%;
+	}
+	&-facebook-b{
+		background: url("../images/icon-facebook-b.png") no-repeat 100%;
+		background-size: 100%;
+	}
+	&-youtube-b{
+		background: url("../images/icon-youtube-b.png") no-repeat 100%;
+		background-size: 100%;
+	}
+	&-kakao-b{
+		background: url("../images/icon-kakao-b.png") no-repeat 100%;
+		background-size: 100%;
+	}
+	&-naver-b{
+		background: url("../images/icon-naver-b.png") no-repeat 100%;
+		background-size: 100%;
+	}
+	// white
+	&-band-w{
+		background: url("../images/icon-band-w.png") no-repeat 100%;
+		background-size: 100%;
+	}
+	&-insta-w{
+		background: url("../images/icon-insta-w.png") no-repeat 100%;
+		background-size: 100%;
+	}
+	&-facebook-w{
+		background: url("../images/icon-facebook-w.png") no-repeat 100%;
+		background-size: 100%;
+	}
+	&-youtube-w{
+		background: url("../images/icon-youtube-w.png") no-repeat 100%;
+		background-size: 100%;
+	}
+	&-kakao-w{
+		background: url("../images/icon-kakao-w.png") no-repeat 100%;
+		background-size: 100%;
+	}
+	&-naver-w{
+		background: url("../images/icon-naver-w.png") no-repeat 100%;
+		background-size: 100%;
+	}
+}
