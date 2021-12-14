@@ -1,10 +1,12 @@
 <template>
   <div class="wrap">
-    <Header />
-    <div class="container">
-      <Nuxt />
-    </div>
-    <Footer />
+		<div class="l-pages">
+			<Header />
+			<div class="container">
+				<Nuxt />
+			</div>
+			<Footer />
+		</div>
   </div>
 </template>
 <script>
