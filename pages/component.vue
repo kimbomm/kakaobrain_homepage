@@ -7,18 +7,12 @@
 			<div class="g-con">
 				<p class="g-tit">BUTTON</p>
 				<div class="g-box">
-					<button type="button" class="btn"><span class="txt">Educations</span></button>
-					<button type="button" class="btn sub"><span class="txt">E.</span></button>
-					<button type="button" class="btn docu"><span class="txt">Docu. B</span></button>
-					<button type="button" class="btn studio"><span class="txt">Studio</span></button>
-					<button type="button" class="btn research"><span class="txt">Research</span></button>
-					<button type="button" class="btn tech"><span class="txt">Tech</span></button>
-				</div>
-				<div class="g-box">
-					
-					
-       
-
+					<Sticker text="Educations" native></Sticker>
+					<Sticker text="E." sub="sub" native></Sticker>
+					<Sticker text="Docu. B" sub="docu"></Sticker>
+					<Sticker text="Studio" sub="studio"></Sticker>
+					<Sticker text="Research" sub="research"></Sticker>
+					<Sticker text="tech" sub="tech"></Sticker>
 				</div>
 			</div>
 			<div class="g-con">
@@ -52,8 +46,11 @@
   </div>
 </template> 
 <script>
+import Sticker from "@/components/elements/button/Sticker";
 export default {
-  
+  components: {
+		Sticker
+	},
 }
 </script>
 <style lang="scss" scoped>

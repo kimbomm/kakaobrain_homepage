@@ -11,12 +11,12 @@ button{
 	&:not(:last-child){
 		margin-right:10px;
 	}
-	+.sub{
+	&.sub{
 			background-color: $gray-9;
 			border: none;
 			color:$gray-0;
 	}
-	+.docu{
+	&.docu{
 		background-color: $brain-orange;
 		border: none;
 		color:$gray-0;
@@ -28,7 +28,7 @@ button{
 				}
 			}
 	}
-	+.studio{
+	&.studio{
 		background-color: $brain-magenta;
 		border: none;
 		color:$gray-0;
@@ -40,7 +40,7 @@ button{
 				}
 			}
 	}
-	+.research{
+	&.research{
 		background-color: $brain-mint;
 		border: none;
 		color:$gray-0;
@@ -52,7 +52,7 @@ button{
 				}
 			}
 	}
-	+.tech{
+	&.tech{
 		background-color: $brain-purple;
 		border: none;
 		color:$gray-0;
