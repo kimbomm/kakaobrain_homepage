@@ -2,7 +2,7 @@
 	<div class="menu">
 		<div class="menu-list">
 			<ul>
-				<li class=""></li>
+				<li class="menu-item"></li>
 			</ul>
 		</div>
 	</div>

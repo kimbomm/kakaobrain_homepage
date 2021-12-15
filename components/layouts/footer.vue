@@ -17,22 +17,7 @@
 				</div>
 				<div class="footer-shape"></div>
 			</div> 
-			<div class="footer-sns">
-				<ul>
-					<li class="item">
-						<button type="button" @click="onClickFacebook()" class="icon-sns icon-facebook-b"></button>
-					</li>
-					<li class="item">
-						<button type="button" @click="onClickInsta()" class="icon-sns icon-insta-b"></button>
-					</li>
-					<li class="item">
-						<button type="button" @click="onClickKakao()" class="icon-sns icon-kakao-b"></button>
-					</li>
-					<li class="item">
-						<button type="button" @click="onClickYotube()" class="icon-sns icon-youtube-b"></button>
-					</li>
-				</ul>
-			</div>
+			<SnsLink/>
 		</div>
 		<div class="l-info">
 			<div class="info-txt">@2021</div>
@@ -40,34 +25,51 @@
 				Copyright ⓒ kakaobrain Corp. All rights reserved.
 			</div>
 		</div>
-		<button class="btn-arrow ">
-			<img :src="require(`@/assets/images/gotop_img_0.png`)"
-				alt="최상단으로 가기"/>
-		</button>
-		<button class="btn-top ">
-			<img :src="require(`@/assets/images/gotop_img_17.png`)"
-				alt="최상단으로 가기"/>
-		</button>
+		<CardinalPoints/>
+		<TopButton/>
   </footer>
 </template>
 <script>
+import SnsLink from "@/components/elements/SnsLink";
+import CardinalPoints from "@/components/elements/button/CardinalPoints";
+import TopButton from "@/components/elements/button/TopButton";
 export default {
-  methods:{
-		onClickFacebook: function(){
-			window.open("https://www.facebook.com/")
-		},
-		onClickInsta: function(){
-			window.open("https://www.instagram.com/")
-		},
-		onClickKakao: function(){
-			window.open("https://www.kakaocorp.com/")
-		},
-		onClickYotube: function(){
-			window.open("https://www.youtube.com/")
-		},
+	components: {
+		SnsLink,CardinalPoints,TopButton
 	}
-}
+};
 </script>
 <style lang="scss" scoped>
-
+.footer {
+	padding-top:500px;
+	&-con{
+		display: flex;
+		justify-content: space-between;
+		margin-bottom:116px;
+	}
+	&-sns{
+		text-align:right;
+		.item{
+			display: inline-block;
+		}
+	}
+	&-shape{
+		display: inline-block;
+		width:350px;
+		height:150px;
+		text-align: right;
+		background: url("@/assets/images/shape_1.png") no-repeat 100%;
+	}
+	.menu{
+		display: inline-block;
+		&-list{
+			font-size:20px;
+			font-weight:700;
+			cursor: pointer;
+			&:not(:last-child){
+				margin-bottom: 20px;
+			}
+		}
+	}
+}
 </style>

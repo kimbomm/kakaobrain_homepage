@@ -45,7 +45,6 @@
 					height: 100%;
 			}
 		}
-
 		&-symbol {
 			width: 120px;
 			height: 198px;
@@ -55,49 +54,4 @@
 	}
 	
 }
-.header {
-	width:100%;
-	font-size:0px;
-	&-con{
-		position: fixed;
-		left: 400px;
-		top: 20px;
-		z-index: 3;
-		transition: all 0.5s ease-in-out;
-	}
-	&-item{
-		font-size:16px;
-	}
-}
-.footer {
-	padding-top:500px;
-	&-con{
-		display: flex;
-		justify-content: space-between;
-		margin-bottom:116px;
-	}
-	&-sns{
-		text-align:right;
-		.item{
-			display: inline-block;
-		}
-	}
-	&-shape{
-		display: inline-block;
-		width:350px;
-		height:150px;
-		text-align: right;
-		background: url("../images/shape_1.png") no-repeat 100%;
-	}
-	.menu{
-		display: inline-block;
-		&-list{
-			font-size:20px;
-			font-weight:700;
-			cursor: pointer;
-			&:not(:last-child){
-				margin-bottom: 20px;
-			}
-		}
-	}
-}
+

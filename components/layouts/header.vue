@@ -18,5 +18,18 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-
+.header {
+	width:100%;
+	font-size:0px;
+	&-con{
+		position: fixed;
+		left: 400px;
+		top: 20px;
+		z-index: 3;
+		transition: all 0.5s ease-in-out;
+	}
+	&-item{
+		font-size:16px;
+	}
+}
 </style>
