@@ -22,6 +22,60 @@ export default {
 	}
 }
 </script>
-<style lang="">
-	
+<style lang="scss" scoped>
+.btn{ 
+	&.sub{
+			background-color: $gray-9;
+			border: none;
+			color:$gray-0;
+	}
+	&.docu{
+		background-color: $brain-orange;
+		border: none;
+		color:$gray-0;
+			.txt{
+				&::before{
+					content:"☀";
+					display: inline-block;
+					padding-right: 2px;
+				}
+			}
+	}
+	&.studio{
+		background-color: $brain-magenta;
+		border: none;
+		color:$gray-0;
+			.txt{
+				&::before{
+					content:"❖";
+					display: inline-block;
+					padding-right: 2px;
+				}
+			}
+	}
+	&.research{
+		background-color: $brain-mint;
+		border: none;
+		color:$gray-0;
+			.txt{
+				&::before{
+					content:"★";
+					display: inline-block;
+					padding-right: 2px;
+				}
+			}
+	}
+	&.tech{
+		background-color: $brain-purple;
+		border: none;
+		color:$gray-0;
+			.txt{
+				&::before{ 
+					content:"■";
+					display: inline-block;
+					padding-right: 2px;
+				}
+			}
+	}
+}
 </style>

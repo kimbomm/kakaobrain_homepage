@@ -41,6 +41,6 @@ table {
   a{text-decoration:none;}
 
   button,input{border:none;}
-  button{cursor: pointer;}
+  button{cursor: pointer;font-size:0px;box-sizing: border-box;}
   input{background-color:transparent;}
   textarea{border:none;background-color:transparent;resize: none;}
