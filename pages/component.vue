@@ -18,38 +18,39 @@
 			<div class="g-con">
 				<p class="g-tit">ICON</p>
 				<div class="g-box">
-					<button type="button" class="icon-sns icon-band"></button>
-					<button type="button" class="icon-sns icon-insta"></button>
-					<button type="button" class="icon-sns icon-facebook"></button>
-					<button type="button" class="icon-sns icon-youtube"></button>
-					<button type="button" class="icon-sns icon-kakao"></button>
-					<button type="button" class="icon-sns icon-naver"></button>
+					<Icon sns="icon-band"></Icon>
+					<Icon sns="icon-insta"></Icon>
+					<Icon sns="icon-facebook"></Icon>
+					<Icon sns="icon-youtube"></Icon>
+					<Icon sns="icon-kakao"></Icon>
+					<Icon sns="icon-naver"></Icon>
 				</div>
 				<div class="g-box">
-					<button type="button" class="icon-sns icon-band-b"></button>
-					<button type="button" class="icon-sns icon-insta-b"></button>
-					<button type="button" class="icon-sns icon-facebook-b"></button>
-					<button type="button" class="icon-sns icon-youtube-b"></button>
-					<button type="button" class="icon-sns icon-kakao-b"></button>
-					<button type="button" class="icon-sns icon-naver-b"></button>
+					<Icon sns="icon-band-b"></Icon>
+					<Icon sns="icon-insta-b"></Icon>
+					<Icon sns="icon-facebook-b"></Icon>
+					<Icon sns="icon-youtube-b"></Icon>
+					<Icon sns="icon-kakao-b"></Icon>
+					<Icon sns="icon-naver-b"></Icon>
 				</div>
 				<div class="g-box">
-					<button type="button" class="icon-sns icon-band-w"></button>
-					<button type="button" class="icon-sns icon-insta-w"></button>
-					<button type="button" class="icon-sns icon-facebook-w"></button>
-					<button type="button" class="icon-sns icon-youtube-w"></button>
-					<button type="button" class="icon-sns icon-kakao-w"></button>
-					<button type="button" class="icon-sns icon-naver-w"></button>
+					<Icon sns="icon-band-w"></Icon>
+					<Icon sns="icon-insta-w"></Icon>
+					<Icon sns="icon-facebook-w"></Icon>
+					<Icon sns="icon-youtube-w"></Icon>
+					<Icon sns="icon-kakao-w"></Icon>
+					<Icon sns="icon-naver-w"></Icon>
 				</div>
 			</div>
 		</div>
   </div>
 </template> 
 <script>
+import Icon from "@/components/elements/Icon";
 import Sticker from "@/components/elements/button/Sticker";
 export default {
   components: {
-		Sticker
+		Sticker,Icon
 	},
 }
 </script>
