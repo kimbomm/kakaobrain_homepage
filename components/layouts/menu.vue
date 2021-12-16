@@ -7,16 +7,16 @@
 						<button type="button"><span class="txt">About</span></button>
 					</li>
 					<li @click="hideMenu()" class="menu-item">
-						<button type="button"><span class="txt">Research</span></button>
+						<button type="button"><span class="num">172</span><span class="txt">Research</span></button>
 					</li>
 					<li @click="hideMenu()" class="menu-item">
-						<button type="button"><span class="txt">Tech</span></button>
+						<button type="button"><span class="num">54</span><span class="txt">Tech</span></button>
 					</li>
 					<li @click="hideMenu()" class="menu-item">
-						<button type="button"><span class="txt">Studio</span></button>
+						<button type="button"><span class="num">2</span><span class="txt">Studio</span></button>
 					</li>
 					<li @click="hideMenu()" class="menu-item">
-						<button type="button"><span class="txt">Docu B</span></button>
+						<button type="button"><span class="num">78</span><span class="txt">Docu B</span></button>
 					</li>
 				</ul>
 			</div>
@@ -118,27 +118,27 @@ export default {
 		&:not(:last-child){
 			margin-right:30px;
 		}
-		&:nth-child(1) .txt{
+		&:nth-child(1) button{
 				&:hover{
 					color:$brain-yellow;
 				}
 			}
-			&:nth-child(2) .txt{
+			&:nth-child(2) button{
 				&:hover{
 					color:$brain-mint;
 				}
 			}
-			&:nth-child(3) .txt{
+			&:nth-child(3) button{
 				&:hover{
 					color:$brain-purple;
 				}
 			}
-			&:nth-child(4) .txt{
+			&:nth-child(4) button{
 				&:hover{
 					color:$brain-magenta;
 				}
 			}
-			&:nth-child(5) .txt{
+			&:nth-child(5) button{
 				&:hover{
 					color:$brain-orange;
 				}
@@ -154,6 +154,7 @@ export default {
 			font-weight:900;
 		}
 		button{
+			padding:0px;
 			background-color: rgba(0,0,0,0);
 		}
 	}
