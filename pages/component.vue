@@ -42,15 +42,22 @@
 					<Icon sns="icon-naver-w"></Icon>
 				</div>
 			</div>
+			<div class="g-con">
+				<p class="g-tit">CARD</p>
+				<div class="g-box">
+					<InnovationCard/>
+				</div>
+			</div>
 		</div>
   </div>
 </template> 
 <script>
 import Icon from "@/components/elements/Icon";
 import Sticker from "@/components/elements/button/Sticker";
+import InnovationCard from "@/components/elements/card/InnovationCard";
 export default {
   components: {
-		Sticker,Icon
+		Sticker,Icon,InnovationCard
 	},
 }
 </script>
