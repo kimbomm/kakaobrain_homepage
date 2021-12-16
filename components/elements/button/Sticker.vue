@@ -1,9 +1,7 @@
 <template lang="">
-	<div>
-		<button type="button" :class="`btn ${sub}`">
-			<span class="txt">{{ text }}</span>
-		</button>
-	</div>
+	<button type="button" :class="`btn ${sub}`">
+		<span class="txt">{{ text }}</span>
+	</button>
 </template>
 <script>
 export default {

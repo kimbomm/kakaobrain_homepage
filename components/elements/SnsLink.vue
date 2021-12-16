@@ -3,36 +3,27 @@
 		<div class="footer-sns">
 			<ul>
 				<li class="item">
-					<button type="button" @click="onClickFacebook()" class="icon-sns icon-facebook-b"></button>
+					<Icon sns="icon-facebook-b"></Icon>
+					<!-- <button type="button" @click="onClickFacebook()" class="icon-sns icon-facebook-b"></button> -->
 				</li>
 				<li class="item">
-					<button type="button" @click="onClickInsta()" class="icon-sns icon-insta-b"></button>
+					<Icon sns="icon-insta-b"></Icon>
 				</li>
 				<li class="item">
-					<button type="button" @click="onClickKakao()" class="icon-sns icon-kakao-b"></button>
+					<Icon sns="icon-kakao-b"></Icon>
 				</li>
 				<li class="item">
-					<button type="button" @click="onClickYotube()" class="icon-sns icon-youtube-b"></button>
+					<Icon sns="icon-youtube-b"></Icon>
 				</li>
 			</ul>
 		</div>
 	</div>
 </template>
 <script>
+import Icon from "@/components/elements/Icon";
 export default {
-	methods:{
-		onClickFacebook: function(){
-			window.open("https://www.facebook.com/")
-		},
-		onClickInsta: function(){
-			window.open("https://www.instagram.com/")
-		},
-		onClickKakao: function(){
-			window.open("https://www.kakaocorp.com/")
-		},
-		onClickYotube: function(){
-			window.open("https://www.youtube.com/")
-		},
+	components:{
+		Icon
 	}
 }
 </script>
