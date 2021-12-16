@@ -1,3 +1,6 @@
+@import './var.scss';
+
+
 @mixin tablet {
   @media screen and (max-width: 1024px) {
     @content;
@@ -7,4 +10,16 @@
   @media screen and (max-width: 768px) {
     @content
   }
-}
+};
+@mixin generateGridLayout() {
+  @for $i from 1 through 10 {
+    .gl-#{$i} {
+      width: calc(#{$grid} * #{$i} + #{$gutter} * (#{$i} - 1)) !important;
+    }
+  }
+  @for $i from 1 through 6 {
+    .gl-ml-#{$i} {
+      margin-left: calc(#{$grid} * #{$i} + #{$gutter} * #{$i}) !important;
+    }
+  }
+};

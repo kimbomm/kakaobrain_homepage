@@ -1,3 +1,8 @@
+//Grid
+@import './mixins.scss';
+
+
+@include generateGridLayout();
 .wrap{
 	width:100%;
 	.l{
