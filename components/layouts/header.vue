@@ -13,8 +13,11 @@
   </header>
 </template>
 <script>
+import Menu from "@/components/layouts/Menu"
 export default {
-  
+  components:{
+		Menu
+	}
 }
 </script>
 <style lang="scss" scoped>
