@@ -1,7 +1,5 @@
 <template lang="">
-	<div>
-		<button type="button" :class="`icon-sns ${sns}`"></button>
-	</div>
+	<button type="button" :class="`icon-sns ${sns}`"></button>
 </template>
 <script>
 export default {
@@ -12,6 +10,20 @@ export default {
 			default:"",
 			required:false,
 		}
+	},
+	methods:{
+		onClickFacebook: function(){
+			window.open("https://www.facebook.com/")
+		},
+		onClickInsta: function(){
+			window.open("https://www.instagram.com/")
+		},
+		onClickKakao: function(){
+			window.open("https://www.kakaocorp.com/")
+		},
+		onClickYotube: function(){
+			window.open("https://www.youtube.com/")
+		},
 	}
 }
 </script>
