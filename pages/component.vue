@@ -47,6 +47,9 @@
 				<div class="g-box">
 					<InnovationCard/>
 				</div>
+				<div class="g-box">
+					<ArchiveCard/>
+				</div>
 			</div>
 		</div>
   </div>
@@ -55,9 +58,10 @@
 import Icon from "@/components/elements/Icon";
 import Sticker from "@/components/elements/button/Sticker";
 import InnovationCard from "@/components/elements/card/InnovationCard";
+import ArchiveCard from "@/components/elements/card/ArchiveCard";
 export default {
   components: {
-		Sticker,Icon,InnovationCard
+		Sticker,Icon,InnovationCard,ArchiveCard
 	},
 }
 </script>
