@@ -60,7 +60,7 @@
 					모집카카오브레인,	AI 주니어 육성 프로그램 1기
 					모집
 					@2021/10/27" theme="archive-dark"></ArchiveCard>
-					
+
 					<ArchiveCard tit="카카오브레인, AI 주니어 육성프로그램 1기 모집카카오브레인, 
 					AI 주니어 육성프로그램 1기 모집카카오브레인, AI 주니어 육성
 					프로그램 1기 모집카카오브레인, AI 주니어 육성	프로그램 1기
@@ -68,6 +68,20 @@
 					모집
 					@2021/10/27" ></ArchiveCard>
 				</div>
+			</div>
+			<div class="g-con">
+				<p class="g-tit">상세화면</p>
+				<p class="g-sub-tit">일반형</p>
+				<div class="g-box">
+					<div class="monthly-detail">
+						<div class="thumbnail"></div>
+						<div class=""></div>
+						<div class=""></div>
+						<div class=""></div>
+						<div class=""></div>
+					</div>
+				</div>
+				
 			</div>
 		</div>
   </div>
@@ -125,6 +139,9 @@ export default {
 			transform: translateY(-50%);
 			background-color: $gray-9;
 		}
+	}
+	&-sub-tit{
+		padding: 10px 0 10px 30px;
 	}
 	&-box{
 		&:not(:first-child){
