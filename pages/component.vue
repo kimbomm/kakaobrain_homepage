@@ -7,8 +7,8 @@
 			<div class="g-con">
 				<p class="g-tit">BUTTON</p>
 				<div class="g-box">
-					<Sticker text="Educations" native></Sticker>
-					<Sticker text="E." sub="sub" native></Sticker>
+					<Sticker text="Educations"></Sticker>
+					<Sticker text="E." sub="sub"></Sticker>
 					<Sticker text="Docu. B" sub="docu"></Sticker>
 					<Sticker text="Studio" sub="studio"></Sticker>
 					<Sticker text="Research" sub="research"></Sticker>
@@ -45,10 +45,28 @@
 			<div class="g-con">
 				<p class="g-tit">CARD</p>
 				<div class="g-box">
-					<InnovationCard/>
+					<div style="padding:10px 0">Innovation 부모 클래스에 'area' 클래스를 적용하면 높이 값이 늘어 납니다.</div>
+					<div style="padding:10px 0">Innovation-dark 클래스를 입력하면 검정색 배경이 나타납니다.</div>
+					<InnovationCard tit="Unified Deep Learning Model for El Nino/Southern Oscillation Forecasts by Incorporating Seasonality in Climate Data
+					©2021" publish="8th ICML Workshop on Automated Machine Learning (2021)" collaborator="Frost.conv/Sam.Hsk/Lukas.Kim/Dev.Lee/Sw.ack" theme="Innovation-dark"></InnovationCard>
+					<InnovationCard tit="Unified Deep Learning Model for El Nino/Southern Oscillation Forecasts by Incorporating Seasonality in Climate Data
+					©2021" publish="8th ICML Workshop on Automated Machine Learning (2021)" collaborator="Frost.conv/Sam.Hsk/Lukas.Kim/Dev.Lee/Sw.ack" theme=""></InnovationCard>
 				</div>
+				
 				<div class="g-box">
-					<ArchiveCard/>
+					<ArchiveCard tit="카카오브레인, AI 주니어 육성프로그램 1기 모집카카오브레인, 
+					AI 주니어 육성프로그램 1기 모집카카오브레인, AI 주니어 육성
+					프로그램 1기 모집카카오브레인, AI 주니어 육성	프로그램 1기
+					모집카카오브레인,	AI 주니어 육성 프로그램 1기
+					모집
+					@2021/10/27" theme="archive-dark"></ArchiveCard>
+					
+					<ArchiveCard tit="카카오브레인, AI 주니어 육성프로그램 1기 모집카카오브레인, 
+					AI 주니어 육성프로그램 1기 모집카카오브레인, AI 주니어 육성
+					프로그램 1기 모집카카오브레인, AI 주니어 육성	프로그램 1기
+					모집카카오브레인,	AI 주니어 육성 프로그램 1기
+					모집
+					@2021/10/27" ></ArchiveCard>
 				</div>
 			</div>
 		</div>

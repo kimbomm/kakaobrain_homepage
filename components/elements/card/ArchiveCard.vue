@@ -1,15 +1,8 @@
 <template lang="">
 	<!-- archive 부모 클래스에 'area' 클래스를 적용하면 높이 값이 늘어 납니다. -->
-	<div class="archive">
+	<div :class="`archive ${theme}`">
 		<div class="archive-inner">
-			<div class="archive-tit">
-				카카오브레인, AI 주니어 육성프로그램 1기 모집카카오브레인, 
-				AI 주니어 육성프로그램 1기 모집카카오브레인, AI 주니어 육성
-				프로그램 1기 모집카카오브레인, AI 주니어 육성	프로그램 1기
-				모집카카오브레인,	AI 주니어 육성 프로그램 1기
-				모집
-				@2021/10/27
-			</div>
+			<div class="archive-tit"> {{ tit }}</div>
 			<div class="archive-con">
 				<div class="tag">
 					<ul>
@@ -26,7 +19,19 @@
 </template>
 <script>
 export default {
-	
+	name : "ArchiveCard",
+	props :{
+		tit:{
+			type:String,
+			default:"",
+			required:true,
+		},
+		theme:{
+			type:String,
+			default:"",
+			required:false,
+		},
+	}
 }
 </script>
 <style lang="scss" scoped>
@@ -43,10 +48,9 @@ export default {
 		display: inline-block;
 		max-width:360px;
 		min-width:300px;
-		height:490px;
 		box-shadow: 30px 30px 50px -10px #CFD0D3;
-		background-color:$gray-9;
-		color:$gray-0;
+		background-color:$gray-0;
+		color:$gray-9;
 		box-sizing: border-box;
 		&:not(:last-child){
 			margin-right:20px;
@@ -63,15 +67,7 @@ export default {
 			padding:20px 20px 0;
 			font-size:30px;
 			font-weight:400;
-			color:$gray-0;
 			word-break: break-all;
-
-			overflow: hidden;
-			text-overflow: ellipsis;
-			display: -webkit-box;
-			-webkit-line-clamp: 5;
-			-webkit-box-orient: vertical;
-	
 		}
 		&-con{
 			.tag{
@@ -94,5 +90,11 @@ export default {
 			}
 		}
 
+	}
+	.archive{
+		&-dark{
+			background-color:$gray-9;
+			color:$gray-0;
+		}
 	}
 </style>
