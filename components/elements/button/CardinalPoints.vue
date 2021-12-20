@@ -39,13 +39,12 @@ export default {
 			btn.style = `transform: rotate(${plusDegree + degree}deg);`
 		},
 		calcRadianToDegree(cX, cY, pX, pY, base) {
-			// TODO: 김보민 세밀한 각도 계산 다시 보기
-			const distance = Math.sqrt(Math.pow(pX - cX, 2) + Math.pow(pY - cY, 2))
 			const x = Math.abs(pX - cX)
 			const y = Math.abs(pY - cY)
-			const radian = Math.sin((base == 'x' ? x : y) / distance)
-			console.log(cX, cY, pX, pY, radian * 180 / Math.PI)
-			return radian * 180 / Math.PI
+			const distance = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2))
+			const radian = (base == 'x' ? x : y) / distance
+			// degree = 180 * 아크사인 / pi
+			return 180 * Math.asin(radian) / Math.PI
 		}
 
 	}
