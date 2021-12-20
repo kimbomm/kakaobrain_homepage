@@ -71,17 +71,32 @@
 			</div>
 			<div class="g-con">
 				<p class="g-tit">상세화면</p>
-				<p class="g-sub-tit">일반형</p>
+				<p class="g-sub-tit">monthly-detail</p>
 				<div class="g-box">
 					<div class="monthly-detail">
-						<div class="thumbnail"></div>
-						<div class=""></div>
-						<div class=""></div>
-						<div class=""></div>
-						<div class=""></div>
+						<Thumbnail type="gl-9"></Thumbnail>
+						<DetailTitle text="카카오브레인, AI 공동연구 이렇게 한다." type="gl-6"></DetailTitle>
+						<DetailText text="카카오브레인이 세계 정상의 AI 연구실과 함께 인간의 인식과 추론의 한계에 도전합니다. 카카오브레인은 고려대와 서울대, 포항공대와 한양대, KAIST와 UNIST 등 7개 대학 AI 연구실과 산학 협력을 맺고 3년간 공동 연구를 시작했습니다." type="gl-5"></DetailText>
+						<DetailImg text="사진 설명 들어가는 곳." type="gl-7 "></DetailImg>
+						<DetailSubTitle text="Unthinkable AI Research Project." type="gl-5"></DetailSubTitle>
+						<DetailFullImg text="사진 설명 들어가는 곳." type=""></DetailFullImg>
+						<DetailMiddelImg text="사진 설명 들어가는 곳." type="gl-7"></DetailMiddelImg>
 					</div>
 				</div>
 				
+				<p class="g-sub-tit">monthly-detail-2</p>
+				<div class="g-box">
+					<div class="monthly-detail">
+						<Thumbnail type="gl-9"></Thumbnail>
+						<DetailTitle text="카카오브레인, AI 공동연구 이렇게 한다." type="gl-6"></DetailTitle>
+						<DetailText text="카카오브레인이 세계 정상의 AI 연구실과 함께 인간의 인식과 추론의 한계에 도전합니다. 카카오브레인은 고려대와 서울대, 포항공대와 한양대, KAIST와 UNIST 등 7개 대학 AI 연구실과 산학 협력을 맺고 3년간 공동 연구를 시작했습니다." type="gl-5"></DetailText>
+						<DetailImg text="사진 설명 들어가는 곳." type="gl-7 "></DetailImg>
+						<DetailSubTitle text="Unthinkable AI Research Project." type="gl-5"></DetailSubTitle>
+						<DetailFullImg text="사진 설명 들어가는 곳." type=""></DetailFullImg>
+						<DetailMiddelImg text="사진 설명 들어가는 곳." type="gl-7"></DetailMiddelImg>
+					</div>
+				</div>
+				 
 			</div>
 		</div>
   </div>
@@ -91,9 +106,18 @@ import Icon from "@/components/elements/Icon";
 import Sticker from "@/components/elements/button/Sticker";
 import InnovationCard from "@/components/elements/card/InnovationCard";
 import ArchiveCard from "@/components/elements/card/ArchiveCard";
+import Thumbnail from "@/components/detail/Thumbnail";
+import DetailTitle from "@/components/detail/DetailTitle";
+import DetailText from "@/components/detail/DetailText";
+import DetailImg from "@/components/detail/DetailImg";
+import DetailSubTitle from "@/components/detail/DetailSubTitle";
+import DetailFullImg from "@/components/detail/DetailFullImg";
+import DetailMiddelImg from "@/components/detail/DetailMiddelImg";
 export default {
   components: {
-		Sticker,Icon,InnovationCard,ArchiveCard
+		Sticker,Icon,InnovationCard,ArchiveCard,
+		Thumbnail,DetailTitle,DetailText,DetailImg,DetailSubTitle,
+		DetailFullImg,DetailMiddelImg 
 	},
 }
 </script>
@@ -113,12 +137,12 @@ export default {
 		}
 	}
 	&-container{
-    padding:30px 20px 200px;
+    padding: 30px 20px 200px;
     background: $gray-1;
 	}
 	&-con{
 		&:not(:first-child){
-			margin-top:60px;
+			margin-top: 60px;
 		}
 	}
 	&-tit{
@@ -142,6 +166,7 @@ export default {
 	}
 	&-sub-tit{
 		padding: 10px 0 10px 30px;
+		border-bottom: 1px solid #a2a2a2;
 	}
 	&-box{
 		&:not(:first-child){

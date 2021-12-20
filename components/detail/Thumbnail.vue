@@ -1,6 +1,6 @@
 <template lang="">
-	<div class="monthly-detail">
-		<div class="detail-thumbnail gl-9">
+	<div class="monthly">
+		<div :class="`detail-thumbnail ${type}`">
 			<img src="@/assets/images/monthly_img_1.png">
 		</div>
 		<div class="detail-con"></div>
@@ -8,16 +8,20 @@
 </template>
 <script>
 export default {
-	name : "1_id",
+	name : "Thumbnail",
+	props :{
+		type:{
+			type:String,
+			default:"",
+			required:false,
+		}
+	}
 }
 </script>
 <style lang="scss" scoped>
-	.monthly{
-	}
-	
 	.detail{
 		&-thumbnail{
-			width: calc(100% - 100px);
+			margin-bottom:60px;
 			img{
 				width:100%;
 			}
