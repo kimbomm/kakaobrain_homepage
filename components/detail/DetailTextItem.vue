@@ -1,7 +1,7 @@
 <template lang="">
 	<div class="monthly l-ml-3">
 		<div :class="`detail ${type}`"> 
-			<div class="detail-text">{{ text }}</div>
+			<div class="detail-item">{{ text }}</div>
 		</div>
 	</div>
 </template>
@@ -24,12 +24,17 @@ export default {
 </script>
 <style lang="scss" scoped>
 .monthly{
-	margin-bottom:30px;
+	margin-bottom:10px;
 	.detail{
-		&-text{
+		&-item{
 			line-height:150%;
 			font-size:16px;
 			font-weight:400; 
+			&::before{
+				content:"❖";
+				display: inline-block;
+				margin-right:5px;
+			}
 		}
 	}
 }
