@@ -42,7 +42,7 @@ export default {
 			}
 		}
 	}
-	@media screen and (max-width:2560px) {
+	@media screen and (max-width:3840px) {
 		.monthly{
 			margin-top:300px;
 			margin-bottom:400px;

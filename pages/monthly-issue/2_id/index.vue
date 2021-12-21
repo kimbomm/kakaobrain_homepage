@@ -52,6 +52,17 @@ export default {
 		}
 	}
 }
+@media screen and (max-width:2560px) {
+	.monthly{
+		&-detail{
+			.con-text{
+				&:not(:last-child){
+					margin-bottom:200px;
+				}
+			}
+		}
+	}
+}
 @media screen and (max-width:1920px) {
 	.monthly{
 		&-detail{

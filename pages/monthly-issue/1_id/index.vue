@@ -6,7 +6,7 @@
 		<DetailText text="카카오브레인과 각 학교 AI 연구실은 이번 협력을 통해 AI 연구의 스테레오타입을 넘어선 새로운 연구 방법론을 정립하려 노력한다고 합니다. 우리의 연구가 어떻게 세상을 바꿔나갈지 가슴이 웅장해지는데요. 카카오브레인의 공동연구 노하우를 공개합니다" type="gl-5"></DetailText>
 		<DetailImg text="사진 설명 들어가는 곳." type="gl-7 "></DetailImg>
 		<div class="con-box">
-			<DetailSubTitle text="Unthinkable AI Research Project." type="gl-5"></DetailSubTitle>
+			<DetailSubTitle text="Unthinkable AI Research Project." type="gl-5" ml="l-ml-3"></DetailSubTitle>
 			<DetailText text="Kakao Brain, along with the world's top AI laboratories, challenges the limitations of human perception and reasoning. Kakao Brain formed industry-academic cooperation with seven universities' AI laboratories, including Korea University, Seoul National University, Pohang University, Hanyang University, KAIST and UNIST, and began joint research for 3] years." type="gl-5"></DetailText>
 			<DetailText text="Kakao Brain and each school's AI laboratory are trying to establish a new research methodology that goes beyond the stereo type of AI research through this cooperation. It makes me feel grand how our research will change the world. Let me introduce Kakao Brain's know-how for joint research." type="gl-5"></DetailText>
 		</div>

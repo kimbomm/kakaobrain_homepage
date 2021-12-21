@@ -69,5 +69,8 @@ export default {
 			margin-top: 100px;
 			margin-bottom: 100px;
 		}
+		.gl-7{
+			width: calc(calc((100vw - 20px * 11) / 10) * 6 + 20px * (6 - 1)) !important;
+		}
 	}
 </style>

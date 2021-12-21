@@ -63,6 +63,9 @@ export default {
 	.l-ml-3{
 		margin-left: 0 !important;
 	}
+	.gl-5{
+		width:calc(calc((100vw - 20px * 11) / 10) * 6 + 20px * (6 - 1)) !important;
+	}
 }
 @media screen and (max-width: 768px) {
 	.monthly{

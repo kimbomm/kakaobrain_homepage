@@ -27,8 +27,22 @@ export default {
 		margin-bottom: 30px;
 		&-subTit {
 			line-height: 130%;
-			font-size: 40px;
+			font-size: 78px;
 			font-weight: 900; 
+		}
+	}
+	@media screen and (max-width:2560px) {
+		.detail {
+			&-subTit {
+				font-size: 52px;
+			}
+		}
+	}
+	@media screen and (max-width:1920px) {
+		.detail {
+			&-subTit {
+				font-size: 40px;
+			}
 		}
 	}
 </style>

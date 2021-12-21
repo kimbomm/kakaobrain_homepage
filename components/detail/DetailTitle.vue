@@ -68,7 +68,7 @@ export default {
 	}
 	@media screen and (max-width: 1024px) {
 		.detail {
-			margin-bottom: 40px;
+			margin: 0 auto 40px !important;
 			&-title {
 				font-size: 50px;
 			}
