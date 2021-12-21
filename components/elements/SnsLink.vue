@@ -28,12 +28,31 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.footer {
+	&-sns{
+		text-align:right;
+		.item{
+			display: inline-block;
+			width:82px;
+			height:82px;	
+			&:not(:last-child){
+				margin-right:10px;
+			}
+		}
+	}
+}
+@media screen and (max-width:1920px) {
 	.footer {
 		&-sns{
 			text-align:right;
 			.item{
 				display: inline-block;
+				&:not(:last-child){
+					margin-right:10px;
+				}
 			}
 		}
 	}
+}
+	
 </style>

@@ -1,6 +1,6 @@
 <template>
   <footer class="footer">
-		<div class="l-side">
+		<div class="l-side gl-6 l-ml-2">
 			<div class="b-symbol"></div> 
 			<div class="footer-con">
 				<div class="menu">
@@ -18,15 +18,15 @@
 				<div class="footer-shape"></div>
 			</div> 
 			<SnsLink/>
-		</div>
-		<div class="l-info">
-			<div class="info-txt">@2021</div>
-			<div class="info-txt">
-				Copyright ⓒ kakaobrain Corp. All rights reserved.
+			<div class="footer-bottom">
+				<div class="info-txt">Copyright ⓒ kakaobrain Corp. All rights reserved.</div>
 			</div>
 		</div>
-		<CardinalPoints/>
-		<TopButton/>
+		<div>
+			<div class="l-info"><span class="info-txt">@2021</span></div>
+			<CardinalPoints/>
+			<TopButton/>
+		</div>
   </footer>
 </template>
 <script>
@@ -43,31 +43,67 @@ export default {
 .footer {
 	padding-top:500px;
 	&-con{
+		position: relative;
 		display: flex;
 		justify-content: space-between;
 		margin-bottom:116px;
 	}
-	&-sns{
-		text-align:right;
-		.item{
-			display: inline-block;
-		}
-	}
 	&-shape{
-		display: inline-block;
-		width:350px;
-		height:150px;
-		text-align: right;
-		background: url("@/assets/images/shape_1.png") no-repeat 100%;
+		position: absolute;
+		top:172px;
+		right:196px;
+		width:700px;
+		height:300px;
+		background: url("@/assets/images/shape_1.png") no-repeat;
+		background-size:100%;
+	}
+	&-bottom{
+		position: fixed;
+		bottom:20px;
 	}
 	.menu{
 		display: inline-block;
 		&-list{
-			font-size:20px;
-			font-weight:700;
+			line-height: 130%;
+			font-size: 34px;
+			font-weight: 700;
 			cursor: pointer;
 			&:not(:last-child){
-				margin-bottom: 20px;
+				margin-bottom: 34px;
+			}
+		}
+	}
+}
+@media screen and (max-width:1920px) {
+	.footer {
+		padding-top:500px;
+		&-con{
+			position: relative;
+			display: flex;
+			justify-content: space-between;
+			margin-bottom:116px;
+		}
+		&-shape{
+			position: absolute;
+			top:172px;
+			right:196px;
+			width:350px;
+			height:150px;
+			background: url("@/assets/images/shape_1.png") no-repeat 100%;
+		}
+		&-bottom{
+			position: fixed;
+			bottom:20px;
+		}
+		.menu{
+			display: inline-block;
+			&-list{
+				font-size:20px;
+				font-weight:700;
+				cursor: pointer;
+				&:not(:last-child){
+					margin-bottom: 20px;
+				}
 			}
 		}
 	}

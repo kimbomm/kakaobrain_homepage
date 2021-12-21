@@ -3,6 +3,7 @@
 
 
 @include generateGridLayout();
+
 .wrap{
 	width:100%;
 	.l{
@@ -12,8 +13,6 @@
 			overflow: hidden;
 		}
 		&-side{
-			width:800px;
-			margin:0 auto;
 			margin-bottom:20px;
 		}
 		&-info{
@@ -23,9 +22,6 @@
 			bottom:20px;
 			.info-txt {
       	display: inline-block;
-				&:first-child {
-        	margin-right: 3.9631rem;
-      	}
 			}
 		}
 	}
@@ -51,12 +47,66 @@
 			}
 		}
 		&-symbol {
-			width: 120px;
-			height: 198px;
-			margin-bottom:230px;
+			width: 240px;
+			height: 396px;
+			margin-bottom:156px;
 			background: url("../images/b-symbol.png") no-repeat 50% / contain;
 		}
 	}
 	
 }
+@media screen and (max-width:1920px) {
+	.wrap{
+		width:100%;
+		.l{
+			&-page{
+				position: relative;
+				width: 100%;
+				overflow: hidden;
+			}
+			&-side{
+				margin-bottom:20px;
+			}
+			&-info{
+				display: inline-block;
+				position: fixed;
+				left:20px;
+				bottom:20px;
+				.info-txt {
+					display: inline-block;
+				}
+			}
+		}
+
+		//brain - logo/symbol
+		.b {
+			&-logo{
+				display: inline-block;
+				height:21px;
+				vertical-align: middle;
+				position: fixed;
+				left: 20px;
+				top: 20px;
+				z-index: 3;
+				transition: all 0.5s ease-in-out;
+				a{
+					display: inline-block;
+					width: 100%;
+					height: 100%;
+				}
+				img{
+						height: 100%;
+				}
+			}
+			&-symbol {
+				width: 120px;
+				height: 198px;
+				margin-bottom:230px;
+				background: url("../images/b-symbol.png") no-repeat 50% / contain;
+			}
+		}
+		
+	}
+}
+
 
