@@ -28,8 +28,48 @@ export default {
 	.detail{
 		&-text{
 			line-height:150%;
-			font-size:16px;
+			font-size:32px;
 			font-weight:400; 
+		}
+	}
+}
+@media screen and (max-width: 2560px) {
+	.monthly{
+		.detail{
+			&-text{
+				font-size:22px;
+			}
+		}
+	}
+}
+@media screen and (max-width: 1920px) {
+	.monthly{
+		.detail{
+			&-text{
+				font-size:16px;
+			}
+		}
+	}
+}
+@media screen and (max-width: 1024px) {
+	.monthly{
+		.detail{
+			margin: 0 auto;
+			&-text{
+				font-size:14px;
+			} 
+		}
+	}
+	.l-ml-3{
+		margin-left: 0 !important;
+	}
+}
+@media screen and (max-width: 768px) {
+	.monthly{
+		.detail{
+			&-text{
+				font-size:16px;
+			}
 		}
 	}
 }

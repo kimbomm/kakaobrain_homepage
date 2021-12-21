@@ -25,8 +25,8 @@ export default {
 </script>
 <style lang="scss" scoped>
 	.monthly{
-		padding-top:20px;
-		margin-bottom: 100px;
+		margin-top: 300px; 
+		margin-bottom: 300px;
 		.detail{
 			&-image{
 				img{
@@ -40,6 +40,34 @@ export default {
 				font-weight: 400; 
 				color:$gray-5;
 			}
+		}
+	}
+	@media screen and (max-width:2560px) {
+		.monthly{
+			margin-top: 200px; 
+			margin-bottom: 200px;
+			.detail{
+				&-text{ 
+					font-size: 16px;
+				}
+			}
+		}
+	}
+	@media screen and (max-width:1920px) {
+		.monthly{
+			margin-top: 50px;
+			margin-bottom: 100px;
+			.detail{
+				&-text{ 
+					font-size: 12px;
+				}
+			}
+		}
+	}
+	@media screen and (max-width:1024px) {
+		.monthly{
+			margin-top: 100px;
+			margin-bottom: 100px;
 		}
 	}
 </style>

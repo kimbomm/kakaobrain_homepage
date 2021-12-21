@@ -24,21 +24,51 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-	.monthly{
-		margin-bottom: 100px;
-		.detail{
-			&-image{
-				img{
-					width: 100%;
-				}
+.monthly{
+	margin-bottom: 300px;
+	.detail{
+		&-image{
+			img{
+				width: 100%;
 			}
+		}
+		&-text{
+			margin-top: 10px; 
+			line-height: 150%;
+			font-size: 12px;
+			font-weight: 400; 
+			color:$gray-5;
+		}
+	}
+}
+@media screen and (max-width:2560px) {
+	.monthly{
+			margin-bottom: 200px;
+		.detail{
 			&-text{
-				margin-top: 10px;
-				line-height: 150%;
-				font-size: 12px;
-				font-weight: 400; 
-				color:$gray-5;
+				font-size:16px;
 			}
 		}
 	}
+}
+@media screen and (max-width:1920px) {
+	.monthly{
+		margin-bottom: 100px;
+		.detail{
+			&-text{
+				font-size: 12px;
+			}
+		}
+	}
+}
+@media screen and (max-width:1024px) {
+	.monthly{
+		.detail{
+			&-text{
+				margin-top:6px;
+				font-size:12px; 
+			}
+		}
+	}
+}
 </style>

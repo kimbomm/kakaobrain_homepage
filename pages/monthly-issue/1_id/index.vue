@@ -1,7 +1,7 @@
 <template lang="">
 	<div class="monthly-detail">
 		<Thumbnail type="gl-9"></Thumbnail>
-		<DetailTitle text="카카오브레인, AI 공동연구 이렇게 한다." type="gl-6"></DetailTitle>
+		<DetailTitle text="카카오브레인, AI 공동연구 이렇게 한다." type="gl-5" ml="l-ml-2"></DetailTitle>
 		<DetailText text="카카오브레인이 세계 정상의 AI 연구실과 함께 인간의 인식과 추론의 한계에 도전합니다. 카카오브레인은 고려대와 서울대, 포항공대와 한양대, KAIST와 UNIST 등 7개 대학 AI 연구실과 산학 협력을 맺고 3년간 공동 연구를 시작했습니다." type="gl-5"></DetailText>
 		<DetailText text="카카오브레인과 각 학교 AI 연구실은 이번 협력을 통해 AI 연구의 스테레오타입을 넘어선 새로운 연구 방법론을 정립하려 노력한다고 합니다. 우리의 연구가 어떻게 세상을 바꿔나갈지 가슴이 웅장해지는데요. 카카오브레인의 공동연구 노하우를 공개합니다" type="gl-5"></DetailText>
 		<DetailImg text="사진 설명 들어가는 곳." type="gl-7 "></DetailImg>
@@ -38,7 +38,21 @@ export default {
 <style lang="scss" scoped>
 .monthly-detail{
 	.con-box{
-		margin-bottom: 100px;
+		margin-bottom: 300px;
+	}
+}
+@media screen and (max-width:2560px ) {
+	.monthly-detail{
+		.con-box{
+			margin-bottom: 200px; 
+		}
+	}
+}
+@media screen and (max-width:1920px ) {
+	.monthly-detail{
+		.con-box{
+			margin-bottom: 100px;
+		}
 	}
 }
 </style>
