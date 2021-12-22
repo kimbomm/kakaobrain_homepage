@@ -43,7 +43,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .footer {
-	padding-top:500px;
+	padding-top:1000px;
 	&-con{
 		position: relative;
 		display: flex;
@@ -99,6 +99,7 @@ export default {
 }
 @media screen and (max-width:2560px) {
 	.footer {
+		padding-top:700px;
 		&-con{
 			margin-bottom:179px;
 		}
@@ -123,6 +124,7 @@ export default {
 }
 @media screen and (max-width:1920px) {
 	.footer {
+		padding-top:304px;
 		&-con{
 			margin-bottom:129px;
 		}
@@ -144,6 +146,7 @@ export default {
 }
 @media screen and (max-width:1024px) {
 	.footer {
+		padding-top:400px;
 		&-con{
 			margin-bottom:129px;
 		}
@@ -160,6 +163,7 @@ export default {
 }
 @media screen and (max-width:768px) {
 	.footer {
+		padding-top:200px;
 		&-con{
 			display: none;
 		}
