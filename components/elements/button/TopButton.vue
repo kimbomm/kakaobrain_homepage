@@ -37,8 +37,8 @@ export default {
 </script>
 <style lang="scss" scoped>
 .btn-top {
-	width: 150px;
-	height: 150px;
+	width: 300px;
+	height: 300px;
 	border-radius: 50%;
 	position: fixed;
 	right: 20px;
@@ -53,18 +53,50 @@ export default {
 	&:after {
 		content: "";
 		display: block;
-		width: 100%;
-		height: 100%;
+		height:66px;
+		width:126px;
 		background: url("@/assets/images/icon-top_b.svg") no-repeat 50%;
-		clear: both;
+		background-size: 100%;
 		position: absolute;
-		left: 0;
-		top: 0;
-		right: 0;
-		bottom: 0;
+		left: 50%;
+    top: 50%;
+    right: 0;
+    bottom: 0;
+    transform: translate(-50%,-50%);
 	}
 	img{
 		width:100%;
+	}
+}
+@media screen and (max-width:2560px) {
+	.btn-top {
+		width: 200px;
+		height: 200px;
+		&:after {
+			height:44px;
+			width:84px;
+		}
+	}
+
+}
+@media screen and (max-width:1920px) {
+	.btn-top {
+		width: 150px;
+		height: 150px;
+		&:after {
+			width: 34px;
+			height: 65px;
+		}
+	}
+}
+@media screen and (max-width:1024px) {
+	.btn-top {
+		width: 80px;
+		height: 80px;
+		&:after {
+			width: 18px;
+			height: 34px;
+		}
 	}
 }
 </style>

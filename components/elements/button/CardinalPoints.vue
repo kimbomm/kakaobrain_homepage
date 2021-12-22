@@ -53,12 +53,12 @@ export default {
 </script>
 <style lang="scss" scoped>
 .btn-arrow {
-	width: 150px;
-	height: 150px;
+	width: 300px;
+	height: 300px;
 	border-radius: 50%;
 	position: fixed;
 	right: 20px;
-	bottom: 170px;
+	bottom: 320px;
 	font-size: 0;
 	text-align: center;
 	overflow: hidden;
@@ -69,19 +69,53 @@ export default {
 		content: "";
 		display: block;
 		position: absolute;
-		width: 60px;
-		height: 60px;
+		width: 120px;
+		height: 120px;
 		background: url("@/assets/images/icon-cardinal-point__b.png") no-repeat;
 		background-size: cover;
 		left: 50%;
 		top: 50%;
-		margin-left: -30px;
-		margin-top: -30px;
-		transition: transform .2s linear;
+		// margin-left: -30px;
+		// margin-top: -30px;
+		transition: transform .2s linear ;
+		transform: translate(-50%,-50%);
 	}
 	&.light-mode {
 		background-color: #fff;
 		background: url("@/assets/images/icon-cardinal-point.png") no-repeat;
+	}
+}
+@media screen and (max-width:2560px) {
+	.btn-arrow {
+		width: 200px;
+		height: 200px;
+		bottom: 220px;
+		&:after {
+			width: 80px;
+			height: 80px;
+		}
+	}
+}
+@media screen and (max-width:1920px) {
+	.btn-arrow {
+		width: 150px;
+		height: 150px;
+		bottom: 170px;
+		&:after {
+			width: 60px;
+			height: 60px;
+		}
+	}
+}
+@media screen and (max-width:1024px) {
+	.btn-arrow {
+		width: 80px;
+		height: 80px;
+		bottom: 100px;
+		&:after {
+			width: 32px;
+			height: 32px;
+		}
 	}
 }
 </style>
