@@ -38,5 +38,10 @@ export default {
 		}
 	}
 }
+@media screen and (max-width:768px) {
+	.l-ml-3{
+		margin-left:0px !important;
+	}
+}
 	
 </style>

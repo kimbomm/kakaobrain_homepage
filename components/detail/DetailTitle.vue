@@ -81,5 +81,12 @@ export default {
 				font-size: 30px;
 			}
 		}
+		
+		.gl-5{
+			width:100% !important
+		}
+		.gl-6{
+			width:100% !important
+		}
 	}
 </style>

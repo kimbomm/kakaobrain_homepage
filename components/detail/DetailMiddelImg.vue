@@ -73,4 +73,12 @@ export default {
 			width: calc(calc((100vw - 20px * 11) / 10) * 6 + 20px * (6 - 1)) !important;
 		}
 	}
+	@media screen and (max-width:768px){
+		.gl-7{
+			width:100% !important
+		}
+		.l-ml-2{
+			margin-left:0px !important;
+		}
+	}
 </style>

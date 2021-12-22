@@ -75,6 +75,9 @@ export default {
 			}
 		}
 	}
+	.gl-5{
+		width:100% !important
+	}
 }
 	
 </style>

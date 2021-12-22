@@ -21,3 +21,10 @@ html, body {
 		border-radius: 50px;
 	}
 }
+
+// .gl- / 
+@media screen and (max-width:768px) {
+	.gl-1, .gl-2, .gl-3, .gl-4, .gl-5, .gl-6, .gl-7, .gl-8, .gl-9{
+		width:100% !important;
+	}
+}

@@ -45,4 +45,12 @@ export default {
 			}
 		}
 	}
+@media screen and (max-width:768px) {
+	.gl-5{
+		width: 100% !important;
+	}
+	.l-ml-3{
+		margin-left:0px !important;
+	}
+}
 </style>
