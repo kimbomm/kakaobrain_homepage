@@ -99,4 +99,14 @@ export default {
 		}
 	}
 }
+@media screen and (max-width:768px) {
+	.btn-top {
+		width: 50px;
+		height: 50px;
+		&:after {
+			width: 11px;
+			height: 21px;
+		}
+	}
+}
 </style>

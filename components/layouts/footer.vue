@@ -2,6 +2,8 @@
   <footer class="footer">
 		<div class="l-side gl-6 l-ml-2">
 			<div class="b-symbol"></div> 
+			<div class="copywriter">Copyright ⓒ kakaobrain Corp. 
+All rights reserved.</div> 
 			<div class="footer-con">
 				<div class="menu">
 					<ul>
@@ -60,6 +62,13 @@ export default {
 	&-bottom{
 		position: fixed;
 		bottom:20px;
+	}
+	.copywriter{
+		display: none;
+		margin-bottom:50px;
+		font-size: 12px;
+		line-height: 130%;
+		color: $surface-6;
 	}
 	.menu{
 		display: inline-block;
@@ -156,6 +165,9 @@ export default {
 		}
 		.info-txt {
 			display: none;
+		}
+		.copywriter{
+			display: block;
 		}
 	}
 }

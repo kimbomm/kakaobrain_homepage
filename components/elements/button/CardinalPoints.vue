@@ -118,4 +118,15 @@ export default {
 		}
 	}
 }
+@media screen and (max-width:768px) {
+	.btn-arrow {
+		width: 50px;
+		height: 50px;
+		bottom: 70px;
+		&:after {
+			width: 20px;
+			height: 20px;
+		}
+	}
+}
 </style>
