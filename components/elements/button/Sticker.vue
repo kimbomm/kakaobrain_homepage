@@ -1,4 +1,4 @@
-<template lang="">
+<template>
 	<button type="button" :class="`btn ${sub}`">
 		<span class="txt">{{ text }}</span>
 	</button>

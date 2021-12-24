@@ -1,4 +1,4 @@
-<template lang="">
+<template>
 	<div class="monthly">
 		<div :class="`detail ${type} ${ml}`"> 
 			<div class="detail-subTit">{{ text }}</div>

@@ -1,4 +1,4 @@
-<template lang="">
+<template>
 	<div class="monthly-detail">
 		<div class="con-tit">
 			<DetailTitle text="Automated Learning Rate Scheduler for Large-batch Training." type="gl-6" ml="l-ml-2"></DetailTitle>

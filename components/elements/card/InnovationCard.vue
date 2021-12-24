@@ -1,4 +1,4 @@
-<template lang="">
+<template>
 	<div :class="`Innovation ${theme}`">
 		<div class="Innovation-inner">
 			<div class="Innovation-tit">{{ tit }}</div>

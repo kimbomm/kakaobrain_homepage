@@ -1,4 +1,4 @@
-<template lang="">
+<template>
 	<button type="button" :class="`icon-sns ${sns}`"></button>
 </template>
 <script>

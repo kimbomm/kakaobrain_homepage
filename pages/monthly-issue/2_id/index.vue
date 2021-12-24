@@ -1,4 +1,4 @@
-<template lang="">
+<template>
 	<div class="monthly-detail">
 		<DetailTitle text="What." type="gl-6" ml="l-ml-2"></DetailTitle>
 		<DetailText text="카카오브레인이 세계 정상의 AI 연구실과 함께 인간의 인식과 추론의 한계에 도전합니다. 카카오브레인은 고려대와 서울대, 포항공대와 한양대, KAIST와 UNIST 등 7개 대학 AI 연구실과 산학 협력을 맺고 3년간 공동 연구를 시작했습니다." type="gl-5"></DetailText>

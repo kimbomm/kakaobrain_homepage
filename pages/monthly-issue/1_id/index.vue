@@ -1,4 +1,4 @@
-<template lang="">
+<template>
 	<div class="monthly-detail">
 		<Thumbnail type="gl-9"></Thumbnail>
 		<DetailTitle text="카카오브레인, AI 공동연구 이렇게 한다." type="gl-5" ml="l-ml-2"></DetailTitle>

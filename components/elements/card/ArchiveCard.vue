@@ -1,4 +1,4 @@
-<template lang="">
+<template>
 	<!-- archive 부모 클래스에 'area' 클래스를 적용하면 높이 값이 늘어 납니다. -->
 	<div :class="`archive ${theme}`">
 		<div class="archive-inner">

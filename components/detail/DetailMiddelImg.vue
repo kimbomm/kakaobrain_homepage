@@ -1,4 +1,4 @@
-<template lang="">
+<template>
 	<div class="monthly l-ml-2">
 		<div :class="`detail-image ${type}`">
 			<img src="@/assets/images/detail_img_3.png">
