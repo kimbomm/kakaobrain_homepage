@@ -11,9 +11,7 @@ export default {
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' }
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -21,31 +19,30 @@ export default {
   //   '@/assets/scss/index.scss'
   // ],
   router: {
-    middleware: ["middleRouter"],
+    middleware: ['middleRouter']
   },
 
-  css: ["~assets/scss/index.scss"],
+  css: ['~assets/scss/index.scss'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: "@/plugins/vue-device-detector.js", ssr: false }
+    { src: '@/plugins/vue-device-detector.js', ssr: false },
+    { src: '@/plugins/vue-masonry-css.js', ssr: false }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   // components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: ["@nuxtjs/style-resources"],
+  buildModules: ['@nuxtjs/style-resources'],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [
-  ],
+  modules: [],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
-  },
+  build: {},
 
   styleResources: {
-    scss: ["~assets/scss/var.scss"],
-  },
+    scss: ['~assets/scss/var.scss']
+  }
 }
