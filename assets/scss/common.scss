@@ -1,23 +1,24 @@
-html, body {
+html,
+body {
   scroll-behavior: smooth;
 }
-.btn{ 
-	padding:8px 14px;
-	border: 1px solid $gray-9;
-	border-radius: 50px;
-	color:$gray-9;
-	font-style: italic;
-	&:not(:last-child){
-		margin-right:10px;
-	}
-	.txt{
-		font-size:14px;
-	}
+.btn {
+  padding: 8px 14px;
+  border: 1px solid $gray-9;
+  border-radius: 50px;
+  color: $gray-9;
+  font-style: italic;
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
+  .txt {
+    font-size: 14px;
+  }
 }
-.icon{
-	&-sns{
-		width:34px;
-		height:34px;
-		border-radius: 50px;
-	}
+.icon {
+  &-sns {
+    width: 34px;
+    height: 34px;
+    border-radius: 50px;
+  }
 }

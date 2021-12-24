@@ -2,8 +2,7 @@
   <footer class="footer">
 		<div class="l-side gl-6 l-ml-2">
 			<div class="b-symbol"></div> 
-			<div class="copywriter">Copyright ⓒ kakaobrain Corp. 
-All rights reserved.</div> 
+			<div class="copywriter">Copyright ⓒ kakaobrain Corp. All rights reserved.</div> 
 			<div class="footer-con">
 				<div class="menu">
 					<ul>
