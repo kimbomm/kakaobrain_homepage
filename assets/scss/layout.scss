@@ -1,96 +1,90 @@
 //Grid
 @import './mixins.scss';
 
-
 @include generateGridLayout();
 
-.wrap{
-	width:100%;
-	.l{
-		&-page{
-			position: relative;
-			width: 100%;
-			overflow: hidden;
-		}
-		&-side{
-			margin-bottom:20px;
-		}
-		&-info{
-			display: inline-block;
-			position: fixed;
-			left:148px;
-			bottom:20px;
-		}
-	}
+.wrap {
+  width: 100%;
+  .l {
+    &-page {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+    &-side {
+      margin-bottom: 20px;
+    }
+    &-info {
+      display: inline-block;
+      position: fixed;
+      left: 148px;
+      bottom: 20px;
+    }
+  }
 
-	//brain - logo/symbol
-	.b {
-		&-logo{
-			display: inline-block;
-			height:21px;
-			vertical-align: middle;
-			position: fixed;
-			left: 20px;
-			top: 20px;
-			z-index: 3;
-			transition: all 0.5s ease-in-out;
-			a{
-				display: inline-block;
-				width: 100%;
-				height: 100%;
-			}
-			img{
-					height: 100%;
-			}
-		}
-		&-symbol {
-			width: 240px;
-			height: 396px;
-			margin-bottom:156px;
-			background: url("../images/b-symbol.png") no-repeat 50% / contain;
-		}
-	}
-	
+  //brain - logo/symbol
+  .b {
+    &-logo {
+      display: inline-block;
+      height: 21px;
+      vertical-align: middle;
+      position: fixed;
+      left: 20px;
+      top: 20px;
+      z-index: 3;
+      transition: all 0.5s ease-in-out;
+      a {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+      }
+      img {
+        height: 100%;
+      }
+    }
+    &-symbol {
+      width: 240px;
+      height: 396px;
+      margin-bottom: 156px;
+      background: url('../images/b-symbol.png') no-repeat 50% / contain;
+    }
+  }
 }
-@media screen and (max-width:2560px) {
-	.wrap{
-		.l{
-			&-info{
-				left:20px;
-			}
-		}
-		.b {
-			&-symbol {
-				width: 160px;
-				height: 264px;
-				margin-bottom:230px;
-			}
-		}
-	}
+@media screen and (max-width: 2560px) {
+  .wrap {
+    .l {
+      &-info {
+        left: 20px;
+      }
+    }
+    .b {
+      &-symbol {
+        width: 160px;
+        height: 264px;
+        margin-bottom: 230px;
+      }
+    }
+  }
 }
-@media screen and (max-width:1920px) {
-	.wrap{
-		.b {
-			&-symbol {
-				width: 120px;
-				height: 198px;
-				margin-bottom:230px;
-			}
-		}
-		
-	}
+@media screen and (max-width: 1920px) {
+  .wrap {
+    .b {
+      &-symbol {
+        width: 120px;
+        height: 198px;
+        margin-bottom: 230px;
+      }
+    }
+  }
 }
-@media screen and (max-width:768px) {
-	.wrap{
-		.b {
-			&-symbol {
-				width: 50px;
-				height: 80px;
-				margin-bottom:30px;
-			}
-		}
-		
-	}
+@media screen and (max-width: 768px) {
+  .wrap {
+    .b {
+      &-symbol {
+        width: 50px;
+        height: 80px;
+        margin-bottom: 30px;
+      }
+    }
+  }
 }
-
-

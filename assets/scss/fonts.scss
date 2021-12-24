@@ -1,15 +1,15 @@
 $font-map-path: (
-  NotoSansKR: "../fonts/NotoSansKR/"
+  NotoSansKR: '../fonts/NotoSansKR/'
 ) !default;
 
 // 폰트페밀리 및 파일 이름
 $font-map-NotoSansKR: (
-  Bold: "NotoSansKR-Bold",
-  Bolder: "NotoSansKR-Black",
-  Medium: "NotoSansKR-Medium",
-  Regular: "NotoSansKR-Regular",
-  Light: "NotoSansKR-Light",
-  Thin: "NotoSansKR-Thin"
+  Bold: 'NotoSansKR-Bold',
+  Bolder: 'NotoSansKR-Black',
+  Medium: 'NotoSansKR-Medium',
+  Regular: 'NotoSansKR-Regular',
+  Light: 'NotoSansKR-Light',
+  Thin: 'NotoSansKR-Thin'
 ) !default;
 
 $font-NotoSansKR: map-get($font-map-NotoSansKR, Bold) 700,
@@ -23,40 +23,38 @@ $font-NotoSansKR: map-get($font-map-NotoSansKR, Bold) 700,
   $font-path: #{map-get($font-map-path, NotoSansKR)}#{$name};
 
   @font-face {
-    src: url($font-path+".otf") format("opentype");
-    font-family: "NotoSansKR";
+    src: url($font-path + '.otf') format('opentype');
+    font-family: 'NotoSansKR';
     font-style: normal;
     font-weight: $weight;
   }
 }
 
 $font-map-path-en: (
-  Inter: "../fonts/Inter/"
+  Inter: '../fonts/Inter/'
 ) !default;
 
 // 폰트페밀리 및 파일 이름
 $font-map-Inter: (
-  Bold: "Inter-Bold",
-  Bolder: "Inter-Black",
-  Medium: "Inter-Medium",
-  Regular: "Inter-Regular",
-  Light: "Inter-Light",
-  Thin: "Inter-Thin"
+  Bold: 'Inter-Bold',
+  Bolder: 'Inter-Black',
+  Medium: 'Inter-Medium',
+  Regular: 'Inter-Regular',
+  Light: 'Inter-Light',
+  Thin: 'Inter-Thin'
 ) !default;
 
 $font-Inter: map-get($font-map-Inter, Bold) 700,
-  map-get($font-map-Inter, Bolder) 800,
-  map-get($font-map-Inter, Medium) 500,
-  map-get($font-map-Inter, Regular) 400,
-  map-get($font-map-Inter, Light) 300;
+  map-get($font-map-Inter, Bolder) 800, map-get($font-map-Inter, Medium) 500,
+  map-get($font-map-Inter, Regular) 400, map-get($font-map-Inter, Light) 300;
 
 // font-face gen
 @each $name, $weight in $font-Inter {
   $font-path: #{map-get($font-map-path-en, Inter)}#{$name};
 
   @font-face {
-    src: url($font-path+".ttf") format("truetype");
-    font-family: "Inter";
+    src: url($font-path + '.ttf') format('truetype');
+    font-family: 'Inter';
     font-style: normal;
     font-weight: $weight;
   }
