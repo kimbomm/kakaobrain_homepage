@@ -135,6 +135,12 @@
           </div>
         </div>
       </div>
+      <div class="g-con">
+        <p class="g-tit">Easter Egg</p>
+        <div class="g-box">
+          <EasterEgg />
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -150,6 +156,7 @@
   import DetailSubTitle from '@/components/detail/DetailSubTitle'
   import DetailFullImg from '@/components/detail/DetailFullImg'
   import DetailMiddelImg from '@/components/detail/DetailMiddelImg'
+  import EasterEgg from '@/components/elements/EasterEgg'
   export default {
     components: {
       Sticker,
@@ -162,7 +169,8 @@
       DetailImg,
       DetailSubTitle,
       DetailFullImg,
-      DetailMiddelImg
+      DetailMiddelImg,
+      EasterEgg
     }
   }
 </script>
