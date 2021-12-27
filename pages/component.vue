@@ -141,6 +141,12 @@
           <EasterEgg />
         </div>
       </div>
+      <div class="g-con">
+        <p class="g-tit">Member</p>
+        <div class="g-box">
+          <Member />
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -156,6 +162,7 @@
   import DetailSubTitle from '@/components/detail/DetailSubTitle'
   import DetailFullImg from '@/components/detail/DetailFullImg'
   import DetailMiddelImg from '@/components/detail/DetailMiddelImg'
+  import Member from '@/components/elements/Member'
   import EasterEgg from '@/components/elements/EasterEgg'
   export default {
     components: {
@@ -170,6 +177,7 @@
       DetailSubTitle,
       DetailFullImg,
       DetailMiddelImg,
+      Member,
       EasterEgg
     }
   }
