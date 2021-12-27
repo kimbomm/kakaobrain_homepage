@@ -2,7 +2,7 @@
   <div ref="member" class="member">
     <!-- <transition name="zoom"> -->
     <img
-      v-if="isProfileShow"
+      v-show="isProfileShow"
       ref="profile"
       class="member-profile"
       :src="require(`@/assets/images/members/dummy.png`)"
@@ -36,9 +36,11 @@
       },
       onMouseMove(e) {
         // console.log(e.offsetX, e.offsetY)
-        const ww = this.$refs.member.offsetWidth / 2
-        const style = `${e.offsetX - ww}px, ${e.offsetY - 120}px`
-        this.$refs.profile.style = `transform: scale(1) translate(${style});`
+        if (this.$refs.member && this.$refs.profile) {
+          const ww = this.$refs.member.offsetWidth / 2
+          const style = `${e.offsetX - ww}px, ${e.offsetY - 120}px`
+          this.$refs.profile.style = `transform: scale(1) translate(${style});`
+        }
       }
     }
   }
