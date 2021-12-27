@@ -59,8 +59,8 @@
     &:after {
       content: '';
       display: block;
-      height: 66px;
-      width: 126px;
+      height: 126px;
+      width: 66px;
       background: url('@/assets/images/icon-top_b.svg') no-repeat 50%;
       background-size: 100%;
       position: absolute;
@@ -79,8 +79,8 @@
       width: 200px;
       height: 200px;
       &:after {
-        height: 44px;
-        width: 84px;
+        width: 44px;
+        height: 84px;
       }
     }
   }
