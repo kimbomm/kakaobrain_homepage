@@ -45,11 +45,11 @@
       <div class="g-con">
         <p class="g-tit">CARD</p>
         <div class="g-box">
-          <div style="padding: 10px 0">
+          <div style="padding: 10px 0;">
             Innovation 부모 클래스에 'area' 클래스를 적용하면 높이 값이 늘어
             납니다.
           </div>
-          <div style="padding: 10px 0">
+          <div style="padding: 10px 0;">
             Innovation-dark 클래스를 입력하면 검정색 배경이 나타납니다.
           </div>
           <InnovationCard
@@ -147,6 +147,12 @@
           <Member />
         </div>
       </div>
+      <div class="g-con">
+        <p class="g-tit">swiper</p>
+        <div class="g-box">
+          <Swiper />
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -164,6 +170,7 @@
   import DetailMiddelImg from '@/components/detail/DetailMiddelImg'
   import Member from '@/components/elements/Member'
   import EasterEgg from '@/components/elements/EasterEgg'
+  import Swiper from '@/components/swiper/Swiper'
   export default {
     components: {
       Sticker,
@@ -178,7 +185,8 @@
       DetailFullImg,
       DetailMiddelImg,
       Member,
-      EasterEgg
+      EasterEgg,
+      Swiper
     }
   }
 </script>

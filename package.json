@@ -11,6 +11,8 @@
   "dependencies": {
     "core-js": "^3.15.1",
     "nuxt": "^2.15.7",
+    "swiper": "^5.3.7",
+    "vue-awesome-swiper": "^4.1.1",
     "vue-device-detector": "^1.1.6"
   },
   "devDependencies": {
