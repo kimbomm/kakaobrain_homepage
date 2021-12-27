@@ -9,16 +9,8 @@
   export default {
     name: 'DetailTextItem',
     props: {
-      text: {
-        type: String,
-        default: '',
-        required: true
-      },
-      type: {
-        type: String,
-        default: '',
-        required: false
-      }
+      text: { type: String, default: '', required: true },
+      type: { type: String, default: '', required: false }
     }
   }
 </script>
