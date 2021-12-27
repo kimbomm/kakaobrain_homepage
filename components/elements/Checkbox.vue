@@ -1,0 +1,100 @@
+<template>
+  <div :class="classBind">
+    <input
+      :id="checkboxId"
+      type="checkbox"
+      :checked="isChecked"
+      :value="checkboxValue"
+    />
+    <label :for="checkboxId" class="label">
+      <span>{{ checkboxText }}</span>
+    </label>
+  </div>
+</template>
+<script>
+  export default {
+    props: {
+      theme: {
+        type: String,
+        default: 'light',
+        require: false
+      },
+      isChecked: {
+        type: Boolean,
+        default: false,
+        require: false
+      },
+      checkboxId: {
+        type: String,
+        default: 'checkbox',
+        require: true
+      },
+      checkboxValue: {
+        type: String,
+        default: 'value',
+        require: true
+      },
+      checkboxText: {
+        type: String,
+        default: 'checkbox',
+        require: true
+      }
+    },
+    computed: {
+      classBind() {
+        let classList = ['checkbox']
+        if (this.theme === 'dark') {
+          classList.push('checkbox__dark')
+        }
+        return classList.join(' ')
+      }
+    },
+    data() {
+      return {}
+    },
+    methods: {}
+  }
+</script>
+<style lang="scss" scoped>
+  .checkbox {
+    display: inline-flex;
+    input {
+      display: none;
+      &:checked + .label {
+        border-color: #000;
+        background-color: #000;
+        color: #fff;
+      }
+    }
+    .label {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 27px;
+      border: 1px #000 solid;
+      background-color: transparent;
+      padding: 8px 14px;
+      height: 34px;
+      font-size: 14px;
+      line-height: 1.3;
+      color: #000;
+      font-family: 'Inter';
+      font-style: italic;
+      cursor: pointer;
+      user-select: none;
+      overflow: hidden;
+    }
+    &__dark {
+      .label {
+        background-color: #000;
+        border: 1px #fff solid;
+        color: #fff;
+      }
+      input:checked + .label {
+        background-color: #fff;
+        border-color: #fff;
+        color: #000;
+      }
+    }
+  }
+</style>

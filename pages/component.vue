@@ -147,6 +147,30 @@
           <Member />
         </div>
       </div>
+      <div class="g-con">
+        <p class="g-tit">Checkbox</p>
+        <div class="g-box">
+          <Checkbox
+            checkboxId="checkbox_0"
+            checkboxValue="a"
+            checkboxText="checkbox__0"
+            :isChecked="true"
+          />
+          <Checkbox
+            checkboxId="checkbox_1"
+            checkboxValue="b"
+            checkboxText="checkbox__1"
+            :isChecked="false"
+          />
+          <Checkbox
+            theme="dark"
+            checkboxId="checkbox_2"
+            checkboxValue="c"
+            checkboxText="다크테마 체크박스"
+            :isChecked="false"
+          />
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -164,6 +188,7 @@
   import DetailMiddelImg from '@/components/detail/DetailMiddelImg'
   import Member from '@/components/elements/Member'
   import EasterEgg from '@/components/elements/EasterEgg'
+  import Checkbox from '@/components/elements/Checkbox'
   export default {
     components: {
       Sticker,
@@ -178,7 +203,8 @@
       DetailFullImg,
       DetailMiddelImg,
       Member,
-      EasterEgg
+      EasterEgg,
+      Checkbox
     }
   }
 </script>
