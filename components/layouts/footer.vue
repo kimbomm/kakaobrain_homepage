@@ -84,6 +84,7 @@
     &-bottom {
       position: fixed;
       bottom: 20px;
+      z-index: 10;
     }
     .copywriter {
       display: none;
@@ -169,6 +170,9 @@
             margin-bottom: 20px;
           }
         }
+      }
+      .info-txt {
+        font-size: 16px;
       }
     }
   }

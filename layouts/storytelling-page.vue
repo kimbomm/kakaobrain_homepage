@@ -19,12 +19,6 @@
   }
 </script>
 <style lang="scss" scoped>
-  // .wrap {
-  //   white {
-  //     background-color: $gray-9;
-  //   }
-  // }
-
   .white {
     background-color: $gray-9;
   }
