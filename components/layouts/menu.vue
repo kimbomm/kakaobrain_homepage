@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="menu white">
+    <div class="menu">
       <div class="menu-list">
         <ul>
           <li @click="hideMenu()" class="menu-item">
@@ -115,7 +115,7 @@
 <style lang="scss" scoped>
   .white {
     .menu-item {
-      .txt {
+      button {
         color: $gray-0;
       }
     }
@@ -130,7 +130,6 @@
       display: inline-block;
       font-size: 16px;
       font-weight: 900;
-      color: $gray-9;
       cursor: pointer;
       &:not(:last-child) {
         margin-right: 30px;
@@ -169,11 +168,11 @@
       .txt {
         font-size: 16px;
         font-weight: 900;
-        // color: $gray-9;
       }
       button {
         padding: 0px;
         background-color: rgba(0, 0, 0, 0);
+        color: $gray-9;
       }
     }
   }

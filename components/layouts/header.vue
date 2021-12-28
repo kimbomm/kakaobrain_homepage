@@ -1,6 +1,5 @@
 <template>
-  <!-- header에 white 클래스 추가하면 로고와 글씨색이 흰색으로 변경됩니다 -->
-  <header class="header white">
+  <header class="header">
     <h1 class="b-logo">
       <nuxt-link to="/homepage">
         <img
@@ -35,7 +34,6 @@
     font-size: 0px;
     &-con {
       position: fixed;
-      // left: 400px;
       top: 20px;
       z-index: 3;
       transition: all 0.5s ease-in-out;
@@ -49,12 +47,14 @@
   }
 
   .white {
-    color: $gray-0;
     .white-logo {
       display: block !important;
     }
     .black-logo {
       display: none !important;
+    }
+    .header-item {
+      color: $gray-0;
     }
   }
 </style>

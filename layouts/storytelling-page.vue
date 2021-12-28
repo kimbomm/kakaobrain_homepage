@@ -1,6 +1,6 @@
 <template>
-  <div class="wrap">
-    storytelling-page
+  <!-- wrap에 white 클래스 추가하면 글씨색이 흰색으로 변경됩니다 -->
+  <div class="wrap white">
     <Header />
     <div class="container">
       <Nuxt />
@@ -18,4 +18,14 @@
     }
   }
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+  // .wrap {
+  //   white {
+  //     background-color: $gray-9;
+  //   }
+  // }
+
+  .white {
+    background-color: $gray-9;
+  }
+</style>

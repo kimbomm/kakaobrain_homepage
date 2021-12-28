@@ -12,7 +12,7 @@
       overflow: hidden;
     }
     &-side {
-      margin-bottom: 20px;
+      padding-bottom: 20px;
     }
     &-info {
       display: inline-block;
@@ -48,6 +48,12 @@
       margin-bottom: 156px;
       background: url('../images/b-symbol.png') no-repeat 50% / contain;
     }
+    &-w-symbol {
+      width: 240px;
+      height: 396px;
+      margin-bottom: 156px;
+      background: url('../images/b-w-symbol.png') no-repeat 50% / contain;
+    }
   }
 }
 @media screen and (max-width: 2560px) {
@@ -63,6 +69,11 @@
         height: 264px;
         margin-bottom: 230px;
       }
+      &-w-symbol {
+        width: 160px;
+        height: 264px;
+        margin-bottom: 230px;
+      }
     }
   }
 }
@@ -74,6 +85,11 @@
         height: 198px;
         margin-bottom: 230px;
       }
+      &-w-symbol {
+        width: 120px;
+        height: 198px;
+        margin-bottom: 230px;
+      }
     }
   }
 }
@@ -81,6 +97,11 @@
   .wrap {
     .b {
       &-symbol {
+        width: 50px;
+        height: 80px;
+        margin-bottom: 30px;
+      }
+      &-w-symbol {
         width: 50px;
         height: 80px;
         margin-bottom: 30px;
