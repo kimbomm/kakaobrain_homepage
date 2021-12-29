@@ -171,6 +171,12 @@
           />
         </div>
       </div>
+      <div class="g-con">
+        <p class="g-tit">Filter</p>
+        <div class="g-box">
+          <FilterSelector />
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -188,7 +194,8 @@
   import DetailMiddelImg from '@/components/detail/DetailMiddelImg'
   import Member from '@/components/elements/Member'
   import EasterEgg from '@/components/elements/EasterEgg'
-  import Checkbox from '@/components/elements/Checkbox'
+  import Checkbox from '@/components/elements/filter/Checkbox'
+  import FilterSelector from '@/components/elements/filter/FilterSelector'
   export default {
     components: {
       Sticker,
@@ -204,7 +211,8 @@
       DetailMiddelImg,
       Member,
       EasterEgg,
-      Checkbox
+      Checkbox,
+      FilterSelector
     }
   }
 </script>

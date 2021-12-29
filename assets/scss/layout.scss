@@ -2,7 +2,10 @@
 @import './mixins.scss';
 
 @include generateGridLayout();
-
+.container {
+  position: relative;
+  z-index: 1;
+}
 .wrap {
   width: 100%;
   .l {

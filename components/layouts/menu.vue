@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="menu">
+    <div :class="classBind">
       <div class="menu-list">
         <ul>
           <li @click="hideMenu()" class="menu-item">
@@ -98,10 +98,24 @@
   </div>
 </template>
 <script>
+  import { mapState } from 'vuex'
   export default {
     data() {
       return {
         isMenu: false
+      }
+    },
+    computed: {
+      ...mapState({
+        isFilterMenuOpen: state => state.isFilterMenuOpen
+      }),
+      classBind() {
+        let classList = ['menu']
+        if (this.isFilterMenuOpen) {
+          classList.push('menu__light')
+        }
+
+        return classList.join(' ')
       }
     },
     methods: {
@@ -165,6 +179,11 @@
       button {
         padding: 0px;
         background-color: rgba(0, 0, 0, 0);
+      }
+    }
+    &__light {
+      .menu-item button {
+        color: #fff;
       }
     }
   }

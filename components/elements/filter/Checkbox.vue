@@ -1,10 +1,12 @@
 <template>
   <div :class="classBind">
     <input
-      :id="checkboxId"
+      v-model="model"
       type="checkbox"
-      :checked="isChecked"
+      :id="checkboxId"
       :value="checkboxValue"
+      :disabled="disabled"
+      @change="onChange"
     />
     <label :for="checkboxId" class="label">
       <span>{{ checkboxText }}</span>
@@ -17,6 +19,11 @@
       theme: {
         type: String,
         default: 'light',
+        require: false
+      },
+      disabled: {
+        type: Boolean,
+        default: false,
         require: false
       },
       isChecked: {
@@ -49,10 +56,28 @@
         return classList.join(' ')
       }
     },
-    data() {
-      return {}
+    watch: {
+      isChecked(val) {
+        this.model = val
+      }
     },
-    methods: {}
+    data() {
+      return {
+        model: false
+      }
+    },
+    mounted() {
+      this.model = this.isChecked
+    },
+    methods: {
+      onChange() {
+        const data = {
+          isChecked: this.model,
+          value: this.checkboxValue
+        }
+        this.$emit('change', data)
+      }
+    }
   }
 </script>
 <style lang="scss" scoped>
@@ -74,6 +99,7 @@
       border: 1px #000 solid;
       background-color: transparent;
       padding: 8px 14px;
+      min-width: 45px;
       height: 34px;
       font-size: 14px;
       line-height: 1.3;

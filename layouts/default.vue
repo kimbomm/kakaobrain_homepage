@@ -1,6 +1,7 @@
 <template>
   <div class="wrap">
     <div class="l-pages">
+      <FilterList />
       <Header />
       <div class="container">
         <Nuxt />
@@ -12,11 +13,13 @@
 <script>
   import Header from '@/components/layouts/Header'
   import Footer from '@/components/layouts/Footer'
+  import FilterList from '@/components/elements/filter/FilterList'
   import { mapState } from 'vuex'
   export default {
     components: {
       Header,
-      Footer
+      Footer,
+      FilterList
     },
     computed: {
       ...mapState({
