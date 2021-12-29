@@ -127,6 +127,13 @@
   }
 </script>
 <style lang="scss" scoped>
+  .white {
+    .menu-item {
+      button {
+        color: $gray-0;
+      }
+    }
+  }
   .menu {
     position: fixed;
     top: 20px;
@@ -179,6 +186,7 @@
       button {
         padding: 0px;
         background-color: rgba(0, 0, 0, 0);
+        color: $gray-9;
       }
     }
     &__light {
@@ -278,6 +286,11 @@
           color: $gray-0;
         }
       }
+    }
+  }
+  @media screen and (max-width:1024px) {
+    .menu{
+      display: none;
     }
   }
 </style>

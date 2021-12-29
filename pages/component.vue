@@ -177,6 +177,13 @@
           <FilterSelector />
         </div>
       </div>
+
+      <div class="g-con">
+        <p class="g-tit">swiper</p>
+        <div class="g-box">
+          <Swiper />
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -196,6 +203,7 @@
   import EasterEgg from '@/components/elements/EasterEgg'
   import Checkbox from '@/components/elements/filter/Checkbox'
   import FilterSelector from '@/components/elements/filter/FilterSelector'
+  import Swiper from '@/components/swiper/Swiper'
   export default {
     components: {
       Sticker,
@@ -212,7 +220,8 @@
       Member,
       EasterEgg,
       Checkbox,
-      FilterSelector
+      FilterSelector,
+      Swiper
     }
   }
 </script>
