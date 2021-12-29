@@ -101,276 +101,7 @@
             </div>
             <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
           </li>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
-          </li>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
-          </li>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
-          </li>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
-          </li>
-          <!-- <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
-          </li>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
-          </li>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
-          </li>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
-          </li>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
-          </li>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
-          </li>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
-          </li>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
-          </li>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
-          </li>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
-          </li>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
-          </li>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
-          </li>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
-          </li>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
-          </li>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
-          </li>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
-          </li>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
-          </li>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
-          </li>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
-          </li>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
-          </li>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
-          </li>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
-          </li>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
-          </li>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
-          </li>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
-          </li>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
-          </li>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
-          </li>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
-          </li>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
-          </li>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
-          </li>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
-          </li>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
-          </li>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
-          </li>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
-          </li>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
-          </li>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
-          </li>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
-          </li>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
-          </li>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
-          </li>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
-          </li>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
-          </li> -->
+          
         </ul>
       </div>
       <div class="story-close" @click="storyList()">
@@ -582,7 +313,7 @@
   @media screen and (max-width:3840px) {
     .story {
       &-pop {
-        padding-top: 380px;
+        padding: 380px 0;
       }
     }
     .list {
@@ -606,7 +337,7 @@
     }
     .story {
       &-pop {
-        padding-top: 200px;
+        padding: 200px 0;
       }
     }
     .list {
@@ -629,11 +360,6 @@
             font-size: 16px;
           }
         }
-      }
-    }
-    .story {
-      &-pop {
-        padding-top: 200px;
       }
     }
     .list {
