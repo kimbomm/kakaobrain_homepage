@@ -269,4 +269,9 @@
       }
     }
   }
+  @media screen and (max-width:1024px) {
+    .menu{
+      display: none;
+    }
+  }
 </style>
