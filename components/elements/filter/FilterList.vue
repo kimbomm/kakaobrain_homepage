@@ -106,11 +106,8 @@
       flex-wrap: wrap;
       width: 100%;
       li {
-        margin-left: 10px;
+        margin-right: 10px;
         margin-bottom: 14px;
-        &:first-child {
-          margin-left: 0;
-        }
       }
     }
   }

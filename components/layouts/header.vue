@@ -49,12 +49,8 @@
     position: relative;
     z-index: 3;
     &-con {
-      // &-con {
-      //   position: fixed;
-      //   top: 20px;
-      // }
       position: fixed;
-      left: 400px;
+      top: 20px;
       z-index: 3;
       transition: all 0.5s ease-in-out;
     }
