@@ -30,20 +30,14 @@
     </div>
     <div>
       <div class="l-info"><span class="info-txt">@2021</span></div>
-      <CardinalPoints />
-      <TopButton />
     </div>
   </footer>
 </template>
 <script>
   import SnsLink from '@/components/elements/SnsLink'
-  import CardinalPoints from '@/components/elements/button/CardinalPoints'
-  import TopButton from '@/components/elements/button/TopButton'
   export default {
     components: {
-      SnsLink,
-      CardinalPoints,
-      TopButton
+      SnsLink
     }
   }
 </script>

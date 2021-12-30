@@ -22,6 +22,9 @@
 </script>
 <style lang="scss" scoped>
   .btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
     &.sub {
       background-color: $gray-9;
       border: none;

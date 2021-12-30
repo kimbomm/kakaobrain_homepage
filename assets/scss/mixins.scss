@@ -13,12 +13,12 @@
 @mixin generateGridLayout() {
   @for $i from 1 through 10 {
     .gl-#{$i} {
-      width: calc(#{$grid} * #{$i} + #{$gutter} * (#{$i} - 1));
+      width: calc(#{$grid} * #{$i} + #{$gutter} * (#{$i} - 1)) !important;
     }
   }
   @for $i from 1 through 6 {
     .l-ml-#{$i} {
-      margin-left: calc(#{$grid} * #{$i} + #{$gutter} * #{$i});
+      margin-left: calc(#{$grid} * #{$i} + #{$gutter} * #{$i}) !important;
     }
   }
 } ;
