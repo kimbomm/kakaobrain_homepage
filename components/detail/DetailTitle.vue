@@ -1,6 +1,6 @@
 <template>
-  <div class="monthly">
-    <div :class="`detail ${type} ${ml}`">
+  <div class="monthly l-ml-2">
+    <div class="detail gl-6">
       <div class="detail-title">{{ text }}</div>
     </div>
   </div>
@@ -29,7 +29,6 @@
 </script>
 <style lang="scss" scoped>
   .detail {
-    // margin: 0 auto;
     margin-bottom: 150px;
     &-title {
       line-height: 120%;
@@ -40,16 +39,7 @@
   }
   @media screen and (max-width: 3840px) {
     .detail {
-      margin: 0 auto;
       margin-bottom: 150px;
-    }
-    .l-ml-2 {
-      margin-left: 0px;
-    }
-    .gl-5 {
-      width: calc(
-        calc((100vw - 20px * 11) / 10) * 6 + 20px * (6 - 1)
-      ) !important;
     }
   }
   @media screen and (max-width: 2560px) {
@@ -70,7 +60,7 @@
   }
   @media screen and (max-width: 1024px) {
     .detail {
-      margin: 0 auto 40px !important;
+      margin-bottom: 40px;
       &-title {
         font-size: 50px;
       }
@@ -83,12 +73,11 @@
         font-size: 30px;
       }
     }
-
-    .gl-5 {
-      width: 100% !important;
-    }
     .gl-6 {
-      width: 100% !important;
+      width: 100%;
+    }
+    .l-ml-2 {
+      margin-left: 0;
     }
   }
 </style>

@@ -101,7 +101,6 @@
             </div>
             <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
           </li>
-          
         </ul>
       </div>
       <div class="story-close" @click="storyList()">
@@ -129,7 +128,7 @@
           direction: 'vertical',
           slidesPerView: 1,
           spaceBetween: 0,
-          mousewheel: true,
+          mousewheel: false,
           pagination: {
             el: '.swiper-pagination',
             type: 'fraction'
@@ -304,13 +303,13 @@
     &-item {
       display: inline-block;
       margin-bottom: 150px;
-      padding:0 74px;
+      padding: 0 74px;
       // &:not(:nth-child(8n)) {
       //   margin-right: 20px;
       // }
     }
   }
-  @media screen and (max-width:3840px) {
+  @media screen and (max-width: 3840px) {
     .story {
       &-pop {
         padding: 380px 0;
@@ -318,11 +317,11 @@
     }
     .list {
       &-item {
-        padding:0 10px;
+        padding: 0 10px;
       }
     }
-  } 
-  @media screen and (max-width:2560px) {
+  }
+  @media screen and (max-width: 2560px) {
     .swiper {
       .swiper-slide {
         .slide {
@@ -348,8 +347,8 @@
         margin-bottom: 100px;
       }
     }
-  } 
-  @media screen and (max-width:1920px) {
+  }
+  @media screen and (max-width: 1920px) {
     .swiper {
       .swiper-slide {
         .slide {
@@ -368,11 +367,11 @@
       }
       &-item {
         margin-bottom: 80px;
-        padding:0 10px;
+        padding: 0 10px;
       }
     }
-  } 
-  @media screen and (max-width:1024px) {
+  }
+  @media screen and (max-width: 1024px) {
     .swiper {
       .swiper-slide {
         .slide {
@@ -388,18 +387,19 @@
     .list {
       &-item {
         margin-bottom: 50px;
-        padding:0;
+        padding: 0;
         &:not(:nth-child(4n)) {
           margin-right: 20px;
         }
       }
-      
     }
-    .gl-1{
-      width: calc(calc((100vw - 20px * 11) / 10) * 2 + 20px * (2 - 1)) !important;
+    .gl-1 {
+      width: calc(
+        calc((100vw - 20px * 11) / 10) * 2 + 20px * (2 - 1)
+      ) !important;
     }
-  } 
-  @media screen and (max-width:768px) {
+  }
+  @media screen and (max-width: 768px) {
     .swiper {
       .swiper-slide {
         .slide {
@@ -412,8 +412,8 @@
         }
       }
     }
-    .story-detail{
+    .story-detail {
       display: none;
     }
-  } 
+  }
 </style>

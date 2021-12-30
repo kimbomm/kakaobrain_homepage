@@ -5,60 +5,51 @@
         text="Automated Learning Rate Scheduler for Large-batch Training."
         type="gl-6"
         ml="l-ml-2"
-      ></DetailTitle>
+      />
     </div>
     <div class="con-text">
-      <DetailSubTitle text="The first record." type="gl-5"></DetailSubTitle>
+      <DetailSubTitle text="The first record." />
       <DetailText
         text="Kakao Brain, along with the world's top AI laboratories, challenges the limitations of human perception and reasoning. Kakao Brain formed industry-academic cooperation with seven universities' AI laboratories, including Korea University, Seoul National University, Pohang University, Hanyang University, KAIST and UNIST, and began joint research for 3] years."
-        type="gl-5"
-      ></DetailText>
+      />
       <DetailText
         text="Kakao Brain and each school's AI laboratory are trying to establish a new research methodology that goes beyond the stereo type of AI research through this cooperation. It makes me feel grand how our research will change the world. Let me introduce Kakao Brain's know-how for joint research."
-        type="gl-5"
-      ></DetailText>
+      />
       <DetailText
         text="Kakao Brain and each school's AI laboratory are trying to establish a new research methodology that goes beyond the stereo type of AI research through this cooperation. It makes me feel grand how our research will change the world. Let me introduce Kakao Brain's know-how for joint research."
-        type="gl-5"
-      ></DetailText>
+      />
       <DetailText
         text="Kakao Brain, along with the world's top AI laboratories, challenges the limitations of human perception and reasoning. Kakao Brain formed industry-academic cooperation with seven universities' AI laboratories, including Korea University, Seoul National University, Pohang University, Hanyang University, KAIST and UNIST, and began joint research for 3] years."
-        type="gl-5"
-      ></DetailText>
+      />
       <DetailText
         text="Kakao Brain, along with the world's top AI laboratories, challenges the limitations of human perception and reasoning. Kakao Brain formed industry-academic cooperation with seven universities' AI laboratories, including Korea University, Seoul National University, Pohang University, Hanyang University, KAIST and UNIST, and began joint research for 3] years."
-        type="gl-5"
-      ></DetailText>
+      />
       <DetailText
         text="Kakao Brain and each school's AI laboratory are trying to establish a new research methodology that goes beyond the stereo type of AI research through this cooperation. It makes me feel grand how our research will change the world. Let me introduce Kakao Brain's know-how for joint research."
-        type="gl-5"
-      ></DetailText>
+      />
       <DetailText
         text="K akao Brain and each school's AI laboratory are trying to establish a new research methodology that goes beyond the stereo type of AI research through this cooperation. It makes me feel grand how our research will change the world. Let me introduce Kakao Brain's know-how for joint research."
-        type="gl-5"
-      ></DetailText>
+      />
       <div class="item">
-        <DetailTextItem text="AAAI (2021)"></DetailTextItem>
-        <DetailTextItem text="PAPER"></DetailTextItem>
+        <DetailTextItem text="AAAI (2021)" />
+        <DetailTextItem text="PAPER" />
       </div>
     </div>
     <div class="con-text">
-      <DetailTextTitle text="Author" type="gl-5"></DetailTextTitle>
+      <DetailTextTitle text="Author" />
       <DetailText
         text="ic, the whole schedule consists of two phases: adaptive warmup and predefined decay, where the LR i"
-        type="gl-5"
-      ></DetailText>
+      />
     </div>
     <div class="con-text">
-      <DetailTextTitle text="Keywords." type="gl-5"></DetailTextTitle>
+      <DetailTextTitle text="Keywords." />
       <DetailText
         text=" Kakao Brain, along with the world's top AI laboratories, challenges the limitations of human perception and reasoning. Kakao Brain formed industry-academic cooperation with seven universities' AI laboratories, including Korea University, Seoul National University, Pohang University,"
-        type="gl-5"
-      ></DetailText>
+      />
     </div>
     <div class="con-text">
-      <DetailTextTitle text="Published" type="gl-5"></DetailTextTitle>
-      <DetailText text="2021.02.02 " type="gl-5"></DetailText>
+      <DetailTextTitle text="Published" />
+      <DetailText text="2021.02.02 " />
     </div>
   </div>
 </template>
@@ -69,7 +60,6 @@
   import DetailImg from '@/components/detail/DetailImg'
   import DetailSubTitle from '@/components/detail/DetailSubTitle'
   import DetailFullImg from '@/components/detail/DetailFullImg'
-  import DetailMiddelImg from '@/components/detail/DetailMiddelImg'
   import DetailTextItem from '@/components/detail/DetailTextItem'
   import DetailTextTitle from '@/components/detail/DetailTextTitle'
   export default {
@@ -81,7 +71,6 @@
       DetailImg,
       DetailSubTitle,
       DetailFullImg,
-      DetailMiddelImg,
       DetailTextItem,
       DetailTextTitle
     }

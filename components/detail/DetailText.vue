@@ -1,6 +1,6 @@
 <template>
   <div class="monthly l-ml-3">
-    <div :class="`detail ${type}`">
+    <div class="detail gl-5">
       <div class="detail-text">{{ text }}</div>
     </div>
   </div>

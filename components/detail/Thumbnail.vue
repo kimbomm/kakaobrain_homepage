@@ -1,7 +1,13 @@
 <template>
   <div class="monthly">
-    <div :class="`detail-thumbnail ${type}`">
-      <img src="@/assets/images/monthly_img_1.png" />
+    <div :class="`detail-thumbnail gl-9`">
+      <img
+        :src="
+          srcPath
+            ? require(`${this.srcPath}`)
+            : require(`@/assets/images/monthly_img_1.png`)
+        "
+      />
     </div>
   </div>
 </template>
@@ -9,6 +15,11 @@
   export default {
     name: 'Thumbnail',
     props: {
+      srcPath: {
+        type: String,
+        default: '',
+        required: false
+      },
       type: {
         type: String,
         default: '',

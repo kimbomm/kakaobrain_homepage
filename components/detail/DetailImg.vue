@@ -1,7 +1,13 @@
 <template>
   <div class="monthly l-ml-2">
-    <div :class="`detail-image ${type}`">
-      <img src="@/assets/images/detail_img_1.png" />
+    <div class="detail-image gl-7">
+      <img
+        :src="
+          srcPath
+            ? require(`${this.srcPath}`)
+            : require(`@/assets/images/detail_img_1.png`)
+        "
+      />
     </div>
     <div class="detail-text">{{ text }}</div>
   </div>
@@ -10,15 +16,15 @@
   export default {
     name: 'DetailImg',
     props: {
+      srcPath: {
+        type: String,
+        default: '',
+        required: false
+      },
       text: {
         type: String,
         default: '',
         required: true
-      },
-      type: {
-        type: String,
-        default: '',
-        required: false
       }
     }
   }

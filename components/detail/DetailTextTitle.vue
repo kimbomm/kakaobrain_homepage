@@ -1,6 +1,6 @@
 <template>
   <div class="monthly l-ml-3">
-    <div :class="`detail ${type}`">
+    <div class="detail gl-5">
       <div class="detail-subTit">{{ text }}</div>
     </div>
   </div>
@@ -13,11 +13,6 @@
         type: String,
         default: '',
         required: true
-      },
-      type: {
-        type: String,
-        default: '',
-        required: false
       }
     }
   }

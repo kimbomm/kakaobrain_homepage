@@ -1,6 +1,6 @@
 <template>
-  <div class="monthly">
-    <div :class="`detail ${type} ${ml}`">
+  <div class="monthly l-ml-3">
+    <div :class="`detail gl-5 ${ml}`">
       <div class="detail-subTit">{{ text }}</div>
     </div>
   </div>
@@ -66,6 +66,9 @@
   @media screen and (max-width: 768px) {
     .gl-5 {
       width: 100% !important;
+    }
+    .l-ml-3 {
+      margin-left: 0px !important;
     }
   }
 </style>

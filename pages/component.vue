@@ -96,14 +96,8 @@
               text="Unthinkable AI Research Project."
               type="gl-5"
             ></DetailSubTitle>
-            <DetailFullImg
-              text="사진 설명 들어가는 곳."
-              type=""
-            ></DetailFullImg>
-            <DetailMiddelImg
-              text="사진 설명 들어가는 곳."
-              type="gl-7"
-            ></DetailMiddelImg>
+            <DetailFullImg text="사진 설명 들어가는 곳." />
+            <DetailMiddelImg text="사진 설명 들어가는 곳."></DetailMiddelImg>
           </div>
         </div>
 
@@ -124,14 +118,8 @@
               text="Unthinkable AI Research Project."
               type="gl-5"
             ></DetailSubTitle>
-            <DetailFullImg
-              text="사진 설명 들어가는 곳."
-              type=""
-            ></DetailFullImg>
-            <DetailMiddelImg
-              text="사진 설명 들어가는 곳."
-              type="gl-7"
-            ></DetailMiddelImg>
+            <DetailFullImg text="사진 설명 들어가는 곳." />
+            <DetailMiddelImg text="사진 설명 들어가는 곳."></DetailMiddelImg>
           </div>
         </div>
       </div>
