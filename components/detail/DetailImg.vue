@@ -30,25 +30,37 @@
   }
 </script>
 <style lang="scss" scoped>
+  @import '@/assets/scss/mixins.scss';
   .monthly {
-    margin-top: 400px;
-    margin-bottom: 500px;
+    margin-top: 200px;
+    margin-bottom: 300px;
     .detail {
-      &-image {
-        img {
-          width: 100%;
-        }
-      }
       &-text {
-        margin-top: 10px;
-        line-height: 150%;
-        font-size: 24px;
-        font-weight: 400;
-        color: $gray-5;
+        font-size: 12px;
       }
     }
   }
-  @media screen and (max-width: 3840px) {
+  @include pc-4k {
+    .monthly {
+      margin-top: 400px;
+      margin-bottom: 500px;
+      .detail {
+        &-image {
+          img {
+            width: 100%;
+          }
+        }
+        &-text {
+          margin-top: 10px;
+          line-height: 150%;
+          font-size: 24px;
+          font-weight: 400;
+          color: $gray-5;
+        }
+      }
+    }
+  }
+  @include pc-large {
     .monthly {
       margin-top: 300px;
       margin-bottom: 400px;
@@ -59,18 +71,7 @@
       }
     }
   }
-  @media screen and (max-width: 1920px) {
-    .monthly {
-      margin-top: 200px;
-      margin-bottom: 300px;
-      .detail {
-        &-text {
-          font-size: 12px;
-        }
-      }
-    }
-  }
-  @media screen and (max-width: 1024px) {
+  @include tablet {
     .monthly {
       margin-top: 100px;
       margin-bottom: 100px;
@@ -82,7 +83,7 @@
       }
     }
   }
-  @media screen and (max-width: 768px) {
+  @include mobile {
     .monthly {
       margin-top: 110px;
       margin-bottom: 100px;
