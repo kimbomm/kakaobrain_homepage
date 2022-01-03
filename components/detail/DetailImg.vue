@@ -30,7 +30,7 @@
   }
 </script>
 <style lang="scss" scoped>
-  @import './mixins.scss';
+  @import '@/assets/scss/mixins.scss';
   .monthly {
     margin-top: 200px;
     margin-bottom: 300px;
