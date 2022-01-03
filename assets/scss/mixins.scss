@@ -1,5 +1,15 @@
 @import './var.scss';
 
+@mixin pc-4k {
+  @media screen and (min-width: 3840px) {
+    @content;
+  }
+}
+@mixin pc-large {
+  @media screen and (min-width: 2560px) {
+    @content;
+  }
+}
 @mixin tablet {
   @media screen and (max-width: 1024px) {
     @content;
