@@ -150,6 +150,7 @@
     }
     &-navi {
       margin-top: 98px;
+      transition: transform 0.1s linear;
       .buttons {
         font-size: 16px;
         display: flex;
