@@ -9,7 +9,7 @@
     />
     <DetailImg text="사진 설명 들어가는 곳." type="gl-7" />
     <div class="con-text">
-      <DetailSubTitle text="Unthinkable AI Research Project." />
+      <DetailSubTitle text="Unthinkable AI Research Project." ml="l-ml-3" />
       <DetailText
         text="Kakao Brain, along with the world's top AI laboratories, challenges the limitations of human perception and reasoning. Kakao Brain formed industry-academic cooperation with seven universities' AI laboratories, including Korea University, Seoul National University, Pohang University, Hanyang University, KAIST and UNIST, and began joint research for 3] years."
       />
@@ -33,7 +33,7 @@
       />
     </div>
     <div class="con-text">
-      <DetailSubTitle text="Unthinkable AI Research Project." />
+      <DetailSubTitle text="Unthinkable AI Research Project." ml="l-ml-3" />
       <DetailText
         text="Kakao Brain, along with the world's top AI laboratories, challenges the limitations of human perception and reasoning. Kakao Brain formed industry-academic cooperation with seven universities' AI laboratories, including Korea University, Seoul National University, Pohang University, Hanyang University, KAIST and UNIST, and began joint research for 3] years."
       />
