@@ -10,14 +10,6 @@
   import { mapState, mapActions } from 'vuex'
   export default {
     name: 'FilterSelector',
-    // props: {
-    //   ml: {
-    //     type: String,
-    //     default: '',
-    //     required: false
-    //   }
-    // },
-
     computed: {
       ...mapState({
         isFilterMenuOpen: state => state.isFilterMenuOpen

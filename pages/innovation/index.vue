@@ -23,13 +23,11 @@
 <script>
   import { mapState } from 'vuex'
   import InnovationCard from '@/components/elements/card/InnovationCard'
-  import DetailTitle from '@/components/detail/DetailTitle'
   import DetailText from '@/components/detail/DetailText'
   import FilterSelector from '@/components/elements/filter/FilterSelector'
   export default {
     components: {
       InnovationCard,
-      DetailTitle,
       DetailText,
       FilterSelector,
     },
@@ -49,10 +47,12 @@
     max-width: initial;
     width: 100%;
     height: auto;
-    margin-bottom: 50px;
+    margin-bottom: 70px;
   }
   .selector{
-    margin-bottom: 80px;
+    margin: 400px 0 80px;
+    // margin-top:400px;
+    // margin-bottom: 80px;
   }
   .list-text{
     margin-bottom:200px;

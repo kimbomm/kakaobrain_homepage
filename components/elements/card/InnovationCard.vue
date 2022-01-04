@@ -69,6 +69,7 @@
     background-color: $gray-0;
     color: $gray-9;
     box-sizing: border-box;
+    word-break: break-all;
     &:not(:last-child) {
       margin-right: 100px;
     }
