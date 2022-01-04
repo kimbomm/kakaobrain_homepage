@@ -2,15 +2,18 @@
   <div class="main">
     <IssueSlider />
     <UnthinkableQuestion />
+    <TextFlow />
   </div>
 </template>
 <script>
   import IssueSlider from '@/components/pages/main/IssueSlider'
   import UnthinkableQuestion from '@/components/pages/main/UnthinkableQuestion'
+  import TextFlow from '@/components/pages/main/TextFlow'
   export default {
     components: {
       IssueSlider,
-      UnthinkableQuestion
+      UnthinkableQuestion,
+      TextFlow
     }
   }
 </script>

@@ -37,4 +37,9 @@
     }
   }
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+  .wrap {
+    background-color: $surface-1;
+    overflow-x: hidden;
+  }
+</style>
