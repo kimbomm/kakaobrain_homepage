@@ -1,5 +1,6 @@
 <template>
   <div class="layout" >
+    <div class="index-title">작업 페이지</div>
     <div class="inner">
       <ul>
         <li>
@@ -58,8 +59,13 @@
 </script>
 <style lang="scss" scoped>
 .layout{
-  padding:80px;
+  padding:200px 80px 80px;
   box-sizing: border-box;
+  .index-title{
+    margin-bottom:40px;
+    font-size: 35px;
+    font-weight:600;
+  }
   .inner{
     border: 1px solid #000;
   }
@@ -67,6 +73,7 @@
     padding: 10px;
     // border: 1px solid #000;
     background-color: #CCC;
+    font-weight: 600;
     font-size:16px;
   }
   .sub-tit{

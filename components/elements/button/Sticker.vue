@@ -1,7 +1,9 @@
 <template>
-  <button type="button" :class="`btn ${sub}`">
-    <span class="txt">{{ text }}</span>
-  </button>
+  <div>
+    <button type="button" :class="`btn ${sub}`">
+      <span class="txt">{{ text }}</span>
+    </button>
+  </div>
 </template>
 <script>
   export default {
@@ -21,6 +23,8 @@
   }
 </script>
 <style lang="scss" scoped>
+  @import '@/assets/scss/mixins.scss';
+
   .btn {
     display: inline-flex;
     justify-content: center;
@@ -78,6 +82,15 @@
           display: inline-block;
           padding-right: 2px;
         }
+      }
+    }
+  }
+
+  @mixin pc-4k {
+    .btn {
+      padding: 14px 24px;
+      .txt{
+        font-size: 28px !important;
       }
     }
   }

@@ -31,6 +31,7 @@
     &-thumbnail {
       position: relative;
       display: inline-block;
+      box-shadow: 30px 30px 50px -10px #CFD0D3;
       img {
         width: 100%;
       }
@@ -55,10 +56,13 @@
       }
     }
   }
-
   .list-btn {
     display: inline-block;
     vertical-align: top;
     text-align: right;
+  }
+
+  @include pc-4k {
+  
   }
 </style>
