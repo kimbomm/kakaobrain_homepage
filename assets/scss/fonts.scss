@@ -1,5 +1,7 @@
 $font-map-path: (
-  NotoSansKR: '../fonts/NotoSansKR/'
+  NotoSansKR: '../fonts/NotoSansKR/',
+  Inter: '../fonts/Inter/',
+  Silk: '../fonts/silkscreen/'
 ) !default;
 
 // 폰트페밀리 및 파일 이름
@@ -30,10 +32,6 @@ $font-NotoSansKR: map-get($font-map-NotoSansKR, Bold) 700,
   }
 }
 
-$font-map-path-en: (
-  Inter: '../fonts/Inter/'
-) !default;
-
 // 폰트페밀리 및 파일 이름
 $font-map-Inter: (
   Bold: 'Inter-Bold',
@@ -50,11 +48,32 @@ $font-Inter: map-get($font-map-Inter, Bold) 700,
 
 // font-face gen
 @each $name, $weight in $font-Inter {
-  $font-path: #{map-get($font-map-path-en, Inter)}#{$name};
+  $font-path: #{map-get($font-map-path, Inter)}#{$name};
 
   @font-face {
     src: url($font-path + '.ttf') format('truetype');
     font-family: 'Inter';
+    font-style: normal;
+    font-weight: $weight;
+  }
+}
+
+// 폰트페밀리 및 파일 이름
+$font-map-Silk: (
+  Bold: 'slkscrb',
+  Medium: 'slkscr'
+) !default;
+
+$font-Silk: map-get($font-map-Silk, Bold) 700,
+  map-get($font-map-Silk, Medium) 500;
+
+// font-face gen
+@each $name, $weight in $font-Silk {
+  $font-path: #{map-get($font-map-path, Silk)}#{$name};
+
+  @font-face {
+    src: url($font-path + '.ttf') format('truetype');
+    font-family: 'Silk';
     font-style: normal;
     font-weight: $weight;
   }

@@ -58,6 +58,7 @@
       }
     },
     mounted() {
+      this.isShow = true
       window.addEventListener('scroll', this.onScroll)
     },
     beforeDestroy() {
@@ -110,7 +111,6 @@
     $titleHeight: 90px;
     $titleMargin: 20px;
     display: flex;
-    margin-left: 20px;
     &-info {
       padding-top: $titleHeight + $titleMargin;
       margin-left: 20px;
