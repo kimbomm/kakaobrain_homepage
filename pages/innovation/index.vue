@@ -1,7 +1,11 @@
 <template>
   <div>
+    <DetailTitle text="Monthly Issue" type="gl-6" ml="l-ml-2" />
+    <div class="list-text">
+      <DetailText text="카카오브레인의 공동연구 노하우를 공개합니다" />
+    </div>
     <!-- reference: https://github.com/paulcollett/vue-masonry-css -->
-    <masonry :cols="5" :gutter="20" class="masonry">
+    <masonry :cols="5" :gutter="20" class="masonry area">
       <InnovationCard
         v-for="(item, index) in innovationList"
         :key="index"

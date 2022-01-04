@@ -25,8 +25,8 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    background-color: transparent;
-    word-break: break-all;
+    margin-right: 0;
+    margin-bottom: 10px;
     &.sub {
       background-color: $gray-9;
       border: none;

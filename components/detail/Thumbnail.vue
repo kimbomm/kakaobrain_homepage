@@ -29,16 +29,36 @@
   }
 </script>
 <style lang="scss" scoped>
-  .detail {
-    &-thumbnail {
-      img {
-        width: 100%;
+  @import '@/assets/scss/mixins.scss';
+
+  .monthly {
+    .detail {
+      &-thumbnail {
+        img {
+          width: 100%;
+        }
       }
     }
   }
-  @media screen and (max-width: 768px) {
+
+  @include mobile {
     .gl-9 {
       width: 100% !important;
     }
   }
+
+  //----------------------------
+
+  // .detail {
+  //   &-thumbnail {
+  //     img {
+  //       width: 100%;
+  //     }
+  //   }
+  // }
+  // @media screen and (max-width: 768px) {
+  //   .gl-9 {
+  //     width: 100% !important;
+  //   }
+  // }
 </style>
