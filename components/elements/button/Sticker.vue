@@ -31,6 +31,7 @@
     align-items: center;
     margin-right: 0;
     margin-bottom: 10px;
+    padding: 8px 14px;
     &.sub {
       background-color: $gray-9;
       border: none;
@@ -86,7 +87,7 @@
     }
   }
 
-  @mixin pc-4k {
+  @include pc-4k {
     .btn {
       padding: 14px 24px;
       .txt{

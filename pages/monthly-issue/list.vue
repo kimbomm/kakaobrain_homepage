@@ -1,6 +1,6 @@
 <template>
   <div class="monthly-detail">
-    <DetailTitle text="Monthly Issue" type="gl-6" ml="l-ml-2" />
+    <ListTitle text="Monthly Issue" type="gl-6" ml="l-ml-2" />
 
     <div class="text-box">
       <div class="contents-list-text">
@@ -27,19 +27,21 @@
   </div>
 </template>
 <script>
-  import DetailTitle from '@/components/detail/DetailTitle'
+  import ListTitle from '@/components/detail/ListTitle'
   import DetailText from '@/components/detail/DetailText'
   import MonthlyList from '@/components/elements/MonthlyList'
   export default {
     name: 'index',
     components: {
-      DetailTitle,
+      ListTitle,
       DetailText,
       MonthlyList
     }
   }
 </script>
 <style lang="scss" scoped>
+  @import '@/assets/scss/mixins.scss';
+
   .monthly-detail {
     margin-top:340px;
     .text-box{
@@ -51,6 +53,20 @@
     .detail-list {
       &:not(:last-child) {
         margin-bottom: 100px;
+      }
+    }
+  }
+
+  @include pc-4k {
+    .monthly-detail {
+      margin-top:600px;
+      .text-box{
+        margin-bottom:460px;
+      }
+      .detail-list {
+        &:not(:last-child) {
+          margin-bottom: 196px;
+        }
       }
     }
   }

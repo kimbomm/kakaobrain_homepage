@@ -40,7 +40,7 @@
     .monthly {
       .detail {
         &-text {
-          font-size: 32px;
+          font-size: 32px !important;
         }
       }
     }
