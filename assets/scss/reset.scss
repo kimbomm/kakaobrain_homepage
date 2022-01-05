@@ -145,6 +145,10 @@ table {
 }
 a {
   text-decoration: none;
+  color: #000;
+  &:visited {
+    color: #000;
+  }
 }
 
 button,
@@ -153,8 +157,10 @@ input {
 }
 button {
   cursor: pointer;
-  font-size: 0px;
   box-sizing: border-box;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
 }
 input {
   background-color: transparent;

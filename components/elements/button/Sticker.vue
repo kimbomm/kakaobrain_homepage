@@ -1,6 +1,6 @@
 <template>
   <div class="sticker">
-    <button type="button" :class="`btn ${sub}`">
+    <button type="button" :class="`btn ${sub}`" :disabled="!sub ? true : false">
       <span class="txt">{{ text }}</span>
     </button>
   </div>
@@ -90,33 +90,33 @@
   @include pc-4k {
     .btn {
       padding: 14px 24px;
-      .txt{
+      .txt {
         font-size: 28px !important;
       }
     }
   }
-  
+
   @include pc-large {
     .btn {
-      .txt{
+      .txt {
         font-size: 18px;
       }
     }
   }
-  
+
   @include tablet {
-    .sticker{
+    .sticker {
       display: inline-block;
     }
     .btn {
       margin-bottom: 4px;
-      .txt{
+      .txt {
         font-size: 10px;
       }
     }
   }
   @include mobile {
-    .sticker{
+    .sticker {
       display: inline-block;
     }
     .btn {
