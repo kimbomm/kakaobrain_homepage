@@ -10,6 +10,7 @@
     <InnovationList />
     <BrainGoal />
     <ArchiveList />
+    <TeamBrain />
   </div>
 </template>
 <script>
@@ -21,6 +22,7 @@
   import InnovationList from '@/components/pages/main/InnovationList'
   import BrainGoal from '@/components/pages/main/BrainGoal'
   import ArchiveList from '@/components/pages/main/ArchiveList'
+  import TeamBrain from '@/components/pages/main/TeamBrain'
   export default {
     components: {
       IssueSlider,
@@ -30,7 +32,8 @@
       MainFullImage,
       InnovationList,
       BrainGoal,
-      ArchiveList
+      ArchiveList,
+      TeamBrain
     },
     data() {
       return {
@@ -83,6 +86,9 @@
       margin-top: 100px;
     }
     .archive {
+      margin-top: 500px;
+    }
+    .team {
       margin-top: 500px;
     }
   }
