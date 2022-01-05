@@ -31,6 +31,7 @@
     &-thumbnail {
       position: relative;
       display: inline-block;
+      box-shadow: 30px 30px 50px -10px #CFD0D3;
       img {
         width: 100%;
       }
@@ -55,10 +56,58 @@
       }
     }
   }
-
   .list-btn {
+    position: relative;
+    z-index: 1;
     display: inline-block;
     vertical-align: top;
     text-align: right;
+  }
+  @include tablet {
+    
+    .monthly {
+      &-thumbnail {
+        .thumbnail-data {
+          .date {
+            font-size: 14px;
+          }
+          .name {
+            font-size: 40px;
+          }
+        }
+      }
+    }
+  }
+  
+  @include mobile {
+    
+    .monthly {
+      &-thumbnail {
+        margin-bottom:10px;
+        .thumbnail-data {
+          .date {
+            font-size: 12px;
+          }
+          .name {
+            font-size: 30px;
+          }
+        }
+      }
+    }
+    .gl-1{
+      width:100% !important;
+    }
+    .gl-6{
+      width:100% !important;
+    }
+    .gl-7{
+      width:100% !important;
+    }
+    .l-ml-2{
+      margin-left:0px !important;
+    }
+  }
+  .list-btn {
+    text-align:left;
   }
 </style>

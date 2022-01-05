@@ -1,7 +1,9 @@
 <template>
-  <button type="button" :class="`btn ${sub}`">
-    <span class="txt">{{ text }}</span>
-  </button>
+  <div class="sticker">
+    <button type="button" :class="`btn ${sub}`" :disabled="!sub ? true : false">
+      <span class="txt">{{ text }}</span>
+    </button>
+  </div>
 </template>
 <script>
   export default {
@@ -21,12 +23,15 @@
   }
 </script>
 <style lang="scss" scoped>
+  @import '@/assets/scss/mixins.scss';
+
   .btn {
     display: inline-flex;
     justify-content: center;
     align-items: center;
     margin-right: 0;
     margin-bottom: 10px;
+    padding: 8px 14px;
     &.sub {
       background-color: $gray-9;
       border: none;
@@ -79,6 +84,44 @@
           padding-right: 2px;
         }
       }
+    }
+  }
+
+  @include pc-4k {
+    .btn {
+      padding: 14px 24px;
+      .txt {
+        font-size: 28px !important;
+      }
+    }
+  }
+
+  @include pc-large {
+    .btn {
+      .txt {
+        font-size: 18px;
+      }
+    }
+  }
+
+  @include tablet {
+    .sticker {
+      display: inline-block;
+    }
+    .btn {
+      margin-bottom: 4px;
+      .txt {
+        font-size: 10px;
+      }
+    }
+  }
+  @include mobile {
+    .sticker {
+      display: inline-block;
+    }
+    .btn {
+      padding: 4px 10px;
+      margin-bottom: 0px;
     }
   }
 </style>

@@ -1,8 +1,19 @@
 <template>
   <div>
-    <DetailTitle text="Monthly Issue" type="gl-6" ml="l-ml-2" />
-    <div class="list-text">
-      <DetailText text="카카오브레인의 공동연구 노하우를 공개합니다" />
+    <div class="contents-selector l-ml-2 gl-6">
+      <FilterSelector />
+    </div>
+    <div class="contents-check l-ml-3">
+      <Checkbox
+        checkboxId="checkbox_1"
+        checkboxValue="b"
+        checkboxText="q;lwekdjfa;sdlf"
+        :isChecked="false"
+      />
+    </div>
+
+    <div class="contents-list-text">
+      <DetailText text="우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다.우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다.우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다.우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다.우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다.우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다.우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다." />
     </div>
     <!-- reference: https://github.com/paulcollett/vue-masonry-css -->
     <masonry :cols="5" :gutter="20" class="masonry area">
@@ -20,9 +31,16 @@
 <script>
   import { mapState } from 'vuex'
   import InnovationCard from '@/components/elements/card/InnovationCard'
+  import DetailText from '@/components/detail/DetailText'
+  import FilterSelector from '@/components/elements/filter/FilterSelector'
+  import Checkbox from '@/components/elements/filter/Checkbox'
+  
   export default {
     components: {
-      InnovationCard
+      InnovationCard,
+      DetailText,
+      FilterSelector,
+      Checkbox,
     },
     computed: {
       ...mapState({
@@ -40,6 +58,17 @@
     max-width: initial;
     width: 100%;
     height: auto;
-    margin-bottom: 50px;
+    margin-bottom: 70px;
+  }
+  .contents-selector{
+    margin: 400px 0 80px;
+    // margin-top:400px;
+    // margin-bottom: 80px;
+  }
+  .contents-check{
+    margin-bottom:60px;
+  }
+  .contents-list-text{
+    margin-bottom:200px;
   }
 </style>

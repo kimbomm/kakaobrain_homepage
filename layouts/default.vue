@@ -38,8 +38,14 @@
   }
 </script>
 <style lang="scss" scoped>
+  @import '@/assets/scss/mixins.scss';
   .wrap {
     background-color: $surface-1;
     overflow-x: hidden;
+  }
+  @include mobile {
+    .l-pages {
+      padding: 0 20px;
+    }
   }
 </style>

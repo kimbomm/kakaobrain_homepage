@@ -44,7 +44,7 @@
     .detail {
       margin-bottom: 150px;
       &-title {
-        font-size: 180px;
+        font-size: 180px !important;
       }
     }
   }

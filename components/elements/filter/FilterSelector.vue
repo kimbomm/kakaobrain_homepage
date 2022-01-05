@@ -9,6 +9,7 @@
 <script>
   import { mapState, mapActions } from 'vuex'
   export default {
+    name: 'FilterSelector',
     computed: {
       ...mapState({
         isFilterMenuOpen: state => state.isFilterMenuOpen

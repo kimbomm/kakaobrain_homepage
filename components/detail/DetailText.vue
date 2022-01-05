@@ -40,7 +40,7 @@
     .monthly {
       .detail {
         &-text {
-          font-size: 32px;
+          font-size: 32px !important;
         }
       }
     }
@@ -90,7 +90,7 @@
       width: 100% !important;
     }
     .l-ml-3 {
-      margin: 0 20px !important;
+      margin-left: 0 !important;
     }
   }
 
