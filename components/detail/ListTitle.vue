@@ -40,9 +40,9 @@
   }
   @include pc-large {
     .list {
-      margin-bottom: 100px;
+      margin-bottom: 80px;
       &-title {
-        font-size: 120px;
+        font-size: 110px;
       }
     }
   }
@@ -66,7 +66,7 @@
       width: 100% !important;
     }
     .l-ml-2 {
-      margin-left: 20px !important;
+      margin-left: 0px !important;
     }
   }
 </style>

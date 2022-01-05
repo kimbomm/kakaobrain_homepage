@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="sticker">
     <button type="button" :class="`btn ${sub}`">
       <span class="txt">{{ text }}</span>
     </button>
@@ -93,6 +93,35 @@
       .txt{
         font-size: 28px !important;
       }
+    }
+  }
+  
+  @include pc-large {
+    .btn {
+      .txt{
+        font-size: 18px;
+      }
+    }
+  }
+  
+  @include tablet {
+    .sticker{
+      display: inline-block;
+    }
+    .btn {
+      margin-bottom: 4px;
+      .txt{
+        font-size: 10px;
+      }
+    }
+  }
+  @include mobile {
+    .sticker{
+      display: inline-block;
+    }
+    .btn {
+      padding: 4px 10px;
+      margin-bottom: 0px;
     }
   }
 </style>

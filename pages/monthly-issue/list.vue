@@ -43,7 +43,7 @@
   @import '@/assets/scss/mixins.scss';
 
   .monthly-detail {
-    margin-top:340px;
+    margin-top:320px;
     .text-box{
       margin-bottom:200px;
       .contents-list-text {
@@ -59,13 +59,50 @@
 
   @include pc-4k {
     .monthly-detail {
-      margin-top:600px;
+      margin-top:600px !important;
       .text-box{
-        margin-bottom:460px;
+        margin-bottom:460px !important;
       }
       .detail-list {
         &:not(:last-child) {
-          margin-bottom: 196px;
+          margin-bottom: 196px !important;
+        }
+      }
+    }
+  }
+  @include pc-large {
+    .monthly-detail {
+      margin-top:400px;
+      .text-box{
+        margin-bottom:300px;
+      }
+      .detail-list {
+        &:not(:last-child) {
+          margin-bottom: 130px;
+        }
+      }
+    }
+  }
+  @include tablet {
+    .monthly-detail {
+      margin-top:200px;
+      .text-box{
+        margin-bottom:100px;
+      }
+      .detail-list {
+        &:not(:last-child) {
+          margin-bottom: 50px;
+        }
+      }
+    }
+  }
+  
+  @include mobile {
+    .monthly-detail {
+      margin-top:157px;
+      .detail-list {
+        &:not(:last-child) {
+          margin-bottom: 50px;
         }
       }
     }

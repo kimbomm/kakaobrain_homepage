@@ -37,4 +37,13 @@
     }
   }
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+  @import '@/assets/scss/mixins.scss';
+
+  @include mobile {
+    .l-pages{
+      padding:0 20px;
+    }
+  }
+
+</style>
