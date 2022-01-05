@@ -28,8 +28,24 @@
       })
     },
     mounted() {
-      console.log(this.$store)
-      this.$refs['list'].addEventListener('wheel', e => {})
+      this.$refs['list'].addEventListener('wheel', e => {
+        this.cardWheelEvent(e)
+      })
+    },
+    beforeDestroy() {
+      this.$refs['list'].removeEventListener('wheel', e => {
+        this.cardWheelEvent(e)
+      })
+    },
+    methods: {
+      cardWheelEvent(e) {
+        const wheelX = Math.abs(e.deltaX)
+        const wheelY = Math.abs(e.deltaY)
+        if (wheelY > wheelX) {
+          e.preventDefault()
+          this.$refs['list'].scrollLeft += e.deltaY * 0.8
+        }
+      }
     }
   }
 </script>
