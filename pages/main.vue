@@ -4,8 +4,10 @@
     <UnthinkableQuestion />
     <TextFlow />
     <Slogan :data="sloganData1" />
+    <MainFullImage />
     <Slogan :data="sloganData2" />
     <Slogan :data="sloganData3" />
+    <InnovationList />
   </div>
 </template>
 <script>
@@ -13,12 +15,16 @@
   import UnthinkableQuestion from '@/components/pages/main/UnthinkableQuestion'
   import TextFlow from '@/components/pages/main/TextFlow'
   import Slogan from '@/components/pages/main/Slogan'
+  import MainFullImage from '@/components/pages/main/MainFullImage'
+  import InnovationList from '@/components/pages/main/InnovationList'
   export default {
     components: {
       IssueSlider,
       UnthinkableQuestion,
       TextFlow,
-      Slogan
+      Slogan,
+      MainFullImage,
+      InnovationList
     },
     data() {
       return {
@@ -63,6 +69,12 @@
     }
     .slogan {
       margin-top: 500px;
+    }
+    .full-image {
+      margin-top: 100px;
+    }
+    .innovation {
+      margin-top: 100px;
     }
   }
   @include pc-4k {
