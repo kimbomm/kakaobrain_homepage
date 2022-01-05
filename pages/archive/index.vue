@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div class="selector l-ml-2 gl-6">
+    <div class="contents-selector l-ml-2 gl-6">
       <FilterSelector />
     </div>
-    <div class="list-text">
+    <div class="contents-list-text">
       <DetailText text="우리가 퍼블리싱한 것에 대한 설명글이 들어갑니다. 논문 리스트는 안들어갑니다.우리가 퍼블리싱한 것에 대한 설명글이 들어갑니다. 논문 리스트는 안들어갑니다.우리가 퍼블리싱한 것에 대한 설명글이 들어갑니다. 논문 리스트는 안들어갑니다. 논문을 제외한 모든 글들이 아카이빙됩니다." />
     </div>
     <!-- reference: https://github.com/paulcollett/vue-masonry-css -->
@@ -36,6 +36,8 @@
   }
 </script>
 <style lang="scss" scoped>
+  @import '@/assets/scss/mixins.scss';
+
   .masonry {
     padding: 0 20px;
   }
@@ -46,10 +48,62 @@
     height: auto;
     margin-bottom: 70px;
   }
-  .selector{
-    margin-bottom: 80px;
+  .contents-selector{
+    margin: 320px 0 60px;
   }
-  .list-text{
+  .contents-list-text{
     margin-bottom:200px;
   }
+  
+  @include pc-4k {
+    // /deep/ .Innovation {
+    //   margin-bottom: 100px;
+    // }
+    .contents-selector{
+      margin: 600px 0 120px;
+    }
+    .contents-list-text{
+      margin-bottom:460px !important;
+    }
+  }
+  @include pc-large {
+    // /deep/ .Innovation {
+    //   margin-bottom: 70px;
+    // }
+    .contents-list-text{
+      margin-bottom:300px;
+    }
+  }
+  @include tablet {
+    .contents-selector{
+      margin: 200px 0 40px;
+    }
+    .contents-list-text{
+      margin-bottom:100px;
+    }
+    // .l-ml-3 {
+    //   margin-left: calc(calc((100vw - 20px * 11) / 10) * 2 + 20px * 2) !important;
+    // }
+    // .gl-5{
+    //   width:calc(calc((100vw - 20px * 11) / 10) * 6 + 20px * (6 - 1)) !important;
+    // }
+  }
+  @include mobile {
+    .masonry {
+      padding: 0;
+    }
+    // .l-ml-2{
+    //   margin-left:0px !important;
+    // }
+    // .l-ml-3{
+    //   margin-left:0px !important;
+    // }
+    // .gl-6{
+    //   width:100% !important
+    // }
+    .contents-selector{
+      margin: 157px 0 20px;
+    }
+  }
+
 </style>
