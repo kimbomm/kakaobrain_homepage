@@ -8,6 +8,8 @@
     <Slogan :data="sloganData2" />
     <Slogan :data="sloganData3" />
     <InnovationList />
+    <BrainGoal />
+    <ArchiveList />
   </div>
 </template>
 <script>
@@ -17,6 +19,8 @@
   import Slogan from '@/components/pages/main/Slogan'
   import MainFullImage from '@/components/pages/main/MainFullImage'
   import InnovationList from '@/components/pages/main/InnovationList'
+  import BrainGoal from '@/components/pages/main/BrainGoal'
+  import ArchiveList from '@/components/pages/main/ArchiveList'
   export default {
     components: {
       IssueSlider,
@@ -24,7 +28,9 @@
       TextFlow,
       Slogan,
       MainFullImage,
-      InnovationList
+      InnovationList,
+      BrainGoal,
+      ArchiveList
     },
     data() {
       return {
@@ -75,6 +81,9 @@
     }
     .innovation {
       margin-top: 100px;
+    }
+    .archive {
+      margin-top: 500px;
     }
   }
   @include pc-4k {
