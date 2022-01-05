@@ -55,7 +55,13 @@
     methods: {
       onScroll() {
         // console.log(window.scrollY, window.innerHeight)
-        if (window.scrollY >= this.$refs['flow'].offsetTop) {
+        if (
+          window.scrollY >= this.$refs['flow'].offsetTop &&
+          window.scrollY <=
+            this.$refs['flow'].offsetTop +
+              this.$refs['flow'].offsetHeight -
+              window.innerHeight
+        ) {
           this.$refs['backgroundFlow'].style = `position: absolute; top: ${
             window.scrollY - this.$refs['flow'].offsetTop
           }px`

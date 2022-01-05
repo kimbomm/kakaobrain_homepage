@@ -43,8 +43,9 @@ $font-map-Inter: (
 ) !default;
 
 $font-Inter: map-get($font-map-Inter, Bold) 700,
-  map-get($font-map-Inter, Bolder) 800, map-get($font-map-Inter, Medium) 500,
-  map-get($font-map-Inter, Regular) 400, map-get($font-map-Inter, Light) 300;
+  map-get($font-map-Inter, Bolder) 900, map-get($font-map-Inter, Medium) 500,
+  map-get($font-map-Inter, Regular) 400, map-get($font-map-Inter, Light) 300,
+  map-get($font-map-Inter, Thin) 100;
 
 // font-face gen
 @each $name, $weight in $font-Inter {
