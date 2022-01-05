@@ -7,7 +7,7 @@
       <DetailText text="우리가 퍼블리싱한 것에 대한 설명글이 들어갑니다. 논문 리스트는 안들어갑니다.우리가 퍼블리싱한 것에 대한 설명글이 들어갑니다. 논문 리스트는 안들어갑니다.우리가 퍼블리싱한 것에 대한 설명글이 들어갑니다. 논문 리스트는 안들어갑니다. 논문을 제외한 모든 글들이 아카이빙됩니다." />
     </div>
     <!-- reference: https://github.com/paulcollett/vue-masonry-css -->
-    <masonry :cols="5" :gutter="20" class="masonry area">
+    <masonry :cols="{default: 5, 1024: 2, 768: 1}" :gutter="{default: '20px', 768: '0px'}" class="masonry area">
       <ArchiveCard
         v-for="(item, index) in archiveList"
         :key="index"
@@ -46,7 +46,7 @@
     max-width: initial;
     width: 100%;
     height: auto;
-    margin-bottom: 70px;
+    margin-bottom: 50px;
   }
   .contents-selector{
     margin: 320px 0 60px;
@@ -56,9 +56,9 @@
   }
   
   @include pc-4k {
-    // /deep/ .Innovation {
-    //   margin-bottom: 100px;
-    // }
+    /deep/ .archive  {
+      margin-bottom: 100px !important;
+    }
     .contents-selector{
       margin: 600px 0 120px;
     }
@@ -67,9 +67,9 @@
     }
   }
   @include pc-large {
-    // /deep/ .Innovation {
-    //   margin-bottom: 70px;
-    // }
+    /deep/ .archive  {
+      margin-bottom: 70px;
+    }
     .contents-list-text{
       margin-bottom:300px;
     }
