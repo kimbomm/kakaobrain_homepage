@@ -42,6 +42,11 @@
                     >monthly 리스트 화면</nuxt-link
                   >
                 </li>
+                <li>
+                  <nuxt-link to="/news" class="link"
+                    >공통 리스트 화면</nuxt-link
+                  >
+                </li>
               </ul>
             </li>
             <li>
