@@ -144,4 +144,22 @@
       }
     }
   }
+  @include tablet {
+    .checkbox {
+      .label {
+        padding: 4px 10px;
+        height: 21px;
+        font-size: 10px;
+      }
+    }
+  }
+  @include mobile {
+    .checkbox {
+      .label {
+        padding: 8px 14px;
+        height: 29px;
+        font-size: 10px;
+      }
+    }
+  }
 </style>

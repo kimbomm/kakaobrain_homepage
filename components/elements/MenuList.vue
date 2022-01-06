@@ -151,6 +151,9 @@
       &.gl-6{
         width:calc(calc((100vw - 20px * 11) / 10) * 9 + 20px * (9 - 1)) !important;
       }
+      .gl-1 {
+          width: calc(calc((100vw - 20px * 11) / 10) * 2 + 20px * (2 - 1)) !important;
+      }
       .gl-5{
         width:calc(calc((100vw - 20px * 11) / 10) * 7 + 20px * (7 - 1)) !important;
       }

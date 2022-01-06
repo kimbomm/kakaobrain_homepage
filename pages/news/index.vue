@@ -176,6 +176,11 @@
     }
     
     .contents{
+      &-item{
+        &:not(:last-child){
+          margin-right:5px;
+        }
+      }
       &-title{
         margin-top:157px;
       }
