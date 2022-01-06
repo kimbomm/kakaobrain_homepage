@@ -7,7 +7,7 @@
       <DetailText text="우리가 퍼블리싱한 것에 대한 설명글이 들어갑니다. 논문 리스트는 안들어갑니다.우리가 퍼블리싱한 것에 대한 설명글이 들어갑니다. 논문 리스트는 안들어갑니다.우리가 퍼블리싱한 것에 대한 설명글이 들어갑니다. 논문 리스트는 안들어갑니다. 논문을 제외한 모든 글들이 아카이빙됩니다." />
     </div>
     <!-- reference: https://github.com/paulcollett/vue-masonry-css -->
-    <masonry :cols="{default: 5, 1024: 2, 768: 1}" :gutter="{default: '20px', 768: '0px'}" class="masonry area">
+    <masonry :cols="{default: 5, 1024: 2, 768: 1}" :gutter="{default: '20px', 768: '0px'}" class="masonry">
       <ArchiveCard
         v-for="(item, index) in archiveList"
         :key="index"
@@ -81,26 +81,20 @@
     .contents-list-text{
       margin-bottom:100px;
     }
-    // .l-ml-3 {
-    //   margin-left: calc(calc((100vw - 20px * 11) / 10) * 2 + 20px * 2) !important;
-    // }
-    // .gl-5{
-    //   width:calc(calc((100vw - 20px * 11) / 10) * 6 + 20px * (6 - 1)) !important;
-    // }
   }
   @include mobile {
     .masonry {
       padding: 0;
     }
-    // .l-ml-2{
-    //   margin-left:0px !important;
-    // }
-    // .l-ml-3{
-    //   margin-left:0px !important;
-    // }
-    // .gl-6{
-    //   width:100% !important
-    // }
+    .l-ml-2{
+      margin-left:0px !important;
+    }
+    .l-ml-3{
+      margin-left:0px !important;
+    }
+    .gl-6{
+      width:100% !important
+    }
     .contents-selector{
       margin: 157px 0 20px;
     }

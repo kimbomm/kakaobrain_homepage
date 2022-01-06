@@ -35,14 +35,8 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-	.area{
-		.archive{
-			height:auto;
-			&-tit{
-				-webkit-line-clamp: unset;
-			}
-		}
-	}
+  @import '@/assets/scss/mixins.scss';
+
 	.archive{
 		position: relative;
 		display: inline-block;
@@ -64,7 +58,7 @@ export default {
 		}
 		&-tit{
 			margin-bottom:70px;
-			line-height: 31px;
+			line-height: 100%;
 			padding:20px 20px 0;
 			font-size:30px;
 			font-weight:400;
@@ -98,4 +92,58 @@ export default {
 			color:$gray-0;
 		}
 	}
+  @include pc-4k {
+	.archive{
+		&-tit{
+			margin-bottom:100px;
+			padding:30px 30px 0;
+			font-size:58px;
+		}
+		&-con{
+			.tag{
+				padding:0 30px;
+				margin-bottom:30px;
+				&-txt{
+					font-size:24px;
+				}
+			}
+		}
+	}
+  }
+  @include pc-large {
+	.archive{
+		&-tit{
+			margin-bottom:70px;
+			padding:30px 30px 0;
+			font-size:38px;
+		}
+		&-con{
+			.tag{
+				padding:0 30px;
+				margin-bottom:30px;
+				&-txt{
+					font-size:18px;
+				}
+			}
+		}
+	}
+  }
+  @include mobile {
+	.archive{
+		&-tit{
+			margin-bottom:70px;
+			padding:20px 20px 0;
+			font-size:26px;
+		}
+		&-con{
+			.tag{
+				padding:0 20px;
+				margin-bottom:20px;
+				&-txt{
+					font-size:12px;
+				}
+			}
+		}
+	}
+  }
 </style>
