@@ -6,59 +6,71 @@
     <div class="tit-text l-ml-3 gl-5">카카오브레인에서 새로운 소식을 전해드립니다.</div>
 
     <div class="contents-checkbox l-ml-3 gl-5">
-      <div class="contents-item">
-        <Checkbox
+      <ul>
+        <li class="contents-item">
+          <Checkbox
           checkboxId="checkbox_0"
           checkboxValue="a"
           checkboxText="ALL"
           :isChecked="true"
-        />
-      </div>
-      <div class="contents-item">
-        <Checkbox
+          />
+        </li>
+        <li class="contents-item">
+          <Checkbox
           checkboxId="checkbox_1" 
           checkboxValue="b"
           checkboxText="보도자료"
           :isChecked="false"
-        />
-      </div>
-      <div class="contents-item">
-        <Checkbox
+          />
+        </li>
+        <li class="contents-item">
+          <Checkbox
           checkboxId="checkbox_2" 
           checkboxValue="b"
           checkboxText="카테고리"
           :isChecked="false"
-        />
-      </div>
-      <div class="contents-item">
-        <Checkbox
+          />
+        </li>
+        <li class="contents-item">
+          <Checkbox
           checkboxId="checkbox_3" 
           checkboxValue="b"
           checkboxText="뉴스"
           :isChecked="false"
-        />
-      </div>
-      <div class="contents-item">
-        <Checkbox
+          />
+        </li>
+        <li class="contents-item">
+          <Checkbox
           checkboxId="checkbox_4" 
           checkboxValue="b"
           checkboxText="카테고리"
           :isChecked="false"
-        />
-      </div>
+          />
+        </li>
+      </ul>
     </div>
 
-    <div class="contents-list l-ml-2">
-      <MenuList
-        tit="카카오브레인, AI 주니어 육성 프로그램 1기 모집"
-        date="20211216"
-      />
-    </div>
-    <div class="contents-list l-ml-2">
-      <MenuList
-        tit="카카오브레인, AI 주니어 육성 프로그램 1기 모집"
-        date="20211216"
-      />
+    <div>
+      <ul>
+        <li class="contents-list l-ml-2">
+          <MenuList
+            tit="카카오브레인, AI 주니어 육성 프로그램 1기 모집"
+            date="20211216"
+          />
+        </li>
+        <li class="contents-list l-ml-2">
+          <MenuList
+            tit="카카오브레인, AI 주니어 육성 프로그램 1기 모집"
+            date="20211216"
+          />
+        </li>
+        <li class="contents-list l-ml-2">
+          <MenuList
+            tit="카카오브레인, AI 주니어 육성 프로그램 1기 모집"
+            date="20211216"
+          />
+        </li>
+      </ul>
     </div>
     
   </div>

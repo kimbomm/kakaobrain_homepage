@@ -15,14 +15,18 @@
       </div>
     </div>
     
-    <div class="detail-list">
-      <MonthlyList />
-    </div>
-    <div class="detail-list">
-      <MonthlyList />
-    </div>
-    <div class="detail-list">
-      <MonthlyList />
+    <div>
+      <ul>
+        <li class="detail-list">
+          <MonthlyList />
+        </li>
+        <li class="detail-list">
+          <MonthlyList />
+        </li>
+        <li class="detail-list">
+          <MonthlyList />
+        </li>
+      </ul>
     </div>
   </div>
 </template>

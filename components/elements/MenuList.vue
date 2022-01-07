@@ -182,6 +182,7 @@
         .tit{
           padding-bottom:20px; 
           font-size: 16px;
+          line-height: 130%;
         }
       }
       .tag{
