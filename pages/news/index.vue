@@ -90,12 +90,13 @@
       margin-top:320px;
     }
     &-checkbox{
-      margin-bottom:140px;
+      margin-bottom:130px;
     }
     &-item{
       display: inline-block;
       &:not(:last-child){
         margin-right:10px;
+        margin-bottom:10px;
       }
     }
     &-list{
@@ -115,7 +116,7 @@
         margin-top:600px !important;
       }
       &-checkbox{
-        margin-bottom:300px !important;
+        margin-bottom:290px !important;
       }
       &-list{
         &:not(:last-child){
@@ -135,7 +136,7 @@
         margin-top:440px;
       }
       &-checkbox{
-        margin-bottom:200px;
+        margin-bottom:190px;
       }
       &-list{
         &:not(:last-child){
@@ -155,7 +156,7 @@
         margin-top:200px;
       }
       &-checkbox{
-        margin-bottom:140px;
+        margin-bottom:130px;
       }
       &-list{
         &:not(:last-child){
@@ -185,7 +186,7 @@
         margin-top:157px;
       }
       &-checkbox{
-        margin-bottom:100px;
+        margin-bottom:90px;
       }
       &-list{
         &:not(:last-child){
