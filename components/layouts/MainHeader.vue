@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <h1 class="b-logo">
-      <nuxt-link to="/homepage">
+      <nuxt-link to="/main">
         <img
           :src="require(`@/assets/images/logo.png`)"
           alt="카카오 브레인 로고"

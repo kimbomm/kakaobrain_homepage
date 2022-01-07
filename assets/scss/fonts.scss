@@ -15,7 +15,7 @@ $font-map-NotoSansKR: (
 ) !default;
 
 $font-NotoSansKR: map-get($font-map-NotoSansKR, Bold) 700,
-  map-get($font-map-NotoSansKR, Bolder) 800,
+  map-get($font-map-NotoSansKR, Bolder) 900,
   map-get($font-map-NotoSansKR, Medium) 500,
   map-get($font-map-NotoSansKR, Regular) 400,
   map-get($font-map-NotoSansKR, Light) 300;

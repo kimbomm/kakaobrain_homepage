@@ -6,8 +6,12 @@
     <Slogan :data="sloganData1" />
     <MainFullImage />
     <Slogan :data="sloganData2" />
+    <SlotMachine />
     <Slogan :data="sloganData3" />
     <InnovationList />
+    <BrainGoal />
+    <ArchiveList />
+    <TeamBrain />
   </div>
 </template>
 <script>
@@ -16,7 +20,11 @@
   import TextFlow from '@/components/pages/main/TextFlow'
   import Slogan from '@/components/pages/main/Slogan'
   import MainFullImage from '@/components/pages/main/MainFullImage'
+  import SlotMachine from '@/components/pages/main/SlotMachine'
   import InnovationList from '@/components/pages/main/InnovationList'
+  import BrainGoal from '@/components/pages/main/BrainGoal'
+  import ArchiveList from '@/components/pages/main/ArchiveList'
+  import TeamBrain from '@/components/pages/main/TeamBrain'
   export default {
     components: {
       IssueSlider,
@@ -24,7 +32,11 @@
       TextFlow,
       Slogan,
       MainFullImage,
-      InnovationList
+      SlotMachine,
+      InnovationList,
+      BrainGoal,
+      ArchiveList,
+      TeamBrain
     },
     data() {
       return {
@@ -75,6 +87,12 @@
     }
     .innovation {
       margin-top: 100px;
+    }
+    .archive {
+      margin-top: 500px;
+    }
+    .team {
+      margin-top: 500px;
     }
   }
   @include pc-4k {
