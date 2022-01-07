@@ -4,12 +4,17 @@
       <FilterSelector />
     </div>
     <div class="contents-sticker l-ml-3 gl-5">
-      <div class="box">
-        <Sticker text="q;lwekdjfa;sdlf" sub=""></Sticker>
-      </div>
-      <div class="box">
-        <Sticker text="q;lwekdjfa;sdlf" sub=""></Sticker>
-      </div>
+      <ul>
+        <li class="item">
+          <Sticker text="q;lwekdjfa;sdlf" sub=""></Sticker>
+        </li>
+        <li class="item">
+          <Sticker text="q;lwekdjfa;sdlf" sub=""></Sticker>
+        </li>
+        <li class="item">
+          <Sticker text="q;lwekdjfa;sdlf" sub=""></Sticker>
+        </li>
+      </ul>
     </div>
 
     <div class="contents-list-text">
@@ -67,10 +72,11 @@
   }
   .contents-sticker{
     margin-bottom:60px;
-    .box{
+    .item{
       display: inline-block;
       &:not(:last-child){
         margin-right: 10px;
+        margin-bottom: 10px;
       }
     }
   }
@@ -128,6 +134,9 @@
       margin-left:0px !important;
     }
     .gl-6{
+      width:100% !important
+    }
+    .gl-5{
       width:100% !important
     }
     
