@@ -169,6 +169,12 @@
         margin-left: 0px !important;
       }
     }
+    &.l-ml-3{
+      margin-left: calc(calc((100vw - 20px * 11) / 10) * 2 + 20px * 2) !important;
+    }
+    &.gl-5{
+      width:calc(calc((100vw - 20px * 11) / 10) * 6 + 20px * (6 - 1)) !important
+    }
   }
   @include mobile {
     .tit-text{
