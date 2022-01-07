@@ -32,7 +32,7 @@
 
     <div class="hide" v-show="this.isMenu">
       <h2 class="b-logo">
-        <nuxt-link to="/homepage">
+        <nuxt-link to="/main">
           <img
             :src="require(`@/assets/images/logo-w.png`)"
             alt="카카오 브레인 로고"
@@ -288,8 +288,8 @@
       }
     }
   }
-  @media screen and (max-width:1024px) {
-    .menu{
+  @media screen and (max-width: 1024px) {
+    .menu {
       display: none;
     }
   }

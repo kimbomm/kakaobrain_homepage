@@ -6,6 +6,7 @@
     <Slogan :data="sloganData1" />
     <MainFullImage />
     <Slogan :data="sloganData2" />
+    <SlotMachine />
     <Slogan :data="sloganData3" />
     <InnovationList />
     <BrainGoal />
@@ -19,6 +20,7 @@
   import TextFlow from '@/components/pages/main/TextFlow'
   import Slogan from '@/components/pages/main/Slogan'
   import MainFullImage from '@/components/pages/main/MainFullImage'
+  import SlotMachine from '@/components/pages/main/SlotMachine'
   import InnovationList from '@/components/pages/main/InnovationList'
   import BrainGoal from '@/components/pages/main/BrainGoal'
   import ArchiveList from '@/components/pages/main/ArchiveList'
@@ -30,6 +32,7 @@
       TextFlow,
       Slogan,
       MainFullImage,
+      SlotMachine,
       InnovationList,
       BrainGoal,
       ArchiveList,

@@ -1,7 +1,7 @@
 <template>
   <header :class="classBind">
     <h1 class="b-logo">
-      <nuxt-link to="/homepage">
+      <nuxt-link to="/main">
         <img
           class="black-logo"
           :src="require(`@/assets/images/logo.png`)"

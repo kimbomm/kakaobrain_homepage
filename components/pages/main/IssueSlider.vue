@@ -4,7 +4,7 @@
       <span class="gl-2">Monthly Issue</span>
       <span class="gl-2">December@2021</span>
       <span class="gl-2">
-        <nuxt-link to="/monthly-issue">View List </nuxt-link>
+        <nuxt-link to="/monthly-issue/list">View List </nuxt-link>
       </span>
     </div>
     <div ref="issue" class="issue">
