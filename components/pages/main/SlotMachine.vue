@@ -1,14 +1,27 @@
 <template>
   <div class="machine">
-    <div class="slot-contents">
+    <div ref="slot-contents" class="slot-contents">
       <div class="slot-image">
-        <img
-          :src="require(`@/assets/images/slot/${data[0].image}.svg`)"
-          alt=""
-        />
+        <div ref="slot-image">
+          <template v-for="itemIndex in slot">
+            <img
+              :key="itemIndex"
+              :src="
+                require(`@/assets/images/slot/${data[itemIndex].image}.svg`)
+              "
+              alt=""
+            />
+          </template>
+        </div>
       </div>
       <div class="slot-text">
-        <p>{{ data[0].txt }}</p>
+        <div ref="slot-text">
+          <template v-for="itemIndex in slot">
+            <p :key="itemIndex">
+              {{ data[itemIndex].txt }}
+            </p>
+          </template>
+        </div>
       </div>
     </div>
   </div>
@@ -56,16 +69,73 @@
           { txt: '1억년 후 세상을 예측할 수 있을까?', image: 'slot_17' },
           { txt: '코로나는 언제 끝날까?', image: 'slot_18' }
         ],
+        isChanged: false,
+        activeIndex: 0,
         slot: []
       }
     },
     mounted() {
+      window.addEventListener('scroll', this.onScroll)
       this.setSlot()
     },
     methods: {
+      onScroll() {
+        const target = this.$refs['slot-contents']
+        const targetImage = this.$refs['slot-image']
+        const targetText = this.$refs['slot-text']
+
+        const targetCenter = target.offsetTop + target.offsetHeight / 2
+        if (
+          targetCenter <= window.scrollY + window.innerHeight &&
+          targetCenter >= window.scrollY + window.innerHeight * 0.75
+        ) {
+          this.isChanged = false
+          targetImage.style = `transform: translateY(0)`
+          targetText.style = `transform: translateY(0)`
+        } else if (
+          targetCenter <= window.scrollY + window.innerHeight * 0.75 &&
+          targetCenter >= window.scrollY + window.innerHeight * 0.5
+        ) {
+          this.isChanged = false
+          targetImage.style = `transform: translateY(-${
+            targetImage.offsetHeight * 0.25
+          }px)`
+          targetText.style = `transform: translateY(-${
+            targetText.offsetHeight * 0.25
+          }px)`
+        } else if (
+          targetCenter <= window.scrollY + window.innerHeight * 0.5 &&
+          targetCenter >= window.scrollY + window.innerHeight * 0.25
+        ) {
+          this.isChanged = false
+          targetImage.style = `transform: translateY(-${
+            targetImage.offsetHeight * 0.5
+          }px)`
+          targetText.style = `transform: translateY(-${
+            targetText.offsetHeight * 0.5
+          }px)`
+        } else if (
+          targetCenter <= window.scrollY + window.innerHeight * 0.25 &&
+          targetCenter >= window.scrollY + window.innerHeight * 0
+        ) {
+          this.isChanged = false
+          targetImage.style = `transform: translateY(-${
+            targetImage.offsetHeight * 0.75
+          }px)`
+          targetText.style = `transform: translateY(-${
+            targetText.offsetHeight * 0.75
+          }px)`
+        } else {
+          this.setSlot()
+        }
+      },
       setSlot() {
-        for (let i = 0; i < 4; i++) {
-          this.slot.push(this.getRandomNum())
+        if (!this.isChanged) {
+          this.slot = []
+          for (let i = 0; i < 4; i++) {
+            this.slot.push(this.getRandomNum())
+          }
+          this.isChanged = true
         }
       },
       delSlot() {
@@ -83,7 +153,14 @@
   }
 </script>
 <style lang="scss" scoped>
+  .slot-enter {
+    transform: translateY(100%);
+  }
+  .slot-leave-to {
+    transform: translateY(-100%);
+  }
   .machine {
+    background-color: $surface-2;
     padding: 0 20px;
     height: 1500px;
     display: flex;
@@ -97,21 +174,44 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    img {
+    .slot-image {
+      overflow: hidden;
+      width: 500px;
+      height: 100%;
+      border-radius: 50%;
       position: absolute;
       top: 0;
       left: 50%;
       transform: translateX(-50%);
-      height: 100%;
+      > div {
+        transition: transform 0.3s linear;
+      }
+    }
+    img {
+      display: block;
+      height: 500px;
     }
   }
   .slot-text {
     position: relative;
     z-index: 0;
+    width: 100%;
+    height: 320px;
+    overflow: hidden;
+    > div {
+      transition: transform 0.3s linear;
+    }
     p {
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-family: 'NotoSansKR';
       font-size: 160px;
       font-weight: 900;
+      transition: transform 0.3s linear;
+      height: 320px;
+      line-height: 0.9;
     }
   }
 </style>
