@@ -28,6 +28,10 @@
   @import '@/assets/scss/mixins.scss';
 
   .monthly {
+    &-list{
+      display: flex;
+      justify-content: space-around;
+    }
     &-thumbnail {
       position: relative;
       display: inline-block;
@@ -59,9 +63,7 @@
   .list-btn {
     position: relative;
     z-index: 1;
-    display: inline-block;
-    vertical-align: top;
-    text-align: right;
+    text-align: right !important;
   }
   @include tablet {
     
@@ -82,6 +84,9 @@
   @include mobile {
     
     .monthly {
+      &-list{
+        flex-direction: column;
+      }
       &-thumbnail {
         margin-bottom:10px;
         .thumbnail-data {
@@ -106,8 +111,8 @@
     .l-ml-2{
       margin-left:0px !important;
     }
-  }
-  .list-btn {
-    text-align:left;
+    .list-btn {
+      text-align:left !important;
+    }
   }
 </style>

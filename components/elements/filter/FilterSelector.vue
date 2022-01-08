@@ -34,6 +34,8 @@
   }
 </script>
 <style lang="scss" scoped>
+  @import '@/assets/scss/mixins.scss';
+
   .filter {
     .selector {
       cursor: pointer;
@@ -56,6 +58,46 @@
     &.is-active {
       .arrow {
         transform: rotate(180deg);
+      }
+    }
+  }
+  @include pc-4k {
+    .filter {
+      .text {
+        font-size: 164px !important;
+      }
+      .arrow {
+        font-size: 40px !important;
+        margin-left: 56px !important;
+      }
+    }
+  }
+  @include pc-large {
+    .filter {
+      .text {
+        font-size: 110px;
+      }
+      .arrow {
+        font-size: 20px;
+        margin-left: 36px;
+      }
+    }
+  }
+  @include tablet {
+    .filter {
+      .text {
+        font-size: 50px;
+      }
+    }
+  }
+  @include mobile {
+    .filter {
+      .text {
+        font-size:30px;
+      }
+      .arrow {
+        font-size: 10px;
+        margin-left: 20px;
       }
     }
   }

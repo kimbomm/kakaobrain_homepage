@@ -76,7 +76,7 @@
       width: 100% !important;
     }
     .l-ml-2 {
-      margin-left: 20px !important;
+      margin-left: 0px !important;
     }
   }
 
