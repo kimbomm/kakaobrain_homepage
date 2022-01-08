@@ -181,6 +181,37 @@
       }
     }
   }
+  @include pc-large {
+    $titleHeight: 122px;
+    $titleMargin: 30px;
+    .issue-slider {
+      &-info {
+        margin-bottom: 20px;
+        font-size: 22px;
+      }
+    }
+    .issue-info {
+      padding-top: $titleHeight + $titleMargin;
+    }
+    .issue-title {
+      font-size: $titleHeight;
+      height: $titleHeight;
+      margin-bottom: $titleMargin;
+    }
+    .issue-navi {
+      margin-top: 109px;
+      .buttons {
+        font-size: 22px;
+        button {
+          font-size: 22px;
+        }
+      }
+      .cur-page {
+        font-size: 66px;
+      }
+    }
+  }
+
   @include pc-4k {
     $titleHeight: 180px;
     $titleMargin: 30px;
@@ -212,36 +243,6 @@
       .cur-page {
         margin-top: 30px;
         font-size: 90px;
-      }
-    }
-  }
-  @include pc-large {
-    $titleHeight: 122px;
-    $titleMargin: 30px;
-    .issue-slider {
-      &-info {
-        margin-bottom: 20px;
-        font-size: 22px;
-      }
-    }
-    .issue-info {
-      padding-top: $titleHeight + $titleMargin;
-    }
-    .issue-title {
-      font-size: $titleHeight;
-      height: $titleHeight;
-      margin-bottom: $titleMargin;
-    }
-    .issue-navi {
-      margin-top: 109px;
-      .buttons {
-        font-size: 22px;
-        button {
-          font-size: 22px;
-        }
-      }
-      .cur-page {
-        font-size: 66px;
       }
     }
   }
