@@ -81,6 +81,7 @@
   }
 </script>
 <style lang="scss" scoped>
+  @import '/assets/scss/mixins.scss';
   .fade {
     display: inline-block;
     transition: all 0.2s ease-out;
@@ -137,12 +138,13 @@
     &-thumbnail {
       position: relative;
       padding-top: calc(100% / 3 * 2);
+      overflow: hidden;
       img {
         position: absolute;
         max-width: 100%;
-        max-height: 100%;
+        // max-height: 100%;
         width: 100%;
-        height: 100%;
+        // height: 100%;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
@@ -177,6 +179,171 @@
           left: -3px;
         }
       }
+    }
+  }
+  @include pc-4k {
+    $titleHeight: 180px;
+    $titleMargin: 30px;
+    .issue-slider {
+      &-info {
+        margin-bottom: 60px;
+        font-size: 34px;
+      }
+    }
+    .issue-info {
+      padding-top: $titleHeight + $titleMargin;
+    }
+    .issue-title {
+      font-size: $titleHeight;
+      height: $titleHeight;
+      margin-bottom: $titleMargin;
+    }
+    .issue-thumbnail {
+      padding-top: 2010px;
+    }
+    .issue-navi {
+      margin-top: 150px;
+      .buttons {
+        font-size: 34px;
+        button {
+          font-size: 34px;
+        }
+      }
+      .cur-page {
+        margin-top: 30px;
+        font-size: 90px;
+      }
+    }
+  }
+  @include pc-large {
+    $titleHeight: 122px;
+    $titleMargin: 30px;
+    .issue-slider {
+      &-info {
+        margin-bottom: 20px;
+        font-size: 22px;
+      }
+    }
+    .issue-info {
+      padding-top: $titleHeight + $titleMargin;
+    }
+    .issue-title {
+      font-size: $titleHeight;
+      height: $titleHeight;
+      margin-bottom: $titleMargin;
+    }
+    .issue-navi {
+      margin-top: 109px;
+      .buttons {
+        font-size: 22px;
+        button {
+          font-size: 22px;
+        }
+      }
+      .cur-page {
+        font-size: 66px;
+      }
+    }
+  }
+
+  @include tablet {
+    $titleHeight: 70px;
+    $titleMargin: 20px;
+    .issue-slider {
+      &-info {
+        margin-bottom: 50px;
+        font-size: 16px;
+      }
+    }
+    .issue-info {
+      padding-top: $titleHeight + $titleMargin;
+    }
+    .issue-title {
+      font-size: $titleHeight;
+      height: $titleHeight;
+      margin-bottom: $titleMargin;
+    }
+    .issue-navi {
+      margin-top: 100px;
+      .buttons {
+        font-size: 20px;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        button {
+          font-size: 36px;
+        }
+        .next {
+          order: 2;
+        }
+        .number {
+          order: 3;
+          flex: 0 0 100%;
+          text-align: center;
+          margin-top: 10px;
+        }
+      }
+      .cur-page {
+        margin-top: 50px;
+        font-size: 28px;
+      }
+    }
+  }
+  @include mobile {
+    .issue-slider {
+      padding-left: 0;
+      &-info {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        font-size: 12px;
+        &.l-ml-2 {
+          margin: 0 0 20px !important;
+        }
+        > span:nth-child(1) {
+          display: block;
+          flex: 0 0 100%;
+          margin-bottom: 20px;
+          margin-right: 0;
+        }
+      }
+    }
+    .issue {
+      display: block;
+      > .gl-8 {
+        width: 100% !important;
+      }
+    }
+    .issue-title {
+      font-size: 40px;
+      height: auto;
+      margin-bottom: 10px;
+    }
+    .issue-thumbnail {
+      padding-top: 0;
+      margin-bottom: 10px;
+      img {
+        position: static;
+        transform: translate(0, 0);
+        display: block;
+        width: 100%;
+      }
+    }
+    .issue-info {
+      padding-top: 0;
+      margin: 0;
+      text-align: left;
+      &.gl-1 {
+        width: 100% !important;
+      }
+      .sticker {
+        margin: {
+          right: 4px;
+          bottom: 6px;
+        }
+      }
+    }
+    .issue-navi {
+      display: none;
     }
   }
 </style>
