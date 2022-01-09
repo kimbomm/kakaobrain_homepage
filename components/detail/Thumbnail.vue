@@ -34,6 +34,7 @@
   .monthly {
     .detail {
       &-thumbnail {
+        margin-bottom:60px;
         img {
           width: 100%;
         }
@@ -41,7 +42,43 @@
     }
   }
 
+  @include pc-4k {
+    .monthly {
+      .detail {
+        &-thumbnail {
+          margin-bottom:145px !important;
+        }
+      }
+    }
+  }
+  @include pc-large {
+    .monthly {
+      .detail {
+        &-thumbnail {
+          margin-bottom:100px;
+        }
+      }
+    }
+  }
+  
+  @include tablet {
+    .monthly {
+      .detail {
+        &-thumbnail {
+          margin-bottom:100px;
+        }
+      }
+    }
+  }
   @include mobile {
+    .monthly {
+      .detail {
+        &-thumbnail {
+          margin-bottom:60px;
+        }
+      }
+    }
+    
     .gl-9 {
       width: 100% !important;
     }

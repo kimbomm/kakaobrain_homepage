@@ -51,6 +51,9 @@
       <DetailTextTitle text="Published" />
       <DetailText text="2021.02.02 " />
     </div>
+    <div>
+      <Like />
+    </div>
   </div>
 </template>
 <script>
@@ -62,6 +65,7 @@
   import DetailFullImg from '@/components/detail/DetailFullImg'
   import DetailTextItem from '@/components/detail/DetailTextItem'
   import DetailTextTitle from '@/components/detail/DetailTextTitle'
+  import Like from '@/components/elements/Like'
   export default {
     name: 'index',
     components: {
@@ -72,38 +76,52 @@
       DetailSubTitle,
       DetailFullImg,
       DetailTextItem,
-      DetailTextTitle
+      DetailTextTitle,
+      Like
     }
   }
 </script>
 <style lang="scss" scoped>
+  @import '@/assets/scss/mixins.scss';
+
   .monthly {
     &-detail {
       .con-tit {
-        margin-bottom: 400px;
+        margin-bottom: 200px;
       }
       .con-text {
         &:not(:last-child) {
-          margin-bottom: 250px;
+          margin-bottom: 150px;
         }
         .item {
-          margin-top: 256px;
+          margin-top: 100px;
         }
       }
     }
   }
-  @media screen and (max-width: 3840px) {
+
+  .like{
+    display: none;
+  }
+  @include pc-4k {
     .monthly {
       &-detail {
+        .con-tit {
+          margin-bottom: 400px !important;
+        }
         .con-text {
+          &:not(:last-child) {
+            margin-bottom: 250px !important;
+          }
           .item {
-            margin-top: 160px;
+            margin-top: 256px !important;
           }
         }
       }
     }
   }
-  @media screen and (max-width: 2560px) {
+ 
+  @include pc-large {
     .monthly {
       &-detail {
         .con-tit {
@@ -120,18 +138,39 @@
       }
     }
   }
-  @media screen and (max-width: 1920px) {
+  @include tablet {
     .monthly {
       &-detail {
-        .con-tit {
-          margin-bottom: 200px;
-        }
         .con-text {
           &:not(:last-child) {
-            margin-bottom: 150px;
+            margin-bottom: 100px;
+          }
+          .item {
+            margin-top: 80px;
           }
         }
       }
     }
+  }
+  @include mobile {
+    .monthly {
+      &-detail {
+        .con-tit {
+          margin-bottom: 140px;
+        }
+        .con-text {
+          &:not(:last-child) {
+            margin-bottom: 100px;
+          }
+          .item {
+            margin-top: 60px;
+          }
+        }
+      }
+    }
+  }
+  
+  .like{
+    display: block;
   }
 </style>

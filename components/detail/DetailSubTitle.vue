@@ -1,5 +1,5 @@
 <template>
-  <div :class="`monthly ${ml}`">
+  <div :class="`monthly l-ml-3`">
     <div class="detail gl-5">
       <div class="detail-subTit">{{ text }}</div>
     </div>
@@ -86,7 +86,7 @@
       width: 100% !important;
     }
     .l-ml-3 {
-      margin: 0 20px !important;
+      margin-left: 0px !important;
     }
   }
 

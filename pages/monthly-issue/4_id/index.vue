@@ -20,9 +20,15 @@
   }
 </script>
 <style lang="scss" scoped>
-// .story-telling{
-//   .like{
+  @import '@/assets/scss/mixins.scss';
 
-//   }
-// }
+  .like{
+    display: none;
+  }
+  @include mobile {
+    .like{
+      display: block;
+      margin-top:62px;
+    }
+  }
 </style>

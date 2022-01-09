@@ -64,12 +64,12 @@
                 </li>
                 <li>
                   <nuxt-link to="/monthly-issue/3_id" class="link"
-                    >상세페이지 가기_3</nuxt-link
+                    >상세페이지 가기_논문</nuxt-link
                   >
                 </li>
                 <li>
                   <nuxt-link to="/monthly-issue/4_id" class="link"
-                    >상세페이지 가기_4</nuxt-link
+                    >상세페이지 가기_storytelling</nuxt-link
                   >
                 </li>
               </ul>

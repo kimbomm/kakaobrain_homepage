@@ -44,8 +44,22 @@
       }
     }
   }
-
+  @include tablet {
+    .detail {
+      &-subTit {
+        font-size: 32px;
+      }
+    }
+    .l-ml-3{
+      margin-left: calc(calc((100vw - 20px * 11) / 10) * 2 + 20px * 2) !important;
+    }
+  }
   @include mobile {
+    .detail {
+      &-subTit {
+        font-size: 26px;
+      }
+    }
     .gl-5 {
       width: 100% !important;
     }
