@@ -106,10 +106,6 @@
         width:20px;
         height:20px;
       }
-
-      .l-ml-2 {
-        margin-left: calc(calc((100vw - 20px * 11) / 10) * 3 + 20px * 3) !important;
-      }
     }
   }
   @include mobile {
