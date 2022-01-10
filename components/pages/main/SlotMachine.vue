@@ -153,6 +153,7 @@
   }
 </script>
 <style lang="scss" scoped>
+  @import '/assets/scss/mixins.scss';
   .slot-enter {
     transform: translateY(100%);
   }
@@ -212,6 +213,79 @@
       transition: transform 0.3s linear;
       height: 320px;
       line-height: 0.9;
+    }
+  }
+
+  @include pc-large {
+    .machine {
+      height: 2000px;
+    }
+    .slot-contents {
+      height: 600px;
+      img {
+        height: 600px;
+      }
+      .slot-image {
+        width: 600px;
+      }
+    }
+    .slot-text {
+      font-size: 210px;
+      height: cacl(210px * 2);
+    }
+  }
+  @include pc-4k {
+    .machine {
+      height: 3000px;
+    }
+    .slot-contents {
+      height: 900px;
+      img {
+        height: 900px;
+      }
+      .slot-image {
+        width: 900px;
+      }
+    }
+    .slot-text {
+      font-size: 320px;
+      height: cacl(320px * 2);
+    }
+  }
+  @include tablet {
+    .machine {
+      height: 700px;
+    }
+    .slot-contents {
+      height: 300px;
+      img {
+        height: 300px;
+      }
+      .slot-image {
+        width: 300px;
+      }
+    }
+    .slot-text {
+      font-size: 90px;
+      height: cacl(90px * 2);
+    }
+  }
+  @include mobile {
+    .machine {
+      height: 460px;
+    }
+    .slot-contents {
+      height: 140px;
+      img {
+        height: 140px;
+      }
+      .slot-image {
+        width: 140px;
+      }
+    }
+    .slot-text {
+      font-size: 28px;
+      height: cacl(28px * 2);
     }
   }
 </style>
