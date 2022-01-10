@@ -74,6 +74,8 @@
   }
 </script>
 <style lang="scss" scoped>
+  @import '/assets/scss/functions.scss';
+  @import '/assets/scss/mixins.scss';
   .slideInRight-enter,
   .slideInRight-leave-to {
     opacity: 0;
@@ -94,18 +96,171 @@
     }
     &-list {
       overflow-x: auto;
-      white-space: nowrap;
       transition: all 0.3s linear;
       width: 100%;
+      display: flex;
+      flex-wrap: nowrap;
       -ms-overflow-style: none; /* IE and Edge */
       scrollbar-width: none; /* Firefox */
       &::-webkit-scrollbar {
         display: none; /* Chrome, Safari, Opera*/
       }
       li {
-        display: inline-block;
-        white-space: initial;
         margin-right: 100px;
+        flex: 0 0 getWidth(3);
+        .Innovation {
+          max-width: none;
+          min-width: none;
+          height: 640px;
+          width: 100%;
+        }
+      }
+    }
+  }
+  @include pc-large {
+    .innovation {
+      height: 2000px;
+    }
+    .innovation-list {
+      li {
+        .Innovation {
+          height: 862px;
+          /deep/ {
+            .Innovation-tit {
+              font-size: 56px;
+              height: calc(56px * 0.9 * 8);
+            }
+            .item {
+              margin-bottom: 30px;
+              &:nth-child(2) {
+                margin-bottom: 64px;
+              }
+              &-mark {
+                font-size: 50px;
+              }
+              &-txt {
+                font-size: 16px;
+              }
+            }
+            .tag {
+              &-txt {
+                font-size: 14px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  @include pc-4k {
+    .innovation {
+      height: 3000px;
+    }
+    .innovation-list {
+      li {
+        .Innovation {
+          height: 1300px;
+          /deep/ {
+            .Innovation-tit {
+              font-size: 84px;
+              height: calc(84px * 0.9 * 8);
+            }
+            .item {
+              margin-bottom: 70px;
+              &:nth-child(2) {
+                margin-bottom: 129px;
+              }
+              &-mark {
+                font-size: 100px;
+              }
+              &-txt {
+                font-size: 34px;
+              }
+            }
+            .tag {
+              &-txt {
+                font-size: 24px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  @include tablet {
+    .innovation {
+      height: 1000px;
+    }
+    .innovation-list {
+      li {
+        flex: 0 0 getWidth(4);
+        .Innovation {
+          height: 550px;
+          /deep/ {
+            .Innovation-tit {
+              font-size: 30px;
+              height: calc(30px * 0.9 * 8);
+            }
+            .item {
+              margin-bottom: 20px;
+              &:nth-child(2) {
+                margin-bottom: 66px;
+              }
+              &-mark {
+                font-size: 40px;
+              }
+              &-txt {
+                font-size: 14px;
+              }
+            }
+            .tag {
+              &-txt {
+                font-size: 12px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  @include mobile {
+    .innovation {
+      height: 570px;
+      margin-left: 0;
+      width: 100%;
+    }
+    .innovation-list {
+      padding: 0 20px !important;
+      li {
+        flex: 0 0 300px;
+        margin-right: 20px;
+        .Innovation {
+          height: 470px;
+          /deep/ {
+            .Innovation-tit {
+              font-size: 26px;
+              height: calc(26px * 0.9 * 8);
+              margin-bottom: 20px;
+            }
+            .item {
+              margin-bottom: 20px;
+              &:nth-child(2) {
+                margin-bottom: 24px;
+              }
+              &-mark {
+                font-size: 40px;
+              }
+              &-txt {
+                font-size: 14px;
+              }
+            }
+            .tag {
+              &-txt {
+                font-size: 12px;
+              }
+            }
+          }
+        }
       }
     }
   }

@@ -54,6 +54,8 @@
   }
 </script>
 <style lang="scss" scoped>
+  @import '/assets/scss/functions.scss';
+  @import '/assets/scss/mixins.scss';
   .team {
     padding: 0 20px;
     &-title {
@@ -112,6 +114,133 @@
       }
       &:disabled {
         background-color: $surface-2;
+      }
+    }
+  }
+  @include pc-large {
+    .team {
+      &-title {
+        font-size: 22px;
+      }
+      &-content {
+        > div {
+          &:first-child {
+            p {
+              font-size: 95px;
+            }
+            .team-number {
+              font-size: 356px;
+            }
+          }
+        }
+      }
+      &-members {
+        margin-top: 300px;
+        ul li {
+          padding: 0 30px 30px 0;
+        }
+      }
+      .more {
+        width: 182px;
+        height: 182px;
+      }
+    }
+  }
+  @include pc-4k {
+    .team {
+      &-title {
+        margin-bottom: 200px;
+        font-size: 34px;
+      }
+      &-content {
+        margin-top: 40px;
+        > div {
+          &:first-child {
+            p {
+              font-size: 145px;
+            }
+            .team-number {
+              font-size: 526px;
+            }
+          }
+        }
+      }
+      &-members {
+        margin-top: 395px;
+      }
+      .more {
+        width: 267px;
+        height: 267px;
+      }
+    }
+  }
+  @include tablet {
+    .team {
+      &-title {
+        font-size: 16px;
+      }
+      &-content {
+        margin-top: 40px;
+        > div {
+          &:first-child {
+            p {
+              font-size: 42px;
+            }
+            .team-number {
+              font-size: 140px;
+            }
+          }
+        }
+      }
+      &-members {
+        margin-top: 140px;
+        ul li {
+          padding: 0 10px 10px 0;
+        }
+      }
+      .more {
+        width: 84px;
+        height: 84px;
+      }
+    }
+  }
+  @include mobile {
+    .team {
+      padding: 0;
+      &-title {
+        width: 100% !important;
+        margin-left: 0 !important;
+        padding: 0 20px;
+        margin-bottom: 40px;
+        font-size: 12px;
+      }
+      &-content {
+        margin-top: 40px;
+        > div {
+          &:first-child {
+            display: block;
+            br {
+              display: none;
+            }
+            p {
+              font-size: 26px;
+            }
+            .team-number {
+              display: block;
+              width: 100%;
+              margin-top: 20px;
+              text-align: right;
+              font-size: 140px;
+            }
+          }
+        }
+      }
+      &-members {
+        margin-top: 107px;
+      }
+      .more {
+        width: 38px;
+        height: 38px;
       }
     }
   }

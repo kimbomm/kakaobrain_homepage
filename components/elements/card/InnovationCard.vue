@@ -59,7 +59,7 @@
         margin-bottom: 50px;
         -webkit-line-clamp: unset;
       }
-      
+
       .item {
         margin-bottom: 20px;
         &:nth-child(2) {
@@ -86,23 +86,24 @@
       margin-right: 100px;
     }
     &-inner {
-      display: flex;
+      // display: flex;
       height: 100%;
-      flex-direction: column;
-      justify-content: space-between;
+      // flex-direction: column;
+      // justify-content: space-between;
       word-break: break-all;
     }
     &-tit {
-      margin-bottom:110px;
-      line-height:90%;
+      margin-bottom: 110px;
+      line-height: 90%;
       font-size: 30px;
+      height: calc(30px * 0.9 * 8);
       font-weight: 400;
       word-break: break-all;
       overflow: hidden;
       text-overflow: ellipsis;
       display: -webkit-box;
-        -webkit-line-clamp: 8;
-        -webkit-box-orient: vertical;
+      -webkit-line-clamp: 8;
+      -webkit-box-orient: vertical;
     }
 
     .item {
@@ -147,14 +148,14 @@
           font-size: 58px;
           margin-bottom: 100px;
         }
-        
+
         .item {
           margin-bottom: 30px;
           &:nth-child(2) {
             margin-bottom: 100px;
           }
           &-mark {
-            font-size:64px;
+            font-size: 64px;
           }
           &-txt {
             font-size: 28px;
@@ -177,7 +178,7 @@
         }
         .item {
           &-mark {
-            font-size:50px;
+            font-size: 50px;
           }
           &-txt {
             font-size: 20px;
@@ -203,7 +204,7 @@
             margin-bottom: 24px;
           }
           &-mark {
-            font-size:40px;
+            font-size: 40px;
           }
           &-txt {
             font-size: 14px;

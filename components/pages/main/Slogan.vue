@@ -62,7 +62,9 @@
         font-size: 22px;
       }
       &-text {
-        font-size: 160px;
+        span {
+          font-size: 160px;
+        }
       }
       &-desp {
         font-size: 26px;
@@ -76,8 +78,10 @@
         margin-bottom: 200px;
       }
       &-text {
-        font-size: 242px;
         margin-bottom: 70px;
+        span {
+          font-size: 242px;
+        }
       }
       &-desp {
         font-size: 38px;
@@ -90,7 +94,9 @@
       &-title {
       }
       &-text {
-        font-size: 60px;
+        span {
+          font-size: 60px;
+        }
       }
       &-desp {
       }
@@ -105,8 +111,10 @@
         margin-bottom: 40px;
       }
       &-text {
-        font-size: 38px;
         margin-bottom: 20px;
+        span {
+          font-size: 38px;
+        }
       }
       &-desp {
         font-size: 14px;

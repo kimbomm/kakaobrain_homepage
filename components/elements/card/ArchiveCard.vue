@@ -97,24 +97,6 @@
       color: $gray-0;
     }
   }
-  @include pc-4k {
-    .archive {
-      &-tit {
-        margin-bottom: 100px;
-        padding: 30px 30px 0;
-        font-size: 58px;
-      }
-      &-con {
-        .tag {
-          padding: 0 30px;
-          margin-bottom: 30px;
-          &-txt {
-            font-size: 24px;
-          }
-        }
-      }
-    }
-  }
   @include pc-large {
     .archive {
       &-tit {
@@ -128,6 +110,24 @@
           margin-bottom: 30px;
           &-txt {
             font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+  @include pc-4k {
+    .archive {
+      &-tit {
+        margin-bottom: 100px;
+        padding: 30px 30px 0;
+        font-size: 58px;
+      }
+      &-con {
+        .tag {
+          padding: 0 30px;
+          margin-bottom: 30px;
+          &-txt {
+            font-size: 24px;
           }
         }
       }

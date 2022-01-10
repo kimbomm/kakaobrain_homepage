@@ -230,8 +230,11 @@
       }
     }
     .slot-text {
-      font-size: 210px;
-      height: cacl(210px * 2);
+      height: calc(210px * 2);
+      p {
+        font-size: 210px;
+        height: calc(210px * 2);
+      }
     }
   }
   @include pc-4k {
@@ -248,8 +251,11 @@
       }
     }
     .slot-text {
-      font-size: 320px;
-      height: cacl(320px * 2);
+      height: calc(320px * 2);
+      p {
+        font-size: 320px;
+        height: calc(320px * 2);
+      }
     }
   }
   @include tablet {
@@ -266,8 +272,11 @@
       }
     }
     .slot-text {
-      font-size: 90px;
-      height: cacl(90px * 2);
+      height: calc(90px * 2);
+      p {
+        font-size: 90px;
+        height: calc(90px * 2);
+      }
     }
   }
   @include mobile {
@@ -285,8 +294,11 @@
       }
     }
     .slot-text {
-      font-size: 28px;
-      height: cacl(28px * 2);
+      height: calc(28px * 2);
+      p {
+        font-size: 28px;
+        height: calc(28px * 2);
+      }
     }
   }
 </style>

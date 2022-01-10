@@ -1,9 +1,10 @@
+\
 <template>
   <div class="archive">
     <div class="gl-8 l-ml-2">
       <span>Archive@kakaobrain</span>
       <span></span>
-      <nuxt-link to="/archive"><span>View List </span></nuxt-link>
+      <nuxt-link to="/archive"><span>View List </span><span></span></nuxt-link>
     </div>
     <ul class="archive-list">
       <li v-for="(item, index) in getRecentList" :key="index" class="gl-2">
@@ -31,15 +32,16 @@
   }
 </script>
 <style lang="scss" scoped>
+  @import '/assets/scss/functions.scss';
+  @import '/assets/scss/mixins.scss';
   .archive {
     padding: 0 20px;
     > div {
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
-      span {
+      > span {
         flex: 0;
-        font-size: 40px;
         &:nth-child(2) {
           height: 1px;
           background-color: #000;
@@ -47,11 +49,101 @@
           margin: 0 20px;
         }
       }
+      span {
+        font-size: 40px;
+        font-weight: 300;
+      }
     }
     &-list {
       margin-top: 100px;
       display: flex;
       justify-content: space-between;
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+      &::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera*/
+      }
+      .archive {
+        width: 100%;
+        max-width: none;
+        min-width: initial;
+        flex: 0 0 100%;
+      }
+    }
+  }
+  @include pc-large {
+    .archive {
+      > div {
+        span {
+          font-size: 52px;
+        }
+      }
+      &-list {
+        margin-top: 100px;
+      }
+    }
+  }
+  @include pc-4k {
+    .archive {
+      > div {
+        span {
+          font-size: 74px;
+        }
+      }
+      &-list {
+        margin-top: 200px;
+      }
+    }
+  }
+  @include tablet {
+    .archive {
+      padding: 0;
+      > div {
+        span {
+          font-size: 30px;
+        }
+      }
+      &-list {
+        padding-left: getMargin(2);
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        li {
+          flex: 0 0 getWidth(3);
+          margin-right: 20px;
+        }
+      }
+    }
+  }
+  @include mobile {
+    .archive {
+      padding: 0;
+      > div {
+        width: 100% !important;
+        margin-left: 0 !important;
+        a {
+          span {
+            font-size: 20px;
+            &:nth-child(1) {
+              display: none;
+            }
+          }
+        }
+        > span {
+          font-size: 20px;
+          &:nth-child(2) {
+            display: none;
+          }
+        }
+      }
+      &-list {
+        margin-top: 40px;
+        padding-left: 0;
+        li {
+          flex: 0 0 300px;
+          margin-right: 20px;
+        }
+      }
     }
   }
 </style>

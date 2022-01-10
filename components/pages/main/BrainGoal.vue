@@ -22,6 +22,8 @@
   }
 </script>
 <style lang="scss" scoped>
+  @import '/assets/scss/functions.scss';
+  @import '/assets/scss/mixins.scss';
   .goal {
     height: 1500px;
     background-color: #000;
@@ -76,6 +78,99 @@
         font-size: 30px;
         line-height: 1.3;
         color: #fff;
+      }
+    }
+  }
+  @include pc-large {
+    .goal {
+      height: 2000px;
+      &-title {
+        font-size: 146px;
+      }
+      &-desp {
+        p {
+          font-size: 40px;
+        }
+      }
+    }
+  }
+  @include pc-4k {
+    .goal {
+      height: 3000px;
+      > div {
+        position: relative;
+        &:before {
+          width: 500px;
+          height: 500px;
+        }
+        &:after {
+          width: 500px;
+          height: 500px;
+        }
+      }
+      &-title {
+        font-size: 216px;
+      }
+      &-desp {
+        margin-top: 200px;
+        p {
+          font-size: 62px;
+        }
+      }
+    }
+  }
+  @include tablet {
+    .goal {
+      height: 1000px;
+      > div {
+        position: relative;
+        &:before {
+          width: 160px;
+          height: 160px;
+        }
+        &:after {
+          width: 160px;
+          height: 160px;
+        }
+      }
+      &-title {
+        font-size: 60px;
+      }
+      &-desp {
+        margin-top: 60px;
+        p {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+  @include mobile {
+    .goal {
+      height: 670px;
+      > div {
+        position: relative;
+        &:before {
+          width: 118px;
+          height: 118px;
+          transform: translate(0, -120%);
+        }
+        &:after {
+          width: 118px;
+          height: 118px;
+          transform: translate(-100%, -120%);
+        }
+      }
+      &-title {
+        font-size: 30px;
+      }
+      &-desp {
+        margin-top: 20px;
+        p {
+          font-size: 14px;
+        }
+        br {
+          display: none;
+        }
       }
     }
   }

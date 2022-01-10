@@ -46,6 +46,8 @@
   }
 </script>
 <style lang="scss" scoped>
+  @import '/assets/scss/functions.scss';
+  @import '/assets/scss/mixins.scss';
   .member {
     display: inline-flex;
     align-items: center;
@@ -70,6 +72,9 @@
       position: absolute;
       transform: scale(0.2) translate(0, 0);
       transition: transform 0.3s linear;
+      img {
+        width: 100%;
+      }
     }
     &-over {
       position: absolute;
@@ -78,6 +83,45 @@
       width: 100%;
       height: 100%;
       z-index: 2;
+    }
+  }
+  @include pc-4k {
+    .member {
+      padding: 40px 80px;
+      height: 267px;
+      &-name {
+        font-size: 144px;
+      }
+      &-profile {
+        width: 400px;
+        height: 400px;
+      }
+    }
+  }
+  @include tablet {
+    .member {
+      padding: 16px 30px;
+      height: 76px;
+      &-name {
+        font-size: 34px;
+      }
+      &-profile {
+        width: 140px;
+        height: 140px;
+      }
+    }
+  }
+  @include mobile {
+    .member {
+      padding: 9px 16px 8px;
+      height: 38px;
+      &-name {
+        font-size: 16px;
+      }
+      &-profile {
+        width: 56px;
+        height: 56px;
+      }
     }
   }
 </style>
