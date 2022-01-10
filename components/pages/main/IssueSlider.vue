@@ -47,6 +47,7 @@
   </div>
 </template>
 <script>
+  import { mapState, mapActions } from 'vuex'
   import Sticker from '@/components/elements/button/Sticker'
   export default {
     components: {
@@ -54,8 +55,23 @@
     },
     data() {
       return {
-        isShow: false
+        isShow: false,
+        paging: {
+          offset: 0,
+          limit: 20,
+          contentType: 'All', // ALL, ARTICLE, STORY, THESIS
+          targetLAng: 'ALL', // ALL, KR, EN
+          filter: '' // 검색어
+        }
       }
+    },
+    computed: {
+      ...mapState({
+        issueList: state => state.issue.list
+      })
+    },
+    created() {
+      // this.getIssueList(this.paging)
     },
     mounted() {
       this.isShow = true
@@ -65,6 +81,9 @@
       window.removeEventListener('scroll', this.onScroll)
     },
     methods: {
+      ...mapActions({
+        getIssueList: 'issue/getIssueList'
+      }),
       onScroll() {
         const navi = this.$refs['issue-navi']
         const issue = this.$refs['issue']
