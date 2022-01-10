@@ -26,10 +26,10 @@
       </div>
     </div>
     <div class="article-list">
-      <Content :order="0" :grid="3" />
+      <Content :order="0" :grid="4" />
       <Content :order="1" :grid="4" />
       <Content :order="2" :grid="5" />
-      <Content :order="3" :grid="3" />
+      <Content :order="3" :grid="4" />
       <Content :order="2" :grid="6" />
       <Content :order="0" :grid="4" />
     </div>
@@ -73,6 +73,7 @@
   }
 </script>
 <style lang="scss" scoped>
+  @import '/assets/scss/mixins.scss';
   @keyframes ani-left {
     from {
       transform: translateX(100vw);
@@ -144,6 +145,63 @@
     z-index: 1;
     .article {
       margin-top: 370px;
+    }
+  }
+  @include pc-large {
+    .flow-txt {
+      font-size: 230px;
+      .easter-egg {
+        flex: 0 0 240px;
+      }
+    }
+    .easter-egg {
+      width: 240px;
+      height: 240px;
+    }
+  }
+  @include pc-4k {
+    .flow-txt {
+      font-size: 270px;
+      .easter-egg {
+        flex: 0 0 300px;
+      }
+    }
+    .easter-egg {
+      width: 300px;
+      height: 300px;
+    }
+  }
+  @include tablet {
+    .flow-txt {
+      font-size: 120px;
+      .easter-egg {
+        flex: 0 0 126px;
+      }
+    }
+    .easter-egg {
+      width: 126px;
+      height: 126px;
+    }
+  }
+  @include mobile {
+    .flow-txt {
+      font-size: 50px;
+      .easter-egg {
+        flex: 0 0 60px;
+      }
+    }
+    .easter-egg {
+      width: 60px;
+      height: 60px;
+    }
+    .article-list {
+      padding: 0;
+      .article {
+        margin-top: 70px;
+        &[class*='l-ml'] {
+          margin-left: 0 !important;
+        }
+      }
     }
   }
 </style>

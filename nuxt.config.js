@@ -13,6 +13,16 @@ export default {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
+  axios: {
+    credentials: true,
+    baseURL: 'https://kakaobrain.loadingworks.com/admin/v1'
+    // proxy: true,
+    // headers: {
+    //   common: {
+    //     'X-Requested-With': 'XMLHttpRequest'
+    //   }
+    // }
+  },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   // css: [
@@ -38,7 +48,7 @@ export default {
   buildModules: ['@nuxtjs/style-resources'],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
+  modules: ['@nuxtjs/axios'],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},

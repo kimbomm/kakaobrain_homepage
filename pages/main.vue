@@ -85,6 +85,9 @@
     .full-image {
       margin-top: 100px;
     }
+    .machine {
+      margin-top: 100px;
+    }
     .innovation {
       margin-top: 100px;
     }

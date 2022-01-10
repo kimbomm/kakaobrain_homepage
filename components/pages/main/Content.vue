@@ -59,6 +59,7 @@
   }
 </script>
 <style lang="scss" scoped>
+  @import '/assets/scss/mixins.scss';
   .date {
     display: flex;
     margin-bottom: 10px;
@@ -80,6 +81,15 @@
   .title {
     display: flex;
     justify-content: space-between;
+    font-size: 18px;
+    line-height: 1.3;
+    span:nth-child(1) {
+      display: inline-block;
+      flex: 0 0 calc(100% - 50px);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
   }
   .tags {
     text-align: right;
@@ -89,6 +99,64 @@
       &:first-child {
         margin-top: 0;
       }
+    }
+  }
+
+  @include pc-large {
+    .date span {
+      font-size: 16px;
+    }
+    .title {
+      font-size: 24px;
+    }
+  }
+  @include pc-4k {
+    .date span {
+      font-size: 24px;
+    }
+    .title {
+      font-size: 34px;
+    }
+  }
+  @include tablet {
+    .date span {
+      font-size: 12px;
+    }
+    .title {
+      font-size: 18px;
+    }
+  }
+  @include mobile {
+    .article {
+      margin-top: 70px;
+      [class*='gl-'] {
+        width: 100% !important;
+      }
+    }
+    .article-content {
+      display: block;
+    }
+    .tags {
+      margin-top: 17px;
+      text-align: left;
+      .btn {
+        margin-right: 4px;
+        margin-top: 6px;
+        &:first-child {
+          margin-top: inherit;
+        }
+      }
+    }
+    .date {
+      display: flex;
+      justify-content: space-between;
+      span {
+        margin-right: 0;
+        font-size: 12px;
+      }
+    }
+    .title {
+      font-size: 16px;
     }
   }
 </style>
