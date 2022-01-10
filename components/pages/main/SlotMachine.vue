@@ -272,6 +272,7 @@
   }
   @include mobile {
     .machine {
+      padding: 0;
       height: 460px;
     }
     .slot-contents {
