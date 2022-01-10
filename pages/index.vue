@@ -38,7 +38,7 @@
                   >
                 </li>
                 <li>
-                  <nuxt-link to="/monthly-issue/list" class="link"
+                  <nuxt-link to="/monthly-issue" class="link"
                     >monthly 리스트 화면</nuxt-link
                   >
                 </li>
