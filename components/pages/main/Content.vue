@@ -127,6 +127,26 @@
     }
   }
   @include mobile {
+    .article {
+      margin-top: 70px;
+      [class*='gl-'] {
+        width: 100% !important;
+      }
+    }
+    .article-content {
+      display: block;
+    }
+    .tags {
+      margin-top: 17px;
+      text-align: left;
+      .btn {
+        margin-right: 4px;
+        margin-top: 6px;
+        &:first-child {
+          margin-top: inherit;
+        }
+      }
+    }
     .date {
       display: flex;
       justify-content: space-between;

@@ -194,5 +194,14 @@
       width: 60px;
       height: 60px;
     }
+    .article-list {
+      padding: 0;
+      .article {
+        margin-top: 70px;
+        &[class*='l-ml'] {
+          margin-left: 0 !important;
+        }
+      }
+    }
   }
 </style>
