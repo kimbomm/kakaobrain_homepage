@@ -1,0 +1,12 @@
+@function getWidth($gridNumber) {
+  $returnWidth: 0;
+  $returnWidth: calc(
+    #{$grid} * #{$gridNumber} + #{$gutter} * (#{$gridNumber} - 1)
+  );
+  @return $returnWidth;
+}
+@function getMargin($gridNumber) {
+  $returnMargin: 0;
+  $returnMargin: calc(#{$grid} * #{$gridNumber} + #{$gutter} * #{$gridNumber});
+  @return $returnMargin;
+}

@@ -98,14 +98,90 @@
       margin-top: 500px;
     }
   }
-  @include pc-4k {
-    .main {
-      padding-top: 260px;
-    }
-  }
   @include pc-large {
     .main {
       padding-top: 300px;
+      .question {
+        margin-top: 990px;
+      }
+      .slogan {
+        margin-top: 990px;
+      }
+      .archive {
+        margin-top: 700px;
+      }
+      .team {
+        margin-top: 700px;
+      }
+    }
+  }
+  @include pc-4k {
+    .main {
+      padding-top: 260px;
+      .question {
+        margin-top: 1500px;
+      }
+      .slogan {
+        margin-top: 1500px;
+      }
+      .machine {
+        margin-top: 200px;
+      }
+      .innovation {
+        margin-top: 200px;
+      }
+      .archive {
+        margin-top: 1000px;
+      }
+      .team {
+        margin-top: 1500px;
+      }
+    }
+  }
+  @include tablet {
+    .main {
+      padding-top: 200px;
+      .question {
+        margin-top: 400px;
+      }
+      .slogan {
+        margin-top: 400px;
+      }
+      .innovation {
+        margin-top: 100px;
+      }
+      .archive {
+        margin-top: 300px;
+      }
+      .team {
+        margin-top: 400px;
+      }
+    }
+  }
+  @include mobile {
+    .main {
+      padding-top: 130px;
+      .question {
+        margin-top: 240px;
+      }
+      .slogan {
+        margin-top: 240px;
+      }
+      .full-image {
+        margin-top: 40px;
+      }
+      .machine {
+        margin-top: 40px;
+      }
+      .innovation {
+        margin-top: 40px;
+      }
+      .archive {
+        margin-top: 300px;
+      }
+      .team {
+        margin-top: 200px;
+      }
     }
   }
 </style>

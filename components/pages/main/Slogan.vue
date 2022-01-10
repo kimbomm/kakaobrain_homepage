@@ -10,7 +10,7 @@
         }}</span>
       </template>
     </div>
-    <div class="slogan-desp gl-3">
+    <div class="slogan-desp">
       <p>{{ data.desp }}</p>
     </div>
   </div>
@@ -30,8 +30,9 @@
   }
 </script>
 <style lang="scss" scoped>
+  @import '/assets/scss/functions.scss';
+  @import '/assets/scss/mixins.scss';
   .slogan {
-    padding: 0 20px;
     &-title {
       font-size: 16px;
       margin-bottom: 100px;
@@ -50,8 +51,66 @@
       }
     }
     &-desp {
+      font-family: 'NotoSansKR', sans-serif;
       font-size: 20px;
       line-height: 1.3;
+    }
+  }
+  @include pc-large {
+    .slogan {
+      &-title {
+        font-size: 22px;
+      }
+      &-text {
+        font-size: 160px;
+      }
+      &-desp {
+        font-size: 26px;
+      }
+    }
+  }
+  @include pc-4k {
+    .slogan {
+      &-title {
+        font-size: 34px;
+        margin-bottom: 200px;
+      }
+      &-text {
+        font-size: 242px;
+        margin-bottom: 70px;
+      }
+      &-desp {
+        font-size: 38px;
+      }
+    }
+  }
+  @include tablet {
+    .slogan {
+      width: getWidth(8) !important;
+      &-title {
+      }
+      &-text {
+        font-size: 60px;
+      }
+      &-desp {
+      }
+    }
+  }
+  @include mobile {
+    .slogan {
+      margin-left: 0 !important;
+      width: 100% !important;
+      &-title {
+        font-size: 12px;
+        margin-bottom: 40px;
+      }
+      &-text {
+        font-size: 38px;
+        margin-bottom: 20px;
+      }
+      &-desp {
+        font-size: 14px;
+      }
     }
   }
 </style>

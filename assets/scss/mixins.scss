@@ -23,15 +23,16 @@
 @mixin generateGridLayout() {
   @for $i from 1 through 10 {
     .gl-#{$i} {
-      width: calc(#{$grid} * #{$i} + #{$gutter} * (#{$i} - 1)) !important;
+      // width: calc(#{$grid} * #{$i} + #{$gutter} * (#{$i} - 1)) !important;
+      width: getWidth(#{$i}) !important;
     }
   }
   @for $i from 1 through 6 {
     .l-ml-#{$i} {
-      margin-left: calc(#{$grid} * #{$i} + #{$gutter} * #{$i}) !important;
+      margin-left: getMargin(#{$i}) !important;
     }
     .l-pl-#{$i} {
-      padding-left: calc(#{$grid} * #{$i} + #{$gutter} * #{$i}) !important;
+      padding-left: getMargin(#{$i}) !important;
     }
   }
 } ;
