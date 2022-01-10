@@ -72,6 +72,7 @@
         </li>
       </ul>
     </div>
+    <List-paging />
     
   </div>
 </template>
@@ -79,12 +80,14 @@
   import DetailTitle from '@/components/detail/DetailTitle'
   import Checkbox from '@/components/elements/filter/Checkbox'
   import MenuList from '@/components/elements/MenuList'
+  import ListPaging from '@/components/elements/ListPaging'
   
   export default {
     components: {
       DetailTitle,
       Checkbox,
       MenuList,
+      ListPaging,
     }
   }
 </script> 
