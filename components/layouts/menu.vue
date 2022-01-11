@@ -24,8 +24,18 @@
     <div v-if="this.isMenu" class="hide" @mouseleave="hideMenu(false)">
       <div class="lang">
         <ul>
-          <li class="lang-item">English</li>
-          <li class="lang-item">Korean</li>
+          <li
+            v-for="(item, index) in languageList"
+            :key="index"
+            class="lang-item"
+          >
+            <button
+              :class="item.value === language ? 'is-active' : ''"
+              @click="selectLang(item.value)"
+            >
+              {{ item.name }}
+            </button>
+          </li>
         </ul>
       </div>
       <div class="menu">
@@ -54,7 +64,7 @@
   </div>
 </template>
 <script>
-  import { mapState } from 'vuex'
+  import { mapState, mapMutations } from 'vuex'
   import MobMenu from '@/components/layouts/MobMenu'
   export default {
     components: {
@@ -62,12 +72,17 @@
     },
     data() {
       return {
-        isMenu: false
+        isMenu: false,
+        languageList: [
+          { name: 'English', value: 'en' },
+          { name: 'Korean', value: 'ko' }
+        ]
       }
     },
     computed: {
       ...mapState({
         menus: state => state.menus,
+        language: state => state.language,
         isFilterMenuOpen: state => state.isFilterMenuOpen
       }),
       classBind() {
@@ -80,8 +95,15 @@
       }
     },
     methods: {
+      ...mapMutations({
+        setLanguage: 'setLanguage'
+      }),
       hideMenu(value) {
         this.isMenu = value
+      },
+      async selectLang(lang) {
+        await this.setLanguage(lang)
+        await this.$router.push('/main')
       }
     }
   }
@@ -142,9 +164,15 @@
       cursor: pointer;
       &-item {
         font-size: 12px;
-        color: $gray-0;
         &:not(:last-child) {
           margin-bottom: 20px;
+        }
+        button {
+          color: $gray-0;
+          &.is-active,
+          &:hover {
+            color: $brain-yellow;
+          }
         }
       }
     }

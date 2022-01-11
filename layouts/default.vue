@@ -18,7 +18,7 @@
   import FilterList from '@/components/elements/filter/FilterList'
   import CardinalPoints from '@/components/elements/button/CardinalPoints'
   import TopButton from '@/components/elements/button/TopButton'
-  import { mapState } from 'vuex'
+  import { mapState, mapMutations } from 'vuex'
   export default {
     components: {
       Header,
@@ -29,11 +29,29 @@
     },
     computed: {
       ...mapState({
+        touchDevice: state => state.touchDevice,
         list: state => state.innovation.list
       })
     },
-    created() {
-      // console.log(this)
+    created() {},
+    async mounted() {
+      await this.checkDevice()
+    },
+    methods: {
+      ...mapMutations({
+        setTouchDevice: 'setTouchDevice'
+      }),
+      checkDevice() {
+        const device = this.$device
+        const isTouchDevice =
+          device.ipad ||
+          device.iphone ||
+          device.android ||
+          device.androidPhone ||
+          device.mobile
+
+        this.setTouchDevice(isTouchDevice)
+      }
     }
   }
 </script>

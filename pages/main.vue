@@ -15,6 +15,7 @@
   </div>
 </template>
 <script>
+  import mixinGlobal from '@/mixin/global.js'
   import IssueSlider from '@/components/pages/main/IssueSlider'
   import UnthinkableQuestion from '@/components/pages/main/UnthinkableQuestion'
   import TextFlow from '@/components/pages/main/TextFlow'
@@ -26,6 +27,7 @@
   import ArchiveList from '@/components/pages/main/ArchiveList'
   import TeamBrain from '@/components/pages/main/TeamBrain'
   export default {
+    mixins: [mixinGlobal],
     components: {
       IssueSlider,
       UnthinkableQuestion,

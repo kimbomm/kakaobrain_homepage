@@ -78,6 +78,9 @@
       window.addEventListener('scroll', this.onScroll)
       this.setSlot()
     },
+    beforeDestroy() {
+      window.removeEventListener('scroll', this.onScroll)
+    },
     methods: {
       onScroll() {
         const target = this.$refs['slot-contents']

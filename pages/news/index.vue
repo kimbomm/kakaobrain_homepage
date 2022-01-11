@@ -78,12 +78,14 @@
   </div>
 </template>
 <script>
+  import mixinGlobal from '@/mixin/global.js'
   import DetailTitle from '@/components/detail/DetailTitle'
   import Checkbox from '@/components/elements/filter/Checkbox'
   import MenuList from '@/components/elements/MenuList'
   import ListPaging from '@/components/elements/ListPaging'
 
   export default {
+    mixins: [mixinGlobal],
     components: {
       DetailTitle,
       Checkbox,
