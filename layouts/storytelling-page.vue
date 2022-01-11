@@ -15,7 +15,9 @@
     components: {
       Header,
       Footer
-    }
+    },
+    mounted() {},
+    methods: {}
   }
 </script>
 <style lang="scss" scoped>

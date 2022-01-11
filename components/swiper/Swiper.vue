@@ -1,75 +1,112 @@
 <template>
-  <swiper class="swiper" :options="swiperOption">
-    <swiper-slide>
-      <div class="slide">
-        <img src="@/assets/images/story-telling_img_1.png" />
-        <div class="back"></div>
-        <div class="slide-con ta-l gl-8">
-          <div class="slide-tit">카카오브레인, AI 공동연구</div>
-          <div class="slide-txt">
-            <p>카카오브레인이 세계 정상의 AI 연구실과 함께 인간의 인식과 추론의
-            한계에 도전합니다.</p>
-            <p> 카카오브레인은 고려대와 서울대, 포항공대와한양대, KAIST와 UNIST 등 7개 대학 AI 연구실과 산학 협력을 맺고 3년간
-            공동 연구를 시작했습니다.</p>
-            <br>
-            <p> 카카오브레인과 각 학교 AI 연구실은 이번협력을 통해 AI 연구의 스테레오타입을 넘어선 새로운 연구 방법론을
-            정립하려 노력한다고 합니다. </p>
-            <p>우리의 연구가 어떻게 세상을 바꿔나갈지가슴이 웅장해지는데요.</p>
-            <br>
-            <p>카카오브레인의 공동연구 노하우를 공개합니다</p>
+  <div class="story-telling">
+    <swiper
+      ref="mySwiper"
+      class="swiper"
+      :options="swiperOption"
+      @reachEnd="onEdge"
+      @realIndexChange="onChange"
+    >
+      <swiper-slide>
+        <div class="slide">
+          <img src="@/assets/images/story-telling_img_1.png" />
+          <div class="back"></div>
+          <div class="slide-con ta-l gl-8">
+            <div class="slide-tit">카카오브레인, AI 공동연구</div>
+            <div class="slide-txt">
+              <p>
+                카카오브레인이 세계 정상의 AI 연구실과 함께 인간의 인식과 추론의
+                한계에 도전합니다.
+              </p>
+              <p>
+                카카오브레인은 고려대와 서울대, 포항공대와한양대, KAIST와 UNIST
+                등 7개 대학 AI 연구실과 산학 협력을 맺고 3년간 공동 연구를
+                시작했습니다.
+              </p>
+              <br />
+              <p>
+                카카오브레인과 각 학교 AI 연구실은 이번협력을 통해 AI 연구의
+                스테레오타입을 넘어선 새로운 연구 방법론을 정립하려 노력한다고
+                합니다.
+              </p>
+              <p>
+                우리의 연구가 어떻게 세상을 바꿔나갈지가슴이 웅장해지는데요.
+              </p>
+              <br />
+              <p>카카오브레인의 공동연구 노하우를 공개합니다</p>
+            </div>
           </div>
         </div>
-      </div>
-    </swiper-slide>
-    <swiper-slide>
-      <div class="slide">
-        <img src="@/assets/images/story-telling_img_2.png" />
-        <div class="back"></div>
-        <div class="slide-con gl-8">
-          <div class="slide-tit">카카오브레인, AI 공동연구</div>
-          <div class="slide-txt">
-            <p>카카오브레인이 세계 정상의 AI 연구실과 함께 인간의 인식과 추론의
-            한계에 도전합니다.</p>
-            <p> 카카오브레인은 고려대와 서울대, 포항공대와한양대, KAIST와 UNIST 등 7개 대학 AI 연구실과 산학 협력을 맺고 3년간
-            공동 연구를 시작했습니다.</p>
-            <br>
-            <p> 카카오브레인과 각 학교 AI 연구실은 이번협력을 통해 AI 연구의 스테레오타입을 넘어선 새로운 연구 방법론을
-            정립하려 노력한다고 합니다. </p>
-            <p>우리의 연구가 어떻게 세상을 바꿔나갈지가슴이 웅장해지는데요.</p>
-            <br>
-            <p>카카오브레인의 공동연구 노하우를 공개합니다</p>
+      </swiper-slide>
+      <swiper-slide>
+        <div class="slide">
+          <img src="@/assets/images/story-telling_img_2.png" />
+          <div class="back"></div>
+          <div class="slide-con gl-8">
+            <div class="slide-tit">카카오브레인, AI 공동연구</div>
+            <div class="slide-txt">
+              <p>
+                카카오브레인이 세계 정상의 AI 연구실과 함께 인간의 인식과 추론의
+                한계에 도전합니다.
+              </p>
+              <p>
+                카카오브레인은 고려대와 서울대, 포항공대와한양대, KAIST와 UNIST
+                등 7개 대학 AI 연구실과 산학 협력을 맺고 3년간 공동 연구를
+                시작했습니다.
+              </p>
+              <br />
+              <p>
+                카카오브레인과 각 학교 AI 연구실은 이번협력을 통해 AI 연구의
+                스테레오타입을 넘어선 새로운 연구 방법론을 정립하려 노력한다고
+                합니다.
+              </p>
+              <p>
+                우리의 연구가 어떻게 세상을 바꿔나갈지가슴이 웅장해지는데요.
+              </p>
+              <br />
+              <p>카카오브레인의 공동연구 노하우를 공개합니다</p>
+            </div>
           </div>
         </div>
-      </div>
-    </swiper-slide>
-    <swiper-slide>
-      <div class="slide">
-        <img src="@/assets/images/story-telling_img_3.png" />
-        <div class="back"></div>
-        <div class="slide-con ta-r gl-8">
-          <div class="slide-tit">카카오브레인, AI 공동연구</div>
-          <div class="slide-txt">
-            <p>카카오브레인이 세계 정상의 AI 연구실과 함께 인간의 인식과 추론의
-            한계에 도전합니다.</p>
-            <p> 카카오브레인은 고려대와 서울대, 포항공대와한양대, KAIST와 UNIST 등 7개 대학 AI 연구실과 산학 협력을 맺고 3년간
-            공동 연구를 시작했습니다.</p>
-            <br>
-            <p> 카카오브레인과 각 학교 AI 연구실은 이번협력을 통해 AI 연구의 스테레오타입을 넘어선 새로운 연구 방법론을
-            정립하려 노력한다고 합니다. </p>
-            <p>우리의 연구가 어떻게 세상을 바꿔나갈지가슴이 웅장해지는데요.</p>
-            <br>
-            <p>카카오브레인의 공동연구 노하우를 공개합니다</p>
+      </swiper-slide>
+      <swiper-slide>
+        <div class="slide">
+          <img src="@/assets/images/story-telling_img_3.png" />
+          <div class="back"></div>
+          <div class="slide-con ta-r gl-8">
+            <div class="slide-tit">카카오브레인, AI 공동연구</div>
+            <div class="slide-txt">
+              <p>
+                카카오브레인이 세계 정상의 AI 연구실과 함께 인간의 인식과 추론의
+                한계에 도전합니다.
+              </p>
+              <p>
+                카카오브레인은 고려대와 서울대, 포항공대와한양대, KAIST와 UNIST
+                등 7개 대학 AI 연구실과 산학 협력을 맺고 3년간 공동 연구를
+                시작했습니다.
+              </p>
+              <br />
+              <p>
+                카카오브레인과 각 학교 AI 연구실은 이번협력을 통해 AI 연구의
+                스테레오타입을 넘어선 새로운 연구 방법론을 정립하려 노력한다고
+                합니다.
+              </p>
+              <p>
+                우리의 연구가 어떻게 세상을 바꿔나갈지가슴이 웅장해지는데요.
+              </p>
+              <br />
+              <p>카카오브레인의 공동연구 노하우를 공개합니다</p>
+            </div>
           </div>
         </div>
-      </div>
-    </swiper-slide>
-    <div class="swiper-pagination" slot="pagination"></div>
-    <div class="swiper-button-prev" slot="button-prev"></div>
-    <div class="swiper-button-next" slot="button-next"></div>
+      </swiper-slide>
+      <div class="swiper-pagination" slot="pagination"></div>
+      <div class="swiper-button-prev" slot="button-prev"></div>
+      <div class="swiper-button-next" slot="button-next"></div>
+    </swiper>
     <div class="story-detail" @click="storyList()">
       <button type="button" class="list"></button>
     </div>
-
     <!-- story pop -->
     <div class="story-pop" v-show="this.isStory">
       <div class="story-con l-ml-1 gl-8">
@@ -117,7 +154,7 @@
       </div>
     </div>
     <!-- story pop //-->
-  </swiper>
+  </div>
 </template>
 <script>
   import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
@@ -137,7 +174,7 @@
           direction: 'vertical',
           slidesPerView: 1,
           spaceBetween: 0,
-          mousewheel: false,
+          mousewheel: true,
           pagination: {
             el: '.swiper-pagination',
             type: 'fraction'
@@ -145,20 +182,84 @@
           navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev'
+          },
+          on: {
+            scroll: e => {
+              // console.log('true::', this.mySwiper.activeIndex)
+              if (this.mySwiper.activeIndex < this.mySwiper.slides.length - 1) {
+                this.isEndSlide = false
+              }
+              this.isChange = true
+            }
           }
         },
-        isStory: false
+        isStory: false,
+        timer: null,
+        isChange: false,
+        isEndSlide: false
       }
     },
+    computed: {
+      mySwiper() {
+        return this.$refs.mySwiper.$swiper
+      }
+    },
+    mounted() {
+      window.addEventListener('wheel', this.onWheel)
+    },
+    beforeDestroy() {
+      window.removeEventListener('wheel', this.onWheel)
+    },
     methods: {
+      onWheel(e) {
+        e.preventDefault
+        if (this.isEndSlide && e.deltaY < 0 && window.scrollY > 0) {
+          console.log(e.deltaY)
+          window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+          })
+        }
+        if (this.timer !== null) {
+          clearTimeout(this.timer)
+        }
+
+        const _this = this
+        this.timer = setTimeout(function () {
+          _this.isChange = false
+        }, 66)
+
+        if (this.isEndSlide && e.deltaY > 0) {
+          if (this.isChange) {
+            return
+          } else {
+            window.scrollTo({
+              top: document.body.scrollHeight,
+              left: 0,
+              behavior: 'smooth'
+            })
+          }
+        }
+      },
       storyList() {
         this.isStory = !this.isStory
-        console.log('popup')
+      },
+      onChange() {
+        console.log(this.mySwiper.activeIndex, this.mySwiper)
+      },
+      onEdge() {
+        this.isEndSlide = true
       }
     }
   }
 </script>
 <style lang="scss" scoped>
+  .story-telling {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+  }
   .ta-c {
     text-align: center;
   }
@@ -169,9 +270,7 @@
     text-align: right;
   }
   .swiper {
-    position: relative;
-    // height: 800px;
-    height: 100vh;
+    height: 100%;
     width: 100%;
     color: $gray-0;
     // border: 5px solid blue;
@@ -221,25 +320,7 @@
         }
       }
     }
-    .story-detail {
-      position: absolute;
-      right: 20px;
-      bottom: 20px;
-      width: 60px;
-      height: 60px;
-      padding: 17px;
-      background-color: $gray-0;
-      border-radius: 50%;
-      z-index: 10;
-      cursor: pointer;
-      .list {
-        width: 26px;
-        height: 26px;
-        background: url('@/assets/images/icon-story.png') no-repeat 100%;
-        background-size: 100%;
-      }
-    }
-    .swiper-pagination-fraction {
+    .swiper-pagination {
       top: 130px;
       left: 20px;
       width: auto;
@@ -267,6 +348,24 @@
   }
 
   .story {
+    &-detail {
+      position: absolute;
+      right: 20px;
+      bottom: 20px;
+      width: 60px;
+      height: 60px;
+      padding: 17px;
+      background-color: $gray-0;
+      border-radius: 50%;
+      z-index: 10;
+      cursor: pointer;
+      .list {
+        width: 26px;
+        height: 26px;
+        background: url('@/assets/images/icon-story.png') no-repeat 100%;
+        background-size: 100%;
+      }
+    }
     &-pop {
       position: fixed;
       left: 50%;
