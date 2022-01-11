@@ -1,6 +1,10 @@
 <template>
   <div class="about-title-text l-ml-3">
-    <div class="txt">{{text}}</div>
+    <div class="txt-con">
+      <div class="txt">{{Atext}}</div>
+      <div class="txt">{{Btext}}</div>
+      <div class="txt">{{Ctext}}</div>
+    </div>
     <div class="txt-scroll">
       <nuxt-link to="" > scroll</nuxt-link>
     </div>
@@ -10,7 +14,17 @@
 export default {
   name: 'AboutTitleText',
   props:{
-    text:{
+    Atext:{
+      type:String,
+      default:'',
+      required:true,
+    },
+    Btext:{
+      type:String,
+      default:'',
+      required:true,
+    },
+    Ctext:{
       type:String,
       default:'',
       required:true,
@@ -21,9 +35,12 @@ export default {
 <style lang="scss" scoped>
   @import '@/assets/scss/mixins.scss';
   .about-title-text{
+    .txt-con{
+      margin-bottom:60px;
+      line-height: 150%;
+    }
     .txt{
       font-size:16px;
-      margin-bottom:60px;
     }
   }
 </style>
