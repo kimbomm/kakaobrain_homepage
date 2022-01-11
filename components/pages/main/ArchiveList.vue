@@ -1,12 +1,12 @@
 \
 <template>
-  <div class="archive">
+  <div class="main-archive">
     <div class="gl-8 l-ml-2">
       <span>Archive@kakaobrain</span>
       <span></span>
       <nuxt-link to="/archive"><span>View List </span><span></span></nuxt-link>
     </div>
-    <ul class="archive-list">
+    <ul class="main-archive-list">
       <li v-for="(item, index) in getRecentList" :key="index" class="gl-2">
         <ArchiveCard
           :tit="item.title"
@@ -34,7 +34,7 @@
 <style lang="scss" scoped>
   @import '/assets/scss/functions.scss';
   @import '/assets/scss/mixins.scss';
-  .archive {
+  .main-archive {
     padding: 0 20px;
     > div {
       display: flex;
@@ -72,7 +72,7 @@
     }
   }
   @include pc-large {
-    .archive {
+    .main-archive {
       > div {
         span {
           font-size: 52px;
@@ -84,7 +84,7 @@
     }
   }
   @include pc-4k {
-    .archive {
+    .main-archive {
       > div {
         span {
           font-size: 74px;
@@ -96,7 +96,7 @@
     }
   }
   @include tablet {
-    .archive {
+    .main-archive {
       padding: 0;
       > div {
         span {
@@ -116,7 +116,7 @@
     }
   }
   @include mobile {
-    .archive {
+    .main-archive {
       padding: 0;
       > div {
         width: 100% !important;

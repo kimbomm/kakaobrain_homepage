@@ -4,6 +4,7 @@ export const state = () => ({
   footerMenu: data.footer,
   lang: 'ko',
   members: data.members,
+  sns: data.sns,
   isFilterMenuOpen: false
 })
 export const getters = () => ({})

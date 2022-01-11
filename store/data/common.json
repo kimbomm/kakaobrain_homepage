@@ -1,6 +1,6 @@
 {
   "menus": [
-    { 
+    {
       "name": "About",
       "link": "/about",
       "alarm": "",
@@ -10,7 +10,7 @@
         { "name": "Principle", "link": "#" }
       ]
     },
-    { 
+    {
       "name": "Research",
       "link": "/research",
       "alarm": "172",
@@ -20,7 +20,7 @@
         { "name": "Collaborative Research", "link": "#" }
       ]
     },
-    { 
+    {
       "name": "Tech",
       "link": "/tech",
       "alarm": "54",
@@ -32,7 +32,7 @@
         { "name": "Digital Human", "link": "#" }
       ]
     },
-    { 
+    {
       "name": "Studio",
       "link": "/studio",
       "alarm": "2",
@@ -41,7 +41,7 @@
         { "name": "E./Education", "link": "#" }
       ]
     },
-    { 
+    {
       "name": "Magazine B",
       "link": "/magazine",
       "alarm": "78",
@@ -61,6 +61,12 @@
     { "name": "Pathfinder", "link": "#" },
     { "name": "Open-MiniCon", "link": "#" },
     { "name": "Recruit", "link": "#" }
+  ],
+  "sns": [
+    { "name": "facebook", "link": "#" },
+    { "name": "insta", "link": "#" },
+    { "name": "kakao", "link": "#" },
+    { "name": "youtube", "link": "#" }
   ],
   "members": {
     "CEO": [
@@ -82,9 +88,7 @@
       { "name": "isol.tony", "profile": "" },
       { "name": "jeff.sky", "profile": "" }
     ],
-    "Hbrand": [
-      { "name": "yang.kim", "profile": "" }
-    ],
+    "Hbrand": [{ "name": "yang.kim", "profile": "" }],
     "Finance": [
       { "name": "carrie.ai", "profile": "" },
       { "name": "evelyn.choi", "profile": "" },

@@ -3,42 +3,25 @@
     <div :class="classBind">
       <div class="menu-list">
         <ul>
-          <li @click="hideMenu()" class="menu-item">
-            <button type="button"><span class="txt">About</span></button>
-          </li>
-          <li @click="hideMenu()" class="menu-item">
+          <li
+            v-for="(menu, index) in menus"
+            :key="`menu-${index}`"
+            class="menu-item"
+            @mouseenter="hideMenu(true)"
+          >
             <button type="button">
-              <span class="num">172</span><span class="txt">Research</span>
-            </button>
-          </li>
-          <li @click="hideMenu()" class="menu-item">
-            <button type="button">
-              <span class="num">54</span><span class="txt">Tech</span>
-            </button>
-          </li>
-          <li @click="hideMenu()" class="menu-item">
-            <button type="button">
-              <span class="num">2</span><span class="txt">Studio</span>
-            </button>
-          </li>
-          <li @click="hideMenu()" class="menu-item">
-            <button type="button">
-              <span class="num">78</span><span class="txt">Docu B</span>
+              <span v-if="menu.alarm" class="num">{{ menu.alarm }}</span>
+              <span class="txt">{{ menu.name }}</span>
             </button>
           </li>
         </ul>
       </div>
     </div>
+    <button class="menu-btn" @click="hideMenu(true)">
+      <img src="@/assets/images/mob_menu.png" alt="모바일 메뉴 열기 이미지" />
+    </button>
 
-    <div class="hide" v-show="this.isMenu">
-      <h2 class="b-logo">
-        <nuxt-link to="/main">
-          <img
-            :src="require(`@/assets/images/logo-w.png`)"
-            alt="카카오 브레인 로고"
-          />
-        </nuxt-link>
-      </h2>
+    <div v-if="this.isMenu" class="hide" @mouseleave="hideMenu(false)">
       <div class="lang">
         <ul>
           <li class="lang-item">English</li>
@@ -47,59 +30,36 @@
       </div>
       <div class="menu">
         <ul>
-          <li class="menu-item">
-            <span>About</span>
+          <li
+            v-for="(menu, index) in menus"
+            :key="`menu-${index}`"
+            class="menu-item"
+          >
+            <span v-if="menu.alarm" class="num">{{ menu.alarm }}</span>
+            <span>{{ menu.name }}</span>
             <ul class="sub">
-              <li class="sub-item"><a href="#">Unthinkable Question!</a></li>
-              <li class="sub-item"><a href="#">Culture</a></li>
-              <li class="sub-item"><a href="#">Principle</a></li>
-            </ul>
-          </li>
-          <li class="menu-item">
-            <span class="num">172</span>
-            <span>Research</span>
-            <ul class="sub">
-              <li class="sub-item"><a href="#">Highlight</a></li>
-              <li class="sub-item"><a href="#">Article</a></li>
-              <li class="sub-item"><a href="#">Collaborative Research</a></li>
-            </ul>
-          </li>
-          <li class="menu-item">
-            <span class="num">54</span>
-            <span>Tech</span>
-            <ul class="sub">
-              <li class="sub-item"><a href="#">Highlight</a></li>
-              <li class="sub-item"><a href="#">Data</a></li>
-              <li class="sub-item"><a href="#">Brain Cloudn</a></li>
-              <li class="sub-item"><a href="#">Large Scale</a></li>
-              <li class="sub-item"><a href="#">Digital Huma</a></li>
-            </ul>
-          </li>
-          <li class="menu-item">
-            <span class="num">2</span>
-            <span>Studio</span>
-            <ul class="sub">
-              <li class="sub-item"><a href="#">H./Healthcare</a></li>
-              <li class="sub-item"><a href="#">E./Education</a></li>
-            </ul>
-          </li>
-          <li class="menu-item">
-            <span class="num">78</span>
-            <span>Magazine B</span>
-            <ul class="sub">
-              <li class="sub-item"><a href="#">News</a></li>
-              <li class="sub-item"><a href="#">Interview</a></li>
-              <li class="sub-item"><a href="#">Documentary</a></li>
+              <li
+                v-for="(subMenu, idx) in menu.sub"
+                :key="`sub-${idx}`"
+                class="sub-item"
+              >
+                <nuxt-link :to="subMenu.link">{{ subMenu.name }}</nuxt-link>
+              </li>
             </ul>
           </li>
         </ul>
       </div>
     </div>
+    <MobMenu v-if="this.isMenu" @onClose="hideMenu(false)" />
   </div>
 </template>
 <script>
   import { mapState } from 'vuex'
+  import MobMenu from '@/components/layouts/MobMenu'
   export default {
+    components: {
+      MobMenu
+    },
     data() {
       return {
         isMenu: false
@@ -107,10 +67,11 @@
     },
     computed: {
       ...mapState({
+        menus: state => state.menus,
         isFilterMenuOpen: state => state.isFilterMenuOpen
       }),
       classBind() {
-        let classList = ['menu']
+        let classList = ['menu', 'menu-outer']
         if (this.isFilterMenuOpen) {
           classList.push('menu__light')
         }
@@ -119,14 +80,14 @@
       }
     },
     methods: {
-      hideMenu() {
-        this.isMenu = !this.isMenu
-        console.log('popup')
+      hideMenu(value) {
+        this.isMenu = value
       }
     }
   }
 </script>
 <style lang="scss" scoped>
+  @import '/assets/scss/mixins.scss';
   .white {
     .menu-item {
       button {
@@ -135,43 +96,12 @@
     }
   }
   .menu {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 3;
-    transition: all 0.5s ease-in-out;
     &-item {
       display: inline-block;
       font-size: 16px;
       font-weight: 900;
-      cursor: pointer;
       &:not(:last-child) {
         margin-right: 30px;
-      }
-      &:nth-child(1) button {
-        &:hover {
-          color: $brain-yellow;
-        }
-      }
-      &:nth-child(2) button {
-        &:hover {
-          color: $brain-mint;
-        }
-      }
-      &:nth-child(3) button {
-        &:hover {
-          color: $brain-purple;
-        }
-      }
-      &:nth-child(4) button {
-        &:hover {
-          color: $brain-magenta;
-        }
-      }
-      &:nth-child(5) button {
-        &:hover {
-          color: $brain-orange;
-        }
       }
       .num {
         padding-right: 6px;
@@ -195,14 +125,16 @@
       }
     }
   }
+  .menu-btn {
+    display: none;
+    width: 30px;
+    height: 30px;
+    img {
+      width: 100%;
+    }
+  }
 
   .hide {
-    .b-logo {
-      position: fixed;
-      left: 20px;
-      top: 20px;
-      z-index: 10;
-    }
     .lang {
       position: fixed;
       right: 30px;
@@ -245,33 +177,6 @@
           margin-left: 20px;
         }
       }
-      .menu-item {
-        &:nth-child(1) {
-          &:hover {
-            color: $brain-yellow;
-          }
-        }
-        &:nth-child(2) {
-          &:hover {
-            color: $brain-mint;
-          }
-        }
-        &:nth-child(3) {
-          &:hover {
-            color: $brain-purple;
-          }
-        }
-        &:nth-child(4) {
-          &:hover {
-            color: $brain-magenta;
-          }
-        }
-        &:nth-child(5) {
-          &:hover {
-            color: $brain-orange;
-          }
-        }
-      }
     }
     .sub {
       margin-top: 30px;
@@ -288,9 +193,30 @@
       }
     }
   }
-  @media screen and (max-width: 1024px) {
-    .menu {
+
+  @include pc-large {
+    .menu-item {
+      .txt {
+        font-size: 22px;
+      }
+    }
+  }
+  @include pc-large {
+    .menu-item {
+      .txt {
+        font-size: 34px;
+      }
+    }
+  }
+  @include tablet {
+    .menu.menu-outer {
       display: none;
+    }
+    .hide {
+      display: none !important;
+    }
+    .menu-btn {
+      display: block;
     }
   }
 </style>

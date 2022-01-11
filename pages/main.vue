@@ -91,7 +91,7 @@
     .innovation {
       margin-top: 100px;
     }
-    .archive {
+    .main-archive {
       margin-top: 500px;
     }
     .team {
@@ -107,7 +107,7 @@
       .slogan {
         margin-top: 990px;
       }
-      .archive {
+      .main-archive {
         margin-top: 700px;
       }
       .team {
@@ -130,7 +130,7 @@
       .innovation {
         margin-top: 200px;
       }
-      .archive {
+      .main-archive {
         margin-top: 1000px;
       }
       .team {
@@ -150,7 +150,7 @@
       .innovation {
         margin-top: 100px;
       }
-      .archive {
+      .main-archive {
         margin-top: 300px;
       }
       .team {
@@ -176,7 +176,7 @@
       .innovation {
         margin-top: 40px;
       }
-      .archive {
+      .main-archive {
         margin-top: 300px;
       }
       .team {

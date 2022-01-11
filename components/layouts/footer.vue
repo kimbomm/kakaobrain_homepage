@@ -9,14 +9,15 @@
       <div class="footer-con">
         <div class="menu">
           <ul>
-            <li class="menu-list">문의</li>
-            <li class="menu-list">오시는 길</li>
-            <li class="menu-list">사이버윤리실</li>
-            <li class="menu-list">이용약관</li>
-            <li class="menu-list">개인정보보호지침</li>
-            <li class="menu-list">Pathfinder</li>
-            <li class="menu-list">Open-MiniCon</li>
-            <li class="menu-list">Recruit</li>
+            <li
+              v-for="(menu, index) in footerMenu"
+              :key="`menu-${index}`"
+              class="menu-list"
+            >
+              <nuxt-link :to="menu.link">
+                {{ menu.name }}
+              </nuxt-link>
+            </li>
           </ul>
         </div>
         <div class="footer-shape"></div>
@@ -34,10 +35,16 @@
   </footer>
 </template>
 <script>
+  import { mapState } from 'vuex'
   import SnsLink from '@/components/elements/SnsLink'
   export default {
     components: {
       SnsLink
+    },
+    computed: {
+      ...mapState({
+        footerMenu: state => state.footerMenu
+      })
     }
   }
 </script>

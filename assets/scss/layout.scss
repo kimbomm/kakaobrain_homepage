@@ -28,24 +28,6 @@
 
   //brain - logo/symbol
   .b {
-    &-logo {
-      display: inline-block;
-      height: 21px;
-      vertical-align: middle;
-      position: fixed;
-      left: 20px;
-      top: 20px;
-      z-index: 3;
-      transition: all 0.5s ease-in-out;
-      a {
-        display: inline-block;
-        width: 100%;
-        height: 100%;
-      }
-      img {
-        height: 100%;
-      }
-    }
     &-symbol {
       width: 240px;
       height: 396px;
