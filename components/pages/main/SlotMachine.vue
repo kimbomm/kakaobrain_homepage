@@ -153,7 +153,6 @@
   }
 </script>
 <style lang="scss" scoped>
-  @import '/assets/scss/mixins.scss';
   .slot-enter {
     transform: translateY(100%);
   }

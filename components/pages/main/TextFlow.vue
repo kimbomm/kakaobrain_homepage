@@ -73,7 +73,6 @@
   }
 </script>
 <style lang="scss" scoped>
-  @import '/assets/scss/mixins.scss';
   @keyframes ani-left {
     from {
       transform: translateX(100vw);

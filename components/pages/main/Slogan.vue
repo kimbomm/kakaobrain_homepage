@@ -30,8 +30,6 @@
   }
 </script>
 <style lang="scss" scoped>
-  @import '/assets/scss/functions.scss';
-  @import '/assets/scss/mixins.scss';
   .slogan {
     &-title {
       font-size: 16px;

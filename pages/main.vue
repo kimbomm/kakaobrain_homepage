@@ -73,7 +73,6 @@
   }
 </script>
 <style lang="scss" scoped>
-  @import '/assets/scss/mixins.scss';
   .main {
     padding-top: 200px;
     .question {

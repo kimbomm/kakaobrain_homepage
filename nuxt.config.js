@@ -54,7 +54,11 @@ export default {
   build: {},
 
   styleResources: {
-    scss: ['~assets/scss/var.scss']
+    scss: [
+      '~assets/scss/var.scss',
+      '~assets/scss/functions.scss',
+      '~assets/scss/mixins.scss'
+    ]
   },
   server: {
     host: '0.0.0.0',

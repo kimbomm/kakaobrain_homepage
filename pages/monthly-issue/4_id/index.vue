@@ -15,20 +15,19 @@
     name: 'index',
     layout: 'storytelling-page',
     components: {
-      Swiper,Like
+      Swiper,
+      Like
     }
   }
 </script>
 <style lang="scss" scoped>
-  @import '@/assets/scss/mixins.scss';
-
-  .like{
+  .like {
     display: none;
   }
   @include mobile {
-    .like{
+    .like {
       display: block;
-      margin-top:62px;
+      margin-top: 62px;
     }
   }
 </style>

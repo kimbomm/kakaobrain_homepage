@@ -82,8 +82,6 @@
   }
 </script>
 <style lang="scss" scoped>
-  @import '@/assets/scss/mixins.scss';
-
   .monthly {
     &-detail {
       .con-tit {
@@ -100,7 +98,7 @@
     }
   }
 
-  .like{
+  .like {
     display: none;
   }
   @include pc-4k {
@@ -120,7 +118,7 @@
       }
     }
   }
- 
+
   @include pc-large {
     .monthly {
       &-detail {
@@ -169,8 +167,8 @@
       }
     }
   }
-  
-  .like{
+
+  .like {
     display: block;
   }
 </style>

@@ -74,8 +74,6 @@
   }
 </script>
 <style lang="scss" scoped>
-  @import '/assets/scss/functions.scss';
-  @import '/assets/scss/mixins.scss';
   .slideInRight-enter,
   .slideInRight-leave-to {
     opacity: 0;

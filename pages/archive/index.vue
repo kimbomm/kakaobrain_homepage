@@ -4,10 +4,16 @@
       <FilterSelector />
     </div>
     <div class="contents-list-text">
-      <DetailText text="우리가 퍼블리싱한 것에 대한 설명글이 들어갑니다. 논문 리스트는 안들어갑니다.우리가 퍼블리싱한 것에 대한 설명글이 들어갑니다. 논문 리스트는 안들어갑니다.우리가 퍼블리싱한 것에 대한 설명글이 들어갑니다. 논문 리스트는 안들어갑니다. 논문을 제외한 모든 글들이 아카이빙됩니다." />
+      <DetailText
+        text="우리가 퍼블리싱한 것에 대한 설명글이 들어갑니다. 논문 리스트는 안들어갑니다.우리가 퍼블리싱한 것에 대한 설명글이 들어갑니다. 논문 리스트는 안들어갑니다.우리가 퍼블리싱한 것에 대한 설명글이 들어갑니다. 논문 리스트는 안들어갑니다. 논문을 제외한 모든 글들이 아카이빙됩니다."
+      />
     </div>
     <!-- reference: https://github.com/paulcollett/vue-masonry-css -->
-    <masonry :cols="{default: 5, 1024: 2, 768: 1}" :gutter="{default: '20px', 768: '0px'}" class="masonry">
+    <masonry
+      :cols="{ default: 5, 1024: 2, 768: 1 }"
+      :gutter="{ default: '20px', 768: '0px' }"
+      class="masonry"
+    >
       <ArchiveCard
         v-for="(item, index) in archiveList"
         :key="index"
@@ -26,78 +32,75 @@
     components: {
       ArchiveCard,
       DetailText,
-      FilterSelector,
+      FilterSelector
     },
     computed: {
       ...mapState({
-        archiveList: state => state.archive .list
+        archiveList: state => state.archive.list
       })
     }
   }
 </script>
 <style lang="scss" scoped>
-  @import '@/assets/scss/mixins.scss';
-
   .masonry {
     padding: 0 20px;
   }
-  /deep/ .archive  {
+  /deep/ .archive {
     min-width: initial;
     max-width: initial;
     width: 100%;
     height: auto;
     margin-bottom: 50px;
   }
-  .contents-selector{
+  .contents-selector {
     margin: 320px 0 60px;
   }
-  .contents-list-text{
-    margin-bottom:200px;
+  .contents-list-text {
+    margin-bottom: 200px;
   }
-  
+
   @include pc-4k {
-    /deep/ .archive  {
+    /deep/ .archive {
       margin-bottom: 100px !important;
     }
-    .contents-selector{
+    .contents-selector {
       margin: 600px 0 120px;
     }
-    .contents-list-text{
-      margin-bottom:460px !important;
+    .contents-list-text {
+      margin-bottom: 460px !important;
     }
   }
   @include pc-large {
-    /deep/ .archive  {
+    /deep/ .archive {
       margin-bottom: 70px;
     }
-    .contents-list-text{
-      margin-bottom:300px;
+    .contents-list-text {
+      margin-bottom: 300px;
     }
   }
   @include tablet {
-    .contents-selector{
+    .contents-selector {
       margin: 200px 0 40px;
     }
-    .contents-list-text{
-      margin-bottom:100px;
+    .contents-list-text {
+      margin-bottom: 100px;
     }
   }
   @include mobile {
     .masonry {
       padding: 0;
     }
-    .l-ml-2{
-      margin-left:0px !important;
+    .l-ml-2 {
+      margin-left: 0px !important;
     }
-    .l-ml-3{
-      margin-left:0px !important;
+    .l-ml-3 {
+      margin-left: 0px !important;
     }
-    .gl-6{
-      width:100% !important
+    .gl-6 {
+      width: 100% !important;
     }
-    .contents-selector{
+    .contents-selector {
       margin: 157px 0 20px;
     }
   }
-
 </style>

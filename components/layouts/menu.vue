@@ -87,7 +87,6 @@
   }
 </script>
 <style lang="scss" scoped>
-  @import '/assets/scss/mixins.scss';
   .white {
     .menu-item {
       button {

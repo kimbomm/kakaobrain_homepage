@@ -64,7 +64,6 @@
   }
 </script>
 <style lang="scss" scoped>
-  @import '/assets/scss/mixins.scss';
   .menu-footer {
     margin-top: 100px;
     ul {

@@ -54,8 +54,6 @@
   }
 </script>
 <style lang="scss" scoped>
-  @import '/assets/scss/functions.scss';
-  @import '/assets/scss/mixins.scss';
   .team {
     padding: 0 20px;
     &-title {

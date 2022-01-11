@@ -59,7 +59,6 @@
   }
 </script>
 <style lang="scss" scoped>
-  @import '/assets/scss/mixins.scss';
   .date {
     display: flex;
     margin-bottom: 10px;

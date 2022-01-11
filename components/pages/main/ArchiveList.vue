@@ -32,8 +32,6 @@
   }
 </script>
 <style lang="scss" scoped>
-  @import '/assets/scss/functions.scss';
-  @import '/assets/scss/mixins.scss';
   .main-archive {
     padding: 0 20px;
     > div {

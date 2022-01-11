@@ -46,7 +46,6 @@
   }
 </script>
 <style lang="scss" scoped>
-  @import '/assets/scss/mixins.scss';
   .header {
     position: fixed;
     top: 20px;

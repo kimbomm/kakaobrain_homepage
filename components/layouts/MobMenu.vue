@@ -63,8 +63,6 @@
   }
 </script>
 <style lang="scss" scoped>
-  @import '/assets/scss/functions.scss';
-  @import '/assets/scss/mixins.scss';
   .mob-menu {
     display: none;
     position: fixed;

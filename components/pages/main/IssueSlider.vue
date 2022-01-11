@@ -100,7 +100,6 @@
   }
 </script>
 <style lang="scss" scoped>
-  @import '/assets/scss/mixins.scss';
   .fade {
     display: inline-block;
     transition: all 0.2s ease-out;

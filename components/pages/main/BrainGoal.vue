@@ -22,8 +22,6 @@
   }
 </script>
 <style lang="scss" scoped>
-  @import '/assets/scss/functions.scss';
-  @import '/assets/scss/mixins.scss';
   .goal {
     height: 1500px;
     background-color: #000;

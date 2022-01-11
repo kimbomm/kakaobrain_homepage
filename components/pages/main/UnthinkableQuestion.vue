@@ -31,7 +31,6 @@
   }
 </script>
 <style lang="scss" scoped>
-  @import '/assets/scss/mixins.scss';
   .question {
     margin: 0 auto;
     .silk {

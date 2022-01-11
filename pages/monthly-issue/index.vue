@@ -14,7 +14,7 @@
         />
       </div>
     </div>
-    
+
     <div>
       <ul>
         <li class="detail-list">
@@ -44,12 +44,10 @@
   }
 </script>
 <style lang="scss" scoped>
-  @import '@/assets/scss/mixins.scss';
-
   .monthly-detail {
-    margin-top:320px;
-    .text-box{
-      margin-bottom:200px;
+    margin-top: 320px;
+    .text-box {
+      margin-bottom: 200px;
       .contents-list-text {
         margin-bottom: 30px;
       }
@@ -63,9 +61,9 @@
 
   @include pc-4k {
     .monthly-detail {
-      margin-top:600px !important;
-      .text-box{
-        margin-bottom:460px !important;
+      margin-top: 600px !important;
+      .text-box {
+        margin-bottom: 460px !important;
       }
       .detail-list {
         &:not(:last-child) {
@@ -76,9 +74,9 @@
   }
   @include pc-large {
     .monthly-detail {
-      margin-top:400px;
-      .text-box{
-        margin-bottom:300px;
+      margin-top: 400px;
+      .text-box {
+        margin-bottom: 300px;
       }
       .detail-list {
         &:not(:last-child) {
@@ -89,9 +87,9 @@
   }
   @include tablet {
     .monthly-detail {
-      margin-top:200px;
-      .text-box{
-        margin-bottom:100px;
+      margin-top: 200px;
+      .text-box {
+        margin-bottom: 100px;
       }
       .detail-list {
         &:not(:last-child) {
@@ -100,10 +98,10 @@
       }
     }
   }
-  
+
   @include mobile {
     .monthly-detail {
-      margin-top:157px;
+      margin-top: 157px;
       .detail-list {
         &:not(:last-child) {
           margin-bottom: 50px;
