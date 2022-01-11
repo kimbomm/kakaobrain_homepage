@@ -71,7 +71,7 @@
       })
     },
     created() {
-      // this.getIssueList(this.paging)
+      this.getIssueList(this.paging)
     },
     mounted() {
       this.isShow = true
