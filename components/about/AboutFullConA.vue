@@ -1,5 +1,5 @@
 <template>
-  <div class="about-full">
+  <div class="about-full-con-a">
     <div class="img">
       <img src="@/assets/images/about-full_img.png">
       <div class="img-con ">
@@ -11,13 +11,13 @@
 </template>
 <script>
 export default {
-  name:'AboutFullImg'
+  name:'AboutFullConA'
 }
 </script>
 <style lang="scss" scoped>
   @import '@/assets/scss/mixins.scss';
 
-  .about-full{
+  .about-full-con-a{
     .img{
       position: relative;
       width:100%;
