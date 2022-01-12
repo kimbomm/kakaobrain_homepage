@@ -20,8 +20,8 @@
       />
     </div>
     <AboutFullConB />
-    <AboutConTit />
-    <AboutConTxt />
+    <AboutConTit text="Our Brand"/>
+    <AboutConTxt text="People looking for unexpected answers from unthinkable questions, kakaobrain krews share with you the new journey and stories they are making with AI."/>
     <AboutLargeLogo />
     <AboutFullConC />
     <AboutFullSlide />
