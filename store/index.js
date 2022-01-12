@@ -24,5 +24,10 @@ export const mutations = {
 export const actions = {
   changeFilterMenuOpen({ commit }, payload) {
     commit('setIsFilterMenuOpen', payload)
+  },
+  async getContentDetail({}, payload) {
+    const res = await this.$axios.get(`/content/${payload}`)
+    console.log('RES::', res)
+    return res
   }
 }
