@@ -67,4 +67,97 @@ export default {
       }
     }
   }
+  @include pc-4k {
+    .vision-list{
+      .list-con{
+        width:990px !important;
+      }
+      .list-img{
+        width:990px !important;
+        height:990px !important;
+      }
+      .list-txt{
+        left: -1025px !important;
+        .txt{
+          font-size:214px !important;
+          margin-bottom: 100px !important;
+        }
+        .sub-txt{
+          font-size:60px !important;
+        }
+      }
+    }
+  
+  }
+  @include pc-large {
+    .vision-list{
+      .list-con{
+        width:660px ;
+      }
+      .list-img{
+        width:660px;
+        height:660px;
+      }
+      .list-txt{
+        left: -422px ;
+        .txt{
+          font-size:140px;
+          margin-bottom: 50px;
+        }
+        .sub-txt{
+          font-size:40px ;
+        }
+      }
+    }
+  }
+  @include tablet {
+    .vision-list{
+      .list-con{
+        width:300px ;
+      }
+      .list-img{
+        width:300px;
+        height:300px;
+      }
+      .list-txt{
+        left: -141px ;
+        .txt{
+          font-size:60px;
+          line-height: 73px; 
+          margin-bottom: 30px;
+        }
+        .sub-txt{
+          font-size:18px ;
+        }
+      }
+    }
+  }
+  @include mobile {
+    .vision-list{
+      .list-con{
+        // width:200px ;
+        width: calc( calc((100vw - 20px * 11) / 10) * 8 + 20px * (8 - 1)) !important;
+        margin-left: calc(calc((100vw - 20px * 11) / 10) * 1 + 20px * 1) !important;
+      }
+      .list-img{
+        width:200px;
+        height:200px;
+      }
+      .list-txt{
+        // left: -60px ;
+        left: 0px;
+        .txt{
+          font-size:30px;
+          line-height: 36px;
+          margin-bottom: 20px;
+        }
+        .sub-txt{
+          font-size:16px ;
+          &.gl-4{
+            width: getWidth(9) !important;
+          }
+        }
+      }
+    }
+  }
 </style>

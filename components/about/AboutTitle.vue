@@ -26,6 +26,7 @@ export default {
   .about-title{
     .tit{
       position: relative;
+      line-height: 90%;
       font-size:200px;
       font-weight:100;
       .string{
@@ -34,7 +35,7 @@ export default {
       &::before{
         content:"";
         position: absolute;
-        left:50%;
+        left:40%;
         top:50%;
         width:150px;
         height:150px;
@@ -44,6 +45,59 @@ export default {
         border-radius: 50%;
         box-shadow:-30px 50px 80px rgba(0,0,0,0.5);
       }
+    }
+  }
+  @include pc-4k {
+    .about-title{
+      .tit{
+        font-size:400px !important;
+        &::before{
+          width:300px !important;
+          height:300px !important;
+        }
+      }
+    }
+  }
+  @include pc-large {
+    
+    .about-title{
+      .tit{
+        font-size:267px;
+        &::before{
+          width:200px;
+          height:200px;
+        }
+      }
+    }
+  }
+  @include tablet {
+  
+    .about-title{
+      .tit{
+        font-size:106px;
+        &::before{
+          width:80px;
+          height:80px;
+        }
+      }
+    }
+  }
+  @include mobile {
+    
+    .about-title{
+      .tit{
+        font-size: 50px;
+        &::before{
+          width:50px;
+          height:50px;
+        }
+      }
+    }
+    .gl-8{
+      width:100% !important;
+    }
+    .l-ml-2{
+      margin-left:0px !important;
     }
   }
 </style>

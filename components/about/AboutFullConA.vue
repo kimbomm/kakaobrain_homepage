@@ -22,9 +22,9 @@ export default {
       position: relative;
       width:100%;
       height:1500px;
-      &::before{
-        position: absolute;
-      }
+      // &::before{
+      //   position: absolute;
+      // }
       img{
         position: absolute; 
         top: 50%;
@@ -47,6 +47,78 @@ export default {
           line-height:150%;
           font-size:22px;
           font-weight:400;
+        }
+      }
+    }
+  }
+  @include pc-4k {
+  
+    .about-full-con-a{
+      .full-con{
+        height:3000px !important;
+        .inner{
+          top:800px !important;
+          .txt{
+            margin-bottom:190px !important;
+            font-size:180px !important;
+          }
+          .sub-txt{
+            font-size:46px !important;
+          }
+        }
+      }
+    }
+  }
+  @include pc-large {
+  
+    .about-full-con-a{
+      .full-con{
+        height:2000px;
+        .inner{
+          top:530px;
+          .txt{
+            margin-bottom:130px;
+            font-size:120px;
+          }
+          .sub-txt{
+            font-size:30px;
+          }
+        }
+      }
+    }
+  }
+  @include tablet {
+  
+    .about-full-con-a{
+      .full-con{
+        height:600px;
+        .inner{
+          top:140px;
+          .txt{
+            margin-bottom:50px;
+            font-size:46px;
+          }
+          .sub-txt{
+            font-size:16px;
+          }
+        }
+      }
+    }
+  }
+  @include mobile {
+  
+    .about-full-con-a{
+      .full-con{
+        height:600px;
+        .inner{
+          top:100px;
+          .txt{
+            margin-bottom:30px;
+            font-size:28px;
+          }
+          .sub-txt{
+            font-size:16px;
+          }
         }
       }
     }
