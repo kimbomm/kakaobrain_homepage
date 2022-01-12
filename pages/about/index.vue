@@ -82,9 +82,134 @@
     margin-bottom: 100px;
   }
   .about-con-txt {
-    margin-bottom: 328px;
+    margin-bottom: 300px;
   }
   .about-large-logo {
     margin-bottom: 400px;
   }
+  
+  @include pc-4k {
+  
+    .about-title {
+      margin-top: 600px !important;
+      margin-bottom: 130px !important;
+    }
+    .about-title-text {
+      margin-bottom: 388px !important;
+    }
+    .about-full-con-a {
+      margin-bottom: 800px !important;
+    }
+    .vision-list-con {
+      .vision-list {
+        margin-bottom: 360px !important;
+      }
+      margin-bottom: 800px !important;
+    }
+    .about-full-con-b {
+      margin-bottom: 800px !important;
+    }
+    .about-con-tit {
+      margin-bottom: 180px !important;
+    }
+    .about-con-txt {
+      margin-bottom: 678px !important;
+    }
+    .about-large-logo {
+      margin-bottom: 800px !important;
+    }
+  }
+  @include pc-large {
+    
+    .about-title {
+      margin-top: 400px;
+      margin-bottom: 80px;
+    }
+    .about-title-text {
+      margin-bottom: 268px;
+    }
+    .about-full-con-a {
+      margin-bottom: 530px;
+    }
+    .vision-list-con {
+      .vision-list {
+        margin-bottom: 260px;
+      }
+      margin-bottom: 530px;
+    }
+    .about-full-con-b {
+      margin-bottom: 530px; 
+    }
+    .about-con-tit {
+      margin-bottom: 130px;
+    }
+    .about-con-txt {
+      margin-bottom: 430px;
+    }
+    .about-large-logo {
+      margin-bottom: 530px;
+    }
+  }
+  @include tablet {
+    .about-title {
+      margin-top: 195px;
+      margin-bottom: 60px;
+    }
+    .about-title-text {
+      margin-bottom: 143px;
+    }
+    .about-full-con-a {
+      margin-bottom: 200px;
+    }
+    .vision-list-con {
+      .vision-list {
+        margin-bottom: 100px;
+      }
+      margin-bottom: 200px;
+    }
+    .about-full-con-b {
+      margin-bottom: 200px; 
+    }
+    .about-con-tit {
+      margin-bottom: 50px;
+    }
+    .about-con-txt {
+      margin-bottom: 100px;
+    }
+    .about-large-logo {
+      margin-bottom: 200px;
+    }
+  }
+  @include mobile {
+
+    .about-title {
+      margin-top: 158px;
+      margin-bottom: 40px;
+    }
+    .about-title-text {
+      margin-bottom: 80px;
+    }
+    .about-full-con-a {
+      margin-bottom: 100px;
+    }
+    .vision-list-con {
+      .vision-list {
+        margin-bottom: 80px;
+      }
+      margin-bottom: 100px;
+    }
+    .about-full-con-b {
+      margin-bottom: 100px; 
+    }
+    .about-con-tit {
+      margin-bottom: 30px;
+    }
+    .about-con-txt {
+      margin-bottom: 100px;
+    }
+    .about-large-logo {
+      margin-bottom: 1 00px;
+    }
+  }
+
 </style>
