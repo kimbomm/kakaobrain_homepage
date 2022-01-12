@@ -1,7 +1,7 @@
-version: "3"
+version: '3'
 
 services:
-  kakao-omc:
+  homepage:
     build: ./
     ports:
-      - "8086:80"
+      - '8086:80'
