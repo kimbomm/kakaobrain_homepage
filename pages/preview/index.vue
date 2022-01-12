@@ -1,17 +1,32 @@
 <template>
   <div class="content-detail">
-    <div class="top">
-      <BreadCrumb data="" />
+    <template v-if="data">
+      <div class="top">
+        <BreadCrumb :tags="data.ContentTags" />
+        <DetailTitle :text="data.title" />
+      </div>
+      <template v-for="(content, index) in data.ContentItems">
+        <component
+          :is="validContent(content, index)"
+          :key="`content-${index}`"
+          :text="content.text"
+        >
+        </component>
+      </template>
+      <!-- <Like /> -->
+    </template>
+    <!-- <div class="top">
+      
       <Thumbnail :srcPath="''" />
     </div>
     <DetailTitle text="타이틀 텍스트" />
-    <DetailImg :srcPath="''" text="이미지 설명" />
+
     <DetailFullImg :srcPath="''" text="이미지 설명" />
     <DetailMiddelImg :srcPath="''" text="이미지 설명" />
     <DetailText text="일반 텍스트" />
     <DetailSubTitle text="서브타이틀 텍스트" />
     <DetailTextTitle text="Article 서브타이틀 텍스트" />
-    <DetailTextItem text="AAAI (2021)" />
+    <DetailTextItem text="AAAI (2021)" /> -->
   </div>
 </template>
 <script>
@@ -27,6 +42,7 @@
   import DetailSubTitle from '@/components/detail/DetailSubTitle'
   import DetailTextTitle from '@/components/detail/DetailTextTitle'
   import DetailTextItem from '@/components/detail/DetailTextItem'
+  import Like from '@/components/elements/Like'
   export default {
     mixins: [mixinGlobal],
     layout: 'preview',
@@ -40,7 +56,8 @@
       DetailFullImg,
       DetailMiddelImg,
       DetailTextTitle,
-      DetailTextItem
+      DetailTextItem,
+      Like
     },
     computed: {
       topClassBind() {
@@ -60,7 +77,9 @@
          * typeC - article 형
          * typeD - storyTelling 형
          */
-        categoryType: null
+        isLoad: false,
+        categoryType: null,
+        data: null
       }
     },
     computed: {
@@ -68,14 +87,31 @@
         return this.$route.query.contentId
       }
     },
-    created() {
-      this.init()
+    async mounted() {
+      await this.init()
     },
     methods: {
       ...mapActions(['getContentDetail']),
       async init() {
-        // console.log(this.$route)
         const res = await this.getContentDetail(this.contentId)
+        console.log(res.data)
+        this.data = res.data
+        this.isLoad = true
+      },
+      validContent(content, index) {
+        let componentName = ''
+        switch (content.itemType) {
+          case 'header':
+            componentName = 'DetailTextTitle'
+            break
+          case 'image':
+            componentName = 'DetailFullImg'
+            break
+          case 'pagaraph':
+            componentName = 'DetailText'
+            break
+        }
+        return componentName
       }
     }
   }

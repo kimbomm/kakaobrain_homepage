@@ -1,11 +1,8 @@
 <template>
   <div class="bread-crumb gl-1">
     <ul>
-      <li>
-        <Sticker text="Research" sub="research" />
-      </li>
-      <li>
-        <Sticker text="E." sub="sub" />
+      <li v-for="(item, index) in tags" :key="index">
+        <Sticker :text="item.tag" />
       </li>
     </ul>
   </div>
@@ -13,6 +10,13 @@
 <script>
   import Sticker from '@/components/elements/button/Sticker'
   export default {
+    props: {
+      tags: {
+        type: Array,
+        default: () => [],
+        require: false
+      }
+    },
     components: {
       Sticker
     }

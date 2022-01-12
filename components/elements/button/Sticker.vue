@@ -18,6 +18,11 @@
         type: String,
         default: '',
         required: false
+      },
+      link: {
+        type: String,
+        default: '',
+        required: false
       }
     }
   }
