@@ -27,7 +27,7 @@ export const actions = {
   },
   async getContentDetail({}, payload) {
     const res = await this.$axios.get(`/content/${payload}`)
-    console.log('RES::', res)
+    // console.log('RES::', res)
     return res
   }
 }
