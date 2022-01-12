@@ -1,8 +1,8 @@
 <template>
   <div class="about-full-con-a">
-    <div class="img">
+    <div class="full-con">
       <img src="@/assets/images/about-full_img.png">
-      <div class="img-con ">
+      <div class="inner ">
         <div class="txt gl-8 l-ml-2">We develop technology from unthinkable questions & change everyone's lives.</div>
         <div class="sub-txt gl-6 l-ml-3">Unthinkable question makes impactful answer.</div>
       </div>
@@ -18,7 +18,7 @@ export default {
   @import '@/assets/scss/mixins.scss';
 
   .about-full-con-a{
-    .img{
+    .full-con{
       position: relative;
       width:100%;
       height:1500px;
@@ -33,7 +33,7 @@ export default {
         width: 100%;
         height: 100%;
       }
-      .img-con{
+      .inner{
         position: absolute;
         top:400px;
         color:$gray-0;

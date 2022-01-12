@@ -79,22 +79,17 @@
               <ul>
                 <li>
                   <nuxt-link to="/about" class="link"
-                    >index</nuxt-link
+                    >index 페이지</nuxt-link
                   >
                 </li>
                 <li>
-                  <nuxt-link to="/monthly-issue/2_id" class="link"
-                    >상세페이지 가기_2</nuxt-link
+                  <nuxt-link to="/about/culture" class="link"
+                    >culture 페이지</nuxt-link
                   >
                 </li>
                 <li>
-                  <nuxt-link to="/monthly-issue/3_id" class="link"
-                    >상세페이지 가기_논문</nuxt-link
-                  >
-                </li>
-                <li>
-                  <nuxt-link to="/monthly-issue/4_id" class="link"
-                    >상세페이지 가기_storytelling</nuxt-link
+                  <nuxt-link to="/about/principle" class="link"
+                    >principle 페이지</nuxt-link
                   >
                 </li>
               </ul>
