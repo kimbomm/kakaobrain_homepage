@@ -10,10 +10,9 @@
         <img src="@/assets/images/about-slide_img_1.png" />
       </div>
     </swiper-slide>
-
-    <div class="swiper-pagination" slot="pagination"></div>
-    <div class="swiper-button-prev" slot="button-prev"></div>
-    <div class="swiper-button-next" slot="button-next"></div>
+      <div class="swiper-pagination" slot="pagination"></div>
+      <div class="swiper-button-prev" slot="button-prev"></div>
+      <div class="swiper-button-next" slot="button-next"></div>
 
 
     
@@ -61,29 +60,40 @@
   
   .swiper {
     position: relative;
-    .swiper-pagination-fraction {
-        top: 130px;
-        left: 20px;
+    .slide-control{
+      
+    }
+      .swiper-pagination-fraction {
+        display: flex;
+        align-items: center;
+        transform: translate(0,-50%);
+        top:50%;
+        left:60px;
         width: auto;
+        font-size: 20px;
+        color: $gray-0;
       }
       .swiper-button-prev {
+        line-height: 130%;
         left: 20px;
-        top: 100px;
+        top:50%;
       }
       .swiper-button-next {
-        left: 20px;
-        top: 180px;
+        left:100px;
+        top:50%;
       }
       .swiper-button-prev:after {
-        content: '↑';
+        content: '';
+        line-height: 130%;
         font-family: Inter;
-        font-size: 16px;
+        font-size: 20px;
         color: $gray-0;
       }
       .swiper-button-next:after {
-        content: '↓';
+        content: '';
+        line-height: 130%;
         font-family: Inter;
-        font-size: 16px;
+        font-size: 20px;
         color: $gray-0;
       }
   }
