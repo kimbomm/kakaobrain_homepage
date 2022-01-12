@@ -25,10 +25,12 @@
 </template>
 <script>
   import { mapState } from 'vuex'
+  import mixinGlobal from '@/mixin/global.js'
   import ArchiveCard from '@/components/elements/card/ArchiveCard'
   import DetailText from '@/components/detail/DetailText'
   import FilterSelector from '@/components/elements/filter/FilterSelector'
   export default {
+    mixins: [mixinGlobal],
     components: {
       ArchiveCard,
       DetailText,

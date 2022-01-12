@@ -5,9 +5,9 @@
       "link": "/about",
       "alarm": "",
       "sub": [
-        { "name": "Unthinkable Question!", "link": "#" },
-        { "name": "Culture", "link": "#" },
-        { "name": "Principle", "link": "#" }
+        { "name": "Unthinkable Question!", "link": "/about" },
+        { "name": "Culture", "link": "/about/culture" },
+        { "name": "Principle", "link": "/about/principle" }
       ]
     },
     {

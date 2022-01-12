@@ -37,6 +37,9 @@
     mounted() {
       window.addEventListener('scroll', this.onScroll)
     },
+    beforeDestroy() {
+      window.removeEventListener('scroll', this.onScroll)
+    },
     methods: {
       onScroll() {
         if (

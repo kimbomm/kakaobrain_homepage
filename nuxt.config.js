@@ -15,19 +15,9 @@ export default {
   },
   axios: {
     credentials: true,
-    baseURL: 'https://kakaobrain.loadingworks.com/admin/v1'
-    // proxy: true,
-    // headers: {
-    //   common: {
-    //     'X-Requested-With': 'XMLHttpRequest'
-    //   }
-    // }
+    baseURL: process.env.API_BASE_URL
   },
 
-  // Global CSS: https://go.nuxtjs.dev/config-css
-  // css: [
-  //   '@/assets/scss/index.scss'
-  // ],
   router: {
     middleware: ['middleRouter']
   },
@@ -45,7 +35,7 @@ export default {
   // components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: ['@nuxtjs/style-resources'],
+  buildModules: ['@nuxtjs/style-resources', '@nuxtjs/dotenv'],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: ['@nuxtjs/axios'],
@@ -61,7 +51,7 @@ export default {
     ]
   },
   server: {
-    host: '0.0.0.0',
-    port: 3011
+    host: process.env.SERVER_HOST,
+    port: process.env.SERVER_PORT
   }
 }

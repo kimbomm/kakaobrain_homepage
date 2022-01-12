@@ -15,6 +15,7 @@
   </div>
 </template>
 <script>
+  import mixinGlobal from '@/mixin/global.js'
   import BreadCrumb from '@/components/elements/BreadCrumb'
   import Thumbnail from '@/components/detail/Thumbnail'
   import DetailImg from '@/components/detail/DetailImg'
@@ -26,7 +27,7 @@
   import DetailTextTitle from '@/components/detail/DetailTextTitle'
   import DetailTextItem from '@/components/detail/DetailTextItem'
   export default {
-    layout: '',
+    mixins: [mixinGlobal],
     components: {
       BreadCrumb,
       Thumbnail,

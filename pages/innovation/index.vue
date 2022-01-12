@@ -41,12 +41,14 @@
 </template>
 <script>
   import { mapState } from 'vuex'
+  import mixinGlobal from '@/mixin/global.js'
   import InnovationCard from '@/components/elements/card/InnovationCard'
   import DetailText from '@/components/detail/DetailText'
   import FilterSelector from '@/components/elements/filter/FilterSelector'
   import Sticker from '@/components/elements/button/Sticker'
 
   export default {
+    mixins: [mixinGlobal],
     components: {
       InnovationCard,
       DetailText,

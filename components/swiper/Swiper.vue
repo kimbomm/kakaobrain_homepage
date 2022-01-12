@@ -5,7 +5,6 @@
       class="swiper"
       :options="swiperOption"
       @reachEnd="onEdge"
-      @realIndexChange="onChange"
     >
       <swiper-slide>
         <div class="slide">
@@ -214,7 +213,7 @@
       onWheel(e) {
         e.preventDefault
         if (this.isEndSlide && e.deltaY < 0 && window.scrollY > 0) {
-          console.log(e.deltaY)
+          // console.log(e.deltaY)
           window.scrollTo({
             top: 0,
             left: 0,
@@ -244,9 +243,6 @@
       },
       storyList() {
         this.isStory = !this.isStory
-      },
-      onChange() {
-        console.log(this.mySwiper.activeIndex, this.mySwiper)
       },
       onEdge() {
         this.isEndSlide = true
