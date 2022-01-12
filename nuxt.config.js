@@ -15,7 +15,8 @@ export default {
   },
   axios: {
     credentials: true,
-    baseURL: process.env.API_BASE_URL
+    baseURL:
+      'https://kakaobrain.loadingworks.com/front/v1' || process.env.API_BASE_URL
   },
 
   router: {
