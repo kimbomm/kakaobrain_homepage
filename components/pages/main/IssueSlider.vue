@@ -11,7 +11,7 @@
       <div class="gl-8">
         <div class="issue-title">
           <transition name="fade">
-            <span v-if="isShow" class="fade">Hello World.</span>
+            <span v-if="isShow" class="fade">Hello World. </span>
           </transition>
         </div>
         <div class="issue-thumbnail">
@@ -40,7 +40,7 @@
             </div>
             <button class="next">→</button>
           </div>
-          <div class="cur-page">➂①</div>
+          <div class="cur-page">{{ curPage }}</div>
         </div>
       </div>
     </div>
@@ -48,6 +48,7 @@
 </template>
 <script>
   import { mapState, mapActions } from 'vuex'
+  import util from '@/util/utility.js'
   import Sticker from '@/components/elements/button/Sticker'
   export default {
     components: {
@@ -68,10 +69,15 @@
     computed: {
       ...mapState({
         issueList: state => state.issue.list
-      })
+      }),
+      curPage() {
+        return util.changeNumFont(31)
+      }
     },
     created() {
       this.getIssueList(this.paging)
+      // const font = this.util.changeNumFont()
+      // console.log(util.changeNumFont(12))
     },
     mounted() {
       this.isShow = true
