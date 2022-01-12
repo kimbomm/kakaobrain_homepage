@@ -1,6 +1,6 @@
 <template>
   <div class="about-title l-ml-2">
-    <div class="tit gl-6">{{text}}<div class="string">{{bold}}</div></div>
+    <div class="tit gl-8">{{text}}<div class="string">{{bold}}</div></div>
   </div>
 </template>
 <script>
@@ -27,6 +27,7 @@ export default {
     .tit{
       position: relative;
       font-size:200px;
+      font-weight:100;
       .string{
         font-weight:900;
       }
@@ -40,6 +41,8 @@ export default {
         transform: translate(-50%, -50%);
         background: url('@/assets/images/about-tit_img.png') no-repeat;
         background-size: 100%;
+        border-radius: 50%;
+        box-shadow:-30px 50px 80px rgba(0,0,0,0.5);
       }
     }
   }

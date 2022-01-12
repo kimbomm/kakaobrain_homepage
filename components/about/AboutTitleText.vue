@@ -1,5 +1,5 @@
 <template>
-  <div class="about-title-text l-ml-3">
+  <div class="about-title-text gl-5 l-ml-3">
     <div class="txt-con">
       <div class="txt">{{Atext}}</div>
       <div class="txt">{{Btext}}</div>

@@ -1,11 +1,16 @@
 <template>
-  <div class="about-con-tit l-ml-2">
-    Our Brand
-  </div>
+  <div class="about-con-tit gl-8 l-ml-2">{{text}}</div>
 </template>
 <script>
 export default {
-  
+  name:'AboutConTit',
+  props:{
+    text:{
+      type:String,
+      default:'',
+      required:true
+    }
+  }
 }
 </script>
 <style lang="scss" scoped>
