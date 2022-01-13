@@ -132,20 +132,18 @@ export default {
       }
     }
   }
+
   @include mobile {
     .vision-list{
       .list-con{
-        // width:200px ;
-        width: calc( calc((100vw - 20px * 11) / 10) * 8 + 20px * (8 - 1)) !important;
-        margin-left: calc(calc((100vw - 20px * 11) / 10) * 1 + 20px * 1) !important;
+        width:200px ;
       }
       .list-img{
         width:200px;
         height:200px;
       }
       .list-txt{
-        // left: -60px ;
-        left: 0px;
+        left: -60px ;
         .txt{
           font-size:30px;
           line-height: 36px;
@@ -153,8 +151,11 @@ export default {
         }
         .sub-txt{
           font-size:16px ;
+          &.l-ml-1{
+            // margin-left:0px !important;
+          }
           &.gl-4{
-            width: getWidth(9) !important;
+            width: getWidth(6) !important;
           }
         }
       }
