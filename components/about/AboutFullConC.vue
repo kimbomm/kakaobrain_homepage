@@ -34,20 +34,6 @@
             <div class="txt">Organized </div>
           </li>
         </ul>
-        
-
-
-        <!-- <div class="history-img">
-          <img src="@/assets/images/logo-history.png">
-        </div>
-        <div class="item-txt">
-          <div class="txt">Brain</div>
-          <div class="txt">Meta Data</div>
-          <div class="txt">Human Data</div>
-          <div class="txt">Statistic Analysis Research</div>
-          <div class="txt">Organized</div>
-        </div> -->
-
       </div>
       <div class="logo-text gl-7 l-ml-1">It captures flexible and diverse identities with its own design, and reflects the essence of circulation, harmony, artificial intelligence technology, development, and growth in terms of meaning and visual aspects as a motif.</div>
       
@@ -322,36 +308,6 @@ export default {
       }
 
       .history{
-        // &-logo{
-        //   margin-bottom:613px !important;
-        //   .history-img{
-        //     // height:117px !important;
-        //     img{
-        //       width:100% !important;
-        //     }
-        //   }
-        // }
-        // .item-txt{
-        //   margin-top:120px !important;
-        //   .txt{
-        //     font-size:30px !important;
-        //     &:nth-child(1){
-        //       // margin-right:696px;
-        //       margin-right:796px !important;
-        //     }
-        //     &:nth-child(2){
-        //       margin-right:173px !important;
-        //     }
-        //     &:nth-child(3){
-        //       margin-right:595px !important;
-        //     }
-        //     &:nth-child(4){
-        //       width:117px;
-        //       margin-right:771px !important;
-        //     }
-        //   }
-        // }
-        
         .logo-text{
           margin-bottom:649px !important;
           font-size: 78px !important;
@@ -460,29 +416,6 @@ export default {
 
 
       .history{
-        // &-logo{
-        //   margin-bottom:382px;
-        // }
-        // .item-txt{
-        //   margin-top:70px;
-        //   .txt{
-        //     font-size:20px;
-        //     &:nth-child(1){
-        //       // margin-right:696px;
-        //       margin-right:375px;
-        //     }
-        //     &:nth-child(2){
-        //       margin-right:29px;
-        //     }
-        //     &:nth-child(3){
-        //       margin-right:308px;
-        //     }
-        //     &:nth-child(4){
-        //       width:88px;
-        //       margin-right:340px;
-        //     }
-        //   }
-        // }
         .logo-text{
           margin-bottom:400px;
           font-size: 52px;
@@ -599,28 +532,6 @@ export default {
 
 
       .history{
-        // &-logo{
-        //   margin-bottom:200px;
-        // }
-        // .item-txt{
-        //   margin-top:40px;
-        //   .txt{
-        //     font-size:14px;
-        //     &:nth-child(1){
-        //       margin-right:132px;
-        //     }
-        //     &:nth-child(2){
-        //       margin-right:131px;
-        //     }
-        //     &:nth-child(3){
-        //       margin-right:103px;
-        //     }
-        //     &:nth-child(4){
-        //       width:88px;
-        //       margin-right:340px ;
-        //     }
-        //   }
-        // }
         .logo-text{
           margin-bottom:200px;
           font-size: 24px;
@@ -771,27 +682,6 @@ export default {
         &-logo{
           margin-bottom:100px;
         }
-        // // 다시 작업해야될 듯 이미지 아님 각각 작업해야됨
-        // .item-txt{
-        //   margin-top:40px;
-        //   .txt{
-        //     font-size:14px;
-        //     &:nth-child(1){
-        //       margin-right:132px;
-        //     }
-        //     &:nth-child(2){
-        //       margin-right:131px;
-        //     }
-        //     &:nth-child(3){
-        //       margin-right:103px;
-        //     }
-        //     &:nth-child(4){
-        //       width:88px;
-        //       margin-right:340px ;
-        //     }
-        //   }
-        // }
-        // // -------------
         .logo-text{
           margin-bottom:100px;
           font-size: 10px;
