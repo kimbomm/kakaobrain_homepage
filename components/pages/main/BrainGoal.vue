@@ -24,6 +24,7 @@
 <style lang="scss" scoped>
   .goal {
     height: 1500px;
+    margin-left: 20px;
     background-color: #000;
     display: flex;
     align-items: center;
@@ -145,6 +146,7 @@
   @include mobile {
     .goal {
       height: 670px;
+      margin-left: 0;
       > div {
         position: relative;
         &:before {

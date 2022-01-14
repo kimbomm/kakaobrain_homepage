@@ -128,7 +128,11 @@
           targetText.style = `transform: translateY(-${
             targetText.offsetHeight * 0.75
           }px)`
-        } else {
+        } else if (
+          target.offsetTop >= window.scrollY + window.innerHeight ||
+          target.offsetTop + target.offsetHeight <=
+            window.scrollY + window.innerHeight
+        ) {
           this.setSlot()
         }
       },
@@ -199,7 +203,7 @@
     position: relative;
     z-index: 0;
     width: 100%;
-    height: 320px;
+    height: calc(160px * 3);
     overflow: hidden;
     > div {
       transition: transform 0.3s linear;
@@ -211,9 +215,9 @@
       justify-content: center;
       font-family: 'NotoSansKR';
       font-size: 160px;
+      height: calc(160px * 3);
       font-weight: 900;
       transition: transform 0.3s linear;
-      height: 320px;
       line-height: 0.9;
     }
   }
@@ -232,10 +236,10 @@
       }
     }
     .slot-text {
-      height: calc(210px * 2);
+      height: calc(210px * 3);
       p {
         font-size: 210px;
-        height: calc(210px * 2);
+        height: calc(210px * 3);
       }
     }
   }
@@ -253,10 +257,10 @@
       }
     }
     .slot-text {
-      height: calc(320px * 2);
+      height: calc(320px * 3);
       p {
         font-size: 320px;
-        height: calc(320px * 2);
+        height: calc(320px * 3);
       }
     }
   }
@@ -274,10 +278,10 @@
       }
     }
     .slot-text {
-      height: calc(90px * 2);
+      height: calc(90px * 3);
       p {
         font-size: 90px;
-        height: calc(90px * 2);
+        height: calc(90px * 3);
       }
     }
   }
@@ -296,10 +300,10 @@
       }
     }
     .slot-text {
-      height: calc(28px * 2);
+      height: calc(28px * 3);
       p {
         font-size: 28px;
-        height: calc(28px * 2);
+        height: calc(28px * 3);
       }
     }
   }

@@ -62,8 +62,8 @@
     overflow-x: hidden;
   }
   @include mobile {
-    .l-pages {
-      padding: 0 20px;
-    }
+    // .l-pages {
+    //   padding: 0 20px;
+    // }
   }
 </style>

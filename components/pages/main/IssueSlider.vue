@@ -8,7 +8,7 @@
       </span>
     </div>
     <div ref="issue" class="issue">
-      <div class="gl-8">
+      <div>
         <div class="issue-title">
           <transition name="fade">
             <span v-if="isShow" class="fade">Hello World. </span>
@@ -116,7 +116,7 @@
   }
   .issue-slider {
     font-size: 0;
-    padding-left: 20px;
+    padding: 0 20px;
     &-info {
       font-size: 16px;
       color: #000;
@@ -137,6 +137,9 @@
     width: getWidth(9);
     display: flex;
     justify-content: space-between;
+    > div:first-child {
+      flex: 0 0 getWidth(8);
+    }
     &-info {
       padding-top: $titleHeight + $titleMargin;
       margin-left: 20px;
@@ -272,6 +275,12 @@
     }
   }
 
+  @media screen and (max-width: 1600px) {
+    .issue-navi .cur-page {
+      font-size: 36px;
+    }
+  }
+
   @include tablet {
     $titleHeight: 70px;
     $titleMargin: 20px;
@@ -316,7 +325,6 @@
   }
   @include mobile {
     .issue-slider {
-      padding-left: 0;
       &-info {
         display: flex;
         flex-wrap: wrap;
@@ -335,7 +343,8 @@
     }
     .issue {
       display: block;
-      > .gl-8 {
+      width: 100%;
+      > div:first-child {
         width: 100% !important;
       }
     }

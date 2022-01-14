@@ -158,6 +158,13 @@
     }
   }
 
+  @media screen and (min-width: 5120px) {
+    .question.gl-8 {
+      width: getWidth(7) !important;
+      margin-left: getMargin(2);
+    }
+  }
+
   @include tablet {
     .question {
       &-content {
@@ -191,6 +198,7 @@
   @include mobile {
     .question {
       width: 100% !important;
+      padding: 0 20px;
       &-content {
         margin-top: 50px;
         padding-left: 0;

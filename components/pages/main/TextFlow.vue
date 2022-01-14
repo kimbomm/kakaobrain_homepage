@@ -90,7 +90,7 @@
     }
   }
   .flow {
-    padding-top: 100vw;
+    padding-top: 100vh;
     position: relative;
   }
   .background-flow {
@@ -147,6 +147,11 @@
     }
   }
   @include pc-large {
+    .article-list {
+      .article {
+        margin-top: 460px;
+      }
+    }
     .flow-txt {
       font-size: 230px;
       .easter-egg {
@@ -159,6 +164,11 @@
     }
   }
   @include pc-4k {
+    .article-list {
+      .article {
+        margin-top: 770px;
+      }
+    }
     .flow-txt {
       font-size: 270px;
       .easter-egg {
@@ -171,6 +181,11 @@
     }
   }
   @include tablet {
+    .article-list {
+      .article {
+        margin-top: 164px;
+      }
+    }
     .flow-txt {
       font-size: 120px;
       .easter-egg {
@@ -183,6 +198,11 @@
     }
   }
   @include mobile {
+    .article-list {
+      .article {
+        margin-top: 70px;
+      }
+    }
     .flow-txt {
       font-size: 50px;
       .easter-egg {

@@ -193,7 +193,7 @@
       li {
         flex: 0 0 getWidth(4);
         .Innovation {
-          height: 550px;
+          height: 100%;
           /deep/ {
             .Innovation-tit {
               font-size: 30px;
