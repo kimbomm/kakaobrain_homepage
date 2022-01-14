@@ -4,7 +4,7 @@
       <img
         :src="
           srcPath
-            ? require(`${this.srcPath}`)
+            ? `https://kakaobrain.loadingworks.com${this.srcPath}`
             : require(`@/assets/images/detail_img_2.png`)
         "
       />

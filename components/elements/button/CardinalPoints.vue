@@ -2,18 +2,26 @@
   <button class="btn-arrow"></button>
 </template>
 <script>
+  import { mapState } from 'vuex'
   export default {
+    computed: {
+      ...mapState(['touchDevice'])
+    },
     mounted() {
       const _this = this
-      window.addEventListener('mousemove', function (e) {
-        _this.calcRadius(e.clientX, e.clientY)
-      })
+      if (!this.touchDevice) {
+        window.addEventListener('mousemove', function (e) {
+          _this.calcRadius(e.clientX, e.clientY)
+        })
+      }
     },
     beforeDestroy() {
       const _this = this
-      window.removeEventListener('mousemove', function (e) {
-        _this.calcRadius(e.clientX, e.clientY)
-      })
+      if (!this.touchDevice) {
+        window.removeEventListener('mousemove', function (e) {
+          _this.calcRadius(e.clientX, e.clientY)
+        })
+      }
     },
     methods: {
       calcRadius(mouseX, mouseY) {

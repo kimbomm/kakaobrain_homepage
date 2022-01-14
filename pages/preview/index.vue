@@ -10,6 +10,7 @@
           :is="validContent(content, index)"
           :key="`content-${index}`"
           :text="content.text"
+          :srcPath="content.Media.url"
         >
         </component>
       </template>
