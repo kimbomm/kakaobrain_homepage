@@ -106,12 +106,12 @@
     &.scrolled {
       .flow-txt {
         &:nth-child(1) {
-          text-shadow: -1px -1px 0 $kakao-black, 1px -1px 0 $kakao-black,
-            -1px 1px 0 $kakao-black, 1px 1px 0 $kakao-black;
+          text-shadow: -1px -1px 0 $surface-4, 1px -1px 0 $surface-4,
+            -1px 1px 0 $surface-4, 1px 1px 0 $surface-4;
         }
         &:nth-child(2),
         &:nth-child(3) {
-          color: $kakao-black;
+          color: $surface-3;
         }
       }
     }
@@ -135,16 +135,16 @@
     &:nth-child(1) {
       font-weight: 600;
       color: $surface-1;
-      text-shadow: -1px -1px 0 $surface-4, 1px -1px 0 $surface-4,
-        -1px 1px 0 $surface-4, 1px 1px 0 $surface-4;
+      text-shadow: -1px -1px 0 $kakao-black, 1px -1px 0 $kakao-black,
+        -1px 1px 0 $kakao-black, 1px 1px 0 $kakao-black;
     }
     &:nth-child(2) {
       font-weight: 400;
-      color: $surface-3;
+      color: $kakao-black;
     }
     &:nth-child(3) {
       font-weight: 100;
-      color: $surface-3;
+      color: $kakao-black;
     }
     .easter-egg {
       flex: 0 0 190px;

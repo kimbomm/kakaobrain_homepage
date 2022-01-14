@@ -1,18 +1,16 @@
 <template>
   <div>
     <div class="contents-selector l-ml-2 gl-6">
-      <FilterSelector />
+      <FilterSelector :list="filter" />
     </div>
-    <div class="contents-sticker l-ml-3 gl-5">
+    <div v-if="filter.length > 0" class="contents-sticker l-ml-3 gl-5">
       <ul>
-        <li class="item">
-          <Sticker text="q;lwekdjfa;sdlf" sub=""></Sticker>
-        </li>
-        <li class="item">
-          <Sticker text="q;lwekdjfa;sdlf" sub=""></Sticker>
-        </li>
-        <li class="item">
-          <Sticker text="q;lwekdjfa;sdlf" sub=""></Sticker>
+        <li
+          v-for="(item, index) in filter"
+          :key="`filter-${index}`"
+          class="item"
+        >
+          <Sticker :text="item" />
         </li>
       </ul>
     </div>
@@ -40,7 +38,7 @@
   </div>
 </template>
 <script>
-  import { mapState } from 'vuex'
+  import { mapState, mapActions } from 'vuex'
   import mixinGlobal from '@/mixin/global.js'
   import InnovationCard from '@/components/elements/card/InnovationCard'
   import DetailText from '@/components/detail/DetailText'
@@ -57,8 +55,20 @@
     },
     computed: {
       ...mapState({
+        filter: state => state.filter,
         innovationList: state => state.innovation.list
       })
+    },
+    created() {
+      this.init()
+    },
+    methods: {
+      ...mapActions({
+        getFilterList: 'getFilterList'
+      }),
+      init() {
+        this.getFilterList('innovation')
+      }
     }
   }
 </script>

@@ -11,6 +11,11 @@
               :theme="index % 2 === 0 ? 'Innovation-dark' : ''"
             />
           </li>
+          <li>
+            <nuxt-link to="/innovation" title="논문 리스트 페이지로 이동">
+              <span></span>
+            </nuxt-link>
+          </li>
         </ul>
       </transition>
     </div>
@@ -103,6 +108,7 @@
       &::-webkit-scrollbar {
         display: none; /* Chrome, Safari, Opera*/
       }
+      padding-right: getMargin(2);
       li {
         margin-right: 100px;
         flex: 0 0 getWidth(3);
@@ -111,6 +117,15 @@
           min-width: none;
           height: 640px;
           width: 100%;
+        }
+        &:last-child {
+          flex: 0;
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 56px;
+          color: #fff;
+          font-weight: 100;
         }
       }
     }

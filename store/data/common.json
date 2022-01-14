@@ -95,5 +95,8 @@
       { "name": "carl.brain", "profile": "" },
       { "name": "jeff.sky", "profile": "" }
     ]
+  },
+  "category": {
+    "innovation": ["tag1", "tage2", "tage3", "tage4", "tage5", "tage6"]
   }
 }
