@@ -19,12 +19,12 @@
             <img
               v-if="isShow"
               class="fade"
-              src="~/assets/images/img-main-dummy_0.jpeg"
+              src="~/assets/images/main_img_dummy.png"
             />
           </transition>
         </div>
       </div>
-      <div class="issue-info gl-1">
+      <div class="issue-info">
         <div>
           <Sticker text="Docu. B" sub="docu" />
           <Sticker text="Documentary" sub="sub" />
@@ -76,8 +76,6 @@
     },
     created() {
       this.getIssueList(this.paging)
-      // const font = this.util.changeNumFont()
-      // console.log(util.changeNumFont(12))
     },
     mounted() {
       this.isShow = true
@@ -95,7 +93,8 @@
         const issue = this.$refs['issue']
         if (
           window.scrollY >= navi.offsetTop &&
-          window.scrollY <= issue.offsetTop + issue.offsetHeight
+          window.scrollY <=
+            issue.offsetTop + issue.offsetHeight - navi.offsetHeight
         ) {
           navi.style = `transform: translateY(${
             window.scrollY - navi.offsetTop
@@ -108,7 +107,7 @@
 <style lang="scss" scoped>
   .fade {
     display: inline-block;
-    transition: all 0.2s ease-out;
+    transition: all 0.2s linear;
   }
   .fade-enter,
   .fade-leave-to {
@@ -135,7 +134,9 @@
   .issue {
     $titleHeight: 90px;
     $titleMargin: 20px;
+    width: getWidth(9);
     display: flex;
+    justify-content: space-between;
     &-info {
       padding-top: $titleHeight + $titleMargin;
       margin-left: 20px;
