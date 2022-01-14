@@ -14,7 +14,7 @@
           <span></span>
         </div>
       </div>
-      <div class="tags gl-1">
+      <div class="tags">
         <Sticker text="Docu. B" sub="docu" />
         <Sticker text="Documentary" sub="sub" />
         <Sticker text="Educations" />
@@ -72,6 +72,9 @@
     display: flex;
     justify-content: space-between;
   }
+  .article-info {
+    flex: 1;
+  }
   .thumbnail {
     img {
       width: 100%;
@@ -92,6 +95,8 @@
   }
   .tags {
     text-align: right;
+    margin-left: 20px;
+    flex: 0 0 getWidth(1);
     .btn {
       margin-right: 0;
       margin-top: 10px;
@@ -138,6 +143,9 @@
     .tags {
       margin-top: 17px;
       text-align: left;
+      flex: 0;
+      width: 100%;
+      margin-left: 0;
       .btn {
         margin-right: 4px;
         margin-top: 6px;
