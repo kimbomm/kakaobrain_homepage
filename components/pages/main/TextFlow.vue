@@ -62,10 +62,12 @@
               this.$refs['flow'].offsetHeight -
               window.innerHeight
         ) {
+          this.$refs['backgroundFlow'].classList.add('scrolled')
           this.$refs['backgroundFlow'].style = `position: absolute; top: ${
             window.scrollY - this.$refs['flow'].offsetTop
           }px`
         } else if (window.scrollY < this.$refs['flow'].offsetTop) {
+          this.$refs['backgroundFlow'].classList.remove('scrolled')
           this.$refs['backgroundFlow'].style = 'position: absolute'
         }
       }
@@ -75,18 +77,18 @@
 <style lang="scss" scoped>
   @keyframes ani-left {
     from {
-      transform: translateX(100vw);
+      transform: translateX(0);
     }
     to {
-      transform: translateX(-100%);
+      transform: translateX(calc(-100% + 100vw));
     }
   }
   @keyframes ani-right {
     from {
-      transform: translateX(-100%);
+      transform: translateX(calc(-100% + 100vw));
     }
     to {
-      transform: translateX(100vw);
+      transform: translateX(0);
     }
   }
   .flow {
@@ -101,6 +103,18 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    &.scrolled {
+      .flow-txt {
+        &:nth-child(1) {
+          text-shadow: -1px -1px 0 $kakao-black, 1px -1px 0 $kakao-black,
+            -1px 1px 0 $kakao-black, 1px 1px 0 $kakao-black;
+        }
+        &:nth-child(2),
+        &:nth-child(3) {
+          color: $kakao-black;
+        }
+      }
+    }
   }
   .flow-txt {
     font-size: 180px;
@@ -111,6 +125,7 @@
     animation-duration: 100s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
+    transition: all 0.3s linear;
     &.ani__left {
       animation-name: ani-left;
     }
@@ -139,7 +154,7 @@
     }
   }
   .article-list {
-    padding: 0 20px;
+    padding: 0 20px 100vh;
     position: relative;
     z-index: 1;
     .article {
