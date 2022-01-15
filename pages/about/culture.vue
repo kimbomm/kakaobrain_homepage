@@ -77,17 +77,132 @@
   }
   .culture-text-box{
     margin-bottom:400px;
-  }
-  .about-con-tit {
-    margin-bottom: 100px;
-  }
-  .about-con-txt {
-    margin-bottom: 100px;
-  }
-  .about-con-sub-tit{
-    margin-bottom:30px;
+
+    .about-con-tit {
+      margin-bottom: 100px;
+    }
+    .about-con-txt {
+      margin-bottom: 100px;
+    }
+    .about-con-sub-tit{
+      margin-bottom:30px;
+    }
   }
   .about-full-con-e{
     margin-bottom:400px;
+  }
+
+  @include pc-4k {
+    .about-title {
+      margin-top: 600px !important;
+      margin-bottom: 130px !important;
+    }
+    .about-title-text {
+      margin-bottom: 388px !important;
+    }
+    .about-full-con-d {
+      margin-bottom: 800px !important;
+    }
+    .culture-text-box{
+      margin-bottom:800px !important;
+
+      .about-con-tit {
+        margin-bottom: 200px !important;
+      }
+      .about-con-txt {
+        margin-bottom: 200px !important;
+      }
+      .about-con-sub-tit{
+        margin-bottom:30px !important;
+      }
+    }
+
+    .about-full-con-e{
+      margin-bottom:800px !important;
+    }
+  }
+  @include pc-large {
+    .about-title {
+      margin-top: 400px;
+      margin-bottom: 80px;
+    }
+    .about-title-text {
+      margin-bottom: 268px;
+    }
+    .about-full-con-d {
+      margin-bottom: 530px;
+    }
+    .culture-text-box{
+      margin-bottom:530px;
+      .about-con-tit {
+        margin-bottom: 130px;
+      }
+      .about-con-txt {
+        margin-bottom: 130px;
+      }
+      .about-con-sub-tit{
+        margin-bottom:40px;
+      }
+    }
+
+    .about-full-con-e{
+      margin-bottom:530px;
+    }
+  }
+  @include tablet {
+    .about-title {
+      margin-top: 195px;
+      margin-bottom: 60px;
+    }
+    .about-title-text {
+      margin-bottom: 143px;
+    }
+    .about-full-con-d {
+      margin-bottom: 200px;
+    }
+    .culture-text-box{
+      margin-bottom:200px;
+      .about-con-tit {
+        margin-bottom: 50px;
+      }
+      .about-con-txt {
+        margin-bottom: 50px;
+      }
+      .about-con-sub-tit{
+        margin-bottom:20px;
+      }
+    }
+
+    .about-full-con-e{
+      margin-bottom:200px;
+    }
+  }
+  @include mobile {
+    .about-title {
+      margin-top: 156px;
+      margin-bottom: 40px;
+    }
+    .about-title-text {
+      margin-bottom: 80px;
+    }
+    .about-full-con-d {
+      margin-bottom: 100px;
+    }
+    .culture-text-box{
+      margin-bottom:100px;
+      .about-con-tit {
+        margin-bottom: 30px;
+      }
+      .about-con-txt {
+        margin-bottom: 50px;
+      }
+      .about-con-sub-tit{
+        margin-bottom:24px;
+      }
+    }
+
+    .about-full-con-e{
+      margin-bottom:100px;
+    }
   }
 </style>

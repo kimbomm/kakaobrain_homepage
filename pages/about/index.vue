@@ -208,7 +208,7 @@
       margin-bottom: 100px;
     }
     .about-large-logo {
-      margin-bottom: 1 00px;
+      margin-bottom: 100px;
     }
   }
 
