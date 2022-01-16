@@ -47,7 +47,7 @@ export default {
     .full-con{
       position: relative;
       width:100%;
-      height:1689px;
+      padding: 400px 20px 400px;
       img{
         position: absolute; 
         top: 50%;
@@ -58,8 +58,7 @@ export default {
       }
       
       .inner{
-        position: absolute;
-        top:400px;
+        position: relative;
         color:$gray-0;
       }
       .con{
@@ -104,10 +103,7 @@ export default {
     
     .about-full-con-b{
       .full-con{
-        height:3409px !important;
-        .inner{
-          top:800px !important;
-        }
+        padding: 800px 20px 845px !important;
         .con{
           &-tit{
             margin-bottom:400px !important;
@@ -139,10 +135,7 @@ export default {
     
     .about-full-con-b{
       .full-con{
-        height:2252px;
-        .inner{
-          top:530px;
-        }
+        padding: 530px 20px 533px;
         .con{
           &-tit{
             margin-bottom:260px;
@@ -174,10 +167,7 @@ export default {
      
     .about-full-con-b{
       .full-con{
-        height:1141px;
-        .inner{
-          top:200px;
-        }
+        padding: 200px 20px 200px;
         .con{
           &-tit{
             font-size:46px;
@@ -211,11 +201,7 @@ export default {
   @include mobile {
     .about-full-con-b{
       .full-con{
-        height:1128px;
-        .inner{
-          top:107px;
-          padding: 0 20px;
-        }
+        padding: 107px 20px 100px;
         .con{
           &-tit{
             font-size:28px;

@@ -177,7 +177,6 @@ export default {
         }
 
       }
-      
     }
   }
   @include pc-4k {
