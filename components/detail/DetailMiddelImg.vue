@@ -1,35 +1,37 @@
 <template>
-  <div class="monthly l-ml-2 gl-7">
-    <div :class="`detail-image ${type}`">
-      <img
-        :src="
-          srcPath
-            ? `https://kakaobrain.loadingworks.com${this.srcPath}`
-            : require(`@/assets/images/detail_img_3.png`)
-        "
-      />
+  <div class="monthly l-ml-2 gl-7" v-if="isPc || isMob">
+    <div class="detail-image">
+      <img :src="srcPath" />
     </div>
-    <div class="detail-text">{{ text }}</div>
+    <div class="detail-text">{{ data.text }}</div>
   </div>
 </template>
 <script>
   export default {
     name: 'DetailImg',
     props: {
-      srcPath: {
-        type: String,
-        default: '',
-        required: false
+      data: {
+        type: Object,
+        default: () => {},
+        require: true
+      }
+    },
+    computed: {
+      isPc() {
+        return this.data.Media && window.innerWidth >= 768
       },
-      text: {
-        type: String,
-        default: '',
-        required: true
+      isMob() {
+        return this.data.MobileMedia && window.innerWidth < 768
       },
-      type: {
-        type: String,
-        default: '',
-        required: false
+      srcPath() {
+        let path = 'https://kakaobrain.loadingworks.com'
+        path =
+          window.innerWidth >= 768
+            ? path + `${this.data.Media.url}`
+            : path + `${this.data.MobileMedia.url}`
+
+        console.log(path)
+        return path
       }
     }
   }

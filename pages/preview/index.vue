@@ -111,7 +111,7 @@
             componentName =
               content.itemProp.imageAlign === 'full'
                 ? 'DetailFullImg'
-                : 'DetailImg'
+                : 'DetailMiddelImg'
             break
           case 'pagaraph':
             componentName = 'DetailText'
