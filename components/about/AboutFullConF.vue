@@ -468,6 +468,7 @@ export default {
 
     .about-full-con-f{
       .inner{
+        padding: 0 20px;
         .tit{
           margin-bottom:30px;
           font-size:28px;

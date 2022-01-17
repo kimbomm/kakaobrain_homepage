@@ -14,9 +14,9 @@
         subtxt="Top-notch experts gather to develop innovative technologies that are the basis for solving all problems."
       />
       <AboutVisionList
-        num="¹"
-        txt="outstanding"
-        subtxt="Top-notch experts gather to develop innovative technologies that are the basis for solving all problems."
+        num="²"
+        txt="actualized"
+        subtxt="It pioneers technology-based business areas and materializes them into services that improve quality of life."
       />
     </div>
     <AboutFullConB />

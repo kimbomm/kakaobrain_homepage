@@ -74,12 +74,14 @@ export default {
     color:$gray-0;
     .title{
       margin-bottom:100px;
+      padding: 0 20px;
       text-align: center;
       font-size:130px;
       font-weight:900; 
     }
     .txt-box{
       margin-bottom:400px;
+      padding:0 20px;
       .txt{
         line-height: 130%;
         font-size:30px;
@@ -160,6 +162,7 @@ export default {
       }
     }
     .history{
+      padding: 0 20px;
       &-logo{
         margin-bottom:300px;
         .history-img{
@@ -675,7 +678,6 @@ export default {
 
 
       .history{
-        padding: 0 20px;
         &.l-ml-2{
           margin-left:0px !important;
         }
@@ -684,7 +686,7 @@ export default {
         }
         .logo-text{
           margin-bottom:100px;
-          font-size: 10px;
+          font-size: 18px;
           &.gl-7{
             width: getWidth(8) !important;
           }

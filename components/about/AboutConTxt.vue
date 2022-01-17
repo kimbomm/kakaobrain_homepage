@@ -16,6 +16,7 @@ export default {
 <style lang="scss" scoped>
   @import '@/assets/scss/mixins.scss';
   .about-con-txt{
+    padding: 0 20px;
     line-height: 130%;
     font-size:30px;
   }

@@ -18,6 +18,7 @@ export default {
 
   .about-con-sub-tit{
     line-height: 110%;
+    padding: 0 20px;
     font-size:40px;
     font-weight:600;
   }

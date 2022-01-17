@@ -66,7 +66,7 @@ export default {
     .full-con{
       position: relative;
       width:100%;
-      height:1827px;
+      padding: 400px 0;
       img{
         position: absolute; 
         top: 50%;
@@ -77,17 +77,18 @@ export default {
       }
   //
       .inner{
-        position: absolute;
-        top:400px;
+        position: relative;
         color:$gray-0;
         .tit{
           margin-bottom:100px;
+          padding:0 20px;
           line-height:120%;
           font-size:90px;
           font-weight:900;
         }
         .text-box{
           margin-bottom:200px;
+          padding:0 20px;
           .txt{
             font-size: 22px;
             line-height: 150%;
@@ -178,9 +179,8 @@ export default {
   @include pc-4k {
     .about-full-con-d{
       .full-con{
-        height:3709px !important;
+        padding: 800px 0 !important;
         .inner{
-          top:800px !important;
           .tit{
             margin-bottom:200px !important;
             font-size:180px !important;
@@ -224,9 +224,8 @@ export default {
   @include pc-large {
     .about-full-con-d{
       .full-con{
-        height:2389px;
+        padding: 530px 0;
         .inner{
-          top:530px;
           .tit{
             margin-bottom:130px;
             font-size:120px;
@@ -270,9 +269,8 @@ export default {
   @include tablet {
     .about-full-con-d{
       .full-con{
-        height:1070px;
+        padding:200px 0px;
         .inner{
-          top:200px;
           .tit{
             margin-bottom:50px;
             font-size:40px;
@@ -316,10 +314,12 @@ export default {
   @include mobile {
     .about-full-con-d{
       .full-con{
-        height:1400px;
+        padding:100px 0px;
         .inner{
-          top:100px;
           .tit{
+            &.gl-8{
+              width:100% !important
+            }
             margin-bottom:30px;
             font-size:28px;
             &.l-ml-2{
@@ -327,6 +327,12 @@ export default {
             }
           }
           .text-box{
+            &.gl-6{
+              width: getWidth(9) !important;
+            }
+            &.l-ml-3{
+              margin-left: getMargin(1) !important;
+            }
             margin-bottom:100px ;
             .txt{
               font-size: 16px;

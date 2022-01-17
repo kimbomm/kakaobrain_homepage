@@ -14,6 +14,7 @@ export default {
   .about-large-logo{
     width:1120px;
     height:286px;
+    padding: 0 20px;
     .tit{
       font-size: 14px;
       line-height: 130%;

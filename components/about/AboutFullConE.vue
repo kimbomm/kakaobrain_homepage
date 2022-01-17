@@ -64,8 +64,6 @@ export default {
     .full-con{
       position: relative;
       width:100%;
-      // height:2091px;
-      // height: 100%;
       padding: 400px 0;
       img{
         position: absolute; 
@@ -77,9 +75,8 @@ export default {
       }
       
       .inner{
-        // position: absolute;
         position: relative;
-        // top:400px;
+        padding:0 20px;
         color:$gray-0;
 
         .con{
@@ -326,12 +323,26 @@ export default {
       .full-con{
         padding: 100px 0;
         .inner{
-          .tit{
-            margin-bottom:30px;
-            font-size:28px;
+          .con{
+            &-tit{
+              margin-bottom:30px;
+              font-size:28px;
+              &.gl-8{
+                width: 100% !important;
+              }
+              &.l-ml-2{
+                margin-left:0px !important;
+              }
+            }
           }
           .text-box{
             margin-bottom:100px ;
+            &.gl-6{
+              width: getWidth(9) !important;
+            }
+            &.l-ml-3{
+              margin-left: getMargin(1) !important;
+            }
             .txt{
               font-size: 16px;
               &:not(:last-child){

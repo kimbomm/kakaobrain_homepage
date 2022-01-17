@@ -35,6 +35,7 @@ export default {
 </script>
 <style lang="scss" scoped>
   .vision-list{
+    padding: 0 20px;
     .list-con{
       position: relative;
       width:500px;

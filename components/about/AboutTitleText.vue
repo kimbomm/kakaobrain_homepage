@@ -35,6 +35,7 @@ export default {
 <style lang="scss" scoped>
   @import '@/assets/scss/mixins.scss';
   .about-title-text{
+    padding: 0 20px;
     .txt-con{
       margin-bottom:60px;
     }

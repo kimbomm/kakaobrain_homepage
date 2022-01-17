@@ -17,6 +17,7 @@ export default {
   @import '@/assets/scss/mixins.scss';
 
   .about-con-tit{
+    padding: 0 20px;
     line-height: 120%;
     font-size:90px;
     font-weight:900;

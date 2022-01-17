@@ -24,6 +24,7 @@ export default {
   @import '@/assets/scss/mixins.scss';
 
   .about-title{
+    padding: 0 20px;
     .tit{
       position: relative;
       line-height: 90%;
