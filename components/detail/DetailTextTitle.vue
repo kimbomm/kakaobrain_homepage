@@ -1,7 +1,7 @@
 <template>
   <div class="monthly l-ml-3">
     <div class="detail gl-5">
-      <div class="detail-subTit">{{ text }}</div>
+      <div class="detail-subTit">{{ data.text }}</div>
     </div>
   </div>
 </template>
@@ -9,10 +9,15 @@
   export default {
     name: 'DtaileTitle',
     props: {
+      data: {
+        type: Object,
+        default: () => {},
+        require: true
+      },
       text: {
         type: String,
         default: '',
-        required: true
+        required: false
       }
     }
   }
@@ -50,8 +55,10 @@
         font-size: 32px;
       }
     }
-    .l-ml-3{
-      margin-left: calc(calc((100vw - 20px * 11) / 10) * 2 + 20px * 2) !important;
+    .l-ml-3 {
+      margin-left: calc(
+        calc((100vw - 20px * 11) / 10) * 2 + 20px * 2
+      ) !important;
     }
   }
   @include mobile {

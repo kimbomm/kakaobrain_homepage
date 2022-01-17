@@ -1,7 +1,7 @@
 <template>
   <div class="monthly l-ml-3">
     <div class="detail gl-5">
-      <div class="detail-text">{{ text }}</div>
+      <div class="detail-text">{{ data.text }}</div>
     </div>
   </div>
 </template>
@@ -9,10 +9,15 @@
   export default {
     name: 'DetailText',
     props: {
+      data: {
+        type: Object,
+        default: () => {},
+        require: true
+      },
       text: {
         type: String,
         default: '',
-        required: true
+        required: false
       },
       type: {
         type: String,

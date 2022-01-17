@@ -9,25 +9,27 @@
         <component
           :is="validContent(content, index)"
           :key="`content-${index}`"
-          :text="content.text"
-          :srcPath="content.Media.url"
+          :data="content"
         >
         </component>
+        <!-- // :srcPath="content.Media.url" -->
       </template>
+
       <!-- <Like /> -->
     </template>
     <!-- <div class="top">
       
       <Thumbnail :srcPath="''" />
-    </div>
-    <DetailTitle text="타이틀 텍스트" />
+    </div> -->
+    <!-- <DetailTitle text="타이틀 텍스트" /> -->
 
-    <DetailFullImg :srcPath="''" text="이미지 설명" />
-    <DetailMiddelImg :srcPath="''" text="이미지 설명" />
-    <DetailText text="일반 텍스트" />
-    <DetailSubTitle text="서브타이틀 텍스트" />
-    <DetailTextTitle text="Article 서브타이틀 텍스트" />
-    <DetailTextItem text="AAAI (2021)" /> -->
+    <!-- <DetailFullImg :srcPath="''" text="이미지 설명" /> -->
+    <!-- <DetailImg :srcPath="''" text="이미지 설명" /> -->
+    <!-- <DetailMiddelImg :srcPath="''" text="이미지 설명" /> -->
+    <!-- <DetailText text="일반 텍스트" /> -->
+    <!-- <DetailSubTitle text="서브타이틀 텍스트" /> -->
+    <!-- <DetailTextTitle text="Article 서브타이틀 텍스트" /> -->
+    <!-- <DetailTextItem text="AAAI (2021)" /> -->
   </div>
 </template>
 <script>
@@ -106,7 +108,10 @@
             componentName = 'DetailTextTitle'
             break
           case 'image':
-            componentName = 'DetailFullImg'
+            componentName =
+              content.itemProp.imageAlign === 'full'
+                ? 'DetailFullImg'
+                : 'DetailImg'
             break
           case 'pagaraph':
             componentName = 'DetailText'

@@ -37,6 +37,7 @@
     margin-right: 0;
     margin-bottom: 10px;
     padding: 8px 14px;
+    white-space: nowrap;
     &.sub {
       background-color: $gray-9;
       border: none;
