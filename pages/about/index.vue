@@ -1,11 +1,7 @@
 <template lang="">
   <div>
-    <AboutTitle text="Unthinkable" bold="Question." />
-    <AboutTitleText
-      Atext="kakaobrain is..."
-      Btext=" As an AI frontier that completes differentiated element technology, big models, and digital humans, it contributes to the"
-      Ctext="technology community and pioneers new service areas that enhance the value of use and quality of life."
-    />
+    <AboutTitle />
+    <AboutTitleText />
     <AboutFullConA />
     <div class="vision-list-con">
       <AboutVisionList
@@ -20,8 +16,8 @@
       />
     </div>
     <AboutFullConB />
-    <AboutConTit text="Our Brand"/>
-    <AboutConTxt text="People looking for unexpected answers from unthinkable questions, kakaobrain krews share with you the new journey and stories they are making with AI."/>
+    <AboutConTit />
+    <AboutConTxt />
     <AboutLargeLogo />
     <AboutFullConC />
     <AboutFullSlide />
@@ -87,40 +83,8 @@
   .about-large-logo {
     margin-bottom: 400px;
   }
-  
-  @include pc-4k {
-  
-    .about-title {
-      margin-top: 600px !important;
-      margin-bottom: 130px !important;
-    }
-    .about-title-text {
-      margin-bottom: 388px !important;
-    }
-    .about-full-con-a {
-      margin-bottom: 800px !important;
-    }
-    .vision-list-con {
-      .vision-list {
-        margin-bottom: 360px !important;
-      }
-      margin-bottom: 800px !important;
-    }
-    .about-full-con-b {
-      margin-bottom: 800px !important;
-    }
-    .about-con-tit {
-      margin-bottom: 180px !important;
-    }
-    .about-con-txt {
-      margin-bottom: 678px !important;
-    }
-    .about-large-logo {
-      margin-bottom: 800px !important;
-    }
-  }
+
   @include pc-large {
-    
     .about-title {
       margin-top: 400px;
       margin-bottom: 80px;
@@ -138,7 +102,7 @@
       margin-bottom: 530px;
     }
     .about-full-con-b {
-      margin-bottom: 530px; 
+      margin-bottom: 530px;
     }
     .about-con-tit {
       margin-bottom: 130px;
@@ -148,6 +112,37 @@
     }
     .about-large-logo {
       margin-bottom: 530px;
+    }
+  }
+
+  @include pc-4k {
+    .about-title {
+      margin-top: 600px;
+      margin-bottom: 130px;
+    }
+    .about-title-text {
+      margin-bottom: 388px;
+    }
+    .about-full-con-a {
+      margin-bottom: 800px;
+    }
+    .vision-list-con {
+      .vision-list {
+        margin-bottom: 360px;
+      }
+      margin-bottom: 800px;
+    }
+    .about-full-con-b {
+      margin-bottom: 800px;
+    }
+    .about-con-tit {
+      margin-bottom: 180px;
+    }
+    .about-con-txt {
+      margin-bottom: 678px;
+    }
+    .about-large-logo {
+      margin-bottom: 800px;
     }
   }
   @include tablet {
@@ -168,7 +163,7 @@
       margin-bottom: 200px;
     }
     .about-full-con-b {
-      margin-bottom: 200px; 
+      margin-bottom: 200px;
     }
     .about-con-tit {
       margin-bottom: 50px;
@@ -181,7 +176,6 @@
     }
   }
   @include mobile {
-
     .about-title {
       margin-top: 158px;
       margin-bottom: 40px;
@@ -199,7 +193,7 @@
       margin-bottom: 100px;
     }
     .about-full-con-b {
-      margin-bottom: 100px; 
+      margin-bottom: 100px;
     }
     .about-con-tit {
       margin-bottom: 30px;
@@ -211,5 +205,4 @@
       margin-bottom: 100px;
     }
   }
-
 </style>
