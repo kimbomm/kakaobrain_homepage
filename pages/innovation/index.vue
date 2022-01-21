@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="innovation">
     <div class="contents-selector l-ml-2 gl-6">
       <FilterSelector :list="filter" />
     </div>
@@ -17,7 +17,7 @@
 
     <div class="contents-list-text">
       <DetailText
-        text="우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다.우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다.우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다.우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다.우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다.우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다.우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다."
+        :data="detailText"
       />
     </div>
     <!-- reference: https://github.com/paulcollett/vue-masonry-css -->
@@ -59,6 +59,13 @@
         innovationList: state => state.innovation.list
       })
     },
+    data() {
+      return {
+        detailText: {
+          text: '우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다.우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다.우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다.우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다.우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다.우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다.우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다.'
+        }
+      }
+    },
     created() {
       this.init()
     },
@@ -73,9 +80,12 @@
   }
 </script>
 <style lang="scss" scoped>
-  .masonry {
-    padding: 0 20px;
+  .innovation{
+    padding: 0 20px;;
   }
+  // .masonry {
+  //   padding: 0 20px;
+  // }
   /deep/ .Innovation {
     min-width: initial;
     max-width: initial;

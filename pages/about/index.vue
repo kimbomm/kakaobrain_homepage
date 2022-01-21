@@ -1,7 +1,12 @@
 <template lang="">
   <div>
     <AboutTitle />
-    <AboutTitleText />
+    <AboutTitleText 
+      :text="`kakaobrain is...</br>As an AI frontier that completes differentiated element technology,
+      big models, and digital humans, it contributes to the<br />
+      technology community and pioneers new service areas that enhance the
+      value of use and quality of life.`"
+    />
     <AboutFullConA />
     <div class="vision-list-con">
       <AboutVisionList
