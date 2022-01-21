@@ -4,7 +4,7 @@
       <img src="@/assets/images/about-full-conE_img_1.png">
       <div class="inner">
         <div class="con-tit gl-8 l-ml-2">
-          <div>We aim for horizontal communication.</div>
+          <div>We aim for horizontal<br/>communication.</div>
         </div>
         <div class="text-box gl-6 l-ml-3">
           <div class="txt">{{Atext}}</div>
