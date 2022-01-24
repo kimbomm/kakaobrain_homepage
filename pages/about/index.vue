@@ -5,14 +5,10 @@
     <AboutFullConA />
     <div class="vision-list-con">
       <AboutVisionList
-        num="¹"
-        txt="outstanding"
-        subtxt="Top-notch experts gather to develop innovative technologies that are the basis for solving all problems."
-      />
-      <AboutVisionList
-        num="²"
-        txt="actualized"
-        subtxt="It pioneers technology-based business areas and materializes them into services that improve quality of life."
+        v-for="(data, index) in visionList"
+        :key="index"
+        :data="data"
+        :index="index"
       />
     </div>
     <AboutFullConB />
@@ -49,6 +45,36 @@
       AboutLargeLogo,
       AboutFullConC,
       AboutFullSlide
+    },
+    data() {
+      return {
+        visionList: [
+          {
+            num: '¹',
+            txt: 'outstanding',
+            subtxt:
+              'Top-notch experts gather to develop innovative technologies that are the basis for solving all problems.'
+          },
+          {
+            num: '²',
+            txt: 'actualized',
+            subtxt:
+              'It pioneers technology-based business areas and materializes them into services that improve quality of life.'
+          },
+          {
+            num: '³',
+            txt: 'open',
+            subtxt:
+              '기술 노하우를 공개하고 공유하여, AI 생태계에 기여하고 새로운 가치를 창출합니다.'
+          },
+          {
+            num: '⁴',
+            txt: 'impactful',
+            subtxt:
+              '모든 사람이 더 나은 삶을 살 수 있도록, 세상의 가치 있는 변화를 주도합니다.'
+          }
+        ]
+      }
     }
   }
 </script>
