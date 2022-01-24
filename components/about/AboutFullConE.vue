@@ -7,8 +7,7 @@
           <div>We aim for horizontal<br/>communication.</div>
         </div>
         <div class="text-box gl-6 l-ml-3">
-          <div class="txt">{{Atext}}</div>
-          <div class="txt">{{Btext}}</div>
+          <div class="txt" v-html="Atext"></div>
         </div>
         <div class="material gl-6 l-ml-2">
           <!-- <img src="@/assets/images/material_2.png"/> -->
@@ -45,11 +44,6 @@ export default {
   name:'AboutFullConE',
   props:{
     Atext:{
-      type:String,
-      default:'',
-      required:true
-    },
-    Btext:{
       type:String,
       default:'',
       required:true

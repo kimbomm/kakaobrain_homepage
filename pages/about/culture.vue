@@ -23,14 +23,12 @@
       />
     </div>
     <AboutFullConE
-      Atext="It means a culture of freely expressing opinions in discussions. During the discussion process, anyone can clarify their thoughts, and regardless of their status, discussions are made &#34;horizontally&#34; on the topic of discussion. In addition, all suggestions can be made directly to the representative, and the public forum is always held."
-      Btext="The thoughts and opinions of members delivered through 'horizontal' discussions can lead to better decision-makers. If there comes a moment when you have to take responsibility and make a &#34;choice&#34; because it is difficult to make decisions with further discussions, each determined decision maker will make the final decision."
+      :Atext="`It means a culture of freely expressing opinions in discussions. During the discussion process, anyone can clarify their thoughts, and regardless of their status, discussions are made &#34;horizontally&#34; on the topic of discussion. In addition, all suggestions can be made directly to the representative, and the public forum is always held.</br></br>The thoughts and opinions of members delivered through 'horizontal' discussions can lead to better decision-makers. If there comes a moment when you have to take responsibility and make a &#34;choice&#34; because it is difficult to make decisions with further discussions, each determined decision maker will make the final decision.`"
     />
     <AboutFullConF
       tit="We want to take maximum autonomy with the least principle."
       Atext="We aim to minimize the principles of organizational culture if possible so that it feels as if there is no organizational culture, and to make everything autonomously through our discussions as much as possible.
         With this minimum principle, we can go back autonomously. Therefore, our culture of sharing and creating systems and principles without artificially creating them applies not only in our work but also in our company's welfare."
-      Btext=""
     />
 
   </div>

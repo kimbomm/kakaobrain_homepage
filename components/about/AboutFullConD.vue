@@ -184,6 +184,9 @@ export default {
           .tit{
             margin-bottom:200px !important;
             font-size:180px !important;
+            &.gl-8{
+              width: getWidth(6) !important;
+            }
           }
           .text-box{
             margin-bottom:330px !important;
@@ -192,6 +195,9 @@ export default {
               &:not(:last-child){
                 margin-bottom:40px !important;
               }
+            }
+            &.gl-6{
+              width: getWidth(5) !important;
             }
           }
           .material{
@@ -229,6 +235,9 @@ export default {
           .tit{
             margin-bottom:130px;
             font-size:120px;
+            &.gl-8{
+              width: getWidth(8);
+            }
           }
           .text-box{
             margin-bottom:220px;
@@ -237,6 +246,9 @@ export default {
               &:not(:last-child){
                 margin-bottom:30px;
               }
+            }
+            &.gl-6{
+              width: getWidth(6);
             }
           }
           .material{

@@ -12,8 +12,7 @@ export default {
 <style lang="scss" scped>
   @import '@/assets/scss/mixins.scss';
   .about-large-logo{
-    width:1120px;
-    height:286px;
+    max-width:1120px;
     padding: 0 20px;
     .tit{
       font-size: 14px;
@@ -26,8 +25,7 @@ export default {
   }
   @include pc-4k {
     .about-large-logo{
-      width:2272px !important;
-      height:580px !important; 
+      max-width:2272px !important;
       .tit{
         font-size: 30px !important;
       }
@@ -36,8 +34,7 @@ export default {
   }
   @include pc-large {
     .about-large-logo{
-      width:1504px;
-      height:384px ;
+      max-width:1504px;
       .tit{
         font-size: 20px;
       }
@@ -46,8 +43,7 @@ export default {
   }
   @include tablet {
     .about-large-logo{
-      width:582px;
-      height:148px ;
+      max-width:582px;
       .tit{
         font-size: 14px;
       }

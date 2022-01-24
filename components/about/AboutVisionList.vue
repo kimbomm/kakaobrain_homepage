@@ -5,8 +5,8 @@
        <img src="@/assets/images/vision_img.png"/>
      </div>
      <div class="list-txt gl-8">
-       <div class="txt"><span class="num">{{num}}</span>{{txt}}</div>
-       <div class="sub-txt l-ml-1 gl-4">{{subtxt}}</div>
+       <div class="txt"><span class="num">{{data.num}}</span>{{data.txt}}</div>
+       <div class="sub-txt l-ml-1 gl-4">{{data.subtxt}}</div>
      </div>
     </div>
   </div>
@@ -15,20 +15,10 @@
 export default {
   name:'AboutVisionList',
   props:{
-    txt:{
-      type: String,
-      default: '',
-      required: true
-    },
-    num:{
-      type: String,
-      default: '',
-      required: true
-    },
-    subtxt:{
-      type: String,
-      default: '',
-      required: true
+    data:{
+      type:Object,
+      default:() => [],
+      require:true
     }
   }
 }

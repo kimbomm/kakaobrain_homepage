@@ -1,28 +1,18 @@
-<template lang="">
+<template>
   <div>
-    <AboutTitle />
-    <AboutTitleText 
-      :text="`kakaobrain is...</br>As an AI frontier that completes differentiated element technology,
-      big models, and digital humans, it contributes to the<br />
-      technology community and pioneers new service areas that enhance the
-      value of use and quality of life.`"
-    />
+    <AboutTitle :data="aboutTitle"/>
+    <AboutTitleText :data="aboutTitleText"/>
     <AboutFullConA />
     <div class="vision-list-con">
-      <AboutVisionList
-        num="¹"
-        txt="outstanding"
-        subtxt="Top-notch experts gather to develop innovative technologies that are the basis for solving all problems."
-      />
-      <AboutVisionList
-        num="²"
-        txt="actualized"
-        subtxt="It pioneers technology-based business areas and materializes them into services that improve quality of life."
-      />
+      <ul>
+        <li v-for="(data, index) in aboutVisionList" :key="index">
+          <AboutVisionList :data="data"/>
+        </li>
+      </ul>
     </div>
     <AboutFullConB />
-    <AboutConTit />
-    <AboutConTxt />
+    <AboutConTit :data="aboutConTit"/>
+    <AboutConTxt :data="aboutConTxt"/>
     <AboutLargeLogo />
     <AboutFullConC />
     <AboutFullSlide />
@@ -54,6 +44,44 @@
       AboutLargeLogo,
       AboutFullConC,
       AboutFullSlide
+    },
+    data(){
+      return{
+        aboutTitle:{
+            title:'Unthinkable <span class="string">Question.</span>',
+        },
+        aboutTitleText:{
+          text:'kakaobrain is...</br>As an AI frontier that completes differentiated element technology, big models, and digital humans, it contributes to the<br/>technology community and pioneers new service areas that enhance the value of use and quality of life.'
+        },
+        aboutVisionList:[
+          {
+            num:'¹',
+            txt:'outstanding',
+            subtxt:'Top-notch experts gather to develop innovative technologies that are the basis for solving all problems.'
+          },
+          {
+            num:'²',
+            txt:'actualized',
+            subtxt:'It pioneers technology-based business areas and materializes them into services that improve quality of life.'
+          },
+          {
+            num:'³',
+            txt:'open',
+            subtxt:'By disclosing and sharing technical know-how, it contributes to the AI ecosystem and creates new value.'
+          },
+          {
+            num:'⁴',
+            txt:'impactful',
+            subtxt:'Leads valuable changes in the world so that everyone can live a better life.'
+          }
+        ],
+        aboutConTit:{
+          title:'Our Brand'
+        },
+        aboutConTxt:{
+          text:' People looking for unexpected answers from unthinkable questions, kakaobrain krews share with you the new journey and stories they are making with AI.'
+        },
+      }
     }
   }
 </script>
@@ -89,6 +117,7 @@
     margin-bottom: 400px;
   }
 
+      
   @include pc-large {
     .about-title {
       margin-top: 400px;

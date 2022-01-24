@@ -1,7 +1,7 @@
 <template>
   <div class="about-title-text gl-5 l-ml-3">
     <div class="txt-con">
-      <div class="txt" v-html="text"></div>
+      <div class="txt" v-html="data.text"></div>
     </div>
     <div class="txt-scroll">
       <span> scroll</span>
@@ -12,10 +12,15 @@
   export default {
     name: 'AboutTitleText',
     props:{
-      text:{
-        type:String,
-        default:'',
-        required:true
+      // text:{
+      //   type:String,
+      //   default:'',
+      //   required:true
+      // }
+      data:{
+        type:Object,
+        default:() => [],
+        require:true
       }
     }
   }

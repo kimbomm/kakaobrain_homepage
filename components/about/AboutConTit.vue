@@ -1,9 +1,16 @@
 <template>
-  <div class="about-con-tit gl-8 l-ml-2">Our Brand</div>
+  <div class="about-con-tit gl-8 l-ml-2">{{data.title}}</div>
 </template>
 <script>
   export default {
-    name: 'AboutConTit'
+    name: 'AboutConTit',
+    props:{
+      data:{
+        type:Object,
+        default:() => [],
+        require:true
+      }
+    }
   }
 </script>
 <style lang="scss" scoped>
