@@ -2,7 +2,7 @@
   <div class="content-detail">
     <template v-if="data">
       <div class="top">
-        <BreadCrumb :tags="data.ContentTags" />
+        <BreadCrumb :data="data.ContentTags" :full="true" />
         <DetailTitle :text="data.title" />
       </div>
       <template v-for="(content, index) in data.ContentItems">

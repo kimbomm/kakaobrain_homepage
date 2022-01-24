@@ -10,7 +10,8 @@ export const state = () => ({
   filter: [],
   filterList: [],
   touchDevice: false,
-  isFilterMenuOpen: false
+  isFilterMenuOpen: false,
+  breadcrumb: []
 })
 export const getters = {
   // newsCategory(state) {
@@ -36,6 +37,9 @@ export const mutations = {
         state.filterList = state.category['innovation']
         break
     }
+  },
+  setBreadCrumb(state, payload) {
+    this.breadcrumb = [...payload]
   }
 }
 export const actions = {
@@ -49,5 +53,8 @@ export const actions = {
   },
   getFilterList({ commit }, payload) {
     commit('setFilterList', payload)
+  },
+  async getBreadCrumb({ commit }, payload) {
+    commit('setBreadCrumb', payload)
   }
 }

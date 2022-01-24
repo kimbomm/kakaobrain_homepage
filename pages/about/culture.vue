@@ -1,5 +1,6 @@
 <template lang="">
   <div>
+    <BreadCrumb :data="breadcrumb" :full="true" />
     <AboutTitle text="Our way" bold="of working." />
     <AboutTitleText
       :text="`kakaobrain krew are given a lot of good opportunities to grow self-directed, and we find out how we are doing to grow</br>together through great colleagues.`"
@@ -12,12 +13,14 @@
       Btext=""
     />
     <div class="culture-text-box">
-      <AboutConTit text="We immerse ourselves and work self-directedly."/>
-      <AboutConTxt text="We need to be able to experiment and change faster than anywhere else, and we need to be interested in and challenge new things and paths that no one has ever been to. So we are not afraid of failure. Performance includes not only success but also meaningful failure.
+      <AboutConTit text="We immerse ourselves and work self-directedly." />
+      <AboutConTxt
+        text="We need to be able to experiment and change faster than anywhere else, and we need to be interested in and challenge new things and paths that no one has ever been to. So we are not afraid of failure. Performance includes not only success but also meaningful failure.
         As there are many situations where you have to maximize individual creativity by asking questions on your own without just moving on, self-direction to find and solve problems on your own is required first."
       />
-      <AboutConSubTit text="Why would we do this?"/>
-      <AboutConTxt text="This is the first question we have to ask. We create our own driving force. I always think first, ask questions, 
+      <AboutConSubTit text="Why would we do this?" />
+      <AboutConTxt
+        text="This is the first question we have to ask. We create our own driving force. I always think first, ask questions, 
         and move in order to lead without being dragged around by work. In this way, we aim to judge ourselves with 
         the trust that we can best judge our own work and do our own work."
       />
@@ -32,11 +35,11 @@
         With this minimum principle, we can go back autonomously. Therefore, our culture of sharing and creating systems and principles without artificially creating them applies not only in our work but also in our company's welfare."
       Btext=""
     />
-
   </div>
 </template>
 <script>
   import mixinGlobal from '@/mixin/global.js'
+  import BreadCrumb from '@/components/elements/BreadCrumb'
   import AboutTitle from '@/components/about/AboutTitle'
   import AboutTitleText from '@/components/about/AboutTitleText'
   import AboutFullConD from '@/components/about/AboutFullConD'
@@ -49,6 +52,7 @@
     mixins: [mixinGlobal],
     name: 'index',
     components: {
+      BreadCrumb,
       AboutTitle,
       AboutTitleText,
       AboutFullConD,
@@ -56,7 +60,16 @@
       AboutConTxt,
       AboutConSubTit,
       AboutFullConE,
-      AboutFullConF,
+      AboutFullConF
+    },
+    data() {
+      return {
+        breadcrumb: [
+          { text: 'About', sub: 'about', link: '' },
+          { text: 'Culture', sub: 'sub', link: '/about/culture' },
+          { text: 'Yeah!!!', sub: '', link: '' }
+        ]
+      }
     }
   }
 </script>
@@ -64,7 +77,6 @@
   @import '@/assets/scss/mixins.scss';
 
   .about-title {
-    margin-top: 300px;
     margin-bottom: 60px;
   }
   .about-title-text {
@@ -73,8 +85,8 @@
   .about-full-con-d {
     margin-bottom: 400px;
   }
-  .culture-text-box{
-    margin-bottom:400px;
+  .culture-text-box {
+    margin-bottom: 400px;
 
     .about-con-tit {
       margin-bottom: 100px;
@@ -82,17 +94,16 @@
     .about-con-txt {
       margin-bottom: 100px;
     }
-    .about-con-sub-tit{
-      margin-bottom:30px;
+    .about-con-sub-tit {
+      margin-bottom: 30px;
     }
   }
-  .about-full-con-e{
-    margin-bottom:400px;
+  .about-full-con-e {
+    margin-bottom: 400px;
   }
 
   @include pc-4k {
     .about-title {
-      margin-top: 600px !important;
       margin-bottom: 130px !important;
     }
     .about-title-text {
@@ -101,8 +112,8 @@
     .about-full-con-d {
       margin-bottom: 800px !important;
     }
-    .culture-text-box{
-      margin-bottom:800px !important;
+    .culture-text-box {
+      margin-bottom: 800px !important;
 
       .about-con-tit {
         margin-bottom: 200px !important;
@@ -110,18 +121,17 @@
       .about-con-txt {
         margin-bottom: 200px !important;
       }
-      .about-con-sub-tit{
-        margin-bottom:30px !important;
+      .about-con-sub-tit {
+        margin-bottom: 30px !important;
       }
     }
 
-    .about-full-con-e{
-      margin-bottom:800px !important;
+    .about-full-con-e {
+      margin-bottom: 800px !important;
     }
   }
   @include pc-large {
     .about-title {
-      margin-top: 400px;
       margin-bottom: 80px;
     }
     .about-title-text {
@@ -130,26 +140,25 @@
     .about-full-con-d {
       margin-bottom: 530px;
     }
-    .culture-text-box{
-      margin-bottom:530px;
+    .culture-text-box {
+      margin-bottom: 530px;
       .about-con-tit {
         margin-bottom: 130px;
       }
       .about-con-txt {
         margin-bottom: 130px;
       }
-      .about-con-sub-tit{
-        margin-bottom:40px;
+      .about-con-sub-tit {
+        margin-bottom: 40px;
       }
     }
 
-    .about-full-con-e{
-      margin-bottom:530px;
+    .about-full-con-e {
+      margin-bottom: 530px;
     }
   }
   @include tablet {
     .about-title {
-      margin-top: 195px;
       margin-bottom: 60px;
     }
     .about-title-text {
@@ -158,26 +167,25 @@
     .about-full-con-d {
       margin-bottom: 200px;
     }
-    .culture-text-box{
-      margin-bottom:200px;
+    .culture-text-box {
+      margin-bottom: 200px;
       .about-con-tit {
         margin-bottom: 50px;
       }
       .about-con-txt {
         margin-bottom: 50px;
       }
-      .about-con-sub-tit{
-        margin-bottom:20px;
+      .about-con-sub-tit {
+        margin-bottom: 20px;
       }
     }
 
-    .about-full-con-e{
-      margin-bottom:200px;
+    .about-full-con-e {
+      margin-bottom: 200px;
     }
   }
   @include mobile {
     .about-title {
-      margin-top: 156px;
       margin-bottom: 40px;
     }
     .about-title-text {
@@ -186,21 +194,21 @@
     .about-full-con-d {
       margin-bottom: 100px;
     }
-    .culture-text-box{
-      margin-bottom:100px;
+    .culture-text-box {
+      margin-bottom: 100px;
       .about-con-tit {
         margin-bottom: 30px;
       }
       .about-con-txt {
         margin-bottom: 50px;
       }
-      .about-con-sub-tit{
-        margin-bottom:24px;
+      .about-con-sub-tit {
+        margin-bottom: 24px;
       }
     }
 
-    .about-full-con-e{
-      margin-bottom:100px;
+    .about-full-con-e {
+      margin-bottom: 100px;
     }
   }
 </style>

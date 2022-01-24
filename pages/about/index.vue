@@ -1,7 +1,8 @@
 <template lang="">
   <div>
+    <BreadCrumb :data="breadcrumb" :full="true" />
     <AboutTitle />
-    <AboutTitleText 
+    <AboutTitleText
       :text="`kakaobrain is...</br>As an AI frontier that completes differentiated element technology,
       big models, and digital humans, it contributes to the<br />
       technology community and pioneers new service areas that enhance the
@@ -26,6 +27,7 @@
 </template>
 <script>
   import mixinGlobal from '@/mixin/global.js'
+  import BreadCrumb from '@/components/elements/BreadCrumb'
   import AboutTitle from '@/components/about/AboutTitle'
   import AboutTitleText from '@/components/about/AboutTitleText'
   import AboutFullConA from '@/components/about/AboutFullConA'
@@ -40,6 +42,7 @@
     mixins: [mixinGlobal],
     name: 'index',
     components: {
+      BreadCrumb,
       AboutTitle,
       AboutTitleText,
       AboutFullConA,
@@ -53,6 +56,11 @@
     },
     data() {
       return {
+        breadcrumb: [
+          { text: 'About', sub: 'about', link: '' },
+          { text: 'Introduce', sub: 'sub', link: '/about' },
+          { text: 'Yeah!!!', sub: '', link: '' }
+        ],
         visionList: [
           {
             num: '¹',
@@ -87,7 +95,6 @@
   @import '@/assets/scss/mixins.scss';
 
   .about-title {
-    margin-top: 300px;
     margin-bottom: 60px;
   }
   .about-title-text {
@@ -117,7 +124,6 @@
 
   @include pc-large {
     .about-title {
-      margin-top: 400px;
       margin-bottom: 80px;
     }
     .about-title-text {
@@ -148,7 +154,6 @@
 
   @include pc-4k {
     .about-title {
-      margin-top: 600px;
       margin-bottom: 130px;
     }
     .about-title-text {
@@ -178,7 +183,6 @@
   }
   @include tablet {
     .about-title {
-      margin-top: 195px;
       margin-bottom: 60px;
     }
     .about-title-text {
@@ -208,7 +212,6 @@
   }
   @include mobile {
     .about-title {
-      margin-top: 158px;
       margin-bottom: 40px;
     }
     .about-title-text {

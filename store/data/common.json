@@ -46,8 +46,7 @@
       "link": "/magazine",
       "alarm": "78",
       "sub": [
-        { "name": "News", "link": "#" },
-        { "name": "Interview", "link": "#" },
+        { "name": "News", "link": "/news" },
         { "name": "Documentary", "link": "#" }
       ]
     }

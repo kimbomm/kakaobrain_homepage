@@ -1,6 +1,11 @@
 <template>
   <div class="sticker">
-    <button type="button" :class="`btn ${sub}`" :disabled="!sub ? true : false">
+    <button
+      type="button"
+      :class="`btn ${sub}`"
+      :disabled="!sub || !link ? true : false"
+      @click="onClick"
+    >
       <span class="txt">{{ text }}</span>
     </button>
   </div>
@@ -15,6 +20,7 @@
         required: true
       },
       sub: {
+        // docu, studio, tech, research
         type: String,
         default: '',
         required: false
@@ -23,6 +29,13 @@
         type: String,
         default: '',
         required: false
+      }
+    },
+    methods: {
+      onClick() {
+        if (this.link) {
+          this.$router.push(this.link)
+        }
       }
     }
   }
@@ -34,14 +47,27 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    margin-right: 0;
-    margin-bottom: 10px;
     padding: 8px 14px;
     white-space: nowrap;
+    &:disabled {
+      cursor: initial;
+    }
     &.sub {
       background-color: $gray-9;
       border: none;
       color: $gray-0;
+    }
+    &.about {
+      background-color: $brain-yellow;
+      border: none;
+      color: $gray-0;
+      .txt {
+        &::before {
+          content: '★';
+          display: inline-block;
+          padding-right: 2px;
+        }
+      }
     }
     &.docu {
       background-color: $brain-orange;
@@ -115,7 +141,6 @@
       display: inline-block;
     }
     .btn {
-      margin-bottom: 4px;
       .txt {
         font-size: 10px;
       }
@@ -127,7 +152,6 @@
     }
     .btn {
       padding: 4px 10px;
-      margin-bottom: 0px;
     }
   }
 </style>
