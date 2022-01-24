@@ -2,9 +2,7 @@
   <div>
     <AboutTitle text="Our way" bold="of working." />
     <AboutTitleText
-      Atext="kakaobrain krew are given a lot of good opportunities to grow self-directed, and we find out how we are doing to grow together through great colleagues."
-      Btext=""
-      Ctext=""
+      :text="`kakaobrain krew are given a lot of good opportunities to grow self-directed, and we find out how we are doing to grow</br>together through great colleagues.`"
     />
     <AboutFullConD
       tit="We disclose and share for better results."

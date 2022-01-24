@@ -8,7 +8,7 @@
     <DetailImg :srcPath="''" text="이미지 설명" />
     <DetailFullImg :srcPath="''" text="이미지 설명" />
     <DetailMiddelImg :srcPath="''" text="이미지 설명" />
-    <DetailText text="일반 텍스트" />
+    <DetailText :data="detailText"/>
     <DetailSubTitle text="서브타이틀 텍스트" />
     <DetailTextTitle text="Article 서브타이틀 텍스트" />
     <DetailTextItem text="AAAI (2021)" />
@@ -51,6 +51,9 @@
     },
     data() {
       return {
+        detailText:{
+          text:'일반 텍스트'
+        },
         /**
          * categoryType
          * typeA - thumbnail형

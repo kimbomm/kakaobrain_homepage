@@ -1,15 +1,7 @@
 <template>
   <div class="about-title-text gl-5 l-ml-3">
     <div class="txt-con">
-      <div class="txt">
-        kakaobrain is...
-        <p>
-          As an AI frontier that completes differentiated element technology,
-          big models, and digital humans, it contributes to the<br />
-          technology community and pioneers new service areas that enhance the
-          value of use and quality of life.
-        </p>
-      </div>
+      <div class="txt" v-html="text"></div>
     </div>
     <div class="txt-scroll">
       <span> scroll</span>
@@ -18,7 +10,14 @@
 </template>
 <script>
   export default {
-    name: 'AboutTitleText'
+    name: 'AboutTitleText',
+    props:{
+      text:{
+        type:String,
+        default:'',
+        required:true
+      }
+    }
   }
 </script>
 <style lang="scss" scoped>
