@@ -3,34 +3,36 @@
     <div class="full-con">
       <img src="@/assets/images/about-full-conD_img_1.png"/>
       <div class="inner">
-        <div class="tit gl-8 l-ml-2">{{tit}}</div>
+        <div class="tit gl-8 l-ml-2">We disclose and share for better results.</div>
         <div class="text-box gl-6 l-ml-3">
-          <div class="txt">{{Atext}}</div>
+          <div class="txt">The monopoly of information can be power and can reduce crew autonomy by creating a vertical communication structure. However, sharing information can increase work autonomy and increase the effect of collective intelligence. So we use collaborative tools such as Notion, Slack, Google Workspace, and GitHub for sharing/disclosure, and make it accessible and participated by anyone.
+          It's a 'work' that needs to be shared/disclosed, but sharing is not the final purpose. We constantly think about how to work efficiently and help each other grow together.
+          It also keeps security for the right public culture and shares it only with the crew.</div>
         </div>
         <div class="material gl-6 l-ml-2">
           <!-- <img src="@/assets/images/material_1.png"/> -->
           
-          <ul class="material-box">
-            <li class="material-item ">
+          <div class="material-box">
+            <div class="material-item ">
               <div class="material-text">
                 <div class="tit">TIM Meeting</div>
                 <div class="txt">Every monday</div>
               </div>
-            </li>
-            <li class="material-item ">
+            </div>
+            <div class="material-item ">
               <div class="material-text">
                 <div class="tit">Reveal & Share</div>
               </div>
               <div class="l-line"></div>
               <div class="r-line"></div>
-            </li>
-            <li class="material-item ">
+            </div>
+            <div class="material-item ">
               <div class="material-text">
                 <div class="tit">Minicon</div>
                 <div class="txt">The last Friday of every month</div>
               </div>
-            </li>
-          </ul>
+            </div>
+          </div>
  
         </div>
       </div>
@@ -40,23 +42,6 @@
 <script>
 export default {
   name:'AboutFullConD',
-  props:{
-    tit:{
-      type:String,
-      default:'',
-      required:true
-    },
-    Atext:{
-      type:String,
-      default:'',
-      required:true
-    },
-    Btext:{
-      type:String,
-      default:'',
-      required:true
-    }
-  }
 }
 </script>
 <style lang="scss" scoped>
@@ -118,8 +103,8 @@ export default {
               left:-120px;
               top:50%;
               width:120px;
-              height:1px;
-              border: 1px solid $gray-0;
+              height:2px;
+              background-color: $gray-0;
               &::before{
                 content: "";
                 position: absolute;
@@ -138,8 +123,8 @@ export default {
               right:-120px;
               top:50%;
               width:120px;
-              height:1px;
-              border: 1px solid $gray-0;
+              height:2px;
+              background-color: $gray-0;
               &::before{
                 content: "";
                 position: absolute;

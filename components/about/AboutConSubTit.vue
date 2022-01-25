@@ -1,14 +1,14 @@
 <template>
-  <div class="about-con-sub-tit l-ml-3">{{text}}</div>
+  <div class="about-con-sub-tit l-ml-3">{{data.title}}</div>
 </template>
 <script>
 export default {
   name:'AboutConSubTit',
   props:{
-    text:{
-      type:String,
-      default:'',
-      required:true
+    data:{
+      type:Object,
+      default:() => [],
+      require:true
     }
   }
 }

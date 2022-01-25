@@ -3,9 +3,10 @@
     <div class="full-con">
       <!-- <img src="@/assets/images/about-full-conD_img_1.png"/> -->
       <div class="inner">
-        <div class="tit gl-8 l-ml-2">{{tit}}</div>
+        <div class="tit gl-8 l-ml-2">We want to take maximum autonomy with the least principle.</div>
         <div class="text-box gl-6 l-ml-3">
-          <div class="txt">{{Atext}}</div>
+          <div class="txt">We aim to minimize the principles of organizational culture if possible so that it feels as if there is no organizational culture, and to make everything autonomously through our discussions as much as possible.
+        With this minimum principle, we can go back autonomously. Therefore, our culture of sharing and creating systems and principles without artificially creating them applies not only in our work but also in our company's welfare.</div>
         </div>
         <div class="material gl-6 l-ml-2">
           <!-- <img src="@/assets/images/material_3.png"/> -->
@@ -56,18 +57,6 @@
 <script>
 export default {
   name:'AboutFullConF',
-  props:{
-    tit:{
-      type:String,
-      default:'',
-      required:true
-    },
-    Atext:{
-      type:String,
-      default:'',
-      required:true
-    }
-  }
 }
 </script>
 <style lang="scss" scoped>

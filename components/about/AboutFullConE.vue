@@ -7,7 +7,7 @@
           <div>We aim for horizontal<br/>communication.</div>
         </div>
         <div class="text-box gl-6 l-ml-3">
-          <div class="txt" v-html="Atext"></div>
+          <div class="txt">It means a culture of freely expressing opinions in discussions. During the discussion process, anyone can clarify their thoughts, and regardless of their status, discussions are made "horizontally" on the topic of discussion. In addition, all suggestions can be made directly to the representative, and the public forum is always held.<br/><br/>The thoughts and opinions of members delivered through 'horizontal' discussions can lead to better decision-makers. If there comes a moment when you have to take responsibility and make a "choice" because it is difficult to make decisions with further discussions, each determined decision maker will make the final decision.</div>
         </div>
         <div class="material gl-6 l-ml-2">
           <!-- <img src="@/assets/images/material_2.png"/> -->
@@ -42,13 +42,6 @@
 <script>
 export default {
   name:'AboutFullConE',
-  props:{
-    Atext:{
-      type:String,
-      default:'',
-      required:true
-    }
-  }
 }
 </script>
 <style lang="scss" scoped>
