@@ -145,7 +145,7 @@ export default {
             left:50%;
             top:50%;
             text-align: center;
-            transform: translate(-50%,0);
+            transform: translate(-50%,-50%);
           .tit{
             font-size:20px;
             font-weight: 900;
@@ -192,7 +192,7 @@ export default {
               left:50%;
               top:50%;
               text-align: center;
-              transform: translate(-50%,0);
+              transform: translate(-50%,-50%);
               color: $gray-9;
               .tit{
                 font-size:20px;

@@ -351,7 +351,7 @@ export default {
               .l-line{
                 left:50%;
                 top:-32px;
-                width:0px;
+                width:1px;
                 height:32px;
                 &::before{
                   left: 50%;
@@ -367,7 +367,7 @@ export default {
                 top:auto;
                 // bottom:0px;
                 bottom:-32px;
-                width:0px;
+                width:1px;
                 height:32px;
                 &::before{
                   content: "";

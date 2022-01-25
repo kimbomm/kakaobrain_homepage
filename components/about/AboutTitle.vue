@@ -32,9 +32,9 @@
     padding: 0 20px;
     .title-box{
       position: relative;
-      // .gl-8{
-      //   width: getWidth(6) !important;
-      // }
+      &.gl-6{
+        width: getWidth(8) !important;
+      }
       .easter-egg{
         position: absolute;
         left: 50%;
@@ -66,6 +66,9 @@
   @include pc-4k {
     .about-title {
       .title-box{
+        &.gl-6{
+          width: getWidth(6) !important;
+        }
         .easter-egg {
           width: 300px;
           height: 300px;
