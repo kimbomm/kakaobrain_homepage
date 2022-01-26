@@ -14,16 +14,6 @@
         default: () => {},
         require: true
       },
-      text: {
-        type: String,
-        default: '',
-        required: false
-      },
-      type: {
-        type: String,
-        default: '',
-        required: false
-      }
     }
   }
 </script>
