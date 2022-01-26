@@ -34,6 +34,14 @@
     }
   }
 
+  @include pc-large {
+    .detail {
+      &-subTit {
+        font-size: 52px;
+      }
+    }
+  }
+
   @include pc-4k {
     .detail {
       &-subTit {
@@ -42,13 +50,6 @@
     }
   }
 
-  @include pc-large {
-    .detail {
-      &-subTit {
-        font-size: 52px;
-      }
-    }
-  }
   @include tablet {
     .detail {
       &-subTit {
@@ -63,6 +64,7 @@
   }
   @include mobile {
     .detail {
+      padding: 0 20px;
       &-subTit {
         font-size: 26px;
       }
@@ -74,36 +76,4 @@
       margin-left: 0px !important;
     }
   }
-  //-------------------------------------
-
-  // .detail {
-  //   margin-bottom: 30px;
-  //   &-subTit {
-  //     line-height: 130%;
-  //     font-size: 78px;
-  //     font-weight: 900;
-  //   }
-  // }
-  // @media screen and (max-width: 2560px) {
-  //   .detail {
-  //     &-subTit {
-  //       font-size: 52px;
-  //     }
-  //   }
-  // }
-  // @media screen and (max-width: 1920px) {
-  //   .detail {
-  //     &-subTit {
-  //       font-size: 40px;
-  //     }
-  //   }
-  // }
-  // @media screen and (max-width: 768px) {
-  //   .gl-5 {
-  //     width: 100% !important;
-  //   }
-  //   .l-ml-3 {
-  //     margin-left: 0px !important;
-  //   }
-  // }
 </style>

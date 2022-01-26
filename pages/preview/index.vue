@@ -2,10 +2,15 @@
   <div class="content-detail">
     <template v-if="data">
       <div class="top">
-        <BreadCrumb :data="data.ContentTags" :full="true" />
-        <DetailTitle :text="data.title" />
+        <BreadCrumb :data="breadcrumb" :full="true" />
+        <DetailImage
+          v-if="thumbnail.length > 0"
+          :data="thumbnail[0]"
+          :isThumbnail="true"
+        />
       </div>
-      <template v-for="(content, index) in data.ContentItems">
+      <DetailTitle :text="data.title" />
+      <template v-for="(content, index) in ContentItems">
         <component
           :is="validContent(content, index)"
           :key="`content-${index}`"
@@ -37,9 +42,7 @@
   import { mapActions } from 'vuex'
   import BreadCrumb from '@/components/elements/BreadCrumb'
   import Thumbnail from '@/components/detail/Thumbnail'
-  import DetailImg from '@/components/detail/DetailImg'
-  import DetailFullImg from '@/components/detail/DetailFullImg'
-  import DetailMiddelImg from '@/components/detail/DetailMiddelImg'
+  import DetailImage from '@/components/detail/DetailImage'
   import DetailTitle from '@/components/detail/DetailTitle'
   import DetailText from '@/components/detail/DetailText'
   import DetailSubTitle from '@/components/detail/DetailSubTitle'
@@ -52,12 +55,10 @@
     components: {
       BreadCrumb,
       Thumbnail,
+      DetailImage,
       DetailTitle,
       DetailText,
-      DetailImg,
       DetailSubTitle,
-      DetailFullImg,
-      DetailMiddelImg,
       DetailTextTitle,
       DetailTextItem,
       Like
@@ -65,7 +66,7 @@
     computed: {
       topClassBind() {
         let classList = ['top']
-        if (this.categoryType === 'typeB' || this.categoryType === 'typeC') {
+        if (this.thumbnail.length === 0) {
           classList.push('no-thumbnail')
         }
         return classList
@@ -82,7 +83,10 @@
          */
         isLoad: false,
         categoryType: null,
-        data: null
+        data: null,
+        breadcrumb: [],
+        thumbnail: null,
+        ContentItems: []
       }
     },
     computed: {
@@ -94,11 +98,23 @@
       await this.init()
     },
     methods: {
-      ...mapActions(['getContentDetail']),
+      ...mapActions(['getContentDetail', 'getNickName']),
       async init() {
         const res = await this.getContentDetail(this.contentId)
-        console.log(res.data)
         this.data = res.data
+        this.ContentItems = this.data.ContentItems
+        if (
+          res.data.contentType === 'ARTICLE' &&
+          res.data.ContentItems[0].itemType === 'image'
+        ) {
+          this.thumbnail = this.ContentItems.slice(0, 1)
+          this.ContentItems = this.ContentItems.slice(
+            1,
+            this.ContentItems.length
+          )
+        }
+
+        await this.setBreadcrumb(this.data.category1, this.data.category2)
         this.isLoad = true
       },
       validContent(content, index) {
@@ -108,16 +124,48 @@
             componentName = 'DetailTextTitle'
             break
           case 'image':
-            componentName =
-              content.itemProp.imageAlign === 'full'
-                ? 'DetailFullImg'
-                : 'DetailMiddelImg'
+            componentName = 'DetailImage'
             break
-          case 'pagaraph':
+          // case 'pagaraph':
+          //   componentName = 'DetailText'
+          //   break
+          // case 'link':
+          //   break
+          default:
             componentName = 'DetailText'
             break
         }
         return componentName
+      },
+      async setBreadcrumb(category1, category2) {
+        let subClass = ''
+        const info = await this.getNickName({
+          category1,
+          category2
+        })
+
+        switch (category1) {
+          case 'document':
+            subClass = 'docu'
+            break
+          default:
+            subClass = category1
+            break
+        }
+
+        this.title = info.category2.name
+        this.breadcrumb.push(
+          { text: info.category1.nick, sub: subClass, link: '' },
+          { text: info.category2.nick, sub: 'sub', link: info.category2.link }
+        )
+
+        for (let i = 0; i < this.data.ContentTags.length; i++) {
+          this.breadcrumb.push({
+            text: this.data.ContentTags[i].tag,
+            sub: '',
+            link: this.data.ContentTags[i].link
+          })
+        }
       }
     }
   }
@@ -127,11 +175,15 @@
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
-    margin-bottom: 145px;
+    margin-bottom: 60px;
     &.no-thumbnail {
-      margin-bottom: 248px;
+      margin-bottom: 100px;
+      .bread-crumb {
+        padding-top: 100px;
+      }
     }
     .bread-crumb {
+      padding-top: 0;
       padding-right: 20px;
     }
     > * {
@@ -139,12 +191,13 @@
     }
   }
   .content-detail {
-    padding-top: 200px;
+    padding-top: 100px;
     .con-box {
-      margin-bottom: 300px;
+      margin-bottom: 100px;
     }
   }
-  @media screen and (max-width: 2560px) {
+
+  @include pc-large {
     .content-detail {
       padding-top: 130px;
       .con-box {
@@ -158,21 +211,21 @@
       }
     }
   }
-  @media screen and (max-width: 1920px) {
-    .content-detail {
-      padding-top: 100px;
-      .con-box {
-        margin-bottom: 100px;
+  @include pc-4k {
+    .top {
+      margin-bottom: 145px;
+      &.no-thumbnail {
+        margin-bottom: 248px;
       }
     }
-    .top {
-      margin-bottom: 60px;
-      &.no-thumbnail {
-        margin-bottom: 100px;
+    .content-detail {
+      padding-top: 200px;
+      .con-box {
+        margin-bottom: 300px;
       }
     }
   }
-  @media screen and (max-width: 1024px) {
+  @include tablet {
     .top {
       margin-bottom: 100px;
       &.no-thumbnail {
@@ -180,7 +233,7 @@
       }
     }
   }
-  @media screen and (max-width: 768px) {
+  @include mobile {
     .top {
       display: block;
       margin-bottom: 60px;
