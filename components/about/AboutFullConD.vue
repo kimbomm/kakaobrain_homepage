@@ -161,80 +161,9 @@ export default {
   //
     }
   }
-  @include pc-4k {
-    .about-full-con-d{
-      .full-con{
-        padding: 800px 0 !important;
-        .inner{
-          .tit{
-            margin-bottom:200px !important;
-            font-size:180px !important;
-            &.gl-8{
-              width: getWidth(6) !important;
-            }
-          }
-          .text-box{
-            margin-bottom:330px !important;
-            .txt{
-              font-size: 46px !important;
-              &:not(:last-child){
-                margin-bottom:40px !important;
-              }
-            }
-            &.gl-6{
-              width: getWidth(5) !important;
-            }
-          }
-          .material{
-            &-item{
-              width:664px !important;
-              height:664px !important;
-              .l-line{
-                left:-284px !important;
-                width:284px !important;
-              }
-              .r-line{
-                right:-284px !important;
-                width:284px !important;
-              }
-            }
-            &-text{
-              .tit{
-                font-size:30px !important;
-                margin-bottom:6px !important;
-              }
-              .txt{
-                font-size:18px;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-  @media screen and (min-width:4400px) {
-    .about-full-con-d{
-      .full-con{
-        .inner{
-          .material{
-            &-item{
-              width:400px ;
-              height:400px ;
-              .l-line{
-                left:-161px ;
-                width:161px ;
-              }
-              .r-line{
-                right:-161px ;
-                width:161px ;
-              }
-            }
+  
  
-          }
-        }
-      }
-    }
-  }
+  
   @include pc-large {
     .about-full-con-d{
       .full-con{
@@ -286,6 +215,143 @@ export default {
       }
     }
   }
+
+  
+
+  @include pc-4k {
+    .about-full-con-d{
+      .full-con{
+        padding: 800px 0 ;
+        .inner{
+          .tit{
+            margin-bottom:200px ;
+            font-size:180px ;
+            &.gl-8{
+              width: getWidth(6) ;
+            }
+          }
+          .text-box{
+            margin-bottom:330px ;
+            .txt{
+              font-size: 46px ;
+              &:not(:last-child){
+                margin-bottom:40px ;
+              }
+            }
+            &.gl-6{
+              width: getWidth(5) ;
+            }
+          }
+          .material{
+            &-item{
+              width:500px ;
+              height:500px;
+              .l-line{
+                left:-284px ;
+                width:284px ;
+              }
+              .r-line{
+                right:-284px ;
+                width:284px ;
+              }
+            }
+            &-text{
+              .tit{
+                font-size:30px ;
+                margin-bottom:6px ;
+              }
+              .txt{
+                font-size:18px ;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width:4400px) {
+    .about-full-con-d{
+      .full-con{
+        .inner{
+          .material{
+            &-item{
+              width:664px;
+              height:664px;
+              .l-line{
+                left:-284px ;
+                width:284px ;
+              }
+              .r-line{
+                right:-284px ;
+                width:284px ;
+              }
+            }
+ 
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width:1900px) {
+    .about-full-con-d{
+      .full-con{
+        .inner{
+          .material{
+            &-item{
+              width:230px ;
+              height:230px ;
+            }
+          }
+        }
+      }
+    }
+  }
+  @media screen and (max-width:1650px) {
+    .about-full-con-d{
+      .full-con{
+        .inner{
+          .material{
+            &-item{
+              width:180px ;
+              height:180px ;
+              .l-line{
+                left:-80px ;
+                width:80px ;
+              }
+              .r-line{
+                right:-80px ;
+                width:80px ;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  @media screen and (max-width:1300px) {
+    .about-full-con-d{
+      .full-con{
+        .inner{
+          .material{
+            &-item{
+              width:150px ;
+              height:150px ;
+              .l-line{
+                left:-62px ;
+                width:62px ;
+              }
+              .r-line{
+                right:-62px ;
+                width:62px ;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
   @include tablet {
     .about-full-con-d{
       .full-con{
@@ -311,10 +377,22 @@ export default {
               .l-line{
                 left:-62px ;
                 width:62px ;
+                &::before{
+                  content: "";
+                  border-top: 7px solid transparent;
+                  border-bottom: 7px solid transparent;
+                  border-right: 7px solid $gray-0;
+                }
               }
               .r-line{
                 right:-62px ;
                 width:62px ;
+                &::before{
+                  content: "";
+                  border-top: 7px solid transparent;
+                  border-bottom: 7px solid transparent;
+                  border-left: 7px solid $gray-0;
+                }
               }
             }
             &-text{
@@ -331,6 +409,53 @@ export default {
       }
     }
   }
+  
+  @media screen and (max-width:1000px) {
+    .about-full-con-d{
+      .full-con{
+        .inner{
+          .material{
+            &-item{
+              width:120px ;
+              height:120px ;
+              .l-line{
+                left:-50px ;
+                width:50px ;
+              }
+              .r-line{
+                right:-50px ;
+                width:50px ;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width:850px) {
+    .about-full-con-d{
+      .full-con{
+        .inner{
+          .material{
+            &-item{
+              width:100px ;
+              height:100px ;
+              .l-line{
+                left:-40px ;
+                width:40px ;
+              }
+              .r-line{
+                right:-40px ;
+                width:40px ;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
   @include mobile {
     .about-full-con-d{
       .full-con{

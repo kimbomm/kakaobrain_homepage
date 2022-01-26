@@ -163,54 +163,6 @@ export default {
       }
     }
   }
-  @include pc-4k {
-    
-    .about-full-con-e{
-      .full-con{
-        padding: 800px 0 !important;
-        .inner{
-          .con{
-            &-tit{
-              margin-bottom:200px !important;
-              font-size:180px !important;
-            }
-          }
-          .text-box{
-            margin-bottom:330px !important;
-            .txt{
-              font-size: 60px !important;
-              &:not(:last-child){
-                margin-bottom:30px !important;
-              }
-            }
-          }
-          .material{
-            &-item{
-              width:664px !important;
-              height:664px !important;
-              .l-line{
-                left:-284px !important;
-                width:284px !important;
-              }
-              .r-line{
-                right:-284px !important;
-                width:284px !important;
-              }
-            }
-            &-text{
-              .tit{
-                font-size:30px !important;
-                margin-bottom:6px !important;
-              }
-              .txt{
-                font-size:18px !important;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
   @include pc-large {
     
     .about-full-con-e{
@@ -259,6 +211,145 @@ export default {
       }
     }
   }
+  
+  @include pc-4k {
+    
+    .about-full-con-e{
+      .full-con{
+        padding: 800px 0;
+        .inner{
+          .con{
+            &-tit{
+              margin-bottom:200px;
+              font-size:180px;
+            }
+          }
+          .text-box{
+            margin-bottom:330px;
+            .txt{
+              font-size: 60px;
+              &:not(:last-child){
+                margin-bottom:30px;
+              }
+            }
+          }
+          .material{
+            &-item{
+              width:500px;
+              height:500px;
+              .l-line{
+                left:-284px;
+                width:284px;
+              }
+              .r-line{
+                right:-284px;
+                width:284px;
+              }
+            }
+            &-text{
+              .tit{
+                font-size:30px;
+                margin-bottom:6px;
+              }
+              .txt{
+                font-size:18px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  @media screen and (min-width:4400px) {
+    .about-full-con-e{
+      .full-con{
+        .inner{
+          .material{
+            &-item{
+              width:664px;
+              height:664px;
+              .l-line{
+                left:-284px ;
+                width:284px ;
+              }
+              .r-line{
+                right:-284px ;
+                width:284px ;
+              }
+            }
+ 
+          }
+        }
+      }
+    }
+  }
+
+  
+  @media screen and (max-width:1900px) {
+    .about-full-con-e{
+      .full-con{
+        .inner{
+          .material{
+            &-item{
+              width:230px ;
+              height:230px ;
+            }
+          }
+        }
+      }
+    }
+  }
+  @media screen and (max-width:1650px) {
+    .about-full-con-e{
+      .full-con{
+        .inner{
+          .material{
+            &-item{
+              width:180px ;
+              height:180px ;
+              .l-line{
+                left:-80px ;
+                width:80px ;
+              }
+              .r-line{
+                right:-80px ;
+                width:80px ;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  @media screen and (max-width:1300px) {
+    .about-full-con-e{
+      .full-con{
+        .inner{
+          .material{
+            &-item{
+              width:150px ;
+              height:150px ;
+              .l-line{
+                left:-62px ;
+                width:62px ;
+              }
+              .r-line{
+                right:-62px ;
+                width:62px ;
+              }
+            }
+            &-text{
+              .tit{
+                font-size:17px ;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
   @include tablet {
     
     .about-full-con-e{
@@ -287,15 +378,78 @@ export default {
               .l-line{
                 left:-62px ;
                 width:62px ;
+                &::before{
+                  content: "";
+                  border-top: 7px solid transparent;
+                  border-bottom: 7px solid transparent;
+                  border-right: 7px solid $gray-0;
+                }
               }
               .r-line{
                 right:-62px ;
                 width:62px ;
+                &::before{
+                  border-top: 7px solid transparent;
+                  border-bottom: 7px solid transparent;
+                  border-left: 7px solid $gray-0;
+                }
               }
             }
             &-text{
               .tit{
                 font-size:15px ;
+                margin-bottom:0px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+ 
+  @media screen and (max-width:1000px) {
+    .about-full-con-e{
+      .full-con{
+        .inner{
+          .material{
+            &-item{
+              width:120px ;
+              height:120px ;
+              .l-line{
+                left:-50px ;
+                width:50px ;
+              }
+              .r-line{
+                right:-50px ;
+                width:50px ;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width:850px) {
+    .about-full-con-e{
+      .full-con{
+        .inner{
+          .material{
+            &-item{
+              width:100px ;
+              height:100px ;
+              .l-line{
+                left:-40px ;
+                width:40px ;
+              }
+              .r-line{
+                right:-40px ;
+                width:40px ;
+              }
+            }
+            &-text{
+              .tit{
+                font-size:12px ;
                 margin-bottom:0px;
               }
             }
