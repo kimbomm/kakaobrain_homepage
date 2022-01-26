@@ -224,80 +224,7 @@ export default {
     }
   }
 
-  @include pc-4k {
-
-    .about-full-con-f{
-      .inner{
-        .tit{
-          margin-bottom:200px !important;
-          font-size:180px !important;
-        }
-        .text-box{
-          margin-bottom:330px !important;
-          .txt{
-            font-size: 60px !important;
-            &:not(:last-child){
-              margin-bottom:30px !important;
-            }
-          }
-        }
-        
-        .material{
-          margin-bottom:800px !important;
-          &-item{
-            width:568px !important;
-            height:568px !important;
-            .l-line{
-              left:-243px !important;
-              width:243px !important;
-            }
-            .r-line{
-              right:-243px !important;
-              width:243px !important;
-            }
-          }
-          &-text{
-            font-size:30px !important;
-            // .tit{
-            //   font-size:30px !important;
-            // }
-          }
-
-          .material-box-bottom{
-            .b-line{
-              height:243px !important;
-              margin-bottom:40px !important;
-            }
-            .item{
-              position: relative !important;
-              width:568px !important;
-              height:568px !important;
-              .text{
-                font-size:30px !important;
-                // .tit{
-                //   font-size:30px !important;
-                // }
-              }
-            }
-          }
-        }
-
-        .link{
-          .txt{
-            margin-bottom:100px;
-            font-size: 40px;
-          }
-          .btn{
-            width: 270px;
-            height: 80px;
-            padding:27px 29px;
-            font-size: 20px;
-          }
-        }
-      }
-    }
   
-  }
   @include pc-large {
 
     .about-full-con-f{
@@ -376,6 +303,166 @@ export default {
     }
   
   }
+
+  @include pc-4k {
+    .about-full-con-f{
+      .inner{
+        .tit{
+          margin-bottom:200px ;
+          font-size:180px ;
+        }
+        .text-box{
+          margin-bottom:330px ;
+          .txt{
+            font-size: 60px ;
+            &:not(:last-child){
+              margin-bottom:30px ;
+            }
+          }
+        }
+        
+        .material{
+          margin-bottom:800px ;
+          &-item{
+            width:568px ;
+            height:568px ;
+            .l-line{
+              left:-243px ;
+              width:243px ;
+            }
+            .r-line{
+              right:-243px ;
+              width:243px ;
+            }
+          }
+          &-text{
+            font-size:30px ;
+            // .tit{
+            //   font-size:30px ;
+            // }
+          }
+
+          .material-box-bottom{
+            .b-line{
+              height:243px ;
+              margin-bottom:40px ;
+            }
+            .item{
+              position: relative ;
+              width:568px ;
+              height:568px ;
+              .text{
+                font-size:30px ;
+                // .tit{
+                //   font-size:30px ;
+                // }
+              }
+            }
+          }
+        }
+
+        .link{
+          .txt{
+            margin-bottom:100px;
+            font-size: 40px;
+          }
+          .btn{
+            width: 270px;
+            height: 80px;
+            padding:27px 29px;
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+
+  
+  @media screen and (max-width:1900px) {
+    .about-full-con-f{
+      .full-con{
+        .inner{
+          .material{
+            &-item{
+              width:230px ;
+              height:230px ;
+            }
+            .material-box-bottom{
+              .item{
+                width:230px;
+                height:230px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  @media screen and (max-width:1650px) {
+    .about-full-con-f{
+      .full-con{
+        .inner{
+          .material{
+            &-item{
+              width:180px ;
+              height:180px ;
+              .l-line{
+                left:-80px ;
+                width:80px ;
+              }
+              .r-line{
+                right:-80px ;
+                width:80px ;
+              }
+            }
+            .material-box-bottom{
+              .b-line{
+                height:80px;
+              }
+              .item{
+                width:180px;
+                height:180px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  @media screen and (max-width:1300px) {
+    .about-full-con-f{
+      .full-con{
+        .inner{
+          .material{
+            &-item{
+              width:150px ;
+              height:150px ;
+              .l-line{
+                left:-62px ;
+                width:62px ;
+              }
+              .r-line{
+                right:-62px ;
+                width:62px ;
+              }
+            }
+            
+            .material-box-bottom{
+              .b-line{
+                height:62px;
+                // margin-bottom:26px;
+              }
+              .item{
+                width:150px;
+                height:150px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
   @include tablet {
 
     .about-full-con-f{
@@ -401,10 +488,22 @@ export default {
             .l-line{
               left:-62px ;
               width:62px ;
+              &::before{
+                content: "";
+                border-top: 7px solid transparent;
+                border-bottom: 7px solid transparent;
+                border-right: 7px solid $gray-9;
+              }
             }
             .r-line{
               right:-62px ;
               width:62px ;
+              &::before{
+                content: "";
+                border-top: 7px solid transparent;
+                border-bottom: 7px solid transparent;
+                border-left: 7px solid $gray-9;
+              }
             }
           }
           &-text{
@@ -420,6 +519,12 @@ export default {
             .b-line{
               height:62px;
               margin-bottom:10px;
+              &::before{
+                content: "";
+                border-top: 7px solid $gray-9;
+                border-left: 7px solid transparent;
+                border-right: 7px solid transparent;
+              }
             }
             .item{
               width:146px;
@@ -448,8 +553,74 @@ export default {
         }
       }
     }
-  
   }
+
+  @media screen and (max-width:1000px) {
+    .about-full-con-f{
+      .full-con{
+        .inner{
+          .material{
+            &-item{
+              width:120px ;
+              height:120px ;
+              .l-line{
+                left:-50px ;
+                width:50px ;
+              }
+              .r-line{
+                right:-50px ;
+                width:50px ;
+              }
+            }
+            
+            .material-box-bottom{
+              .b-line{
+                height:50px;
+                margin-bottom:15px;
+              }
+              .item{
+                width:120px;
+                height:120px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  @media screen and (max-width:830px) {
+    .about-full-con-f{
+      .full-con{
+        .inner{
+          .material{
+            &-item{
+              width:115px ;
+              height:115px ;
+              .l-line{
+                left:-40px ;
+                width:40px ;
+              }
+              .r-line{
+                right:-40px ;
+                width:40px ;
+              }
+            }
+            .material-box-bottom{
+              .b-line{
+                height:40px;
+              }
+              .item{
+                width:115px;
+                height:115px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
   @include mobile {
 
     .about-full-con-f{
@@ -490,8 +661,8 @@ export default {
           }
           &-item{
             position: absolute;
-            width:146px ;
-            height:146px ;
+            width:146px !important;
+            height:146px !important;
             &:nth-child(1){
               top:0px;
             }
@@ -547,8 +718,8 @@ export default {
             .item{
               position: absolute;
               top: 260px;
-              width:146px;
-              height:146px;
+              width:146px !important;
+              height:146px !important;
               .text{
                 font-size:15px;
                 // .tit{
