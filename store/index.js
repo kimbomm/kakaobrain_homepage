@@ -56,5 +56,21 @@ export const actions = {
   },
   async getBreadCrumb({ commit }, payload) {
     commit('setBreadCrumb', payload)
+  },
+  async getCategoryList({}, payload) {
+    let url = 'category/'
+    if (payload.category1) url += `${payload.category1}/`
+    if (payload.category1 && payload.category2) url += `${payload.category2}`
+
+    const res = await this.$axios.get(url, payload)
+    return res
+  },
+  getNickName({ state }, payload) {
+    const menu = state.menus.filter(menu => menu.category === payload.category1)
+    const sub = menu[0].sub.filter(item => item.category === payload.category2)
+    return {
+      category1: menu[0],
+      category2: sub[0]
+    }
   }
 }
