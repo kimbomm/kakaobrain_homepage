@@ -1,7 +1,7 @@
 <template>
   <div class="monthly l-ml-3">
     <div class="detail gl-5">
-      <div class="detail-text">{{ data.text }}</div>
+      <div class="detail-text" v-html="data.text"></div>
     </div>
   </div>
 </template>
