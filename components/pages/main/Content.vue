@@ -15,15 +15,13 @@
         </div>
       </div>
       <div class="tags">
-        <Sticker text="Docu. B" sub="docu" />
-        <Sticker text="Documentary" sub="sub" />
-        <Sticker text="Educations" />
+        <BreadCrumb :data="breadcrumb" />
       </div>
     </div>
   </div>
 </template>
 <script>
-  import Sticker from '@/components/elements/button/Sticker'
+  import BreadCrumb from '@/components/elements/BreadCrumb'
   export default {
     props: {
       order: {
@@ -38,7 +36,16 @@
       }
     },
     components: {
-      Sticker
+      BreadCrumb
+    },
+    data() {
+      return {
+        breadcrumb: [
+          { text: 'About', sub: 'about', link: '' },
+          { text: 'Introduce', sub: 'sub', link: '/about' },
+          { text: 'Yeah!!!', sub: '', link: '' }
+        ]
+      }
     },
     computed: {
       articleClassBind() {

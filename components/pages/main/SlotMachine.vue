@@ -209,12 +209,13 @@
       transition: transform 0.3s linear;
     }
     p {
+      overflow: hidden;
       text-align: center;
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: 'NotoSansKR';
-      font-size: 160px;
+      font-size: 160px * 0.7;
       height: calc(160px * 3);
       font-weight: 900;
       transition: transform 0.3s linear;
@@ -238,7 +239,7 @@
     .slot-text {
       height: calc(210px * 3);
       p {
-        font-size: 210px;
+        font-size: 210px * 0.7;
         height: calc(210px * 3);
       }
     }
@@ -259,7 +260,7 @@
     .slot-text {
       height: calc(320px * 3);
       p {
-        font-size: 320px;
+        font-size: 320px * 0.7;
         height: calc(320px * 3);
       }
     }
@@ -280,7 +281,7 @@
     .slot-text {
       height: calc(90px * 3);
       p {
-        font-size: 90px;
+        font-size: 90px * 0.7;
         height: calc(90px * 3);
       }
     }
@@ -302,7 +303,7 @@
     .slot-text {
       height: calc(28px * 3);
       p {
-        font-size: 28px;
+        font-size: 28px * 0.7;
         height: calc(28px * 3);
       }
     }
