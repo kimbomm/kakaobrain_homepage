@@ -63,8 +63,8 @@
       color: #fff;
     }
     &-name {
-      font-size: 94px;
-      line-height: 1.3;
+      font-size: 70px;
+      line-height: 130%;
     }
     &-profile {
       width: 240px;
