@@ -112,12 +112,18 @@ export default {
           .txt{
             margin-bottom:30px;
             font-size:28px;
+            &.gl-8{
+              width:100% !important;
+            }
             &.l-ml-2{
               margin-left:0px !important;
             }
           }
           .sub-txt{
             font-size:16px;
+            &.gl-6{
+              width: getWidth(9) !important;
+            }
             &.l-ml-3{
               margin-left: getMargin(1) !important;
             }

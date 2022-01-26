@@ -5,21 +5,18 @@
       <div class="inner">
         <div class="con-tit gl-6 l-ml-2">
           <div class="">
-            Create the impact of the world in a way that no one has thought of.
+            Create the impact<br/>of the world in a way that<br/>no one has thought of.
           </div>
-          <!-- <div>Create the impact</div>
-          <div>of the world in a way that</div>
-          <div>no one has thought of.</div> -->
         </div>
         <div class="con-item l-ml-2">
           <div class="item gl-2">
             <div class="item-tit">Open Research.</div>
             <div class="item-txt-box">
               <div class="item-sub-tit">Create Novel Algorithm</div>
-              <div class="item-txt">Prospect future deep learning prior research and develop original algorithms to lay the foundation for new challenges.</div>
+              <div class="item-txt">Prospect future deep learning prior research and<br/>develop original algorithms to lay the foundation for new<br/>challenges.</div>
             </div>
             <div class="item-txt-box">
-              <div class="item-sub-tit">Develop Commercial-level Model</div>
+              <div class="item-sub-tit">Develop Commercial-le vel Model</div>
               <div class="item-txt">By conducting application research and further expanding the model scale, we complete the technology and digital human necessary for service development.</div>
             </div>
           </div>
@@ -37,7 +34,7 @@
 </template>
 <script>
 export default {
-  name:'AboutFullConA'
+  name:'AboutFullConB'
 }
 </script>
 <style lang="scss" scoped>
@@ -229,7 +226,7 @@ export default {
             margin-left:0px !important;
           }
           &.gl-2{
-            width: getWidth(8) !important;
+            width: getWidth(9) !important;
           }
           &-tit{
             font-size:26px;

@@ -1,13 +1,8 @@
-<template lang="">
+<template>
   <div>
     <BreadCrumb :data="breadcrumb" :full="true" />
-    <AboutTitle />
-    <AboutTitleText
-      :text="`kakaobrain is...</br>As an AI frontier that completes differentiated element technology,
-      big models, and digital humans, it contributes to the<br />
-      technology community and pioneers new service areas that enhance the
-      value of use and quality of life.`"
-    />
+    <AboutTitle :data="aboutTitle"/>
+    <AboutTitleText :data="aboutTitleText"/>
     <AboutFullConA />
     <div class="vision-list-con">
       <AboutVisionList
@@ -18,8 +13,8 @@
       />
     </div>
     <AboutFullConB />
-    <AboutConTit />
-    <AboutConTxt />
+    <AboutConTit :data="aboutConTit"/>
+    <AboutConTxt :data="aboutConTxt"/>
     <AboutLargeLogo />
     <AboutFullConC />
     <AboutFullSlide />
@@ -56,11 +51,19 @@
     },
     data() {
       return {
+        aboutTitle:{
+          title:'Unthinkable <span class="string">Question.</span>',
+        },
+        aboutTitleText:{
+          text:'kakaobrain is...</br>As an AI frontier that completes differentiated element technology, big models, and digital humans, it contributes to the<br/>technology community and pioneers new service areas that enhance the value of use and quality of life.'
+        },
+
         breadcrumb: [
           { text: 'About', sub: 'about', link: '' },
           { text: 'Introduce', sub: 'sub', link: '/about' },
           { text: 'Yeah!!!', sub: '', link: '' }
         ],
+       
         visionList: [
           {
             num: '¹',
@@ -88,7 +91,7 @@
           }
         ]
       }
-    }
+    } 
   }
 </script>
 <style lang="scss" scoped>
@@ -122,6 +125,7 @@
     margin-bottom: 400px;
   }
 
+      
   @include pc-large {
     .about-title {
       margin-bottom: 80px;
