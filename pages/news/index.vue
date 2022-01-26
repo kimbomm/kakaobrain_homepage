@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="news">
     <BreadCrumb :data="breadcrumb" :full="true" />
     <div class="contents-title">
       <DetailTitle text="News." />
@@ -107,33 +107,40 @@
   }
 </script>
 <style lang="scss" scoped>
-  .tit-text {
-    margin-bottom: 30px;
-    line-height: 150%;
-    font-size: 16px;
-  }
+  .news{
+    padding:0 20px;
+    .tit-text {
+      margin-bottom: 30px;
+      line-height: 150%;
+      font-size: 16px;
+    }
 
-  .contents {
-    &-checkbox {
-      margin-bottom: 130px;
-    }
-    &-item {
-      display: inline-block;
-      &:not(:last-child) {
-        margin-right: 10px;
-        margin-bottom: 10px;
+    .contents {
+      &-checkbox {
+        margin-bottom: 130px;
       }
-    }
-    &-list {
-      &:not(:last-child) {
-        margin-bottom: 200px;
+      &-item {
+        display: inline-block;
+        &:not(:last-child) {
+          margin-right: 10px;
+          margin-bottom: 10px;
+        }
+      }
+      &-list {
+        &:not(:last-child) {
+          margin-bottom: 200px;
+        }
       }
     }
   }
+  
+
+
+
   @include pc-4k {
     .tit-text {
       margin-bottom: 70px !important;
-      font-size: 32px;
+      font-size: 32px !important;
     }
 
     .contents {
