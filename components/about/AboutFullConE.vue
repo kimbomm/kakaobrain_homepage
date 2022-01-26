@@ -447,6 +447,12 @@ export default {
                 width:40px ;
               }
             }
+            &-text{
+              .tit{
+                font-size:12px ;
+                margin-bottom:0px;
+              }
+            }
           }
         }
       }
