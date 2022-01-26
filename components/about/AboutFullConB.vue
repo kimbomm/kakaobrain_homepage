@@ -226,7 +226,7 @@ export default {
             margin-left:0px !important;
           }
           &.gl-2{
-            width: getWidth(8) !important;
+            width: getWidth(9) !important;
           }
           &-tit{
             font-size:26px;

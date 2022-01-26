@@ -104,7 +104,7 @@
           height: 50px;
         }
         &.gl-6 {
-          width: auto !important;
+          width: 100% !important;
           display: inline-block;
         }
       }

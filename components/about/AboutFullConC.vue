@@ -688,7 +688,7 @@ export default {
           margin-bottom:100px;
           font-size: 18px;
           &.gl-7{
-            width: getWidth(8) !important;
+            width: getWidth(9) !important;
           }
         }
         .mark-con{

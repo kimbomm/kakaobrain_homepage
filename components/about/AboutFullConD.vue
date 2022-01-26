@@ -212,6 +212,29 @@ export default {
       }
     }
   }
+  @media screen and (min-width:4400px) {
+    .about-full-con-d{
+      .full-con{
+        .inner{
+          .material{
+            &-item{
+              width:400px ;
+              height:400px ;
+              .l-line{
+                left:-161px ;
+                width:161px ;
+              }
+              .r-line{
+                right:-161px ;
+                width:161px ;
+              }
+            }
+ 
+          }
+        }
+      }
+    }
+  }
   @include pc-large {
     .about-full-con-d{
       .full-con{
@@ -339,6 +362,9 @@ export default {
             }
           }
           .material{
+            &.l-ml-2{
+              margin:0 auto !important;
+            }
             &-box{
               flex-direction: column;
             }

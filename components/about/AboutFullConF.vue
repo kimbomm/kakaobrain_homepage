@@ -12,22 +12,20 @@
           <!-- <img src="@/assets/images/material_3.png"/> -->
           <ul class="material-box">
             <li class="material-item ">
-              <div class="material-text">
-                <div class="tit">Principle of 100:0</div>
-                <!-- <div class="txt">Every monday</div> -->
+              <div class="material-text">Principle of 100:0
+                <!-- <div class="tit" >Principle of 100:0</div> -->
               </div>
             </li>
             <li class="material-item ">
-              <div class="material-text">
-                <div class="tit">Minimum principle</div>
+              <div class="material-text">Minimum principle
+                <!-- <div class="tit">Minimum principle</div> -->
               </div>
               <div class="l-line"></div>
               <div class="r-line"></div>
             </li>
             <li class="material-item ">
-              <div class="material-text">
-                <div class="tit">The law of 1 cent</div>
-                <!-- <div class="txt">The last Friday of every month</div> -->
+              <div class="material-text">The law of 1 cent
+                <!-- <div class="tit">The law of 1 cent</div> -->
               </div>
             </li>
           </ul>
@@ -35,8 +33,8 @@
           <div class="material-box-bottom">
             <div class="b-line"></div>
             <div class="item">
-              <div class="text">
-                <div class="tit">If it's ambiguous, I won't do it</div>
+              <div class="text">If it's ambiguous, I won't do it
+                <!-- <div class="tit">If it's ambiguous, I won't do it</div> -->
               </div>
             </div>
           </div>
@@ -46,7 +44,7 @@
         <div class="link l-ml-3">
           <div class="txt">Click the button below to see our detailed culture and recruitment.</div>
           <button type="button" class="btn">
-            <span>Go to →</span>
+            <span>Go to ↓</span>
           </button> 
         </div>
 
@@ -146,12 +144,10 @@ export default {
             top:50%;
             text-align: center;
             transform: translate(-50%,-50%);
-          .tit{
             font-size:20px;
             font-weight: 900;
             line-height: 110%;
             margin-bottom:6px;
-          }
           .txt{
             font-size:14px;
             line-height: 120%;
@@ -194,12 +190,10 @@ export default {
               text-align: center;
               transform: translate(-50%,-50%);
               color: $gray-9;
-              .tit{
-                font-size:20px;
-                font-weight: 900;
-                line-height: 110%;
-                margin-bottom:6px;
-              }
+              font-size:20px;
+              font-weight: 900;
+              line-height: 110%;
+              margin-bottom:6px;
               .txt{
                 font-size:14px;
                 line-height: 120%;
@@ -263,9 +257,10 @@ export default {
             }
           }
           &-text{
-            .tit{
-              font-size:30px !important;
-            }
+            font-size:30px !important;
+            // .tit{
+            //   font-size:30px !important;
+            // }
           }
 
           .material-box-bottom{
@@ -278,9 +273,10 @@ export default {
               width:568px !important;
               height:568px !important;
               .text{
-                .tit{
-                  font-size:30px !important;
-                }
+                font-size:30px !important;
+                // .tit{
+                //   font-size:30px !important;
+                // }
               }
             }
           }
@@ -335,10 +331,12 @@ export default {
             }
           }
           &-text{
-            .tit{
-              font-size:30px ;
-              margin-bottom:6px ;
-            }
+            font-size:30px ;
+            margin-bottom:6px ;
+            // .tit{
+            //   font-size:30px ;
+            //   margin-bottom:6px ;
+            // }
             .txt{
               font-size:18px;
             }
@@ -353,9 +351,10 @@ export default {
               width:376px;
               height:376px;
               .text{
-                .tit{
-                  font-size:30px;
-                }
+                font-size:30px;
+                // .tit{
+                //   font-size:30px;
+                // }
               }
             }
           }
@@ -409,10 +408,12 @@ export default {
             }
           }
           &-text{
-            .tit{
-              font-size:15px ;
-              margin-bottom:0px;
-            } 
+            font-size:15px ;
+            margin-bottom:0px;
+            // .tit{
+            //   font-size:15px ;
+            //   margin-bottom:0px;
+            // } 
           }
           
           .material-box-bottom{
@@ -424,9 +425,10 @@ export default {
               width:146px;
               height:146px;
               .text{
-                .tit{
-                  font-size:15px;
-                }
+                font-size:15px;
+                // .tit{
+                //   font-size:15px;
+                // }
               }
             }
           }
@@ -513,10 +515,12 @@ export default {
             }
           }
           &-text{
-            .tit{
-              font-size:15px ;
-              margin-bottom:0px;
-            } 
+            font-size:15px ;
+            margin-bottom:0px;
+            // .tit{
+            //   font-size:15px ;
+            //   margin-bottom:0px;
+            // } 
           }
           
           .material-box-bottom{
@@ -546,9 +550,10 @@ export default {
               width:146px;
               height:146px;
               .text{
-                .tit{
-                  font-size:15px;
-                }
+                font-size:15px;
+                // .tit{
+                //   font-size:15px;
+                // }
               }
             }
           }
