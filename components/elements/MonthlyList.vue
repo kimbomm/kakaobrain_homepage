@@ -3,6 +3,9 @@
     <div class="monthly-list gl-7 l-ml-2">
       <div class="monthly-thumbnail gl-6">
         <img src="@/assets/images/monthly-list_img_1.png" />
+        <!-- <div class="">
+          <img src="@/assets/images/full_menu-list_img_1.png" />
+        </div> -->
         <div class="thumbnail-data">
           <div class="date">November@2021 - 1</div>
           <div class="name">Hello World.</div>
@@ -38,6 +41,13 @@
       box-shadow: 30px 30px 50px -10px #CFD0D3;
       img {
         width: 100%;
+
+          // position: absolute;
+          // top: 50%;
+          // left: 50%;
+          // transform: translate(-50%, -50%);
+          // width: 100%;
+          // height: 100%;
       }
       .thumbnail-data {
         position: absolute;

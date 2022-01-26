@@ -3,7 +3,7 @@
     <ListTitle text="Monthly Issue" type="gl-6" ml="l-ml-2" />
 
     <div class="text-box">
-      <div class="contents-list-text l-ml-1">
+      <div class="contents-list-text">
         <DetailText :data="detailText"/>
       </div>
     </div>
@@ -21,7 +21,6 @@
         </li>
       </ul>
     </div>
-
   </div>
 </template> 
 <script>
@@ -47,6 +46,7 @@
 <style lang="scss" scoped>
   .monthly-detail {
     margin-top: 320px;
+    padding:0 20px;
     .text-box {
       margin-bottom: 200px;
       .contents-list-text {
