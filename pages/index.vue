@@ -52,7 +52,7 @@
             <li>
               <div class="sub-tit">monthly</div>
               <ul>
-                <li>
+                <!-- <li>
                   <nuxt-link to="/monthly-issue/1_id" class="link"
                     >상세페이지 가기_1</nuxt-link
                   >
@@ -71,16 +71,14 @@
                   <nuxt-link to="/monthly-issue/4_id" class="link"
                     >상세페이지 가기_storytelling</nuxt-link
                   >
-                </li>
+                </li> -->
               </ul>
             </li>
             <li>
               <div class="sub-tit">About</div>
               <ul>
                 <li>
-                  <nuxt-link to="/about" class="link"
-                    >index 페이지</nuxt-link
-                  >
+                  <nuxt-link to="/about" class="link">index 페이지</nuxt-link>
                 </li>
                 <li>
                   <nuxt-link to="/about/culture" class="link"
