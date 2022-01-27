@@ -4,7 +4,7 @@
       <div class="top">
         <BreadCrumb :data="breadcrumb" :full="true" />
         <DetailImage
-          v-if="thumbnail.length > 0"
+          v-if="thumbnail && thumbnail.length > 0"
           :data="thumbnail[0]"
           :isThumbnail="true"
         />
@@ -41,8 +41,8 @@
   import mixinGlobal from '@/mixin/global.js'
   import { mapActions } from 'vuex'
   import BreadCrumb from '@/components/elements/BreadCrumb'
-  import Thumbnail from '@/components/detail/Thumbnail'
   import DetailImage from '@/components/detail/DetailImage'
+  import DetailYoutube from '@/components/detail/DetailYoutube'
   import DetailTitle from '@/components/detail/DetailTitle'
   import DetailText from '@/components/detail/DetailText'
   import DetailSubTitle from '@/components/detail/DetailSubTitle'
@@ -54,8 +54,8 @@
     layout: 'preview',
     components: {
       BreadCrumb,
-      Thumbnail,
       DetailImage,
+      DetailYoutube,
       DetailTitle,
       DetailText,
       DetailSubTitle,
@@ -125,6 +125,9 @@
             break
           case 'image':
             componentName = 'DetailImage'
+            break
+          case 'video':
+            componentName = 'DetailYoutube'
             break
           // case 'pagaraph':
           //   componentName = 'DetailText'
