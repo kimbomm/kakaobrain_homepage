@@ -3,7 +3,7 @@
     <div class="detail gl-5">
       <div class="detail-text">
         <p
-          v-if="data.itemType === 'paragraph'"
+          v-if="data.itemType === 'pagaraph'"
           v-html="data.text.replaceAll('\n', '<br />')"
         ></p>
         <a v-else :href="data.codeLinks.linkUrl" target="_blank">{{
