@@ -5,7 +5,7 @@
       <Swiper :data="data" />
     </div>
     <div>
-      <Like />
+      <!-- <Like /> -->
     </div>
   </div>
 </template>

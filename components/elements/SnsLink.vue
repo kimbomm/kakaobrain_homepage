@@ -3,27 +3,33 @@
     <div class="footer-sns">
       <ul>
         <li class="item">
-          <Icon sns="icon-facebook-b"></Icon>
+          <Icon :sns="`icon-facebook-${!isDark ? 'w' : 'b'}`"></Icon>
           <!-- <button type="button" @click="onClickFacebook()" class="icon-sns icon-facebook-b"></button> -->
         </li>
         <li class="item">
-          <Icon sns="icon-insta-b"></Icon>
+          <Icon :sns="`icon-insta-${!isDark ? 'w' : 'b'}`"></Icon>
         </li>
         <li class="item">
-          <Icon sns="icon-kakao-b"></Icon>
+          <Icon :sns="`icon-kakao-${!isDark ? 'w' : 'b'}`"></Icon>
         </li>
         <li class="item">
-          <Icon sns="icon-youtube-b"></Icon>
+          <Icon :sns="`icon-youtube-${!isDark ? 'w' : 'b'}`"></Icon>
         </li>
       </ul>
     </div>
   </div>
 </template>
 <script>
+  import { mapState } from 'vuex'
   import Icon from '@/components/elements/Icon'
   export default {
     components: {
       Icon
+    },
+    computed: {
+      ...mapState({
+        isDark: state => state.isDark
+      })
     }
   }
 </script>

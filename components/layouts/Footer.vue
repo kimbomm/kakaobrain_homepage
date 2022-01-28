@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer">
+  <footer :class="classBind">
     <div class="l-side gl-6 l-ml-2">
       <div class="b-symbol"></div>
       <div class="b-w-symbol"></div>
@@ -43,28 +43,20 @@
     },
     computed: {
       ...mapState({
+        isDark: state => state.isDark,
         footerMenu: state => state.footerMenu
-      })
+      }),
+      classBind() {
+        let classList = ['footer']
+        if (!this.isDark) {
+          classList.push('footer__light')
+        }
+        return classList.join(' ')
+      }
     }
   }
 </script>
 <style lang="scss" scoped>
-  .white {
-    .footer {
-      .b-symbol {
-        display: none;
-      }
-      .b-w-symbol {
-        display: block;
-      }
-      .l-side {
-        color: $gray-0;
-      }
-      .l-info {
-        color: $gray-0;
-      }
-    }
-  }
   .footer {
     padding-top: 1000px;
     &-con {
@@ -115,6 +107,20 @@
     }
     .b-w-symbol {
       display: none;
+    }
+    &.footer__light {
+      .b-symbol {
+        display: none;
+      }
+      .b-w-symbol {
+        display: block;
+      }
+      .l-side {
+        color: $gray-0;
+      }
+      .l-info {
+        color: $gray-0;
+      }
     }
   }
   @media screen and (max-width: 3840px) {

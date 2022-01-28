@@ -78,7 +78,9 @@
           direction: 'vertical',
           slidesPerView: 1,
           spaceBetween: 0,
-          mousewheel: true,
+          mousewheel: {
+            thresholdDelta: 100
+          },
           pagination: {
             el: '.swiper-pagination',
             type: 'fraction'
@@ -120,17 +122,24 @@
         this.storyList()
       },
       onWheel(e) {
-        e.preventDefault
+        // e.preventDefault
         if (this.isEndSlide && e.deltaY < 0 && window.scrollY > 0) {
           // console.log(e.deltaY)
-          window.scrollTo({
-            top: 0,
-            left: 0,
-            behavior: 'smooth'
-          })
+          // window.scrollTo({
+          //   top: 0,
+          //   left: 0
+          //   // behavior: 'smooth'
+          // })
         }
         if (this.timer !== null) {
           clearTimeout(this.timer)
+          if (this.isEndSlide && e.deltaY > 0 && !this.isChange) {
+            // window.scrollTo({
+            //   top: document.body.scrollHeight,
+            //   left: 0
+            //   // behavior: 'smooth'
+            // })
+          }
         }
 
         const _this = this
@@ -138,17 +147,17 @@
           _this.isChange = false
         }, 66)
 
-        if (this.isEndSlide && e.deltaY > 0) {
-          if (this.isChange) {
-            return
-          } else {
-            window.scrollTo({
-              top: document.body.scrollHeight,
-              left: 0,
-              behavior: 'smooth'
-            })
-          }
-        }
+        // if (this.isEndSlide && e.deltaY > 0) {
+        //   if (this.isChange) {
+        //     return
+        //   } else {
+        //     window.scrollTo({
+        //       top: document.body.scrollHeight,
+        //       left: 0,
+        //       behavior: 'smooth'
+        //     })
+        //   }
+        // }
       },
       storyList() {
         this.isStory = !this.isStory

@@ -110,13 +110,6 @@
   }
 </script>
 <style lang="scss" scoped>
-  .white {
-    .menu-item {
-      button {
-        color: $gray-0;
-      }
-    }
-  }
   .menu {
     &-item {
       display: inline-block;
