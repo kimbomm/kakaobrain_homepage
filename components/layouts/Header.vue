@@ -32,11 +32,12 @@
     },
     computed: {
       ...mapState({
+        isDark: state => state.isDark,
         isFilterMenuOpen: state => state.isFilterMenuOpen
       }),
       classBind() {
         let classList = ['header']
-        if (this.isFilterMenuOpen) {
+        if (this.isFilterMenuOpen || !this.isDark) {
           classList.push('header__light')
         }
 
@@ -72,7 +73,7 @@
       font-size: 16px;
     }
     &__light {
-      color: #fff;
+      color: $gray-0;
       .header-item {
         color: $gray-0;
       }
@@ -80,23 +81,27 @@
   }
 
   @include pc-large {
-    .header {
+    .header,
+    .header-item {
       font-size: 22px;
     }
   }
   @include pc-4k {
-    .header {
+    .header,
+    .header-item {
       font-size: 34px;
     }
   }
   @include tablet {
-    .header {
+    .header,
+    .header-item {
       top: 16px;
       font-size: 16px;
     }
   }
   @include mobile {
-    .header {
+    .header,
+    .header-item {
       top: 13px;
       right: 15px;
       font-size: 18px;

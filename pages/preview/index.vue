@@ -17,24 +17,10 @@
           :data="content"
         >
         </component>
-        <!-- // :srcPath="content.Media.url" -->
       </template>
 
       <!-- <Like /> -->
     </template>
-    <!-- <div class="top">
-      
-      <Thumbnail :srcPath="''" />
-    </div> -->
-    <!-- <DetailTitle text="타이틀 텍스트" /> -->
-
-    <!-- <DetailFullImg :srcPath="''" text="이미지 설명" /> -->
-    <!-- <DetailImg :srcPath="''" text="이미지 설명" /> -->
-    <!-- <DetailMiddelImg :srcPath="''" text="이미지 설명" /> -->
-    <!-- <DetailText text="일반 텍스트" /> -->
-    <!-- <DetailSubTitle text="서브타이틀 텍스트" /> -->
-    <!-- <DetailTextTitle text="Article 서브타이틀 텍스트" /> -->
-    <!-- <DetailTextItem text="AAAI (2021)" /> -->
   </div>
 </template>
 <script>

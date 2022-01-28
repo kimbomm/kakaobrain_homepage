@@ -1,8 +1,8 @@
 <template>
   <div>
     <BreadCrumb :data="breadcrumb" :full="true" />
-    <AboutTitle :data="aboutTitle"/>
-    <AboutTitleText :data="aboutTitleText"/>
+    <AboutTitle :data="aboutTitle" />
+    <AboutTitleText :data="aboutTitleText" />
     <AboutFullConA />
     <div class="vision-list-con">
       <AboutVisionList
@@ -13,8 +13,8 @@
       />
     </div>
     <AboutFullConB />
-    <AboutConTit :data="aboutConTit"/>
-    <AboutConTxt :data="aboutConTxt"/>
+    <AboutConTit :data="aboutConTitData" />
+    <AboutConTxt :data="aboutConTxtData" />
     <AboutLargeLogo />
     <AboutFullConC />
     <AboutFullSlide />
@@ -51,11 +51,17 @@
     },
     data() {
       return {
-        aboutTitle:{
-          title:'Unthinkable <span class="string">Question.</span>',
+        aboutTitle: {
+          title: 'Unthinkable <span class="string">Question.</span>'
         },
-        aboutTitleText:{
-          text:'kakaobrain is...</br>As an AI frontier that completes differentiated element technology, big models, and digital humans, it contributes to the<br/>technology community and pioneers new service areas that enhance the value of use and quality of life.'
+        aboutTitleText: {
+          text: 'kakaobrain is...</br>As an AI frontier that completes differentiated element technology, big models, and digital humans, it contributes to the<br/>technology community and pioneers new service areas that enhance the value of use and quality of life.'
+        },
+        aboutConTitData: {
+          title: 'Our Brand'
+        },
+        aboutConTxtData: {
+          text: 'People looking for unexpected answers from unthinkable questions, kakaobrain krews share with you the new journey and stories they are making with AI.'
         },
 
         breadcrumb: [
@@ -63,7 +69,7 @@
           { text: 'Introduce', sub: 'sub', link: '/about' },
           { text: 'Yeah!!!', sub: '', link: '' }
         ],
-       
+
         visionList: [
           {
             num: '¹',
@@ -91,7 +97,7 @@
           }
         ]
       }
-    } 
+    }
   }
 </script>
 <style lang="scss" scoped>
@@ -125,7 +131,6 @@
     margin-bottom: 400px;
   }
 
-      
   @include pc-large {
     .about-title {
       margin-bottom: 80px;

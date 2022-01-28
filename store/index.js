@@ -1,6 +1,7 @@
 import data from './data/common.json'
 
 export const state = () => ({
+  isDark: true,
   language: 'ko',
   menus: data.menus,
   footerMenu: data.footer,
@@ -19,6 +20,9 @@ export const getters = {
   // }
 }
 export const mutations = {
+  setIsDark(state, payload) {
+    state.isDark = payload
+  },
   setIsFilterMenuOpen(state, payload) {
     state.isFilterMenuOpen = payload
   },

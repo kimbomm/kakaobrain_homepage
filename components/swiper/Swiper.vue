@@ -6,95 +6,18 @@
       :options="swiperOption"
       @reachEnd="onEdge"
     >
-      <swiper-slide>
-        <div class="slide">
-          <img src="@/assets/images/story-telling_img_1.png" />
+      <swiper-slide v-for="(content, index) in data.ContentItems" :key="index">
+        <div
+          class="slide"
+          :style="`background-image: url(https://kakaobrain.loadingworks.com${content.Media.url})`"
+        >
           <div class="back"></div>
-          <div class="slide-con ta-l gl-8">
-            <div class="slide-tit">카카오브레인, AI 공동연구</div>
-            <div class="slide-txt">
-              <p>
-                카카오브레인이 세계 정상의 AI 연구실과 함께 인간의 인식과 추론의
-                한계에 도전합니다.
-              </p>
-              <p>
-                카카오브레인은 고려대와 서울대, 포항공대와한양대, KAIST와 UNIST
-                등 7개 대학 AI 연구실과 산학 협력을 맺고 3년간 공동 연구를
-                시작했습니다.
-              </p>
-              <br />
-              <p>
-                카카오브레인과 각 학교 AI 연구실은 이번협력을 통해 AI 연구의
-                스테레오타입을 넘어선 새로운 연구 방법론을 정립하려 노력한다고
-                합니다.
-              </p>
-              <p>
-                우리의 연구가 어떻게 세상을 바꿔나갈지가슴이 웅장해지는데요.
-              </p>
-              <br />
-              <p>카카오브레인의 공동연구 노하우를 공개합니다</p>
-            </div>
-          </div>
-        </div>
-      </swiper-slide>
-      <swiper-slide>
-        <div class="slide">
-          <img src="@/assets/images/story-telling_img_2.png" />
-          <div class="back"></div>
-          <div class="slide-con gl-8">
-            <div class="slide-tit">카카오브레인, AI 공동연구</div>
-            <div class="slide-txt">
-              <p>
-                카카오브레인이 세계 정상의 AI 연구실과 함께 인간의 인식과 추론의
-                한계에 도전합니다.
-              </p>
-              <p>
-                카카오브레인은 고려대와 서울대, 포항공대와한양대, KAIST와 UNIST
-                등 7개 대학 AI 연구실과 산학 협력을 맺고 3년간 공동 연구를
-                시작했습니다.
-              </p>
-              <br />
-              <p>
-                카카오브레인과 각 학교 AI 연구실은 이번협력을 통해 AI 연구의
-                스테레오타입을 넘어선 새로운 연구 방법론을 정립하려 노력한다고
-                합니다.
-              </p>
-              <p>
-                우리의 연구가 어떻게 세상을 바꿔나갈지가슴이 웅장해지는데요.
-              </p>
-              <br />
-              <p>카카오브레인의 공동연구 노하우를 공개합니다</p>
-            </div>
-          </div>
-        </div>
-      </swiper-slide>
-      <swiper-slide>
-        <div class="slide">
-          <img src="@/assets/images/story-telling_img_3.png" />
-          <div class="back"></div>
-          <div class="slide-con ta-r gl-8">
-            <div class="slide-tit">카카오브레인, AI 공동연구</div>
-            <div class="slide-txt">
-              <p>
-                카카오브레인이 세계 정상의 AI 연구실과 함께 인간의 인식과 추론의
-                한계에 도전합니다.
-              </p>
-              <p>
-                카카오브레인은 고려대와 서울대, 포항공대와한양대, KAIST와 UNIST
-                등 7개 대학 AI 연구실과 산학 협력을 맺고 3년간 공동 연구를
-                시작했습니다.
-              </p>
-              <br />
-              <p>
-                카카오브레인과 각 학교 AI 연구실은 이번협력을 통해 AI 연구의
-                스테레오타입을 넘어선 새로운 연구 방법론을 정립하려 노력한다고
-                합니다.
-              </p>
-              <p>
-                우리의 연구가 어떻게 세상을 바꿔나갈지가슴이 웅장해지는데요.
-              </p>
-              <br />
-              <p>카카오브레인의 공동연구 노하우를 공개합니다</p>
+          <div
+            :class="`slide-con ${content.itemProp.position.vertical}-${content.itemProp.position.horizontal}`"
+          >
+            <div class="slide-tit">{{ content.subject }}</div>
+            <div v-if="content.text" class="slide-txt">
+              <p v-html="content.text.replaceAll('\n', '<br />')"></p>
             </div>
           </div>
         </div>
@@ -108,43 +31,19 @@
     </div>
     <!-- story pop -->
     <div class="story-pop" v-show="this.isStory">
-      <div class="story-con l-ml-1 gl-8">
+      <div class="story-con">
         <ul>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
-          </li>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
-          </li>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
-          </li>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
-          </li>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
-          </li>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
+          <li
+            v-for="(content, index) in data.ContentItems"
+            :key="index"
+            class="list-item"
+            @click="onClick(index)"
+          >
+            <div
+              class="list-img"
+              :style="`background-image: url(https://kakaobrain.loadingworks.com${content.Media.url})`"
+            ></div>
+            <div class="list-tit">{{ content.subject }}</div>
           </li>
         </ul>
       </div>
@@ -162,6 +61,12 @@
   export default {
     name: 'swiper-example-loop',
     title: 'Loop mode / Infinite loop',
+    props: {
+      data: {
+        type: Object,
+        default: () => {}
+      }
+    },
     components: {
       Swiper,
       SwiperSlide,
@@ -210,6 +115,10 @@
       window.removeEventListener('wheel', this.onWheel)
     },
     methods: {
+      onClick(index) {
+        this.mySwiper.slideTo(index)
+        this.storyList()
+      },
       onWheel(e) {
         e.preventDefault
         if (this.isEndSlide && e.deltaY < 0 && window.scrollY > 0) {
@@ -253,17 +162,8 @@
 <style lang="scss" scoped>
   .story-telling {
     position: relative;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
-  }
-  .ta-c {
-    text-align: center;
-  }
-  .ta-l {
-    text-align: left;
-  }
-  .ta-r {
-    text-align: right;
   }
   .swiper {
     height: 100%;
@@ -274,7 +174,6 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      text-align: center;
       font-weight: bold;
       overflow: hidden;
       img {
@@ -286,21 +185,26 @@
         height: 100%;
       }
       .slide {
+        width: 100%;
+        height: 100vh;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        position: relative;
         &-con {
           position: absolute;
-          // left: 50%;
-          // top: 50%;
-          transform: translate(-50%, -50%);
           z-index: 10;
+          width: 100%;
+          padding: 0 210px;
         }
         &-tit {
-          font-size: 98px;
+          font-size: 50px;
           font-weight: 900;
           margin-bottom: 40px;
           line-height: 120%;
         }
         &-txt {
-          font-size: 32px;
+          font-size: 16px;
           font-weight: 400;
           line-height: 150%;
           word-break: keep-all;
@@ -364,15 +268,17 @@
     }
     &-pop {
       position: fixed;
-      left: 50%;
-      top: 50%;
+      left: 0;
+      top: 0;
       width: 100%;
       height: 100vh;
       overflow-y: auto;
-      padding-top: 740px;
-      transform: translate(-50%, -50%);
-      background-color: rgba(255, 255, 255, 0.3);
+      background-color: rgba(255, 255, 255, 0.7);
       z-index: 20;
+    }
+    &-con {
+      width: getWidth(8);
+      margin: 200px auto;
     }
     &-close {
       position: absolute;
@@ -388,7 +294,7 @@
       .list-close {
         width: 26px;
         height: 26px;
-        background: url('@/assets/images/icon-close.png') no-repeat 100%;
+        background: url('@/assets/images/icon-close__black.png') no-repeat 100%;
         background-size: 100%;
       }
     }
@@ -396,128 +302,195 @@
   // pop list
   .list {
     &-img {
-      margin-bottom: 10px;
-      img {
-        width: 100%;
-      }
+      max-width: 362px;
+      margin: 0 auto 10px;
+      padding-top: 56%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
     }
     &-tit {
-      font-size: 24px;
+      width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 12px;
+      line-height: 1.3;
+      color: #fff;
     }
     &-item {
+      width: getWidth(1);
       display: inline-block;
-      margin-bottom: 150px;
-      padding: 0 74px;
-      // &:not(:nth-child(8n)) {
-      //   margin-right: 20px;
-      // }
-    }
-  }
-  @media screen and (max-width: 3840px) {
-    .story {
-      &-pop {
-        padding: 380px 0;
-      }
-    }
-    .list {
-      &-item {
-        padding: 0 10px;
+      vertical-align: top;
+      margin-bottom: 80px;
+      &:not(:nth-child(8n)) {
+        margin-right: 20px;
       }
     }
   }
-  @media screen and (max-width: 2560px) {
-    .swiper {
-      .swiper-slide {
-        .slide {
-          &-tit {
-            font-size: 68px;
-          }
-          &-txt {
-            font-size: 22px;
-          }
-        }
-      }
+
+  @include pc-large {
+    .swiper .swiper-slide .slide-con {
+      padding: 0 270px;
     }
-    .story {
-      &-pop {
-        padding: 200px 0;
-      }
+    .swiper .swiper-slide .slide-tit {
+      font-size: 68px;
     }
-    .list {
-      &-tit {
-        font-size: 18px;
-      }
-      &-item {
-        margin-bottom: 100px;
-      }
+    .swiper .swiper-slide .slide-txt {
+      font-size: 22px;
     }
   }
-  @media screen and (max-width: 1920px) {
-    .swiper {
-      .swiper-slide {
-        .slide {
-          &-tit {
-            font-size: 50px;
-          }
-          &-txt {
-            font-size: 16px;
-          }
-        }
-      }
+  @include pc-4k {
+    .swiper .swiper-slide .slide-con {
+      padding: 0 400px;
     }
-    .list {
-      &-tit {
-        font-size: 12px;
-      }
-      &-item {
-        margin-bottom: 80px;
-        padding: 0 10px;
-      }
+    .swiper .swiper-slide .slide-tit {
+      font-size: 98px;
+    }
+    .swiper .swiper-slide .slide-txt {
+      font-size: 32px;
     }
   }
-  @media screen and (max-width: 1024px) {
-    .swiper {
-      .swiper-slide {
-        .slide {
-          &-tit {
-            font-size: 38px;
-          }
-          &-txt {
-            font-size: 14px;
-          }
-        }
-      }
+  @include tablet {
+    .swiper .swiper-slide .slide-con {
+      padding: 0 120px;
     }
-    .list {
-      &-item {
-        margin-bottom: 50px;
-        padding: 0;
-        &:not(:nth-child(4n)) {
-          margin-right: 20px;
-        }
-      }
+    .swiper .swiper-slide .slide-tit {
+      font-size: 38px;
     }
-    .gl-1 {
-      width: calc(
-        calc((100vw - 20px * 11) / 10) * 2 + 20px * (2 - 1)
-      ) !important;
+    .swiper .swiper-slide .slide-txt {
+      font-size: 14px;
+    }
+    .list .list-item {
+      width: getWidth(2);
+      margin-bottom: 50px;
+    }
+    .list .list-img {
+      margin-bottom: 20px;
+    }
+    .list .list-tit {
+      font-size: 12px;
     }
   }
-  @media screen and (max-width: 768px) {
-    .swiper {
-      .swiper-slide {
-        .slide {
-          &-tit {
-            font-size: 30px;
-          }
-          &-txt {
-            font-size: 16px;
-          }
-        }
-      }
+  @include mobile {
+    .swiper .swiper-slide .slide-con {
+      padding: 0 20px;
     }
-    .story-detail {
-      display: none;
+    .swiper .swiper-slide .slide-tit {
+      font-size: 30px;
+    }
+    .swiper .swiper-slide .slide-txt {
+      font-size: 16px;
+    }
+    .story-detail,
+    .story-pop {
+      display: none !important;
     }
   }
+  // @media screen and (max-width: 3840px) {
+  //   .story {
+  //     &-pop {
+  //       padding: 380px 0;
+  //     }
+  //   }
+  //   .list {
+  //     &-item {
+  //       padding: 0 10px;
+  //     }
+  //   }
+  // }
+  // @media screen and (max-width: 2560px) {
+  //   .swiper {
+  //     .swiper-slide {
+  //       .slide {
+  //         &-tit {
+  //           font-size: 68px;
+  //         }
+  //         &-txt {
+  //           font-size: 22px;
+  //         }
+  //       }
+  //     }
+  //   }
+  //   .story {
+  //     &-pop {
+  //       padding: 200px 0;
+  //     }
+  //   }
+  //   .list {
+  //     &-tit {
+  //       font-size: 18px;
+  //     }
+  //     &-item {
+  //       margin-bottom: 100px;
+  //     }
+  //   }
+  // }
+  // @media screen and (max-width: 1920px) {
+  //   .swiper {
+  //     .swiper-slide {
+  //       .slide {
+  //         &-tit {
+  //           font-size: 50px;
+  //         }
+  //         &-txt {
+  //           font-size: 16px;
+  //         }
+  //       }
+  //     }
+  //   }
+  //   .list {
+  //     &-tit {
+  //       font-size: 12px;
+  //     }
+  //     &-item {
+  //       margin-bottom: 80px;
+  //       padding: 0 10px;
+  //     }
+  //   }
+  // }
+  // @media screen and (max-width: 1024px) {
+  //   .swiper {
+  //     .swiper-slide {
+  //       .slide {
+  //         &-tit {
+  //           font-size: 38px;
+  //         }
+  //         &-txt {
+  //           font-size: 14px;
+  //         }
+  //       }
+  //     }
+  //   }
+  //   .list {
+  //     &-item {
+  //       margin-bottom: 50px;
+  //       padding: 0;
+  //       &:not(:nth-child(4n)) {
+  //         margin-right: 20px;
+  //       }
+  //     }
+  //   }
+  //   .gl-1 {
+  //     width: calc(
+  //       calc((100vw - 20px * 11) / 10) * 2 + 20px * (2 - 1)
+  //     ) !important;
+  //   }
+  // }
+  // @media screen and (max-width: 768px) {
+  //   .swiper {
+  //     .swiper-slide {
+  //       .slide {
+  //         &-tit {
+  //           font-size: 30px;
+  //         }
+  //         &-txt {
+  //           font-size: 16px;
+  //         }
+  //       }
+  //     }
+  //   }
+  //   .story-detail {
+  //     display: none;
+  //   }
+  // }
 </style>

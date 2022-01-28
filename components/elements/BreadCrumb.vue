@@ -2,7 +2,12 @@
   <div :class="classBind">
     <ul>
       <li v-for="(item, index) in data" :key="index">
-        <Sticker :text="item.text" :sub="item.sub" :link="item.link" />
+        <Sticker
+          :text="item.text"
+          :sub="item.sub"
+          :link="item.link"
+          :isDark="isDark"
+        />
       </li>
     </ul>
   </div>
@@ -19,6 +24,11 @@
       full: {
         type: Boolean,
         default: false,
+        require: false
+      },
+      isDark: {
+        type: Boolean,
+        default: true,
         require: false
       }
     },

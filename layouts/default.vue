@@ -35,6 +35,7 @@
     },
     created() {},
     async mounted() {
+      await this.$store.commit('setIsDark', true)
       await this.checkDevice()
     },
     methods: {

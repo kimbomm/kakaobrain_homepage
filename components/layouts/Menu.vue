@@ -83,11 +83,12 @@
       ...mapState({
         menus: state => state.menus,
         language: state => state.language,
+        isDark: state => state.isDark,
         isFilterMenuOpen: state => state.isFilterMenuOpen
       }),
       classBind() {
         let classList = ['menu', 'menu-outer']
-        if (this.isFilterMenuOpen) {
+        if (this.isFilterMenuOpen || !this.isDark) {
           classList.push('menu__light')
         }
 

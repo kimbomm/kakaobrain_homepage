@@ -1,6 +1,6 @@
 <template>
   <!-- wrap에 white 클래스 추가하면 글씨색이 흰색으로 변경됩니다 -->
-  <div class="wrap white">
+  <div class="wrap">
     <Header />
     <div class="container">
       <Nuxt />
@@ -16,12 +16,14 @@
       Header,
       Footer
     },
-    mounted() {},
+    async mounted() {
+      await this.$store.commit('setIsDark', false)
+    },
     methods: {}
   }
 </script>
 <style lang="scss" scoped>
-  .white {
+  .wrap {
     background-color: $gray-9;
   }
 </style>

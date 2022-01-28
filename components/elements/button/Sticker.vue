@@ -2,7 +2,7 @@
   <div class="sticker">
     <button
       type="button"
-      :class="`btn ${sub}`"
+      :class="classBind"
       :disabled="!sub || !link ? true : false"
       @click="onClick"
     >
@@ -29,6 +29,20 @@
         type: String,
         default: '',
         required: false
+      },
+      isDark: {
+        type: Boolean,
+        default: true,
+        require: false
+      }
+    },
+    computed: {
+      classBind() {
+        return {
+          btn: true,
+          [this.sub]: this.sub,
+          'is-white': !this.isDark
+        }
       }
     },
     methods: {
@@ -49,6 +63,11 @@
     align-items: center;
     padding: 8px 14px;
     white-space: nowrap;
+    &.is-white {
+      background-color: transparent;
+      border-color: $gray-0;
+      color: $gray-0;
+    }
     &:disabled {
       cursor: initial;
     }
@@ -56,6 +75,10 @@
       background-color: $gray-9;
       border: none;
       color: $gray-0;
+      &.is-white {
+        color: $gray-9;
+        background-color: $gray-0;
+      }
     }
     &.about {
       background-color: $brain-yellow;

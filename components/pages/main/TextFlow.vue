@@ -148,6 +148,7 @@
     }
     .easter-egg {
       flex: 0 0 190px;
+      height: 190px;
     }
     > span {
       text-transform: uppercase;
@@ -171,11 +172,8 @@
       font-size: 230px;
       .easter-egg {
         flex: 0 0 240px;
+        height: 240px;
       }
-    }
-    .easter-egg {
-      width: 240px;
-      height: 240px;
     }
   }
   @include pc-4k {
@@ -188,11 +186,8 @@
       font-size: 270px;
       .easter-egg {
         flex: 0 0 300px;
+        height: 300px;
       }
-    }
-    .easter-egg {
-      width: 300px;
-      height: 300px;
     }
   }
   @include tablet {
@@ -205,11 +200,8 @@
       font-size: 120px;
       .easter-egg {
         flex: 0 0 126px;
+        height: 126px;
       }
-    }
-    .easter-egg {
-      width: 126px;
-      height: 126px;
     }
   }
   @include mobile {
@@ -222,11 +214,8 @@
       font-size: 50px;
       .easter-egg {
         flex: 0 0 60px;
+        height: 60px;
       }
-    }
-    .easter-egg {
-      width: 60px;
-      height: 60px;
     }
     .article-list {
       padding: 0;
