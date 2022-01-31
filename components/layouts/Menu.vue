@@ -17,9 +17,7 @@
         </ul>
       </div>
     </div>
-    <button class="menu-btn" @click="hideMenu(true)">
-      <img src="@/assets/images/mob_menu.png" alt="모바일 메뉴 열기 이미지" />
-    </button>
+    <button class="menu-btn" @click="hideMenu(true)" title="메뉴 열기"></button>
 
     <div v-if="this.isMenu" class="hide" @mouseleave="hideMenu(false)">
       <div class="lang">
@@ -138,15 +136,18 @@
       .menu-item button {
         color: #fff;
       }
+      & + .menu-btn {
+        background-image: url('~/assets/images/mob_menu-w.svg');
+      }
     }
   }
   .menu-btn {
     display: none;
     width: 30px;
     height: 30px;
-    img {
-      width: 100%;
-    }
+    background-image: url('~/assets/images/mob_menu.svg');
+    background-size: cover;
+    background-position: center center;
   }
 
   .hide {

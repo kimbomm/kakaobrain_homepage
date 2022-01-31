@@ -1,17 +1,17 @@
 <template>
   <div class="story-telling">
     <swiper
+      v-show="!isMobile && viewPortWidth > 768"
       ref="mySwiper"
       class="swiper"
       :options="swiperOption"
-      @reachEnd="onEdge"
+      @slideChange="onSlideChange"
     >
       <swiper-slide v-for="(content, index) in data.ContentItems" :key="index">
         <div
           class="slide"
           :style="`background-image: url(https://kakaobrain.loadingworks.com${content.Media.url})`"
         >
-          <div class="back"></div>
           <div
             :class="`slide-con ${content.itemProp.position.vertical}-${content.itemProp.position.horizontal}`"
           >
@@ -26,6 +26,29 @@
       <div class="swiper-button-prev" slot="button-prev"></div>
       <div class="swiper-button-next" slot="button-next"></div>
     </swiper>
+    <div v-show="isMobile || viewPortWidth <= 768" class="mobile-story">
+      <ul>
+        <li
+          v-for="(content, index) in data.ContentItems"
+          :key="index"
+          class="swiper-slide"
+        >
+          <div
+            class="slide"
+            :style="`background-image: url(https://kakaobrain.loadingworks.com${content.Media.url})`"
+          >
+            <div
+              :class="`slide-con ${content.itemProp.position.vertical}-${content.itemProp.position.horizontal}`"
+            >
+              <div class="slide-tit">{{ content.subject }}</div>
+              <div v-if="content.text" class="slide-txt">
+                <p v-html="content.text.replaceAll('\n', '<br />')"></p>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
     <div class="story-detail" @click="storyList()">
       <button type="button" class="list"></button>
     </div>
@@ -55,6 +78,7 @@
   </div>
 </template>
 <script>
+  import { mapState } from 'vuex'
   import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
   import 'swiper/css/swiper.css'
   import Icon from '@/components/elements/Icon'
@@ -78,9 +102,6 @@
           direction: 'vertical',
           slidesPerView: 1,
           spaceBetween: 0,
-          mousewheel: {
-            thresholdDelta: 100
-          },
           pagination: {
             el: '.swiper-pagination',
             type: 'fraction'
@@ -88,82 +109,103 @@
           navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev'
-          },
-          on: {
-            scroll: e => {
-              // console.log('true::', this.mySwiper.activeIndex)
-              if (this.mySwiper.activeIndex < this.mySwiper.slides.length - 1) {
-                this.isEndSlide = false
-              }
-              this.isChange = true
-            }
           }
         },
         isStory: false,
         timer: null,
         isChange: false,
-        isEndSlide: false
+        isEndSlide: false,
+        isMobile: false,
+        isEventAdd: false,
+        viewPortWidth: 0
       }
     },
     computed: {
+      ...mapState({
+        touchDevice: state => state.touchDevice
+      }),
       mySwiper() {
         return this.$refs.mySwiper.$swiper
+      },
+      swiperSize() {
+        return this.data.ContentItems && this.data.ContentItems.length
       }
     },
-    mounted() {
-      window.addEventListener('wheel', this.onWheel)
+    async mounted() {
+      await this.checkMobile()
+      this.$nextTick(async () => {
+        this.isEndSlide = this.isMobile || this.viewPortWidth <= 768
+        this.$nuxt.$emit('onSlideEnd', this.isEndSlide)
+        await this.resizeEvent()
+        await window.addEventListener('resize', this.resizeEvent)
+      })
     },
-    beforeDestroy() {
-      window.removeEventListener('wheel', this.onWheel)
+    async beforeDestroy() {
+      await this.removeEvent()
     },
     methods: {
+      async resizeEvent() {
+        this.viewPortWidth = window.innerWidth
+        if (this.isMobile || this.viewPortWidth <= 768) {
+          await this.removeEvent()
+        } else {
+          await this.addEvent()
+        }
+      },
+      addEvent() {
+        if (!this.isEventAdd) {
+          this.isEventAdd = true
+          this.$nuxt.$emit('onSlideEnd', false)
+          document
+            .getElementsByClassName('swiper')[0]
+            .addEventListener('wheel', this.onWheel)
+        }
+      },
+      removeEvent() {
+        if (this.isEventAdd) {
+          this.isEventAdd = false
+          this.$nuxt.$emit('onSlideEnd', true)
+          document
+            .getElementsByClassName('swiper')[0]
+            .removeEventListener('wheel', this.onWheel)
+        }
+      },
+      checkMobile() {
+        const device = this.$device
+        this.isMobile = device.iphone || device.androidPhone || device.mobile
+      },
       onClick(index) {
         this.mySwiper.slideTo(index)
-        this.storyList()
+        this.isStory = false
       },
       onWheel(e) {
-        // e.preventDefault
-        if (this.isEndSlide && e.deltaY < 0 && window.scrollY > 0) {
-          // console.log(e.deltaY)
-          // window.scrollTo({
-          //   top: 0,
-          //   left: 0
-          //   // behavior: 'smooth'
-          // })
+        if (!this.isChange) {
+          this.isChange = true
+          if (e.deltaY > 0) this.onClick(this.mySwiper.activeIndex + 1)
+          if (e.deltaY < 0) this.onClick(this.mySwiper.activeIndex - 1)
+        } else {
+          e.preventDefault
         }
         if (this.timer !== null) {
           clearTimeout(this.timer)
-          if (this.isEndSlide && e.deltaY > 0 && !this.isChange) {
-            // window.scrollTo({
-            //   top: document.body.scrollHeight,
-            //   left: 0
-            //   // behavior: 'smooth'
-            // })
-          }
         }
 
         const _this = this
         this.timer = setTimeout(function () {
           _this.isChange = false
         }, 66)
-
-        // if (this.isEndSlide && e.deltaY > 0) {
-        //   if (this.isChange) {
-        //     return
-        //   } else {
-        //     window.scrollTo({
-        //       top: document.body.scrollHeight,
-        //       left: 0,
-        //       behavior: 'smooth'
-        //     })
-        //   }
-        // }
       },
       storyList() {
         this.isStory = !this.isStory
       },
-      onEdge() {
-        this.isEndSlide = true
+      onSlideChange() {
+        this.isEndSlide = this.swiperSize - 1 === this.mySwiper.activeIndex
+        setTimeout(
+          () => {
+            this.$nuxt.$emit('onSlideEnd', this.isEndSlide)
+          },
+          this.isEndSlide ? 1000 : 0
+        )
       }
     }
   }
@@ -172,63 +214,12 @@
   .story-telling {
     position: relative;
     width: 100%;
-    height: 100vh;
   }
   .swiper {
-    height: 100%;
     width: 100%;
     color: $gray-0;
+    height: 100vh;
     // border: 5px solid blue;
-    .swiper-slide {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-weight: bold;
-      overflow: hidden;
-      img {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 100%;
-        height: 100%;
-      }
-      .slide {
-        width: 100%;
-        height: 100vh;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center center;
-        position: relative;
-        &-con {
-          position: absolute;
-          z-index: 10;
-          width: 100%;
-          padding: 0 210px;
-        }
-        &-tit {
-          font-size: 50px;
-          font-weight: 900;
-          margin-bottom: 40px;
-          line-height: 120%;
-        }
-        &-txt {
-          font-size: 16px;
-          font-weight: 400;
-          line-height: 150%;
-          word-break: keep-all;
-        }
-        .back {
-          position: absolute;
-          background: rgba(0, 0, 0, 0.3);
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          z-index: 1;
-        }
-      }
-    }
     .swiper-pagination {
       top: 130px;
       left: 20px;
@@ -253,6 +244,56 @@
       font-family: Inter;
       font-size: 16px;
       color: $gray-0;
+    }
+  }
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    overflow: hidden;
+    img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 100%;
+    }
+    .slide {
+      width: 100%;
+      height: 100vh;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+      position: relative;
+      &-con {
+        position: absolute;
+        z-index: 10;
+        width: 100%;
+        padding: 0 210px;
+      }
+      &-tit {
+        font-size: 50px;
+        font-weight: 900;
+        margin-bottom: 40px;
+        line-height: 120%;
+      }
+      &-txt {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 150%;
+        word-break: keep-all;
+      }
+      .back {
+        position: absolute;
+        background: rgba(0, 0, 0, 0.3);
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+      }
     }
   }
 
@@ -381,125 +422,23 @@
     }
   }
   @include mobile {
-    .swiper .swiper-slide .slide-con {
-      padding: 0 20px;
-    }
-    .swiper .swiper-slide .slide-tit {
-      font-size: 30px;
-    }
-    .swiper .swiper-slide .slide-txt {
-      font-size: 16px;
-    }
+    .swiper,
     .story-detail,
     .story-pop {
       display: none !important;
     }
   }
-  // @media screen and (max-width: 3840px) {
-  //   .story {
-  //     &-pop {
-  //       padding: 380px 0;
-  //     }
-  //   }
-  //   .list {
-  //     &-item {
-  //       padding: 0 10px;
-  //     }
-  //   }
-  // }
-  // @media screen and (max-width: 2560px) {
-  //   .swiper {
-  //     .swiper-slide {
-  //       .slide {
-  //         &-tit {
-  //           font-size: 68px;
-  //         }
-  //         &-txt {
-  //           font-size: 22px;
-  //         }
-  //       }
-  //     }
-  //   }
-  //   .story {
-  //     &-pop {
-  //       padding: 200px 0;
-  //     }
-  //   }
-  //   .list {
-  //     &-tit {
-  //       font-size: 18px;
-  //     }
-  //     &-item {
-  //       margin-bottom: 100px;
-  //     }
-  //   }
-  // }
-  // @media screen and (max-width: 1920px) {
-  //   .swiper {
-  //     .swiper-slide {
-  //       .slide {
-  //         &-tit {
-  //           font-size: 50px;
-  //         }
-  //         &-txt {
-  //           font-size: 16px;
-  //         }
-  //       }
-  //     }
-  //   }
-  //   .list {
-  //     &-tit {
-  //       font-size: 12px;
-  //     }
-  //     &-item {
-  //       margin-bottom: 80px;
-  //       padding: 0 10px;
-  //     }
-  //   }
-  // }
-  // @media screen and (max-width: 1024px) {
-  //   .swiper {
-  //     .swiper-slide {
-  //       .slide {
-  //         &-tit {
-  //           font-size: 38px;
-  //         }
-  //         &-txt {
-  //           font-size: 14px;
-  //         }
-  //       }
-  //     }
-  //   }
-  //   .list {
-  //     &-item {
-  //       margin-bottom: 50px;
-  //       padding: 0;
-  //       &:not(:nth-child(4n)) {
-  //         margin-right: 20px;
-  //       }
-  //     }
-  //   }
-  //   .gl-1 {
-  //     width: calc(
-  //       calc((100vw - 20px * 11) / 10) * 2 + 20px * (2 - 1)
-  //     ) !important;
-  //   }
-  // }
-  // @media screen and (max-width: 768px) {
-  //   .swiper {
-  //     .swiper-slide {
-  //       .slide {
-  //         &-tit {
-  //           font-size: 30px;
-  //         }
-  //         &-txt {
-  //           font-size: 16px;
-  //         }
-  //       }
-  //     }
-  //   }
-  //   .story-detail {
-  //     display: none;
-  //   }
-  // }
+
+  .mobile-story {
+    .swiper-slide {
+      .slide-con {
+        padding: 0 20px;
+        transform: translateY(-50%) !important;
+        top: 50% !important;
+        left: 0 !important;
+        width: 100%;
+        color: $gray-0;
+      }
+    }
+  }
 </style>
