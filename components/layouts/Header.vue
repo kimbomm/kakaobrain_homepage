@@ -2,7 +2,7 @@
   <header :class="classBind">
     <div class="header-top">
       <h1 class="b-logo gl-2">
-        <nuxt-link to="/main">
+        <nuxt-link to="/">
           <span>kakaobrain</span>
         </nuxt-link>
       </h1>
