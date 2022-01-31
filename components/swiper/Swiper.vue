@@ -17,7 +17,7 @@
           >
             <div class="slide-tit">{{ content.subject }}</div>
             <div v-if="content.text" class="slide-txt">
-              <p v-html="content.text.replaceAll('\n', '<br />')"></p>
+              <p v-html="content.text.replace(/\n/g, '<br />')"></p>
             </div>
           </div>
         </div>
@@ -42,7 +42,7 @@
             >
               <div class="slide-tit">{{ content.subject }}</div>
               <div v-if="content.text" class="slide-txt">
-                <p v-html="content.text.replaceAll('\n', '<br />')"></p>
+                <p v-html="content.text.replace(/\n/g, '<br />')"></p>
               </div>
             </div>
           </div>

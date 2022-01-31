@@ -62,7 +62,7 @@ export const actions = {
     commit('setBreadCrumb', payload)
   },
   async getCategoryList({}, payload) {
-    let url = 'category/'
+    let url = '/category/'
     if (payload.category1) url += `${payload.category1}/`
     if (payload.category1 && payload.category2) url += `${payload.category2}`
 
@@ -76,5 +76,9 @@ export const actions = {
       category1: menu[0],
       category2: sub[0]
     }
+  },
+  async getMonthlyList({}, payload) {
+    const res = await this.$axios.get('/monthly/issue', payload)
+    return res
   }
 }

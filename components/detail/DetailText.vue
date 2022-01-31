@@ -4,7 +4,7 @@
       <div class="detail-text">
         <p
           v-if="data.itemType === 'pagaraph'"
-          v-html="data.text.replaceAll('\n', '<br />')"
+          v-html="data.text.replace(/\n/g, '<br />')"
         ></p>
         <a v-else :href="data.codeLinks.linkUrl" target="_blank">{{
           data.codeLinks.title
@@ -26,8 +26,6 @@
   }
 </script>
 <style lang="scss" scoped>
-  @import '@/assets/scss/mixins.scss';
-
   .monthly {
     margin-bottom: 30px;
     .detail {
@@ -35,6 +33,7 @@
         line-height: 150%;
         font-size: 16px;
         font-weight: 400;
+        word-break: keep-all;
       }
       a {
         text-decoration: underline;
