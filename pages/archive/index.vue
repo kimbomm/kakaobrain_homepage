@@ -4,9 +4,7 @@
       <FilterSelector />
     </div>
     <div class="contents-list-text">
-      <DetailText
-        :data="detailText"
-      />
+      <DetailText :data="detailText" />
     </div>
     <!-- reference: https://github.com/paulcollett/vue-masonry-css -->
     <masonry
@@ -44,6 +42,7 @@
     data() {
       return {
         detailText: {
+          itemType: 'pagaraph',
           text: '우리가 퍼블리싱한 것에 대한 설명글이 들어갑니다. 논문 리스트는 안들어갑니다.우리가 퍼블리싱한 것에 대한 설명글이 들어갑니다. 논문 리스트는 안들어갑니다.우리가 퍼블리싱한 것에 대한 설명글이 들어갑니다. 논문 리스트는 안들어갑니다. 논문을 제외한 모든 글들이 아카이빙됩니다.'
         }
       }
@@ -51,7 +50,7 @@
   }
 </script>
 <style lang="scss" scoped>
-  .archive{
+  .archive {
     padding: 0 20px;
   }
   .masonry {

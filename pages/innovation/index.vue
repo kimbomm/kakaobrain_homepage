@@ -16,9 +16,7 @@
     </div>
 
     <div class="contents-list-text">
-      <DetailText
-        :data="detailText"
-      />
+      <DetailText :data="detailText" />
     </div>
     <!-- reference: https://github.com/paulcollett/vue-masonry-css -->
     <masonry
@@ -62,7 +60,8 @@
     data() {
       return {
         detailText: {
-          text: '우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다.우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다.우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다.우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다.우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다.우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다.우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다.'
+          itemType: 'pagaraph',
+          text: '우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다. 우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다. 우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다. 우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다. 우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다. 우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다. 우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다.'
         }
       }
     },
@@ -80,8 +79,8 @@
   }
 </script>
 <style lang="scss" scoped>
-  .innovation{
-    padding: 0 20px;;
+  .innovation {
+    padding: 0 20px;
   }
   // .masonry {
   //   padding: 0 20px;
