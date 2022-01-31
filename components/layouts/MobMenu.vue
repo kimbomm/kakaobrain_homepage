@@ -162,7 +162,7 @@
   @include mobile {
     .mob-menu {
       &-top {
-        padding: 13px 15px 0 20px;
+        padding: 0 20px;
         height: 56px;
         span {
           font-size: 18px;

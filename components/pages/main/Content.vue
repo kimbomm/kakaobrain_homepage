@@ -140,6 +140,7 @@
   @include mobile {
     .article {
       margin-top: 70px;
+      padding: 0 20px;
       [class*='gl-'] {
         width: 100% !important;
       }

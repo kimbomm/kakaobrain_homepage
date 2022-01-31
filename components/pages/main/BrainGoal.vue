@@ -77,6 +77,7 @@
         font-size: 30px;
         line-height: 1.3;
         color: #fff;
+        word-break: keep-all;
       }
     }
   }

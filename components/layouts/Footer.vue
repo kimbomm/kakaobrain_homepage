@@ -1,11 +1,8 @@
 <template>
   <footer :class="classBind">
-    <div class="l-side gl-6 l-ml-2">
+    <div>
       <div class="b-symbol"></div>
-      <div class="b-w-symbol"></div>
-      <div class="copywriter">
-        Copyright ⓒ kakaobrain Corp. All rights reserved.
-      </div>
+      <!-- <div class="b-w-symbol"></div> -->
       <div class="footer-con">
         <div class="menu">
           <ul>
@@ -20,17 +17,15 @@
             </li>
           </ul>
         </div>
-        <div class="footer-shape"></div>
       </div>
-      <SnsLink />
       <div class="footer-bottom">
-        <div class="info-txt">
-          Copyright ⓒ kakaobrain Corp. All rights reserved.
+        <span class="info-txt">@2021</span>
+        <div class="copyright">
+          Copyright ⓒ kakaobrain Corp. <span>All rights reserved.</span>
         </div>
+        <SnsLink />
       </div>
-    </div>
-    <div>
-      <div class="l-info"><span class="info-txt">@2021</span></div>
+      <div class="footer-shape"></div>
     </div>
   </footer>
 </template>
@@ -58,160 +53,172 @@
 </script>
 <style lang="scss" scoped>
   .footer {
-    padding-top: 1000px;
+    padding: 500px 20px 20px;
+    > div {
+      position: relative;
+    }
     &-con {
       position: relative;
-      display: flex;
-      justify-content: space-between;
       margin-bottom: 116px;
+      margin-left: getMargin(2);
+    }
+    &-bottom {
+      z-index: 10;
+      display: flex;
+      align-items: flex-end;
+      font-size: 16px;
+      line-height: 1.3;
+      color: $gray-9;
+      .info-txt {
+        width: getWidth(2);
+        margin-right: $gutter;
+      }
+      .copyright {
+        width: getWidth(5);
+        span {
+          display: inline-block;
+        }
+      }
     }
     &-shape {
       position: absolute;
-      top: 240px;
-      right: 574px;
-      width: 700px;
-      height: 300px;
       background: url('@/assets/images/shape_1.png') no-repeat;
-      background-size: 100%;
+      background-size: 100% 100%;
+      bottom: 150px;
+      left: getMargin(5);
+      width: 350px;
+      height: 150px;
     }
-    &-bottom {
-      position: fixed;
-      bottom: 20px;
-      z-index: 10;
+  }
+  .b-symbol {
+    width: 120px;
+    height: 198px;
+    margin-bottom: 230px;
+    margin-left: getMargin(2);
+    background-image: url('~/assets/images/b-symbol.png');
+    background-size: cover;
+    background-position: center center;
+  }
+  .menu-list {
+    font-size: 20px;
+    line-height: 1.3;
+    font-weight: bold;
+    margin-bottom: 20px;
+    &:last-child {
+      margin-bottom: 0;
     }
-    .copywriter {
-      display: none;
-      margin-bottom: 50px;
-      font-size: 12px;
-      line-height: 130%;
-      color: $surface-6;
-    }
-    .menu {
-      display: inline-block;
-      &-list {
-        line-height: 130%;
-        font-size: 34px;
-        font-weight: 700;
-        cursor: pointer;
-        &:not(:last-child) {
-          margin-bottom: 34px;
-        }
-      }
-    }
-    .info-txt {
-      display: inline-block;
-      font-size: 34px;
+  }
+
+  .footer__light {
+    background-color: $gray-9;
+    .footer-bottom {
+      color: $gray-0;
     }
     .b-symbol {
-      display: block;
+      background-image: url('~/assets/images/b-w-symbol.png');
     }
-    .b-w-symbol {
-      display: none;
-    }
-    &.footer__light {
-      .b-symbol {
-        display: none;
-      }
-      .b-w-symbol {
-        display: block;
-      }
-      .l-side {
-        color: $gray-0;
-      }
-      .l-info {
-        color: $gray-0;
-      }
+    .menu-list {
+      color: $gray-0;
     }
   }
-  @media screen and (max-width: 3840px) {
-    .footer {
-      &-con {
-        margin-bottom: 256px;
-      }
-      &-shape {
-        right: 424px;
-      }
-    }
-  }
-  @media screen and (max-width: 2560px) {
+
+  @include pc-large {
     .footer {
       padding-top: 700px;
-      &-con {
-        margin-bottom: 179px;
-      }
       &-shape {
-        top: 210px;
-        right: 469px;
         width: 466px;
         height: 200px;
+        bottom: 200px;
       }
-      .menu {
-        &-list {
-          font-size: 24px;
-          &:not(:last-child) {
-            margin-bottom: 24px;
-          }
-        }
+      &-con {
+        margin-bottom: 150px;
       }
-      .info-txt {
+      &-bottom {
         font-size: 22px;
       }
     }
-  }
-  @media screen and (max-width: 1920px) {
-    .footer {
-      padding-top: 304px;
-      &-con {
-        margin-bottom: 129px;
-      }
-      &-shape {
-        top: 172px;
-        right: 196px;
-        width: 350px;
-        height: 150px;
-      }
-      .menu {
-        &-list {
-          font-size: 20px;
-          &:not(:last-child) {
-            margin-bottom: 20px;
-          }
-        }
-      }
-      .info-txt {
-        font-size: 16px;
-      }
+    .menu-list {
+      font-size: 24px;
+    }
+    .b-symbol {
+      width: 160px;
+      height: 264px;
     }
   }
-  @media screen and (max-width: 1024px) {
+  @include pc-4k {
+    .footer {
+      padding-top: 1000px;
+      &-shape {
+        width: 700px;
+        height: 300px;
+        bottom: 300px;
+      }
+      &-con {
+        margin-bottom: 218px;
+      }
+      &-bottom {
+        font-size: 34px;
+      }
+    }
+    .menu-list {
+      font-size: 34px;
+      margin-bottom: 34px;
+    }
+    .b-symbol {
+      width: 240px;
+      height: 396px;
+    }
+  }
+  @include tablet {
     .footer {
       padding-top: 400px;
-      &-con {
-        margin-bottom: 129px;
-      }
       &-shape {
-        top: 338px;
-        right: 100px;
-        width: 186px;
-        height: 86px;
+        width: getWidth(2);
+        height: 80px;
+        bottom: 80px;
       }
-      .info-txt {
+      &-con {
+        margin-bottom: 116px;
+      }
+      &-bottom {
         font-size: 16px;
       }
     }
+    .menu-list {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+    .b-symbol {
+      width: 120px;
+      height: 198px;
+    }
   }
-  @media screen and (max-width: 768px) {
+  @include mobile {
     .footer {
       padding-top: 200px;
+      padding-bottom: 50px;
+      &-shape {
+        display: none;
+      }
       &-con {
         display: none;
       }
-      .info-txt {
-        display: none;
+      &-bottom {
+        font-size: 12px;
+        color: $surface-6;
+        .info-txt {
+          display: none;
+        }
+        .copyright {
+          width: getWidth(6);
+        }
       }
-      .copywriter {
-        display: block;
-      }
+    }
+    .b-symbol {
+      width: 50px;
+      height: 82px;
+      margin-bottom: 30px;
+      margin-left: 0;
     }
   }
 </style>

@@ -1,15 +1,17 @@
 <template>
   <div class="wrap">
     <div class="l-pages">
-      <FilterList />
+      <FilterList v-if="!isStoryPage" />
       <Header />
       <div class="container">
         <Nuxt />
       </div>
-      <Footer />
+      <Footer v-if="isFooterShow" />
     </div>
-    <CardinalPoints />
-    <TopButton />
+    <template v-if="!isStoryPage">
+      <CardinalPoints />
+      <TopButton />
+    </template>
   </div>
 </template>
 <script>
@@ -27,21 +29,40 @@
       CardinalPoints,
       TopButton
     },
+    data() {
+      return {
+        isStoryPage: false,
+        isFooterShow: true
+      }
+    },
     computed: {
       ...mapState({
         touchDevice: state => state.touchDevice,
         list: state => state.innovation.list
       })
     },
-    created() {},
+    created() {
+      this.$nuxt.$on('story-page', this.onStoryPage)
+      this.$nuxt.$on('onSlideEnd', this.onSlideEnd)
+    },
     async mounted() {
       await this.$store.commit('setIsDark', true)
       await this.checkDevice()
+    },
+    beforeDestroy() {
+      this.$nuxt.$off('story-page', this.onStoryPage)
+      this.$nuxt.$off('onSlideEnd', this.onSlideEnd)
     },
     methods: {
       ...mapMutations({
         setTouchDevice: 'setTouchDevice'
       }),
+      onStoryPage(value) {
+        this.isStoryPage = value
+      },
+      onSlideEnd(value) {
+        this.isFooterShow = value
+      },
       checkDevice() {
         const device = this.$device
         const isTouchDevice =
@@ -57,14 +78,8 @@
   }
 </script>
 <style lang="scss" scoped>
-  @import '@/assets/scss/mixins.scss';
   .wrap {
     background-color: $surface-1;
     overflow-x: hidden;
-  }
-  @include mobile {
-    // .l-pages {
-    //   padding: 0 20px;
-    // }
   }
 </style>

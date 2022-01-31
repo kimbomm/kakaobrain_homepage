@@ -4,19 +4,9 @@
       <h1 class="b-logo gl-2">
         <nuxt-link to="/main">
           <span>kakaobrain</span>
-          <!-- <img
-						class="black-logo"
-						:src="require(`@/assets/images/logo.png`)"
-						alt="카카오 브레인 로고"
-					/>
-					<img
-						class="white-logo"
-						:src="require(`@/assets/images/logo-w.png`)"
-						alt="카카오 브레인 로고"
-					/> -->
         </nuxt-link>
       </h1>
-      <div class="header-con gl-2">
+      <div class="header-con">
         <div class="header-item">Unthinkable Question</div>
       </div>
     </div>
@@ -100,10 +90,18 @@
     }
   }
   @include mobile {
+    .header {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 56px;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
     .header,
     .header-item {
-      top: 13px;
-      right: 15px;
       font-size: 18px;
       &-con {
         display: none;

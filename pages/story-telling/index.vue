@@ -16,14 +16,6 @@
   import Like from '@/components/elements/Like'
   export default {
     name: 'index',
-    layout: 'storytelling-page',
-    async asyncData({ store, query }) {
-      // const res = await store.dispatch('getContentDetail', query.contentId)
-      // return {
-      //   // data: res.data,
-      //   contentId: query.contentId
-      // }
-    },
     components: {
       BreadCrumb,
       Swiper,
@@ -32,14 +24,43 @@
     data() {
       return {
         data: null,
-        breadcrumb: []
+        breadcrumb: [],
+        viewPortWidth: 0,
+        isMobile: false
       }
     },
     async created() {
+      await this.$nuxt.$emit('story-page', true)
       await this.init()
+    },
+    async mounted() {
+      await this.checkMobile()
+      this.$nextTick(async () => {
+        await this.onResizeEvent()
+        await window.addEventListener('resize', this.onResizeEvent)
+      })
+    },
+    async beforeDestroy() {
+      await this.$nuxt.$emit('story-page', false)
+      await this.$store.commit('setIsDark', false)
+      window.removeEventListener('resize', this.onResizeEvent)
     },
     methods: {
       ...mapActions(['getNickName']),
+      async onResizeEvent() {
+        this.viewPortWidth = window.innerWidth
+        if (this.isMobile || this.viewPortWidth <= 768) {
+          await this.$store.commit('setIsDark', true)
+          await this.$nuxt.$emit('story-page', false)
+        } else {
+          await this.$store.commit('setIsDark', false)
+          await this.$nuxt.$emit('story-page', true)
+        }
+      },
+      checkMobile() {
+        const device = this.$device
+        this.isMobile = device.iphone || device.androidPhone || device.mobile
+      },
       async init() {
         const res = await this.$store.dispatch(
           'getContentDetail',
@@ -95,6 +116,7 @@
   }
   @include mobile {
     .story-telling {
+      margin-top: 56px;
       .bread-crumb {
         left: 0;
         padding-top: 80px;
