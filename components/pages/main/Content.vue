@@ -14,16 +14,14 @@
           <span></span>
         </div>
       </div>
-      <div class="tags gl-1">
-        <Sticker text="Docu. B" sub="docu" />
-        <Sticker text="Documentary" sub="sub" />
-        <Sticker text="Educations" />
+      <div class="tags">
+        <BreadCrumb :data="breadcrumb" />
       </div>
     </div>
   </div>
 </template>
 <script>
-  import Sticker from '@/components/elements/button/Sticker'
+  import BreadCrumb from '@/components/elements/BreadCrumb'
   export default {
     props: {
       order: {
@@ -38,7 +36,16 @@
       }
     },
     components: {
-      Sticker
+      BreadCrumb
+    },
+    data() {
+      return {
+        breadcrumb: [
+          { text: 'About', sub: 'about', link: '' },
+          { text: 'Introduce', sub: 'sub', link: '/about' },
+          { text: 'Yeah!!!', sub: '', link: '' }
+        ]
+      }
     },
     computed: {
       articleClassBind() {
@@ -72,6 +79,9 @@
     display: flex;
     justify-content: space-between;
   }
+  .article-info {
+    flex: 1;
+  }
   .thumbnail {
     img {
       width: 100%;
@@ -92,6 +102,8 @@
   }
   .tags {
     text-align: right;
+    margin-left: 20px;
+    flex: 0 0 getWidth(1);
     .btn {
       margin-right: 0;
       margin-top: 10px;
@@ -128,6 +140,7 @@
   @include mobile {
     .article {
       margin-top: 70px;
+      padding: 0 20px;
       [class*='gl-'] {
         width: 100% !important;
       }
@@ -138,6 +151,9 @@
     .tags {
       margin-top: 17px;
       text-align: left;
+      flex: 0;
+      width: 100%;
+      margin-left: 0;
       .btn {
         margin-right: 4px;
         margin-top: 6px;

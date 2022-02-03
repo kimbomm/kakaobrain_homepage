@@ -17,9 +17,7 @@
         </ul>
       </div>
     </div>
-    <button class="menu-btn" @click="hideMenu(true)">
-      <img src="@/assets/images/mob_menu.png" alt="모바일 메뉴 열기 이미지" />
-    </button>
+    <button class="menu-btn" @click="hideMenu(true)" title="메뉴 열기"></button>
 
     <div v-if="this.isMenu" class="hide" @mouseleave="hideMenu(false)">
       <div class="lang">
@@ -83,11 +81,12 @@
       ...mapState({
         menus: state => state.menus,
         language: state => state.language,
+        isDark: state => state.isDark,
         isFilterMenuOpen: state => state.isFilterMenuOpen
       }),
       classBind() {
         let classList = ['menu', 'menu-outer']
-        if (this.isFilterMenuOpen) {
+        if (this.isFilterMenuOpen || !this.isDark) {
           classList.push('menu__light')
         }
 
@@ -109,17 +108,9 @@
   }
 </script>
 <style lang="scss" scoped>
-  .white {
-    .menu-item {
-      button {
-        color: $gray-0;
-      }
-    }
-  }
   .menu {
     &-item {
       display: inline-block;
-      font-size: 16px;
       font-weight: 900;
       &:not(:last-child) {
         margin-right: 30px;
@@ -144,15 +135,18 @@
       .menu-item button {
         color: #fff;
       }
+      & + .menu-btn {
+        background-image: url('~/assets/images/mob_menu-w.svg');
+      }
     }
   }
   .menu-btn {
     display: none;
     width: 30px;
     height: 30px;
-    img {
-      width: 100%;
-    }
+    background-image: url('~/assets/images/mob_menu.svg');
+    background-size: cover;
+    background-position: center center;
   }
 
   .hide {
@@ -228,7 +222,7 @@
       }
     }
   }
-  @include pc-large {
+  @include pc-4k {
     .menu-item {
       .txt {
         font-size: 34px;

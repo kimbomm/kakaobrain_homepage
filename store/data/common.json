@@ -2,53 +2,116 @@
   "menus": [
     {
       "name": "About",
+      "category": "about",
+      "nick": "About",
       "link": "/about",
       "alarm": "",
       "sub": [
-        { "name": "Unthinkable Question!", "link": "/about" },
-        { "name": "Culture", "link": "/about/culture" },
-        { "name": "Principle", "link": "/about/principle" }
+        {
+          "category": "introduce",
+          "nick": "Introduce",
+          "name": "Unthinkable Question!",
+          "link": "/about"
+        },
+        {
+          "category": "culture",
+          "nick": "Culture",
+          "name": "Culture",
+          "link": "/about/culture"
+        },
+        {
+          "category": "principle",
+          "nick": "Principle",
+          "name": "Principle",
+          "link": "/about/principle"
+        }
       ]
     },
     {
       "name": "Research",
+      "category": "research",
+      "nick": "Research",
       "link": "/research",
       "alarm": "172",
       "sub": [
-        { "name": "Highlight", "link": "#" },
-        { "name": "Article", "link": "#" },
-        { "name": "Collaborative Research", "link": "#" }
+        {
+          "category": "challenge",
+          "nick": "Challenge",
+          "name": "Challenge",
+          "link": "/contents/research/challenge"
+        },
+        {
+          "category": "article",
+          "nick": "Article",
+          "name": "Article",
+          "link": "/contents/research/article"
+        },
+        {
+          "category": "collaborative",
+          "nick": "Collabo",
+          "name": "Collaborative Research",
+          "link": "/contents/research/collaborative"
+        }
       ]
     },
     {
       "name": "Tech",
+      "category": "tech",
+      "nick": "Tech",
       "link": "/tech",
       "alarm": "54",
       "sub": [
-        { "name": "Highlight", "link": "#" },
-        { "name": "Data", "link": "#" },
-        { "name": "Brain Cloud", "link": "#" },
-        { "name": "Large Scale", "link": "#" },
-        { "name": "Digital Human", "link": "#" }
+        {
+          "category": "highlight",
+          "nick": "Highlight",
+          "name": "Highlight",
+          "link": "/contents/tech/highlight"
+        },
+        {
+          "category": "dataset",
+          "nick": "Dataset",
+          "name": "Dataset",
+          "link": "/contents/tech/dataset"
+        },
+        {
+          "category": "brain",
+          "nick": "Brain Cloud",
+          "name": "Brain Cloud",
+          "link": "/contents/tech/brain"
+        },
+        {
+          "category": "large",
+          "nick": "Large Scale",
+          "name": "Large Scale",
+          "link": "/contents/tech/large"
+        },
+        {
+          "category": "digital",
+          "nick": "Digital Human",
+          "name": "Digital Human",
+          "link": "/contents/tech/digital"
+        }
       ]
     },
     {
-      "name": "Studio",
-      "link": "/studio",
-      "alarm": "2",
-      "sub": [
-        { "name": "H./Healthcare", "link": "#" },
-        { "name": "E./Education", "link": "#" }
-      ]
-    },
-    {
-      "name": "Magazine B",
-      "link": "/magazine",
+      "name": "Docu.B",
+      "category": "document",
+      "nick": "Docu.B",
+      "link": "/document",
       "alarm": "78",
       "sub": [
-        { "name": "News", "link": "#" },
-        { "name": "Interview", "link": "#" },
-        { "name": "Documentary", "link": "#" }
+        {
+          "category": "news",
+          "nick": "News",
+          "name": "News",
+          "link": "/contents/document/news"
+        },
+        {
+          "category": "documentary",
+          "nick": "Documentary",
+          "name": "Documentary",
+          "link": "/contents/document/documentary"
+        }
       ]
     }
   ],
@@ -95,5 +158,8 @@
       { "name": "carl.brain", "profile": "" },
       { "name": "jeff.sky", "profile": "" }
     ]
+  },
+  "category": {
+    "innovation": ["tag1", "tage2", "tage3", "tage4", "tage5", "tage6"]
   }
 }

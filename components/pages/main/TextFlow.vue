@@ -62,10 +62,12 @@
               this.$refs['flow'].offsetHeight -
               window.innerHeight
         ) {
+          this.$refs['backgroundFlow'].classList.add('scrolled')
           this.$refs['backgroundFlow'].style = `position: absolute; top: ${
             window.scrollY - this.$refs['flow'].offsetTop
           }px`
         } else if (window.scrollY < this.$refs['flow'].offsetTop) {
+          this.$refs['backgroundFlow'].classList.remove('scrolled')
           this.$refs['backgroundFlow'].style = 'position: absolute'
         }
       }
@@ -75,22 +77,22 @@
 <style lang="scss" scoped>
   @keyframes ani-left {
     from {
-      transform: translateX(100vw);
+      transform: translateX(0);
     }
     to {
-      transform: translateX(-100%);
+      transform: translateX(calc(-100% + 100vw));
     }
   }
   @keyframes ani-right {
     from {
-      transform: translateX(-100%);
+      transform: translateX(calc(-100% + 100vw));
     }
     to {
-      transform: translateX(100vw);
+      transform: translateX(0);
     }
   }
   .flow {
-    padding-top: 100vw;
+    padding-top: 100vh;
     position: relative;
   }
   .background-flow {
@@ -101,6 +103,18 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    &.scrolled {
+      .flow-txt {
+        &:nth-child(1) {
+          text-shadow: -1px -1px 0 $surface-4, 1px -1px 0 $surface-4,
+            -1px 1px 0 $surface-4, 1px 1px 0 $surface-4;
+        }
+        &:nth-child(2),
+        &:nth-child(3) {
+          color: $surface-3;
+        }
+      }
+    }
   }
   .flow-txt {
     font-size: 180px;
@@ -111,6 +125,7 @@
     animation-duration: 100s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
+    transition: all 0.3s linear;
     &.ani__left {
       animation-name: ani-left;
     }
@@ -120,26 +135,27 @@
     &:nth-child(1) {
       font-weight: 600;
       color: $surface-1;
-      text-shadow: -1px -1px 0 $surface-4, 1px -1px 0 $surface-4,
-        -1px 1px 0 $surface-4, 1px 1px 0 $surface-4;
+      text-shadow: -1px -1px 0 $kakao-black, 1px -1px 0 $kakao-black,
+        -1px 1px 0 $kakao-black, 1px 1px 0 $kakao-black;
     }
     &:nth-child(2) {
       font-weight: 400;
-      color: $surface-3;
+      color: $kakao-black;
     }
     &:nth-child(3) {
       font-weight: 100;
-      color: $surface-3;
+      color: $kakao-black;
     }
     .easter-egg {
       flex: 0 0 190px;
+      height: 190px;
     }
     > span {
       text-transform: uppercase;
     }
   }
   .article-list {
-    padding: 0 20px;
+    padding: 0 20px 100vh;
     position: relative;
     z-index: 1;
     .article {
@@ -147,51 +163,59 @@
     }
   }
   @include pc-large {
+    .article-list {
+      .article {
+        margin-top: 460px;
+      }
+    }
     .flow-txt {
       font-size: 230px;
       .easter-egg {
         flex: 0 0 240px;
+        height: 240px;
       }
-    }
-    .easter-egg {
-      width: 240px;
-      height: 240px;
     }
   }
   @include pc-4k {
+    .article-list {
+      .article {
+        margin-top: 770px;
+      }
+    }
     .flow-txt {
       font-size: 270px;
       .easter-egg {
         flex: 0 0 300px;
+        height: 300px;
       }
-    }
-    .easter-egg {
-      width: 300px;
-      height: 300px;
     }
   }
   @include tablet {
+    .article-list {
+      .article {
+        margin-top: 164px;
+      }
+    }
     .flow-txt {
       font-size: 120px;
       .easter-egg {
         flex: 0 0 126px;
+        height: 126px;
       }
-    }
-    .easter-egg {
-      width: 126px;
-      height: 126px;
     }
   }
   @include mobile {
+    .article-list {
+      .article {
+        margin-top: 70px;
+      }
+    }
     .flow-txt {
       font-size: 50px;
       .easter-egg {
         flex: 0 0 60px;
+        height: 60px;
       }
-    }
-    .easter-egg {
-      width: 60px;
-      height: 60px;
     }
     .article-list {
       padding: 0;

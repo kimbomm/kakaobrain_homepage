@@ -26,7 +26,7 @@
   </transition>
 </template>
 <script>
-  import { mapState, mapActions } from 'vuex'
+  import { mapState, mapMutations, mapActions } from 'vuex'
   import Checkbox from '@/components/elements/filter/Checkbox'
   export default {
     components: {
@@ -34,36 +34,49 @@
     },
     computed: {
       ...mapState({
+        filterList: state => state.filterList,
         isFilterMenuOpen: state => state.isFilterMenuOpen
       }),
       categoryList() {
         let list = []
-        // list.push()
         list = [...this.list]
+        return list
+      },
+      checkedList() {
+        let list = []
+        list = this.list.filter(item => item.isChecked)
         return list
       }
     },
-    mounted() {},
+    watch: {
+      checkedList: {
+        deep: true,
+        handler(val) {
+          const isAll = this.checkedList.find(obj => {
+            return obj.value == 'all'
+          })
+          this.setFilter(isAll ? [] : this.checkedList.map(obj => obj.text))
+        }
+      }
+    },
+    mounted() {
+      this.init()
+    },
     data() {
       return {
         filterData: [],
-        list: [
-          { value: 'all', text: 'All', isChecked: false },
-          { value: '1', text: '1', isChecked: false },
-          { value: '2', text: '2', isChecked: false },
-          { value: '3', text: '3', isChecked: false },
-          { value: '4', text: '4', isChecked: false },
-          { value: '5', text: '5', isChecked: false },
-          { value: '6', text: '6', isChecked: false },
-          { value: '7', text: '7', isChecked: false },
-          { value: '8', text: '8', isChecked: false },
-          { value: '9', text: '9', isChecked: false },
-          { value: '0', text: '0', isChecked: false }
-        ]
+        list: [{ value: 'all', text: 'All', isChecked: true }]
       }
     },
     methods: {
       ...mapActions(['changeFilterMenuOpen']),
+      ...mapMutations(['setFilter']),
+      init() {
+        const filters = this.filterList.map(tag => {
+          return { value: tag, text: tag, isChecked: false }
+        })
+        this.list = this.list.concat(filters)
+      },
       onClose() {
         this.changeFilterMenuOpen(false)
       },
@@ -74,6 +87,8 @@
           } else if (data.value !== 'all' && data.isChecked) {
             if (item.value === data.value) item.isChecked = data.isChecked
             if (item.value === 'all' && item.isChecked) item.isChecked = false
+          } else {
+            if (item.value === data.value) item.isChecked = data.isChecked
           }
         })
       }

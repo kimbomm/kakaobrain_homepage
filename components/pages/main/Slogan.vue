@@ -104,6 +104,7 @@
     .slogan {
       margin-left: 0 !important;
       width: 100% !important;
+      padding: 0 20px;
       &-title {
         font-size: 12px;
         margin-bottom: 40px;

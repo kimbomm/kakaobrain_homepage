@@ -128,7 +128,11 @@
           targetText.style = `transform: translateY(-${
             targetText.offsetHeight * 0.75
           }px)`
-        } else {
+        } else if (
+          target.offsetTop >= window.scrollY + window.innerHeight ||
+          target.offsetTop + target.offsetHeight <=
+            window.scrollY + window.innerHeight
+        ) {
           this.setSlot()
         }
       },
@@ -199,21 +203,22 @@
     position: relative;
     z-index: 0;
     width: 100%;
-    height: 320px;
+    height: calc(160px * 3);
     overflow: hidden;
     > div {
       transition: transform 0.3s linear;
     }
     p {
+      overflow: hidden;
       text-align: center;
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: 'NotoSansKR';
-      font-size: 160px;
+      font-size: 160px * 0.7;
+      height: calc(160px * 3);
       font-weight: 900;
       transition: transform 0.3s linear;
-      height: 320px;
       line-height: 0.9;
     }
   }
@@ -232,10 +237,10 @@
       }
     }
     .slot-text {
-      height: calc(210px * 2);
+      height: calc(210px * 3);
       p {
-        font-size: 210px;
-        height: calc(210px * 2);
+        font-size: 210px * 0.7;
+        height: calc(210px * 3);
       }
     }
   }
@@ -253,10 +258,10 @@
       }
     }
     .slot-text {
-      height: calc(320px * 2);
+      height: calc(320px * 3);
       p {
-        font-size: 320px;
-        height: calc(320px * 2);
+        font-size: 320px * 0.7;
+        height: calc(320px * 3);
       }
     }
   }
@@ -274,10 +279,10 @@
       }
     }
     .slot-text {
-      height: calc(90px * 2);
+      height: calc(90px * 3);
       p {
-        font-size: 90px;
-        height: calc(90px * 2);
+        font-size: 90px * 0.7;
+        height: calc(90px * 3);
       }
     }
   }
@@ -296,10 +301,10 @@
       }
     }
     .slot-text {
-      height: calc(28px * 2);
+      height: calc(28px * 3);
       p {
-        font-size: 28px;
-        height: calc(28px * 2);
+        font-size: 28px * 0.7;
+        height: calc(28px * 3);
       }
     }
   }

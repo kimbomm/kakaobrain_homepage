@@ -1,26 +1,22 @@
 <template>
-  <div>
+  <div class="innovation">
     <div class="contents-selector l-ml-2 gl-6">
-      <FilterSelector />
+      <FilterSelector :list="filter" />
     </div>
-    <div class="contents-sticker l-ml-3 gl-5">
+    <div v-if="filter.length > 0" class="contents-sticker l-ml-3 gl-5">
       <ul>
-        <li class="item">
-          <Sticker text="q;lwekdjfa;sdlf" sub=""></Sticker>
-        </li>
-        <li class="item">
-          <Sticker text="q;lwekdjfa;sdlf" sub=""></Sticker>
-        </li>
-        <li class="item">
-          <Sticker text="q;lwekdjfa;sdlf" sub=""></Sticker>
+        <li
+          v-for="(item, index) in filter"
+          :key="`filter-${index}`"
+          class="item"
+        >
+          <Sticker :text="item" />
         </li>
       </ul>
     </div>
 
     <div class="contents-list-text">
-      <DetailText
-        text="우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다.우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다.우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다.우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다.우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다.우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다.우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다."
-      />
+      <DetailText :data="detailText" />
     </div>
     <!-- reference: https://github.com/paulcollett/vue-masonry-css -->
     <masonry
@@ -40,7 +36,7 @@
   </div>
 </template>
 <script>
-  import { mapState } from 'vuex'
+  import { mapState, mapActions } from 'vuex'
   import mixinGlobal from '@/mixin/global.js'
   import InnovationCard from '@/components/elements/card/InnovationCard'
   import DetailText from '@/components/detail/DetailText'
@@ -57,15 +53,38 @@
     },
     computed: {
       ...mapState({
+        filter: state => state.filter,
         innovationList: state => state.innovation.list
       })
+    },
+    data() {
+      return {
+        detailText: {
+          itemType: 'pagaraph',
+          text: '우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다. 우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다. 우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다. 우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다. 우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다. 우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다. 우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다.'
+        }
+      }
+    },
+    created() {
+      this.init()
+    },
+    methods: {
+      ...mapActions({
+        getFilterList: 'getFilterList'
+      }),
+      init() {
+        this.getFilterList('innovation')
+      }
     }
   }
 </script>
 <style lang="scss" scoped>
-  .masonry {
+  .innovation {
     padding: 0 20px;
   }
+  // .masonry {
+  //   padding: 0 20px;
+  // }
   /deep/ .Innovation {
     min-width: initial;
     max-width: initial;

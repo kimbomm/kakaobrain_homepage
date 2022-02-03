@@ -1,100 +1,23 @@
 <template>
   <div class="story-telling">
     <swiper
+      v-show="!isMobile && viewPortWidth > 768"
       ref="mySwiper"
       class="swiper"
       :options="swiperOption"
-      @reachEnd="onEdge"
+      @slideChange="onSlideChange"
     >
-      <swiper-slide>
-        <div class="slide">
-          <img src="@/assets/images/story-telling_img_1.png" />
-          <div class="back"></div>
-          <div class="slide-con ta-l gl-8">
-            <div class="slide-tit">카카오브레인, AI 공동연구</div>
-            <div class="slide-txt">
-              <p>
-                카카오브레인이 세계 정상의 AI 연구실과 함께 인간의 인식과 추론의
-                한계에 도전합니다.
-              </p>
-              <p>
-                카카오브레인은 고려대와 서울대, 포항공대와한양대, KAIST와 UNIST
-                등 7개 대학 AI 연구실과 산학 협력을 맺고 3년간 공동 연구를
-                시작했습니다.
-              </p>
-              <br />
-              <p>
-                카카오브레인과 각 학교 AI 연구실은 이번협력을 통해 AI 연구의
-                스테레오타입을 넘어선 새로운 연구 방법론을 정립하려 노력한다고
-                합니다.
-              </p>
-              <p>
-                우리의 연구가 어떻게 세상을 바꿔나갈지가슴이 웅장해지는데요.
-              </p>
-              <br />
-              <p>카카오브레인의 공동연구 노하우를 공개합니다</p>
-            </div>
-          </div>
-        </div>
-      </swiper-slide>
-      <swiper-slide>
-        <div class="slide">
-          <img src="@/assets/images/story-telling_img_2.png" />
-          <div class="back"></div>
-          <div class="slide-con gl-8">
-            <div class="slide-tit">카카오브레인, AI 공동연구</div>
-            <div class="slide-txt">
-              <p>
-                카카오브레인이 세계 정상의 AI 연구실과 함께 인간의 인식과 추론의
-                한계에 도전합니다.
-              </p>
-              <p>
-                카카오브레인은 고려대와 서울대, 포항공대와한양대, KAIST와 UNIST
-                등 7개 대학 AI 연구실과 산학 협력을 맺고 3년간 공동 연구를
-                시작했습니다.
-              </p>
-              <br />
-              <p>
-                카카오브레인과 각 학교 AI 연구실은 이번협력을 통해 AI 연구의
-                스테레오타입을 넘어선 새로운 연구 방법론을 정립하려 노력한다고
-                합니다.
-              </p>
-              <p>
-                우리의 연구가 어떻게 세상을 바꿔나갈지가슴이 웅장해지는데요.
-              </p>
-              <br />
-              <p>카카오브레인의 공동연구 노하우를 공개합니다</p>
-            </div>
-          </div>
-        </div>
-      </swiper-slide>
-      <swiper-slide>
-        <div class="slide">
-          <img src="@/assets/images/story-telling_img_3.png" />
-          <div class="back"></div>
-          <div class="slide-con ta-r gl-8">
-            <div class="slide-tit">카카오브레인, AI 공동연구</div>
-            <div class="slide-txt">
-              <p>
-                카카오브레인이 세계 정상의 AI 연구실과 함께 인간의 인식과 추론의
-                한계에 도전합니다.
-              </p>
-              <p>
-                카카오브레인은 고려대와 서울대, 포항공대와한양대, KAIST와 UNIST
-                등 7개 대학 AI 연구실과 산학 협력을 맺고 3년간 공동 연구를
-                시작했습니다.
-              </p>
-              <br />
-              <p>
-                카카오브레인과 각 학교 AI 연구실은 이번협력을 통해 AI 연구의
-                스테레오타입을 넘어선 새로운 연구 방법론을 정립하려 노력한다고
-                합니다.
-              </p>
-              <p>
-                우리의 연구가 어떻게 세상을 바꿔나갈지가슴이 웅장해지는데요.
-              </p>
-              <br />
-              <p>카카오브레인의 공동연구 노하우를 공개합니다</p>
+      <swiper-slide v-for="(content, index) in data.ContentItems" :key="index">
+        <div
+          class="slide"
+          :style="`background-image: url(https://kakaobrain.loadingworks.com${content.Media.url})`"
+        >
+          <div
+            :class="`slide-con ${content.itemProp.position.vertical}-${content.itemProp.position.horizontal}`"
+          >
+            <div class="slide-tit">{{ content.subject }}</div>
+            <div v-if="content.text" class="slide-txt">
+              <p v-html="content.text.replace(/\n/g, '<br />')"></p>
             </div>
           </div>
         </div>
@@ -103,48 +26,47 @@
       <div class="swiper-button-prev" slot="button-prev"></div>
       <div class="swiper-button-next" slot="button-next"></div>
     </swiper>
+    <div v-show="isMobile || viewPortWidth <= 768" class="mobile-story">
+      <ul>
+        <li
+          v-for="(content, index) in data.ContentItems"
+          :key="index"
+          class="swiper-slide"
+        >
+          <div
+            class="slide"
+            :style="`background-image: url(https://kakaobrain.loadingworks.com${content.Media.url})`"
+          >
+            <div
+              :class="`slide-con ${content.itemProp.position.vertical}-${content.itemProp.position.horizontal}`"
+            >
+              <div class="slide-tit">{{ content.subject }}</div>
+              <div v-if="content.text" class="slide-txt">
+                <p v-html="content.text.replace(/\n/g, '<br />')"></p>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
     <div class="story-detail" @click="storyList()">
       <button type="button" class="list"></button>
     </div>
     <!-- story pop -->
     <div class="story-pop" v-show="this.isStory">
-      <div class="story-con l-ml-1 gl-8">
+      <div class="story-con">
         <ul>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
-          </li>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
-          </li>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
-          </li>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
-          </li>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
-          </li>
-          <li class="list-item gl-1">
-            <div class="list-img">
-              <img src="@/assets/images/pop-list.png" />
-            </div>
-            <div class="list-tit">1. 카카오브레인, AI 공동연구</div>
+          <li
+            v-for="(content, index) in data.ContentItems"
+            :key="index"
+            class="list-item"
+            @click="onClick(index)"
+          >
+            <div
+              class="list-img"
+              :style="`background-image: url(https://kakaobrain.loadingworks.com${content.Media.url})`"
+            ></div>
+            <div class="list-tit">{{ content.subject }}</div>
           </li>
         </ul>
       </div>
@@ -156,12 +78,19 @@
   </div>
 </template>
 <script>
+  import { mapState } from 'vuex'
   import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
   import 'swiper/css/swiper.css'
   import Icon from '@/components/elements/Icon'
   export default {
     name: 'swiper-example-loop',
     title: 'Loop mode / Infinite loop',
+    props: {
+      data: {
+        type: Object,
+        default: () => {}
+      }
+    },
     components: {
       Swiper,
       SwiperSlide,
@@ -173,7 +102,6 @@
           direction: 'vertical',
           slidesPerView: 1,
           spaceBetween: 0,
-          mousewheel: true,
           pagination: {
             el: '.swiper-pagination',
             type: 'fraction'
@@ -181,44 +109,82 @@
           navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev'
-          },
-          on: {
-            scroll: e => {
-              // console.log('true::', this.mySwiper.activeIndex)
-              if (this.mySwiper.activeIndex < this.mySwiper.slides.length - 1) {
-                this.isEndSlide = false
-              }
-              this.isChange = true
-            }
           }
         },
         isStory: false,
         timer: null,
         isChange: false,
-        isEndSlide: false
+        isEndSlide: false,
+        isMobile: false,
+        isEventAdd: false,
+        viewPortWidth: 0
       }
     },
     computed: {
+      ...mapState({
+        touchDevice: state => state.touchDevice
+      }),
       mySwiper() {
         return this.$refs.mySwiper.$swiper
+      },
+      swiperSize() {
+        return this.data.ContentItems && this.data.ContentItems.length
       }
     },
-    mounted() {
-      window.addEventListener('wheel', this.onWheel)
+    async mounted() {
+      await this.checkMobile()
+      this.$nextTick(async () => {
+        this.isEndSlide = this.isMobile || this.viewPortWidth <= 768
+        this.$nuxt.$emit('onSlideEnd', this.isEndSlide)
+        await this.resizeEvent()
+        await window.addEventListener('resize', this.resizeEvent)
+      })
     },
-    beforeDestroy() {
-      window.removeEventListener('wheel', this.onWheel)
+    async beforeDestroy() {
+      await this.removeEvent()
     },
     methods: {
+      async resizeEvent() {
+        this.viewPortWidth = window.innerWidth
+        if (this.isMobile || this.viewPortWidth <= 768) {
+          await this.removeEvent()
+        } else {
+          await this.addEvent()
+        }
+      },
+      addEvent() {
+        if (!this.isEventAdd) {
+          this.isEventAdd = true
+          this.$nuxt.$emit('onSlideEnd', false)
+          document
+            .getElementsByClassName('swiper')[0]
+            .addEventListener('wheel', this.onWheel)
+        }
+      },
+      removeEvent() {
+        if (this.isEventAdd) {
+          this.isEventAdd = false
+          this.$nuxt.$emit('onSlideEnd', true)
+          document
+            .getElementsByClassName('swiper')[0]
+            .removeEventListener('wheel', this.onWheel)
+        }
+      },
+      checkMobile() {
+        const device = this.$device
+        this.isMobile = device.iphone || device.androidPhone || device.mobile
+      },
+      onClick(index) {
+        this.mySwiper.slideTo(index)
+        this.isStory = false
+      },
       onWheel(e) {
-        e.preventDefault
-        if (this.isEndSlide && e.deltaY < 0 && window.scrollY > 0) {
-          // console.log(e.deltaY)
-          window.scrollTo({
-            top: 0,
-            left: 0,
-            behavior: 'smooth'
-          })
+        if (!this.isChange) {
+          this.isChange = true
+          if (e.deltaY > 0) this.onClick(this.mySwiper.activeIndex + 1)
+          if (e.deltaY < 0) this.onClick(this.mySwiper.activeIndex - 1)
+        } else {
+          e.preventDefault
         }
         if (this.timer !== null) {
           clearTimeout(this.timer)
@@ -228,24 +194,18 @@
         this.timer = setTimeout(function () {
           _this.isChange = false
         }, 66)
-
-        if (this.isEndSlide && e.deltaY > 0) {
-          if (this.isChange) {
-            return
-          } else {
-            window.scrollTo({
-              top: document.body.scrollHeight,
-              left: 0,
-              behavior: 'smooth'
-            })
-          }
-        }
       },
       storyList() {
         this.isStory = !this.isStory
       },
-      onEdge() {
-        this.isEndSlide = true
+      onSlideChange() {
+        this.isEndSlide = this.swiperSize - 1 === this.mySwiper.activeIndex
+        setTimeout(
+          () => {
+            this.$nuxt.$emit('onSlideEnd', this.isEndSlide)
+          },
+          this.isEndSlide ? 1000 : 0
+        )
       }
     }
   }
@@ -253,69 +213,13 @@
 <style lang="scss" scoped>
   .story-telling {
     position: relative;
-    width: 100vw;
-    height: 100vh;
-  }
-  .ta-c {
-    text-align: center;
-  }
-  .ta-l {
-    text-align: left;
-  }
-  .ta-r {
-    text-align: right;
+    width: 100%;
   }
   .swiper {
-    height: 100%;
     width: 100%;
     color: $gray-0;
+    height: 100vh;
     // border: 5px solid blue;
-    .swiper-slide {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      font-weight: bold;
-      overflow: hidden;
-      img {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 100%;
-        height: 100%;
-      }
-      .slide {
-        &-con {
-          position: absolute;
-          // left: 50%;
-          // top: 50%;
-          transform: translate(-50%, -50%);
-          z-index: 10;
-        }
-        &-tit {
-          font-size: 98px;
-          font-weight: 900;
-          margin-bottom: 40px;
-          line-height: 120%;
-        }
-        &-txt {
-          font-size: 32px;
-          font-weight: 400;
-          line-height: 150%;
-          word-break: keep-all;
-        }
-        .back {
-          position: absolute;
-          background: rgba(0, 0, 0, 0.3);
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          z-index: 1;
-        }
-      }
-    }
     .swiper-pagination {
       top: 130px;
       left: 20px;
@@ -342,6 +246,56 @@
       color: $gray-0;
     }
   }
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    overflow: hidden;
+    img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 100%;
+    }
+    .slide {
+      width: 100%;
+      height: 100vh;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+      position: relative;
+      &-con {
+        position: absolute;
+        z-index: 10;
+        width: 100%;
+        padding: 0 210px;
+      }
+      &-tit {
+        font-size: 50px;
+        font-weight: 900;
+        margin-bottom: 40px;
+        line-height: 120%;
+      }
+      &-txt {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 150%;
+        word-break: keep-all;
+      }
+      .back {
+        position: absolute;
+        background: rgba(0, 0, 0, 0.3);
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+      }
+    }
+  }
 
   .story {
     &-detail {
@@ -364,15 +318,17 @@
     }
     &-pop {
       position: fixed;
-      left: 50%;
-      top: 50%;
+      left: 0;
+      top: 0;
       width: 100%;
       height: 100vh;
       overflow-y: auto;
-      padding-top: 740px;
-      transform: translate(-50%, -50%);
-      background-color: rgba(255, 255, 255, 0.3);
+      background-color: rgba(255, 255, 255, 0.7);
       z-index: 20;
+    }
+    &-con {
+      width: getWidth(8);
+      margin: 200px auto;
     }
     &-close {
       position: absolute;
@@ -388,7 +344,7 @@
       .list-close {
         width: 26px;
         height: 26px;
-        background: url('@/assets/images/icon-close.png') no-repeat 100%;
+        background: url('@/assets/images/icon-close__black.png') no-repeat 100%;
         background-size: 100%;
       }
     }
@@ -396,128 +352,93 @@
   // pop list
   .list {
     &-img {
-      margin-bottom: 10px;
-      img {
-        width: 100%;
-      }
+      max-width: 362px;
+      margin: 0 auto 10px;
+      padding-top: 56%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
     }
     &-tit {
-      font-size: 24px;
+      width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 12px;
+      line-height: 1.3;
+      color: #fff;
     }
     &-item {
+      width: getWidth(1);
       display: inline-block;
-      margin-bottom: 150px;
-      padding: 0 74px;
-      // &:not(:nth-child(8n)) {
-      //   margin-right: 20px;
-      // }
-    }
-  }
-  @media screen and (max-width: 3840px) {
-    .story {
-      &-pop {
-        padding: 380px 0;
-      }
-    }
-    .list {
-      &-item {
-        padding: 0 10px;
+      vertical-align: top;
+      margin-bottom: 80px;
+      &:not(:nth-child(8n)) {
+        margin-right: 20px;
       }
     }
   }
-  @media screen and (max-width: 2560px) {
-    .swiper {
-      .swiper-slide {
-        .slide {
-          &-tit {
-            font-size: 68px;
-          }
-          &-txt {
-            font-size: 22px;
-          }
-        }
-      }
+
+  @include pc-large {
+    .swiper .swiper-slide .slide-con {
+      padding: 0 270px;
     }
-    .story {
-      &-pop {
-        padding: 200px 0;
-      }
+    .swiper .swiper-slide .slide-tit {
+      font-size: 68px;
     }
-    .list {
-      &-tit {
-        font-size: 18px;
-      }
-      &-item {
-        margin-bottom: 100px;
-      }
+    .swiper .swiper-slide .slide-txt {
+      font-size: 22px;
     }
   }
-  @media screen and (max-width: 1920px) {
-    .swiper {
-      .swiper-slide {
-        .slide {
-          &-tit {
-            font-size: 50px;
-          }
-          &-txt {
-            font-size: 16px;
-          }
-        }
-      }
+  @include pc-4k {
+    .swiper .swiper-slide .slide-con {
+      padding: 0 400px;
     }
-    .list {
-      &-tit {
-        font-size: 12px;
-      }
-      &-item {
-        margin-bottom: 80px;
-        padding: 0 10px;
-      }
+    .swiper .swiper-slide .slide-tit {
+      font-size: 98px;
+    }
+    .swiper .swiper-slide .slide-txt {
+      font-size: 32px;
     }
   }
-  @media screen and (max-width: 1024px) {
-    .swiper {
-      .swiper-slide {
-        .slide {
-          &-tit {
-            font-size: 38px;
-          }
-          &-txt {
-            font-size: 14px;
-          }
-        }
-      }
+  @include tablet {
+    .swiper .swiper-slide .slide-con {
+      padding: 0 120px;
     }
-    .list {
-      &-item {
-        margin-bottom: 50px;
-        padding: 0;
-        &:not(:nth-child(4n)) {
-          margin-right: 20px;
-        }
-      }
+    .swiper .swiper-slide .slide-tit {
+      font-size: 38px;
     }
-    .gl-1 {
-      width: calc(
-        calc((100vw - 20px * 11) / 10) * 2 + 20px * (2 - 1)
-      ) !important;
+    .swiper .swiper-slide .slide-txt {
+      font-size: 14px;
+    }
+    .list .list-item {
+      width: getWidth(2);
+      margin-bottom: 50px;
+    }
+    .list .list-img {
+      margin-bottom: 20px;
+    }
+    .list .list-tit {
+      font-size: 12px;
     }
   }
-  @media screen and (max-width: 768px) {
-    .swiper {
-      .swiper-slide {
-        .slide {
-          &-tit {
-            font-size: 30px;
-          }
-          &-txt {
-            font-size: 16px;
-          }
-        }
-      }
+  @include mobile {
+    .swiper,
+    .story-detail,
+    .story-pop {
+      display: none !important;
     }
-    .story-detail {
-      display: none;
+  }
+
+  .mobile-story {
+    .swiper-slide {
+      .slide-con {
+        padding: 0 20px;
+        transform: translateY(-50%) !important;
+        top: 50% !important;
+        left: 0 !important;
+        width: 100%;
+        color: $gray-0;
+      }
     }
   }
 </style>

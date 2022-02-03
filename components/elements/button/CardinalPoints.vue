@@ -2,18 +2,26 @@
   <button class="btn-arrow"></button>
 </template>
 <script>
+  import { mapState } from 'vuex'
   export default {
+    computed: {
+      ...mapState(['touchDevice'])
+    },
     mounted() {
       const _this = this
-      window.addEventListener('mousemove', function (e) {
-        _this.calcRadius(e.clientX, e.clientY)
-      })
+      if (!this.touchDevice) {
+        window.addEventListener('mousemove', function (e) {
+          _this.calcRadius(e.clientX, e.clientY)
+        })
+      }
     },
     beforeDestroy() {
       const _this = this
-      window.removeEventListener('mousemove', function (e) {
-        _this.calcRadius(e.clientX, e.clientY)
-      })
+      if (!this.touchDevice) {
+        window.removeEventListener('mousemove', function (e) {
+          _this.calcRadius(e.clientX, e.clientY)
+        })
+      }
     },
     methods: {
       calcRadius(mouseX, mouseY) {
@@ -80,12 +88,12 @@
 </script>
 <style lang="scss" scoped>
   .btn-arrow {
-    width: 300px;
-    height: 300px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     position: fixed;
     right: 20px;
-    bottom: 320px;
+    bottom: 170px;
     font-size: 0;
     text-align: center;
     overflow: hidden;
@@ -96,8 +104,8 @@
       content: '';
       display: block;
       position: absolute;
-      width: 120px;
-      height: 120px;
+      width: 60px;
+      height: 60px;
       background: url('@/assets/images/icon-cardinal-point__b.png') no-repeat;
       background-size: cover;
       left: 50%;
@@ -112,7 +120,7 @@
       background: url('@/assets/images/icon-cardinal-point.png') no-repeat;
     }
   }
-  @media screen and (max-width: 2560px) {
+  @include pc-large {
     .btn-arrow {
       width: 200px;
       height: 200px;
@@ -123,18 +131,18 @@
       }
     }
   }
-  @media screen and (max-width: 1920px) {
+  @include pc-4k {
     .btn-arrow {
-      width: 150px;
-      height: 150px;
-      bottom: 170px;
+      width: 300px;
+      height: 300px;
+      bottom: 320px;
       &:after {
-        width: 60px;
-        height: 60px;
+        width: 120px;
+        height: 120px;
       }
     }
   }
-  @media screen and (max-width: 1024px) {
+  @include tablet {
     .btn-arrow {
       width: 80px;
       height: 80px;
@@ -145,7 +153,7 @@
       }
     }
   }
-  @media screen and (max-width: 768px) {
+  @include mobile {
     .btn-arrow {
       width: 50px;
       height: 50px;

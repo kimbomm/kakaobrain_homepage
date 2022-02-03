@@ -119,6 +119,7 @@
       > div {
         width: 100% !important;
         margin-left: 0 !important;
+        padding: 0 20px;
         a {
           span {
             font-size: 20px;
@@ -136,7 +137,7 @@
       }
       &-list {
         margin-top: 40px;
-        padding-left: 0;
+        padding: 0 20px;
         li {
           flex: 0 0 300px;
           margin-right: 20px;

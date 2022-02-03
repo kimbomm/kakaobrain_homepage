@@ -1,6 +1,11 @@
 <template>
   <div class="sticker">
-    <button type="button" :class="`btn ${sub}`" :disabled="!sub ? true : false">
+    <button
+      type="button"
+      :class="classBind"
+      :disabled="!sub || !link ? true : false"
+      @click="onClick"
+    >
       <span class="txt">{{ text }}</span>
     </button>
   </div>
@@ -15,9 +20,36 @@
         required: true
       },
       sub: {
+        // docu, studio, tech, research
         type: String,
         default: '',
         required: false
+      },
+      link: {
+        type: String,
+        default: '',
+        required: false
+      },
+      isDark: {
+        type: Boolean,
+        default: true,
+        require: false
+      }
+    },
+    computed: {
+      classBind() {
+        return {
+          btn: true,
+          [this.sub]: this.sub,
+          'is-white': !this.isDark
+        }
+      }
+    },
+    methods: {
+      onClick() {
+        if (this.link) {
+          this.$router.push(this.link)
+        }
       }
     }
   }
@@ -29,13 +61,36 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    margin-right: 0;
-    margin-bottom: 10px;
     padding: 8px 14px;
+    white-space: nowrap;
+    &.is-white {
+      background-color: transparent;
+      border-color: $gray-0;
+      color: $gray-0;
+    }
+    &:disabled {
+      cursor: initial;
+    }
     &.sub {
       background-color: $gray-9;
       border: none;
       color: $gray-0;
+      &.is-white {
+        color: $gray-9;
+        background-color: $gray-0;
+      }
+    }
+    &.about {
+      background-color: $brain-yellow;
+      border: none;
+      color: $gray-0;
+      .txt {
+        &::before {
+          content: '★';
+          display: inline-block;
+          padding-right: 2px;
+        }
+      }
     }
     &.docu {
       background-color: $brain-orange;
@@ -109,7 +164,6 @@
       display: inline-block;
     }
     .btn {
-      margin-bottom: 4px;
       .txt {
         font-size: 10px;
       }
@@ -121,7 +175,6 @@
     }
     .btn {
       padding: 4px 10px;
-      margin-bottom: 0px;
     }
   }
 </style>

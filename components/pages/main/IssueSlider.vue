@@ -8,37 +8,45 @@
       </span>
     </div>
     <div ref="issue" class="issue">
-      <div class="gl-8">
+      <div>
         <div class="issue-title">
           <transition name="fade">
-            <span v-if="isShow" class="fade">Hello World. </span>
+            <span v-if="isShow" class="fade">{{ activeContent.title }} </span>
           </transition>
         </div>
         <div class="issue-thumbnail">
           <transition name="fade">
-            <img
+            <div
               v-if="isShow"
               class="fade"
-              src="~/assets/images/img-main-dummy_0.jpeg"
-            />
+              :style="`background-image: url(${image});`"
+            ></div>
           </transition>
         </div>
       </div>
-      <div class="issue-info gl-1">
-        <div>
-          <Sticker text="Docu. B" sub="docu" />
-          <Sticker text="Documentary" sub="sub" />
-          <Sticker text="Educations" />
-        </div>
+      <div class="issue-info">
+        <BreadCrumb :data="breadcrumb" />
         <div ref="issue-navi" class="issue-navi">
           <div class="buttons">
-            <button class="prev">←</button>
+            <button
+              class="prev"
+              title="이전 페이지"
+              @click="onClick('prev', true)"
+            >
+              ←
+            </button>
             <div class="number">
-              <span class="cur">31</span>
+              <span class="cur">{{ activeIndex + 1 }}</span>
               /
-              <span class="total">54</span>
+              <span class="total">{{ list.length }}</span>
             </div>
-            <button class="next">→</button>
+            <button
+              class="next"
+              title="다음 페이지"
+              @click="onClick('next', true)"
+            >
+              →
+            </button>
           </div>
           <div class="cur-page">{{ curPage }}</div>
         </div>
@@ -49,21 +57,48 @@
 <script>
   import { mapState, mapActions } from 'vuex'
   import util from '@/util/utility.js'
+  import BreadCrumb from '@/components/elements/BreadCrumb'
   import Sticker from '@/components/elements/button/Sticker'
   export default {
     components: {
+      BreadCrumb,
       Sticker
     },
     data() {
       return {
         isShow: false,
+        activeIndex: 0,
+        autoLoad: null,
         paging: {
           offset: 0,
           limit: 20,
           contentType: 'All', // ALL, ARTICLE, STORY, THESIS
           targetLAng: 'ALL', // ALL, KR, EN
           filter: '' // 검색어
-        }
+        },
+        image: require('~/assets/images/main_img_dummy.png'),
+        list: [
+          {
+            title: 'Hello World.',
+            thumbnail: 'main_img_dummy.png',
+            link: '#',
+            breadcrumb: [
+              { text: 'About', sub: 'about', link: '' },
+              { text: 'Introduce', sub: 'sub', link: '/about' },
+              { text: 'Yeah!!!', sub: '', link: '' }
+            ]
+          },
+          {
+            title: 'Hello World2.',
+            thumbnail: 'main_img_dummy.png',
+            link: '#',
+            breadcrumb: [
+              { text: 'About2', sub: 'about', link: '' },
+              { text: 'Introduce2', sub: 'sub', link: '/about' },
+              { text: 'Yeah!!!', sub: '', link: '' }
+            ]
+          }
+        ]
       }
     },
     computed: {
@@ -71,36 +106,86 @@
         issueList: state => state.issue.list
       }),
       curPage() {
-        return util.changeNumFont(31)
+        return util.changeNumFont(this.activeIndex + 1)
+      },
+      activeContent() {
+        return this.list[this.activeIndex]
+      },
+      breadcrumb() {
+        let data = [
+          { text: 'About', sub: 'about', link: '' },
+          { text: 'Introduce', sub: 'sub', link: '/about' },
+          { text: 'Yeah!!!', sub: '', link: '' }
+        ]
+        return this.list.length > 0
+          ? this.list[this.activeIndex].breadcrumb
+          : data
       }
     },
     created() {
       this.getIssueList(this.paging)
-      // const font = this.util.changeNumFont()
-      // console.log(util.changeNumFont(12))
     },
     mounted() {
-      this.isShow = true
+      this.init()
       window.addEventListener('scroll', this.onScroll)
     },
     beforeDestroy() {
+      clearInterval(this.autoLoad)
       window.removeEventListener('scroll', this.onScroll)
     },
     methods: {
       ...mapActions({
         getIssueList: 'issue/getIssueList'
       }),
+      init() {
+        this.isShow = true
+        if (this.list.length > 1) this.onSetInterval()
+      },
       onScroll() {
         const navi = this.$refs['issue-navi']
         const issue = this.$refs['issue']
         if (
           window.scrollY >= navi.offsetTop &&
-          window.scrollY <= issue.offsetTop + issue.offsetHeight
+          window.scrollY <=
+            issue.offsetTop + issue.offsetHeight - navi.offsetHeight
         ) {
           navi.style = `transform: translateY(${
             window.scrollY - navi.offsetTop
           }px)`
         }
+      },
+      onSetInterval() {
+        const _this = this
+        this.autoLoad = setInterval(() => {
+          _this.onClick('next')
+        }, 10000)
+      },
+      onClick(type, event) {
+        const _this = this
+        this.isShow = false
+        if (event) {
+          clearInterval(this.autoLoad)
+          this.autoLoad = null
+        }
+        setTimeout(() => {
+          _this.onChange(type)
+          if (event) _this.onSetInterval()
+        }, 200)
+      },
+      onChange(type) {
+        switch (type) {
+          case 'next':
+            this.activeIndex + 1 > this.list.length - 1
+              ? (this.activeIndex = 0)
+              : this.activeIndex++
+            break
+          case 'prev':
+            this.activeIndex - 1 < 0
+              ? (this.activeIndex = this.list.length - 1)
+              : this.activeIndex--
+            break
+        }
+        this.isShow = true
       }
     }
   }
@@ -108,7 +193,7 @@
 <style lang="scss" scoped>
   .fade {
     display: inline-block;
-    transition: all 0.2s ease-out;
+    transition: all 0.2s linear;
   }
   .fade-enter,
   .fade-leave-to {
@@ -117,7 +202,7 @@
   }
   .issue-slider {
     font-size: 0;
-    padding-left: 20px;
+    padding: 0 20px;
     &-info {
       font-size: 16px;
       color: #000;
@@ -135,7 +220,12 @@
   .issue {
     $titleHeight: 90px;
     $titleMargin: 20px;
+    width: getWidth(9);
     display: flex;
+    justify-content: space-between;
+    > div:first-child {
+      flex: 0 0 getWidth(8);
+    }
     &-info {
       padding-top: $titleHeight + $titleMargin;
       margin-left: 20px;
@@ -161,17 +251,17 @@
     }
     &-thumbnail {
       position: relative;
-      padding-top: calc(100% / 3 * 2);
       overflow: hidden;
-      img {
+      height: 990px;
+      > div {
         position: absolute;
-        max-width: 100%;
-        // max-height: 100%;
+        top: 0;
+        left: 0;
         width: 100%;
-        // height: 100%;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        height: 100%;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
       }
     }
     &-navi {
@@ -188,7 +278,7 @@
         margin-top: 20px;
         line-height: 1.3;
         font-weight: 900;
-        word-break: break-all;
+        white-space: nowrap;
       }
       .number {
         margin: 0 2px;
@@ -221,6 +311,9 @@
       font-size: $titleHeight;
       height: $titleHeight;
       margin-bottom: $titleMargin;
+    }
+    .issue-thumbnail {
+      height: 1328px;
     }
     .issue-navi {
       margin-top: 109px;
@@ -271,6 +364,12 @@
     }
   }
 
+  @media screen and (max-width: 1600px) {
+    .issue-navi .cur-page {
+      font-size: 36px;
+    }
+  }
+
   @include tablet {
     $titleHeight: 70px;
     $titleMargin: 20px;
@@ -287,6 +386,9 @@
       font-size: $titleHeight;
       height: $titleHeight;
       margin-bottom: $titleMargin;
+    }
+    .issue-thumbnail {
+      padding-top: 552px;
     }
     .issue-navi {
       margin-top: 100px;
@@ -315,7 +417,6 @@
   }
   @include mobile {
     .issue-slider {
-      padding-left: 0;
       &-info {
         display: flex;
         flex-wrap: wrap;
@@ -334,7 +435,8 @@
     }
     .issue {
       display: block;
-      > .gl-8 {
+      width: 100%;
+      > div:first-child {
         width: 100% !important;
       }
     }
@@ -344,14 +446,8 @@
       margin-bottom: 10px;
     }
     .issue-thumbnail {
-      padding-top: 0;
+      padding-top: 470px;
       margin-bottom: 10px;
-      img {
-        position: static;
-        transform: translate(0, 0);
-        display: block;
-        width: 100%;
-      }
     }
     .issue-info {
       padding-top: 0;

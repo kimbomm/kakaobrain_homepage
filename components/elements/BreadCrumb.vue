@@ -1,11 +1,13 @@
 <template>
-  <div class="bread-crumb gl-1">
+  <div :class="classBind">
     <ul>
-      <li>
-        <Sticker text="Research" sub="research" />
-      </li>
-      <li>
-        <Sticker text="E." sub="sub" />
+      <li v-for="(item, index) in data" :key="index">
+        <Sticker
+          :text="item.text"
+          :sub="item.sub"
+          :link="item.link"
+          :isDark="isDark"
+        />
       </li>
     </ul>
   </div>
@@ -13,13 +15,37 @@
 <script>
   import Sticker from '@/components/elements/button/Sticker'
   export default {
+    props: {
+      data: {
+        type: Array,
+        default: () => [],
+        require: false
+      },
+      full: {
+        type: Boolean,
+        default: false,
+        require: false
+      },
+      isDark: {
+        type: Boolean,
+        default: true,
+        require: false
+      }
+    },
     components: {
       Sticker
+    },
+    computed: {
+      classBind() {
+        return {
+          'bread-crumb': true,
+          'bread-crumb__full': this.full
+        }
+      }
     }
   }
 </script>
 <style lang="scss" scoped>
-  @import '/assets/scss/mixins.scss';
   .bread-crumb {
     li {
       display: flex;
@@ -31,6 +57,9 @@
     }
     .btn {
       margin-right: 0;
+    }
+    &__full {
+      padding: 100px 20px;
     }
   }
   @include mobile {

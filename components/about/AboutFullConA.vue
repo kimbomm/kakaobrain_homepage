@@ -21,7 +21,7 @@ export default {
     .full-con{
       position: relative;
       width:100%;
-      height:1500px;
+      padding: 400px 20px 643px;
       // &::before{
       //   position: absolute;
       // }
@@ -34,8 +34,9 @@ export default {
         height: 100%;
       }
       .inner{
-        position: absolute;
-        top:400px;
+        position: relative;
+        // position: absolute;
+        // top:400px;
         color:$gray-0;
         .txt{
           margin-bottom:100px;
@@ -55,9 +56,8 @@ export default {
   
     .about-full-con-a{
       .full-con{
-        height:3000px !important;
+        padding: 800px 20px 1293px;
         .inner{
-          top:800px !important;
           .txt{
             margin-bottom:190px !important;
             font-size:180px !important;
@@ -73,9 +73,8 @@ export default {
   
     .about-full-con-a{
       .full-con{
-        height:2000px;
+        padding: 530px 20px 863px;
         .inner{
-          top:530px;
           .txt{
             margin-bottom:130px;
             font-size:120px;
@@ -91,9 +90,8 @@ export default {
   
     .about-full-con-a{
       .full-con{
-        height:600px;
+        padding: 140px 20px 221px;
         .inner{
-          top:140px;
           .txt{
             margin-bottom:50px;
             font-size:46px;
@@ -109,15 +107,26 @@ export default {
   
     .about-full-con-a{
       .full-con{
-        height:600px;
+        padding: 100px 20px 252px;
         .inner{
-          top:100px;
           .txt{
             margin-bottom:30px;
             font-size:28px;
+            &.gl-8{
+              width:100% !important;
+            }
+            &.l-ml-2{
+              margin-left:0px !important;
+            }
           }
           .sub-txt{
             font-size:16px;
+            &.gl-6{
+              width: getWidth(9) !important;
+            }
+            &.l-ml-3{
+              margin-left: getMargin(1) !important;
+            }
           }
         }
       }

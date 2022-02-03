@@ -1,27 +1,20 @@
-<template lang="">
+<template>
   <div>
-    <AboutTitle text="Unthinkable" bold="Question." />
-    <AboutTitleText
-      Atext="kakaobrain is..."
-      Btext=" As an AI frontier that completes differentiated element technology, big models, and digital humans, it contributes to the"
-      Ctext="technology community and pioneers new service areas that enhance the value of use and quality of life."
-    />
+    <BreadCrumb :data="breadcrumb" :full="true" />
+    <AboutTitle :data="aboutTitle" />
+    <AboutTitleText :data="aboutTitleText" />
     <AboutFullConA />
     <div class="vision-list-con">
       <AboutVisionList
-        num="¹"
-        txt="outstanding"
-        subtxt="Top-notch experts gather to develop innovative technologies that are the basis for solving all problems."
-      />
-      <AboutVisionList
-        num="¹"
-        txt="outstanding"
-        subtxt="Top-notch experts gather to develop innovative technologies that are the basis for solving all problems."
+        v-for="(data, index) in visionList"
+        :key="index"
+        :data="data"
+        :index="index"
       />
     </div>
     <AboutFullConB />
-    <AboutConTit text="Our Brand"/>
-    <AboutConTxt text="People looking for unexpected answers from unthinkable questions, kakaobrain krews share with you the new journey and stories they are making with AI."/>
+    <AboutConTit :data="aboutConTitData" />
+    <AboutConTxt :data="aboutConTxtData" />
     <AboutLargeLogo />
     <AboutFullConC />
     <AboutFullSlide />
@@ -29,6 +22,7 @@
 </template>
 <script>
   import mixinGlobal from '@/mixin/global.js'
+  import BreadCrumb from '@/components/elements/BreadCrumb'
   import AboutTitle from '@/components/about/AboutTitle'
   import AboutTitleText from '@/components/about/AboutTitleText'
   import AboutFullConA from '@/components/about/AboutFullConA'
@@ -43,6 +37,7 @@
     mixins: [mixinGlobal],
     name: 'index',
     components: {
+      BreadCrumb,
       AboutTitle,
       AboutTitleText,
       AboutFullConA,
@@ -53,6 +48,55 @@
       AboutLargeLogo,
       AboutFullConC,
       AboutFullSlide
+    },
+    data() {
+      return {
+        aboutTitle: {
+          title: 'Unthinkable <span class="string">Question.</span>'
+        },
+        aboutTitleText: {
+          text: 'kakaobrain is...</br>As an AI frontier that completes differentiated element technology, big models, and digital humans, it contributes to the<br/>technology community and pioneers new service areas that enhance the value of use and quality of life.'
+        },
+        aboutConTitData: {
+          title: 'Our Brand'
+        },
+        aboutConTxtData: {
+          text: 'People looking for unexpected answers from unthinkable questions, kakaobrain krews share with you the new journey and stories they are making with AI.'
+        },
+
+        breadcrumb: [
+          { text: 'About', sub: 'about', link: '' },
+          { text: 'Introduce', sub: 'sub', link: '/about' },
+          { text: 'Yeah!!!', sub: '', link: '' }
+        ],
+
+        visionList: [
+          {
+            num: '¹',
+            txt: 'outstanding',
+            subtxt:
+              'Top-notch experts gather to develop innovative technologies that are the basis for solving all problems.'
+          },
+          {
+            num: '²',
+            txt: 'actualized',
+            subtxt:
+              'It pioneers technology-based business areas and materializes them into services that improve quality of life.'
+          },
+          {
+            num: '³',
+            txt: 'open',
+            subtxt:
+              '기술 노하우를 공개하고 공유하여, AI 생태계에 기여하고 새로운 가치를 창출합니다.'
+          },
+          {
+            num: '⁴',
+            txt: 'impactful',
+            subtxt:
+              '모든 사람이 더 나은 삶을 살 수 있도록, 세상의 가치 있는 변화를 주도합니다.'
+          }
+        ]
+      }
     }
   }
 </script>
@@ -60,7 +104,6 @@
   @import '@/assets/scss/mixins.scss';
 
   .about-title {
-    margin-top: 300px;
     margin-bottom: 60px;
   }
   .about-title-text {
@@ -87,42 +130,9 @@
   .about-large-logo {
     margin-bottom: 400px;
   }
-  
-  @include pc-4k {
-  
-    .about-title {
-      margin-top: 600px !important;
-      margin-bottom: 130px !important;
-    }
-    .about-title-text {
-      margin-bottom: 388px !important;
-    }
-    .about-full-con-a {
-      margin-bottom: 800px !important;
-    }
-    .vision-list-con {
-      .vision-list {
-        margin-bottom: 360px !important;
-      }
-      margin-bottom: 800px !important;
-    }
-    .about-full-con-b {
-      margin-bottom: 800px !important;
-    }
-    .about-con-tit {
-      margin-bottom: 180px !important;
-    }
-    .about-con-txt {
-      margin-bottom: 678px !important;
-    }
-    .about-large-logo {
-      margin-bottom: 800px !important;
-    }
-  }
+
   @include pc-large {
-    
     .about-title {
-      margin-top: 400px;
       margin-bottom: 80px;
     }
     .about-title-text {
@@ -138,7 +148,7 @@
       margin-bottom: 530px;
     }
     .about-full-con-b {
-      margin-bottom: 530px; 
+      margin-bottom: 530px;
     }
     .about-con-tit {
       margin-bottom: 130px;
@@ -150,9 +160,38 @@
       margin-bottom: 530px;
     }
   }
+
+  @include pc-4k {
+    .about-title {
+      margin-bottom: 130px;
+    }
+    .about-title-text {
+      margin-bottom: 388px;
+    }
+    .about-full-con-a {
+      margin-bottom: 800px;
+    }
+    .vision-list-con {
+      .vision-list {
+        margin-bottom: 360px;
+      }
+      margin-bottom: 800px;
+    }
+    .about-full-con-b {
+      margin-bottom: 800px;
+    }
+    .about-con-tit {
+      margin-bottom: 180px;
+    }
+    .about-con-txt {
+      margin-bottom: 678px;
+    }
+    .about-large-logo {
+      margin-bottom: 800px;
+    }
+  }
   @include tablet {
     .about-title {
-      margin-top: 195px;
       margin-bottom: 60px;
     }
     .about-title-text {
@@ -168,7 +207,7 @@
       margin-bottom: 200px;
     }
     .about-full-con-b {
-      margin-bottom: 200px; 
+      margin-bottom: 200px;
     }
     .about-con-tit {
       margin-bottom: 50px;
@@ -181,9 +220,7 @@
     }
   }
   @include mobile {
-
     .about-title {
-      margin-top: 158px;
       margin-bottom: 40px;
     }
     .about-title-text {
@@ -199,7 +236,7 @@
       margin-bottom: 100px;
     }
     .about-full-con-b {
-      margin-bottom: 100px; 
+      margin-bottom: 100px;
     }
     .about-con-tit {
       margin-bottom: 30px;
@@ -208,8 +245,7 @@
       margin-bottom: 100px;
     }
     .about-large-logo {
-      margin-bottom: 1 00px;
+      margin-bottom: 100px;
     }
   }
-
 </style>

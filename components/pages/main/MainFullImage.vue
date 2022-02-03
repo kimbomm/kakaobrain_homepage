@@ -1,7 +1,7 @@
 <template>
   <div class="full-image">
     <div>
-      <img src="@/assets/images/main_img_dummy.jpeg" />
+      <!-- <img src="@/assets/images/main_img_dummy.jpeg" /> -->
     </div>
     <div class="gl-8 l-ml-2">
       <span>Core Value → ¹outstanding²actualized³open⁴impactful</span>
@@ -10,19 +10,15 @@
 </template>
 <style lang="scss" scoped>
   .full-image {
-    padding: 0 20px;
+    padding-left: 20px;
     > div {
       &:nth-child(1) {
         position: relative;
         height: 1500px;
-        img {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          height: 100%;
-          max-height: 100%;
-        }
+        background-image: url('@/assets/images/main_img_dummy.jpeg');
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
       }
       &:nth-child(2) {
         margin-top: 20px;
@@ -72,7 +68,7 @@
   }
   @include mobile {
     .full-image {
-      padding: 0;
+      padding: 0 20px;
       > div {
         &:nth-child(1) {
           height: 470px;

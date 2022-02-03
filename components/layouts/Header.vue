@@ -2,21 +2,11 @@
   <header :class="classBind">
     <div class="header-top">
       <h1 class="b-logo gl-2">
-        <nuxt-link to="/main">
+        <nuxt-link to="/">
           <span>kakaobrain</span>
-          <!-- <img
-						class="black-logo"
-						:src="require(`@/assets/images/logo.png`)"
-						alt="카카오 브레인 로고"
-					/>
-					<img
-						class="white-logo"
-						:src="require(`@/assets/images/logo-w.png`)"
-						alt="카카오 브레인 로고"
-					/> -->
         </nuxt-link>
       </h1>
-      <div class="header-con gl-2">
+      <div class="header-con">
         <div class="header-item">Unthinkable Question</div>
       </div>
     </div>
@@ -32,11 +22,12 @@
     },
     computed: {
       ...mapState({
+        isDark: state => state.isDark,
         isFilterMenuOpen: state => state.isFilterMenuOpen
       }),
       classBind() {
         let classList = ['header']
-        if (this.isFilterMenuOpen) {
+        if (this.isFilterMenuOpen || !this.isDark) {
           classList.push('header__light')
         }
 
@@ -72,7 +63,7 @@
       font-size: 16px;
     }
     &__light {
-      color: #fff;
+      color: $gray-0;
       .header-item {
         color: $gray-0;
       }
@@ -80,25 +71,37 @@
   }
 
   @include pc-large {
-    .header {
+    .header,
+    .header-item {
       font-size: 22px;
     }
   }
   @include pc-4k {
-    .header {
+    .header,
+    .header-item {
       font-size: 34px;
     }
   }
   @include tablet {
-    .header {
+    .header,
+    .header-item {
       top: 16px;
       font-size: 16px;
     }
   }
   @include mobile {
     .header {
-      top: 13px;
-      right: 15px;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 56px;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .header,
+    .header-item {
       font-size: 18px;
       &-con {
         display: none;

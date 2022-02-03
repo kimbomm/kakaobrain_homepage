@@ -1,19 +1,35 @@
 <template>
   <div :class="classBind">
     <button class="selector" @click="onOpenFilter">
-      <span class="text">All</span>
+      <span class="text">{{ filterText }}</span>
       <span class="arrow">▲</span>
     </button>
   </div>
 </template>
 <script>
-  import { mapState, mapActions } from 'vuex'
+  import { mapState, mapGetters, mapActions } from 'vuex'
   export default {
     name: 'FilterSelector',
+    props: {
+      category: {
+        type: String,
+        default: '',
+        require: true
+      },
+      list: {
+        type: Array,
+        default: () => [],
+        require: true
+      }
+    },
     computed: {
       ...mapState({
+        filterList: state => state.filterList,
         isFilterMenuOpen: state => state.isFilterMenuOpen
       }),
+      // ...mapGetters({
+      //   newsCategory: 'newsCategory'
+      // }),
       classBind() {
         let classList = ['filter']
         if (this.isFilterMenuOpen) {
@@ -21,6 +37,11 @@
         }
 
         return classList.join(' ')
+      },
+      filterText() {
+        return this.list.length === 0
+          ? 'All'
+          : `${this.list.length} of ${this.filterList.length}`
       }
     },
     methods: {
@@ -93,7 +114,7 @@
   @include mobile {
     .filter {
       .text {
-        font-size:30px;
+        font-size: 30px;
       }
       .arrow {
         font-size: 10px;

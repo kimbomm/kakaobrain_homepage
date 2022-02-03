@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="news">
+    <BreadCrumb :data="breadcrumb" :full="true" />
     <div class="contents-title">
       <DetailTitle text="News." />
     </div>
@@ -79,6 +80,7 @@
 </template>
 <script>
   import mixinGlobal from '@/mixin/global.js'
+  import BreadCrumb from '@/components/elements/BreadCrumb'
   import DetailTitle from '@/components/detail/DetailTitle'
   import Checkbox from '@/components/elements/filter/Checkbox'
   import MenuList from '@/components/elements/MenuList'
@@ -87,50 +89,61 @@
   export default {
     mixins: [mixinGlobal],
     components: {
+      BreadCrumb,
       DetailTitle,
       Checkbox,
       MenuList,
       ListPaging
+    },
+    data() {
+      return {
+        breadcrumb: [
+          { text: 'Maga.B', sub: 'docu', link: '' },
+          { text: 'News', sub: 'sub', link: '/news' },
+          { text: 'new & notice', sub: '', link: '' }
+        ]
+      }
     }
   }
 </script>
 <style lang="scss" scoped>
-  .tit-text {
-    margin-bottom: 30px;
-    line-height: 150%;
-    font-size: 16px;
-  }
-
-  .contents {
-    &-title {
-      margin-top: 320px;
-    }
-    &-checkbox {
-      margin-bottom: 130px;
-    }
-    &-item {
-      display: inline-block;
-      &:not(:last-child) {
-        margin-right: 10px;
-        margin-bottom: 10px;
-      }
-    }
-    &-list {
-      &:not(:last-child) {
-        margin-bottom: 200px;
-      }
-    }
-  }
-  @include pc-4k {
+  .news{
+    padding:0 20px;
     .tit-text {
-      margin-bottom: 70px !important;
-      font-size: 32px;
+      margin-bottom: 30px;
+      line-height: 150%;
+      font-size: 16px;
     }
 
     .contents {
-      &-title {
-        margin-top: 600px !important;
+      &-checkbox {
+        margin-bottom: 130px;
       }
+      &-item {
+        display: inline-block;
+        &:not(:last-child) {
+          margin-right: 10px;
+          margin-bottom: 10px;
+        }
+      }
+      &-list {
+        &:not(:last-child) {
+          margin-bottom: 200px;
+        }
+      }
+    }
+  }
+  
+
+
+
+  @include pc-4k {
+    .tit-text {
+      margin-bottom: 70px !important;
+      font-size: 32px !important;
+    }
+
+    .contents {
       &-checkbox {
         margin-bottom: 290px !important;
       }
@@ -148,9 +161,6 @@
     }
 
     .contents {
-      &-title {
-        margin-top: 440px;
-      }
       &-checkbox {
         margin-bottom: 190px;
       }
@@ -168,9 +178,6 @@
     }
 
     .contents {
-      &-title {
-        margin-top: 200px;
-      }
       &-checkbox {
         margin-bottom: 130px;
       }
@@ -207,9 +214,6 @@
         &:not(:last-child) {
           margin-right: 5px;
         }
-      }
-      &-title {
-        margin-top: 157px;
       }
       &-checkbox {
         margin-bottom: 90px;

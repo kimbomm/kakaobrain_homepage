@@ -5,14 +5,14 @@
         <img src="@/assets/images/menu-list_img_1.png" />
       </div>
       <div class="list-data gl-5">
-        <div class="tit">{{ tit }}</div>
+        <div class="tit">{{ (data && data.title) || tit }}</div>
         <div class="tag">
           <div class="item-box">
             <div class="item">#보도자료</div>
             <div class="item">#Optimization</div>
             <div class="item">#AutoML</div>
-          </div> 
-          <div class="list-date">{{ date }}</div>
+          </div>
+          <div class="list-date">{{ (data && data.updateAt) || date }}</div>
         </div>
         <!-- <Sticker text="Docu. B" sub="docu"></Sticker>
         <Sticker text="Documentary" sub="sub"></Sticker>
@@ -24,176 +24,183 @@
 <script>
   export default {
     name: 'MenuList',
-    props:{
+    props: {
+      data: {
+        type: Object,
+        default: () => {},
+        required: false
+      },
       tit: {
         type: String,
         default: '',
-        required: true
+        required: false
       },
       date: {
         type: String,
         default: '',
-        required: true
-      },
+        required: false
+      }
     }
   }
 </script>
 <style lang="scss" scoped>
   @import '@/assets/scss/mixins.scss';
-  
-  .menu{
-    &-list{
+
+  .menu {
+    &-list {
       display: flex;
       justify-content: space-between;
       box-sizing: border-box;
     }
-    &-thumbnail{
-      img{
-        width:100%;
+    &-thumbnail {
+      img {
+        width: 100%;
       }
     }
   }
-  .list-data{
+  .list-data {
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 30px 0 0;
-    border-top:1px solid $gray-9;
-    .tit{
-      padding-bottom:33px;
+    border-top: 1px solid $gray-9;
+    .tit {
+      padding-bottom: 33px;
       font-size: 30px;
       line-height: 100%;
     }
   }
-  .tag{
-    .item-box{
-      .item{
+  .tag {
+    .item-box {
+      .item {
         display: inline-block;
         font-size: 12px;
         line-height: 130%;
-        &:not(:last-child){
-          margin-right:10px;
+        &:not(:last-child) {
+          margin-right: 10px;
         }
       }
     }
-    .list-date{
+    .list-date {
       position: absolute;
-      bottom:0px;
-      right:0px;
+      bottom: 0px;
+      right: 0px;
       font-size: 12px;
       line-height: 130%;
-      &::before{
-        content: "@";
+      &::before {
+        content: '@';
         display: inline-block;
       }
     }
   }
-  
+
   @include pc-4k {
-    
-    .list-data{
-      .tit{
-        padding-bottom:98px;
+    .list-data {
+      .tit {
+        padding-bottom: 98px;
         font-size: 60px;
       }
     }
-    .tag{
-      .item-box{
-        .item{
+    .tag {
+      .item-box {
+        .item {
           font-size: 24px !important;
         }
       }
-      .list-date{
+      .list-date {
         font-size: 24px !important;
       }
     }
   }
   @include pc-large {
-    .list-data{
+    .list-data {
       padding: 30px 0 0;
-      .tit{
-        padding-bottom:54px; 
+      .tit {
+        padding-bottom: 54px;
         font-size: 40px;
       }
     }
-    .tag{
-      .item-box{
-        .item{
+    .tag {
+      .item-box {
+        .item {
           font-size: 16px;
         }
       }
-      .list-date{
+      .list-date {
         font-size: 16px;
       }
     }
   }
   @include tablet {
-    .list-data{
+    .list-data {
       padding: 20px 0 0;
-      .tit{
-        padding-bottom:53px; 
+      .tit {
+        padding-bottom: 53px;
         font-size: 20px;
       }
     }
-    .tag{
-      .item-box{
-        .item{
+    .tag {
+      .item-box {
+        .item {
           font-size: 12px;
         }
       }
-      .list-date{
+      .list-date {
         font-size: 12px;
       }
     }
-    
-    .menu-list{
-      &.gl-6{
-        width:calc(calc((100vw - 20px * 11) / 10) * 9 + 20px * (9 - 1)) !important;
+
+    .menu-list {
+      &.gl-6 {
+        width: calc(
+          calc((100vw - 20px * 11) / 10) * 9 + 20px * (9 - 1)
+        ) !important;
       }
       .gl-1 {
-          width: calc(calc((100vw - 20px * 11) / 10) * 2 + 20px * (2 - 1)) !important;
+        width: calc(
+          calc((100vw - 20px * 11) / 10) * 2 + 20px * (2 - 1)
+        ) !important;
       }
-      .gl-5{
-        width:calc(calc((100vw - 20px * 11) / 10) * 7 + 20px * (7 - 1)) !important;
+      .gl-5 {
+        width: calc(
+          calc((100vw - 20px * 11) / 10) * 7 + 20px * (7 - 1)
+        ) !important;
       }
     }
   }
   @include mobile {
-    
-    
-    
-    .menu-list{
-      padding-top:20px;
-      border-top:1px solid $gray-9;
+    .menu-list {
+      padding-top: 20px;
+      border-top: 1px solid $gray-9;
       flex-direction: column;
-      &.gl-6{
-        width:100% !important;
+      &.gl-6 {
+        width: 100% !important;
       }
-      .gl-1{
-        width:100% !important;
+      .gl-1 {
+        width: 100% !important;
       }
-      .list-data{
+      .list-data {
         padding: 10px 0 0;
-        border-top:0px;
-        &.gl-5{
-          width:100% !important;
+        border-top: 0px;
+        &.gl-5 {
+          width: 100% !important;
         }
-        .tit{
-          padding-bottom:20px; 
+        .tit {
+          padding-bottom: 20px;
           font-size: 16px;
           line-height: 130%;
         }
       }
-      .tag{
-        .item-box{
-          .item{
+      .tag {
+        .item-box {
+          .item {
             font-size: 12px;
           }
         }
-        .list-date{
+        .list-date {
           position: static;
-          margin-top:6px;
+          margin-top: 6px;
           font-size: 12px;
         }
       }

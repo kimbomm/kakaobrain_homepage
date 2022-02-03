@@ -1,5 +1,5 @@
 <template>
-  <div class="monthly-detail">
+  <div class="content-detail">
     <div class="top">
       <BreadCrumb data="" />
       <Thumbnail :srcPath="''" />
@@ -29,6 +29,7 @@
   import DetailTextItem from '@/components/detail/DetailTextItem'
   export default {
     mixins: [mixinGlobal],
+    layout: 'preview',
     components: {
       BreadCrumb,
       Thumbnail,
@@ -68,7 +69,7 @@
       }
     },
     created() {
-      // this.init()
+      this.init()
     },
     methods: {
       ...mapActions(['getContentDetail']),
@@ -94,14 +95,14 @@
       flex: 0 0 auto;
     }
   }
-  .monthly-detail {
+  .content-detail {
     padding-top: 200px;
     .con-box {
       margin-bottom: 300px;
     }
   }
   @media screen and (max-width: 2560px) {
-    .monthly-detail {
+    .content-detail {
       padding-top: 130px;
       .con-box {
         margin-bottom: 200px;
@@ -115,7 +116,7 @@
     }
   }
   @media screen and (max-width: 1920px) {
-    .monthly-detail {
+    .content-detail {
       padding-top: 100px;
       .con-box {
         margin-bottom: 100px;

@@ -217,6 +217,7 @@
       }
       &-content {
         margin-top: 40px;
+        padding: 0 20px;
         > div {
           &:first-child {
             display: block;
