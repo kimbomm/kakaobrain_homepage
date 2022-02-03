@@ -111,7 +111,6 @@
   .menu {
     &-item {
       display: inline-block;
-      font-size: 16px;
       font-weight: 900;
       &:not(:last-child) {
         margin-right: 30px;
@@ -223,7 +222,7 @@
       }
     }
   }
-  @include pc-large {
+  @include pc-4k {
     .menu-item {
       .txt {
         font-size: 34px;

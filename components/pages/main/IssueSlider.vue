@@ -16,11 +16,11 @@
         </div>
         <div class="issue-thumbnail">
           <transition name="fade">
-            <img
+            <div
               v-if="isShow"
               class="fade"
-              :src="require(`~/assets/images/${activeContent.thumbnail}`)"
-            />
+              :style="`background-image: url(${image});`"
+            ></div>
           </transition>
         </div>
       </div>
@@ -76,6 +76,7 @@
           targetLAng: 'ALL', // ALL, KR, EN
           filter: '' // 검색어
         },
+        image: require('~/assets/images/main_img_dummy.png'),
         list: [
           {
             title: 'Hello World.',
@@ -250,17 +251,17 @@
     }
     &-thumbnail {
       position: relative;
-      padding-top: calc(100% / 3 * 2);
       overflow: hidden;
-      img {
+      height: 990px;
+      > div {
         position: absolute;
-        max-width: 100%;
-        // max-height: 100%;
+        top: 0;
+        left: 0;
         width: 100%;
-        // height: 100%;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        height: 100%;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
       }
     }
     &-navi {
@@ -310,6 +311,9 @@
       font-size: $titleHeight;
       height: $titleHeight;
       margin-bottom: $titleMargin;
+    }
+    .issue-thumbnail {
+      height: 1328px;
     }
     .issue-navi {
       margin-top: 109px;
@@ -383,6 +387,9 @@
       height: $titleHeight;
       margin-bottom: $titleMargin;
     }
+    .issue-thumbnail {
+      padding-top: 552px;
+    }
     .issue-navi {
       margin-top: 100px;
       .buttons {
@@ -439,14 +446,8 @@
       margin-bottom: 10px;
     }
     .issue-thumbnail {
-      padding-top: 0;
+      padding-top: 470px;
       margin-bottom: 10px;
-      img {
-        position: static;
-        transform: translate(0, 0);
-        display: block;
-        width: 100%;
-      }
     }
     .issue-info {
       padding-top: 0;
