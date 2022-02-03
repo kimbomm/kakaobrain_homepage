@@ -49,8 +49,8 @@
 </script>
 <style lang="scss" scoped>
   .btn-top {
-    width: 300px;
-    height: 300px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     position: fixed;
     right: 20px;
@@ -65,8 +65,8 @@
     &:after {
       content: '';
       display: block;
-      height: 126px;
-      width: 66px;
+      width: 34px;
+      height: 65px;
       background: url('@/assets/images/icon-top_b.svg') no-repeat 50%;
       background-size: 100%;
       position: absolute;
@@ -80,7 +80,7 @@
       width: 100%;
     }
   }
-  @media screen and (max-width: 2560px) {
+  @include pc-large {
     .btn-top {
       width: 200px;
       height: 200px;
@@ -90,17 +90,17 @@
       }
     }
   }
-  @media screen and (max-width: 1920px) {
+  @include pc-4k {
     .btn-top {
-      width: 150px;
-      height: 150px;
+      width: 300px;
+      height: 300px;
       &:after {
-        width: 34px;
-        height: 65px;
+        width: 66px;
+        height: 126px;
       }
     }
   }
-  @media screen and (max-width: 1024px) {
+  @include tablet {
     .btn-top {
       width: 80px;
       height: 80px;
@@ -110,7 +110,7 @@
       }
     }
   }
-  @media screen and (max-width: 768px) {
+  @include mobile {
     .btn-top {
       width: 50px;
       height: 50px;
