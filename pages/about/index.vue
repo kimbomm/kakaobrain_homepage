@@ -14,7 +14,7 @@
     </div>
     <AboutFullConB />
     <AboutConTit :data="aboutConTitData" />
-    <AboutConTxt :data="aboutConTxtData" />
+    <AboutConTxtB :data="aboutConTxtBData" />
     <AboutLargeLogo />
     <AboutFullConC />
     <AboutFullSlide />
@@ -29,7 +29,7 @@
   import AboutVisionList from '@/components/about/AboutVisionList'
   import AboutFullConB from '@/components/about/AboutFullConB'
   import AboutConTit from '@/components/about/AboutConTit'
-  import AboutConTxt from '@/components/about/AboutConTxt'
+  import AboutConTxtB from '@/components/about/AboutConTxtB'
   import AboutLargeLogo from '@/components/about/AboutLargeLogo'
   import AboutFullConC from '@/components/about/AboutFullConC'
   import AboutFullSlide from '@/components/about/AboutFullSlide'
@@ -44,7 +44,7 @@
       AboutVisionList,
       AboutFullConB,
       AboutConTit,
-      AboutConTxt,
+      AboutConTxtB,
       AboutLargeLogo,
       AboutFullConC,
       AboutFullSlide
@@ -60,7 +60,7 @@
         aboutConTitData: {
           title: 'Our Brand'
         },
-        aboutConTxtData: {
+        aboutConTxtBData: {
           text: 'People looking for unexpected answers from unthinkable questions, kakaobrain krews share with you the new journey and stories they are making with AI.'
         },
 
@@ -124,7 +124,7 @@
   .about-con-tit {
     margin-bottom: 100px;
   }
-  .about-con-txt {
+  .about-con-txt-b {
     margin-bottom: 300px;
   }
   .about-large-logo {
@@ -153,7 +153,7 @@
     .about-con-tit {
       margin-bottom: 130px;
     }
-    .about-con-txt {
+    .about-con-txt-b {
       margin-bottom: 430px;
     }
     .about-large-logo {
@@ -183,7 +183,7 @@
     .about-con-tit {
       margin-bottom: 180px;
     }
-    .about-con-txt {
+    .about-con-txt-b {
       margin-bottom: 678px;
     }
     .about-large-logo {
@@ -212,7 +212,7 @@
     .about-con-tit {
       margin-bottom: 50px;
     }
-    .about-con-txt {
+    .about-con-txt-b {
       margin-bottom: 100px;
     }
     .about-large-logo {
@@ -241,7 +241,7 @@
     .about-con-tit {
       margin-bottom: 30px;
     }
-    .about-con-txt {
+    .about-con-txt-b {
       margin-bottom: 100px;
     }
     .about-large-logo {

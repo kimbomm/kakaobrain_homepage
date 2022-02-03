@@ -52,23 +52,6 @@ export default {
       }
     }
   }
-  @include pc-4k {
-  
-    .about-full-con-a{
-      .full-con{
-        padding: 800px 20px 1293px;
-        .inner{
-          .txt{
-            margin-bottom:190px !important;
-            font-size:180px !important;
-          }
-          .sub-txt{
-            font-size:46px !important;
-          }
-        }
-      }
-    }
-  }
   @include pc-large {
   
     .about-full-con-a{
@@ -81,6 +64,37 @@ export default {
           }
           .sub-txt{
             font-size:30px;
+          }
+        }
+      }
+    }
+  }
+  @include pc-4k {
+  
+    .about-full-con-a{
+      .full-con{
+        padding: 800px 20px 1293px;
+        .inner{
+          .txt{
+            margin-bottom:190px ;
+            font-size:180px ;
+          }
+          .sub-txt{
+            font-size:46px;
+          }
+        }
+      }
+    }
+  }
+  @media screen and (max-width:1400px) {
+    .about-full-con-a{
+      .full-con{
+        .inner{
+          .txt{
+            font-size:60px;
+          }
+          .sub-txt{
+            font-size:20px;
           }
         }
       }

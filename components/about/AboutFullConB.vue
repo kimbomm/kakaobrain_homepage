@@ -160,6 +160,28 @@ export default {
       }
     }
   }
+  @media screen and (max-width:1400px) {
+    .about-full-con-b{
+      .full-con{
+        .con{
+          &-tit{
+            font-size:60px;
+          }
+        }
+        .item{
+          &-tit{
+            font-size:35px;
+          }
+          &-sub-tit{
+            font-size:20px;
+          }
+          &-txt{
+            font-size:14px;
+          }
+        }
+      }
+    }
+  }
   @include tablet {
      
     .about-full-con-b{

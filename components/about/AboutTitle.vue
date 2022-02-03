@@ -32,9 +32,6 @@
     padding: 0 20px;
     .title-box{
       position: relative;
-      &.gl-6{
-        width: getWidth(8) !important;
-      }
       .easter-egg{
         position: absolute;
         left: 50%;
@@ -53,6 +50,9 @@
   @include pc-large {
     .about-title {
       .title-box{
+        &.gl-6{
+          width: getWidth(8) !important;
+        }
         .easter-egg {
           width: 200px;
           height: 200px;
@@ -79,6 +79,19 @@
       }
     }
   }
+  @media screen and (max-width:1400px) {
+    .about-title {
+      .title-box{
+        .easter-egg {
+          width: 110px;
+          height: 110px;
+        }
+      }
+      .tit {
+        font-size: 140px;
+      }
+    }
+  }
   @include tablet {
     .about-title {
       .title-box{
@@ -100,6 +113,7 @@
     .about-title {
       .title-box{
         .easter-egg {
+          left: 155px;
           width: 50px;
           height: 50px;
         }
