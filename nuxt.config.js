@@ -19,7 +19,7 @@ export default {
   },
   axios: {
     credentials: true,
-    baseURL: process.env.API_BASE_URL
+    baseURL: 'https://kkbapi.freeive.dev/front/v1' || process.env.API_BASE_URL
   },
 
   router: {
