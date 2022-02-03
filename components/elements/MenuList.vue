@@ -132,6 +132,13 @@
       }
     }
   }
+  @media screen and (max-width:1400px) {
+    .list-data {
+      .tit {
+        font-size: 22px;
+      }
+    }
+  }
   @include tablet {
     .list-data {
       padding: 20px 0 0;
