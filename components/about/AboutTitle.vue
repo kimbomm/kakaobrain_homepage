@@ -32,9 +32,13 @@
     padding: 0 20px;
     .title-box{
       position: relative;
+      &.gl-6{
+        width: getWidth(8) !important;
+      }
       .easter-egg{
         position: absolute;
-        left: 50%;
+        // left: 50%;
+        left:485px;
         top: 50%;
         transform: translate(-50%, -50%);
         box-shadow: -30px 50px 80px rgba(0, 0, 0, 0.5);
@@ -54,6 +58,7 @@
           width: getWidth(8) !important;
         }
         .easter-egg {
+          left:652px;
           width: 200px;
           height: 200px;
         }
@@ -70,6 +75,7 @@
           width: getWidth(6) !important;
         }
         .easter-egg {
+          left:1268px;
           width: 300px;
           height: 300px;
         }
@@ -79,10 +85,11 @@
       }
     }
   }
-  @media screen and (max-width:1400px) {
+  @media screen and (max-width:1500px) {
     .about-title {
       .title-box{
         .easter-egg {
+          left:390px;
           width: 110px;
           height: 110px;
         }
@@ -96,6 +103,7 @@
     .about-title {
       .title-box{
         .easter-egg {
+          left:251px;
           width: 80px;
           height: 80px;
         }

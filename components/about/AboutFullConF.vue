@@ -429,6 +429,22 @@ export default {
       }
     }
   }
+   @media screen and (max-width:1400px) {
+    .about-full-con-f{
+      .full-con{
+        .inner{
+          .tit{
+            font-size:70px;
+          }
+          .text-box{
+            .txt{
+              font-size: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
   @media screen and (max-width:1300px) {
     .about-full-con-f{
       .full-con{

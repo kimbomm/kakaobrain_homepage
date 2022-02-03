@@ -330,6 +330,22 @@ export default {
       }
     }
   }
+   @media screen and (max-width:1400px) {
+    .about-full-con-d{
+      .full-con{
+        .inner{
+          .tit{
+            font-size:60px;
+          }
+          .text-box{
+            .txt{
+              font-size: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
   @media screen and (max-width:1300px) {
     .about-full-con-d{
       .full-con{
