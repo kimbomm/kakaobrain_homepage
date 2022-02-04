@@ -7,11 +7,13 @@
         <nuxt-link to="/monthly-issue">View List </nuxt-link>
       </span>
     </div>
-    <div ref="issue" class="issue">
+    <div v-if="list.length > 0" ref="issue" class="issue">
       <div>
         <div class="issue-title">
           <transition name="fade">
-            <span v-if="isShow" class="fade">{{ activeContent.title }} </span>
+            <span v-if="isShow" class="fade"
+              >{{ activeContent.Content.title }}
+            </span>
           </transition>
         </div>
         <div class="issue-thumbnail">
@@ -19,7 +21,7 @@
             <div
               v-if="isShow"
               class="fade"
-              :style="`background-image: url(${image});`"
+              :style="`background-image: url(https://kkbapi.freeive.dev${activeContent.Media.url});`"
             ></div>
           </transition>
         </div>
@@ -77,28 +79,9 @@
           filter: '' // 검색어
         },
         image: require('~/assets/images/main_img_dummy.png'),
-        list: [
-          {
-            title: 'Hello World.',
-            thumbnail: 'main_img_dummy.png',
-            link: '#',
-            breadcrumb: [
-              { text: 'About', sub: 'about', link: '' },
-              { text: 'Introduce', sub: 'sub', link: '/about' },
-              { text: 'Yeah!!!', sub: '', link: '' }
-            ]
-          },
-          {
-            title: 'Hello World2.',
-            thumbnail: 'main_img_dummy.png',
-            link: '#',
-            breadcrumb: [
-              { text: 'About2', sub: 'about', link: '' },
-              { text: 'Introduce2', sub: 'sub', link: '/about' },
-              { text: 'Yeah!!!', sub: '', link: '' }
-            ]
-          }
-        ]
+        list: [],
+        activeContent: null,
+        breadcrumb: []
       }
     },
     computed: {
@@ -107,26 +90,23 @@
       }),
       curPage() {
         return util.changeNumFont(this.activeIndex + 1)
-      },
-      activeContent() {
-        return this.list[this.activeIndex]
-      },
-      breadcrumb() {
-        let data = [
-          { text: 'About', sub: 'about', link: '' },
-          { text: 'Introduce', sub: 'sub', link: '/about' },
-          { text: 'Yeah!!!', sub: '', link: '' }
-        ]
-        return this.list.length > 0
-          ? this.list[this.activeIndex].breadcrumb
-          : data
       }
+      // async activeContent() {
+      //   const data =
+      //     this.list.length > 0 ? this.list[this.activeIndex].Content : null
+      //   if (data) {
+      //     await this.setBreadcrumb(data.category1, data.category2)
+      //   }
+      //   return data
+      // }
     },
-    created() {
-      this.getIssueList(this.paging)
+    async created() {
+      const res = await this.getIssueList(this.paging)
+      this.list = res.data.list
+      await this.setContent()
     },
-    mounted() {
-      this.init()
+    async mounted() {
+      await this.init()
       window.addEventListener('scroll', this.onScroll)
     },
     beforeDestroy() {
@@ -135,11 +115,20 @@
     },
     methods: {
       ...mapActions({
-        getIssueList: 'issue/getIssueList'
+        getIssueList: 'issue/getIssueList',
+        getCategoryList: 'getCategoryList',
+        getNickName: 'getNickName'
       }),
-      init() {
+      async init() {
         this.isShow = true
-        if (this.list.length > 1) this.onSetInterval()
+        if (this.list.length > 1) await this.onSetInterval()
+      },
+      async setContent() {
+        this.activeContent = this.list[this.activeIndex]
+        await this.setBreadcrumb(
+          this.activeContent.Content.category1,
+          this.activeContent.Content.category2
+        )
       },
       onScroll() {
         const navi = this.$refs['issue-navi']
@@ -172,7 +161,7 @@
           if (event) _this.onSetInterval()
         }, 200)
       },
-      onChange(type) {
+      async onChange(type) {
         switch (type) {
           case 'next':
             this.activeIndex + 1 > this.list.length - 1
@@ -185,7 +174,43 @@
               : this.activeIndex--
             break
         }
+        await this.setContent()
         this.isShow = true
+      },
+      async setBreadcrumb(category1, category2) {
+        this.breadcrumb = []
+        let subClass = ''
+        const info = await this.getNickName({
+          category1,
+          category2
+        })
+
+        switch (category1) {
+          case 'document':
+            subClass = 'docu'
+            break
+          default:
+            subClass = category1
+            break
+        }
+
+        this.breadcrumb.push(
+          { text: info.category1.nick, sub: subClass, link: '' },
+          { text: info.category2.nick, sub: 'sub', link: info.category2.link }
+        )
+        if (this.activeContent.Content.ContentTags.length > 0) {
+          for (
+            let i = 0;
+            i < this.activeContent.Content.ContentTags.length;
+            i++
+          ) {
+            this.breadcrumb.push({
+              text: this.activeContent.Content.ContentTags[i].tag,
+              sub: '',
+              link: this.activeContent.Content.ContentTags[i].link
+            })
+          }
+        }
       }
     }
   }
@@ -225,6 +250,7 @@
     justify-content: space-between;
     > div:first-child {
       flex: 0 0 getWidth(8);
+      width: getWidth(8);
     }
     &-info {
       padding-top: $titleHeight + $titleMargin;
@@ -246,8 +272,14 @@
       font-style: italic;
       margin-bottom: $titleMargin;
       width: 100%;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      span {
+        display: block;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
     }
     &-thumbnail {
       position: relative;

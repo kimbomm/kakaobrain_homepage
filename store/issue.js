@@ -10,8 +10,9 @@ export const mutations = {
   }
 }
 export const actions = {
-  getIssueList({ commit }, payload) {
-    const res = this.$axios.get('monthly/issue', payload)
-    commit('setIssueList', res)
+  async getIssueList({ commit }, payload) {
+    const res = await this.$axios.get('monthly/issue', payload)
+    // commit('setIssueList', res.data)
+    return res
   }
 }
