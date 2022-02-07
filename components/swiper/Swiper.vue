@@ -10,7 +10,7 @@
       <swiper-slide v-for="(content, index) in data.ContentItems" :key="index">
         <div
           class="slide"
-          :style="`background-image: url(https://kakaobrain.loadingworks.com${content.Media.url})`"
+          :style="`background-image: url(https://kkbapi.freeive.dev${content.Media.url})`"
         >
           <div
             :class="`slide-con ${content.itemProp.position.vertical}-${content.itemProp.position.horizontal}`"
@@ -35,7 +35,7 @@
         >
           <div
             class="slide"
-            :style="`background-image: url(https://kakaobrain.loadingworks.com${content.Media.url})`"
+            :style="`background-image: url(https://kkbapi.freeive.dev${content.Media.url})`"
           >
             <div
               :class="`slide-con ${content.itemProp.position.vertical}-${content.itemProp.position.horizontal}`"
@@ -64,7 +64,7 @@
           >
             <div
               class="list-img"
-              :style="`background-image: url(https://kakaobrain.loadingworks.com${content.Media.url})`"
+              :style="`background-image: url(https://kkbapi.freeive.dev${content.Media.url})`"
             ></div>
             <div class="list-tit">{{ content.subject }}</div>
           </li>

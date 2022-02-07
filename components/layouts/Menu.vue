@@ -10,7 +10,7 @@
             @mouseenter="hideMenu(true)"
           >
             <button type="button">
-              <span v-if="menu.alarm" class="num">{{ menu.alarm }}</span>
+              <!-- <span v-if="menu.alarm" class="num">{{ menu.alarm }}</span> -->
               <span class="txt">{{ menu.name }}</span>
             </button>
           </li>
@@ -43,7 +43,7 @@
             :key="`menu-${index}`"
             class="menu-item"
           >
-            <span v-if="menu.alarm" class="num">{{ menu.alarm }}</span>
+            <!-- <span v-if="menu.alarm" class="num">{{ menu.alarm }}</span> -->
             <span>{{ menu.name }}</span>
             <ul class="sub">
               <li
@@ -111,7 +111,6 @@
   .menu {
     &-item {
       display: inline-block;
-      font-size: 16px;
       font-weight: 900;
       &:not(:last-child) {
         margin-right: 30px;
@@ -179,25 +178,26 @@
       top: 0;
       padding: 90px 0 84px;
       background-color: $gray-9;
-      color: $gray-0;
       &-item {
         text-align: left;
         vertical-align: top;
+        color: $gray-0;
+        font-size: 14px;
         &:not(:last-child) {
           margin-right: 50px;
         }
-        &:nth-child(2) .sub {
-          margin-left: 23px;
-        }
-        &:nth-child(3) .sub {
-          margin-left: 20px;
-        }
-        &:nth-child(4) .sub {
-          margin-left: 12px;
-        }
-        &:nth-child(5) .sub {
-          margin-left: 20px;
-        }
+        // &:nth-child(2) .sub {
+        //   margin-left: 23px;
+        // }
+        // &:nth-child(3) .sub {
+        //   margin-left: 20px;
+        // }
+        // &:nth-child(4) .sub {
+        //   margin-left: 12px;
+        // }
+        // &:nth-child(5) .sub {
+        //   margin-left: 20px;
+        // }
       }
     }
     .sub {
@@ -223,7 +223,7 @@
       }
     }
   }
-  @include pc-large {
+  @include pc-4k {
     .menu-item {
       .txt {
         font-size: 34px;

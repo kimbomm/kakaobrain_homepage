@@ -51,7 +51,7 @@
     },
     methods: {
       setImagePath() {
-        let path = 'https://kakaobrain.loadingworks.com'
+        let path = 'https://kkbapi.freeive.dev'
 
         if (window.innerWidth >= 768) {
           if (this.data.Media) {

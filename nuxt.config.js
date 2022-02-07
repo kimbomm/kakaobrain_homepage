@@ -1,4 +1,8 @@
 export default {
+  env: {
+    baseURL: process.env.BASE_URL,
+    apiBaseURL: process.env.API_BASE_URL
+  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'kakaobrain_homepage',
@@ -15,8 +19,7 @@ export default {
   },
   axios: {
     credentials: true,
-    baseURL:
-      'https://kakaobrain.loadingworks.com/front/v1' || process.env.API_BASE_URL
+    baseURL: 'https://kkbapi.freeive.dev/front/v1' || process.env.API_BASE_URL
   },
 
   router: {
