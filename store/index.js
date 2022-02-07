@@ -1,4 +1,5 @@
 import data from './data/common.json'
+import utility from '/util/utility.js'
 
 export const state = () => ({
   isDark: true,
@@ -66,18 +67,8 @@ export const actions = {
     if (payload.category1) url += `${payload.category1}/`
     if (payload.category1 && payload.category2) url += `${payload.category2}`
 
-    let createdParam = ''
-    let i = ''
-    for (const key in payload.pageData) {
-      const value = payload.pageData[key]
-      createdParam += `${key}=${value}`
-      i++
-      if (i !== Object.keys(payload.pageData).length) {
-        createdParam += '&'
-      }
-    }
-
-    const res = await this.$axios.get(`${url}?${createdParam}`)
+    const params = utility.setParameters(payload.pageData)
+    const res = await this.$axios.get(`${url}?${params}`)
     return res
   },
   getNickName({ state }, payload) {
@@ -89,7 +80,8 @@ export const actions = {
     }
   },
   async getMonthlyList({}, payload) {
-    const res = await this.$axios.get('/monthly/issue', payload)
+    const params = utility.setParameters(payload)
+    const res = await this.$axios.get(`/monthly/issue?${params}`)
     return res
   },
   async getMainGridList({}, payload) {

@@ -119,9 +119,8 @@
         pageData: {
           offset: 0,
           limit: 8,
-          targetLang: 'KR'
-          // filter: ''
-          // tag: []
+          targetLang: this.$store.state.language,
+          tag: []
         },
         total: null,
         tags: [],

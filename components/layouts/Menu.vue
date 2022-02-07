@@ -102,7 +102,7 @@
       },
       async selectLang(lang) {
         await this.setLanguage(lang)
-        await this.$router.push('/')
+        location.href = '/'
       }
     }
   }

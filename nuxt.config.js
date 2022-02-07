@@ -47,7 +47,7 @@ export default {
 
   dayjs: {
     locales: ['en', 'ko'],
-    defaultLocale: 'ko'
+    defaultLocale: 'en'
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

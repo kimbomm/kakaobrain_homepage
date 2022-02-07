@@ -40,8 +40,7 @@
           offset: 0,
           limit: 10,
           contentType: 'ALL',
-          targetLang: 'ALL',
-          filter: ''
+          targetLang: this.$store.state.language
         }
       }
     },
