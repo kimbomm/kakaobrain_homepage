@@ -11,19 +11,33 @@
       <div class="article-info">
         <div class="thumbnail">
           <nuxt-link
-            :to="{
-              name: 'contents-contentId',
-              params: { contentId: data.contentId }
-            }"
+            :to="
+              data.Content.contentType !== 'STORY'
+                ? {
+                    name: 'contents-contentId',
+                    params: { contentId: data.contentId }
+                  }
+                : {
+                    path: 'story-telling',
+                    query: { contentId: data.contentId }
+                  }
+            "
           >
             <img :src="srcPath" />
           </nuxt-link>
         </div>
         <nuxt-link
-          :to="{
-            name: 'contents-contentId',
-            params: { contentId: data.contentId }
-          }"
+          :to="
+            data.Content.contentType !== 'STORY'
+              ? {
+                  name: 'contents-contentId',
+                  params: { contentId: data.contentId }
+                }
+              : {
+                  path: 'story-telling',
+                  query: { contentId: data.contentId }
+                }
+          "
         >
           <div class="title">
             <span>☞ {{ data.Content.title }}</span>

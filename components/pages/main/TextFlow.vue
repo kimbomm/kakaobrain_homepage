@@ -34,11 +34,6 @@
           :grid="item.contentProp.position.width"
         />
       </template>
-      <!-- <Content :order="1" :grid="4" />
-      <Content :order="2" :grid="5" />
-      <Content :order="3" :grid="4" />
-      <Content :order="2" :grid="6" />
-      <Content :order="0" :grid="4" /> -->
     </div>
   </div>
 </template>
