@@ -60,15 +60,16 @@
           :key="index"
           class="contents-list l-ml-2"
         >
-          <MenuList
-            :data="item"
-            tit="카카오브레인, AI 주니어 육성 프로그램 1기 모집"
-            date="20211216"
-          />
+          <MenuList :data="item" />
         </li>
       </ul>
     </div>
-    <List-paging />
+    <List-paging
+      :limit="pageData.limit"
+      :offset="pageData.offset"
+      :total="total"
+      @onChange="onPagingChange"
+    />
   </div>
 </template>
 <script>
@@ -117,11 +118,13 @@
         list: [],
         pageData: {
           offset: 0,
-          limit: 10,
+          limit: 8,
           targetLang: 'KR'
           // filter: ''
           // tag: []
         },
+        total: null,
+        tags: [],
         params: {
           category1: null,
           category2: null
@@ -138,6 +141,9 @@
       }),
       async init() {
         await this.setBreadcrumb()
+        await this.fetchList()
+      },
+      async fetchList() {
         const res = await this.getCategoryList({
           category1: this.$route.params.category1,
           category2: this.$route.params.category2,
@@ -145,6 +151,8 @@
         })
         if (res) {
           this.list = res.data.list
+          this.total = res.data.count
+          this.tags = res.data.tags
         }
       },
       async setBreadcrumb() {
@@ -168,6 +176,10 @@
           { text: info.category1.nick, sub: subClass, link: '' },
           { text: info.category2.nick, sub: 'sub', link: info.category2.link }
         )
+      },
+      onPagingChange(val) {
+        this.pageData.offset = val * this.pageData.limit
+        this.fetchList()
       }
     }
   }

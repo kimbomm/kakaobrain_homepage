@@ -2,21 +2,41 @@
   <div>
     <div class="menu-list gl-6">
       <div class="menu-thumbnail gl-1">
-        <img src="@/assets/images/menu-list_img_1.png" />
+        <nuxt-link
+          v-if="data.titleMediaId"
+          :to="{
+            name: 'contents-contentId',
+            params: { contentId: data.contentId }
+          }"
+        >
+          <img :src="`https://kkbapi.freeive.dev${data.TitleMedia.url}`" />
+        </nuxt-link>
       </div>
       <div class="list-data gl-5">
-        <div class="tit">{{ (data && data.title) || tit }}</div>
+        <div class="tit">
+          <nuxt-link
+            :to="{
+              name: 'contents-contentId',
+              params: { contentId: data.contentId }
+            }"
+          >
+            {{ data && data.title }}
+          </nuxt-link>
+        </div>
         <div class="tag">
           <div class="item-box">
-            <div class="item">#보도자료</div>
-            <div class="item">#Optimization</div>
-            <div class="item">#AutoML</div>
+            <div
+              v-for="(item, index) in data.ContentTags"
+              :key="index"
+              class="item"
+            >
+              #{{ item.tag }}
+            </div>
           </div>
-          <div class="list-date">{{ (data && data.updateAt) || date }}</div>
+          <div class="list-date">
+            {{ data && $dayjs(data.updateAt).format('YYYYMMDD') }}
+          </div>
         </div>
-        <!-- <Sticker text="Docu. B" sub="docu"></Sticker>
-        <Sticker text="Documentary" sub="sub"></Sticker>
-        <Sticker text="Curtis.abcd"></Sticker> -->
       </div>
     </div>
   </div>
@@ -28,16 +48,6 @@
       data: {
         type: Object,
         default: () => {},
-        required: false
-      },
-      tit: {
-        type: String,
-        default: '',
-        required: false
-      },
-      date: {
-        type: String,
-        default: '',
         required: false
       }
     }
