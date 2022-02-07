@@ -91,14 +91,15 @@
       curPage() {
         return util.changeNumFont(this.activeIndex + 1)
       }
-      // async activeContent() {
-      //   const data =
-      //     this.list.length > 0 ? this.list[this.activeIndex].Content : null
-      //   if (data) {
-      //     await this.setBreadcrumb(data.category1, data.category2)
-      //   }
-      //   return data
-      // }
+    },
+    watch: {
+      list: {
+        deep: true,
+        handler(val) {
+          this.isShow = true
+          this.onSetInterval()
+        }
+      }
     },
     async created() {
       const res = await this.getIssueList(this.paging)
@@ -106,7 +107,6 @@
       await this.setContent()
     },
     async mounted() {
-      await this.init()
       window.addEventListener('scroll', this.onScroll)
     },
     beforeDestroy() {
@@ -119,10 +119,6 @@
         getCategoryList: 'getCategoryList',
         getNickName: 'getNickName'
       }),
-      async init() {
-        this.isShow = true
-        if (this.list.length > 1) await this.onSetInterval()
-      },
       async setContent() {
         this.activeContent = this.list[this.activeIndex]
         await this.setBreadcrumb(
@@ -285,6 +281,7 @@
       position: relative;
       overflow: hidden;
       height: 990px;
+      box-shadow: 30px 30px 50px -10px #cfd0d3;
       > div {
         position: absolute;
         top: 0;

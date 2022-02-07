@@ -2,7 +2,7 @@ import data from './data/common.json'
 
 export const state = () => ({
   isDark: true,
-  language: 'ko',
+  language: 'KR',
   menus: data.menus,
   footerMenu: data.footer,
   members: data.members,
@@ -66,7 +66,18 @@ export const actions = {
     if (payload.category1) url += `${payload.category1}/`
     if (payload.category1 && payload.category2) url += `${payload.category2}`
 
-    const res = await this.$axios.get(url, payload)
+    let createdParam = ''
+    let i = ''
+    for (const key in payload.pageData) {
+      const value = payload.pageData[key]
+      createdParam += `${key}=${value}`
+      i++
+      if (i !== Object.keys(payload.pageData).length) {
+        createdParam += '&'
+      }
+    }
+
+    const res = await this.$axios.get(`${url}?${createdParam}`)
     return res
   },
   getNickName({ state }, payload) {
@@ -79,6 +90,10 @@ export const actions = {
   },
   async getMonthlyList({}, payload) {
     const res = await this.$axios.get('/monthly/issue', payload)
+    return res
+  },
+  async getMainGridList({}, payload) {
+    const res = await this.$axios.get('/main/content', payload)
     return res
   }
 }

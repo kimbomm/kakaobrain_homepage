@@ -115,13 +115,16 @@
         breadcrumb: [],
         title: '',
         list: [],
-        params: {
-          category1: null,
-          category2: null,
+        pageData: {
           offset: 0,
           limit: 10,
-          targetLAng: 'ALL',
-          filter: ''
+          targetLang: 'KR'
+          // filter: ''
+          // tag: []
+        },
+        params: {
+          category1: null,
+          category2: null
         }
       }
     },
@@ -136,9 +139,9 @@
       async init() {
         await this.setBreadcrumb()
         const res = await this.getCategoryList({
-          ...this.params,
           category1: this.$route.params.category1,
-          category2: this.$route.params.category2
+          category2: this.$route.params.category2,
+          pageData: this.pageData
         })
         if (res) {
           this.list = res.data.list

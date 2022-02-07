@@ -26,16 +26,24 @@
       </div>
     </div>
     <div class="article-list">
-      <Content :order="0" :grid="4" />
-      <Content :order="1" :grid="4" />
+      <template v-for="(item, index) in list">
+        <Content
+          :key="index"
+          :data="item"
+          :order="item.contentProp.position.order"
+          :grid="item.contentProp.position.width"
+        />
+      </template>
+      <!-- <Content :order="1" :grid="4" />
       <Content :order="2" :grid="5" />
       <Content :order="3" :grid="4" />
       <Content :order="2" :grid="6" />
-      <Content :order="0" :grid="4" />
+      <Content :order="0" :grid="4" /> -->
     </div>
   </div>
 </template>
 <script>
+  import { mapState, mapActions } from 'vuex'
   import MainEasterEgg from '@/components/pages/main/MainEasterEgg'
   import Content from '@/components/pages/main/Content'
   export default {
@@ -44,15 +52,32 @@
       MainEasterEgg
     },
     data() {
-      return {}
+      return {
+        list: []
+      }
     },
-    mounted() {
+    computed: {
+      ...mapState({
+        language: state => state.language
+      })
+    },
+    async mounted() {
+      await this.init()
       window.addEventListener('scroll', this.onScroll)
     },
     beforeDestroy() {
       window.removeEventListener('scroll', this.onScroll)
     },
     methods: {
+      ...mapActions({
+        getMainGridList: 'getMainGridList'
+      }),
+      async init() {
+        const res = await this.getMainGridList({
+          targetLang: this.language
+        })
+        this.list = res.data.list
+      },
       onScroll() {
         // console.log(window.scrollY, window.innerHeight)
         if (
