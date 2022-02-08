@@ -301,7 +301,6 @@
     }
     &-thumbnail {
       position: relative;
-      overflow: hidden;
       height: 990px;
       > div {
         position: absolute;
