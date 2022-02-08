@@ -19,7 +19,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <span class="info-txt">@2021</span>
+        <span class="info-txt">@{{ $dayjs().format('YYYY') }}</span>
         <div class="copyright">
           Copyright ⓒ kakaobrain Corp. <span>All rights reserved.</span>
         </div>

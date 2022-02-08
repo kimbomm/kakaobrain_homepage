@@ -41,9 +41,9 @@
           "link": "/contents/research/challenge"
         },
         {
-          "category": "article",
-          "nick": "Article",
-          "name": "Article",
+          "category": "publications",
+          "nick": "Publications",
+          "name": "Publications",
           "link": "/contents/research/article"
         },
         {
@@ -68,9 +68,9 @@
           "link": "/contents/tech/highlight"
         },
         {
-          "category": "dataset",
-          "nick": "Dataset",
-          "name": "Dataset",
+          "category": "datasets",
+          "nick": "Datasets",
+          "name": "Datasets",
           "link": "/contents/tech/dataset"
         },
         {
