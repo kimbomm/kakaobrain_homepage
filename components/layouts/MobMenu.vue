@@ -1,7 +1,7 @@
 <template>
   <div class="mob-menu">
     <div class="mob-menu-top">
-      <span>kakaobrain</span>
+      <img src="@/assets/images/logo-w.png" />
       <button class="menu-btn" @click="onClose">
         <img
           src="@/assets/images/mob_menu_close.png"
@@ -17,7 +17,7 @@
             @click="onClick(index)"
           >
             <span class="menu-name">{{ menu.name }}</span>
-            <span v-if="menu.alarm" class="menu-num">{{ menu.alarm }}</span>
+            <!-- <span v-if="menu.alarm" class="menu-num">{{ menu.alarm }}</span> -->
           </button>
           <ul class="sub-menu">
             <li v-for="(subMenu, idx) in menu.sub" :key="`sub-${idx}`">
@@ -82,10 +82,8 @@
       justify-content: space-between;
       align-items: center;
       padding: 16px 20px 0 20px;
-      span {
-        font-size: 16px;
-        font-weight: 900;
-        line-height: 1.3;
+      img {
+        width: 84px;
       }
       button {
         width: 30px;
