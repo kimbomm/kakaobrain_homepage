@@ -21,7 +21,7 @@
         <div class="bus-method l-ml-3">
           <div class="text-h3"><span>주변 버스</span></div>
           <ul>
-            <li v-for="item in bus" :key="item.label" class="">
+            <li v-for="(item, index) in bus" :key="`label-${index}`" class="">
               <div class="text-h4">
                 <span>{{ item.label }}</span>
               </div>
@@ -30,7 +30,7 @@
                   <span :key="index">
                     {{ number }}
                   </span>
-                  <br :key="index" v-if="index === 2" />
+                  <br :key="`index-${index}`" v-if="index === 2" />
                 </template>
               </div>
             </li>

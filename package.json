@@ -36,6 +36,9 @@
   "eslintConfig": {
     "globals": {
       "kakao": false
+    },
+    "rules": {
+      "no-unused-vars": "off"
     }
   }
 }
