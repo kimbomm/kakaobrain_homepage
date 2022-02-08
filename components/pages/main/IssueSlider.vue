@@ -6,7 +6,7 @@
         {{ $dayjs().format('MMMM') }}@{{ $dayjs().format('YYYY') }}
       </span>
       <span class="gl-2">
-        <nuxt-link to="/monthly-issue">View List </nuxt-link>
+        <nuxt-link to="/monthly-issue">View List&nbsp;&nbsp;</nuxt-link>
       </span>
     </div>
     <div v-if="list.length > 0" ref="issue" class="issue">
@@ -56,9 +56,9 @@
               ←
             </button>
             <div class="number">
-              <span class="cur">{{ activeIndex + 1 }}</span>
+              <sup class="cur">{{ activeIndex + 1 }}</sup>
               /
-              <span class="total">{{ list.length }}</span>
+              <sub class="total">{{ list.length }}</sub>
             </div>
             <button
               class="next"
@@ -304,6 +304,7 @@
     &-thumbnail {
       position: relative;
       height: 990px;
+      box-shadow: 30px 30px 50px -10px rgba(0,0,0,0.2);
       > div {
         position: absolute;
         top: 0;
@@ -324,6 +325,9 @@
         display: flex;
         justify-content: flex-end;
         align-items: center;
+        button{
+          font-family: 'Inter';
+        }
       }
       .cur-page {
         font-size: 50px;

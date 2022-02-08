@@ -170,6 +170,7 @@
     flex: 1;
   }
   .thumbnail {
+      box-shadow: 30px 30px 50px -10px rgba(0,0,0,0.2);
     img {
       width: 100%;
     }

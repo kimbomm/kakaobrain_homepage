@@ -47,7 +47,7 @@
           { text: 'Yeah!!!', sub: '', link: '' }
         ],
         aboutTitle:{
-          title:'Our way<span class="string">of working.</span>',
+          title:'Our way</br><span class="string">of working.</span>',
         },
         aboutTitleText:{
           text:'kakaobrain krew are given a lot of good opportunities to grow self-directed, and we find out how we are doing to grow</br>together through great colleagues.'

@@ -140,6 +140,26 @@
       }
     }
   }
+  @media screen and (max-width:1200px) {
+    .vision-list {
+      .list-con {
+        width: 450px ;
+      }
+      .list-img {
+        width: 450px ;
+        height: 450px ;
+      }
+      .list-txt {
+        left: -240px ;
+        .txt {
+          font-size: 80px;
+        }
+        .sub-txt {
+          font-size: 23px;
+        }
+      }
+    }
+  }
   @include tablet {
     .vision-list {
       .list-con {
@@ -150,7 +170,7 @@
         height: 300px;
       }
       .list-txt {
-        left: -141px;
+        left: -60px;
         .txt {
           font-size: 60px;
           line-height: 73px;
