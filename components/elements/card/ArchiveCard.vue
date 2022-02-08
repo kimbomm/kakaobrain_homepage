@@ -4,10 +4,10 @@
     <div class="archive-inner">
       <div class="archive-tit">{{ tit }}</div>
       <div class="archive-con">
-        <div class="tag">
+        <div v-if="tag.length > 0" class="tag">
           <ul>
             <li v-for="(item, index) in tag" :key="index" class="tag-item">
-              <span class="tag-txt">#{{ item }}</span>
+              <span class="tag-txt">#{{ item.tag }}</span>
             </li>
           </ul>
         </div>

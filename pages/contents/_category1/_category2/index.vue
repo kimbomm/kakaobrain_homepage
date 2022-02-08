@@ -213,23 +213,6 @@
       }
     }
   }
-  @include pc-4k {
-    .tit-text {
-      margin-bottom: 70px !important;
-      font-size: 32px;
-    }
-
-    .contents {
-      &-checkbox {
-        margin-bottom: 290px !important;
-      }
-      &-list {
-        &:not(:last-child) {
-          margin-bottom: 374px !important;
-        }
-      }
-    }
-  }
   @include pc-large {
     .tit-text {
       margin-bottom: 50px;
@@ -247,6 +230,24 @@
       }
     }
   }
+  @include pc-4k {
+    .tit-text {
+      margin-bottom: 70px;
+      font-size: 32px;
+    }
+
+    .contents {
+      &-checkbox {
+        margin-bottom: 290px;
+      }
+      &-list {
+        &:not(:last-child) {
+          margin-bottom: 374px;
+        }
+      }
+    }
+  }
+
   @include tablet {
     .tit-text {
       margin-bottom: 20px;

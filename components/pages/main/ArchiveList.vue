@@ -7,11 +7,7 @@
       <nuxt-link to="/archive"><span>View List </span><span></span></nuxt-link>
     </div>
     <ul class="main-archive-list">
-      <li
-        v-for="(item, index) in getRecentList || list"
-        :key="index"
-        class="gl-2"
-      >
+      <li v-for="(item, index) in list" :key="index" class="gl-2">
         <nuxt-link
           :to="{
             name: 'contents-contentId',
@@ -29,7 +25,7 @@
   </div>
 </template>
 <script>
-  import { mapGetters, mapActions } from 'vuex'
+  import { mapActions } from 'vuex'
   import ArchiveCard from '@/components/elements/card/ArchiveCard'
   export default {
     components: {
@@ -39,17 +35,12 @@
       return {
         pageData: {
           offset: 0,
-          limit: 8,
+          limit: 5,
           contentType: 'ARTICLE',
           targetLang: 'KR'
         },
         list: []
       }
-    },
-    computed: {
-      ...mapGetters({
-        getRecentList: 'archive/getRecentList'
-      })
     },
     mounted() {
       this.init()
