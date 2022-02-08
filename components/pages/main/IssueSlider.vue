@@ -2,29 +2,46 @@
   <div class="issue-slider">
     <div class="issue-slider-info l-ml-2">
       <span class="gl-2">Monthly Issue</span>
-      <span class="gl-2">December@2021</span>
+      <span class="gl-2">
+        {{ $dayjs().format('MMMM') }}@{{ $dayjs().format('YYYY') }}
+      </span>
       <span class="gl-2">
         <nuxt-link to="/monthly-issue">View List&nbsp;&nbsp;</nuxt-link>
       </span>
     </div>
     <div v-if="list.length > 0" ref="issue" class="issue">
       <div>
-        <div class="issue-title">
-          <transition name="fade">
-            <span v-if="isShow" class="fade"
-              >{{ activeContent.Content.title }}
-            </span>
-          </transition>
-        </div>
-        <div class="issue-thumbnail">
-          <transition name="fade">
-            <div
-              v-if="isShow"
-              class="fade"
-              :style="`background-image: url(https://kkbapi.freeive.dev${activeContent.Media.url});`"
-            ></div>
-          </transition>
-        </div>
+        <nuxt-link
+          :to="
+            activeContent.Content.contentType !== 'STORY'
+              ? {
+                  name: 'contents-contentId',
+                  params: { contentId: activeContent.contentId }
+                }
+              : {
+                  path: 'story-telling',
+                  query: { contentId: activeContent.contentId }
+                }
+          "
+        >
+          <div class="issue-title">
+            <transition name="fade">
+              <span v-if="isShow" class="fade">
+                {{ activeContent.Content.title }}
+              </span>
+            </transition>
+          </div>
+
+          <div class="issue-thumbnail">
+            <transition name="fade">
+              <div
+                v-if="isShow"
+                class="fade"
+                :style="`background-image: url(https://kkbapi.freeive.dev${activeContent.Media.url});`"
+              ></div>
+            </transition>
+          </div>
+        </nuxt-link>
       </div>
       <div class="issue-info">
         <BreadCrumb :data="breadcrumb" />
@@ -33,6 +50,7 @@
             <button
               class="prev"
               title="이전 페이지"
+              :disabled="list.length <= 1"
               @click="onClick('prev', true)"
             >
               ←
@@ -45,6 +63,7 @@
             <button
               class="next"
               title="다음 페이지"
+              :disabled="list.length <= 1"
               @click="onClick('next', true)"
             >
               →
@@ -71,12 +90,11 @@
         isShow: false,
         activeIndex: 0,
         autoLoad: null,
-        paging: {
+        pageData: {
           offset: 0,
           limit: 20,
-          contentType: 'All', // ALL, ARTICLE, STORY, THESIS
-          targetLAng: 'ALL', // ALL, KR, EN
-          filter: '' // 검색어
+          contentType: 'ALL', // ALL, ARTICLE, STORY, THESIS
+          targetLang: this.$store.state.language
         },
         image: require('~/assets/images/main_img_dummy.png'),
         list: [],
@@ -91,22 +109,20 @@
       curPage() {
         return util.changeNumFont(this.activeIndex + 1)
       }
-      // async activeContent() {
-      //   const data =
-      //     this.list.length > 0 ? this.list[this.activeIndex].Content : null
-      //   if (data) {
-      //     await this.setBreadcrumb(data.category1, data.category2)
-      //   }
-      //   return data
-      // }
     },
-    async created() {
-      const res = await this.getIssueList(this.paging)
-      this.list = res.data.list
-      await this.setContent()
+    watch: {
+      list: {
+        deep: true,
+        handler(val) {
+          this.isShow = true
+          if (val.length > 1) {
+            this.onSetInterval()
+          }
+        }
+      }
     },
     async mounted() {
-      await this.init()
+      await this.fetchList()
       window.addEventListener('scroll', this.onScroll)
     },
     beforeDestroy() {
@@ -115,13 +131,17 @@
     },
     methods: {
       ...mapActions({
-        getIssueList: 'issue/getIssueList',
+        getIssueList: 'getMonthlyList',
         getCategoryList: 'getCategoryList',
         getNickName: 'getNickName'
       }),
-      async init() {
-        this.isShow = true
-        if (this.list.length > 1) await this.onSetInterval()
+      async fetchList() {
+        this.pageData.targetLang = this.$store.state.language
+        const res = await this.getIssueList(this.pageData)
+        this.list = res.data.list
+        if (this.list.length > 0) {
+          await this.setContent()
+        }
       },
       async setContent() {
         this.activeContent = this.list[this.activeIndex]
@@ -283,7 +303,6 @@
     }
     &-thumbnail {
       position: relative;
-      overflow: hidden;
       height: 990px;
       box-shadow: 30px 30px 50px -10px rgba(0,0,0,0.2);
       > div {
@@ -295,6 +314,7 @@
         background-size: cover;
         background-position: center center;
         background-repeat: no-repeat;
+        box-shadow: 30px 30px 50px -10px #cfd0d3;
       }
     }
     &-navi {

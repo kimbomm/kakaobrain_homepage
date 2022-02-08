@@ -41,6 +41,21 @@ function changeNumFont(number) {
   return returnFont.join('')
 }
 
+function setParameters(payload) {
+  let createdParam = ''
+  let i = ''
+  for (const key in payload) {
+    const value = payload[key]
+    createdParam += `${key}=${value}`
+    i++
+    if (i !== Object.keys(payload).length) {
+      createdParam += '&'
+    }
+  }
+  return createdParam
+}
+
 export default {
-  changeNumFont
+  changeNumFont,
+  setParameters
 }

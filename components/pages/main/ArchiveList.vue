@@ -7,27 +7,61 @@
       <nuxt-link to="/archive"><span>View List </span><span></span></nuxt-link>
     </div>
     <ul class="main-archive-list">
-      <li v-for="(item, index) in getRecentList" :key="index" class="gl-2">
-        <ArchiveCard
-          :tit="item.title"
-          :tag="item.sticker"
-          :theme="index % 2 === 0 ? 'archive-dark' : ''"
-        />
+      <li
+        v-for="(item, index) in getRecentList || list"
+        :key="index"
+        class="gl-2"
+      >
+        <nuxt-link
+          :to="{
+            name: 'contents-contentId',
+            params: { contentId: item.contentId }
+          }"
+        >
+          <ArchiveCard
+            :tit="item.title"
+            :tag="item.ContentTags"
+            :theme="index % 2 === 0 ? 'archive-dark' : ''"
+          />
+        </nuxt-link>
       </li>
     </ul>
   </div>
 </template>
 <script>
-  import { mapGetters } from 'vuex'
+  import { mapGetters, mapActions } from 'vuex'
   import ArchiveCard from '@/components/elements/card/ArchiveCard'
   export default {
     components: {
       ArchiveCard
     },
+    data() {
+      return {
+        pageData: {
+          offset: 0,
+          limit: 8,
+          contentType: 'ARTICLE',
+          targetLang: 'KR'
+        },
+        list: []
+      }
+    },
     computed: {
       ...mapGetters({
         getRecentList: 'archive/getRecentList'
       })
+    },
+    mounted() {
+      this.init()
+    },
+    methods: {
+      ...mapActions({
+        getContentList: 'getContentList'
+      }),
+      async init() {
+        const res = await this.getContentList(this.pageData)
+        this.list = res.data.list
+      }
     }
   }
 </script>

@@ -51,7 +51,14 @@
                 :key="`sub-${idx}`"
                 class="sub-item"
               >
-                <nuxt-link :to="subMenu.link">{{ subMenu.name }}</nuxt-link>
+                <template v-if="subMenu.name !== 'Principle'">
+                  <nuxt-link :to="subMenu.link">{{ subMenu.name }}</nuxt-link>
+                </template>
+                <template v-else>
+                  <a :href="principleLink" target="_blank">{{
+                    subMenu.name
+                  }}</a>
+                </template>
               </li>
             </ul>
           </li>
@@ -72,8 +79,8 @@
       return {
         isMenu: false,
         languageList: [
-          { name: 'English', value: 'en' },
-          { name: 'Korean', value: 'ko' }
+          { name: 'English', value: 'EN' },
+          { name: 'Korean', value: 'KR' }
         ]
       }
     },
@@ -91,6 +98,15 @@
         }
 
         return classList.join(' ')
+      },
+      principleLink() {
+        let link =
+          'https://www.kakaocorp.com/page/responsible/aiEthics?lang=KOR&tab=all'
+        if (this.language === 'EN') {
+          link =
+            'https://www.kakaocorp.com/page/responsible/aiEthics?lang=ENG&tab=all'
+        }
+        return link
       }
     },
     methods: {
@@ -101,8 +117,9 @@
         this.isMenu = value
       },
       async selectLang(lang) {
+        localStorage.setItem('language', lang)
         await this.setLanguage(lang)
-        await this.$router.push('/main')
+        location.href = '/'
       }
     }
   }

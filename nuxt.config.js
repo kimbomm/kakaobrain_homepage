@@ -43,7 +43,12 @@ export default {
   buildModules: ['@nuxtjs/style-resources', '@nuxtjs/dotenv'],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/axios'],
+  modules: ['@nuxtjs/axios', '@nuxtjs/dayjs'],
+
+  dayjs: {
+    locales: ['en', 'ko'],
+    defaultLocale: 'en'
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},

@@ -42,8 +42,8 @@
         },
         {
           "category": "article",
-          "nick": "Article",
-          "name": "Article",
+          "nick": "Publications",
+          "name": "Publications",
           "link": "/contents/research/article"
         },
         {
@@ -68,9 +68,9 @@
           "link": "/contents/tech/highlight"
         },
         {
-          "category": "dataset",
-          "nick": "Dataset",
-          "name": "Dataset",
+          "category": "datasets",
+          "nick": "Datasets",
+          "name": "Datasets",
           "link": "/contents/tech/dataset"
         },
         {
@@ -116,14 +116,18 @@
     }
   ],
   "footer": [
-    { "name": "문의", "link": "#" },
-    { "name": "오시는 길", "link": "#" },
-    { "name": "사이버윤리실", "link": "#" },
-    { "name": "이용약관", "link": "#" },
-    { "name": "개인정보보호지침", "link": "#" },
-    { "name": "Pathfinder", "link": "#" },
-    { "name": "Open-MiniCon", "link": "#" },
-    { "name": "Recruit", "link": "#" }
+    {
+      "name": "문의",
+      "link": "mailto:contact@kakaobrain.com",
+      "target": "_blank"
+    },
+    { "name": "오시는 길", "link": "/map", "target": "" },
+    { "name": "사이버윤리실", "link": "#", "target": "" },
+    { "name": "이용약관", "link": "#", "target": "" },
+    { "name": "개인정보보호지침", "link": "#", "target": "" },
+    { "name": "Pathfinder", "link": "#", "target": "" },
+    { "name": "Open-MiniCon", "link": "#", "target": "" },
+    { "name": "Recruit", "link": "#", "target": "" }
   ],
   "sns": [
     { "name": "facebook", "link": "#" },

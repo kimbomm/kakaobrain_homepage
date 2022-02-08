@@ -1,18 +1,49 @@
 <template>
   <div :class="articleClassBind">
     <div class="date">
-      <span class="gl-1">2021/11/01</span>
-      <span>7h</span>
+      <span class="gl-1">
+        {{ $dayjs(data.Content.acceptAt).format('YYYY/MM/DD') }}
+      </span>
+      <span> {{ $dayjs().diff(data.Content.acceptAt, 'hour') }}h </span>
     </div>
+
     <div :class="gridClassBind">
       <div class="article-info">
         <div class="thumbnail">
-          <img :src="require(`@/assets/images/article_img_dummy.png`)" />
+          <nuxt-link
+            :to="
+              data.Content.contentType !== 'STORY'
+                ? {
+                    name: 'contents-contentId',
+                    params: { contentId: data.contentId }
+                  }
+                : {
+                    path: 'story-telling',
+                    query: { contentId: data.contentId }
+                  }
+            "
+          >
+            <img :src="srcPath" />
+          </nuxt-link>
         </div>
-        <div class="title">
-          <span>☞ We are hiring!!!</span>
-          <span></span>
-        </div>
+        <nuxt-link
+          :to="
+            data.Content.contentType !== 'STORY'
+              ? {
+                  name: 'contents-contentId',
+                  params: { contentId: data.contentId }
+                }
+              : {
+                  path: 'story-telling',
+                  query: { contentId: data.contentId }
+                }
+          "
+        >
+          <div class="title">
+            <span>☞ {{ data.Content.title }}</span>
+            <span></span>
+          </div>
+        </nuxt-link>
       </div>
       <div class="tags">
         <BreadCrumb :data="breadcrumb" />
@@ -21,17 +52,13 @@
   </div>
 </template>
 <script>
+  import { mapActions } from 'vuex'
   import BreadCrumb from '@/components/elements/BreadCrumb'
   export default {
     props: {
-      order: {
-        type: Number,
-        default: 0,
-        require: false
-      },
-      grid: {
-        type: Number,
-        default: 1,
+      data: {
+        type: Object,
+        default: () => {},
         require: true
       }
     },
@@ -40,28 +67,88 @@
     },
     data() {
       return {
-        breadcrumb: [
-          { text: 'About', sub: 'about', link: '' },
-          { text: 'Introduce', sub: 'sub', link: '/about' },
-          { text: 'Yeah!!!', sub: '', link: '' }
-        ]
+        srcPath: null,
+        breadcrumb: []
       }
     },
     computed: {
+      isPc() {
+        return this.data.Media && window.innerWidth > 768
+      },
+      isMob() {
+        return this.data.MobileMedia && window.innerWidth <= 768
+      },
       articleClassBind() {
         let classList = ['article']
-        if (this.order > 0) {
-          classList.push(`l-ml-${this.order}`)
+        if (this.data.contentProp.position.order > 0) {
+          classList.push(`l-ml-${this.data.contentProp.position.order}`)
         }
         return classList
       },
       gridClassBind() {
         let classList = ['article-content']
-        if (this.grid > 0) {
-          classList.push(`gl-${this.grid}`)
+        if (this.data.contentProp.position.width > 0) {
+          classList.push(`gl-${this.data.contentProp.position.width}`)
         }
         return classList
       }
+    },
+    async mounted() {
+      await this.setImagePath()
+      await this.setBreadcrumb(
+        this.data.Content.category1,
+        this.data.Content.category2
+      )
+      window.addEventListener('resize', this.setImagePath)
+    },
+    beforeDestroy() {
+      window.removeEventListener('resize', this.setImagePath)
+    },
+    methods: {
+      ...mapActions({
+        getCategoryList: 'getCategoryList',
+        getNickName: 'getNickName'
+      }),
+      setImagePath() {
+        let path = 'https://kkbapi.freeive.dev'
+
+        if (window.innerWidth >= 768) {
+          path += this.data.contentProp.mediaInfo.pc.media.url
+        } else {
+          path += this.data.contentProp.mediaInfo.mobile.media.url
+        }
+        this.srcPath = path
+      },
+      async setBreadcrumb(category1, category2) {
+        let subClass = ''
+        const info = await this.getNickName({
+          category1,
+          category2
+        })
+
+        switch (category1) {
+          case 'document':
+            subClass = 'docu'
+            break
+          default:
+            subClass = category1
+            break
+        }
+
+        this.breadcrumb.push(
+          { text: info.category1.nick, sub: subClass, link: '' },
+          { text: info.category2.nick, sub: 'sub', link: info.category2.link }
+        )
+
+        for (let i = 0; i < this.data.Content.ContentTags.length; i++) {
+          this.breadcrumb.push({
+            text: this.data.Content.ContentTags[i].tag,
+            sub: '',
+            link: this.data.Content.ContentTags[i].link
+          })
+        }
+      },
+      goDetail() {}
     }
   }
 </script>
@@ -93,6 +180,7 @@
     justify-content: space-between;
     font-size: 18px;
     line-height: 1.3;
+    margin-top: 10px;
     span:nth-child(1) {
       display: inline-block;
       flex: 0 0 calc(100% - 50px);

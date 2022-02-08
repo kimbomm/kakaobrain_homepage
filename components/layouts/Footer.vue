@@ -11,15 +11,18 @@
               :key="`menu-${index}`"
               class="menu-list"
             >
-              <nuxt-link :to="menu.link">
+              <nuxt-link v-if="!menu.target" :to="menu.link">
                 {{ menu.name }}
               </nuxt-link>
+              <a v-else :href="menu.link" :target="menu.target">
+                {{ menu.name }}
+              </a>
             </li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <span class="info-txt">@2021</span>
+        <span class="info-txt">@{{ $dayjs().format('YYYY') }}</span>
         <div class="copyright">
           Copyright ⓒ kakaobrain Corp. <span>All rights reserved.</span>
         </div>

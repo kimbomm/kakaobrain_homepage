@@ -40,8 +40,7 @@
           offset: 0,
           limit: 10,
           contentType: 'ALL',
-          targetLang: 'ALL',
-          filter: ''
+          targetLang: this.$store.state.language
         }
       }
     },
@@ -56,6 +55,7 @@
         await this.fetchList()
       },
       async fetchList() {
+        this.pageData.targetLang = this.$store.state.language
         const res = await this.getMonthlyList(this.pageData)
         this.list = this.list.concat(res.data.list)
       }

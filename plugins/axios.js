@@ -6,10 +6,10 @@ export default ({ $axios, redirect }) => {
     // }
   })
 
-  $axios.onError(error => {
-    const code = parseInt(error.response && error.response.status)
-    if (code) {
-      redirect('/error')
-    }
-  })
+  // $axios.onError(error => {
+  //   const code = parseInt(error.response && error.response.status)
+  //   if (code) {
+  //     redirect('/error')
+  //   }
+  // })
 }

@@ -64,7 +64,6 @@
     },
     data() {
       return {
-        filterData: [],
         list: [{ value: 'all', text: 'All', isChecked: true }]
       }
     },
