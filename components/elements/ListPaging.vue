@@ -34,7 +34,7 @@
           <li v-if="totalLength - 3 > activeIndex" @click="onClick('next')">
             <button class="link more">...</button>
           </li>
-          <li>
+          <li v-if="totalLength > 1">
             <button
               :class="{ link: true, active: activeIndex === totalLength - 1 }"
               @click="onClick(totalLength - 1)"
@@ -91,7 +91,9 @@
         this.setPaging()
       }
     },
-    mounted() {},
+    mounted() {
+      this.setPaging()
+    },
     methods: {
       onClick(num) {
         if (num === 'prev') {
@@ -160,7 +162,7 @@
       }
       li {
         padding: 0 2px;
-        &:not(:last-child) {
+        &:not::last-child {
           margin-right: 10px;
         }
       }

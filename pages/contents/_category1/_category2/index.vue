@@ -65,6 +65,7 @@
       </ul>
     </div>
     <List-paging
+      v-if="total > 0"
       :limit="pageData.limit"
       :offset="pageData.offset"
       :total="total"
