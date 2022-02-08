@@ -51,7 +51,14 @@
                 :key="`sub-${idx}`"
                 class="sub-item"
               >
-                <nuxt-link :to="subMenu.link">{{ subMenu.name }}</nuxt-link>
+                <template v-if="subMenu.name !== 'Principle'">
+                  <nuxt-link :to="subMenu.link">{{ subMenu.name }}</nuxt-link>
+                </template>
+                <template v-else>
+                  <a :href="principleLink" target="_blank">{{
+                    subMenu.name
+                  }}</a>
+                </template>
               </li>
             </ul>
           </li>
@@ -91,6 +98,15 @@
         }
 
         return classList.join(' ')
+      },
+      principleLink() {
+        let link =
+          'https://www.kakaocorp.com/page/responsible/aiEthics?lang=KOR&tab=all'
+        if (this.language === 'EN') {
+          link =
+            'https://www.kakaocorp.com/page/responsible/aiEthics?lang=ENG&tab=all'
+        }
+        return link
       }
     },
     methods: {
