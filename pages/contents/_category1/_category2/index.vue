@@ -131,8 +131,8 @@
         }
       }
     },
-    created() {
-      this.init()
+    async mounted() {
+      await this.init()
     },
     methods: {
       ...mapActions({
@@ -144,6 +144,7 @@
         await this.fetchList()
       },
       async fetchList() {
+        this.pageData.targetLang = this.$store.state.language
         const res = await this.getCategoryList({
           category1: this.$route.params.category1,
           category2: this.$route.params.category2,

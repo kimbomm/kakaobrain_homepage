@@ -72,8 +72,8 @@
       return {
         isMenu: false,
         languageList: [
-          { name: 'English', value: 'en' },
-          { name: 'Korean', value: 'ko' }
+          { name: 'English', value: 'EN' },
+          { name: 'Korean', value: 'KR' }
         ]
       }
     },
@@ -101,6 +101,7 @@
         this.isMenu = value
       },
       async selectLang(lang) {
+        localStorage.setItem('language', lang)
         await this.setLanguage(lang)
         location.href = '/'
       }

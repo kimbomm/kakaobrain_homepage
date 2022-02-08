@@ -45,6 +45,12 @@
       this.$nuxt.$on('story-page', this.onStoryPage)
       this.$nuxt.$on('onSlideEnd', this.onSlideEnd)
     },
+    beforeMount() {
+      const language = localStorage.getItem('language')
+      if (language) {
+        this.setLanguage(language)
+      }
+    },
     async mounted() {
       await this.$store.commit('setIsDark', true)
       await this.checkDevice()
@@ -55,7 +61,8 @@
     },
     methods: {
       ...mapMutations({
-        setTouchDevice: 'setTouchDevice'
+        setTouchDevice: 'setTouchDevice',
+        setLanguage: 'setLanguage'
       }),
       onStoryPage(value) {
         this.isStoryPage = value

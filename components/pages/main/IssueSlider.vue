@@ -90,7 +90,7 @@
         isShow: false,
         activeIndex: 0,
         autoLoad: null,
-        paging: {
+        pageData: {
           offset: 0,
           limit: 20,
           contentType: 'ALL', // ALL, ARTICLE, STORY, THESIS
@@ -121,14 +121,8 @@
         }
       }
     },
-    async created() {
-      const res = await this.getIssueList(this.paging)
-      this.list = res.data.list
-      if (this.list.length > 0) {
-        await this.setContent()
-      }
-    },
     async mounted() {
+      await this.fetchList()
       window.addEventListener('scroll', this.onScroll)
     },
     beforeDestroy() {
@@ -141,6 +135,14 @@
         getCategoryList: 'getCategoryList',
         getNickName: 'getNickName'
       }),
+      async fetchList() {
+        this.pageData.targetLang = this.$store.state.language
+        const res = await this.getIssueList(this.pageData)
+        this.list = res.data.list
+        if (this.list.length > 0) {
+          await this.setContent()
+        }
+      },
       async setContent() {
         this.activeContent = this.list[this.activeIndex]
         await this.setBreadcrumb(
