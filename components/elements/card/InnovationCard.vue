@@ -78,7 +78,7 @@
     min-width: 300px;
     height: 700px;
     padding: 20px;
-    box-shadow: 30px 30px 50px -10px #cfd0d3;
+    box-shadow: 30px 30px 50px -10px rgba(0,0,0,0.2);
     background-color: $gray-0;
     color: $gray-9;
     box-sizing: border-box;

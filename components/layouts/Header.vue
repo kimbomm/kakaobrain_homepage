@@ -3,7 +3,7 @@
     <div class="header-top">
       <h1 class="b-logo gl-2">
         <nuxt-link to="/">
-          <span>kakaobrain</span>
+          <img src="@/assets/images/logo.png">
         </nuxt-link>
       </h1>
       <div class="header-con">
@@ -54,6 +54,10 @@
     }
     .b-logo {
       font-weight: 900;
+      img{
+        width:80px;
+        height:20px;
+      }
     }
     &-con {
       margin-left: 20px;
@@ -75,11 +79,27 @@
     .header-item {
       font-size: 22px;
     }
+    .header {
+      .b-logo {
+        img{
+          width:108px;
+          height:27px;
+        }
+      }
+    }
   }
   @include pc-4k {
     .header,
     .header-item {
       font-size: 34px;
+    }
+    .header {
+      .b-logo {
+        img{
+          width:176px;
+          height:44px;
+        }
+      }
     }
   }
   @include tablet {
@@ -87,6 +107,14 @@
     .header-item {
       top: 16px;
       font-size: 16px;
+    }
+    .header {
+      .b-logo {
+        img{
+          width:84px;
+          height:21px;
+        }
+      }
     }
   }
   @include mobile {
