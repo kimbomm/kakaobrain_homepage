@@ -10,44 +10,17 @@
 
     <div class="contents-checkbox l-ml-3 gl-5">
       <ul>
-        <li class="contents-item">
+        <li
+          v-for="(item, index) in filterList"
+          :key="index"
+          class="contents-item"
+        >
           <Checkbox
-            checkboxId="checkbox_0"
-            checkboxValue="a"
-            checkboxText="ALL"
-            :isChecked="true"
-          />
-        </li>
-        <li class="contents-item">
-          <Checkbox
-            checkboxId="checkbox_1"
-            checkboxValue="b"
-            checkboxText="보도자료"
-            :isChecked="false"
-          />
-        </li>
-        <li class="contents-item">
-          <Checkbox
-            checkboxId="checkbox_2"
-            checkboxValue="b"
-            checkboxText="카테고리"
-            :isChecked="false"
-          />
-        </li>
-        <li class="contents-item">
-          <Checkbox
-            checkboxId="checkbox_3"
-            checkboxValue="b"
-            checkboxText="뉴스"
-            :isChecked="false"
-          />
-        </li>
-        <li class="contents-item">
-          <Checkbox
-            checkboxId="checkbox_4"
-            checkboxValue="b"
-            checkboxText="카테고리"
-            :isChecked="false"
+            :checkboxText="item.text"
+            :checkboxValue="item.value"
+            :checkboxId="`checkbox_${index}`"
+            :isChecked="item.isChecked"
+            @change="onChange"
           />
         </li>
       </ul>
@@ -121,14 +94,23 @@
           offset: 0,
           limit: 8,
           targetLang: this.$store.state.language,
-          tag: []
+          tag: ''
         },
         total: null,
         tags: [],
         params: {
           category1: null,
           category2: null
-        }
+        },
+        filterList: [{ value: 'all', text: 'All', isChecked: true }]
+      }
+    },
+    computed: {
+      checkedList() {
+        let list = []
+        list = this.filterList.filter(item => item.isChecked)
+        list = list.map(item => item.value)
+        return list
       }
     },
     async mounted() {
@@ -142,6 +124,7 @@
       async init() {
         await this.setBreadcrumb()
         await this.fetchList()
+        await this.filterInit()
       },
       async fetchList() {
         this.pageData.targetLang = this.$store.state.language
@@ -155,6 +138,12 @@
           this.total = res.data.count
           this.tags = res.data.tags
         }
+      },
+      async filterInit() {
+        const filters = this.tags.map(tag => {
+          return { value: tag, text: tag, isChecked: false }
+        })
+        this.filterList = this.filterList.concat(filters)
       },
       async setBreadcrumb() {
         let subClass = ''
@@ -177,6 +166,21 @@
           { text: info.category1.nick, sub: subClass, link: '' },
           { text: info.category2.nick, sub: 'sub', link: info.category2.link }
         )
+      },
+      onChange(data) {
+        this.filterList.forEach(item => {
+          if (data.value === 'all' && data.isChecked) {
+            item.isChecked = item.value === data.value ? true : false
+          } else if (data.value !== 'all' && data.isChecked) {
+            if (item.value === data.value) item.isChecked = data.isChecked
+            if (item.value === 'all' && item.isChecked) item.isChecked = false
+          } else {
+            if (item.value === data.value) item.isChecked = data.isChecked
+          }
+        })
+        this.pageData.tag =
+          this.checkedList.join('|') === 'all' ? '' : this.checkedList.join('|')
+        this.fetchList()
       },
       onPagingChange(val) {
         this.pageData.offset = val * this.pageData.limit
