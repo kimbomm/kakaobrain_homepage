@@ -128,13 +128,13 @@
       initMap() {
         const container = document.querySelector('#map')
         const options = {
-          center: new kakao.maps.LatLng(35.19656853772262, 129.0807270648317),
+          center: new kakao.maps.LatLng(37.402748780301465, 127.10738647849486),
           level: 3
         }
         const map = new kakao.maps.Map(container, options)
         const markerPosition = new kakao.maps.LatLng(
-          35.19656853772262,
-          129.0807270648317
+          37.402748780301465,
+          127.10738647849486
         )
 
         const marker = new kakao.maps.Marker({
