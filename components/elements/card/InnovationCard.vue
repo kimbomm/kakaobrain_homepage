@@ -13,8 +13,9 @@
         </div>
         <div class="tag">
           <ul>
-            <li class="tag-item"><span class="tag-txt">#Optimization</span></li>
-            <li class="tag-item"><span class="tag-txt">#AutoML</span></li>
+            <li v-for="item in tags" :key="item.tagSeq" class="tag-item">
+              <span class="tag-txt">#{{ item.tag }}</span>
+            </li>
           </ul>
         </div>
       </div>
@@ -44,6 +45,10 @@
         type: String,
         default: '',
         required: false
+      },
+      tags: {
+        type: Array,
+        default: () => []
       }
     }
   }

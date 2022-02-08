@@ -87,5 +87,10 @@ export const actions = {
   async getMainGridList({}, payload) {
     const res = await this.$axios.get('/main/content', payload)
     return res
+  },
+  async getContentList({}, payload) {
+    const params = utility.setParameters(payload)
+    const res = await this.$axios.get(`/category?${params}`)
+    return res
   }
 }

@@ -3,13 +3,21 @@
     <div ref="innovation">
       <transition name="slideInRight">
         <ul v-show="isShow" ref="list" class="innovation-list l-pl-2">
-          <li v-for="(item, index) in getRecentList" :key="index" class="gl-3">
-            <InnovationCard
-              :tit="item.title"
-              :publish="item.listing"
-              collaborator="Frost.conv/Sam.Hsk/Lukas.Kim/Dev.Lee/Sw.ack"
-              :theme="index % 2 === 0 ? 'Innovation-dark' : ''"
-            />
+          <li v-for="(item, index) in list" :key="index" class="gl-3">
+            <nuxt-link
+              :to="{
+                name: 'contents-contentId',
+                params: { contentId: item.contentId }
+              }"
+            >
+              <InnovationCard
+                :tit="item.title"
+                :publish="item.academy"
+                :collaborator="item.writer"
+                :tags="item.ContentTags"
+                :theme="index % 2 === 0 ? 'Innovation-dark' : ''"
+              />
+            </nuxt-link>
           </li>
           <li>
             <nuxt-link to="/innovation" title="논문 리스트 페이지로 이동">
@@ -22,7 +30,7 @@
   </div>
 </template>
 <script>
-  import { mapState, mapGetters } from 'vuex'
+  import { mapActions } from 'vuex'
   import InnovationCard from '@/components/elements/card/InnovationCard'
   export default {
     components: {
@@ -30,18 +38,18 @@
     },
     data() {
       return {
-        isShow: false
+        isShow: false,
+        pageData: {
+          offset: 0,
+          limit: 8,
+          contentType: 'THESIS',
+          targetLang: 'KR'
+        },
+        list: []
       }
     },
-    computed: {
-      ...mapState({
-        innovationList: state => state.innovation.list
-      }),
-      ...mapGetters({
-        getRecentList: 'innovation/getRecentList'
-      })
-    },
     mounted() {
+      this.init()
       window.addEventListener('scroll', this.onScroll)
       // this.$refs['list'].addEventListener('wheel', e => {
       //   this.cardWheelEvent(e)
@@ -54,6 +62,13 @@
       // })
     },
     methods: {
+      ...mapActions({
+        getContentList: 'getContentList'
+      }),
+      async init() {
+        const res = await this.getContentList(this.pageData)
+        this.list = res.data.list
+      },
       onScroll() {
         if (
           window.scrollY + window.innerHeight >
@@ -101,6 +116,7 @@
       overflow-x: auto;
       transition: all 0.3s linear;
       width: 100%;
+      padding: 70px 0;
       display: flex;
       flex-wrap: nowrap;
       -ms-overflow-style: none; /* IE and Edge */
@@ -243,7 +259,7 @@
       width: 100%;
     }
     .innovation-list {
-      padding: 0 20px !important;
+      padding: 45px 20px !important;
       li {
         flex: 0 0 300px;
         margin-right: 20px;
