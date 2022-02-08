@@ -162,8 +162,9 @@
       }
       li {
         padding: 0 2px;
-        &:not::last-child {
-          margin-right: 10px;
+        margin-right: 10px;
+        &:last-child {
+          margin-right: 0;
         }
       }
     }
