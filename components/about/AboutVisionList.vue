@@ -95,6 +95,7 @@
       .sub-txt {
         font-size: 30px;
         line-height: 130%;
+        word-break: keep-all;
       }
     }
   }
@@ -140,17 +141,17 @@
       }
     }
   }
-  @media screen and (max-width:1200px) {
+  @media screen and (max-width: 1200px) {
     .vision-list {
       .list-con {
-        width: 450px ;
+        width: 450px;
       }
       .list-img {
-        width: 450px ;
-        height: 450px ;
+        width: 450px;
+        height: 450px;
       }
       .list-txt {
-        left: -240px ;
+        left: -240px;
         .txt {
           font-size: 80px;
         }

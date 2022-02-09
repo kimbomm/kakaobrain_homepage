@@ -1,14 +1,15 @@
 <template>
-  <div class="about-con-txt-b gl-5 l-ml-3">{{data.text}}</div>
+  <div class="about-con-txt-b gl-5 l-ml-3">
+    <p v-html="data.text"></p>
+  </div>
 </template>
 <script>
   export default {
     name: 'AboutConTxtB',
-    props:{
-      data:{
-        type:Object,
-        default:() => [],
-        require:true
+    props: {
+      data: {
+        type: Object,
+        default: () => {}
       }
     }
   }

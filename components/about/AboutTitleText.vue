@@ -11,16 +11,16 @@
 <script>
   export default {
     name: 'AboutTitleText',
-    props:{
+    props: {
       // text:{
       //   type:String,
       //   default:'',
       //   required:true
       // }
-      data:{
-        type:Object,
-        default:() => [],
-        require:true
+      data: {
+        type: Object,
+        default: () => {},
+        require: true
       }
     }
   }

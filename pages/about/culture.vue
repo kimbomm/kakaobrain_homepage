@@ -1,20 +1,21 @@
-<template lang="">
+<template>
   <div>
     <BreadCrumb :data="breadcrumb" :full="true" />
-    <AboutTitle :data="aboutTitle" />
-    <AboutTitleText :data="aboutTitleText"/>
-    <AboutFullConD/>
+    <AboutTitle :data="data.aboutTitle" />
+    <AboutTitleText :data="data.aboutTitleText" />
+    <AboutFullConD :data="data.aboutConD" />
     <div class="culture-text-box">
-      <AboutConTit :data="aboutConTit"/>
-      <AboutConTxt :data="aboutConTxt"/>
-      <AboutConSubTit :data="aboutConSubTit"/>
-      <AboutConTxt :data="aboutConTxt2"/>
+      <AboutConTit :data="data.aboutConTit" />
+      <AboutConTxt :data="data.aboutConTxt" />
+      <AboutConSubTit :data="data.aboutConSubTit" />
+      <AboutConTxt :data="data.aboutConTxt2" />
     </div>
-    <AboutFullConE/>
-    <AboutFullConF/>
+    <AboutFullConE :data="data.aboutConD" />
+    <AboutFullConF :data="data.aboutConF" />
   </div>
 </template>
 <script>
+  import { mapState } from 'vuex'
   import mixinGlobal from '@/mixin/global.js'
   import BreadCrumb from '@/components/elements/BreadCrumb'
   import AboutTitle from '@/components/about/AboutTitle'
@@ -46,25 +47,35 @@
           { text: 'Culture', sub: 'sub', link: '/about/culture' },
           { text: 'Yeah!!!', sub: '', link: '' }
         ],
-        aboutTitle:{
-          title:'Our way</br><span class="string">of working.</span>',
+        aboutTitle: {
+          title: 'Our way</br><span class="string">of working.</span>'
         },
-        aboutTitleText:{
-          text:'kakaobrain krew are given a lot of good opportunities to grow self-directed, and we find out how we are doing to grow</br>together through great colleagues.'
+        aboutTitleText: {
+          text: 'kakaobrain krew are given a lot of good opportunities to grow self-directed, and we find out how we are doing to grow</br>together through great colleagues.'
         },
 
-        aboutConTit:{
-          title:'We immerse ourselves and work self-directedly.'
+        aboutConTit: {
+          title: 'We immerse ourselves and work self-directedly.'
         },
-        aboutConTxt:{
-          text:'We need to be able to experiment and change faster than anywhere else, and we need to be interested in and challenge new things and paths that no one has ever been to. So we are not afraid of failure. Performance includes not only success but also meaningful failure. As there are many situations where you have to maximize individual creativity by asking questions on your own without just moving on, self-direction to find and solve problems on your own is required first.'
+        aboutConTxt: {
+          text: 'We need to be able to experiment and change faster than anywhere else, and we need to be interested in and challenge new things and paths that no one has ever been to. So we are not afraid of failure. Performance includes not only success but also meaningful failure. As there are many situations where you have to maximize individual creativity by asking questions on your own without just moving on, self-direction to find and solve problems on your own is required first.'
         },
-        aboutConSubTit:{
-          title:'Why would we do this?'
+        aboutConSubTit: {
+          title: 'Why would we do this?'
         },
-        aboutConTxt2:{
-          text:'This is the first question we have to ask. We create our own driving force. I always think first, ask questions, and move in order to lead without being dragged around by work. In this way, we aim to judge ourselves with the trust that we can best judge our own work and do our own work.'
+        aboutConTxt2: {
+          text: 'This is the first question we have to ask. We create our own driving force. I always think first, ask questions, and move in order to lead without being dragged around by work. In this way, we aim to judge ourselves with the trust that we can best judge our own work and do our own work.'
         }
+      }
+    },
+    computed: {
+      ...mapState({
+        language: state => state.language,
+        cultureData: state => state.translation.ABOUT.culture
+      }),
+      data() {
+        let data = this.cultureData[this.language]
+        return data
       }
     }
   }

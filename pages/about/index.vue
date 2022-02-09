@@ -2,25 +2,26 @@
   <div>
     <BreadCrumb :data="breadcrumb" :full="true" />
     <AboutTitle :data="aboutTitle" />
-    <AboutTitleText :data="aboutTitleText" />
-    <AboutFullConA />
+    <AboutTitleText :data="data.aboutTitleText" />
+    <AboutFullConA :data="data.aboutConA" />
     <div class="vision-list-con">
       <AboutVisionList
-        v-for="(data, index) in visionList"
+        v-for="(data, index) in data.visionList"
         :key="index"
         :data="data"
         :index="index"
       />
     </div>
-    <AboutFullConB />
-    <AboutConTit :data="aboutConTitData" />
-    <AboutConTxtB :data="aboutConTxtBData" />
+    <AboutFullConB :data="data.aboutConB" />
+    <AboutConTit :data="data.aboutConTitData" />
+    <AboutConTxtB :data="data.aboutConTxtBData" />
     <AboutLargeLogo />
-    <AboutFullConC />
+    <AboutFullConC :data="data.aboutConC" />
     <AboutFullSlide />
   </div>
 </template>
 <script>
+  import { mapState } from 'vuex'
   import mixinGlobal from '@/mixin/global.js'
   import BreadCrumb from '@/components/elements/BreadCrumb'
   import AboutTitle from '@/components/about/AboutTitle'
@@ -51,6 +52,7 @@
     },
     data() {
       return {
+        // data: null,
         aboutTitle: {
           title: 'Unthinkable <span class="string">Question.</span>'
         },
@@ -96,6 +98,16 @@
               '모든 사람이 더 나은 삶을 살 수 있도록, 세상의 가치 있는 변화를 주도합니다.'
           }
         ]
+      }
+    },
+    computed: {
+      ...mapState({
+        language: state => state.language,
+        questionData: state => state.translation.ABOUT.question
+      }),
+      data() {
+        let data = this.questionData[this.language]
+        return data
       }
     }
   }
