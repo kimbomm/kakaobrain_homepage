@@ -112,7 +112,7 @@
     height: 198px;
     margin-bottom: 230px;
     margin-left: getMargin(2);
-    background-image: url('~/assets/images/b-symbol.png');
+    background-image: url('~/assets/images/b-symbol.svg');
     background-size: cover;
     background-position: center center;
   }
@@ -161,7 +161,7 @@
       width: 160px;
       height: 264px;
     }
-  }
+  } 
   @include pc-4k {
     .footer {
       padding-top: 1000px;
@@ -184,6 +184,7 @@
     .b-symbol {
       width: 240px;
       height: 396px;
+      margin-bottom: 156px;
     }
   }
   @include tablet {

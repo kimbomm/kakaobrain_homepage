@@ -1,12 +1,12 @@
 <template>
   <div class="team">
-    <p class="team-title l-ml-2">What is our Recommendation?</p>
+    <p class="team-title l-ml-2"> Who is working on?</p>
     <img src="@/assets/images/team_main.jpeg" />
     <div class="team-content">
       <div>
         <p>
-          Recommendation<br />
-          keywords by<br />
+          Someone who is making<br />
+          the world better on<br />
           <span>kakaobrain.</span>
         </p>
         <span ref="count" class="team-number">{{ NUMBER }}</span>
@@ -146,7 +146,7 @@
       border-radius: 50%;
       background-color: $brain-yellow;
       img {
-        width: 50%;
+        width: 30%;
       }
       &:disabled {
         background-color: $surface-2;

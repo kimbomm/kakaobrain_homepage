@@ -24,6 +24,7 @@
         </div>
       </div>
     </div>
+    <div class="slogan-text gl-6 l-ml-2">Our innovation is starts with all the krew's questions.</div>
   </div>
 </template>
 <script>
@@ -167,6 +168,7 @@
     transform: translateY(-100%);
   }
   .machine {
+    position: relative;
     background-color: $surface-2;
     padding: 0 20px;
     height: 1500px;
@@ -221,7 +223,13 @@
       line-height: 0.9;
     }
   }
-
+  .slogan-text{
+    position: absolute;
+    bottom: -20px;
+    transform: translate(0, 100%);
+    font-size:40px;
+    line-height: 110%;
+  }
   @include pc-large {
     .machine {
       height: 2000px;
@@ -242,6 +250,10 @@
         height: calc(210px * 3);
       }
     }
+    .slogan-text{
+      bottom: -20px;
+      font-size:48px;
+    }
   }
   @include pc-4k {
     .machine {
@@ -261,6 +273,13 @@
       p {
         font-size: 320px * 0.7;
         height: calc(320px * 3);
+      }
+    }
+    .slogan-text{
+      bottom: -40px;
+      font-size:72px;
+      &.gl-6{
+        width: getWidth(8) !important;
       }
     }
   }
@@ -284,6 +303,13 @@
         height: calc(90px * 3);
       }
     }
+    .slogan-text{
+      bottom: -20px;
+      font-size:20px;
+      &.gl-6{
+        width: getWidth(5) !important;
+      }
+    }
   }
   @include mobile {
     .machine {
@@ -305,6 +331,10 @@
         font-size: 28px * 0.7;
         height: calc(28px * 3);
       }
+    }
+    .slogan-text{
+      bottom: -20px;
+      font-size:0px;
     }
   }
 </style>

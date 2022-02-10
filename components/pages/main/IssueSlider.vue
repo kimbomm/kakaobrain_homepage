@@ -57,7 +57,7 @@
             </button>
             <div class="number">
               <sup class="cur">{{ activeIndex + 1 }}</sup>
-              /
+              <span class="slash">/</span>
               <sub class="total">{{ list.length }}</sub>
             </div>
             <button
@@ -328,6 +328,7 @@
         align-items: center;
         button {
           font-family: 'Inter';
+          font-size:16px;
         }
       }
       .cur-page {
@@ -338,16 +339,25 @@
         white-space: nowrap;
       }
       .number {
+        letter-spacing: -3px;
         margin: 0 2px;
         .cur {
-          position: relative;
-          top: -2px;
-          left: 3px;
+          margin-right: -2px;
+          vertical-align: super;
+          font-size: smaller;
+          //   position: relative;
+          //   top: -2px;
+          //   left: 3px;
         }
         .total {
-          position: relative;
-          top: 2px;
-          left: -3px;
+          vertical-align: sub;
+          font-size: smaller;
+          // position: relative;
+          // top: 2px;
+          // left: -3px;
+        }
+        .slash{
+          font-style: italic;
         }
       }
     }
