@@ -18,9 +18,15 @@
           </li>
         </ul>
       </div>
-      <button class="more" title="더보기" @click="addTag" :disabled="isAll">
-        <img src="@/assets/images/arrow-down.svg" alt="more button image" />
-      </button>
+      <div class="team-buttons">
+        <button class="more" title="더보기" @click="addTag" :disabled="isAll">
+          <img src="@/assets/images/arrow-down.svg" alt="more button image" />
+        </button>
+        <button class="apply" style="display: none">
+          <span class="apply-text">Apply!!!!! </span><span class="apply-mark">&nbsp;&nbsp;</span>
+        </button>
+      </div>
+      
     </div>
   </div>
 </template>
@@ -137,6 +143,10 @@
         }
       }
     }
+    &-buttons{
+      display: flex;
+      justify-content: space-between;
+    }
     .more {
       display: flex;
       align-items: center;
@@ -151,6 +161,26 @@
       &:disabled {
         background-color: $surface-2;
         cursor: not-allowed;
+      }
+    }
+    .apply{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 131px;
+      height: 131px; 
+      padding: 0 30px;
+      line-height: 130%;
+      font-family: Inter;
+      font-size: 70px; 
+      border-radius: 200px;
+      background-color: $brain-mint;
+      color:$gray-8;
+      &-text{
+        font-style: italic;
+      }
+      &-mark{
+        font-size: 50px;
       }
     }
   }
@@ -181,6 +211,14 @@
         width: 182px;
         height: 182px;
       }
+      .apply{
+        height: 182px; 
+        padding: 0 50px;
+        font-size: 94px; 
+        &-mark{
+          font-size: 66px;
+        }
+      }
     }
   }
   @include pc-4k {
@@ -208,6 +246,14 @@
       .more {
         width: 267px;
         height: 267px;
+      }
+      .apply{
+        height: 267px; 
+        padding: 0 80px;
+        font-size: 144px; 
+        &-mark{
+          font-size: 86px;
+        }
       }
     }
   }
@@ -238,6 +284,14 @@
       .more {
         width: 84px;
         height: 84px;
+      }
+      .apply{
+        height: 84px; 
+        padding: 0 30px;
+        font-size: 40px; 
+        &-mark{
+          font-size: 30px;
+        }
       }
     }
   }
@@ -279,6 +333,14 @@
       .more {
         width: 38px;
         height: 38px;
+      }
+      .apply{
+        height: 38px; 
+        padding: 0 16px;
+        font-size: 16px; 
+        &-mark{
+          font-size: 16px;
+        }
       }
     }
   }

@@ -78,6 +78,7 @@
     }
     &-list {
       margin-top: 100px;
+      padding-bottom:100px;
       display: flex;
       justify-content: space-between;
       -ms-overflow-style: none; /* IE and Edge */
