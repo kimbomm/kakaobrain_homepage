@@ -111,7 +111,7 @@
       border-radius: 50%;
       background-color: $brain-yellow;
       img {
-        width: 50%;
+        width: 30%;
       }
       &:disabled {
         background-color: $surface-2;
