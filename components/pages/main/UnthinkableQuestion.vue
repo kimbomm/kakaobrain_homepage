@@ -192,6 +192,9 @@
         }
         p:nth-child(2) {
           font-size: 18px;
+          &.gl-4{
+            width: getWidth(8) !important;
+          }
         }
       }
     }
