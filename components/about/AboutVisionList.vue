@@ -34,7 +34,9 @@
     data() {
       return {
         NUMBER: 0,
-        timer: null
+        timer: null,
+        isChange: false,
+        setTime: [600, 800, 700, 600]
       }
     },
     mounted() {
@@ -56,9 +58,17 @@
         }, 200)
       },
       handleCircle(isScroll) {
-        isScroll
-          ? (this.NUMBER = Math.floor(Math.random() * 5)) + 1
-          : (this.NUMBER = 0)
+        if (isScroll) {
+          if (!this.isChange) {
+            this.NUMBER = Math.floor(Math.random() * 5) + 1
+            this.isChange = true
+            setTimeout(() => {
+              this.isChange = false
+            }, this.setTime[this.index])
+          }
+        } else {
+          this.NUMBER = 0
+        }
       }
     }
   }
