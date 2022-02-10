@@ -102,7 +102,7 @@
     }
   }
   .menu-list {
-    margin-top: 80px;
+    margin-top: 94px;
     > li {
       margin-top: 100px;
       &:first-child {
