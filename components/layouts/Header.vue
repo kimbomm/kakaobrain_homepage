@@ -58,6 +58,7 @@
     }
     .b-logo {
       font-weight: 900;
+      z-index: 3;
       img {
         width: 80px;
         height: 20px;

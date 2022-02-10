@@ -18,53 +18,54 @@
       </div>
     </div>
     <button class="menu-btn" @click="hideMenu(true)" title="메뉴 열기"></button>
-
-    <div v-if="this.isMenu" class="hide" @mouseleave="hideMenu(false)">
-      <div class="lang">
-        <ul>
-          <li
-            v-for="(item, index) in languageList"
-            :key="index"
-            class="lang-item"
-          >
-            <button
-              :class="item.value === language ? 'is-active' : ''"
-              @click="selectLang(item.value)"
+    <transition name="slide">
+      <div v-if="this.isMenu" class="hide" @mouseleave="hideMenu(false)">
+        <div class="lang">
+          <ul>
+            <li
+              v-for="(item, index) in languageList"
+              :key="index"
+              class="lang-item"
             >
-              {{ item.name }}
-            </button>
-          </li>
-        </ul>
-      </div>
-      <div class="menu">
-        <ul>
-          <li
-            v-for="(menu, index) in menus"
-            :key="`menu-${index}`"
-            class="menu-item"
-          >
-            <!-- <span v-if="menu.alarm" class="num">{{ menu.alarm }}</span> -->
-            <span>{{ menu.name }}</span>
-            <ul class="sub">
-              <li
-                v-for="(subMenu, idx) in menu.sub"
-                :key="`sub-${idx}`"
-                class="sub-item"
+              <button
+                :class="item.value === language ? 'is-active' : ''"
+                @click="selectLang(item.value)"
               >
-                <template v-if="subMenu.name !== 'Principle'">
-                  <nuxt-link :to="subMenu.link">{{ subMenu.name }}</nuxt-link>
-                </template>
-                <template v-else>
-                  <a :href="principleLink" target="_blank">{{
-                    subMenu.name
-                  }}</a>
-                </template>
-              </li>
-            </ul>
-          </li>
-        </ul>
+                {{ item.name }}
+              </button>
+            </li>
+          </ul>
+        </div>
+        <div class="menu">
+          <ul>
+            <li
+              v-for="(menu, index) in menus"
+              :key="`menu-${index}`"
+              class="menu-item"
+            >
+              <!-- <span v-if="menu.alarm" class="num">{{ menu.alarm }}</span> -->
+              <span>{{ menu.name }}</span>
+              <ul class="sub">
+                <li
+                  v-for="(subMenu, idx) in menu.sub"
+                  :key="`sub-${idx}`"
+                  class="sub-item"
+                >
+                  <template v-if="subMenu.name !== 'Principle'">
+                    <nuxt-link :to="subMenu.link">{{ subMenu.name }}</nuxt-link>
+                  </template>
+                  <template v-else>
+                    <a :href="principleLink" target="_blank">{{
+                      subMenu.name
+                    }}</a>
+                  </template>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
+    </transition>
     <MobMenu v-if="this.isMenu" @onClose="hideMenu(false)" />
   </div>
 </template>
@@ -126,6 +127,11 @@
   }
 </script>
 <style lang="scss" scoped>
+  .slide-enter,
+  .slide-leave-to {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
   .menu {
     &-item {
       display: inline-block;
@@ -168,8 +174,13 @@
   }
 
   .hide {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transition: all 0.2s ease-out;
     .lang {
-      position: fixed;
+      position: absolute;
       right: 30px;
       top: 20px;
       z-index: 10;
@@ -190,10 +201,10 @@
     }
     text-align: center;
     .menu {
-      position: fixed;
-      left: 0;
-      right: 0;
-      top: 0;
+      // position: fixed;
+      // left: 0;
+      // right: 0;
+      // top: 0;
       padding: 90px 0 84px;
       background-color: $gray-9;
       &-item {
