@@ -91,10 +91,10 @@
       margin-right: 100px;
     }
     &-inner {
-      // display: flex;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       height: 100%;
-      // flex-direction: column;
-      // justify-content: space-between;
       word-break: break-all;
     }
     &-tit {
