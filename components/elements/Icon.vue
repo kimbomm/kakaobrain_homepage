@@ -60,19 +60,19 @@
       background-size: 100%;
     }
     &-insta-b {
-      background: url('@/assets/images/icon-insta-b.png') no-repeat 100%;
+      background: url('@/assets/images/icon-insta-b.svg') no-repeat 100%;
       background-size: 100%;
     }
     &-facebook-b {
-      background: url('@/assets/images/icon-facebook-b.png') no-repeat 100%;
+      background: url('@/assets/images/icon-facebook-b.svg') no-repeat 100%;
       background-size: 100%;
     }
     &-youtube-b {
-      background: url('@/assets/images/icon-youtube-b.png') no-repeat 100%;
+      background: url('@/assets/images/icon-youtube-b.svg') no-repeat 100%;
       background-size: 100%;
     }
     &-kakao-b {
-      background: url('@/assets/images/icon-kakao-b.png') no-repeat 100%;
+      background: url('@/assets/images/icon-kakao-b.svg') no-repeat 100%;
       background-size: 100%;
     }
     &-naver-b {
