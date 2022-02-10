@@ -4,7 +4,7 @@
       <!-- <img src="@/assets/images/main_img_dummy.jpeg" /> -->
     </div>
     <div class="gl-8 l-ml-2">
-      <span>Core Value → ¹outstanding²actualized³open⁴impactful</span>
+      <span>Core Value → <span class="s-weight">¹</span>outstanding<span class="s-weight">²</span>actualized<span class="s-weight">³</span>open<span class="s-weight">⁴</span>impactful</span>
     </div>
   </div>
 </template>
@@ -26,6 +26,9 @@
         font-size: 40px;
         line-height: 1.1;
       }
+    }
+    .s-weight{
+      font-weight:300;
     }
   }
   @include pc-large {
