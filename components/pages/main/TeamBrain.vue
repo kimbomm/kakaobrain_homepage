@@ -13,26 +13,45 @@
       </div>
       <div class="team-members">
         <ul>
-          <li><Member /></li>
+          <li v-for="(item, index) in list" :key="index">
+            <Tag :data="item" />
+          </li>
         </ul>
       </div>
-      <button class="more" title="더보기" :disabled="false">
-        <img src="@/assets/images/arrow-down.svg" alt="더보기 버튼 이미지" />
+      <button class="more" title="더보기" @click="addTag" :disabled="isAll">
+        <img src="@/assets/images/arrow-down.svg" alt="more button image" />
       </button>
     </div>
   </div>
 </template>
 <script>
-  import Member from '@/components/elements/Member'
+  import { mapActions } from 'vuex'
+  import Tag from '@/components/elements/Tag'
   export default {
     components: {
-      Member
+      Tag
     },
     data() {
       return {
         NUMBER: 0,
-        total: 81
+        total: 81,
+        pageData: {
+          offset: 0,
+          limit: 20,
+          contentType: 'ALL',
+          targetLAng: this.$store.state.language
+        },
+        list: [],
+        tagTotal: 0
       }
+    },
+    computed: {
+      isAll() {
+        return this.list.length === this.tagTotal
+      }
+    },
+    created() {
+      this.init()
     },
     mounted() {
       window.addEventListener('scroll', this.onScroll)
@@ -41,6 +60,9 @@
       window.removeEventListener('scroll', this.onScroll)
     },
     methods: {
+      ...mapActions({
+        getTags: 'getTags'
+      }),
       onScroll() {
         if (
           window.scrollY + window.innerHeight >=
@@ -51,6 +73,19 @@
               this.NUMBER++
             }
           }, 400)
+        }
+      },
+      async init() {
+        const res = await this.getTags(this.pageData)
+        this.list = res.data.list
+        this.tagTotal = res.data.count
+      },
+      async addTag() {
+        if (this.list.length < this.tagTotal) {
+          this.pageData.offset += 20
+          const res = await this.getTags(this.pageData)
+          this.list = this.list.concat(res.data.list)
+          this.tagTotal = res.data.count
         }
       }
     }
@@ -115,6 +150,7 @@
       }
       &:disabled {
         background-color: $surface-2;
+        cursor: not-allowed;
       }
     }
   }

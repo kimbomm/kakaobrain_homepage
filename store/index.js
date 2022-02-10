@@ -92,5 +92,10 @@ export const actions = {
     const params = utility.setParameters(payload)
     const res = await this.$axios.get(`/category?${params}`)
     return res
+  },
+  async getTags({}, payload) {
+    const params = utility.setParameters(payload)
+    const res = this.$axios(`/tag?${params}`)
+    return res
   }
 }
