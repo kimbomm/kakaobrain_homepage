@@ -47,7 +47,9 @@
       <div class="paging-next">
         <button
           class="link"
-          :disabled="activeIndex === totalLength - 1"
+          :disabled="
+            activeIndex === totalLength ? totalLength : totalLength - 1
+          "
           @click="onClick(activeIndex + 1)"
         >
           
@@ -75,7 +77,7 @@
     computed: {
       totalLength() {
         let length = 0
-        length = Math.ceil(this.total / this.limit)
+        if (this.total > 0) length = Math.ceil(this.total / this.limit)
         return length
       }
     },
