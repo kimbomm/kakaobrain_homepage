@@ -22,7 +22,7 @@
         <button class="more" title="더보기" @click="addTag" :disabled="isAll">
           <img src="@/assets/images/arrow-down.svg" alt="more button image" />
         </button>
-        <button class="apply">
+        <button class="apply" style="display: none">
           <span class="apply-text">Apply!!!!! </span><span class="apply-mark">&nbsp;&nbsp;</span>
         </button>
       </div>
