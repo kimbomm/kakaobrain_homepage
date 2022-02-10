@@ -20,7 +20,13 @@
       return {}
     },
     methods: {
-      onClick(link) {}
+      onClick(link) {
+        if (link.indexOf(location.origin) !== -1) {
+          this.$router.push(link)
+        } else {
+          window.open(link, '_blank')
+        }
+      }
     }
   }
 </script>
