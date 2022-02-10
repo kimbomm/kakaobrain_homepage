@@ -1,54 +1,66 @@
 <template>
-  <div :class="`Innovation ${theme}`">
-    <div class="Innovation-inner">
-      <div class="Innovation-tit">{{ tit }}</div>
-      <div class="Innovation-con">
-        <div class="item">
-          <div class="item-mark">*</div>
-          <div class="item-txt">{{ publish }}</div>
-        </div>
-        <div class="item">
-          <div class="item-mark">^</div>
-          <div class="item-txt">{{ collaborator }}</div>
-        </div>
-        <div class="tag">
-          <ul>
-            <li v-for="item in tags" :key="item.tagSeq" class="tag-item">
-              <span class="tag-txt">#{{ item.tag }}</span>
-            </li>
-          </ul>
+  <nuxt-link
+    :to="{
+      name: 'contents-contentId',
+      params: { contentId: data.contentId }
+    }"
+  >
+    <div :class="classBind">
+      <div class="Innovation-inner">
+        <div class="Innovation-tit">{{ data.title }}</div>
+        <div class="Innovation-con">
+          <div class="item">
+            <div class="item-mark">*</div>
+            <div class="item-txt">{{ data.academy }}</div>
+          </div>
+          <div class="item">
+            <div class="item-mark">^</div>
+            <div class="item-txt">{{ data.writer }}</div>
+          </div>
+          <div class="tag">
+            <ul>
+              <li
+                v-for="(item, index) in data.ContentTags"
+                :key="index"
+                class="tag-item"
+              >
+                <span class="tag-txt">#{{ item.tag }}</span>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </nuxt-link>
 </template>
 <script>
   export default {
     name: 'InnovationCard',
     props: {
-      tit: {
-        type: String,
-        default: '',
-        required: true
-      },
-      publish: {
-        type: String,
-        default: '',
-        required: true
-      },
-      collaborator: {
-        type: String,
-        default: '',
-        required: true
+      data: {
+        type: Object
       },
       theme: {
         type: String,
         default: '',
         required: false
       },
-      tags: {
-        type: Array,
-        default: () => []
+      isMasonry: {
+        type: Boolean,
+        default: false
+      }
+    },
+    computed: {
+      classBind() {
+        let classList = ['Innovation']
+        if (this.theme) {
+          classList.push(this.theme)
+        }
+        if (this.isMasonry) {
+          classList.push('area')
+        }
+
+        return classList.join(' ')
       }
     }
   }
@@ -63,6 +75,8 @@
         // margin-bottom: 110px;
         margin-bottom: 50px;
         -webkit-line-clamp: unset;
+        height: auto;
+        overflow: visible;
       }
 
       .item {
@@ -83,7 +97,7 @@
     min-width: 300px;
     height: 700px;
     padding: 20px;
-    box-shadow: 30px 30px 50px -10px rgba(0,0,0,0.2);
+    box-shadow: 30px 30px 50px -10px rgba(0, 0, 0, 0.2);
     background-color: $gray-0;
     color: $gray-9;
     box-sizing: border-box;
@@ -99,9 +113,9 @@
     }
     &-tit {
       margin-bottom: 110px;
-      line-height: 90%;
+      line-height: 1;
       font-size: 30px;
-      height: calc(30px * 0.9 * 8);
+      height: calc(30px * 1 * 8);
       font-weight: 400;
       word-break: break-all;
       overflow: hidden;
@@ -139,7 +153,7 @@
   }
 
   .Innovation {
-    &-dark {
+    &.dark {
       background-color: $gray-9;
       color: $gray-0;
     }

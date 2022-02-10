@@ -20,23 +20,23 @@
     </div>
     <!-- reference: https://github.com/paulcollett/vue-masonry-css -->
     <masonry
+      ref="masonry"
       :cols="{ default: 5, 1024: 2, 768: 1 }"
       :gutter="{ default: '20px', 768: '0px' }"
       class="masonry area"
     >
       <InnovationCard
-        v-for="(item, index) in innovationList"
+        v-for="(item, index) in list"
+        :data="item"
         :key="index"
-        :tit="item.title"
-        :publish="item.listing"
-        collaborator="Frost.conv/Sam.Hsk/Lukas.Kim/Dev.Lee/Sw.ack"
-        theme=""
+        :theme="Math.random() > 0.5 ? 'dark' : ''"
+        :isMasonry="true"
       />
     </masonry>
   </div>
 </template>
 <script>
-  import { mapState, mapActions } from 'vuex'
+  import { mapState, mapMutations, mapActions } from 'vuex'
   import mixinGlobal from '@/mixin/global.js'
   import InnovationCard from '@/components/elements/card/InnovationCard'
   import DetailText from '@/components/detail/DetailText'
@@ -54,6 +54,7 @@
     computed: {
       ...mapState({
         filter: state => state.filter,
+        language: state => state.language,
         innovationList: state => state.innovation.list
       })
     },
@@ -62,18 +63,78 @@
         detailText: {
           itemType: 'pagaraph',
           text: '우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다. 우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다. 우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다. 우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다. 우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다. 우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다. 우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다.'
+        },
+        pageData: {
+          offset: 0,
+          limit: 20,
+          contentType: 'THESIS',
+          targetLang: this.$store.state.language,
+          tag: ''
+        },
+        list: [],
+        total: 0,
+        isInit: false,
+        isAdd: false
+      }
+    },
+    watch: {
+      filter: {
+        deep: true,
+        async handler(val) {
+          // console.log(val)
+          this.pageData.offset = 0
+          this.pageData.tag = val.join('|')
+          await this.init()
         }
       }
     },
-    created() {
-      this.init()
+    async created() {
+      await this.init()
+    },
+    mounted() {
+      window.addEventListener('scroll', this.onScroll)
+    },
+    async beforeDestroy() {
+      await window.removeEventListener('scroll', this.onScroll)
+      await this.setFilterList([])
     },
     methods: {
       ...mapActions({
-        getFilterList: 'getFilterList'
+        getContentList: 'getContentList'
       }),
-      init() {
-        this.getFilterList('innovation')
+      ...mapMutations({
+        setFilterList: 'setFilterList'
+      }),
+      async init() {
+        const res = await this.getContentList(this.pageData)
+        this.list = res.data.list
+        this.total = res.data.count
+        if (!this.isInit) {
+          await this.setFilterList(res.data.tags)
+          this.isInit = true
+        }
+      },
+      async onScroll() {
+        const masonry = this.$refs.masonry.$el
+        if (
+          masonry.offsetHeight > 0 &&
+          masonry.offsetTop + masonry.offsetHeight > window.scrollY &&
+          masonry.offsetTop + masonry.offsetHeight <
+            window.scrollY + window.innerHeight &&
+          !this.isAdd
+        ) {
+          this.isAdd = true
+          await this.addList()
+        }
+      },
+      async addList() {
+        if (this.list.length < this.total) {
+          this.pageData.offset += this.pageData.limit
+          const res = await this.getContentList(this.pageData)
+          this.list = this.list.concat(res.data.list)
+          this.total = res.data.count
+          this.isAdd = false
+        }
       }
     }
   }

@@ -37,11 +37,7 @@ export const mutations = {
     state.filter = payload
   },
   setFilterList(state, payload) {
-    switch (payload) {
-      case 'innovation':
-        state.filterList = state.category['innovation']
-        break
-    }
+    state.filterList = payload
   },
   setBreadCrumb(state, payload) {
     this.breadcrumb = [...payload]

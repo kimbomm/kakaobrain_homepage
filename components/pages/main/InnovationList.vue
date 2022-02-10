@@ -4,20 +4,10 @@
       <transition name="slideInRight">
         <ul v-show="isShow" ref="list" class="innovation-list l-pl-2">
           <li v-for="(item, index) in list" :key="index" class="gl-3">
-            <nuxt-link
-              :to="{
-                name: 'contents-contentId',
-                params: { contentId: item.contentId }
-              }"
-            >
-              <InnovationCard
-                :tit="item.title"
-                :publish="item.academy"
-                :collaborator="item.writer"
-                :tags="item.ContentTags"
-                :theme="index % 2 === 0 ? 'Innovation-dark' : ''"
-              />
-            </nuxt-link>
+            <InnovationCard
+              :data="item"
+              :theme="index % 2 === 0 ? 'dark' : ''"
+            />
           </li>
           <li>
             <nuxt-link to="/innovation" title="논문 리스트 페이지로 이동">

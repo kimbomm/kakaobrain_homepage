@@ -37,30 +37,48 @@
         filterList: state => state.filterList,
         isFilterMenuOpen: state => state.isFilterMenuOpen
       }),
+      // list() {
+      //   let list = [{ value: 'all', text: 'All', isChecked: true }]
+      //   const filters = this.filterList.map(tag => {
+      //     return { value: tag, text: tag, isChecked: false }
+      //   })
+      //   list = list.concat(filters)
+      //   return list
+      // },
       categoryList() {
         let list = []
         list = [...this.list]
         return list
-      },
-      checkedList() {
-        let list = []
-        list = this.list.filter(item => item.isChecked)
-        return list
       }
+      // checkedList() {
+      //   let list = []
+      //   list = this.list.filter(item => item.isChecked)
+      //   return list
+      // }
     },
     watch: {
-      checkedList: {
+      filterList: {
         deep: true,
         handler(val) {
-          const isAll = this.checkedList.find(obj => {
-            return obj.value == 'all'
+          const filters = this.filterList.map(tag => {
+            return { value: tag, text: tag, isChecked: false }
           })
-          this.setFilter(isAll ? [] : this.checkedList.map(obj => obj.text))
+          this.list = this.list.concat(filters)
         }
       }
+      // checkedList: {
+      //   deep: true,
+      //   handler(val) {
+      //     console.log('val:', val)
+      //     const isAll = this.checkedList.find(obj => {
+      //       return obj.value == 'all'
+      //     })
+      //     this.setFilter(isAll ? [] : this.checkedList.map(obj => obj.text))
+      //   }
+      // }
     },
     mounted() {
-      this.init()
+      // this.init()
     },
     data() {
       return {
@@ -70,17 +88,11 @@
     methods: {
       ...mapActions(['changeFilterMenuOpen']),
       ...mapMutations(['setFilter']),
-      init() {
-        const filters = this.filterList.map(tag => {
-          return { value: tag, text: tag, isChecked: false }
-        })
-        this.list = this.list.concat(filters)
-      },
       onClose() {
         this.changeFilterMenuOpen(false)
       },
-      onChange(data) {
-        this.list.forEach(item => {
+      async onChange(data) {
+        await this.list.forEach(item => {
           if (data.value === 'all' && data.isChecked) {
             item.isChecked = item.value === data.value ? true : false
           } else if (data.value !== 'all' && data.isChecked) {
@@ -90,6 +102,15 @@
             if (item.value === data.value) item.isChecked = data.isChecked
           }
         })
+
+        await this.setCheckList()
+      },
+      async setCheckList() {
+        const checkedList = await this.list.filter(item => item.isChecked)
+        const isAll = await checkedList.find(obj => {
+          return obj.value == 'all'
+        })
+        await this.setFilter(isAll ? [] : checkedList.map(obj => obj.text))
       }
     }
   }

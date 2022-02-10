@@ -4,22 +4,18 @@
     <div class="gl-8 l-ml-2">
       <span>ARCHIVE@kakaobrain</span>
       <span></span>
-      <nuxt-link to="/archive"><span class="title-italic">VIEW LIST </span><span></span></nuxt-link>
+      <nuxt-link to="/archive"
+        ><span class="title-italic">VIEW LIST </span><span></span></nuxt-link
+      >
     </div>
     <ul class="main-archive-list">
       <li v-for="(item, index) in list" :key="index" class="gl-2">
-        <nuxt-link
-          :to="{
-            name: 'contents-contentId',
-            params: { contentId: item.contentId }
-          }"
-        >
-          <ArchiveCard
-            :tit="item.title"
-            :tag="item.ContentTags"
-            :theme="index % 2 === 0 ? 'archive-dark' : ''"
-          />
-        </nuxt-link>
+        <ArchiveCard
+          :data="item"
+          :tit="item.title"
+          :tag="item.ContentTags"
+          :theme="index % 2 === 0 ? 'dark' : ''"
+        />
       </li>
     </ul>
   </div>
@@ -76,8 +72,8 @@
         font-size: 40px;
         font-weight: 300;
       }
-      .title-italic{
-        font-style:italic;
+      .title-italic {
+        font-style: italic;
       }
     }
     &-list {

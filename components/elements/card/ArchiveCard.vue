@@ -1,48 +1,72 @@
 <template>
   <!-- archive 부모 클래스에 'area' 클래스를 적용하면 높이 값이 늘어 납니다. -->
-  <div :class="`archive ${theme}`">
-    <div class="archive-inner">
-      <div class="archive-tit">{{ tit }}</div>
-      <div class="archive-con">
-        <div v-if="tag.length > 0" class="tag">
-          <ul>
-            <li v-for="(item, index) in tag" :key="index" class="tag-item">
-              <span class="tag-txt">#{{ item.tag }}</span>
-            </li>
-          </ul>
-        </div>
-        <div class="archive-thumbnail">
-          <img :src="require(`@/assets/images/archive_img_1.png`)" />
+  <nuxt-link
+    :to="{
+      name: 'contents-contentId',
+      params: { contentId: data.contentId }
+    }"
+  >
+    <div :class="classBind">
+      <div class="archive-inner">
+        <div class="archive-tit">{{ data.title }}</div>
+        <div class="archive-con">
+          <div v-if="data.ContentTags.length > 0" class="tag">
+            <ul>
+              <li
+                v-for="(item, index) in data.ContentTags"
+                :key="index"
+                class="tag-item"
+              >
+                <span class="tag-txt">#{{ item.tag }}</span>
+              </li>
+            </ul>
+          </div>
+          <div class="archive-thumbnail">
+            <img :src="require(`@/assets/images/archive_img_1.png`)" />
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </nuxt-link>
 </template>
 <script>
   export default {
     name: 'ArchiveCard',
     props: {
-      tit: {
-        type: String,
-        default: '',
-        require: true
+      data: {
+        type: Object
       },
-      tag: {
-        type: Array,
-        default: () => [],
-        require: false
+      isMasonry: {
+        type: Boolean,
+        default: false
       },
       theme: {
         type: String,
         default: '',
         require: false
       }
+    },
+    computed: {
+      classBind() {
+        let classList = ['archive']
+        if (this.theme) {
+          classList.push(this.theme)
+        }
+        if (this.isMasonry) {
+          classList.push('area')
+        }
+
+        return classList.join(' ')
+      }
     }
   }
 </script>
 <style lang="scss" scoped>
   @import '@/assets/scss/mixins.scss';
-
+  .area {
+    .archive {
+    }
+  }
   .archive {
     position: relative;
     display: inline-block;
@@ -92,7 +116,7 @@
     }
   }
   .archive {
-    &-dark {
+    &.dark {
       background-color: $gray-9;
       color: $gray-0;
     }
