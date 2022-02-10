@@ -38,6 +38,7 @@
     border-radius: 50%;
     overflow: hidden;
     cursor: pointer;
+    box-shadow: 30px 30px 50px -10px rgba(0,0,0,0.2);
     img {
       position: absolute;
       top: 0;

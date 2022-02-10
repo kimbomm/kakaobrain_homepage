@@ -6,9 +6,8 @@
       </div>
       <div class="goal-desp">
         <p>
-          카카오브레인은 생각하지 못한 물음으로부터 기술을 발전시키고,
-          <br />
-          모두의 생활을 변화시킵니다.
+          카카오브레인은 생각하지 못한 물음으로부터<br />
+          기술을 발전시키고, 모두의 생활을 변화시킵니다.
         </p>
       </div>
     </div>
@@ -40,10 +39,11 @@
         background-size: cover;
         background-position: center center;
         position: absolute;
-        top: 50%;
+        // top: 50%;
+        top:calc((50%) - 55px);
         left: 50%;
         transform: translate(0, -50%);
-        z-index: 0;
+        z-index: 2;
       }
       &:after {
         content: '';
@@ -54,7 +54,8 @@
         background-size: cover;
         background-position: center center;
         position: absolute;
-        top: 50%;
+        // top: 50%;
+        top:calc((50%) - 55px);
         left: 50%;
         transform: translate(-100%, -50%);
         z-index: 0;
@@ -83,6 +84,14 @@
   @include pc-large {
     .goal {
       height: 2000px;
+      > div {
+        &:before {
+          top:calc((50%) - 88px);
+        }
+        &:after {
+          top:calc((50%) - 88px);
+        }
+      }
       &-title {
         font-size: 146px;
       }
@@ -98,6 +107,9 @@
       height: 3000px;
       > div {
         position: relative;
+        &.gl-6{
+          width: getWidth(4) !important;
+        }
         &:before {
           width: 500px;
           height: 500px;
@@ -124,10 +136,12 @@
       > div {
         position: relative;
         &:before {
+          top:50%;
           width: 160px;
           height: 160px;
         }
         &:after {
+          top:50%;
           width: 160px;
           height: 160px;
         }

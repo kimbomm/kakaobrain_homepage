@@ -91,10 +91,10 @@
       margin-right: 100px;
     }
     &-inner {
-      // display: flex;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       height: 100%;
-      // flex-direction: column;
-      // justify-content: space-between;
       word-break: break-all;
     }
     &-tit {
@@ -119,7 +119,7 @@
       &-mark {
         line-height: 45px;
         font-size: 50px;
-        font-weight: 700;
+        font-weight: 900;
       }
       &-txt {
         font-size: 16px;

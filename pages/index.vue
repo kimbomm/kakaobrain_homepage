@@ -64,7 +64,9 @@
           title: 'Our Innovation',
           text: [
             { content: 'WE ', bold: false },
-            { content: 'CONTRIBUTE TO THE WORLD FROM A ', bold: true },
+            { content: 'CONT', bold: true },
+            { content: 'R ', bold: false },
+            { content: 'IBUTE TO THE WORLD FROM A ', bold: true },
             { content: 'UNIQUE & SPECIAL ', bold: false },
             { content: 'PERSPECTIVE.', bold: true }
           ],

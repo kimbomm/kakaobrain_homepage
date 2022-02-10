@@ -1,10 +1,16 @@
 <template>
   <div class="question gl-8">
     <div class="silk">
-      <img
+      <!-- <img
         src="@/assets/images/main_uq.png"
         alt="Unthinkable Question 텍스트 이미지"
-      />
+      /> -->
+      <div class="uq-text gl-8">
+        <img
+          src="@/assets/images/main_uq.png"
+          alt="Unthinkable Question 텍스트 이미지"
+        />
+      </div>
       <div class="egg">
         <EasterEgg />
         <div class="egg-item"></div>
@@ -35,8 +41,10 @@
     margin: 0 auto;
     .silk {
       position: relative;
-      > img {
-        width: 100%;
+      .uq-text{
+        img {
+          width: 100%;
+        }
       }
     }
     &-content {
@@ -66,7 +74,7 @@
       top: 50%;
       transform: translateY(-50%);
       right: 180px;
-      z-index: 1;
+      z-index: 4;
     }
     &-item {
       width: 150px;
@@ -79,10 +87,12 @@
       &:nth-of-type(2) {
         right: 115px;
         border: 1px solid #fd5000;
+        z-index: 3;
       }
       &:nth-of-type(3) {
         right: 40px;
         border: 1px solid #ffd200;
+        z-index: 2;
       }
       &:nth-of-type(4) {
         right: 0;
@@ -91,6 +101,7 @@
           #e31a82 33.87%,
           #4b25b0 100%
         );
+        z-index: 1;
       }
     }
   }
@@ -130,6 +141,13 @@
 
   @include pc-4k {
     .question {
+      .silk {
+        .uq-text{
+          &.gl-8{
+            width: getWidth(6) !important;
+          }
+        }
+      }
       &-content {
         p:nth-child(1) {
           font-size: 84px;
@@ -174,6 +192,9 @@
         }
         p:nth-child(2) {
           font-size: 18px;
+          &.gl-4{
+            width: getWidth(8) !important;
+          }
         }
       }
     }

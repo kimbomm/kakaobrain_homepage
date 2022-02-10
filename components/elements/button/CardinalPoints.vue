@@ -106,7 +106,7 @@
       position: absolute;
       width: 60px;
       height: 60px;
-      background: url('@/assets/images/icon-cardinal-point__b.png') no-repeat;
+      background: url('@/assets/images/icon-cardinal-point__b.svg') no-repeat;
       background-size: cover;
       left: 50%;
       top: 50%;

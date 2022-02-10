@@ -2,9 +2,9 @@
 <template>
   <div class="main-archive">
     <div class="gl-8 l-ml-2">
-      <span>Archive@kakaobrain</span>
+      <span>ARCHIVE@kakaobrain</span>
       <span></span>
-      <nuxt-link to="/archive"><span>View List </span><span></span></nuxt-link>
+      <nuxt-link to="/archive"><span class="title-italic">VIEW LIST </span><span></span></nuxt-link>
     </div>
     <ul class="main-archive-list">
       <li v-for="(item, index) in list" :key="index" class="gl-2">
@@ -75,6 +75,9 @@
       span {
         font-size: 40px;
         font-weight: 300;
+      }
+      .title-italic{
+        font-style:italic;
       }
     }
     &-list {
