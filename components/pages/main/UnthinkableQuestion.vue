@@ -1,10 +1,16 @@
 <template>
   <div class="question gl-8">
     <div class="silk">
-      <img
+      <!-- <img
         src="@/assets/images/main_uq.png"
         alt="Unthinkable Question 텍스트 이미지"
-      />
+      /> -->
+      <div class="uq-text gl-8">
+        <img
+          src="@/assets/images/main_uq.png"
+          alt="Unthinkable Question 텍스트 이미지"
+        />
+      </div>
       <div class="egg">
         <EasterEgg />
         <div class="egg-item"></div>
@@ -35,8 +41,10 @@
     margin: 0 auto;
     .silk {
       position: relative;
-      > img {
-        width: 100%;
+      .uq-text{
+        img {
+          width: 100%;
+        }
       }
     }
     &-content {
@@ -130,6 +138,13 @@
 
   @include pc-4k {
     .question {
+      .silk {
+        .uq-text{
+          &.gl-8{
+            width: getWidth(6) !important;
+          }
+        }
+      }
       &-content {
         p:nth-child(1) {
           font-size: 84px;
