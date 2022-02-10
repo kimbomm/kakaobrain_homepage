@@ -67,7 +67,9 @@
           this.$route.query.contentId
         )
         this.data = res.data
-        await this.setBreadcrumb(this.data.category1, this.data.category2)
+        if (this.data.category1 && this.data.category2) {
+          await this.setBreadcrumb(this.data.category1, this.data.category2)
+        }
       },
       async setBreadcrumb(category1, category2) {
         let subClass = ''

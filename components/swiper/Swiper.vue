@@ -9,6 +9,7 @@
     >
       <swiper-slide v-for="(content, index) in data.ContentItems" :key="index">
         <div
+          v-if="content.Media"
           class="slide"
           :style="`background-image: url(https://kkbapi.freeive.dev${content.Media.url})`"
         >
@@ -34,6 +35,7 @@
           class="swiper-slide"
         >
           <div
+            v-if="content.Media"
             class="slide"
             :style="`background-image: url(https://kkbapi.freeive.dev${content.Media.url})`"
           >
@@ -56,18 +58,20 @@
     <div class="story-pop" v-show="this.isStory">
       <div class="story-con">
         <ul>
-          <li
-            v-for="(content, index) in data.ContentItems"
-            :key="index"
-            class="list-item"
-            @click="onClick(index)"
-          >
-            <div
-              class="list-img"
-              :style="`background-image: url(https://kkbapi.freeive.dev${content.Media.url})`"
-            ></div>
-            <div class="list-tit">{{ content.subject }}</div>
-          </li>
+          <template v-for="(content, index) in data.ContentItems">
+            <li
+              v-if="content.Media"
+              :key="index"
+              class="list-item"
+              @click="onClick(index)"
+            >
+              <div
+                class="list-img"
+                :style="`background-image: url(https://kkbapi.freeive.dev${content.Media.url})`"
+              ></div>
+              <div class="list-tit">{{ content.subject }}</div>
+            </li>
+          </template>
         </ul>
       </div>
       <div class="story-close" @click="storyList()">
