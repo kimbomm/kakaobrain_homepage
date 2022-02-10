@@ -94,7 +94,7 @@
       }
     }
     &-content {
-      margin-top: 46px;
+      // margin-top: 46px;
       height: calc(100% - 46px);
       padding: 0 20px 50px 20px;
       margin-left: getMargin(2);
@@ -102,7 +102,7 @@
     }
   }
   .menu-list {
-    margin-top: 94px;
+    margin-top: 140px;
     > li {
       margin-top: 100px;
       &:first-child {
@@ -172,7 +172,7 @@
       }
       &-content {
         height: calc(100% - 56px);
-        margin-top: 56px;
+        // margin-top: 56px;
         margin-left: getMargin(1);
       }
     }
@@ -180,7 +180,7 @@
       margin-top: 25px;
     }
     .menu-list {
-      margin-top: 60px;
+      margin-top: 116px;
       > li {
         margin-top: 60px;
       }

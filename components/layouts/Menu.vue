@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="menu">
     <div :class="classBind">
       <div class="menu-list">
         <ul>
@@ -133,6 +133,7 @@
     transform: translateY(-100%);
   }
   .menu {
+    z-index: 10;
     &-item {
       display: inline-block;
       font-weight: 900;
