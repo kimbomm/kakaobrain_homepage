@@ -74,7 +74,7 @@
       top: 50%;
       transform: translateY(-50%);
       right: 180px;
-      z-index: 1;
+      z-index: 4;
     }
     &-item {
       width: 150px;
@@ -87,10 +87,12 @@
       &:nth-of-type(2) {
         right: 115px;
         border: 1px solid #fd5000;
+        z-index: 3;
       }
       &:nth-of-type(3) {
         right: 40px;
         border: 1px solid #ffd200;
+        z-index: 2;
       }
       &:nth-of-type(4) {
         right: 0;
@@ -99,6 +101,7 @@
           #e31a82 33.87%,
           #4b25b0 100%
         );
+        z-index: 1;
       }
     }
   }
