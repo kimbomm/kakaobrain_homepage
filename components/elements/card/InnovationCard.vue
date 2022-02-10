@@ -119,7 +119,7 @@
       &-mark {
         line-height: 45px;
         font-size: 50px;
-        font-weight: 700;
+        font-weight: 900;
       }
       &-txt {
         font-size: 16px;
