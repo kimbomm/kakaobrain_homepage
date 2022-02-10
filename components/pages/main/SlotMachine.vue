@@ -1,30 +1,34 @@
 <template>
-  <div class="machine">
-    <div ref="slot-contents" class="slot-contents">
-      <div class="slot-image">
-        <div ref="slot-image">
-          <template v-for="itemIndex in slot">
-            <img
-              :key="itemIndex"
-              :src="
-                require(`@/assets/images/slot/${data[itemIndex].image}.svg`)
-              "
-              alt=""
-            />
-          </template>
+  <div class="machine-wrap">
+    <div class="machine">
+      <div ref="slot-contents" class="slot-contents">
+        <div class="slot-image">
+          <div ref="slot-image">
+            <template v-for="itemIndex in slot">
+              <img
+                :key="itemIndex"
+                :src="
+                  require(`@/assets/images/slot/${data[itemIndex].image}.svg`)
+                "
+                alt=""
+              />
+            </template>
+          </div>
         </div>
-      </div>
-      <div class="slot-text">
-        <div ref="slot-text">
-          <template v-for="itemIndex in slot">
-            <p :key="itemIndex">
-              {{ data[itemIndex].txt }}
-            </p>
-          </template>
+        <div class="slot-text">
+          <div ref="slot-text">
+            <template v-for="itemIndex in slot">
+              <p :key="itemIndex">
+                {{ data[itemIndex].txt }}
+              </p>
+            </template>
+          </div>
         </div>
       </div>
     </div>
-    <div class="slogan-text gl-6 l-ml-2">Our innovation is starts with all the krew's questions.</div>
+    <div class="slogan-text">
+      Our innovation is starts with all the krew's questions.
+    </div>
   </div>
 </template>
 <script>
@@ -168,7 +172,7 @@
     transform: translateY(-100%);
   }
   .machine {
-    position: relative;
+    // position: relative;
     background-color: $surface-2;
     padding: 0 20px;
     height: 1500px;
@@ -223,11 +227,10 @@
       line-height: 0.9;
     }
   }
-  .slogan-text{
-    position: absolute;
-    bottom: -20px;
-    transform: translate(0, 100%);
-    font-size:40px;
+  .slogan-text {
+    margin-top: 20px;
+    margin-left: getMargin(2);
+    font-size: 40px;
     line-height: 110%;
   }
   @include pc-large {
@@ -250,9 +253,8 @@
         height: calc(210px * 3);
       }
     }
-    .slogan-text{
-      bottom: -20px;
-      font-size:48px;
+    .slogan-text {
+      font-size: 48px;
     }
   }
   @include pc-4k {
@@ -275,12 +277,8 @@
         height: calc(320px * 3);
       }
     }
-    .slogan-text{
-      bottom: -40px;
-      font-size:72px;
-      &.gl-6{
-        width: getWidth(8) !important;
-      }
+    .slogan-text {
+      font-size: 72px;
     }
   }
   @include tablet {
@@ -303,12 +301,8 @@
         height: calc(90px * 3);
       }
     }
-    .slogan-text{
-      bottom: -20px;
-      font-size:20px;
-      &.gl-6{
-        width: getWidth(5) !important;
-      }
+    .slogan-text {
+      font-size: 20px;
     }
   }
   @include mobile {
@@ -332,9 +326,8 @@
         height: calc(28px * 3);
       }
     }
-    .slogan-text{
-      bottom: -20px;
-      font-size:0px;
+    .slogan-text {
+      display: none;
     }
   }
 </style>
