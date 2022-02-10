@@ -86,8 +86,8 @@
         width: 84px;
       }
       button {
-        width: 30px;
-        height: 30px;
+        width: 40px;
+        height: 40px;
         img {
           width: 100%;
         }
@@ -164,6 +164,10 @@
         height: 56px;
         span {
           font-size: 18px;
+        }
+        button {
+          width: 30px;
+          height: 30px;
         }
       }
       &-content {

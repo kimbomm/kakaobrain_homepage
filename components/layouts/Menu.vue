@@ -159,8 +159,8 @@
   }
   .menu-btn {
     display: none;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     background-image: url('~/assets/images/mob_menu.svg');
     background-size: cover;
     background-position: center center;
@@ -256,6 +256,12 @@
     }
     .menu-btn {
       display: block;
+    }
+  }
+  @include mobile {
+    .menu-btn {
+      width: 30px;
+      height: 30px;
     }
   }
 </style>
