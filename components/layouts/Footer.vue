@@ -98,7 +98,7 @@
     height: 198px;
     margin-bottom: 230px;
     margin-left: getMargin(2);
-    background-image: url('~/assets/images/b-symbol.png');
+    background-image: url('~/assets/images/b-symbol.svg');
     background-size: cover;
     background-position: center center;
   }
