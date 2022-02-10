@@ -10,7 +10,7 @@
         }}</span>
       </template>
     </div>
-    <div class="slogan-desp">
+    <div class="slogan-desp gl-3">
       <p>{{ data.desp }}</p>
     </div>
   </div>
@@ -66,6 +66,9 @@
       }
       &-desp {
         font-size: 26px;
+        &.gl-3{
+          width: getWidth(8) !important;
+        }
       }
     }
   }
@@ -97,6 +100,9 @@
         }
       }
       &-desp {
+        &.gl-3{
+          width: getWidth(6) !important;
+        }
       }
     }
   }
@@ -117,6 +123,9 @@
       }
       &-desp {
         font-size: 14px;
+        &.gl-3{
+          width: 100% !important;
+        }
       }
     }
   }
