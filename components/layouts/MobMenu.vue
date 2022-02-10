@@ -130,7 +130,7 @@
     &:after {
       content: '▼';
       transform: rotate(180deg);
-      margin-left: 5px;
+      margin-left: 10px;
     }
     &.is-active {
       &:after {
