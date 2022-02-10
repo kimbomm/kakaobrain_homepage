@@ -14,7 +14,7 @@
               <nuxt-link v-if="!menu.target" :to="menu.link">
                 {{ menu.name }}
               </nuxt-link>
-              <a v-else :href="menu.link" :target="menu.target">
+              <a v-else :href="menuLink(menu)" :target="menu.target">
                 {{ menu.name }}
               </a>
             </li>
@@ -42,6 +42,7 @@
     computed: {
       ...mapState({
         isDark: state => state.isDark,
+        language: state => state.language,
         footerMenu: state => state.footerMenu
       }),
       classBind() {
@@ -50,6 +51,19 @@
           classList.push('footer__light')
         }
         return classList.join(' ')
+      }
+    },
+    methods: {
+      menuLink(data) {
+        console.log(data)
+        if (data.name === '사이버윤리실') {
+          let link = data.link
+          console.log(link)
+          this.language === 'KR' ? (link += 'ko') : (link += 'en')
+          return link
+        } else {
+          return data.link
+        }
       }
     }
   }

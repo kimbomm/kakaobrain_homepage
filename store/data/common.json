@@ -122,12 +122,16 @@
       "target": "_blank"
     },
     { "name": "오시는 길", "link": "/map", "target": "" },
-    { "name": "사이버윤리실", "link": "#", "target": "" },
+    {
+      "name": "사이버윤리실",
+      "link": "https://www.kakaocorp.com/policy/cyberEthics/info?lang=",
+      "target": "_blank"
+    },
     { "name": "이용약관", "link": "#", "target": "" },
     { "name": "개인정보보호지침", "link": "#", "target": "" },
     { "name": "Pathfinder", "link": "#", "target": "" },
     { "name": "Open-MiniCon", "link": "#", "target": "" },
-    { "name": "Recruit", "link": "#", "target": "" }
+    { "name": "Recruit", "link": "#", "target": "_blank" }
   ],
   "sns": [
     { "name": "facebook", "link": "#" },
