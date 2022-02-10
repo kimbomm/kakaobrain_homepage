@@ -3,7 +3,11 @@
     <div class="header-top">
       <h1 class="b-logo gl-2">
         <nuxt-link to="/">
-          <img src="@/assets/images/logo.png">
+          <img
+            v-if="isFilterMenuOpen || !isDark"
+            src="@/assets/images/logo-w.png"
+          />
+          <img v-else src="@/assets/images/logo.png" />
         </nuxt-link>
       </h1>
       <div class="header-con">
@@ -54,9 +58,9 @@
     }
     .b-logo {
       font-weight: 900;
-      img{
-        width:80px;
-        height:20px;
+      img {
+        width: 80px;
+        height: 20px;
       }
     }
     &-con {
@@ -81,9 +85,9 @@
     }
     .header {
       .b-logo {
-        img{
-          width:108px;
-          height:27px;
+        img {
+          width: 108px;
+          height: 27px;
         }
       }
     }
@@ -95,9 +99,9 @@
     }
     .header {
       .b-logo {
-        img{
-          width:176px;
-          height:44px;
+        img {
+          width: 176px;
+          height: 44px;
         }
       }
     }
@@ -110,9 +114,9 @@
     }
     .header {
       .b-logo {
-        img{
-          width:84px;
-          height:21px;
+        img {
+          width: 84px;
+          height: 21px;
         }
       }
     }
