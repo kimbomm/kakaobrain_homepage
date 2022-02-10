@@ -128,13 +128,13 @@
   .menu-toggle {
     color: #fff;
     &:after {
-      content: '▲';
+      content: '▼';
       transform: rotate(180deg);
       margin-left: 5px;
     }
     &.is-active {
       &:after {
-        content: '▼';
+        content: '▲';
       }
       & + .sub-menu {
         display: block;
