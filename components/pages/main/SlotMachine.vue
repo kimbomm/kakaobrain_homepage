@@ -214,7 +214,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: 'NotoSansKR';
       font-size: 160px * 0.7;
       height: calc(160px * 3);
       font-weight: 900;

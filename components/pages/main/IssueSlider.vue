@@ -252,6 +252,7 @@
       font-size: 16px;
       color: #000;
       margin-bottom: 94px;
+      font-family: 'Inter', sans-serif;
       > span {
         display: inline-block;
         margin-right: 20px;
@@ -304,7 +305,7 @@
     &-thumbnail {
       position: relative;
       height: 990px;
-      box-shadow: 30px 30px 50px -10px rgba(0,0,0,0.2);
+      box-shadow: 30px 30px 50px -10px rgba(0, 0, 0, 0.2);
       > div {
         position: absolute;
         top: 0;
@@ -325,7 +326,7 @@
         display: flex;
         justify-content: flex-end;
         align-items: center;
-        button{
+        button {
           font-family: 'Inter';
         }
       }

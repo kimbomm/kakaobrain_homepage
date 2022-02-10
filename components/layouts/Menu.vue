@@ -119,7 +119,8 @@
       async selectLang(lang) {
         localStorage.setItem('language', lang)
         await this.setLanguage(lang)
-        location.href = '/'
+        await this.$forceUpdate()
+        // location.href = '/'
       }
     }
   }

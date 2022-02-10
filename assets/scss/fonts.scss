@@ -29,6 +29,7 @@ $font-NotoSansKR: map-get($font-map-NotoSansKR, Bold) 700,
     font-family: 'NotoSansKR';
     font-style: normal;
     font-weight: $weight;
+    unicode-range: U+AC00-D7A3;
   }
 }
 

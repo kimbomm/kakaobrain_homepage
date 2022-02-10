@@ -73,7 +73,6 @@
       margin-top: 100px;
       p {
         text-align: right;
-        font-family: 'NotoSansKR', sans-serif;
         font-size: 30px;
         line-height: 1.3;
         color: #fff;

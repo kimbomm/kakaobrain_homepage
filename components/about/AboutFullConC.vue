@@ -3,7 +3,7 @@
     <div class="title">{{ data.title }}</div>
     <div class="txt-box gl-5 l-ml-3">
       <div v-for="(item, index) in data.desp" :key="index" class="txt">
-        <p>{{ item }}</p>
+        <p v-html="item"></p>
       </div>
     </div>
     <div class="history l-ml-2">

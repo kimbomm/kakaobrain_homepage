@@ -49,7 +49,6 @@
       }
     }
     &-desp {
-      font-family: 'NotoSansKR', sans-serif;
       font-size: 20px;
       line-height: 1.3;
     }
