@@ -147,7 +147,7 @@
       width: 160px;
       height: 264px;
     }
-  }
+  } 
   @include pc-4k {
     .footer {
       padding-top: 1000px;
@@ -170,6 +170,7 @@
     .b-symbol {
       width: 240px;
       height: 396px;
+      margin-bottom: 156px;
     }
   }
   @include tablet {
