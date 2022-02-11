@@ -1,7 +1,9 @@
 <template>
   <div class="team">
     <p class="team-title l-ml-2"> Who is working on?</p>
-    <img src="@/assets/images/team_main.jpeg" />
+    <div class="team-img">
+      <img src="@/assets/images/team_main.jpeg" />
+    </div>
     <div class="team-content">
       <div>
         <p>
@@ -104,9 +106,20 @@
       font-size: 16px;
       margin-bottom: 100px;
     }
-    > img {
-      display: block;
+    &-img{
       width: 100%;
+      height: 600px;
+      position: relative;
+      overflow: hidden;
+      img {
+        position: absolute;
+        top: 50%; 
+        left: 50%;
+        width: 100%;
+        height: 100%;
+        transform: translate(-50%,-50%);
+        object-fit: cover;
+      }
     }
     &-content {
       margin-top: 20px;
@@ -189,6 +202,9 @@
       &-title {
         font-size: 22px;
       }
+      &-img{
+        height: 804px;
+      }
       &-content {
         > div {
           &:first-child {
@@ -227,6 +243,9 @@
         margin-bottom: 200px;
         font-size: 34px;
       }
+      &-img{
+        height: 1212px;
+      }
       &-content {
         margin-top: 40px;
         > div {
@@ -262,8 +281,11 @@
       &-title {
         font-size: 16px;
       }
+      &-img{
+        height: 400px;
+      }
       &-content {
-        margin-top: 40px;
+        margin-top: 20px;
         > div {
           &:first-child {
             p {
@@ -305,8 +327,11 @@
         margin-bottom: 40px;
         font-size: 12px;
       }
+      &-img{
+        height: 400px;
+      }
       &-content {
-        margin-top: 40px;
+        margin-top: 20px;
         padding: 0 20px;
         > div {
           &:first-child {
