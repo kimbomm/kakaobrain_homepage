@@ -82,6 +82,8 @@
     }
   }
   .tag {
+    display: flex;
+    justify-content: space-between;
     .item-box {
       .item {
         display: inline-block;
@@ -93,9 +95,6 @@
       }
     }
     .list-date {
-      position: absolute;
-      bottom: 0px;
-      right: 0px;
       font-size: 12px;
       line-height: 130%;
       &::before {
