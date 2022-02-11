@@ -256,6 +256,7 @@
       > span {
         display: inline-block;
         margin-right: 20px;
+        line-height: 130%;
         &:last-child {
           margin-right: 0;
           text-align: right;
