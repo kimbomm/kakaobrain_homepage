@@ -275,6 +275,7 @@
       width: getWidth(8);
     }
     &-info {
+      position: relative;
       padding-top: $titleHeight + $titleMargin;
       margin-left: 20px;
       text-align: right;
@@ -319,7 +320,7 @@
         background-size: cover;
         background-position: center center;
         background-repeat: no-repeat;
-        box-shadow: 30px 30px 50px -10px #cfd0d3;
+        box-shadow: 30px 30px 50px -10px rgba(0,0,0,0.2);
       }
     }
     &-navi {
