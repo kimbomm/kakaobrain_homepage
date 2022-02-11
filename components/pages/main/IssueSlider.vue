@@ -256,6 +256,7 @@
       > span {
         display: inline-block;
         margin-right: 20px;
+        line-height: 130%;
         &:last-child {
           margin-right: 0;
           text-align: right;
@@ -274,6 +275,7 @@
       width: getWidth(8);
     }
     &-info {
+      position: relative;
       padding-top: $titleHeight + $titleMargin;
       margin-left: 20px;
       text-align: right;
@@ -300,6 +302,9 @@
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
+        &.fade{
+          white-space: normal;
+        }
       }
     }
     &-thumbnail {
@@ -315,7 +320,7 @@
         background-size: cover;
         background-position: center center;
         background-repeat: no-repeat;
-        box-shadow: 30px 30px 50px -10px #cfd0d3;
+        box-shadow: 30px 30px 50px -10px rgba(0,0,0,0.2);
       }
     }
     &-navi {
@@ -456,6 +461,7 @@
     }
     .issue-thumbnail {
       padding-top: 552px;
+      height: auto;
     }
     .issue-navi {
       margin-top: 100px;
@@ -497,6 +503,11 @@
           flex: 0 0 100%;
           margin-bottom: 20px;
           margin-right: 0;
+        }
+        > span:nth-child(3) {
+          &.gl-2{
+            width: getWidth(3) !important;
+          }
         }
       }
     }
