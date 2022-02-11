@@ -5,8 +5,8 @@
         <nuxt-link
           v-if="data.titleMediaId"
           :to="{
-            name: 'contents-contentId',
-            params: { contentId: data.contentId }
+            path: '/contents',
+            query: { contentId: data.contentId }
           }"
         >
           <img :src="`https://kkbapi.freeive.dev${data.TitleMedia.url}`" />
@@ -16,8 +16,8 @@
         <div class="tit">
           <nuxt-link
             :to="{
-              name: 'contents-contentId',
-              params: { contentId: data.contentId }
+              path: '/contents',
+              query: { contentId: data.contentId }
             }"
           >
             {{ data && data.title }}
@@ -142,7 +142,7 @@
       }
     }
   }
-  @media screen and (max-width:1400px) {
+  @media screen and (max-width: 1400px) {
     .list-data {
       .tit {
         font-size: 22px;

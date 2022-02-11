@@ -1,8 +1,8 @@
 <template>
   <nuxt-link
     :to="{
-      name: 'contents-contentId',
-      params: { contentId: data.contentId }
+      path: '/contents',
+      query: { contentId: data.contentId }
     }"
   >
     <div :class="classBind">

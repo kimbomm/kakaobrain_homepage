@@ -2,8 +2,8 @@
   <!-- archive 부모 클래스에 'area' 클래스를 적용하면 높이 값이 늘어 납니다. -->
   <nuxt-link
     :to="{
-      name: 'contents-contentId',
-      params: { contentId: data.contentId }
+      path: '/contents',
+      query: { contentId: data.contentId }
     }"
   >
     <div :class="classBind">

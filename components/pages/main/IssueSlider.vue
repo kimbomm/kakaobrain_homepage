@@ -15,11 +15,11 @@
           :to="
             activeContent.Content.contentType !== 'STORY'
               ? {
-                  name: 'contents-contentId',
-                  params: { contentId: activeContent.contentId }
+                  path: '/contents',
+                  query: { contentId: activeContent.contentId }
                 }
               : {
-                  path: 'story-telling',
+                  path: '/story-telling',
                   query: { contentId: activeContent.contentId }
                 }
           "
@@ -302,7 +302,7 @@
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        &.fade{
+        &.fade {
           white-space: normal;
         }
       }
@@ -320,7 +320,7 @@
         background-size: cover;
         background-position: center center;
         background-repeat: no-repeat;
-        box-shadow: 30px 30px 50px -10px rgba(0,0,0,0.2);
+        box-shadow: 30px 30px 50px -10px rgba(0, 0, 0, 0.2);
       }
     }
     &-navi {
@@ -333,7 +333,7 @@
         align-items: center;
         button {
           font-family: 'Inter';
-          font-size:16px;
+          font-size: 16px;
         }
       }
       .cur-page {
@@ -361,7 +361,7 @@
           // top: 2px;
           // left: -3px;
         }
-        .slash{
+        .slash {
           font-style: italic;
         }
       }
@@ -505,7 +505,7 @@
           margin-right: 0;
         }
         > span:nth-child(3) {
-          &.gl-2{
+          &.gl-2 {
             width: getWidth(3) !important;
           }
         }
