@@ -301,6 +301,9 @@
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
+        &.fade{
+          white-space: normal;
+        }
       }
     }
     &-thumbnail {
