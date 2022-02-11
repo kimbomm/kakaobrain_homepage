@@ -10,20 +10,6 @@
         default: '',
         required: false
       }
-    },
-    methods: {
-      onClickFacebook: function () {
-        window.open('https://www.facebook.com/')
-      },
-      onClickInsta: function () {
-        window.open('https://www.instagram.com/')
-      },
-      onClickKakao: function () {
-        window.open('https://www.kakaocorp.com/')
-      },
-      onClickYotube: function () {
-        window.open('https://www.youtube.com/')
-      }
     }
   }
 </script>
@@ -34,8 +20,8 @@
       background: url('@/assets/images/icon-band.png') no-repeat 100%;
       background-size: 100%;
     }
-    &-insta {
-      background: url('@/assets/images/icon-insta.png') no-repeat 100%;
+    &-linkedin {
+      background: url('@/assets/images/icon-linkedin.png') no-repeat 100%;
       background-size: 100%;
     }
     &-facebook {
@@ -59,8 +45,8 @@
       background: url('@/assets/images/icon-band-b.png') no-repeat 100%;
       background-size: 100%;
     }
-    &-insta-b {
-      background: url('@/assets/images/icon-insta-b.svg') no-repeat 100%;
+    &-linkedin-b {
+      background: url('@/assets/images/icon-linkedin-b.svg') no-repeat 100%;
       background-size: 100%;
     }
     &-facebook-b {
@@ -84,8 +70,8 @@
       background: url('@/assets/images/icon-band-w.png') no-repeat 100%;
       background-size: 100%;
     }
-    &-insta-w {
-      background: url('@/assets/images/icon-insta-w.png') no-repeat 100%;
+    &-linkedin-w {
+      background: url('@/assets/images/icon-linkedin-w.png') no-repeat 100%;
       background-size: 100%;
     }
     &-facebook-w {
