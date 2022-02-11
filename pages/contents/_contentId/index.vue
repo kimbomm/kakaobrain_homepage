@@ -25,7 +25,7 @@
 </template>
 <script>
   import mixinGlobal from '@/mixin/global.js'
-  import { mapActions } from 'vuex'
+  import { mapState, mapActions } from 'vuex'
   import BreadCrumb from '@/components/elements/BreadCrumb'
   import DetailImage from '@/components/detail/DetailImage'
   import DetailYoutube from '@/components/detail/DetailYoutube'
@@ -75,6 +75,9 @@
       }
     },
     computed: {
+      ...mapState({
+        language: state => state.language
+      }),
       contentId() {
         return this.$route.params.contentId
       }
@@ -97,6 +100,18 @@
             1,
             this.ContentItems.length
           )
+        }
+
+        if (res.data.contentType === 'THESIS') {
+          const header = {
+            itemType: 'header',
+            text: this.language === 'KR' ? '저자' : 'Author'
+          }
+          const writer = {
+            itemType: 'pagaraph',
+            text: res.data.writer
+          }
+          this.ContentItems = this.ContentItems.concat([header, writer])
         }
 
         await this.setBreadcrumb(this.data.category1, this.data.category2)
