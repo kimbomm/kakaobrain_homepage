@@ -2,7 +2,7 @@
   <div class="goal">
     <div class="gl-6">
       <div class="goal-title">
-        <span>Unthinkable question makes impactful answer.</span>
+        <span>Unthinkable<br /> question<br /> makes impactful<br /> answer.</span>
       </div>
       <div class="goal-desp">
         <p>
@@ -24,6 +24,7 @@
   .goal {
     height: 1500px;
     margin-left: 20px;
+    padding: 0 20px;
     background-color: #000;
     display: flex;
     align-items: center;
@@ -159,7 +160,8 @@
   }
   @include mobile {
     .goal {
-      height: 670px;
+      // height: 670px;
+      height:100vh;
       margin-left: 0;
       > div {
         position: relative;
@@ -173,6 +175,9 @@
           height: 118px;
           transform: translate(-100%, -120%);
         }
+        &.gl-6{
+           width: 100% !important;
+        }
       }
       &-title {
         font-size: 30px;
@@ -180,11 +185,12 @@
       &-desp {
         margin-top: 20px;
         p {
+          text-align: left;
           font-size: 14px;
         }
-        br {
-          display: none;
-        }
+        // br {
+        //   display: none;
+        // }
       }
     }
   }
