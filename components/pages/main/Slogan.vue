@@ -5,13 +5,15 @@
     </div>
     <div class="slogan-text">
       <template v-for="(item, idx) in data.text">
-        <span :key="idx" :class="item.bold ? 'txt-b' : ''">{{
-          item.content
-        }}</span>
+        <span :key="idx" :class="item.bold ? 'txt-b' : ''" v-html="item.content">
+          <!-- {{item.content}} -->
+        </span>
       </template>
     </div>
     <div class="slogan-desp gl-3">
-      <p>{{ data.desp }}</p>
+      <p v-html="data.desp">
+        <!-- {{ data.desp }} -->
+      </p>
     </div>
   </div>
 </template>

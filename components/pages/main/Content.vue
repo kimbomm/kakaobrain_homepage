@@ -241,7 +241,7 @@
       display: block;
     }
     .tags {
-      margin-top: 17px;
+      margin-top: 20px;
       text-align: left;
       flex: 0;
       width: 100%;
