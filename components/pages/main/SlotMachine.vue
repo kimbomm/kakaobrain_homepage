@@ -179,6 +179,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    &-wrap{
+      margin-top:100px;
+    }
   }
   .slot-contents {
     width: 100%;
@@ -260,6 +263,9 @@
   @include pc-4k {
     .machine {
       height: 3000px;
+      &-wrap{
+        margin-top:442px;
+      }
     }
     .slot-contents {
       height: 900px;
@@ -309,6 +315,9 @@
     .machine {
       padding: 0;
       height: 460px;
+      &-wrap{
+        margin-top:40px;
+      }
     }
     .slot-contents {
       height: 140px;
