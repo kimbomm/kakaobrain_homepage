@@ -242,14 +242,14 @@
         width: 50px;
         height: 50px;
         &:nth-of-type(2) {
-          right: 58px;
+          right: 46px;
         }
         &:nth-of-type(3) {
-          right: 19px;
+          right: 23px;
         }
       }
       .easter-egg {
-        right: 120px;
+        right: 85px;
         width: 50px;
         height: 50px;
       }
