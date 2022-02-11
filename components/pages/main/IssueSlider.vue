@@ -460,6 +460,7 @@
     }
     .issue-thumbnail {
       padding-top: 552px;
+      height: auto;
     }
     .issue-navi {
       margin-top: 100px;
