@@ -69,7 +69,8 @@
       }
       li {
         display: inline-flex;
-        margin-bottom: 20px;
+        // margin-bottom: 20px;
+        margin-bottom:6px;
         margin-right: 4px;
       }
     }

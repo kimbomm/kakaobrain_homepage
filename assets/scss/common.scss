@@ -154,3 +154,12 @@ body {
     }
   }
 }
+// @include mobile {
+@media screen and (max-width:500px) {
+  .slogan-text,.slogan-desp {
+    .br{
+      display: block;
+    }
+  }
+}
+
