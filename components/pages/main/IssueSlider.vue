@@ -498,6 +498,11 @@
           margin-bottom: 20px;
           margin-right: 0;
         }
+        > span:nth-child(3) {
+          &.gl-2{
+            width: getWidth(3) !important;
+          }
+        }
       }
     }
     .issue {
