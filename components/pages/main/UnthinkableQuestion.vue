@@ -229,6 +229,9 @@
         p:nth-child(2) {
           font-size: 14px;
           width: 90% !important;
+          &.gl-4{
+            width: 100% !important;
+          }
         }
       }
     }
