@@ -174,7 +174,7 @@
   .machine {
     // position: relative;
     background-color: $surface-2;
-    padding: 0 20px;
+    margin: 0 20px;
     height: 1500px;
     display: flex;
     justify-content: center;
