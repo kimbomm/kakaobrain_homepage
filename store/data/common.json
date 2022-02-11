@@ -117,21 +117,61 @@
   ],
   "footer": [
     {
-      "name": "문의",
+      "name": {
+        "KR": "문의",
+        "EN": "Contacts"
+      },
       "link": "mailto:contact@kakaobrain.com",
       "target": "_blank"
     },
-    { "name": "오시는 길", "link": "/map", "target": "" },
     {
-      "name": "사이버윤리실",
+      "name": {
+        "KR": "오시는 길",
+        "EN": "Maps & Directions"
+      },
+      "link": "/map",
+      "target": ""
+    },
+    {
+      "name": {
+        "KR": "사이버윤리실",
+        "EN": "Cyber Ethics"
+      },
       "link": "https://www.kakaocorp.com/policy/cyberEthics/info?lang=",
       "target": "_blank"
     },
-    { "name": "이용약관", "link": "#", "target": "" },
-    { "name": "개인정보보호지침", "link": "#", "target": "" },
-    { "name": "Pathfinder", "link": "#", "target": "" },
-    { "name": "Open-MiniCon", "link": "#", "target": "" },
-    { "name": "Recruit", "link": "#", "target": "_blank" }
+    {
+      "name": {
+        "KR": "개인정보 보호지침",
+        "EN": "Privacy Policy"
+      },
+      "link": "#",
+      "target": ""
+    },
+    {
+      "name": {
+        "KR": "Pathfinder",
+        "EN": "Pathfinder"
+      },
+      "link": "#",
+      "target": "_blank"
+    },
+    {
+      "name": {
+        "KR": "오픈미니컨",
+        "EN": "Open Minicon"
+      },
+      "link": "#",
+      "target": "_blank"
+    },
+    {
+      "name": {
+        "KR": "영입",
+        "EN": "Recruit"
+      },
+      "link": "#",
+      "target": "_blank"
+    }
   ],
   "sns": [
     { "name": "facebook", "link": "#" },

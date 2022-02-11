@@ -12,10 +12,10 @@
               class="menu-list"
             >
               <nuxt-link v-if="!menu.target" :to="menu.link">
-                {{ menu.name }}
+                {{ menu.name[language] }}
               </nuxt-link>
               <a v-else :href="menuLink(menu)" :target="menu.target">
-                {{ menu.name }}
+                {{ menu.name[language] }}
               </a>
             </li>
           </ul>
@@ -55,7 +55,6 @@
     },
     methods: {
       menuLink(data) {
-        console.log(data)
         if (data.name === '사이버윤리실') {
           let link = data.link
           console.log(link)
@@ -161,7 +160,7 @@
       width: 160px;
       height: 264px;
     }
-  } 
+  }
   @include pc-4k {
     .footer {
       padding-top: 1000px;
