@@ -229,6 +229,9 @@
         p:nth-child(2) {
           font-size: 14px;
           width: 90% !important;
+          &.gl-4{
+            width: 100% !important;
+          }
         }
       }
     }
@@ -242,14 +245,14 @@
         width: 50px;
         height: 50px;
         &:nth-of-type(2) {
-          right: 58px;
+          right: 46px;
         }
         &:nth-of-type(3) {
-          right: 19px;
+          right: 23px;
         }
       }
       .easter-egg {
-        right: 120px;
+        right: 85px;
         width: 50px;
         height: 50px;
       }
