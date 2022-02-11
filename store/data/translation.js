@@ -182,9 +182,9 @@ const ABOUT = {
       aboutConTxt2: {
         text: '카카오브레인 크루라면 가장 먼저 해야 하는 질문입니다. 우리는 일의 원동력을 스스로 만들어냅니다.<br/>일에 끌려 다니지 않고 끌고 가기 위해서 언제나 내가 먼저 생각하고, 질문하고, 움직입니다.<br/>이렇게 우리는 본인의 일에 대해 본인이 가장 잘 판단할 수 있다는 신뢰로 스스로 판단하고 스스로 자기의 일을 하는 것을 지향합니다.'
       },
-      aboutConD: {
+      aboutConE: {
         title: '우리는 수평 커뮤니케이션을<br/>지향해요.',
-        text: '카카오브레인이 지향하는 "수평 커뮤니케이션 문화란?"<br/>논의에 있어서 의견을 거리낌 없이 자유롭게 개진하는 문화를 의미합니다. 논의 과정에서 누구나 자신의 생각을<br/>명확히 밝힐 수 있고, 지위와 관계없이 논의 주제에 대해 &lsquo;수평적$rsquo;으로 논의가 이루어 집니다. 또한 모든 건의 사항은<br/>대표에게 직접 이야기할 수 있으며, 전사 공론장이 상시 열립니다.<br/><br/>&lsquo;수평적$rsquo; 논의를 통해 전달되는 구성원의 생각과 의견들이 의사 결정자의 더 나은 결정을 이끌어 낼 수 있습니다.<br/>더 이상의 논의로 의사 결정이 어려워 책임을 갖고 &lsquo;선택$rsquo;을 해야 하는 순간이 온다면 각 정해진 의사결정자가 최종적인 의사결정을 하게 됩니다.'
+        text: '카카오브레인이 지향하는 "수평 커뮤니케이션 문화란?"<br/>논의에 있어서 의견을 거리낌 없이 자유롭게 개진하는 문화를 의미합니다. 논의 과정에서 누구나 자신의 생각을<br/>명확히 밝힐 수 있고, 지위와 관계없이 논의 주제에 대해 &lsquo;수평적&rsquo;으로 논의가 이루어 집니다. 또한 모든 건의 사항은<br/>대표에게 직접 이야기할 수 있으며, 전사 공론장이 상시 열립니다.<br/><br/>&lsquo;수평적&rsquo; 논의를 통해 전달되는 구성원의 생각과 의견들이 의사 결정자의 더 나은 결정을 이끌어 낼 수 있습니다.<br/>더 이상의 논의로 의사 결정이 어려워 책임을 갖고 &lsquo;선택&rsquo;을 해야 하는 순간이 온다면 각 정해진 의사결정자가 최종적인 의사결정을 하게 됩니다.'
       },
       aboutConF: {
         title:
@@ -217,13 +217,13 @@ const ABOUT = {
       aboutConTxt2: {
         text: 'This is the first question we have to ask. We create our own driving force. I always think first, ask questions, and move in order to lead without being dragged around by work. In this way, we aim to judge ourselves with the trust that we can best judge our own work and do our own work.'
       },
-      aboutConD: {
+      aboutConE: {
         title: 'We aim for horizontal<br />communication.',
         text: 'It means a culture of freely expressing opinions in discussions. During the discussion process, anyone can clarify their thoughts, and regardless of their status, discussions are made "horizontally" on the topic of discussion. In addition, all suggestions can be made directly to the representative, and the public forum is always held.<br /><br />The thoughts and opinions of members delivered through &lsquo;horizontal&rsquo; discussions can lead to better decision-makers. If there comes a moment when you have to take responsibility and make a "choice" because it is difficult to make decisions with further discussions, each determined decision maker will make the final decision.'
       },
       aboutConF: {
         title: 'We want to take maximum autonomy with the least principle.',
-        text: 'We aim to minimize the principles of organizational culture if possible so that it feels as if there is no organizational culture, and to make everything autonomously through our discussions as much as possible.<br/>With this minimum principle, we can go back autonomously. Therefore, our culture of sharing and creating systems and principles without artificially creating them applies not only in our work but also in our company$rsquo;s welfare.',
+        text: 'We aim to minimize the principles of organizational culture if possible so that it feels as if there is no organizational culture, and to make everything autonomously through our discussions as much as possible.<br/>With this minimum principle, we can go back autonomously. Therefore, our culture of sharing and creating systems and principles without artificially creating them applies not only in our work but also in our company&rsquo;s welfare.',
         recruit:
           'Click the button below to see our detailed culture and recruitment.'
       }

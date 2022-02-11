@@ -10,7 +10,7 @@
       <AboutConSubTit :data="data.aboutConSubTit" />
       <AboutConTxt :data="data.aboutConTxt2" />
     </div>
-    <AboutFullConE :data="data.aboutConD" />
+    <AboutFullConE :data="data.aboutConE" />
     <AboutFullConF :data="data.aboutConF" />
   </div>
 </template>
