@@ -1,5 +1,7 @@
 <template>
-  <div class="about-con-tit gl-8 l-ml-2">{{ data.title }}</div>
+  <div class="about-con-tit gl-8 l-ml-2">
+    <p v-html="data.title"></p>
+  </div>
 </template>
 <script>
   export default {

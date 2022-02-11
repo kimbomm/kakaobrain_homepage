@@ -46,26 +46,7 @@
           { text: 'About', sub: 'about', link: '' },
           { text: 'Culture', sub: 'sub', link: '/about/culture' },
           { text: 'Yeah!!!', sub: '', link: '' }
-        ],
-        aboutTitle: {
-          title: 'Our way</br><span class="string">of working.</span>'
-        },
-        aboutTitleText: {
-          text: 'kakaobrain krew are given a lot of good opportunities to grow self-directed, and we find out how we are doing to grow</br>together through great colleagues.'
-        },
-
-        aboutConTit: {
-          title: 'We immerse ourselves and work self-directedly.'
-        },
-        aboutConTxt: {
-          text: 'We need to be able to experiment and change faster than anywhere else, and we need to be interested in and challenge new things and paths that no one has ever been to. So we are not afraid of failure. Performance includes not only success but also meaningful failure. As there are many situations where you have to maximize individual creativity by asking questions on your own without just moving on, self-direction to find and solve problems on your own is required first.'
-        },
-        aboutConSubTit: {
-          title: 'Why would we do this?'
-        },
-        aboutConTxt2: {
-          text: 'This is the first question we have to ask. We create our own driving force. I always think first, ask questions, and move in order to lead without being dragged around by work. In this way, we aim to judge ourselves with the trust that we can best judge our own work and do our own work.'
-        }
+        ]
       }
     },
     computed: {

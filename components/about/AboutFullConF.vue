@@ -3,7 +3,9 @@
     <div class="full-con">
       <!-- <img src="@/assets/images/about-full-conD_img_1.png"/> -->
       <div class="inner">
-        <div class="tit gl-8 l-ml-2">{{ data.title }}</div>
+        <div class="tit gl-8 l-ml-2">
+          <p v-html="data.title"></p>
+        </div>
         <div class="text-box gl-6 l-ml-3">
           <div class="txt" v-html="data.text"></div>
         </div>
