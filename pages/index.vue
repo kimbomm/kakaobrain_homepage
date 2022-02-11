@@ -88,7 +88,7 @@
     .full-image {
       margin-top: 100px;
     }
-    .machine {
+    .machine-wrap {
       margin-top: 100px;
     }
     .innovation {
@@ -110,6 +110,9 @@
       .slogan {
         margin-top: 990px;
       }
+      .machine-wrap {
+        margin-top: 200px;
+      }
       .main-archive {
         margin-top: 700px;
       }
@@ -127,8 +130,8 @@
       .slogan {
         margin-top: 1500px;
       }
-      .machine {
-        margin-top: 200px;
+      .machine-wrap {
+        margin-top: 442px;
       }
       .innovation {
         margin-top: 200px;
@@ -173,8 +176,9 @@
       .full-image {
         margin-top: 40px;
       }
-      .machine {
+      .machine-wrap {
         margin-top: 40px;
+        margin-bottom:372px;
       }
       .innovation {
         margin-top: 40px;
