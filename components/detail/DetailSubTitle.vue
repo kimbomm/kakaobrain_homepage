@@ -42,6 +42,7 @@
       line-height: 130%;
       font-size: 40px;
       font-weight: 900;
+      word-break: keep-all;
     }
   }
 
