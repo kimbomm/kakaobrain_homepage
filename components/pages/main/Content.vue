@@ -181,6 +181,9 @@
     font-size: 18px;
     line-height: 1.3;
     margin-top: 10px;
+    span{
+      line-height: 150%
+    }
     span:nth-child(1) {
       display: inline-block;
       flex: 0 0 calc(100% - 50px);
@@ -261,6 +264,9 @@
     }
     .title {
       font-size: 16px;
+      span:nth-child(2) {
+        font-size:18px;
+      }
     }
   }
 </style>
