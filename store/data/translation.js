@@ -46,7 +46,7 @@ const ABOUT = {
                 text: '미래 딥러닝 선행 연구를 전망하고, 독창적인 알고리즘을 개발하여 새로운 도전을 할 수 있는 기반을 구축합니다.'
               },
               {
-                title: 'Develop Commercial-le vel Model',
+                title: 'Develop Commercial-level Model',
                 text: '응용 연구를 진행하고 모델 스케일을 더욱 확장시켜, 서비스 개발에 필요한 기술과 디지털 휴먼을 완성해 나갑니다.'
               }
             ]
@@ -223,7 +223,7 @@ const ABOUT = {
       },
       aboutConF: {
         title: 'We want to take maximum autonomy with the least principle.',
-        text: 'We aim to minimize the principles of organizational culture if possible so that it feels as if there is no organizational culture, and to make everything autonomously through our discussions as much as possible.<br/>With this minimum principle, we can go back autonomously. Therefore, our culture of sharing and creating systems and principles without artificially creating them applies not only in our work but also in our company&rsquo;s welfare.',
+        text: 'We aim to minimize the principles of organizational culture if possible so that it feels as if there is no organizational culture, and to make everything autonomously through our discussions as much as possible.<br/><br/>With this minimum principle, we can go back autonomously. Therefore, our culture of sharing and creating systems and principles without artificially creating them applies not only in our work but also in our company&rsquo;s welfare.',
         recruit:
           'Click the button below to see our detailed culture and recruitment.'
       }
