@@ -1,16 +1,22 @@
 <template>
   <div class="machine-wrap">
-    <div class="machine">
+    <div ref="machine" class="machine">
       <div ref="slot-contents" class="slot-contents">
         <div class="slot-image">
           <div ref="slot-image">
-            <template v-for="itemIndex in slot">
+            <template v-for="(itemIndex, idx) in slot">
               <img
                 :key="itemIndex"
                 :src="
                   require(`@/assets/images/slot/${data[itemIndex].image}.svg`)
                 "
                 alt=""
+                :class="{
+                  active: idx === activeIndex,
+                  'prev-active': idx === prevIndex,
+                  'wait-up': idx === upIndex,
+                  'wait-bottom': idx === bottomIndex
+                }"
               />
             </template>
           </div>
@@ -75,8 +81,12 @@
           { txt: '코로나는 언제 끝날까?', image: 'slot_18' }
         ],
         isChanged: false,
+        prevIndex: 0,
         activeIndex: 0,
-        slot: []
+        upIndex: null,
+        bottomIndex: null,
+        slot: [],
+        lastScrollTop: 0
       }
     },
     mounted() {
@@ -87,7 +97,7 @@
       window.removeEventListener('scroll', this.onScroll)
     },
     methods: {
-      onScroll() {
+      onScroll(e) {
         const target = this.$refs['slot-contents']
         const targetImage = this.$refs['slot-image']
         const targetText = this.$refs['slot-text']
@@ -98,16 +108,22 @@
           targetCenter >= window.scrollY + window.innerHeight * 0.75
         ) {
           this.isChanged = false
-          targetImage.style = `transform: translateY(0)`
+          this.prevIndex = window.scrollY > this.lastScrollTop ? null : 1
+          this.activeIndex = 0
+          this.upIndex = null
+          this.bottomIndex = 1
+
           targetText.style = `transform: translateY(0)`
         } else if (
           targetCenter <= window.scrollY + window.innerHeight * 0.75 &&
           targetCenter >= window.scrollY + window.innerHeight * 0.5
         ) {
           this.isChanged = false
-          targetImage.style = `transform: translateY(-${
-            targetImage.offsetHeight * 0.25
-          }px)`
+          this.prevIndex = window.scrollY > this.lastScrollTop ? 0 : 2
+          this.activeIndex = 1
+          this.upIndex = 0
+          this.bottomIndex = 2
+
           targetText.style = `transform: translateY(-${
             targetText.offsetHeight * 0.25
           }px)`
@@ -116,9 +132,11 @@
           targetCenter >= window.scrollY + window.innerHeight * 0.25
         ) {
           this.isChanged = false
-          targetImage.style = `transform: translateY(-${
-            targetImage.offsetHeight * 0.5
-          }px)`
+          this.prevIndex = window.scrollY > this.lastScrollTop ? 1 : 3
+          this.activeIndex = 2
+          this.upIndex = 1
+          this.bottomIndex = 3
+
           targetText.style = `transform: translateY(-${
             targetText.offsetHeight * 0.5
           }px)`
@@ -127,19 +145,27 @@
           targetCenter >= window.scrollY + window.innerHeight * 0
         ) {
           this.isChanged = false
-          targetImage.style = `transform: translateY(-${
-            targetImage.offsetHeight * 0.75
-          }px)`
+          this.prevIndex = window.scrollY > this.lastScrollTop ? 2 : 3
+          this.activeIndex = 3
+          this.upIndex = 2
+          this.bottomIndex = null
+
           targetText.style = `transform: translateY(-${
             targetText.offsetHeight * 0.75
           }px)`
         } else if (
-          target.offsetTop >= window.scrollY + window.innerHeight ||
-          target.offsetTop + target.offsetHeight <=
-            window.scrollY + window.innerHeight
+          target.offsetTop > window.scrollY + target.offsetHeight ||
+          window.scrollY > target.offsetTop + target.offsetHeight
         ) {
           this.setSlot()
         }
+        this.setImage()
+        this.lastScrollTop = window.scrollY
+      },
+      setImage() {
+        setTimeout(() => {
+          this.prevIndex = null
+        }, 350)
       },
       setSlot() {
         if (!this.isChanged) {
@@ -196,13 +222,30 @@
       top: 0;
       left: 50%;
       transform: translateX(-50%);
-      > div {
-        transition: transform 0.3s linear;
-      }
     }
     img {
+      position: absolute;
       display: block;
       height: 500px;
+      transition: top 0.3s linear;
+      top: -100%;
+      left: -100%;
+      &.prev-active {
+        top: 0 !important;
+        left: 0 !important;
+        z-index: 0;
+      }
+      &.active {
+        top: 0;
+        left: 0;
+        z-index: 1;
+      }
+      &.wait-up {
+        top: -100%;
+      }
+      &.wait-bottom {
+        top: 100%;
+      }
     }
   }
   .slot-text {
