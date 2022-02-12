@@ -79,7 +79,7 @@
 
   @include mobile {
     .monthly {
-      padding: 0 20px;
+      // padding: 0 20px;
       .detail {
         &-text {
           font-size: 16px;
