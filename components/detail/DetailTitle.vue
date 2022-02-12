@@ -68,7 +68,6 @@
 
   @include mobile {
     .detail {
-      padding: 0 20px;
       margin-bottom: 20px;
       &-title {
         font-size: 30px;

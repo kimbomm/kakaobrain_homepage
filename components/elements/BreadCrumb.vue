@@ -73,6 +73,9 @@
         margin-bottom:6px;
         margin-right: 4px;
       }
+      &__full {
+        padding: 76px 20px 54px;
+      }
     }
   }
 </style>
