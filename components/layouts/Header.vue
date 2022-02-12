@@ -42,6 +42,7 @@
 </script>
 <style lang="scss" scoped>
   .header {
+    position: relative;
     position: fixed;
     top: 20px;
     left: 20px;
@@ -114,6 +115,7 @@
       font-size: 16px;
     }
     .header {
+      align-items: flex-start;
       .b-logo {
         img {
           width: 84px;
@@ -127,8 +129,9 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 56px;
+      // height: 56px;
       padding: 0 20px;
+      padding-top:20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
