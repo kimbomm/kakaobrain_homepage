@@ -231,6 +231,7 @@
     margin-top: 20px;
     margin-left: getMargin(2);
     font-size: 40px;
+    font-weight: 600;
     line-height: 110%;
   }
   @include pc-large {
