@@ -158,7 +158,6 @@
           window.scrollY <=
             issue.offsetTop + issue.offsetHeight - navi.offsetHeight
         ) {
-          console.log(window.scrollY, navi.offsetTop, navi.offsetHeight)
           navi.style = `transform: translateY(${
             window.scrollY - navi.offsetTop
           }px)`
