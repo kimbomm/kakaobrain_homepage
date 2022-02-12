@@ -188,7 +188,7 @@
   }
   @include tablet {
     .footer {
-      padding-top: 400px;
+      padding-top: 300px;
       &-shape {
         width: getWidth(2);
         height: 80px;

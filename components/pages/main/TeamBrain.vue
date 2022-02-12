@@ -278,6 +278,7 @@
   }
   @include tablet {
     .team {
+      margin-bottom:100px;
       &-title {
         font-size: 16px;
       }
