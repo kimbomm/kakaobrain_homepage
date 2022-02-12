@@ -158,6 +158,7 @@
           window.scrollY <=
             issue.offsetTop + issue.offsetHeight - navi.offsetHeight
         ) {
+          console.log(window.scrollY, navi.offsetTop, navi.offsetHeight)
           navi.style = `transform: translateY(${
             window.scrollY - navi.offsetTop
           }px)`
@@ -275,7 +276,6 @@
       width: getWidth(8);
     }
     &-info {
-      position: relative;
       padding-top: $titleHeight + $titleMargin;
       margin-left: 20px;
       text-align: right;
