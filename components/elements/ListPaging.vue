@@ -149,10 +149,12 @@
       align-items: center;
     }
     &-prev {
+      display: flex;
       margin-right: 10px;
       font-size: 16px;
     }
     &-next {
+      display: flex;
       margin-left: 10px;
       font-size: 16px;
     }
@@ -160,7 +162,8 @@
       ul {
         display: flex;
         width: 100%;
-        justify-content: space-between;
+        // justify-content: space-between;
+        justify-content: center;
       }
       li {
         padding: 0 2px;
@@ -267,7 +270,8 @@
         width: 100%;
         li {
           &:not(:last-child) {
-            margin-right: 12px;
+            // margin-right: 12px;
+            margin-right: 8%;
           }
         }
         .link {

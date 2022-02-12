@@ -261,7 +261,7 @@
 
     .contents {
       &-checkbox {
-        margin-bottom: 130px;
+        margin-bottom: 140px;
       }
       &-list {
         &:not(:last-child) {
@@ -298,7 +298,7 @@
         }
       }
       &-checkbox {
-        margin-bottom: 90px;
+        margin-bottom: 100px;
       }
       &-list {
         &:not(:last-child) {
