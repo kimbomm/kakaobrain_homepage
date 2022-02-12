@@ -174,10 +174,16 @@
     }
   ],
   "sns": [
-    { "name": "facebook", "link": "#" },
-    { "name": "insta", "link": "#" },
-    { "name": "kakao", "link": "#" },
-    { "name": "youtube", "link": "#" }
+    { "name": "facebook", "link": "https://www.facebook.com/kakaobrain" },
+    {
+      "name": "linkedin",
+      "link": "https://www.linkedin.com/company/kakaobrain/"
+    },
+    { "name": "kakao", "link": "http://pf.kakao.com/_xhFyTb" },
+    {
+      "name": "youtube",
+      "link": "https://www.youtube.com/channel/UCdfmJNL-t_PdVHyn__tGrpg"
+    }
   ],
   "members": {
     "CEO": [
@@ -206,8 +212,5 @@
       { "name": "carl.brain", "profile": "" },
       { "name": "jeff.sky", "profile": "" }
     ]
-  },
-  "category": {
-    "innovation": ["tag1", "tage2", "tage3", "tage4", "tage5", "tage6"]
   }
 }

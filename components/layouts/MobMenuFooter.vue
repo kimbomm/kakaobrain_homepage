@@ -1,16 +1,21 @@
 <template>
   <div class="menu-footer">
     <ul v-for="(menu, index) in footerMenu" :key="index">
-      <li v-for="(menuItem, idx) in menu" :key="idx">
-        <nuxt-link :to="menuItem.link">
-          {{ menuItem.name }}
+      <li v-for="(menuItem, idx) in menu" :key="idx" @click="onClose">
+        <nuxt-link v-if="!menuItem.target" :to="menuItem.link">
+          {{ menuItem.name[language] }}
         </nuxt-link>
+        <a v-else :href="menuLink(menuItem)" :target="menuItem.target">
+          {{ menuItem.name[language] }}
+        </a>
       </li>
     </ul>
     <div class="sns-list">
       <ul>
-        <li v-for="(item, index) in sns" :key="index">
-          <Icon :sns="`icon-${item.name}-w`" @click="onGoingSNS(item.link)" />
+        <li v-for="(item, index) in sns" :key="index" @click="onClose">
+          <a :href="item.link" target="_blank">
+            <Icon :sns="`icon-${item.name}-w`" />
+          </a>
         </li>
       </ul>
     </div>
@@ -37,6 +42,7 @@
     },
     computed: {
       ...mapState({
+        language: state => state.language,
         ftMenu: state => state.footerMenu,
         sns: state => state.sns
       }),
@@ -57,8 +63,17 @@
       }
     },
     methods: {
-      onGoingSNS(link) {
-        window.open(link)
+      onClose() {
+        this.$emit('onClose')
+      },
+      menuLink(data) {
+        if (data.name === '사이버윤리실') {
+          let link = data.link
+          this.language === 'KR' ? (link += 'ko') : (link += 'en')
+          return link
+        } else {
+          return data.link
+        }
       }
     }
   }

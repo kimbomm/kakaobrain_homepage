@@ -20,13 +20,17 @@
             <!-- <span v-if="menu.alarm" class="menu-num">{{ menu.alarm }}</span> -->
           </button>
           <ul class="sub-menu">
-            <li v-for="(subMenu, idx) in menu.sub" :key="`sub-${idx}`">
+            <li
+              v-for="(subMenu, idx) in menu.sub"
+              :key="`sub-${idx}`"
+              @click="onClose"
+            >
               <nuxt-link :to="subMenu.link">{{ subMenu.name }}</nuxt-link>
             </li>
           </ul>
         </li>
       </ul>
-      <MobMenuFooter />
+      <MobMenuFooter @onClose="onClose" />
     </div>
   </div>
 </template>
@@ -112,7 +116,7 @@
   .sub-menu {
     display: none;
     margin-top: 25px;
-    padding-bottom:30px;
+    padding-bottom: 30px;
     li {
       font-size: 20px;
       line-height: 1.3;

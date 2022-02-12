@@ -2,30 +2,9 @@
   <div>
     <div class="footer-sns">
       <ul>
-        <li class="item">
-          <a href="https://www.facebook.com/kakaobrain" target="_blank">
-            <Icon :sns="`icon-facebook-${!isDark ? 'w' : 'b'}`"></Icon>
-          </a>
-        </li>
-        <li class="item">
-          <a
-            href="https://www.linkedin.com/company/kakaobrain/"
-            target="_blank"
-          >
-            <Icon :sns="`icon-linkedin-${!isDark ? 'w' : 'b'}`"></Icon>
-          </a>
-        </li>
-        <li class="item">
-          <a href="http://pf.kakao.com/_xhFyTb" target="_blank">
-            <Icon :sns="`icon-kakao-${!isDark ? 'w' : 'b'}`"></Icon>
-          </a>
-        </li>
-        <li class="item">
-          <a
-            href="https://www.youtube.com/channel/UCdfmJNL-t_PdVHyn__tGrpg"
-            target="_blank"
-          >
-            <Icon :sns="`icon-youtube-${!isDark ? 'w' : 'b'}`"></Icon>
+        <li v-for="(item, index) in sns" :key="index" class="item">
+          <a :href="item.link" target="_blank">
+            <Icon :sns="`icon-${item.name}-${!isDark ? 'w' : 'b'}`" />
           </a>
         </li>
       </ul>
@@ -41,7 +20,8 @@
     },
     computed: {
       ...mapState({
-        isDark: state => state.isDark
+        isDark: state => state.isDark,
+        sns: state => state.sns
       })
     }
   }
