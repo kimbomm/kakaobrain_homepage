@@ -321,6 +321,9 @@
         margin-bottom: 40px;
         font-size: 12px;
       }
+      &-img {
+        background-image: url(@/assets/images/team_main_mob.jpg);
+      }
       &-content {
         margin-top: 20px;
         padding: 0 20px;
