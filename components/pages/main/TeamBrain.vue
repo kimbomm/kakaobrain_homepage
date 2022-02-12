@@ -1,9 +1,7 @@
 <template>
   <div class="team">
-    <p class="team-title l-ml-2"> Who is working on?</p>
-    <div class="team-img">
-      <img src="@/assets/images/team_main.jpeg" />
-    </div>
+    <p class="team-title l-ml-2">Who is working on?</p>
+    <div class="team-img"></div>
     <div class="team-content">
       <div>
         <p>
@@ -25,10 +23,10 @@
           <img src="@/assets/images/arrow-down.svg" alt="more button image" />
         </button>
         <button class="apply" style="display: none">
-          <span class="apply-text">Apply!!!!! </span><span class="apply-mark">&nbsp;&nbsp;</span>
+          <span class="apply-text">Apply!!!!! </span
+          ><span class="apply-mark">&nbsp;&nbsp;</span>
         </button>
       </div>
-      
     </div>
   </div>
 </template>
@@ -106,20 +104,15 @@
       font-size: 16px;
       margin-bottom: 100px;
     }
-    &-img{
+    &-img {
       width: 100%;
       height: 600px;
       position: relative;
       overflow: hidden;
-      img {
-        position: absolute;
-        top: 50%; 
-        left: 50%;
-        width: 100%;
-        height: 100%;
-        transform: translate(-50%,-50%);
-        object-fit: cover;
-      }
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-image: url(@/assets/images/team_main.jpeg);
     }
     &-content {
       margin-top: 20px;
@@ -156,7 +149,7 @@
         }
       }
     }
-    &-buttons{
+    &-buttons {
       display: flex;
       justify-content: space-between;
     }
@@ -176,23 +169,23 @@
         cursor: not-allowed;
       }
     }
-    .apply{
+    .apply {
       display: flex;
       align-items: center;
       justify-content: center;
       min-width: 131px;
-      height: 131px; 
+      height: 131px;
       padding: 0 30px;
       line-height: 130%;
       font-family: Inter;
-      font-size: 70px; 
+      font-size: 70px;
       border-radius: 200px;
       background-color: $brain-mint;
-      color:$gray-8;
-      &-text{
+      color: $gray-8;
+      &-text {
         font-style: italic;
       }
-      &-mark{
+      &-mark {
         font-size: 50px;
       }
     }
@@ -202,7 +195,7 @@
       &-title {
         font-size: 22px;
       }
-      &-img{
+      &-img {
         height: 804px;
       }
       &-content {
@@ -227,11 +220,11 @@
         width: 182px;
         height: 182px;
       }
-      .apply{
-        height: 182px; 
+      .apply {
+        height: 182px;
         padding: 0 50px;
-        font-size: 94px; 
-        &-mark{
+        font-size: 94px;
+        &-mark {
           font-size: 66px;
         }
       }
@@ -243,7 +236,7 @@
         margin-bottom: 200px;
         font-size: 34px;
       }
-      &-img{
+      &-img {
         height: 1212px;
       }
       &-content {
@@ -266,11 +259,11 @@
         width: 267px;
         height: 267px;
       }
-      .apply{
-        height: 267px; 
+      .apply {
+        height: 267px;
         padding: 0 80px;
-        font-size: 144px; 
-        &-mark{
+        font-size: 144px;
+        &-mark {
           font-size: 86px;
         }
       }
@@ -278,11 +271,11 @@
   }
   @include tablet {
     .team {
-      padding-bottom:100px;
+      padding-bottom: 100px;
       &-title {
         font-size: 16px;
       }
-      &-img{
+      &-img {
         height: 400px;
       }
       &-content {
@@ -308,11 +301,11 @@
         width: 84px;
         height: 84px;
       }
-      .apply{
-        height: 84px; 
+      .apply {
+        height: 84px;
         padding: 0 30px;
-        font-size: 40px; 
-        &-mark{
+        font-size: 40px;
+        &-mark {
           font-size: 30px;
         }
       }
@@ -327,9 +320,6 @@
         padding: 0 20px;
         margin-bottom: 40px;
         font-size: 12px;
-      }
-      &-img{
-        height: 400px;
       }
       &-content {
         margin-top: 20px;
@@ -360,11 +350,11 @@
         width: 38px;
         height: 38px;
       }
-      .apply{
-        height: 38px; 
+      .apply {
+        height: 38px;
         padding: 0 16px;
-        font-size: 16px; 
-        &-mark{
+        font-size: 16px;
+        &-mark {
           font-size: 16px;
         }
       }
