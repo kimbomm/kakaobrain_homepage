@@ -69,7 +69,7 @@
 </script>
 <style lang="scss" scoped>
   .footer {
-    padding: 500px 20px 20px;
+    margin: 500px 20px 20px;
     > div {
       position: relative;
     }
@@ -140,7 +140,7 @@
 
   @include pc-large {
     .footer {
-      padding-top: 700px;
+      margin-top: 700px;
       &-shape {
         width: 466px;
         height: 200px;
@@ -163,7 +163,7 @@
   }
   @include pc-4k {
     .footer {
-      padding-top: 1000px;
+      margin-top: 1000px;
       &-shape {
         width: 700px;
         height: 300px;
@@ -188,7 +188,7 @@
   }
   @include tablet {
     .footer {
-      padding-top: 300px;
+      margin-top: 300px;
       &-shape {
         width: getWidth(2);
         height: 80px;
@@ -212,8 +212,8 @@
   }
   @include mobile {
     .footer {
-      padding-top: 200px;
-      padding-bottom: 50px;
+      margin-top: 200px;
+      margin-bottom: 50px;
       &-shape {
         display: none;
       }
