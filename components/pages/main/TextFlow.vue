@@ -74,7 +74,6 @@
         this.list = res.data.list
       },
       onScroll() {
-        // console.log(window.scrollY, window.innerHeight)
         if (
           window.scrollY >= this.$refs['flow'].offsetTop &&
           window.scrollY <=
@@ -224,11 +223,6 @@
     }
   }
   @include mobile {
-    .article-list {
-      .article {
-        margin-top: 70px;
-      }
-    }
     .flow-txt {
       font-size: 50px;
       .easter-egg {
@@ -237,7 +231,7 @@
       }
     }
     .article-list {
-      padding: 0;
+      padding: 0 0 100vh;
       .article {
         margin-top: 70px;
         &[class*='l-ml'] {
