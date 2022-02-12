@@ -288,8 +288,7 @@
     }
     &-title {
       font-size: $titleHeight;
-      height: $titleHeight;
-      line-height: 1;
+      line-height: 1.1;
       font-weight: 900;
       font-style: italic;
       margin-bottom: $titleMargin;
@@ -297,13 +296,9 @@
       span {
         display: block;
         width: 100%;
-        height: 100%;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        &.fade {
-          white-space: normal;
-        }
       }
     }
     &-thumbnail {
@@ -380,7 +375,6 @@
     }
     .issue-title {
       font-size: $titleHeight;
-      height: $titleHeight;
       margin-bottom: $titleMargin;
     }
     .issue-thumbnail {
@@ -414,7 +408,6 @@
     }
     .issue-title {
       font-size: $titleHeight;
-      height: $titleHeight;
       margin-bottom: $titleMargin;
     }
     .issue-thumbnail {
@@ -455,7 +448,6 @@
     }
     .issue-title {
       font-size: $titleHeight;
-      height: $titleHeight;
       margin-bottom: $titleMargin;
     }
     .issue-thumbnail {
@@ -519,8 +511,17 @@
     }
     .issue-title {
       font-size: 40px;
-      height: auto;
       margin-bottom: 10px;
+      max-height: calc(48px * 3);
+      span {
+        white-space: normal;
+        display: -webkit-box;
+        word-wrap: break-word;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
     }
     .issue-thumbnail {
       padding-top: 470px;
