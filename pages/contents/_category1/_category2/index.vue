@@ -1,49 +1,51 @@
 <template>
   <div>
     <BreadCrumb :data="breadcrumb" :full="true" />
-    <div class="contents-title">
-      <DetailTitle :text="title" />
-    </div>
-    <div class="tit-text l-ml-3 gl-5">
-      카카오브레인에서 새로운 소식을 전해드립니다.
-    </div>
+    <div class="category-contents">
+      <div class="contents-title">
+        <DetailTitle :text="title" />
+      </div>
+      <div class="tit-text l-ml-3 gl-5">
+        카카오브레인에서 새로운 소식을 전해드립니다.
+      </div>
 
-    <div class="contents-checkbox l-ml-3 gl-5">
-      <ul>
-        <li
-          v-for="(item, index) in filterList"
-          :key="index"
-          class="contents-item"
-        >
-          <Checkbox
-            :checkboxText="item.text"
-            :checkboxValue="item.value"
-            :checkboxId="`checkbox_${index}`"
-            :isChecked="item.isChecked"
-            @change="onChange"
-          />
-        </li>
-      </ul>
-    </div>
+      <div class="contents-checkbox l-ml-3 gl-5">
+        <ul>
+          <li
+            v-for="(item, index) in filterList"
+            :key="index"
+            class="contents-item"
+          >
+            <Checkbox
+              :checkboxText="item.text"
+              :checkboxValue="item.value"
+              :checkboxId="`checkbox_${index}`"
+              :isChecked="item.isChecked"
+              @change="onChange"
+            />
+          </li>
+        </ul>
+      </div>
 
-    <div>
-      <ul>
-        <li
-          v-for="(item, index) in list"
-          :key="index"
-          class="contents-list l-ml-2"
-        >
-          <MenuList :data="item" />
-        </li>
-      </ul>
+      <div>
+        <ul>
+          <li
+            v-for="(item, index) in list"
+            :key="index"
+            class="contents-list l-ml-2"
+          >
+            <MenuList :data="item" />
+          </li>
+        </ul>
+      </div>
+      <List-paging
+        v-if="total > 0"
+        :limit="pageData.limit"
+        :offset="pageData.offset"
+        :total="total"
+        @onChange="onPagingChange"
+      />
     </div>
-    <List-paging
-      v-if="total > 0"
-      :limit="pageData.limit"
-      :offset="pageData.offset"
-      :total="total"
-      @onChange="onPagingChange"
-    />
   </div>
 </template>
 <script>
@@ -190,6 +192,9 @@
   }
 </script>
 <style lang="scss" scoped>
+  .category-contents{
+    margin: 0 20px;
+  }
   .tit-text {
     margin-bottom: 30px;
     line-height: 150%;
