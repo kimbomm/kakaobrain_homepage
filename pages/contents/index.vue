@@ -9,15 +9,17 @@
           :isThumbnail="true"
         />
       </div>
-      <DetailTitle :text="data.title" />
-      <template v-for="(content, index) in ContentItems">
-        <component
-          :is="validContent(content, index)"
-          :key="`content-${index}`"
-          :data="content"
-        >
-        </component>
-      </template>
+      <div class="content-inner">
+        <DetailTitle :text="data.title" />
+        <template v-for="(content, index) in ContentItems">
+          <component
+            :is="validContent(content, index)"
+            :key="`content-${index}`"
+            :data="content"
+          >
+          </component>
+        </template>
+      </div>
 
       <!-- <Like /> -->
     </template>
@@ -203,6 +205,9 @@
     .con-box {
       margin-bottom: 100px;
     }
+  }
+  .content-inner{
+    margin:0 20px;
   }
 
   @include pc-large {
