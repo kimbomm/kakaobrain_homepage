@@ -57,7 +57,6 @@
       menuLink(data) {
         if (data.name === '사이버윤리실') {
           let link = data.link
-          console.log(link)
           this.language === 'KR' ? (link += 'ko') : (link += 'en')
           return link
         } else {
