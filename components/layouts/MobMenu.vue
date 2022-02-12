@@ -81,10 +81,11 @@
       top: 0;
       left: 0;
       right: 0;
-      height: 46px;
+      // height: 46px;
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      // align-items: center;
+      align-items: flex-start;
       padding: 16px 20px 0 20px;
       img {
         width: 84px;
@@ -164,12 +165,18 @@
   @include mobile {
     .mob-menu {
       &-top {
+        align-items: center;
         padding: 0 20px;
-        height: 56px;
+        padding-top:20px;
+        // height: 56px;
+        // height: 51px;
         span {
           font-size: 18px;
         }
         button {
+          position: absolute;
+          top:13px;
+          right:15px;
           width: 30px;
           height: 30px;
         }

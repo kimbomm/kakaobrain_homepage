@@ -273,6 +273,9 @@
   }
   @include mobile {
     .menu-btn {
+      position: absolute;
+      top:13px;
+      right:15px;
       width: 30px;
       height: 30px;
     }
