@@ -59,7 +59,34 @@
       margin-right: 0;
     }
     &__full {
-      padding: 100px 20px;
+      padding: 100px 20px 142px;
+    }
+  }
+  @include pc-large() {
+    .bread-crumb {
+      &__full {
+        padding: 130px 20px 222px;
+      }
+    }
+  }
+  @include pc-4k() {
+    .bread-crumb {
+      &__full {
+        padding: 200px 20px 322px;
+      }
+    }
+  }
+  @include tablet() {
+    .bread-crumb {
+      &__full {
+        padding: 100px 20px 38px;
+      }
+      li {
+        margin-bottom: 4px;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
     }
   }
   @include mobile {
@@ -74,7 +101,7 @@
         margin-right: 4px;
       }
       &__full {
-        padding: 76px 20px 54px;
+        padding: 76px 20px 60px;
       }
     }
   }

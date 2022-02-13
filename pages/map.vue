@@ -1,10 +1,10 @@
 <template>
   <div>
     <BreadCrumb :data="breadcrumb" :full="true" />
-    <div class="contents-title">
-      <DetailTitle text="오시는 길" />
-    </div>
     <div class="map">
+      <div class="contents-title">
+        <DetailTitle text="오시는 길" />
+      </div>
       <div class="tit-text l-ml-3">
         카카오브레인 크루가 모여 생각하지 못한 질문을 던지고 해답을 찾아가는
         장소입니다.
