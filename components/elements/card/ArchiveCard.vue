@@ -36,6 +36,10 @@
       data: {
         type: Object
       },
+      isMainCard: {
+        type: Boolean,
+        default: false
+      },
       isMasonry: {
         type: Boolean,
         default: false
@@ -54,6 +58,9 @@
         }
         if (this.isMasonry) {
           classList.push('area')
+        }
+        if (this.isMainCard) {
+          classList.push('main-card')
         }
 
         return classList.join(' ')
@@ -114,6 +121,11 @@
         width: 100%;
       }
     }
+    &.main-card {
+      min-width: initial;
+      max-width: initial;
+      width: getWidth(2);
+    }
   }
   .archive {
     &.dark {
@@ -157,6 +169,11 @@
       }
     }
   }
+  @include tablet {
+    .archive.main-card {
+      width: getWidth(3);
+    }
+  }
   @include mobile {
     .archive {
       &-tit {
@@ -172,6 +189,9 @@
             font-size: 12px;
           }
         }
+      }
+      &.main-card {
+        width: 300px;
       }
     }
   }

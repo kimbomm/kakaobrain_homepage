@@ -12,6 +12,7 @@
       <li v-for="(item, index) in list" :key="index" class="gl-2">
         <ArchiveCard
           :data="item"
+          :isMainCard="true"
           :tit="item.title"
           :tag="item.ContentTags"
           :theme="index % 2 === 0 ? 'dark' : ''"
@@ -78,19 +79,13 @@
     }
     &-list {
       margin-top: 100px;
-      padding-bottom:100px;
+      padding-bottom: 100px;
       display: flex;
       justify-content: space-between;
       -ms-overflow-style: none; /* IE and Edge */
       scrollbar-width: none; /* Firefox */
       &::-webkit-scrollbar {
         display: none; /* Chrome, Safari, Opera*/
-      }
-      .archive {
-        width: 100%;
-        max-width: none;
-        min-width: initial;
-        flex: 0 0 100%;
       }
     }
   }
