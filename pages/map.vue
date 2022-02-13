@@ -79,7 +79,7 @@
             ]
           },
           {
-            label: '일반',
+            label: '마을',
             method: [
               '602-1(일반형)(평일)',
               '602-1(일반형)(휴일)',
@@ -183,6 +183,11 @@
           padding-right: 5px;
         }
       }
+      &:not(:nth-child(2)){
+        br{
+          display: none;
+        }
+      }
     }
   }
   .tit-text {
@@ -208,6 +213,12 @@
     }
     .bus-method {
       margin-bottom: 50px;
+      li {
+        margin-bottom: 5px;
+        > div:nth-child(1) {
+          flex: 0 0 70px;
+        }
+      }
     }
     .tit-text {
       margin-bottom: 50px;
@@ -231,6 +242,12 @@
     }
     .bus-method {
       margin-bottom: 70px;
+      li {
+        margin-bottom: 20px;
+        > div:nth-child(1) {
+          flex: 0 0 100px;
+        }
+      }
     }
     .tit-text {
       margin-bottom: 70px;
@@ -257,7 +274,12 @@
       }
     }
     .bus-method {
-      margin-bottom: 40px;
+      li {
+        margin-bottom: 10px;
+        > div:nth-child(1) {
+          flex: 0 0 40px;
+        }
+      }
     }
     .tit-text {
       margin-bottom: 20px;
