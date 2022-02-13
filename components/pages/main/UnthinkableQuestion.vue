@@ -19,10 +19,10 @@
       </div>
     </div>
     <div class="question-content">
-      <p>카카오브레인의 혁신은 모든 크루의 물음에서 시작합니다.</p>
+      <p>카카오브레인의 혁신은<br> 모든 크루의 물음에서 시작합니다.</p>
       <p class="gl-4">
-        우리의 혁신은 차별화된 요소 기술과 빅 모델 및 디지털 휴먼을 완성하는 AI
-        프론티어로서 기술 커뮤니티에 기여하고, 사용 가치와 삶의 질을 높이는
+        우리의 혁신은 차별화된 요소 기술과 빅 모델 및<br/> 디지털 휴먼을 완성하는 AI
+        프론티어로서<br/> 기술 커뮤니티에 기여하고, 사용 가치와 삶의 질을<br/> 높이는
         새로운 서비스 영역을 개척합니다.
       </p>
     </div>
@@ -59,6 +59,9 @@
       p:nth-child(2) {
         font-size: 18px;
         line-height: 1.4;
+      }
+      br{
+        display: none;
       }
     }
   }
@@ -232,6 +235,7 @@
         padding-left: 0;
         p:nth-child(1) {
           font-size: 20px;
+          font-weight:700;
         }
         p:nth-child(2) {
           font-size: 14px;
@@ -262,6 +266,17 @@
         right: 85px;
         width: 50px;
         height: 50px;
+      }
+    }
+  }
+
+
+  @media screen and (max-width:500px) {
+    .question {
+      &-content {
+        br{
+          display: block;
+        }
       }
     }
   }
