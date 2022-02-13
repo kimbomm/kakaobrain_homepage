@@ -173,7 +173,7 @@
     }
   }
   .article-list {
-    padding: 0 20px 100vh;
+    padding: 0 20px 500px;
     position: relative;
     z-index: 1;
     .article {
@@ -182,6 +182,7 @@
   }
   @include pc-large {
     .article-list {
+      padding-bottom: 991px;
       .article {
         margin-top: 460px;
       }
@@ -196,6 +197,7 @@
   }
   @include pc-4k {
     .article-list {
+      padding-bottom: 1440px;
       .article {
         margin-top: 770px;
       }
@@ -210,6 +212,7 @@
   }
   @include tablet {
     .article-list {
+      padding-bottom: 400px;
       .article {
         margin-top: 164px;
       }
@@ -231,7 +234,7 @@
       }
     }
     .article-list {
-      padding: 0 0 100vh;
+      padding: 0 0 240px;
       .article {
         margin-top: 70px;
         &[class*='l-ml'] {
