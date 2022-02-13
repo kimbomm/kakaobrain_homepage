@@ -120,7 +120,7 @@
   }
   @include tablet {
     .main-archive {
-      padding: 0;
+      // padding: 0;
       > div {
         span {
           font-size: 30px;

@@ -33,6 +33,7 @@
 </script>
 <style lang="scss" scoped>
   .slogan {
+    padding: 0 20px;
     &-title {
       font-size: 16px;
       margin-bottom: 100px;
