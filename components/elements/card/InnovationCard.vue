@@ -48,6 +48,10 @@
       isMasonry: {
         type: Boolean,
         default: false
+      },
+      isMainCard: {
+        type: Boolean,
+        default: false
       }
     },
     computed: {
@@ -58,6 +62,9 @@
         }
         if (this.isMasonry) {
           classList.push('area')
+        }
+        if (this.isMainCard) {
+          classList.push('main-card')
         }
 
         return classList.join(' ')
@@ -117,7 +124,7 @@
       font-size: 30px;
       height: calc(30px * 1 * 8);
       font-weight: 400;
-      word-break: break-all;
+      word-break: keep-all;
       overflow: hidden;
       text-overflow: ellipsis;
       display: -webkit-box;
@@ -131,7 +138,7 @@
         margin-bottom: 64px;
       }
       &-mark {
-        line-height: 45px;
+        line-height: 0.9;
         font-size: 50px;
         font-weight: 900;
       }
@@ -150,12 +157,61 @@
         font-size: 14px;
       }
     }
+    &.main-card {
+      width: getWidth(3);
+      max-width: initial;
+      min-width: initial;
+      height: 640px;
+      .Innovation-inner {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .Innovation-tit {
+        font-size: 40px;
+        line-height: 0.9;
+        height: auto;
+        max-height: calc(40px * 0.9 * 8);
+        margin-bottom: 0;
+      }
+    }
   }
 
   .Innovation {
     &.dark {
       background-color: $gray-9;
       color: $gray-0;
+    }
+  }
+
+  @include pc-large {
+    .area {
+      .Innovation {
+        padding: 30px;
+        &-tit {
+          font-size: 38px;
+        }
+        .item {
+          &-mark {
+            font-size: 50px;
+          }
+          &-txt {
+            font-size: 20px;
+          }
+        }
+      }
+      .tag {
+        &-txt {
+          font-size: 18px;
+        }
+      }
+    }
+    .Innovation.main-card {
+      height: 862px;
+      .Innovation-tit {
+        font-size: 56px;
+        max-height: calc(56px * 0.9 * 8);
+      }
     }
   }
 
@@ -187,30 +243,55 @@
         }
       }
     }
-  }
-  @include pc-large {
-    .area {
-      .Innovation {
-        padding: 30px;
-        &-tit {
-          font-size: 38px;
-        }
-        .item {
-          &-mark {
-            font-size: 50px;
-          }
-          &-txt {
-            font-size: 20px;
-          }
+    .Innovation.main-card {
+      height: 1300px;
+      .Innovation-tit {
+        font-size: 84px;
+        max-height: calc(84px * 0.9 * 8);
+      }
+      .item {
+        margin-bottom: 70px;
+        &:nth-child(2) {
+          margin-bottom: 129px;
         }
       }
-      .tag {
-        &-txt {
-          font-size: 18px;
-        }
+      .item-mark {
+        font-size: 100px;
+      }
+      .item-txt {
+        font-size: 34px;
+      }
+      .tag-txt {
+        font-size: 24px;
       }
     }
   }
+  @include tablet {
+    .Innovation.main-card {
+      height: 550px;
+      width: getWidth(4);
+      .Innovation-tit {
+        font-size: 30px;
+        max-height: calc(30px * 0.9 * 8);
+      }
+      .item {
+        margin-bottom: 20px;
+        &:nth-child(2) {
+          margin-bottom: 66px;
+        }
+      }
+      .item-mark {
+        font-size: 40px;
+      }
+      .item-txt {
+        font-size: 14px;
+      }
+      .tag-txt {
+        font-size: 12px;
+      }
+    }
+  }
+
   @include mobile {
     .area {
       .Innovation {
@@ -234,6 +315,28 @@
         &-txt {
           font-size: 12px;
         }
+      }
+    }
+    .Innovation.main-card {
+      height: 470px;
+      width: 300px;
+      .Innovation-tit {
+        font-size: 26px;
+        max-height: calc(26px * 0.9 * 8);
+      }
+      .item {
+        &:nth-child(2) {
+          margin-bottom: 24px;
+        }
+      }
+      .item-mark {
+        font-size: 40px;
+      }
+      .item-txt {
+        font-size: 14px;
+      }
+      .tag-txt {
+        font-size: 12px;
       }
     }
   }
