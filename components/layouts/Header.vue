@@ -111,7 +111,7 @@
   @include tablet {
     .header,
     .header-item {
-      top: 16px;
+      // top: 16px;
       font-size: 16px;
     }
     .header {

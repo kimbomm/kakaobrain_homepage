@@ -112,6 +112,9 @@
       &:first-child {
         margin-top: 0;
       }
+      &:last-child .sub-menu{
+        padding-bottom:0px;
+      }
     }
   }
   .sub-menu {

@@ -59,7 +59,9 @@
       margin-right: 0;
     }
     &__full {
-      padding: 100px 20px 142px;
+      // padding: 100px 20px 142px;
+      // #77번 이슈 처리하면서 주석
+      padding: 100px 20px 98px;
     }
   }
   @include pc-large() {

@@ -249,22 +249,26 @@
             margin-right: 12px;
           }
         }
+      }
         .link {
           font-size: 20px;
         }
-      }
     }
   }
   @include mobile {
     .paging {
       margin-top: 80px;
       &-prev {
-        margin-right: 20px;
-        font-size: 30px;
+        margin-right: 26px;
+        .link{
+          font-size: 30px;
+        }
       }
       &-next {
-        margin-left: 20px;
-        font-size: 30px;
+        margin-left: 26px;
+        .link{
+          font-size: 30px;
+        }
       }
       &-num {
         width: 100%;

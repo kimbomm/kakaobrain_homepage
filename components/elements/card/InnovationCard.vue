@@ -92,6 +92,7 @@
           margin-bottom: 50px;
         }
         &-mark {
+          font-family: 'Inter';
           line-height: 90%;
         }
       }
@@ -138,6 +139,7 @@
         margin-bottom: 64px;
       }
       &-mark {
+        font-family: 'Inter';
         line-height: 0.9;
         font-size: 50px;
         font-weight: 900;

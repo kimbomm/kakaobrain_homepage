@@ -253,7 +253,7 @@
       position: relative;
       width: 100%;
       height: 50px;
-      margin-top: 20px;
+      margin-top: 16px;
       justify-content: flex-end;
       &-item {
         width: 50px;
