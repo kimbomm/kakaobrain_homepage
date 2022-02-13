@@ -164,12 +164,14 @@
   }
   @include mobile {
     .innovation {
+      display: block;
+      padding-top: 120px;
       height: 570px;
       margin-left: 0;
       width: 100%;
     }
     .innovation-list {
-      padding: 45px 20px !important;
+      padding: 0 20px !important;
       li {
         flex: 0 0 300px;
         margin-right: 20px;
