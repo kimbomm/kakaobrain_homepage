@@ -117,7 +117,7 @@
   .sub-menu {
     display: none;
     margin-top: 25px;
-    padding-bottom: 30px;
+    padding-bottom: 40px;
     li {
       font-size: 20px;
       line-height: 1.3;
