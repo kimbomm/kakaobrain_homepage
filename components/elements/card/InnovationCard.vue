@@ -124,7 +124,7 @@
       font-size: 30px;
       height: calc(30px * 1 * 8);
       font-weight: 400;
-      word-break: break-all;
+      word-break: keep-all;
       overflow: hidden;
       text-overflow: ellipsis;
       display: -webkit-box;
