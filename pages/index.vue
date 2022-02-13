@@ -65,7 +65,7 @@
           text: [
             { content: 'WE ', bold: false },
             { content: 'CONT', bold: true },
-            { content: 'R ', bold: false },
+            { content: '<span class="R">R</span> ', bold: false },
             { content: 'IBUTE <span class="br">TO THE WORLD</span> FROM A ', bold: true },
             { content: 'UNIQUE <span class="br">& SPECIAL</span> ', bold: false },
             { content: 'PERSPECTIVE.', bold: true }
