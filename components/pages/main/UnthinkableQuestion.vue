@@ -220,6 +220,13 @@
     .question {
       width: 100% !important;
       padding: 0 20px;
+      .silk {
+        .uq-text{
+          &.gl-8{
+            width: 100%!important;
+          }
+        }
+      }
       &-content {
         margin-top: 50px;
         padding-left: 0;
