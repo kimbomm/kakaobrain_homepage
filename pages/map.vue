@@ -30,7 +30,7 @@
                   <span :key="index">
                     {{ number }}
                   </span>
-                  <br :key="`index-${index}`" v-if="index === 2" />
+                  <br  :key="`index-${index}`" v-if="index === 2" />
                 </template>
               </div>
             </li>
@@ -310,6 +310,15 @@
       width: 100%;
       li {
         display: block;
+        &:nth-child(2){
+          width: getWidth(8) !important;
+        }
+        > div {
+           span {
+            padding-right: 1px !important;
+          }
+        }
+
       }
     }
   }
