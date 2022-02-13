@@ -5,6 +5,7 @@
         <ul v-show="isShow" ref="list" class="innovation-list l-pl-2">
           <li v-for="(item, index) in list" :key="index" class="gl-3">
             <InnovationCard
+              :isMainCard="true"
               :data="item"
               :theme="index % 2 === 0 ? 'dark' : ''"
             />
@@ -118,12 +119,6 @@
       li {
         margin-right: 100px;
         flex: 0 0 getWidth(3);
-        .Innovation {
-          max-width: none;
-          min-width: none;
-          height: 640px;
-          width: 100%;
-        }
         &:last-child {
           flex: 0;
           display: inline-flex;
@@ -142,32 +137,7 @@
     }
     .innovation-list {
       li {
-        .Innovation {
-          height: 862px;
-          /deep/ {
-            .Innovation-tit {
-              font-size: 56px;
-              height: calc(56px * 0.9 * 8);
-            }
-            .item {
-              margin-bottom: 30px;
-              &:nth-child(2) {
-                margin-bottom: 64px;
-              }
-              &-mark {
-                font-size: 50px;
-              }
-              &-txt {
-                font-size: 16px;
-              }
-            }
-            .tag {
-              &-txt {
-                font-size: 14px;
-              }
-            }
-          }
-        }
+        margin-right: 120px;
       }
     }
   }
@@ -177,32 +147,7 @@
     }
     .innovation-list {
       li {
-        .Innovation {
-          height: 1300px;
-          /deep/ {
-            .Innovation-tit {
-              font-size: 84px;
-              height: calc(84px * 0.9 * 8);
-            }
-            .item {
-              margin-bottom: 70px;
-              &:nth-child(2) {
-                margin-bottom: 129px;
-              }
-              &-mark {
-                font-size: 100px;
-              }
-              &-txt {
-                font-size: 34px;
-              }
-            }
-            .tag {
-              &-txt {
-                font-size: 24px;
-              }
-            }
-          }
-        }
+        margin-right: 200px;
       }
     }
   }
@@ -213,32 +158,7 @@
     .innovation-list {
       li {
         flex: 0 0 getWidth(4);
-        .Innovation {
-          height: 100%;
-          /deep/ {
-            .Innovation-tit {
-              font-size: 30px;
-              height: calc(30px * 0.9 * 8);
-            }
-            .item {
-              margin-bottom: 20px;
-              &:nth-child(2) {
-                margin-bottom: 66px;
-              }
-              &-mark {
-                font-size: 40px;
-              }
-              &-txt {
-                font-size: 14px;
-              }
-            }
-            .tag {
-              &-txt {
-                font-size: 12px;
-              }
-            }
-          }
-        }
+        margin-right: 100px;
       }
     }
   }
@@ -253,33 +173,6 @@
       li {
         flex: 0 0 300px;
         margin-right: 20px;
-        .Innovation {
-          height: 470px;
-          /deep/ {
-            .Innovation-tit {
-              font-size: 26px;
-              height: calc(26px * 0.9 * 8);
-              margin-bottom: 20px;
-            }
-            .item {
-              margin-bottom: 20px;
-              &:nth-child(2) {
-                margin-bottom: 24px;
-              }
-              &-mark {
-                font-size: 40px;
-              }
-              &-txt {
-                font-size: 14px;
-              }
-            }
-            .tag {
-              &-txt {
-                font-size: 12px;
-              }
-            }
-          }
-        }
       }
     }
   }
