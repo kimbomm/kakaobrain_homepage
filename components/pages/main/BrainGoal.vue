@@ -41,7 +41,7 @@
         background-position: center center;
         position: absolute;
         // top: 50%;
-        top:calc((50%) - 55px);
+        top:calc((50%) - 50px);
         left: 50%;
         transform: translate(0, -50%);
         z-index: 2;
@@ -56,7 +56,7 @@
         background-position: center center;
         position: absolute;
         // top: 50%;
-        top:calc((50%) - 55px);
+        top:calc((50%) - 50px);
         left: 50%;
         transform: translate(-100%, -50%);
         z-index: 0;
@@ -87,10 +87,10 @@
       height: 2000px;
       > div {
         &:before {
-          top:calc((50%) - 88px);
+          top:calc((50%) - 30px);
         }
         &:after {
-          top:calc((50%) - 88px);
+          top:calc((50%) - 30px);
         }
       }
       &-title {
@@ -105,17 +105,23 @@
   }
   @include pc-4k {
     .goal {
+      justify-content: flex-start;
       height: 3000px;
+      padding-left:1478px;
       > div {
         position: relative;
         &.gl-6{
-          width: getWidth(4) !important;
+          width: getWidth(5) !important;
         }
         &:before {
+          left: calc((50%) - 135px);
+          top:50%;
           width: 500px;
           height: 500px;
         }
         &:after {
+          left: calc((50%) - 260px);
+          top:50%;
           width: 500px;
           height: 500px;
         }
