@@ -28,7 +28,7 @@
       }
     }
     .s-weight{
-      font-weight:300;
+      font-weight:100;
     }
   }
   @include pc-large {
