@@ -185,7 +185,8 @@
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
-    margin-bottom: 60px;
+    // margin-bottom: 60px;
+    // #77번 이슈 처리하면서 주석
     &.no-thumbnail {
       margin-bottom: 100px;
       .bread-crumb {
