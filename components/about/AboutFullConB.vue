@@ -45,7 +45,7 @@
     .full-con {
       position: relative;
       width: 100%;
-      height:1689px;
+      min-height:1689px;
       padding: 400px 20px 400px;
       img {
         position: absolute;
@@ -106,7 +106,7 @@
   @include pc-large {
     .about-full-con-b {
       .full-con {
-        height:2252px;
+        min-height:2252px;
         padding: 530px 20px 533px;
         .con {
           &-tit {
@@ -138,7 +138,7 @@
   @include pc-4k {
     .about-full-con-b {
       .full-con {
-        height:3409px;
+        min-height:3409px;
         padding: 800px 20px 845px ;
         .con {
           &-tit {
@@ -170,7 +170,6 @@
   @media screen and (max-width: 1400px) {
     .about-full-con-b {
       .full-con {
-        height:1141px;
         .con {
           &-tit {
             font-size: 60px;
@@ -193,7 +192,7 @@
   @include tablet {
     .about-full-con-b {
       .full-con {
-        height:1141px;
+        min-height:1141px;
         padding: 200px 20px 200px;
         .con {
           &-tit {
@@ -228,6 +227,7 @@
   @include mobile {
     .about-full-con-b {
       .full-con {
+        min-height:1128px;
         padding: 107px 20px 100px;
         .con {
           &-tit {

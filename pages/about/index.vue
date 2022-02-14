@@ -3,7 +3,9 @@
     <div class="top-section">
       <BreadCrumb :data="breadcrumb" :full="true" />
       <AboutTitle :data="aboutTitle" />
-      <AboutTitleText :data="data.aboutTitleText" />
+      <div class="top-text">
+        <AboutTitleText :data="data.aboutTitleText" />
+      </div>
     </div>
     <AboutFullConA :data="data.aboutConA" />
     <div class="vision-list-con">
@@ -118,6 +120,9 @@
   @import '@/assets/scss/mixins.scss';
   .top-section{
     height:100vh;
+    .top-text{
+      padding: 0 20px;
+    }
   }
   .about-title {
     margin-bottom: 60px;
