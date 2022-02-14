@@ -100,7 +100,7 @@
         font-size: 14px;
       }
       .txt-scroll {
-        font-size: 14px;
+        font-size: 16px;
       }
     }
 
