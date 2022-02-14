@@ -53,10 +53,13 @@
 
   .about-full-slide{
     height:auto;
-    max-height:1500px;
+    // max-height:1500px;
     .slide{
+      height:1500px;
       img{
         width:100%;
+        height:100%;
+        object-fit:cover;
       }
     }
   }
@@ -98,35 +101,11 @@
     }
   }
 
-  @include pc-4k {
-    
-    .about-full-slide{
-      max-height:3000px !important;
-    }
-    
-    .swiper {
-      .swiper-pagination-fraction {
-        left:90px !important;
-        font-size: 40px !important;
-      }
-      .swiper-button-prev {
-        left: 20px !important;
-      }
-      .swiper-button-next {
-        left:190px !important;
-      }
-      .swiper-button-prev:after {
-        font-size: 40px !important;
-      }
-      .swiper-button-next:after {
-        font-size: 40px !important;
-      }
-    }
-  }
   @include pc-large {
-    
     .about-full-slide{
-      max-height:2000px;
+      .slide{
+        height:2000px;
+      }
     }
     
     .swiper {
@@ -149,10 +128,39 @@
     }
 
   }
+  @include pc-4k {
+    
+    .about-full-slide{
+      .slide{
+        height:3000px;
+      }
+    }
+    
+    .swiper {
+      .swiper-pagination-fraction {
+        left:90px ;
+        font-size: 40px ;
+      }
+      .swiper-button-prev {
+        left: 20px ;
+      }
+      .swiper-button-next {
+        left:190px ;
+      }
+      .swiper-button-prev:after {
+        font-size: 40px ;
+      }
+      .swiper-button-next:after {
+        font-size: 40px ;
+      }
+    }
+  }
   @include tablet {
     
     .about-full-slide{
-      max-height:800px;
+      .slide{
+        height:800px;
+      }
     }
     
     .swiper {
@@ -177,7 +185,9 @@
   @include mobile {
     
     .about-full-slide{
-      max-height:500px;
+      .slide{
+        height:500px;
+      }
     }
     
     .swiper {
