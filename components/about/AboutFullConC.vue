@@ -631,7 +631,7 @@
         .meta {
           display: inline-block;
           vertical-align: middle;
-          margin-right: 26px;
+          margin-right: 24px;
           .img {
             width: 99px;
             height: 56px;
@@ -660,7 +660,7 @@
         .plus {
           display: inline-block;
           vertical-align: middle;
-          margin-right: 29px;
+          margin-right: 24px;
           .img {
             width: 13px;
             height: 13px;
