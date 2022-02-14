@@ -357,6 +357,7 @@
         }
         .slash {
           font-style: italic;
+          font-family: 'NotoSansKR';
         }
       }
     }
@@ -467,10 +468,39 @@
           order: 2;
         }
         .number {
+          position: relative;
+          height: 20px;
+
           order: 3;
           flex: 0 0 100%;
           text-align: center;
           margin-top: 10px;
+          .cur{
+            position: absolute;
+            top: 3px;
+            margin-right: 0;
+            left: calc((50%) - 12px);
+            transform: translate(-50%,0);
+
+            font-size:12px;
+            // margin-right:-4px;
+          }
+          .total{
+            position: absolute;
+            bottom: -1px;
+            margin-left: 0px;
+            left: calc((50%) + 8px);
+            transform: translate(-50%,0);
+
+            font-size:12px;
+            // margin-left:-4px;
+          }
+          .slash{
+            position: absolute;
+            top: 50%;
+            left: calc((50%) - 4px);
+            transform: translate(-50%,-50%);
+          }
         }
       }
       .cur-page {

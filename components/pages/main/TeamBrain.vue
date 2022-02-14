@@ -271,7 +271,7 @@
   }
   @include tablet {
     .team {
-      padding-bottom: 100px;
+      margin-bottom:300px;
       &-title {
         font-size: 16px;
       }

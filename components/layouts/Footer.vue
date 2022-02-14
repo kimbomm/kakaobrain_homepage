@@ -187,7 +187,8 @@
   }
   @include tablet {
     .footer {
-      margin-top: 300px;
+      margin-top: 200px;
+      // margin-top: 300px;
       &-shape {
         width: getWidth(2);
         height: 80px;

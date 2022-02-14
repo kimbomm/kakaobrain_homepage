@@ -240,6 +240,9 @@
     }
   }
   @include tablet {
+    .content-detail{
+      margin-bottom:300px;
+    }
     .top {
       margin-bottom: 100px;
       &.no-thumbnail {
@@ -248,6 +251,9 @@
     }
   }
   @include mobile {
+    .content-detail{
+      margin-bottom:504px;
+    }
     .top {
       display: block;
       margin-bottom: 60px;

@@ -45,6 +45,7 @@
     .full-con {
       position: relative;
       width: 100%;
+      min-height:1689px;
       padding: 400px 20px 400px;
       img {
         position: absolute;
@@ -53,6 +54,8 @@
         transform: translate(-50%, -50%);
         width: 100%;
         height: 100%;
+        
+        object-fit:cover;
       }
 
       .inner {
@@ -100,40 +103,10 @@
       }
     }
   }
-  @include pc-4k {
-    .about-full-con-b {
-      .full-con {
-        padding: 800px 20px 845px !important;
-        .con {
-          &-tit {
-            margin-bottom: 400px !important;
-            font-size: 180px !important;
-          }
-        }
-        .item {
-          &-tit {
-            margin-bottom: 130px !important;
-            font-size: 80px !important;
-          }
-          &-txt-box {
-            &:not(:last-child) {
-              margin-bottom: 125px !important;
-            }
-          }
-          &-sub-tit {
-            font-size: 40px !important;
-            margin-bottom: 30px !important;
-          }
-          &-txt {
-            font-size: 30px !important;
-          }
-        }
-      }
-    }
-  }
   @include pc-large {
     .about-full-con-b {
       .full-con {
+        min-height:2252px;
         padding: 530px 20px 533px;
         .con {
           &-tit {
@@ -157,6 +130,38 @@
           }
           &-txt {
             font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+  @include pc-4k {
+    .about-full-con-b {
+      .full-con {
+        min-height:3409px;
+        padding: 800px 20px 845px ;
+        .con {
+          &-tit {
+            margin-bottom: 400px ;
+            font-size: 180px ;
+          }
+        }
+        .item {
+          &-tit {
+            margin-bottom: 130px ;
+            font-size: 80px ;
+          }
+          &-txt-box {
+            &:not(:last-child) {
+              margin-bottom: 125px ;
+            }
+          }
+          &-sub-tit {
+            font-size: 40px ;
+            margin-bottom: 30px ;
+          }
+          &-txt {
+            font-size: 30px ;
           }
         }
       }
@@ -187,6 +192,7 @@
   @include tablet {
     .about-full-con-b {
       .full-con {
+        min-height:1141px;
         padding: 200px 20px 200px;
         .con {
           &-tit {
@@ -221,6 +227,7 @@
   @include mobile {
     .about-full-con-b {
       .full-con {
+        min-height:1128px;
         padding: 107px 20px 100px;
         .con {
           &-tit {

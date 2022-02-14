@@ -27,6 +27,7 @@
     .full-con {
       position: relative;
       width: 100%;
+      min-height:1500px;
       padding: 400px 20px 643px;
       // &::before{
       //   position: absolute;
@@ -38,6 +39,7 @@
         transform: translate(-50%, -50%);
         width: 100%;
         height: 100%;
+        object-fit:cover;
       }
       .inner {
         position: relative;
@@ -62,6 +64,7 @@
   @include pc-large {
     .about-full-con-a {
       .full-con {
+        min-height:2000px;
         padding: 530px 20px 863px;
         .inner {
           .txt {
@@ -78,6 +81,7 @@
   @include pc-4k {
     .about-full-con-a {
       .full-con {
+        min-height:3000px;
         padding: 800px 20px 1293px;
         .inner {
           .txt {
@@ -108,6 +112,7 @@
   @include tablet {
     .about-full-con-a {
       .full-con {
+        min-height:600px;
         padding: 140px 20px 221px;
         .inner {
           .txt {
@@ -124,6 +129,7 @@
   @include mobile {
     .about-full-con-a {
       .full-con {
+        min-height:600px;
         padding: 100px 20px 252px;
         .inner {
           .txt {

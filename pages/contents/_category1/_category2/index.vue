@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="category-wrap">
     <BreadCrumb :data="breadcrumb" :full="true" />
     <div class="category-contents">
       <div class="contents-title">
@@ -254,6 +254,9 @@
   }
 
   @include tablet {
+    .category-wrap{
+      margin-bottom:300px;
+    }
     .tit-text {
       margin-bottom: 20px;
       font-size: 14px;

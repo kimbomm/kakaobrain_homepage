@@ -28,7 +28,7 @@
 <style lang="scss" scoped>
   @import '@/assets/scss/mixins.scss';
   .about-title-text {
-    padding: 0 20px;
+    // padding: 0 20px;
     .txt-con {
       margin-bottom: 60px;
     }
@@ -100,7 +100,7 @@
         font-size: 14px;
       }
       .txt-scroll {
-        font-size: 14px;
+        font-size: 16px;
       }
     }
 

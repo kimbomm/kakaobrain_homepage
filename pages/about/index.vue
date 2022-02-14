@@ -1,8 +1,12 @@
 <template>
   <div>
-    <BreadCrumb :data="breadcrumb" :full="true" />
-    <AboutTitle :data="aboutTitle" />
-    <AboutTitleText :data="data.aboutTitleText" />
+    <div class="top-section">
+      <BreadCrumb :data="breadcrumb" :full="true" />
+      <AboutTitle :data="aboutTitle" />
+      <div class="top-text">
+        <AboutTitleText :data="data.aboutTitleText" />
+      </div>
+    </div>
     <AboutFullConA :data="data.aboutConA" />
     <div class="vision-list-con">
       <AboutVisionList
@@ -114,12 +118,17 @@
 </script>
 <style lang="scss" scoped>
   @import '@/assets/scss/mixins.scss';
-
+  .top-section{
+    height:100vh;
+    .top-text{
+      padding: 0 20px;
+    }
+  }
   .about-title {
     margin-bottom: 60px;
   }
   .about-title-text {
-    margin-bottom: 204px;
+    // margin-bottom: 204px;
   }
   .about-full-con-a {
     margin-bottom: 420px;
@@ -148,7 +157,7 @@
       margin-bottom: 80px;
     }
     .about-title-text {
-      margin-bottom: 268px;
+      // margin-bottom: 268px;
     }
     .about-full-con-a {
       margin-bottom: 530px;
@@ -178,7 +187,7 @@
       margin-bottom: 130px;
     }
     .about-title-text {
-      margin-bottom: 388px;
+      // margin-bottom: 388px;
     }
     .about-full-con-a {
       margin-bottom: 800px;
@@ -207,7 +216,7 @@
       margin-bottom: 60px;
     }
     .about-title-text {
-      margin-bottom: 143px;
+      // margin-bottom: 143px;
     }
     .about-full-con-a {
       margin-bottom: 200px;
@@ -236,7 +245,7 @@
       margin-bottom: 40px;
     }
     .about-title-text {
-      margin-bottom: 80px;
+      // margin-bottom: 80px;
     }
     .about-full-con-a {
       margin-bottom: 100px;

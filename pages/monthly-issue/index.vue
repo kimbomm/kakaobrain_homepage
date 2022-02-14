@@ -109,6 +109,7 @@
   @include tablet {
     .monthly-detail {
       margin-top: 200px;
+      margin-bottom:300px;
       .text-box {
         margin-bottom: 100px;
       }
@@ -123,6 +124,7 @@
   @include mobile {
     .monthly-detail {
       margin-top: 157px;
+      margin-bottom:0px;
       .detail-list {
         &:not(:last-child) {
           margin-bottom: 50px;

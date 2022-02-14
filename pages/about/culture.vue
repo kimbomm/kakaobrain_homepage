@@ -1,8 +1,12 @@
 <template>
   <div>
-    <BreadCrumb :data="breadcrumb" :full="true" />
-    <AboutTitle :data="data.aboutTitle" />
-    <AboutTitleText :data="data.aboutTitleText" />
+    <div class="top-section">
+      <BreadCrumb :data="breadcrumb" :full="true" />
+      <AboutTitle :data="data.aboutTitle" />
+      <div class="top-text">
+        <AboutTitleText :data="data.aboutTitleText" />
+      </div>
+    </div>
     <AboutFullConD :data="data.aboutConD" />
     <div class="culture-text-box">
       <AboutConTit :data="data.aboutConTit" />
@@ -63,12 +67,17 @@
 </script>
 <style lang="scss" scoped>
   @import '@/assets/scss/mixins.scss';
-
+  .top-section{
+    height:100vh;
+    .top-text{
+      padding: 0 20px;
+    }
+  }
   .about-title {
     margin-bottom: 60px;
   }
   .about-title-text {
-    margin-bottom: 204px;
+    // margin-bottom: 204px;
   }
   .about-full-con-d {
     margin-bottom: 400px;
@@ -95,7 +104,7 @@
       margin-bottom: 130px !important;
     }
     .about-title-text {
-      margin-bottom: 388px !important;
+      // margin-bottom: 388px !important;
     }
     .about-full-con-d {
       margin-bottom: 800px !important;
@@ -123,7 +132,7 @@
       margin-bottom: 80px;
     }
     .about-title-text {
-      margin-bottom: 268px;
+      // margin-bottom: 268px;
     }
     .about-full-con-d {
       margin-bottom: 530px;
@@ -150,7 +159,7 @@
       margin-bottom: 60px;
     }
     .about-title-text {
-      margin-bottom: 143px;
+      // margin-bottom: 143px;
     }
     .about-full-con-d {
       margin-bottom: 200px;
@@ -177,7 +186,7 @@
       margin-bottom: 40px;
     }
     .about-title-text {
-      margin-bottom: 80px;
+      // margin-bottom: 80px;
     }
     .about-full-con-d {
       margin-bottom: 100px;
