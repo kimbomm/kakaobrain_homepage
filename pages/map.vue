@@ -147,6 +147,7 @@
 </script>
 <style lang="scss" scoped>
   .map {
+    margin-bottom:596px;
     padding: 0 20px;
     section {
       margin-top: 200px;
@@ -256,6 +257,7 @@
   }
   @include tablet {
     .map {
+      margin-bottom:300px;
       section {
         margin-top: 100px;
       }
@@ -291,6 +293,7 @@
       margin-left: 0 !important;
     }
     .map {
+      margin-bottom:200px;
       section {
         margin-top: 60px;
       }
