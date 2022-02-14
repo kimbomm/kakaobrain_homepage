@@ -47,9 +47,7 @@
       <div class="paging-next">
         <button
           class="link"
-          :disabled="
-            activeIndex === totalLength ? totalLength : totalLength - 1
-          "
+          :disabled="activeIndex === totalLength - 1"
           @click="onClick(activeIndex + 1)"
         >
           
@@ -115,7 +113,7 @@
       setPaging() {
         this.paging = []
         if (this.totalLength - 2 > 0 && this.totalLength - 2 <= 5) {
-          for (let i = 2; i < this.totalLength - 1; i++) {
+          for (let i = 2; i < this.totalLength; i++) {
             this.paging.push(i)
           }
         } else if (this.totalLength - 2 > 5) {
@@ -250,9 +248,9 @@
           }
         }
       }
-        .link {
-          font-size: 20px;
-        }
+      .link {
+        font-size: 20px;
+      }
     }
   }
   @include mobile {
@@ -260,13 +258,13 @@
       margin-top: 80px;
       &-prev {
         margin-right: 26px;
-        .link{
+        .link {
           font-size: 30px;
         }
       }
       &-next {
         margin-left: 26px;
-        .link{
+        .link {
           font-size: 30px;
         }
       }
