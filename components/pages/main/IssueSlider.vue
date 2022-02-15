@@ -251,7 +251,7 @@
     &-info {
       font-size: 16px;
       color: #000;
-      margin-bottom: 94px;
+      margin-bottom: 30px;
       font-family: 'Inter', sans-serif;
       > span {
         display: inline-block;
@@ -368,7 +368,7 @@
     $titleMargin: 30px;
     .issue-slider {
       &-info {
-        margin-bottom: 20px;
+        margin-bottom: 50px;
         font-size: 22px;
       }
     }
