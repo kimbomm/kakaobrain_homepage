@@ -3,11 +3,17 @@
     <IssueSlider />
     <UnthinkableQuestion />
     <TextFlow />
-    <Slogan :data="sloganData1" />
+    <div class="slogan-area">
+      <Slogan :data="sloganData1" />
+    </div>
     <MainFullImage />
-    <Slogan :data="sloganData2" />
+    <div class="slogan-wrap">
+      <Slogan :data="sloganData2" />
+    </div>
     <SlotMachine />
-    <Slogan :data="sloganData3" />
+    <div class="slogan-wrap">
+      <Slogan :data="sloganData3" />
+    </div>
     <InnovationList />
     <BrainGoal />
     <ArchiveList />
@@ -99,8 +105,12 @@
     .question {
       margin-top: 436px;
     }
-    .slogan {
-      // margin-top: 500px;
+    .slogan-area{
+      padding: 0 20px;
+    }
+    .slogan-wrap {
+      padding: 0 20px;
+      margin-top: 500px;
     }
     .full-image {
       margin-top: 100px;
@@ -124,8 +134,12 @@
       .question {
         margin-top: 990px;
       }
-      .slogan {
+      .slogan-wrap {
+        margin-top: 1000px;
         // margin-top: 990px;
+      }
+      .full-image {
+        margin-top: 100px;
       }
       .machine-wrap {
         margin-top: 200px;
@@ -144,8 +158,11 @@
       .question {
         margin-top: 1500px;
       }
-      .slogan {
-        // margin-top: 1500px;
+      .slogan-wrap {
+        margin-top: 1500px;
+      }
+      .full-image {
+        margin-top: 442px;
       }
       .machine-wrap {
         margin-top: 442px;
@@ -167,8 +184,8 @@
       .question {
         margin-top: 400px;
       }
-      .slogan {
-        // margin-top: 400px;
+      .slogan-wrap {
+        margin-top: 400px;
       }
       .innovation {
         margin-top: 100px;
@@ -187,8 +204,8 @@
       .question {
         margin-top: 240px;
       }
-      .slogan {
-        // margin-top: 240px;
+      .slogan-wrap {
+        margin-top: 240px;
       }
       .full-image {
         margin-top: 40px;
