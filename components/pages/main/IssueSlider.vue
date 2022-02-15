@@ -296,6 +296,7 @@
       span {
         display: block;
         width: 100%;
+        line-height:100%;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
