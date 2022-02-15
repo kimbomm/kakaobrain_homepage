@@ -149,6 +149,7 @@
       .txt {
         font-size: 16px;
         font-weight: 900;
+        font-family: 'Inter';
       }
       button {
         padding: 0px;
