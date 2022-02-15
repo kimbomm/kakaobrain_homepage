@@ -267,7 +267,7 @@
       height: calc(160px * 3);
       font-weight: 900;
       transition: transform 0.3s linear;
-      line-height: 0.9;
+      line-height: 110%;
     }
   }
   .slogan-text {
