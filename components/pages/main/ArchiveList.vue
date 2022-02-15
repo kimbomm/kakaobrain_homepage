@@ -5,7 +5,7 @@
       <span>ARCHIVE@kakaobrain</span>
       <span></span>
       <nuxt-link to="/archive"
-        ><span class="title-italic">VIEW LIST </span><span></span></nuxt-link
+        ><span class="title-italic">VIEW LIST </span><span class="arrow"></span></nuxt-link
       >
     </div>
     <ul class="main-archive-list">
@@ -74,7 +74,13 @@
         font-weight: 300;
       }
       .title-italic {
+        vertical-align: middle;
         font-style: italic;
+      }
+      .arrow{
+        margin-left: 12px;
+        vertical-align: middle;
+        font-size:26px;
       }
     }
     &-list {
@@ -95,6 +101,9 @@
         span {
           font-size: 52px;
         }
+        .arrow{
+          font-size:32px;
+        }
       }
       &-list {
         margin-top: 100px;
@@ -106,6 +115,9 @@
       > div {
         span {
           font-size: 74px;
+        }
+        .arrow{
+          font-size:42px;
         }
       }
       &-list {
@@ -119,6 +131,9 @@
       > div {
         span {
           font-size: 30px;
+        }
+        .arrow{
+          font-size:20px;
         }
       }
       &-list {
@@ -146,6 +161,9 @@
             &:nth-child(1) {
               display: none;
             }
+          }
+          .arrow{
+            font-size:14px;
           }
         }
         > span {
