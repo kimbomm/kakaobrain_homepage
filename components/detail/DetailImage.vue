@@ -1,6 +1,6 @@
 <template>
   <div v-if="isPc || isMob" :class="classBind">
-    <div>
+    <div class="image">
       <img :src="srcPath" />
     </div>
     <div v-if="!this.isThumbnail && data.text" class="detail-text">
@@ -86,8 +86,13 @@
       margin-top: 50px;
       margin-left: getMargin(2);
     }
-    img {
-      width: 100%;
+    .image{
+      height:600px;
+      img {
+        width: 100%;
+        height:100%;
+        object-fit: cover;
+      }
     }
   }
   .detail-text {
@@ -107,6 +112,9 @@
       &__default {
         margin-top: 200px;
       }
+      .image{
+        height:804px;
+      }
     }
     .detail-text {
       font-size: 16px;
@@ -121,6 +129,9 @@
       &__default {
         margin-top: 300px;
       }
+      .image{
+        height:1206px;
+      }
     }
     .detail-text {
       font-size: 12px;
@@ -133,6 +144,9 @@
       }
       &__default {
         width: getWidth(6);
+      }
+      .image{
+        height:330px;
       }
     }
     .detail-text {
@@ -150,6 +164,9 @@
       &__default {
         width: 100%;
         margin-left: 0;
+      }
+      .image{
+        height:330px;
       }
     }
     .detail-text {
