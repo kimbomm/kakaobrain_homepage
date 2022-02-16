@@ -64,7 +64,7 @@
   }
   @include mobile {
     .detail {
-      padding: 0 20px;
+      // padding: 0 20px;
       &-subTit {
         font-size: 26px;
       }

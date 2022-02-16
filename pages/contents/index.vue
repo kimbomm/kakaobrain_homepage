@@ -209,6 +209,13 @@
   }
   .content-inner{
     margin:0 20px;
+    /deep/ .detail-title{
+      margin-bottom:200px;
+    }
+    /deep/ .detail-subTit{
+      margin-top:150px;
+      margin-bottom:60px;
+    }
   }
 
   @include pc-large {
@@ -222,6 +229,18 @@
       margin-bottom: 100px;
       &.no-thumbnail {
         margin-bottom: 173px;
+      }
+    }
+    .content-inner{
+      /deep/ .detail-title{
+        margin-bottom:300px;
+      }
+      /deep/ .detail-subTit{
+        margin-top:200px;
+        margin-bottom:30px;
+      }
+      /deep/ .detail-text{
+        margin-bottom:30px;
       }
     }
   }
@@ -238,6 +257,18 @@
         margin-bottom: 300px;
       }
     }
+    .content-inner{
+      /deep/ .detail-title{
+        margin-bottom:400px;
+      }
+      /deep/ .detail-subTit{
+        margin-top:250px;
+        margin-bottom:60px;
+      }
+      /deep/ .detail-text{
+        margin-bottom:60px;
+      }
+    }
   }
   @include tablet {
     .content-detail{
@@ -247,6 +278,15 @@
       margin-bottom: 100px;
       &.no-thumbnail {
         margin-bottom: 5px;
+      }
+    }
+    .content-inner{
+      /deep/ .detail-title{
+        margin-bottom:40px;
+      }
+      /deep/ .detail-subTit{
+        margin-top:100px;
+        margin-bottom:60px;
       }
     }
   }
@@ -262,6 +302,18 @@
       }
       .bread-crumb {
         padding: 0 20px;
+      }
+    }
+    .content-inner{
+      // /deep/ .detail {
+      //   padding: 0px;
+      // }
+      /deep/ .detail-title{
+        margin-bottom:20px;
+      }
+      /deep/ .detail-subTit{
+        margin-top:100px;
+        margin-bottom:30px;
       }
     }
   }
