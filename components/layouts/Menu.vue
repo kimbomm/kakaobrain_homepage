@@ -50,6 +50,7 @@
                   v-for="(subMenu, idx) in menu.sub"
                   :key="`sub-${idx}`"
                   class="sub-item"
+                  @click.native="hideMenu(false)"
                 >
                   <template v-if="subMenu.name !== 'Principle'">
                     <nuxt-link :to="subMenu.link">{{ subMenu.name }}</nuxt-link>
@@ -275,8 +276,8 @@
   @include mobile {
     .menu-btn {
       position: absolute;
-      top:13px;
-      right:15px;
+      top: 13px;
+      right: 15px;
       width: 30px;
       height: 30px;
     }
