@@ -184,9 +184,7 @@
   .top {
     display: flex;
     flex-direction: row-reverse;
-    justify-content: space-between;
-    // margin-bottom: 60px;
-    // #77번 이슈 처리하면서 주석
+    justify-content: flex-end;
     &.no-thumbnail {
       margin-bottom: 100px;
       .bread-crumb {
@@ -194,20 +192,28 @@
       }
     }
     .bread-crumb {
-      padding-top: 0;
+      // padding-top: 0;
       padding-right: 20px;
     }
     > * {
       flex: 0 0 auto;
     }
+    /deep/ .detail-image__thumbnail{
+      padding-top: 100px;
+      padding-left:20px;
+    }
   }
+
   .content-detail {
-    padding-top: 100px;
+    // padding-top: 100px;
     .con-box {
       margin-bottom: 100px;
     }
   }
+
   .content-inner{
+    // padding-top: 60px;
+    padding-top: 320px;
     margin:0 20px;
     /deep/ .detail-title{
       margin-bottom:200px;
@@ -220,18 +226,23 @@
 
   @include pc-large {
     .content-detail {
-      padding-top: 130px;
+      // padding-top: 130px;
       .con-box {
         margin-bottom: 200px;
       }
     }
     .top {
-      margin-bottom: 100px;
+      // margin-bottom: 100px;
       &.no-thumbnail {
         margin-bottom: 173px;
       }
+      /deep/ .detail-image__thumbnail{
+        padding-top: 130px;
+        padding-left:0px;
+      }
     }
     .content-inner{
+      padding-top: 440px;
       /deep/ .detail-title{
         margin-bottom:300px;
       }
@@ -246,18 +257,22 @@
   }
   @include pc-4k {
     .top {
-      margin-bottom: 145px;
+      // margin-bottom: 145px;
       &.no-thumbnail {
         margin-bottom: 248px;
       }
+      /deep/ .detail-image__thumbnail{
+        padding-top: 200px;
+      }
     }
     .content-detail {
-      padding-top: 200px;
+      // padding-top: 200px;
       .con-box {
         margin-bottom: 300px;
       }
     }
     .content-inner{
+      padding-top: 660px;
       /deep/ .detail-title{
         margin-bottom:400px;
       }
@@ -275,12 +290,17 @@
       margin-bottom:300px;
     }
     .top {
-      margin-bottom: 100px;
+      // margin-bottom: 100px;
       &.no-thumbnail {
         margin-bottom: 5px;
       }
+      /deep/ .detail-image__thumbnail{
+        padding-top: 100px;
+        padding-left:0px;
+      }
     }
     .content-inner{
+      padding-top: 200px;
       /deep/ .detail-title{
         margin-bottom:40px;
       }
@@ -296,15 +316,20 @@
     }
     .top {
       display: block;
-      margin-bottom: 60px;
+      // margin-bottom: 60px;
       &.no-thumbnail {
         margin-bottom: 60px;
       }
       .bread-crumb {
-        padding: 0 20px;
+        // padding: 0 20px;
+      }
+      /deep/ .detail-image__thumbnail{
+        padding-top: 117px;
+        padding-left:0px;
       }
     }
     .content-inner{
+      padding-top: 157px;
       // /deep/ .detail {
       //   padding: 0px;
       // }
