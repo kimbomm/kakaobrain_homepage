@@ -186,7 +186,6 @@ const sns = [
 ]
 
 export default {
-  data,
   menus,
   footer,
   sns
