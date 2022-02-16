@@ -144,6 +144,7 @@
     animation-duration: 100s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
+    transition: text-shadow 0.5s linear, color 0.5s linear;
     &.ani__left {
       animation-name: ani-left;
     }
