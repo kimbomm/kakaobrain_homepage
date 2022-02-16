@@ -22,9 +22,11 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <span class="info-txt">@{{ $dayjs().format('YYYY') }}</span>
-        <div class="copyright">
-          Copyright ⓒ kakaobrain Corp. <span>All rights reserved.</span>
+        <div :class="{ copy: true, 'is-hide': onHide }">
+          <span class="info-txt">@2021</span>
+          <div class="copyright">
+            Copyright ⓒ kakaobrain Corp. <span>All rights reserved.</span>
+          </div>
         </div>
         <SnsLink />
       </div>
@@ -39,6 +41,12 @@
     components: {
       SnsLink
     },
+    data() {
+      return {
+        isMouseWheel: false,
+        isScrollEnd: false
+      }
+    },
     computed: {
       ...mapState({
         isDark: state => state.isDark,
@@ -51,7 +59,17 @@
           classList.push('footer__light')
         }
         return classList.join(' ')
+      },
+      onHide() {
+        return this.isScrollEnd ? false : this.isMouseWheel
       }
+    },
+    mounted() {
+      window.addEventListener('wheel', this.onWheel)
+      window.addEventListener('scroll', this.onScroll)
+    },
+    beforeDestroy() {
+      window.removeEventListener('wheel', this.onWheel)
     },
     methods: {
       menuLink(data) {
@@ -62,11 +80,33 @@
         } else {
           return data.link
         }
+      },
+      onScroll() {
+        this.isScrollEnd =
+          document.querySelector('body').scrollHeight - window.innerHeight ===
+          window.scrollY
+      },
+      onWheel(e) {
+        this.isMouseWheel = e.wheelDelta < 0
       }
     }
   }
 </script>
 <style lang="scss" scoped>
+  .copy {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    transition: all 0.5s linear;
+    width: getWidth(7);
+    display: flex;
+    align-items: center;
+    z-index: 10;
+    &.is-hide {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+  }
   .footer {
     margin: 500px 20px 20px;
     > div {
@@ -81,6 +121,7 @@
       z-index: 10;
       display: flex;
       align-items: flex-end;
+      padding-left: getMargin(7);
       font-size: 16px;
       line-height: 1.3;
       color: $gray-9;
@@ -199,6 +240,7 @@
       }
       &-bottom {
         font-size: 16px;
+        padding-left: getMargin(6);
       }
     }
     .menu-list {
@@ -211,6 +253,13 @@
     }
   }
   @include mobile {
+    .copy {
+      position: initial;
+      &.is-hide {
+        opacity: 1;
+        transform: initial;
+      }
+    }
     .footer {
       margin-top: 200px;
       margin-bottom: 50px;
@@ -223,11 +272,15 @@
       &-bottom {
         font-size: 12px;
         color: $surface-6;
+        padding-left: 0;
         .info-txt {
           display: none;
         }
         .copyright {
           width: getWidth(6);
+          span {
+            display: block;
+          }
         }
       }
     }

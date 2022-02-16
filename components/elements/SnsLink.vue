@@ -1,14 +1,12 @@
 <template>
-  <div>
-    <div class="footer-sns">
-      <ul>
-        <li v-for="(item, index) in sns" :key="index" class="item">
-          <a :href="item.link" target="_blank">
-            <Icon :sns="`icon-${item.name}-${!isDark ? 'w' : 'b'}`" />
-          </a>
-        </li>
-      </ul>
-    </div>
+  <div class="footer-sns">
+    <ul>
+      <li v-for="(item, index) in sns" :key="index" class="item">
+        <a :href="item.link" target="_blank">
+          <Icon :sns="`icon-${item.name}-${!isDark ? 'w' : 'b'}`" />
+        </a>
+      </li>
+    </ul>
   </div>
 </template>
 <script>

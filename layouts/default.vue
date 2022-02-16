@@ -2,7 +2,7 @@
   <div class="wrap">
     <div class="l-pages">
       <FilterList v-if="!isStoryPage" />
-      <Header />
+      <Header :class="{ 'is-hide': isMouseWheel }" />
       <div class="container">
         <Nuxt />
       </div>
@@ -32,7 +32,8 @@
     data() {
       return {
         isStoryPage: false,
-        isFooterShow: true
+        isFooterShow: true,
+        isMouseWheel: false
       }
     },
     computed: {
@@ -54,10 +55,12 @@
     async mounted() {
       await this.$store.commit('setIsDark', true)
       await this.checkDevice()
+      window.addEventListener('wheel', this.onWheel)
     },
     beforeDestroy() {
       this.$nuxt.$off('story-page', this.onStoryPage)
       this.$nuxt.$off('onSlideEnd', this.onSlideEnd)
+      window.removeEventListener('wheel', this.onWheel)
     },
     methods: {
       ...mapMutations({
@@ -80,6 +83,13 @@
           device.mobile
 
         this.setTouchDevice(isTouchDevice)
+      },
+      onWheel(e) {
+        if (e.wheelDelta > 0) {
+          this.isMouseWheel = false
+        } else {
+          this.isMouseWheel = true
+        }
       }
     }
   }
@@ -88,5 +98,12 @@
   .wrap {
     background-color: $surface-1;
     overflow-x: hidden;
+  }
+  .header {
+    transition: all 0.5s linear;
+    &.is-hide {
+      opacity: 0;
+      transform: translateY(-100%);
+    }
   }
 </style>
