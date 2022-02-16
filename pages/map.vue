@@ -149,6 +149,7 @@
   .map {
     margin-bottom:596px;
     padding: 0 20px;
+    padding-top:320px;
     section {
       margin-top: 200px;
     }
@@ -198,6 +199,7 @@
   }
   @include pc-large {
     .map {
+      padding-top:440px;
       section {
         margin-top: 240px;
       }
@@ -228,6 +230,7 @@
   }
   @include pc-4k {
     .map {
+      padding-top:660px;
       section {
         margin-top: 400px;
       }
@@ -258,6 +261,7 @@
   @include tablet {
     .map {
       margin-bottom:300px;
+      padding-top:200px;
       section {
         margin-top: 100px;
       }
@@ -294,6 +298,7 @@
     }
     .map {
       margin-bottom:200px;
+      padding-top:157px;
       section {
         margin-top: 60px;
       }

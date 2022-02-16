@@ -194,6 +194,7 @@
 <style lang="scss" scoped>
   .category-contents{
     margin: 0 20px;
+    padding-top:320px; 
   }
   .tit-text {
     margin-bottom: 30px;
@@ -219,6 +220,9 @@
     }
   }
   @include pc-large {
+    .category-contents{
+      padding-top:440px; 
+    }
     .tit-text {
       margin-bottom: 50px;
       font-size: 22px;
@@ -236,6 +240,9 @@
     }
   }
   @include pc-4k {
+    .category-contents{
+      padding-top:660px; 
+    }
     .tit-text {
       margin-bottom: 70px;
       font-size: 32px;
@@ -254,6 +261,9 @@
   }
 
   @include tablet {
+    .category-contents{
+      padding-top:200px; 
+    }
     .category-wrap{
       margin-bottom:300px;
     }
@@ -289,6 +299,9 @@
     }
   }
   @include mobile {
+    .category-contents{
+      padding-top:157px; 
+    }
     .tit-text {
       margin-bottom: 20px;
       font-size: 14px;
