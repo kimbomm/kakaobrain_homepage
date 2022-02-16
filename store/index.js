@@ -1,4 +1,4 @@
-import data from './data/common.json'
+import data from './data/common.js'
 import utility from '/util/utility.js'
 
 export const state = () => ({
