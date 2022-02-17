@@ -199,33 +199,40 @@ const ABOUT = {
         title: 'Our way</br><span class="string">of working.</span>'
       },
       aboutTitleText: {
-        text: 'kakaobrain krew are given a lot of good opportunities to grow self-directed, and we find out how we are doing to grow</br>together through great colleagues.'
+        text: 'We are given opportunities to grow together. Let’s look at how we work.'
       },
       aboutConD: {
-        title: 'We disclose and share for better results.',
-        text: 'The monopoly of information can be power and can reduce crew autonomy by creating a vertical communication structure. However, sharing information can increase work autonomy and increase the effect of collective intelligence. So we use collaborative tools such as Notion, Slack, Google Workspace, and GitHub for sharing/disclosure, and make it accessible and participated by anyone. It&rsquo;s a &lsquo;work&rsquo; that needs to be shared/disclosed, but sharing is not the final purpose. We constantly think about how to work efficiently and help each other grow together. It also keeps security for the right public culture and shares it only with the crew.'
+        title: 'We strive for better results by sharing.',
+        text: 'The monopoly of information gives one too much power and creates a communication hierarchy which interferes with krew’s work autonomy. When information is shared, the work autonomy increases and contributes to collective intelligence. We use collaboration tools such as Notion, Slack, Google Workspace, and GitHub to allow everyone’s access and participation to share valuable information.'
       },
       aboutConTit: {
-        title: 'We immerse ourselves and work self-directedly.'
+        title: 'We work by self-directing and immersing ourselves.'
       },
       aboutConTxt: {
-        text: 'We need to be able to experiment and change faster than anywhere else, and we need to be interested in and challenge new things and paths that no one has ever been to. So we are not afraid of failure. Performance includes not only success but also meaningful failure. As there are many situations where you have to maximize individual creativity by asking questions on your own without just moving on, self-direction to find and solve problems on your own is required first.'
+        text: 'We must be able to experiment and accept change faster than anyone else. We must always be looking to challenge ourselves with the new and to explore the uncharted while being unafraid of failure. The accomplishment not only includes success but also meaningful failure. We are often faced with situations where we must not skip over the obvious and keep asking questions to maximize our creativity. It foremost requires self-motivation to spot a problem and find a solution.'
       },
       aboutConSubTit: {
-        title: 'Why would we do this?'
+        title: 'Why do we do what we do?'
       },
       aboutConTxt2: {
-        text: 'This is the first question we have to ask. We create our own driving force. I always think first, ask questions, and move in order to lead without being dragged around by work. In this way, we aim to judge ourselves with the trust that we can best judge our own work and do our own work.'
+        text: 'This is a number one question for kakaobrain krews. We motivate ourselves.To lead, not to be led, by work,  one should always be the first to think, question, and act. Our preferred way of work is to trust you to work on your own with the belief that you are the best judge of your work.'
       },
       aboutConE: {
-        title: 'We aim for horizontal<br />communication.',
-        text: 'It means a culture of freely expressing opinions in discussions. During the discussion process, anyone can clarify their thoughts, and regardless of their status, discussions are made "horizontally" on the topic of discussion. In addition, all suggestions can be made directly to the representative, and the public forum is always held.<br /><br />The thoughts and opinions of members delivered through &lsquo;horizontal&rsquo; discussions can lead to better decision-makers. If there comes a moment when you have to take responsibility and make a "choice" because it is difficult to make decisions with further discussions, each determined decision maker will make the final decision.'
+        title: 'We promote<br />“horizontal communication”.',
+        text: `
+        It means a culture in which everyone can freely express their opinions. Anyone can present their ideas in discussions regardless of their positions as if the organization is structured "horizontally". Also, everyone is welcome to talk directly to the CEO to discuss their concerns, and  our company-wide forums are held at all times.
+        <br /><br />
+        With Kakaobrain’s ‘horizontal communication’, ideas and opinions discussed can lead to a better decision.After inconclusive discussions, when the moment comes a 'decision' must be made, each designated decision-makers are to make the final call.`
       },
       aboutConF: {
-        title: 'We want to take maximum autonomy with the least principle.',
-        text: 'We aim to minimize the principles of organizational culture if possible so that it feels as if there is no organizational culture, and to make everything autonomously through our discussions as much as possible.<br/><br/>With this minimum principle, we can go back autonomously. Therefore, our culture of sharing and creating systems and principles without artificially creating them applies not only in our work but also in our company&rsquo;s welfare.',
+        title: 'We strive for greater autonomy with less rules.',
+        text: `
+        We try to minimize regulations that typically follows with any organizational culture as if it is non-existent. We try to promote as much autonomy throughout the possible decision-making process by encouraging active discussions between Kakaobrain krews.
+        <br/><br/>
+        In other words, we create a system with the least number of rules. Kakaobrain’s tendency  to make policy and rules naturally rather than artificially applies not only to work culture but also to employee benefits and perks.
+        `,
         recruit:
-          'Click the button below to see our detailed culture and recruitment.'
+          'Click below to explore our culture and recruitment process in detail.'
       }
     }
   }
