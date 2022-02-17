@@ -59,14 +59,9 @@
         <div class="txt">
           <p>{{ data.download }}</p>
         </div>
-        <a
-          href="@/assets/file/brand_symbol_download.zip"
-          download="brand_symbol_download"
-        >
-          <button type="button" class="btn">
-            <span>download ↓</span>
-          </button>
-        </a>
+        <button type="button" class="btn">
+          <span>download ↓</span>
+        </button>
       </div>
     </div>
   </div>
@@ -79,6 +74,7 @@
         default: () => {}
       }
     },
+    computed: {},
     methods: {
       onDownload() {}
     }
