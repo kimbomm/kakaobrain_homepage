@@ -177,7 +177,7 @@
       padding: 0;
       font-weight: 400;
       &.active {
-        font-weight: 700;
+        font-weight: 600;
       }
       &.more {
         cursor: auto;
