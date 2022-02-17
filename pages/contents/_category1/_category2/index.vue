@@ -216,9 +216,6 @@
     }
   }
   @include pc-large {
-    .category-contents {
-      padding-top: 440px;
-    }
     .tit-text {
       margin-bottom: 50px;
       font-size: 22px;
@@ -286,6 +283,9 @@
     }
   }
   @include mobile {
+    .category-contents {
+      padding-top: 60px;
+    }
     .tit-text {
       margin-bottom: 20px;
       font-size: 14px;
