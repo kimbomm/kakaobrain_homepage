@@ -47,9 +47,14 @@
 
         <div class="link l-ml-3">
           <div class="txt">{{ data.recruit }}</div>
-          <button type="button" class="btn">
-            <span>Go to →</span>
-          </button>
+          <a
+            href="https://kakaobrain.recruiter.co.kr/appsite/company/index"
+            target="_blank"
+          >
+            <button type="button" class="btn">
+              <span>Go to →</span>
+            </button>
+          </a>
         </div>
       </div>
     </div>
