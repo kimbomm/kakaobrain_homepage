@@ -19,7 +19,8 @@ export default {
   },
   axios: {
     credentials: true,
-    baseURL: 'https://kkbapi.freeive.dev/front/v1' || process.env.API_BASE_URL
+    baseURL:
+      'https://homeapi.stgkakaobrain.com/front/v1' || process.env.API_BASE_URL
   },
 
   router: {

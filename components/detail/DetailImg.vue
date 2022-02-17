@@ -24,7 +24,7 @@
         return this.data.MobileMedia && window.innerWidth < 768
       },
       srcPath() {
-        let path = 'https://kkbapi.freeive.dev'
+        let path = 'https://homeapi.stgkakaobrain.com'
         path =
           window.innerWidth >= 768
             ? path + `${this.data.Media.url}`

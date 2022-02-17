@@ -38,7 +38,7 @@
     },
     methods: {
       setImagePath() {
-        let path = 'https://kkbapi.freeive.dev'
+        let path = 'https://homeapi.stgkakaobrain.com'
 
         if (window.innerWidth >= 768) {
           if (this.data.Media) {

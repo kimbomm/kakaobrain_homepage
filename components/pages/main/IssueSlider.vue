@@ -37,7 +37,7 @@
               <div
                 v-if="isShow"
                 class="fade"
-                :style="`background-image: url(https://kkbapi.freeive.dev${activeContent.Media.url});`"
+                :style="`background-image: url(https://homeapi.stgkakaobrain.com${activeContent.Media.url});`"
               ></div>
             </transition>
           </div>
@@ -296,7 +296,7 @@
       span {
         display: block;
         width: 100%;
-        line-height:100%;
+        line-height: 100%;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -476,31 +476,31 @@
           flex: 0 0 100%;
           text-align: center;
           margin-top: 10px;
-          .cur{
+          .cur {
             position: absolute;
             top: 3px;
             margin-right: 0;
             left: calc((50%) - 12px);
-            transform: translate(-50%,0);
+            transform: translate(-50%, 0);
 
-            font-size:12px;
+            font-size: 12px;
             // margin-right:-4px;
           }
-          .total{
+          .total {
             position: absolute;
             bottom: -1px;
             margin-left: 0px;
             left: calc((50%) + 8px);
-            transform: translate(-50%,0);
+            transform: translate(-50%, 0);
 
-            font-size:12px;
+            font-size: 12px;
             // margin-left:-4px;
           }
-          .slash{
+          .slash {
             position: absolute;
             top: 50%;
             left: calc((50%) - 4px);
-            transform: translate(-50%,-50%);
+            transform: translate(-50%, -50%);
           }
         }
       }

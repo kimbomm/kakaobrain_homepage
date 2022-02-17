@@ -9,7 +9,9 @@
             query: { contentId: data.contentId }
           }"
         >
-          <img :src="`https://kkbapi.freeive.dev${data.TitleMedia.url}`" />
+          <img
+            :src="`https://homeapi.stgkakaobrain.com${data.TitleMedia.url}`"
+          />
         </nuxt-link>
       </div>
       <div class="list-data gl-5">

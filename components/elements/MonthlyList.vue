@@ -16,7 +16,7 @@
       >
         <div
           class="monthly-thumbnail gl-6"
-          :style="`background-image: url(https://kkbapi.freeive.dev${data.Media.url});`"
+          :style="`background-image: url(https://homeapi.stgkakaobrain.com${data.Media.url});`"
         >
           <div class="thumbnail-data">
             <div class="date">

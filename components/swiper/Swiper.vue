@@ -11,7 +11,7 @@
         <div
           v-if="content.Media"
           class="slide"
-          :style="`background-image: url(https://kkbapi.freeive.dev${content.Media.url})`"
+          :style="`background-image: url(https://homeapi.stgkakaobrain.com${content.Media.url})`"
         >
           <div
             :class="`slide-con ${content.itemProp.position.vertical}-${content.itemProp.position.horizontal}`"
@@ -37,7 +37,7 @@
           <div
             v-if="content.Media"
             class="slide"
-            :style="`background-image: url(https://kkbapi.freeive.dev${content.Media.url})`"
+            :style="`background-image: url(https://homeapi.stgkakaobrain.com${content.Media.url})`"
           >
             <div
               :class="`slide-con ${content.itemProp.position.vertical}-${content.itemProp.position.horizontal}`"
@@ -67,7 +67,7 @@
             >
               <div
                 class="list-img"
-                :style="`background-image: url(https://kkbapi.freeive.dev${content.Media.url})`"
+                :style="`background-image: url(https://homeapi.stgkakaobrain.com${content.Media.url})`"
               ></div>
               <div class="list-tit">{{ content.subject }}</div>
             </li>
