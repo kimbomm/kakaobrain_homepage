@@ -25,7 +25,7 @@
           "
         >
           <div class="issue-title">
-            <transition name="fade">
+            <transition name="only-fade">
               <span v-if="isShow" class="fade">
                 {{ activeContent.Content.title }}
               </span>
@@ -245,6 +245,10 @@
     opacity: 0;
     transform: translateY(100%);
   }
+  .only-fade-enter,
+  .only-fade-leave-to {
+    opacity: 0;
+  }
   .issue-slider {
     font-size: 0;
     padding: 0 20px;
@@ -296,7 +300,7 @@
       span {
         display: block;
         width: 100%;
-        line-height:100%;
+        line-height: 100%;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -305,7 +309,6 @@
     &-thumbnail {
       position: relative;
       height: 990px;
-      box-shadow: 30px 30px 50px -10px rgba(0, 0, 0, 0.2);
       > div {
         position: absolute;
         top: 0;
@@ -476,31 +479,31 @@
           flex: 0 0 100%;
           text-align: center;
           margin-top: 10px;
-          .cur{
+          .cur {
             position: absolute;
             top: 3px;
             margin-right: 0;
             left: calc((50%) - 12px);
-            transform: translate(-50%,0);
+            transform: translate(-50%, 0);
 
-            font-size:12px;
+            font-size: 12px;
             // margin-right:-4px;
           }
-          .total{
+          .total {
             position: absolute;
             bottom: -1px;
             margin-left: 0px;
             left: calc((50%) + 8px);
-            transform: translate(-50%,0);
+            transform: translate(-50%, 0);
 
-            font-size:12px;
+            font-size: 12px;
             // margin-left:-4px;
           }
-          .slash{
+          .slash {
             position: absolute;
             top: 50%;
             left: calc((50%) - 4px);
-            transform: translate(-50%,-50%);
+            transform: translate(-50%, -50%);
           }
         }
       }
