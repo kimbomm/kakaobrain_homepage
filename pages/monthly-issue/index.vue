@@ -1,5 +1,5 @@
 <template>
-  <div class="monthly-detail">
+  <div class="layout-list monthly-detail">
     <ListTitle text="Monthly Issue" type="gl-6" ml="l-ml-2" />
 
     <div class="text-box">
@@ -64,8 +64,6 @@
 </script>
 <style lang="scss" scoped>
   .monthly-detail {
-    margin-top: 320px;
-    padding: 0 20px;
     .text-box {
       margin-bottom: 200px;
       .contents-list-text {
@@ -81,7 +79,6 @@
 
   @include pc-large {
     .monthly-detail {
-      margin-top: 400px;
       .text-box {
         margin-bottom: 300px;
       }
@@ -95,7 +92,6 @@
 
   @include pc-4k {
     .monthly-detail {
-      margin-top: 600px;
       .text-box {
         margin-bottom: 460px;
       }
@@ -108,8 +104,6 @@
   }
   @include tablet {
     .monthly-detail {
-      margin-top: 200px;
-      margin-bottom:300px;
       .text-box {
         margin-bottom: 100px;
       }
@@ -123,8 +117,6 @@
 
   @include mobile {
     .monthly-detail {
-      margin-top: 157px;
-      margin-bottom:0px;
       .detail-list {
         &:not(:last-child) {
           margin-bottom: 50px;

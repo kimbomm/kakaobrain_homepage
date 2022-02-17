@@ -16,3 +16,47 @@
     }
   }
 }
+
+.layout-list {
+  padding: 320px 20px 0;
+  margin-bottom: 500px;
+}
+.layout-about {
+  margin-bottom: 500px;
+}
+@include pc-large {
+  .layout-list {
+    padding-top: 400px;
+    margin-bottom: 700px;
+  }
+  .layout-about {
+    margin-bottom: 700px;
+  }
+}
+@include pc-4k {
+  .layout-list {
+    padding-top: 600px;
+    margin-bottom: 1000px;
+  }
+  .layout-about {
+    margin-bottom: 1300px;
+  }
+}
+@include tablet {
+  .layout-list {
+    padding-top: 200px;
+    margin-bottom: 300px;
+  }
+  .layout-about {
+    margin-bottom: 200px;
+  }
+}
+@include mobile {
+  .layout-list {
+    padding-top: 76px;
+    margin-bottom: 200px;
+  }
+  .layout-about {
+    padding-top: 76px;
+  }
+}

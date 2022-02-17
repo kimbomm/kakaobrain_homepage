@@ -1,5 +1,5 @@
 <template>
-  <div class="about-title-text gl-5 l-ml-3">
+  <div class="about-title-text">
     <div class="txt-con">
       <div class="txt" v-html="data.text"></div>
     </div>
@@ -26,9 +26,9 @@
   }
 </script>
 <style lang="scss" scoped>
-  @import '@/assets/scss/mixins.scss';
   .about-title-text {
-    // padding: 0 20px;
+    width: getWidth(5);
+    margin-left: getMargin(3);
     .txt-con {
       margin-bottom: 60px;
     }
@@ -71,6 +71,8 @@
 
   @include tablet {
     .about-title-text {
+      width: getWidth(6);
+      margin-left: getMargin(2);
       .txt-con {
         margin-bottom: 60px;
       }
@@ -84,15 +86,11 @@
         font-size: 16px;
       }
     }
-    .gl-5 {
-      width: getWidth(6) !important;
-    }
-    .l-ml-3 {
-      margin-left: getMargin(2) !important;
-    }
   }
   @include mobile {
     .about-title-text {
+      width: auto;
+      margin-left: getMargin(1);
       .txt-con {
         margin-bottom: 40px;
       }
@@ -102,13 +100,6 @@
       .txt-scroll {
         font-size: 16px;
       }
-    }
-
-    .gl-5 {
-      width: getWidth(9) !important;
-    }
-    .l-ml-3 {
-      margin-left: getMargin(1) !important;
     }
   }
 </style>

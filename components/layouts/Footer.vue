@@ -108,7 +108,7 @@
     }
   }
   .footer {
-    margin: 500px 20px 20px;
+    margin: 0 20px 20px;
     > div {
       position: relative;
     }
@@ -180,7 +180,6 @@
 
   @include pc-large {
     .footer {
-      margin-top: 700px;
       &-shape {
         width: 466px;
         height: 200px;
@@ -203,7 +202,6 @@
   }
   @include pc-4k {
     .footer {
-      margin-top: 1000px;
       &-shape {
         width: 700px;
         height: 300px;
@@ -228,8 +226,6 @@
   }
   @include tablet {
     .footer {
-      margin-top: 200px;
-      // margin-top: 300px;
       &-shape {
         width: getWidth(2);
         height: 80px;
@@ -261,7 +257,6 @@
       }
     }
     .footer {
-      margin-top: 200px;
       margin-bottom: 50px;
       &-shape {
         display: none;

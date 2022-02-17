@@ -141,20 +141,11 @@
 </script>
 <style lang="scss" scoped>
   .innovation {
-    padding: 0 20px;
-  }
-  // .masonry {
-  //   padding: 0 20px;
-  // }
-  /deep/ .Innovation {
-    min-width: initial;
-    max-width: initial;
-    width: 100%;
-    height: auto;
-    margin-bottom: 50px;
+    padding: 320px 20px 0;
+    margin-bottom: 500px;
   }
   .contents-selector {
-    margin: 320px 0 60px;
+    margin-bottom: 60px;
   }
   .contents-sticker {
     margin-bottom: 60px;
@@ -170,12 +161,26 @@
     margin-bottom: 200px;
   }
 
-  @include pc-4k {
-    /deep/ .Innovation {
-      margin-bottom: 100px;
+  @include pc-large {
+    .innovation {
+      padding-top: 400px;
+      margin-bottom: 700px;
     }
     .contents-selector {
-      margin: 600px 0 120px;
+      margin-bottom: 120px;
+    }
+    .contents-list-text {
+      margin-bottom: 300px;
+    }
+  }
+
+  @include pc-4k {
+    .innovation {
+      padding-top: 600px;
+      margin-bottom: 1000px;
+    }
+    .contents-selector {
+      margin-bottom: 120px;
     }
     .contents-sticker {
       margin-bottom: 120px;
@@ -184,17 +189,14 @@
       margin-bottom: 460px !important;
     }
   }
-  @include pc-large {
-    /deep/ .Innovation {
-      margin-bottom: 70px;
-    }
-    .contents-list-text {
+
+  @include tablet {
+    .innovation {
+      padding-top: 200px;
       margin-bottom: 300px;
     }
-  }
-  @include tablet {
     .contents-selector {
-      margin: 200px 0 40px;
+      margin-bottom: 40px;
     }
     .contents-list-text {
       margin-bottom: 100px;
@@ -214,6 +216,13 @@
     }
   }
   @include mobile {
+    .innovation {
+      padding-top: 76px;
+      margin-bottom: 200px;
+    }
+    .contents-selector {
+      margin-bottom: 20px;
+    }
     .masonry {
       padding: 0;
     }

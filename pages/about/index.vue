@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="layout-about">
+    <BreadCrumb :data="breadcrumb" :full="true" />
     <div class="top-section">
-      <BreadCrumb :data="breadcrumb" :full="true" />
       <AboutTitle :data="aboutTitle" />
       <div class="top-text">
         <AboutTitleText :data="data.aboutTitleText" />
@@ -117,18 +117,17 @@
   }
 </script>
 <style lang="scss" scoped>
-  @import '@/assets/scss/mixins.scss';
-  .top-section{
-    // height:100vh;
-    .top-text{
+  .top-section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .top-text {
       padding: 0 20px;
     }
   }
   .about-title {
     margin-bottom: 60px;
-  }
-  .about-title-text {
-    margin-bottom: 204px;
   }
   .about-full-con-a {
     margin-bottom: 420px;
@@ -156,9 +155,6 @@
     .about-title {
       margin-bottom: 80px;
     }
-    .about-title-text {
-      margin-bottom: 268px;
-    }
     .about-full-con-a {
       margin-bottom: 530px;
     }
@@ -183,11 +179,8 @@
   }
 
   @include pc-4k {
-    .about-title {
-      margin-bottom: 130px;
-    }
-    .about-title-text {
-      margin-bottom: 388px;
+    .top-section {
+      height: 2160px;
     }
     .about-full-con-a {
       margin-bottom: 800px;
@@ -215,9 +208,6 @@
     .about-title {
       margin-bottom: 60px;
     }
-    .about-title-text {
-      margin-bottom: 143px;
-    }
     .about-full-con-a {
       margin-bottom: 200px;
     }
@@ -241,6 +231,13 @@
     }
   }
   @include mobile {
+    .top-section {
+      display: block;
+      height: auto;
+    }
+    .bread-crumb {
+      padding: 0 20px;
+    }
     .about-title {
       margin-bottom: 40px;
     }

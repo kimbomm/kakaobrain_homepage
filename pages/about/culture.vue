@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="layout-about">
+    <BreadCrumb :data="breadcrumb" :full="true" />
     <div class="top-section">
-      <BreadCrumb :data="breadcrumb" :full="true" />
       <AboutTitle :data="data.aboutTitle" />
       <div class="top-text">
         <AboutTitleText :data="data.aboutTitleText" />
@@ -66,18 +66,17 @@
   }
 </script>
 <style lang="scss" scoped>
-  @import '@/assets/scss/mixins.scss';
-  .top-section{
-    height:100vh;
-    .top-text{
+  .top-section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .top-text {
       padding: 0 20px;
     }
   }
   .about-title {
     margin-bottom: 60px;
-  }
-  .about-title-text {
-    // margin-bottom: 204px;
   }
   .about-full-con-d {
     margin-bottom: 400px;
@@ -99,40 +98,9 @@
     margin-bottom: 400px;
   }
 
-  @include pc-4k {
-    .about-title {
-      margin-bottom: 130px !important;
-    }
-    .about-title-text {
-      // margin-bottom: 388px !important;
-    }
-    .about-full-con-d {
-      margin-bottom: 800px !important;
-    }
-    .culture-text-box {
-      margin-bottom: 800px !important;
-
-      .about-con-tit {
-        margin-bottom: 200px !important;
-      }
-      .about-con-txt {
-        margin-bottom: 200px !important;
-      }
-      .about-con-sub-tit {
-        margin-bottom: 30px !important;
-      }
-    }
-
-    .about-full-con-e {
-      margin-bottom: 800px !important;
-    }
-  }
   @include pc-large {
     .about-title {
       margin-bottom: 80px;
-    }
-    .about-title-text {
-      // margin-bottom: 268px;
     }
     .about-full-con-d {
       margin-bottom: 530px;
@@ -154,12 +122,36 @@
       margin-bottom: 530px;
     }
   }
+
+  @include pc-4k {
+    .about-title {
+      margin-bottom: 130px;
+    }
+    .about-full-con-d {
+      margin-bottom: 800px;
+    }
+    .culture-text-box {
+      margin-bottom: 800px;
+
+      .about-con-tit {
+        margin-bottom: 200px;
+      }
+      .about-con-txt {
+        margin-bottom: 200px;
+      }
+      .about-con-sub-tit {
+        margin-bottom: 30px;
+      }
+    }
+
+    .about-full-con-e {
+      margin-bottom: 800px;
+    }
+  }
+
   @include tablet {
     .about-title {
       margin-bottom: 60px;
-    }
-    .about-title-text {
-      // margin-bottom: 143px;
     }
     .about-full-con-d {
       margin-bottom: 200px;
@@ -182,11 +174,18 @@
     }
   }
   @include mobile {
+    .top-section {
+      display: block;
+      height: auto;
+    }
+    .bread-crumb {
+      padding: 0 20px;
+    }
     .about-title {
       margin-bottom: 40px;
     }
     .about-title-text {
-      // margin-bottom: 80px;
+      margin-bottom: 80px;
     }
     .about-full-con-d {
       margin-bottom: 100px;

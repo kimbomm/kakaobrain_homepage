@@ -1,8 +1,8 @@
 <template>
   <div class="content-detail">
     <template v-if="data">
-      <div class="top">
-        <BreadCrumb :data="breadcrumb" :full="true" />
+      <BreadCrumb :data="breadcrumb" :full="true" />
+      <div :class="topClassBind">
         <DetailImage
           v-if="thumbnail && thumbnail.length > 0"
           :data="thumbnail[0]"
@@ -58,15 +58,6 @@
         contentId: ctx.query.contentId
       }
     },
-    computed: {
-      topClassBind() {
-        let classList = ['top']
-        if (this.thumbnail.length === 0) {
-          classList.push('no-thumbnail')
-        }
-        return classList
-      }
-    },
     data() {
       return {
         /**
@@ -87,7 +78,14 @@
     computed: {
       ...mapState({
         language: state => state.language
-      })
+      }),
+      topClassBind() {
+        let classList = ['top']
+        if (!this.thumbnail) {
+          classList.push('no-thumbnail')
+        }
+        return classList.join(' ')
+      }
     },
     async mounted() {
       await this.init()
@@ -185,160 +183,124 @@
     display: flex;
     flex-direction: row-reverse;
     justify-content: flex-end;
+    padding: 100px 20px 60px;
     &.no-thumbnail {
-      margin-bottom: 100px;
-      .bread-crumb {
-        padding-top: 100px;
-      }
-    }
-    .bread-crumb {
-      // padding-top: 0;
-      padding-right: 20px;
-    }
-    > * {
-      flex: 0 0 auto;
-    }
-    /deep/ .detail-image__thumbnail{
-      padding-top: 100px;
-      padding-left:20px;
+      padding: 320px 0 0;
     }
   }
 
   .content-detail {
-    // padding-top: 100px;
+    margin-bottom: 300px;
     .con-box {
       margin-bottom: 100px;
     }
   }
 
-  .content-inner{
-    // padding-top: 60px;
-    padding-top: 320px;
-    margin:0 20px;
-    /deep/ .detail-title{
-      margin-bottom:200px;
+  .content-inner {
+    margin: 0 20px;
+    /deep/ .detail-title {
+      margin-bottom: 200px;
     }
-    /deep/ .detail-subTit{
-      margin-top:150px;
-      margin-bottom:60px;
+    /deep/ .detail-subTit {
+      margin-top: 150px;
+      margin-bottom: 60px;
     }
   }
 
   @include pc-large {
     .content-detail {
-      // padding-top: 130px;
+      margin-bottom: 400px;
       .con-box {
         margin-bottom: 200px;
       }
     }
     .top {
-      // margin-bottom: 100px;
+      padding: 130px 20px 100px;
       &.no-thumbnail {
-        margin-bottom: 173px;
-      }
-      /deep/ .detail-image__thumbnail{
-        padding-top: 130px;
-        padding-left:0px;
+        padding: 400px 0 0;
       }
     }
-    .content-inner{
+    .content-inner {
       padding-top: 440px;
-      /deep/ .detail-title{
-        margin-bottom:300px;
+      /deep/ .detail-title {
+        margin-bottom: 300px;
       }
-      /deep/ .detail-subTit{
-        margin-top:200px;
-        margin-bottom:30px;
+      /deep/ .detail-subTit {
+        margin-top: 200px;
+        margin-bottom: 30px;
       }
-      /deep/ .detail-text{
-        margin-bottom:30px;
+      /deep/ .detail-text {
+        margin-bottom: 30px;
       }
     }
   }
   @include pc-4k {
     .top {
-      // margin-bottom: 145px;
+      padding: 200px 20px 145px;
       &.no-thumbnail {
-        margin-bottom: 248px;
-      }
-      /deep/ .detail-image__thumbnail{
-        padding-top: 200px;
+        padding: 660px 0 0;
       }
     }
     .content-detail {
-      // padding-top: 200px;
       .con-box {
         margin-bottom: 300px;
       }
     }
-    .content-inner{
+    .content-inner {
       padding-top: 660px;
-      /deep/ .detail-title{
-        margin-bottom:400px;
+      /deep/ .detail-title {
+        margin-bottom: 400px;
       }
-      /deep/ .detail-subTit{
-        margin-top:250px;
-        margin-bottom:60px;
+      /deep/ .detail-subTit {
+        margin-top: 250px;
+        margin-bottom: 60px;
       }
-      /deep/ .detail-text{
-        margin-bottom:60px;
+      /deep/ .detail-text {
+        margin-bottom: 60px;
       }
     }
   }
   @include tablet {
-    .content-detail{
-      margin-bottom:300px;
+    .content-detail {
+      margin-bottom: 200px;
     }
     .top {
-      // margin-bottom: 100px;
+      padding: 100px 0 100px;
       &.no-thumbnail {
-        margin-bottom: 5px;
-      }
-      /deep/ .detail-image__thumbnail{
-        padding-top: 100px;
-        padding-left:0px;
+        padding: 200px 0 0;
       }
     }
-    .content-inner{
-      padding-top: 200px;
-      /deep/ .detail-title{
-        margin-bottom:40px;
+    .content-inner {
+      padding-top: 100px;
+      /deep/ .detail-title {
+        margin-bottom: 40px;
       }
-      /deep/ .detail-subTit{
-        margin-top:100px;
-        margin-bottom:60px;
+      /deep/ .detail-subTit {
+        margin-top: 100px;
+        margin-bottom: 60px;
       }
     }
   }
   @include mobile {
-    .content-detail{
-      margin-bottom:504px;
+    .content-detail {
+      padding-top: 76px;
+      margin-bottom: 100px;
     }
     .top {
       display: block;
-      // margin-bottom: 60px;
+      padding: 20px 0 60px;
       &.no-thumbnail {
-        margin-bottom: 60px;
-      }
-      .bread-crumb {
-        // padding: 0 20px;
-      }
-      /deep/ .detail-image__thumbnail{
-        padding-top: 117px;
-        padding-left:0px;
+        padding: 60px 0 0;
       }
     }
-    .content-inner{
-      padding-top: 157px;
-      // /deep/ .detail {
-      //   padding: 0px;
-      // }
-      /deep/ .detail-title{
-        margin-bottom:20px;
+    .content-inner {
+      padding-top: 60px;
+      /deep/ .detail-title {
+        margin-bottom: 20px;
       }
-      /deep/ .detail-subTit{
-        margin-top:100px;
-        margin-bottom:30px;
+      /deep/ .detail-subTit {
+        margin-top: 100px;
+        margin-bottom: 30px;
       }
     }
   }

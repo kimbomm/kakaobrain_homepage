@@ -60,7 +60,8 @@
     }
     &__full {
       position: absolute;
-      right:0;
+      top: 0;
+      right: 0;
       padding: 100px 20px 98px;
     }
   }
@@ -99,12 +100,13 @@
       li {
         display: inline-flex;
         // margin-bottom: 20px;
-        margin-bottom:6px;
+        margin-bottom: 6px;
         margin-right: 4px;
       }
       &__full {
-        left: 0;
-        padding: 76px 20px 60px;
+        position: static;
+        margin-bottom: 60px;
+        padding: 0;
       }
     }
   }
