@@ -53,11 +53,11 @@
           text: [
             {
               content:
-                "Create <span class='br'>the world's</span> <span class='br'>mouth in a way</span> that",
+                "We create <span class='br'>an impact</span> <span class='br'>in the world</span>",
               bold: true
             },
             {
-              content: ' no one has <span class="br">thought of.</span>',
+              content: 'with unthinkable questions.',
               bold: false
             }
           ]
