@@ -2,14 +2,19 @@
   <div class="goal">
     <div class="gl-6">
       <div class="goal-title">
-        <span>Unthinkable<br /> question<br /> makes impactful<br /> answer.</span>
+        <span
+          >Unthinkable<br />
+          question<br />
+          makes impactful<br />
+          answer.</span
+        >
       </div>
-      <div class="goal-desp">
+      <!-- <div class="goal-desp">
         <p>
           카카오브레인은 생각하지 못한 물음으로부터<br />
           기술을 발전시키고, 모두의 생활을 변화시킵니다.
         </p>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -41,7 +46,7 @@
         background-position: center center;
         position: absolute;
         // top: 50%;
-        top:calc((50%) - 50px);
+        top: calc((50%) - 50px);
         left: 50%;
         transform: translate(0, -50%);
         z-index: 2;
@@ -56,7 +61,7 @@
         background-position: center center;
         position: absolute;
         // top: 50%;
-        top:calc((50%) - 50px);
+        top: calc((50%) - 50px);
         left: 50%;
         transform: translate(-100%, -50%);
         z-index: 0;
@@ -87,10 +92,10 @@
       height: 2000px;
       > div {
         &:before {
-          top:calc((50%) - 30px);
+          top: calc((50%) - 30px);
         }
         &:after {
-          top:calc((50%) - 30px);
+          top: calc((50%) - 30px);
         }
       }
       &-title {
@@ -107,21 +112,21 @@
     .goal {
       justify-content: flex-start;
       height: 3000px;
-      padding-left:1478px;
+      padding-left: 1478px;
       > div {
         position: relative;
-        &.gl-6{
+        &.gl-6 {
           width: getWidth(5) !important;
         }
         &:before {
           left: calc((50%) - 135px);
-          top:50%;
+          top: 50%;
           width: 500px;
           height: 500px;
         }
         &:after {
           left: calc((50%) - 260px);
-          top:50%;
+          top: 50%;
           width: 500px;
           height: 500px;
         }
@@ -143,12 +148,12 @@
       > div {
         position: relative;
         &:before {
-          top:50%;
+          top: 50%;
           width: 160px;
           height: 160px;
         }
         &:after {
-          top:50%;
+          top: 50%;
           width: 160px;
           height: 160px;
         }
@@ -167,7 +172,7 @@
   @include mobile {
     .goal {
       // height: 670px;
-      height:100vh;
+      height: 100vh;
       margin-left: 0;
       > div {
         position: relative;
@@ -181,8 +186,8 @@
           height: 118px;
           transform: translate(-100%, -120%);
         }
-        &.gl-6{
-           width: 100% !important;
+        &.gl-6 {
+          width: 100% !important;
         }
       }
       &-title {

@@ -60,8 +60,8 @@
               content: ' no one has <span class="br">thought of.</span>',
               bold: false
             }
-          ],
-          desp: '<span class="br">누구도 생각하지 못했던 방식으로</span> 세상의 임팩트를 만듭니다.'
+          ]
+          // desp: '<span class="br">누구도 생각하지 못했던 방식으로</span> 세상의 임팩트를 만듭니다.'
         },
         sloganData2: {
           title: 'What is your Question?',
@@ -74,8 +74,8 @@
               bold: true
             },
             { content: 'in the world.', bold: false }
-          ],
-          desp: '<span class="br">우리는 세상의 수많은 질문들에 대한</span> 해답을 찾고 있습니다.'
+          ]
+          // desp: '<span class="br">우리는 세상의 수많은 질문들에 대한</span> 해답을 찾고 있습니다.'
         },
         sloganData3: {
           title: 'Our Innovation',
@@ -92,8 +92,8 @@
               bold: false
             },
             { content: 'PERSPECTIVE.', bold: true }
-          ],
-          desp: 'AI로 불가능한 영역에 적극적으로 도전하는 <span class="br">스타트업의 마인드로 카카오브레인만이 할 수 있는</span> <span class="br">AI 선행 연구와 기술 개발을 진행해 더 나은 세상을</span> 만드는데 기여하고자 합니다.'
+          ]
+          // desp: 'AI로 불가능한 영역에 적극적으로 도전하는 <span class="br">스타트업의 마인드로 카카오브레인만이 할 수 있는</span> <span class="br">AI 선행 연구와 기술 개발을 진행해 더 나은 세상을</span> 만드는데 기여하고자 합니다.'
         }
       }
     }
@@ -105,7 +105,7 @@
     .question {
       margin-top: 436px;
     }
-    .slogan-area{
+    .slogan-area {
       padding: 0 20px;
     }
     .slogan-wrap {
