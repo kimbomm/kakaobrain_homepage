@@ -248,7 +248,7 @@
   .fade-enter,
   .fade-leave-to {
     opacity: 0;
-    transform: translateY(100%);
+    transform: translateY(5%);
   }
   .only-fade-enter,
   .only-fade-leave-to {
