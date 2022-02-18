@@ -87,7 +87,7 @@
     },
     data() {
       return {
-        isMenu: true,
+        isMenu: false,
         isAnimation: false,
         languageList: [
           { name: 'English', value: 'EN' },
