@@ -1,9 +1,8 @@
 <template>
   <div class="content-detail">
     <template v-if="data">
-      <div class="top">
-        <BreadCrumb :data="breadcrumb" :full="true" />
-      </div>
+      <BreadCrumb :data="breadcrumb" :full="true" />
+      <div class="top"></div>
       <DetailTitle :text="data.title" />
       <template v-for="(content, index) in data.ContentItems">
         <component
@@ -101,26 +100,10 @@
 </script>
 <style lang="scss" scoped>
   .top {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    margin-bottom: 60px;
-    &.no-thumbnail {
-      margin-bottom: 100px;
-      .bread-crumb {
-        padding-top: 100px;
-      }
-    }
-    .bread-crumb {
-      padding-top: 0;
-      padding-right: 20px;
-    }
-    > * {
-      flex: 0 0 auto;
-    }
+    padding: 320px 0 0;
   }
   .content-detail {
-    padding-top: 100px;
+    margin-bottom: 300px;
     .con-box {
       margin-bottom: 100px;
     }
@@ -128,50 +111,41 @@
 
   @include pc-large {
     .content-detail {
-      padding-top: 130px;
+      margin-bottom: 400px;
       .con-box {
         margin-bottom: 200px;
       }
     }
     .top {
-      margin-bottom: 100px;
-      &.no-thumbnail {
-        margin-bottom: 173px;
-      }
+      padding: 400px 0 0;
     }
   }
   @include pc-4k {
     .top {
-      margin-bottom: 145px;
-      &.no-thumbnail {
-        margin-bottom: 248px;
-      }
+      padding: 660px 0 0;
     }
     .content-detail {
-      padding-top: 200px;
       .con-box {
         margin-bottom: 300px;
       }
     }
   }
   @include tablet {
+    .content-detail {
+      margin-bottom: 200px;
+    }
     .top {
-      margin-bottom: 100px;
-      &.no-thumbnail {
-        margin-bottom: 5px;
-      }
+      padding: 200px 0 0;
     }
   }
   @include mobile {
+    .content-detail {
+      padding: 76px 20px 0;
+      margin-bottom: 100px;
+    }
     .top {
       display: block;
-      margin-bottom: 60px;
-      &.no-thumbnail {
-        margin-bottom: 60px;
-      }
-      .bread-crumb {
-        padding: 0 20px;
-      }
+      padding: 60px 0 0;
     }
   }
 </style>

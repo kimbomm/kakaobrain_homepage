@@ -160,7 +160,7 @@ const footer = [
       KR: '오픈미니컨',
       EN: 'Open Minicon'
     },
-    link: '#',
+    link: 'https://kakaobrain.com/openminicon',
     target: '_blank'
   },
   {
@@ -168,7 +168,7 @@ const footer = [
       KR: '영입',
       EN: 'Recruit'
     },
-    link: '#',
+    link: 'https://kakaobrain.recruiter.co.kr/appsite/company/index',
     target: '_blank'
   }
 ]

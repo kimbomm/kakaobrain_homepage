@@ -25,7 +25,7 @@
           "
         >
           <div class="issue-title">
-            <transition name="fade">
+            <transition name="only-fade">
               <span v-if="isShow" class="fade">
                 {{ activeContent.Content.title }}
               </span>
@@ -37,7 +37,9 @@
               <div
                 v-if="isShow"
                 class="fade"
-                :style="`background-image: url(https://homeapi.stgkakaobrain.com${activeContent.Media.url});`"
+                :style="`background-image: url(${envVariable(
+                  activeContent.Media.url
+                )});`"
               ></div>
             </transition>
           </div>
@@ -231,6 +233,9 @@
             })
           }
         }
+      },
+      envVariable(url) {
+        return `${this.$config.baseURL}${url}`
       }
     }
   }
@@ -244,6 +249,10 @@
   .fade-leave-to {
     opacity: 0;
     transform: translateY(100%);
+  }
+  .only-fade-enter,
+  .only-fade-leave-to {
+    opacity: 0;
   }
   .issue-slider {
     font-size: 0;
@@ -305,7 +314,6 @@
     &-thumbnail {
       position: relative;
       height: 990px;
-      box-shadow: 30px 30px 50px -10px rgba(0, 0, 0, 0.2);
       > div {
         position: absolute;
         top: 0;

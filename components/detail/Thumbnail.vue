@@ -36,7 +36,7 @@
     },
     methods: {
       setImagePath() {
-        let path = 'https://homeapi.stgkakaobrain.com'
+        let path = this.$config.baseURL
 
         if (window.innerWidth >= 768) {
           if (this.data.Media) {

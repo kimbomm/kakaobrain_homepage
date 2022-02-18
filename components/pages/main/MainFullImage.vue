@@ -3,8 +3,18 @@
     <div>
       <!-- <img src="@/assets/images/main_img_dummy.jpeg" /> -->
     </div>
-    <div class="gl-8 l-ml-2">
-      <span>Core Value → <span class="s-weight">¹</span>outstanding<span class="s-weight">²</span>actualized<span class="s-weight">³</span>open<span class="s-weight">⁴</span>impactful</span>
+    <div>
+      <span>
+        Core Value →
+        <span class="s-weight">¹</span>
+        outstanding
+        <span class="s-weight">²</span>
+        actualized
+        <span class="s-weight">³</span>
+        open
+        <span class="s-weight">⁴</span>
+        impactful
+      </span>
     </div>
   </div>
 </template>
@@ -21,14 +31,15 @@
         background-repeat: no-repeat;
       }
       &:nth-child(2) {
+        margin-left: getMargin(2);
         margin-top: 20px;
         font-weight: 600;
         font-size: 40px;
         line-height: 1.1;
       }
     }
-    .s-weight{
-      font-weight:100;
+    .s-weight {
+      font-weight: 100;
     }
   }
   @include pc-large {
@@ -77,8 +88,7 @@
           height: 470px;
         }
         &:nth-child(2) {
-          width: 100% !important;
-          margin-left: 0 !important;
+          margin-left: 0;
           margin-top: 10px;
           font-size: 12px;
         }

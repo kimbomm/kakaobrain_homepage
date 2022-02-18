@@ -9,9 +9,7 @@
             query: { contentId: data.contentId }
           }"
         >
-          <img
-            :src="`https://homeapi.stgkakaobrain.com${data.TitleMedia.url}`"
-          />
+          <img :src="`${envVariable(data.TitleMedia.url)}`" />
         </nuxt-link>
       </div>
       <div class="list-data gl-5">
@@ -51,6 +49,11 @@
         type: Object,
         default: () => {},
         required: false
+      }
+    },
+    methods: {
+      envVariable(url) {
+        return `${this.$config.baseURL}${url}`
       }
     }
   }

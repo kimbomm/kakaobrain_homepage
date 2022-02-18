@@ -32,9 +32,9 @@
         </div>
       </div>
     </div>
-    <div class="slogan-text">
+    <!-- <div class="slogan-text">
       Our innovation is starts with all the krew's questions.
-    </div>
+    </div> -->
   </div>
 </template>
 <script>
@@ -273,7 +273,7 @@
   .slogan-text {
     margin-top: 20px;
     margin-left: getMargin(2);
-    padding-left:20px;
+    padding-left: 20px;
     font-size: 40px;
     font-weight: 600;
     line-height: 110%;

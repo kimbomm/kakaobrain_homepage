@@ -105,7 +105,6 @@
       }
       &__full {
         position: static;
-        margin-bottom: 60px;
         padding: 0;
       }
     }

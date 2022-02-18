@@ -24,7 +24,7 @@
         return this.data.MobileMedia && window.innerWidth < 768
       },
       srcPath() {
-        let path = 'https://homeapi.stgkakaobrain.com'
+        let path = this.$config.baseURL
         path =
           window.innerWidth >= 768
             ? path + `${this.data.Media.url}`

@@ -293,8 +293,11 @@
         padding: 60px 0 0;
       }
     }
+    .bread-crumb {
+      padding: 0 20px;
+    }
     .content-inner {
-      padding-top: 60px;
+      padding-top: 0;
       /deep/ .detail-title {
         margin-bottom: 20px;
       }

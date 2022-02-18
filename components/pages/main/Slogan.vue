@@ -5,16 +5,16 @@
     </div>
     <div class="slogan-text">
       <template v-for="(item, idx) in data.text">
-        <span :key="idx" :class="item.bold ? 'txt-b' : ''" v-html="item.content">
-          <!-- {{item.content}} -->
-        </span>
+        <span
+          :key="idx"
+          :class="item.bold ? 'txt-b' : ''"
+          v-html="item.content"
+        ></span>
       </template>
     </div>
-    <div class="slogan-desp gl-3">
-      <p v-html="data.desp">
-        <!-- {{ data.desp }} -->
-      </p>
-    </div>
+    <!-- <div class="slogan-desp gl-3">
+      <p v-html="data.desp"></p>
+    </div> -->
   </div>
 </template>
 <script>
@@ -39,7 +39,6 @@
     }
     &-text {
       word-break: keep-all;
-      margin-bottom: 40px;
       span {
         font-size: 120px;
         font-weight: 100;
@@ -67,7 +66,7 @@
       }
       &-desp {
         font-size: 26px;
-        &.gl-3{
+        &.gl-3 {
           width: getWidth(8) !important;
         }
       }
@@ -80,7 +79,6 @@
         margin-bottom: 200px;
       }
       &-text {
-        margin-bottom: 70px;
         span {
           font-size: 242px;
         }
@@ -101,7 +99,7 @@
         }
       }
       &-desp {
-        &.gl-3{
+        &.gl-3 {
           width: getWidth(6) !important;
         }
       }
@@ -117,14 +115,13 @@
         margin-bottom: 40px;
       }
       &-text {
-        margin-bottom: 20px;
         span {
           font-size: 38px;
         }
       }
       &-desp {
         font-size: 14px;
-        &.gl-3{
+        &.gl-3 {
           width: 100% !important;
         }
       }

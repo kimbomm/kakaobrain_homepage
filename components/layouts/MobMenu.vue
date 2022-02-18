@@ -25,7 +25,12 @@
               :key="`sub-${idx}`"
               @click="onClose"
             >
-              <nuxt-link :to="subMenu.link">{{ subMenu.name }}</nuxt-link>
+              <template v-if="subMenu.name !== 'Principle'">
+                <nuxt-link :to="subMenu.link">{{ subMenu.name }}</nuxt-link>
+              </template>
+              <template v-else>
+                <a :href="principleLink" target="_blank">{{ subMenu.name }}</a>
+              </template>
             </li>
           </ul>
         </li>
@@ -43,14 +48,24 @@
       Icon,
       MobMenuFooter
     },
-    computed: {
-      ...mapState({
-        menus: state => state.menus
-      })
-    },
     data() {
       return {
         active: []
+      }
+    },
+    computed: {
+      ...mapState({
+        menus: state => state.menus,
+        language: state => state.language
+      }),
+      principleLink() {
+        let link =
+          'https://www.kakaocorp.com/page/responsible/aiEthics?lang=KOR&tab=all'
+        if (this.language === 'EN') {
+          link =
+            'https://www.kakaocorp.com/page/responsible/aiEthics?lang=ENG&tab=all'
+        }
+        return link
       }
     },
     created() {},
@@ -112,8 +127,8 @@
       &:first-child {
         margin-top: 0;
       }
-      &:last-child .sub-menu{
-        padding-bottom:0px;
+      &:last-child .sub-menu {
+        padding-bottom: 0px;
       }
     }
   }
@@ -170,7 +185,7 @@
       &-top {
         align-items: center;
         padding: 0 20px;
-        padding-top:20px;
+        padding-top: 20px;
         // height: 56px;
         // height: 51px;
         span {
@@ -178,8 +193,8 @@
         }
         button {
           position: absolute;
-          top:13px;
-          right:15px;
+          top: 13px;
+          right: 15px;
           width: 30px;
           height: 30px;
         }

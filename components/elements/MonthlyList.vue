@@ -16,7 +16,7 @@
       >
         <div
           class="monthly-thumbnail gl-6"
-          :style="`background-image: url(https://homeapi.stgkakaobrain.com${data.Media.url});`"
+          :style="`background-image: url(${envVariable(data.Media.url)});`"
         >
           <div class="thumbnail-data">
             <div class="date">
@@ -94,6 +94,9 @@
             link: this.data.Content.ContentTags[i].link
           })
         }
+      },
+      envVariable(url) {
+        return `${this.$config.baseURL}${url}`
       }
     }
   }

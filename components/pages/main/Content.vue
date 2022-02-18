@@ -110,7 +110,7 @@
         getNickName: 'getNickName'
       }),
       setImagePath() {
-        let path = 'https://homeapi.stgkakaobrain.com'
+        let path = this.$config.baseURL
 
         if (window.innerWidth >= 768) {
           path += this.data.contentProp.mediaInfo.pc.media.url
@@ -147,8 +147,7 @@
             link: this.data.Content.ContentTags[i].link
           })
         }
-      },
-      goDetail() {}
+      }
     }
   }
 </script>

@@ -177,7 +177,7 @@
       padding: 0;
       font-weight: 400;
       &.active {
-        font-weight: 700;
+        font-weight: 600;
       }
       &.more {
         cursor: auto;
@@ -256,6 +256,9 @@
   @include mobile {
     .paging {
       margin-top: 80px;
+      &-inner {
+        justify-content: center;
+      }
       &-prev {
         margin-right: 26px;
         .link {
@@ -269,7 +272,7 @@
         }
       }
       &-num {
-        width: 100%;
+        width: auto;
         li {
           &:not(:last-child) {
             // margin-right: 12px;
