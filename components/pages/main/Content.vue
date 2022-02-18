@@ -110,7 +110,7 @@
         getNickName: 'getNickName'
       }),
       setImagePath() {
-        let path = 'https://kkbapi.freeive.dev'
+        let path = this.$config.baseURL
 
         if (window.innerWidth >= 768) {
           path += this.data.contentProp.mediaInfo.pc.media.url
@@ -147,8 +147,7 @@
             link: this.data.Content.ContentTags[i].link
           })
         }
-      },
-      goDetail() {}
+      }
     }
   }
 </script>
@@ -170,7 +169,7 @@
     flex: 1;
   }
   .thumbnail {
-      box-shadow: 30px 30px 50px -10px rgba(0,0,0,0.2);
+    box-shadow: 30px 30px 50px -10px rgba(0, 0, 0, 0.2);
     img {
       display: block;
       width: 100%;
@@ -182,8 +181,8 @@
     font-size: 18px;
     line-height: 1.3;
     margin-top: 10px;
-    span{
-      line-height: 150%
+    span {
+      line-height: 150%;
     }
     span:nth-child(1) {
       display: inline-block;
@@ -266,7 +265,7 @@
     .title {
       font-size: 16px;
       span:nth-child(2) {
-        font-size:18px;
+        font-size: 18px;
       }
     }
   }

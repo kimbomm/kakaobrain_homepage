@@ -37,7 +37,9 @@
               <div
                 v-if="isShow"
                 class="fade"
-                :style="`background-image: url(https://kkbapi.freeive.dev${activeContent.Media.url});`"
+                :style="`background-image: url(${envVariable(
+                  activeContent.Media.url
+                )});`"
               ></div>
             </transition>
           </div>
@@ -231,6 +233,9 @@
             })
           }
         }
+      },
+      envVariable(url) {
+        return `${this.$config.baseURL}${url}`
       }
     }
   }

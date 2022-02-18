@@ -1,7 +1,11 @@
 export default {
+  publicRuntimeConfig: {
+    baseURL: process.env.VUE_APP_BASE_URL,
+    apiBaseURL: process.env.VUE_APP_API_BASE_URL
+  },
   env: {
-    baseURL: process.env.BASE_URL,
-    apiBaseURL: process.env.API_BASE_URL
+    baseURL: process.env.VUE_APP_BASE_URL,
+    apiBaseURL: process.env.VUE_APP_API_BASE_URL
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -19,7 +23,7 @@ export default {
   },
   axios: {
     credentials: true,
-    baseURL: process.env.API_BASE_URL
+    baseURL: process.env.VUE_APP_API_BASE_URL
   },
 
   router: {

@@ -51,7 +51,7 @@
     },
     methods: {
       setImagePath() {
-        let path = 'https://kkbapi.freeive.dev'
+        let path = this.$config.baseURL
 
         if (window.innerWidth >= 768) {
           if (this.data.Media) {
@@ -86,11 +86,11 @@
       margin-top: 50px;
       margin-left: getMargin(2);
     }
-    .image{
-      height:600px;
+    .image {
+      height: 600px;
       img {
         width: 100%;
-        height:100%;
+        height: 100%;
         object-fit: cover;
       }
     }
@@ -112,8 +112,8 @@
       &__default {
         margin-top: 200px;
       }
-      .image{
-        height:804px;
+      .image {
+        height: 804px;
       }
     }
     .detail-text {
@@ -129,8 +129,8 @@
       &__default {
         margin-top: 300px;
       }
-      .image{
-        height:1206px;
+      .image {
+        height: 1206px;
       }
     }
     .detail-text {
@@ -145,8 +145,8 @@
       &__default {
         width: getWidth(6);
       }
-      .image{
-        height:330px;
+      .image {
+        height: 330px;
       }
     }
     .detail-text {
@@ -165,8 +165,8 @@
         width: 100%;
         margin-left: 0;
       }
-      .image{
-        height:330px;
+      .image {
+        height: 330px;
       }
     }
     .detail-text {
