@@ -11,7 +11,11 @@
     </div>
     <div class="mob-menu-content">
       <ul class="menu-list">
-        <li v-for="(menu, index) in menus" :key="`menu-${index}`">
+        <li
+          v-for="(menu, index) in menus"
+          :key="`menu-${index}`"
+          :class="`animation delay-${index} ${isAnimation ? 'fade-up' : ''}`"
+        >
           <button
             :class="`${active.includes(index) ? 'is-active ' : ''}menu-toggle`"
             @click="onClick(index)"
@@ -50,7 +54,8 @@
     },
     data() {
       return {
-        active: []
+        active: [],
+        isAnimation: false
       }
     },
     computed: {
@@ -68,7 +73,14 @@
         return link
       }
     },
-    created() {},
+    mounted() {
+      setTimeout(() => {
+        this.isAnimation = true
+      }, 300)
+    },
+    beforeDestroy() {
+      this.isAnimation = false
+    },
     methods: {
       onClose() {
         this.$emit('onClose')
@@ -82,6 +94,39 @@
   }
 </script>
 <style lang="scss" scoped>
+  @keyframes fadeUp {
+    from {
+      transform: translateY(10%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .animation {
+    opacity: 0;
+    animation-duration: 0.3s;
+    animation-fill-mode: both;
+    animation-timing-function: ease-out;
+    &.delay-0 {
+      animation-delay: 0.1s;
+    }
+    &.delay-1 {
+      animation-delay: 0.1s;
+    }
+    &.delay-2 {
+      animation-delay: 0.3s;
+    }
+    &.delay-3 {
+      animation-delay: 0.4s;
+    }
+    &.delay-4 {
+      animation-delay: 0.5s;
+    }
+  }
+  .fade-up {
+    animation-name: fadeUp;
+  }
   .mob-menu {
     display: none;
     position: fixed;

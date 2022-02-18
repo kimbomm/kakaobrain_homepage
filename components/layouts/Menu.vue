@@ -25,7 +25,9 @@
             <li
               v-for="(item, index) in languageList"
               :key="index"
-              class="lang-item"
+              :class="`lang-item animation delay-${index} ${
+                isAnimation ? 'fade-up' : ''
+              }`"
             >
               <button
                 :class="item.value === language ? 'is-active' : ''"
@@ -44,13 +46,17 @@
               class="menu-item"
             >
               <!-- <span v-if="menu.alarm" class="num">{{ menu.alarm }}</span> -->
-              <span>{{ menu.name }}</span>
+              <span :class="`animation ${isAnimation ? 'fade-up' : ''}`">{{
+                menu.name
+              }}</span>
               <ul class="sub">
                 <li
                   v-for="(subMenu, idx) in menu.sub"
                   :key="`sub-${idx}`"
-                  class="sub-item"
-                  @click.native="hideMenu(false)"
+                  :class="`sub-item animation delay-${idx} ${
+                    isAnimation ? 'fade-up' : ''
+                  }`"
+                  @click="hideMenu(false)"
                 >
                   <template v-if="subMenu.name !== 'Principle'">
                     <nuxt-link :to="subMenu.link">{{ subMenu.name }}</nuxt-link>
@@ -67,7 +73,9 @@
         </div>
       </div>
     </transition>
-    <MobMenu v-if="this.isMenu" @onClose="hideMenu(false)" />
+    <transition name="slide">
+      <MobMenu v-if="this.isMenu" @onClose="hideMenu(false)" />
+    </transition>
   </div>
 </template>
 <script>
@@ -79,11 +87,23 @@
     },
     data() {
       return {
-        isMenu: false,
+        isMenu: true,
+        isAnimation: false,
         languageList: [
           { name: 'English', value: 'EN' },
           { name: 'Korean', value: 'KR' }
         ]
+      }
+    },
+    watch: {
+      isMenu(val) {
+        if (val) {
+          setTimeout(() => {
+            this.isAnimation = true
+          }, 300)
+        } else {
+          this.isAnimation = false
+        }
       }
     },
     computed: {
@@ -131,7 +151,40 @@
   .slide-enter,
   .slide-leave-to {
     opacity: 0;
-    transform: translateY(-100%);
+    transform: translateY(-30%);
+  }
+  @keyframes fadeUp {
+    from {
+      transform: translateY(10%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .animation {
+    opacity: 0;
+    animation-duration: 0.3s;
+    animation-fill-mode: both;
+    animation-timing-function: ease-out;
+    &.delay-0 {
+      animation-delay: 0.1s;
+    }
+    &.delay-1 {
+      animation-delay: 0.1s;
+    }
+    &.delay-2 {
+      animation-delay: 0.3s;
+    }
+    &.delay-3 {
+      animation-delay: 0.4s;
+    }
+    &.delay-4 {
+      animation-delay: 0.5s;
+    }
+  }
+  .fade-up {
+    animation-name: fadeUp;
   }
   .menu {
     z-index: 10;
@@ -175,13 +228,15 @@
     background-size: cover;
     background-position: center center;
   }
-
+  .mob-menu {
+    transition: all 0.3s ease-in-out;
+  }
   .hide {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    transition: all 0.2s ease-out;
+    transition: all 0.3s ease-in-out;
     .lang {
       position: absolute;
       right: 30px;
@@ -214,35 +269,40 @@
         text-align: left;
         vertical-align: top;
         color: $gray-0;
-        font-size: 14px;
+        font-size: 22px;
+        line-height: 1.3;
         &:not(:last-child) {
           margin-right: 50px;
         }
-        // &:nth-child(2) .sub {
-        //   margin-left: 23px;
-        // }
-        // &:nth-child(3) .sub {
-        //   margin-left: 20px;
-        // }
-        // &:nth-child(4) .sub {
-        //   margin-left: 12px;
-        // }
-        // &:nth-child(5) .sub {
-        //   margin-left: 20px;
-        // }
       }
     }
     .sub {
       margin-top: 30px;
       &-item {
-        // line-height:23px;
         font-size: 14px;
+        line-height: 2.3;
         font-weight: 400;
-        &:not(:last-child) {
-          margin-bottom: 8px;
-        }
         a {
+          position: relative;
           color: $gray-0;
+          &:before {
+            content: '';
+            position: absolute;
+            display: inline-block;
+            bottom: -2px;
+            left: 0;
+            height: 1px;
+            background-color: #fff;
+            width: 40%;
+            opacity: 0;
+            transition: all 0.3s ease-out;
+          }
+          &:hover {
+            &:before {
+              width: 100%;
+              opacity: 1;
+            }
+          }
         }
       }
     }
