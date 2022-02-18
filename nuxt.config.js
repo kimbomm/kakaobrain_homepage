@@ -19,7 +19,7 @@ export default {
   },
   axios: {
     credentials: true,
-    baseURL: 'https://kkbapi.freeive.dev/front/v1' || process.env.API_BASE_URL
+    baseURL: process.env.API_BASE_URL
   },
 
   router: {
@@ -48,6 +48,9 @@ export default {
   dayjs: {
     locales: ['en', 'ko'],
     defaultLocale: 'en'
+  },
+  dotenv: {
+    filename: '.env' + process.env.NODE_ENV
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
