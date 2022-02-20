@@ -39,6 +39,20 @@
 </template>
 <script>
   export default {
+    props: {
+      flag: {
+        type: Boolean,
+        default: false
+      },
+      start: {
+        type: Boolean,
+        default: true
+      },
+      end: {
+        type: Boolean,
+        default: false
+      }
+    },
     data() {
       return {
         data: [
@@ -80,87 +94,67 @@
           { txt: '1억년 후 세상을 예측할 수 있을까?', image: 'slot_17' },
           { txt: '코로나는 언제 끝날까?', image: 'slot_18' }
         ],
-        isChanged: false,
-        prevIndex: 0,
+        slotLength: 5,
+        isChanged: true,
+        prevIndex: null,
         activeIndex: 0,
         upIndex: null,
-        bottomIndex: null,
+        bottomIndex: 1,
         slot: [],
         lastScrollTop: 0
       }
     },
+    watch: {
+      flag(val) {
+        if (val) {
+          setTimeout(() => {
+            this.isChanged = false
+          }, 1000)
+        }
+      }
+    },
     mounted() {
-      window.addEventListener('scroll', this.onScroll)
+      window.addEventListener('wheel', this.onScroll)
       this.setSlot()
     },
     beforeDestroy() {
-      window.removeEventListener('scroll', this.onScroll)
+      window.removeEventListener('wheel', this.onScroll)
     },
     methods: {
       onScroll(e) {
-        const target = this.$refs['slot-contents']
-        const targetImage = this.$refs['slot-image']
         const targetText = this.$refs['slot-text']
-
-        const targetCenter = target.offsetTop + target.offsetHeight / 2
-        if (
-          targetCenter <= window.scrollY + window.innerHeight &&
-          targetCenter >= window.scrollY + window.innerHeight * 0.75
-        ) {
-          this.isChanged = false
-          this.prevIndex = window.scrollY > this.lastScrollTop ? null : 1
-          this.activeIndex = 0
-          this.upIndex = null
-          this.bottomIndex = 1
-
-          targetText.style = `transform: translateY(0)`
-        } else if (
-          targetCenter <= window.scrollY + window.innerHeight * 0.75 &&
-          targetCenter >= window.scrollY + window.innerHeight * 0.5
-        ) {
-          this.isChanged = false
-          this.prevIndex = window.scrollY > this.lastScrollTop ? 0 : 2
-          this.activeIndex = 1
-          this.upIndex = 0
-          this.bottomIndex = 2
-
+        if (!this.isChanged && this.flag) {
+          this.isChanged = true
+          if (e.deltaY > 0) {
+            if (this.activeIndex < this.slotLength - 1) {
+              this.prevIndex = this.activeIndex
+              this.activeIndex++
+              this.upIndex = this.prevIndex
+              this.bottomIndex =
+                this.activeIndex + 1 === this.slotLength
+                  ? null
+                  : this.activeIndex + 1
+            }
+          } else {
+            if (this.activeIndex > 0) {
+              this.prevIndex = this.activeIndex
+              this.activeIndex = this.activeIndex - 1
+              this.upIndex =
+                this.activeIndex === 0 ? null : this.activeIndex - 1
+              this.bottomIndex = this.prevIndex
+            }
+          }
           targetText.style = `transform: translateY(-${
-            targetText.offsetHeight * 0.25
+            targetText.offsetHeight * (this.activeIndex / this.slotLength)
           }px)`
-        } else if (
-          targetCenter <= window.scrollY + window.innerHeight * 0.5 &&
-          targetCenter >= window.scrollY + window.innerHeight * 0.25
-        ) {
-          this.isChanged = false
-          this.prevIndex = window.scrollY > this.lastScrollTop ? 1 : 3
-          this.activeIndex = 2
-          this.upIndex = 1
-          this.bottomIndex = 3
+          this.setImage()
 
-          targetText.style = `transform: translateY(-${
-            targetText.offsetHeight * 0.5
-          }px)`
-        } else if (
-          targetCenter <= window.scrollY + window.innerHeight * 0.25 &&
-          targetCenter >= window.scrollY + window.innerHeight * 0
-        ) {
-          this.isChanged = false
-          this.prevIndex = window.scrollY > this.lastScrollTop ? 2 : 3
-          this.activeIndex = 3
-          this.upIndex = 2
-          this.bottomIndex = null
-
-          targetText.style = `transform: translateY(-${
-            targetText.offsetHeight * 0.75
-          }px)`
-        } else if (
-          target.offsetTop > window.scrollY + target.offsetHeight ||
-          window.scrollY > target.offsetTop + target.offsetHeight
-        ) {
-          this.setSlot()
+          setTimeout(() => {
+            this.isChanged = false
+            this.$emit('update:start', this.activeIndex === 0)
+            this.$emit('update:end', this.activeIndex === this.slotLength - 1)
+          }, 1000)
         }
-        this.setImage()
-        this.lastScrollTop = window.scrollY
       },
       setImage() {
         setTimeout(() => {
@@ -168,12 +162,9 @@
         }, 350)
       },
       setSlot() {
-        if (!this.isChanged) {
-          this.slot = []
-          for (let i = 0; i < 4; i++) {
-            this.slot.push(this.getRandomNum())
-          }
-          this.isChanged = true
+        this.slot = []
+        for (let i = 0; i < this.slotLength; i++) {
+          this.slot.push(this.getRandomNum())
         }
       },
       delSlot() {

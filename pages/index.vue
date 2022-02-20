@@ -1,5 +1,5 @@
 <template>
-  <div class="main">
+  <div ref="main" class="main">
     <IssueSlider />
     <UnthinkableQuestion />
     <TextFlow />
@@ -10,7 +10,12 @@
     <div class="slogan-wrap">
       <Slogan :data="sloganData2" />
     </div>
-    <SlotMachine />
+    <SlotMachine
+      ref="slot"
+      :flag.sync="scroll.slot.flag"
+      :start.sync="scroll.slot.start"
+      :end.sync="scroll.slot.end"
+    />
     <div class="slogan-wrap">
       <Slogan :data="sloganData3" />
     </div>
@@ -94,6 +99,61 @@
             { content: 'PERSPECTIVE.', bold: true }
           ]
           // desp: 'AI로 불가능한 영역에 적극적으로 도전하는 <span class="br">스타트업의 마인드로 카카오브레인만이 할 수 있는</span> <span class="br">AI 선행 연구와 기술 개발을 진행해 더 나은 세상을</span> 만드는데 기여하고자 합니다.'
+        },
+        stopFlag: false,
+        scroll: {
+          slot: {
+            flag: false,
+            start: true,
+            end: false
+          }
+        }
+      }
+    },
+    mounted() {
+      this.$refs.main.addEventListener('wheel', this.onWheel)
+    },
+    methods: {
+      async onWheel(e) {
+        const wheelY = e.deltaY
+
+        await this.slotScroll(wheelY)
+
+        if (this.stopFlag) {
+          e.preventDefault()
+          return false
+        }
+      },
+      slotScroll(wheelY) {
+        const refSlot = this.$refs.slot
+        const scrollCenter = window.scrollY + window.innerHeight / 2
+        const slotCenter = refSlot.$el.offsetTop + refSlot.$el.offsetHeight / 2
+        if (
+          this.stopFlag &&
+          ((wheelY > 0 && this.scroll.slot.end) ||
+            (wheelY < 0 && this.scroll.slot.start))
+        ) {
+          this.stopFlag = false
+          this.scroll.slot.flag = false
+          setTimeout(() => {
+            refSlot.setSlot()
+          }, 500)
+        } else if (
+          !this.scroll.slot.flag &&
+          ((wheelY > 0 && !this.scroll.slot.end) ||
+            (wheelY < 0 && !this.scroll.slot.start)) &&
+          slotCenter >= scrollCenter - 300 &&
+          slotCenter <= scrollCenter + 300
+        ) {
+          window.scrollTo(0, slotCenter - window.innerHeight / 2)
+          this.$nextTick(() => {
+            if (!this.stopFlag) {
+              this.stopFlag = true
+              this.scroll.slot.flag = true
+            }
+          })
+          e.preventDefault()
+          return false
         }
       }
     }

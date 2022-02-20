@@ -78,7 +78,8 @@
         const wheelY = Math.abs(e.deltaY)
         if (wheelY > wheelX) {
           e.preventDefault()
-          this.$refs['list'].scrollLeft += e.deltaY * 0.2
+          // this.$refs['list'].scrollLeft += e.deltaY * 0.2
+          window.scrollY += e.deltaY * 0.2
         }
       }
     }

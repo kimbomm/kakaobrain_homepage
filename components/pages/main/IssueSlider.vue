@@ -125,11 +125,11 @@
     },
     async mounted() {
       await this.fetchList()
-      window.addEventListener('scroll', this.onScroll)
+      window.addEventListener('wheel', this.onScroll)
     },
     beforeDestroy() {
       clearInterval(this.autoLoad)
-      window.removeEventListener('scroll', this.onScroll)
+      window.removeEventListener('wheel', this.onScroll)
     },
     methods: {
       ...mapActions({
