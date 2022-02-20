@@ -115,16 +115,15 @@
     },
     methods: {
       async onWheel(e) {
-        const wheelY = e.deltaY
-
-        await this.slotScroll(wheelY)
+        await this.slotScroll(e)
 
         if (this.stopFlag) {
           e.preventDefault()
           return false
         }
       },
-      slotScroll(wheelY) {
+      slotScroll(e) {
+        const wheelY = e.deltaY
         const refSlot = this.$refs.slot
         const scrollCenter = window.scrollY + window.innerHeight / 2
         const slotCenter = refSlot.$el.offsetTop + refSlot.$el.offsetHeight / 2
