@@ -117,6 +117,7 @@
         deep: true,
         handler(val) {
           this.isShow = true
+          if (val.length > 0) window.addEventListener('wheel', this.onScroll)
           if (val.length > 1) {
             this.onSetInterval()
           }
@@ -125,11 +126,11 @@
     },
     async mounted() {
       await this.fetchList()
-      window.addEventListener('wheel', this.onScroll)
     },
-    beforeDestroy() {
-      clearInterval(this.autoLoad)
-      window.removeEventListener('wheel', this.onScroll)
+    async beforeDestroy() {
+      await clearInterval(this.autoLoad)
+      if (this.list > 0)
+        await window.removeEventListener('wheel', this.onScroll)
     },
     methods: {
       ...mapActions({
