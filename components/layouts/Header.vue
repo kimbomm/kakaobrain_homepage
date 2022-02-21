@@ -47,7 +47,7 @@
     top: 20px;
     left: 20px;
     right: 20px;
-    z-index: 3;
+    z-index: 20;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -131,7 +131,7 @@
       width: 100%;
       // height: 56px;
       padding: 0 20px;
-      padding-top:20px;
+      padding-top: 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
