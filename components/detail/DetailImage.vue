@@ -77,8 +77,11 @@
     margin-bottom: 100px;
     &__thumbnail {
       padding: 0;
-      margin-bottom: 0 !important;
+      margin-bottom: 0;
       width: getWidth(9);
+      .image {
+        height: 600px;
+      }
     }
     &__default {
       width: getWidth(7);
@@ -86,13 +89,8 @@
       margin-top: 50px;
       margin-left: getMargin(2);
     }
-    .image {
-      height: 600px;
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
+    img {
+      width: 100%;
     }
   }
   .detail-text {
@@ -107,13 +105,12 @@
     .detail-image {
       margin-bottom: 200px;
       &__thumbnail {
-        // margin-bottom: 100px;
+        .image {
+          height: 804px;
+        }
       }
       &__default {
         margin-top: 200px;
-      }
-      .image {
-        height: 804px;
       }
     }
     .detail-text {
@@ -124,13 +121,12 @@
     .detail-image {
       margin-bottom: 300px;
       &__thumbnail {
-        // margin-bottom: 145px;
+        .image {
+          height: 1206px;
+        }
       }
       &__default {
         margin-top: 300px;
-      }
-      .image {
-        height: 1206px;
       }
     }
     .detail-text {
@@ -140,13 +136,12 @@
   @include tablet {
     .detail-image {
       &__thumbnail {
-        // margin-bottom: 100px;
+        .image {
+          height: 330px;
+        }
       }
       &__default {
         width: getWidth(6);
-      }
-      .image {
-        height: 330px;
       }
     }
     .detail-text {
@@ -158,15 +153,14 @@
     .detail-image {
       padding: 0;
       &__thumbnail {
-        // margin-bottom: 60px;
         width: 100%;
+        .image {
+          height: 330px;
+        }
       }
       &__default {
         width: 100%;
         margin-left: 0;
-      }
-      .image {
-        height: 330px;
       }
     }
     .detail-text {

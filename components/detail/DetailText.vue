@@ -1,16 +1,12 @@
 <template>
-  <div class="monthly l-ml-3">
-    <div class="detail gl-5">
-      <div class="detail-text">
-        <p
-          v-if="data.itemType === 'pagaraph'"
-          v-html="data.text.replace(/\n/g, '<br />')"
-        ></p>
-        <a v-else :href="data.codeLinks.linkUrl" target="_blank">{{
-          data.codeLinks.title
-        }}</a>
-      </div>
-    </div>
+  <div class="detail-text">
+    <p
+      v-if="data.itemType === 'pagaraph'"
+      v-html="data.text.replace(/\n/g, '<br />')"
+    ></p>
+    <a v-else :href="data.codeLinks.linkUrl" target="_blank">{{
+      data.codeLinks.title
+    }}</a>
   </div>
 </template>
 <script>
@@ -26,71 +22,43 @@
   }
 </script>
 <style lang="scss" scoped>
-  .monthly {
-    margin-bottom: 30px;
-    .detail {
-      &-text {
-        line-height: 150%;
-        font-size: 16px;
-        font-weight: 400;
-        word-break: keep-all;
-      }
-      a {
-        text-decoration: underline;
-      }
+  .detail-text {
+    width: getMargin(5);
+    margin-left: getMargin(3);
+    line-height: 150%;
+    font-size: 16px;
+    font-weight: 400;
+    word-break: keep-all;
+    a {
+      text-decoration: underline;
     }
   }
 
   @include pc-large {
-    .monthly {
-      .detail {
-        &-text {
-          font-size: 22px;
-        }
-      }
+    .detail-text {
+      font-size: 22px;
     }
   }
 
   @include pc-4k {
-    .monthly {
-      .detail {
-        &-text {
-          font-size: 32px;
-        }
-      }
+    .detail-text {
+      font-size: 32px;
     }
   }
 
   @include tablet {
-    .monthly {
-      .detail {
-        &-text {
-          font-size: 14px;
-        }
-      }
-    }
-    .l-ml-3 {
-      margin-left: getMargin(2) !important;
-    }
-    .gl-5 {
-      width: getWidth(6) !important;
+    .detail-text {
+      width: getWidth(6);
+      margin-left: getMarin(2);
+      font-size: 14px;
     }
   }
 
   @include mobile {
-    .monthly {
-      // padding: 0 20px;
-      .detail {
-        &-text {
-          font-size: 16px;
-        }
-      }
-    }
-    .gl-5 {
-      width: 100% !important;
-    }
-    .l-ml-3 {
-      margin-left: 0 !important;
+    .detail-text {
+      width: 100%;
+      margin-left: 0;
+      font-size: 16px;
     }
   }
 </style>

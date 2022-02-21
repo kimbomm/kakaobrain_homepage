@@ -1,9 +1,5 @@
 <template>
-  <div class="monthly l-ml-2">
-    <div class="detail gl-6">
-      <div class="detail-title">{{ text }}</div>
-    </div>
-  </div>
+  <div class="detail-title">{{ text }}</div>
 </template>
 <script>
   export default {
@@ -28,56 +24,37 @@
   }
 </script>
 <style lang="scss" scoped>
-  @import '@/assets/scss/mixins.scss';
-
-  .detail {
-    margin-bottom: 60px;
-    &-title {
-      line-height: 120%;
-      font-size: 90px;
-      font-weight: 900;
-      word-break: keep-all;
-    }
+  .detail-title {
+    margin-left: getMargin(2);
+    width: getWidht(6);
+    line-height: 120%;
+    font-size: 90px;
+    font-weight: 900;
+    word-break: keep-all;
   }
 
   @include pc-large {
-    .detail {
-      margin-bottom: 100px;
-      &-title {
-        font-size: 120px;
-      }
+    .detail-title {
+      font-size: 120px;
     }
   }
 
   @include pc-4k {
-    .detail {
-      margin-bottom: 150px;
-      &-title {
-        font-size: 180px;
-      }
+    .detail-title {
+      font-size: 180px;
     }
   }
   @include tablet {
-    .detail {
-      margin-bottom: 40px;
-      &-title {
-        font-size: 50px;
-      }
+    .detail-title {
+      font-size: 50px;
     }
   }
 
   @include mobile {
-    .detail {
-      margin-bottom: 20px;
-      &-title {
-        font-size: 30px;
-      }
-    }
-    .gl-6 {
-      width: 100% !important;
-    }
-    .l-ml-2 {
-      margin-left: 0px !important;
+    .detail-title {
+      width: 100%;
+      margin-left: 0;
+      font-size: 30px;
     }
   }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="content-detail">
+  <div :class="classBind">
     <template v-if="data">
       <BreadCrumb :data="breadcrumb" :full="true" />
       <div :class="topClassBind">
@@ -60,13 +60,7 @@
     },
     data() {
       return {
-        /**
-         * categoryType
-         * typeA - thumbnail형
-         * typeB - 빅타이틀 형
-         * typeC - article 형
-         * typeD - storyTelling 형
-         */
+        contentType: null,
         isLoad: false,
         categoryType: null,
         data: null,
@@ -79,6 +73,15 @@
       ...mapState({
         language: state => state.language
       }),
+      classBind() {
+        let classList = ['content-detail']
+        switch (this.contentType) {
+          case 'THESIS':
+            classList.push('type-thesis')
+            break
+        }
+        return classList.join(' ')
+      },
       topClassBind() {
         let classList = ['top']
         if (!this.thumbnail) {
@@ -95,6 +98,7 @@
       async init() {
         const res = await this.getContentDetail(this.contentId)
         this.data = res.data
+        this.contentType = this.data.contentType
         this.ContentItems = this.data.ContentItems
         if (
           res.data.contentType === 'ARTICLE' &&
@@ -198,12 +202,19 @@
 
   .content-inner {
     margin: 0 20px;
-    /deep/ .detail-title {
+  }
+  .detail-title {
+    margin-bottom: 60px;
+  }
+  .detail-text {
+    margin-bottom: 100px;
+  }
+  .type-thesis {
+    .detail-title {
       margin-bottom: 200px;
-    }
-    /deep/ .detail-subTit {
-      margin-top: 150px;
-      margin-bottom: 60px;
+      & + .detail-subTit {
+        margin-top: 0;
+      }
     }
   }
 
@@ -220,17 +231,16 @@
         padding: 400px 0 0;
       }
     }
-    .content-inner {
-      padding-top: 440px;
-      /deep/ .detail-title {
+    .detail-title {
+      margin-bottom: 100px;
+    }
+    .detail-text {
+      margin-bottom: 200px;
+    }
+
+    .type-thesis {
+      .detail-title {
         margin-bottom: 300px;
-      }
-      /deep/ .detail-subTit {
-        margin-top: 200px;
-        margin-bottom: 30px;
-      }
-      /deep/ .detail-text {
-        margin-bottom: 30px;
       }
     }
   }
@@ -246,17 +256,18 @@
         margin-bottom: 300px;
       }
     }
-    .content-inner {
-      padding-top: 660px;
-      /deep/ .detail-title {
+    .detail-title {
+      margin-bottom: 150px;
+    }
+    .detail-text {
+      margin-bottom: 300px;
+    }
+    .type-thesis {
+      .detail-title {
         margin-bottom: 400px;
       }
-      /deep/ .detail-subTit {
-        margin-top: 250px;
-        margin-bottom: 60px;
-      }
-      /deep/ .detail-text {
-        margin-bottom: 60px;
+      .detail-text {
+        margin-bottom: 250px;
       }
     }
   }
@@ -270,14 +281,19 @@
         padding: 200px 0 0;
       }
     }
-    .content-inner {
-      padding-top: 100px;
-      /deep/ .detail-title {
+
+    .detail-title {
+      margin-bottom: 40px;
+    }
+    .detail-text {
+      margin-bottom: 100px;
+    }
+    .type-thesis {
+      .detail-title {
         margin-bottom: 40px;
       }
-      /deep/ .detail-subTit {
-        margin-top: 100px;
-        margin-bottom: 60px;
+      .detail-text {
+        margin-bottom: 100px;
       }
     }
   }
@@ -296,14 +312,12 @@
     .bread-crumb {
       padding: 0 20px;
     }
-    .content-inner {
-      padding-top: 0;
-      /deep/ .detail-title {
+    .detail-title {
+      margin-bottom: 20px;
+    }
+    .type-thesis {
+      .detail-title {
         margin-bottom: 20px;
-      }
-      /deep/ .detail-subTit {
-        margin-top: 100px;
-        margin-bottom: 30px;
       }
     }
   }
