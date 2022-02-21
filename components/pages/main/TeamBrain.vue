@@ -5,8 +5,8 @@
     <div class="team-content">
       <div>
         <p>
-          Someone who is making<br />
-          the world better on<br />
+          Recommendation<br />
+          keywords by<br />
           <span>kakaobrain.</span>
         </p>
         <span ref="count" class="team-number">{{ NUMBER }}</span>
@@ -22,10 +22,6 @@
         <button class="more" title="더보기" @click="addTag" :disabled="isAll">
           <img src="@/assets/images/arrow-down.svg" alt="more button image" />
         </button>
-        <button class="apply" style="display: none">
-          <span class="apply-text">Apply!!!!! </span
-          ><span class="apply-mark">&nbsp;&nbsp;</span>
-        </button>
       </div>
     </div>
   </div>
@@ -40,7 +36,6 @@
     data() {
       return {
         NUMBER: 0,
-        total: 81,
         pageData: {
           offset: 0,
           limit: 20,
@@ -75,7 +70,7 @@
           this.$refs['count'].offsetTop
         ) {
           setInterval(() => {
-            if (this.NUMBER < this.total) {
+            if (this.NUMBER < this.tagTotal) {
               this.NUMBER++
             }
           }, 400)
@@ -271,7 +266,7 @@
   }
   @include tablet {
     .team {
-      margin-bottom:300px;
+      margin-bottom: 300px;
       &-title {
         font-size: 16px;
       }
