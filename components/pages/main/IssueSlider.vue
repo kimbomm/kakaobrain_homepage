@@ -275,8 +275,6 @@
     }
   }
   .issue {
-    $titleHeight: 90px;
-    $titleMargin: 20px;
     width: getWidth(9);
     display: flex;
     justify-content: space-between;
@@ -285,7 +283,7 @@
       width: getWidth(8);
     }
     &-info {
-      padding-top: $titleHeight + $titleMargin;
+      padding-top: 110px;
       margin-left: 20px;
       text-align: right;
       .btn {
@@ -297,16 +295,16 @@
       }
     }
     &-title {
-      font-size: $titleHeight;
-      line-height: 1.1;
+      width: 100%;
+      height: 110px;
+      font-size: 90px;
+      line-height: 1;
       font-weight: 900;
       font-style: italic;
-      margin-bottom: $titleMargin;
-      width: 100%;
       span {
         display: block;
         width: 100%;
-        line-height: 100%;
+        height: 100%;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -373,8 +371,6 @@
     }
   }
   @include pc-large {
-    $titleHeight: 122px;
-    $titleMargin: 30px;
     .issue-slider {
       &-info {
         margin-bottom: 50px;
@@ -382,11 +378,11 @@
       }
     }
     .issue-info {
-      padding-top: $titleHeight + $titleMargin;
+      padding-top: 152px;
     }
     .issue-title {
-      font-size: $titleHeight;
-      margin-bottom: $titleMargin;
+      height: 152px;
+      font-size: 122px;
     }
     .issue-thumbnail {
       height: 1328px;
@@ -406,8 +402,6 @@
   }
 
   @include pc-4k {
-    $titleHeight: 180px;
-    $titleMargin: 30px;
     .issue-slider {
       &-info {
         margin-bottom: 60px;
@@ -415,11 +409,11 @@
       }
     }
     .issue-info {
-      padding-top: $titleHeight + $titleMargin;
+      padding-top: 210px;
     }
     .issue-title {
-      font-size: $titleHeight;
-      margin-bottom: $titleMargin;
+      height: 210px;
+      font-size: 180px;
     }
     .issue-thumbnail {
       padding-top: 2010px;
@@ -446,8 +440,6 @@
   }
 
   @include tablet {
-    $titleHeight: 70px;
-    $titleMargin: 20px;
     .issue-slider {
       &-info {
         margin-bottom: 50px;
@@ -455,11 +447,11 @@
       }
     }
     .issue-info {
-      padding-top: $titleHeight + $titleMargin;
+      padding-top: 90px;
     }
     .issue-title {
-      font-size: $titleHeight;
-      margin-bottom: $titleMargin;
+      height: 90px;
+      font-size: 70px;
     }
     .issue-thumbnail {
       padding-top: 552px;
@@ -551,8 +543,7 @@
     }
     .issue-title {
       font-size: 40px;
-      margin-bottom: 10px;
-      max-height: calc(48px * 3);
+      max-height: 130px;
       span {
         white-space: normal;
         display: -webkit-box;
