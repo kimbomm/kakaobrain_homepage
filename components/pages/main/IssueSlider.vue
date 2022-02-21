@@ -27,7 +27,7 @@
           <div class="issue-title">
             <transition name="only-fade">
               <span v-if="isShow" class="fade">
-                {{ activeContent.Content.title }}
+                {{ activeContent.title }}
               </span>
             </transition>
           </div>
