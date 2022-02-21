@@ -243,7 +243,7 @@
     position: relative;
     z-index: 0;
     width: 100%;
-    height: calc(160px * 3);
+    height: calc(160px * 1.1 * 5);
     overflow: hidden;
     > div {
       transition: transform 0.3s linear;
@@ -254,11 +254,11 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 160px * 0.7;
-      height: calc(160px * 3);
+      height: calc(160px * 1.1 * 5);
+      font-size: 160px;
       font-weight: 900;
+      line-height: 1.1;
       transition: transform 0.3s linear;
-      line-height: 110%;
     }
   }
   .slogan-text {
@@ -283,10 +283,10 @@
       }
     }
     .slot-text {
-      height: calc(210px * 3);
+      height: calc(210px * 1.1 * 5);
       p {
-        font-size: 210px * 0.7;
-        height: calc(210px * 3);
+        height: calc(210px * 1.1 * 5);
+        font-size: 210px;
       }
     }
     .slogan-text {
@@ -307,10 +307,10 @@
       }
     }
     .slot-text {
-      height: calc(320px * 3);
+      height: calc(320px * 1.1 * 5);
       p {
-        font-size: 320px * 0.7;
-        height: calc(320px * 3);
+        height: calc(320px * 1.1 * 5);
+        font-size: 320px;
       }
     }
     .slogan-text {
@@ -331,10 +331,10 @@
       }
     }
     .slot-text {
-      height: calc(90px * 3);
+      height: calc(90px * 1.1 * 5);
       p {
-        font-size: 90px * 0.7;
-        height: calc(90px * 3);
+        height: calc(90px * 1.1 * 5);
+        font-size: 90px;
       }
     }
     .slogan-text {
@@ -356,10 +356,10 @@
       }
     }
     .slot-text {
-      height: calc(28px * 3);
+      height: calc(28px * 1.1 * 5);
       p {
-        font-size: 28px * 0.7;
-        height: calc(28px * 3);
+        height: calc(28px * 1.1 * 5);
+        font-size: 28px;
       }
     }
     .slogan-text {
