@@ -81,7 +81,9 @@
       width: getWidth(9);
       .image {
         height: 600px;
+        overflow: hidden;
         img {
+          height: 100%;
           object-fit: cover;
         }
       }
