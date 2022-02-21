@@ -136,8 +136,8 @@ const footer = [
       KR: '사이버윤리실',
       EN: 'Cyber Ethics'
     },
-    link: 'https://www.kakaocorp.com/policy/cyberEthics/info?lang=',
-    target: '_blank'
+    link: '/ethics',
+    target: ''
   },
   {
     name: {

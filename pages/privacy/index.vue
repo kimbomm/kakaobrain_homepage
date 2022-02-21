@@ -12,8 +12,6 @@
         >
         </component>
       </template>
-
-      <!-- <Like /> -->
     </template>
   </div>
 </template>
@@ -44,13 +42,6 @@
     },
     data() {
       return {
-        /**
-         * categoryType
-         * typeA - thumbnail형
-         * typeB - 빅타이틀 형
-         * typeC - article 형
-         * typeD - storyTelling 형
-         */
         isLoad: false,
         categoryType: null,
         thumbnail: null
@@ -108,6 +99,12 @@
       margin-bottom: 100px;
     }
   }
+  .detail-title {
+    margin-bottom: 200px;
+  }
+  .detail-text {
+    margin-bottom: 100px;
+  }
 
   @include pc-large {
     .content-detail {
@@ -119,6 +116,12 @@
     .top {
       padding: 400px 0 0;
     }
+    .detail-title {
+      margin-bottom: 300px;
+    }
+    .detail-text {
+      margin-bottom: 200px;
+    }
   }
   @include pc-4k {
     .top {
@@ -129,6 +132,12 @@
         margin-bottom: 300px;
       }
     }
+    .detail-title {
+      margin-bottom: 400px;
+    }
+    .detail-text {
+      margin-bottom: 250px;
+    }
   }
   @include tablet {
     .content-detail {
@@ -136,6 +145,12 @@
     }
     .top {
       padding: 200px 0 0;
+    }
+    .detail-title {
+      margin-bottom: 40px;
+    }
+    .detail-text {
+      margin-bottom: 100px;
     }
   }
   @include mobile {
@@ -146,6 +161,9 @@
     .top {
       display: block;
       padding: 60px 0 0;
+    }
+    .detail-title {
+      margin-bottom: 20px;
     }
   }
 </style>

@@ -212,9 +212,6 @@
   .type-thesis {
     .detail-title {
       margin-bottom: 200px;
-      & + .detail-subTit {
-        margin-top: 0;
-      }
     }
   }
 

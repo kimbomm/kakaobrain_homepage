@@ -732,8 +732,140 @@ const PRIVACY = {
     ]
   }
 }
+const ETHICS = {
+  KR: {
+    title: '사이버윤리실 안내',
+    ContentItems: [
+      {
+        itemType: 'pagaraph',
+        text: `카카오브레인 사이버윤리실은 카카오브레인 임직원의 불공정한 행위나 금품, 접대와 같은 부당한 요구, 회사 자산의 부당 사용이나 남용, 협력업체에 대한 부정 투자, 비공개 정보의 유출, 문서나 데이터의 조작, 기타 비리 및 부정 행위를 신고, 상담하는 곳입니다. 어떤 경우에도 제보자가 안심하고 제보할 수 있도록 신고 내용과 제보자의 신분은 철저하게 보호되며, 빠른 시일 내에 처리할 수 있도록 최선을 다할 것입니다.`
+      },
+      {
+        itemType: 'header',
+        text: `신고유형`
+      },
+      {
+        itemType: 'pagaraph',
+        text: `
+        - 이해관계자로부터 사례를 받는 경우
+        - 협력업체 선정의 투명성 결여
+        - 회사자산 부당 사용 및 남용
+        - 거래처에 대한 부정 투자
+        - 임직원의 이중취업
+        - 회사정보 유출
+        - 기타 도덕적 해이
+        - 성적 괴롭힘
+        - 직장내 괴롭힘
+        `
+      },
+      {
+        itemType: 'header',
+        text: `신고처`
+      },
+      {
+        itemType: 'pagaraph',
+        text: `<a class="link-tag" href="mailto:hotline@kakaobrain.com">[hotline@kakaobrain.com]</a>`
+      },
+      {
+        itemType: 'header',
+        text: `우편`
+      },
+      {
+        itemType: 'pagaraph',
+        text: `경기 성남시 분당구 판교역로241번길 20 미래에셋벤처타워 11층 (주)카카오브레인 윤리경영팀`
+      },
+      {
+        itemType: 'header',
+        text: `선물 및 향응 수수에 관한 윤리지침`
+      },
+      {
+        itemType: 'pagaraph',
+        text: `
+        카카오브레인 직원 및 그 가족 구성원들은 이해관계의 충돌을 일으킬 수 있는 어떠한 금품 및 향응을 받아서는 아니되며 경쟁사, 고객, 기타 업무상의 비지니스 파트너들도 금품 및 향응을 제공해서는 안됩니다. 선물 및 금품 수령시 즉시 반환이 원칙이며 이미 수령한 선물 및 금품은 컬처팀에 반납하여 추후 안내를 받아야 합니다. 카카오브레인 직원은 본인 및 가족 또는 지인의 이익을 위하여 선물, 사례, 사업상의 우대를 청하여서는 아니되며, 아래의 경우 문제가 발생할 수 있습니다.
+        
+        - 이해관계자가 카카오브레인 직원에게 식사, 향응 등을 제공하는 경우
+        - 이해관계자가 카카오브레인 직원의 경조사에 경조금 또는 화환을 제공하는 경우
+        - 이해관계자가 카카오브레인 직원에게 교육, 단합대회, 문화행사 등의 명분으로 강사료, 식대, 공연티켓 등을 제공하는 경우
+        - 이해관계자가 업무를 목적으로 카카오브레인 직원과 동행하면서 차량, 숙박비, 관광가이드 등의 편의를 제공하는 경우
+        - 이해관계자가 카카오브레인 직원에게 경품제공, 특별할인 등의 방식으로 편의를 제공하는 경우
+        `
+      }
+    ]
+  },
+  EN: {
+    title: 'Cyber Ethics Office Information',
+    ContentItems: [
+      {
+        itemType: 'pagaraph',
+        text: `
+        Kakao Brain’s Cyber Ethics Office is responsible for receiving reports or providing counseling concerning unfair actions by Kakao Brain executives and employees; unreasonable demands such as money or service; improper use or abuse of company assets; improper investment in business partners; divulgence of confidential information, manipulation of documents or data; and other irregularities or misconduct.
+        
+        In any case, we thoroughly protect the contents of the report and the identity of the informant for the informant to report with confidence, and we will do our best to handle it as soon as possible.
+        `
+      },
+      {
+        itemType: 'header',
+        text: `Report type`
+      },
+      {
+        itemType: 'pagaraph',
+        text: `
+        - When receiving honoraria from a stakeholder
+        - Lack of transparency in supplier selection
+        - Misuse and abuse of company assets
+        - Improper investment in customers
+        - Double employment of employees
+        - Divulgence of company information
+        - Other moral hazards
+        - Sexual harassment
+        - Workplace bullying
+        `
+      },
+      {
+        itemType: 'header',
+        text: `Report to`
+      },
+      {
+        itemType: 'pagaraph',
+        text: `<a class="link-tag" href="mailto:hotline@kakaobrain.com">[hotline@kakaobrain.com]</a>`
+      },
+      {
+        itemType: 'header',
+        text: `Postal address`
+      },
+      {
+        itemType: 'pagaraph',
+        text: `
+        Kakaobrain Ethical Management Team
+        11F Mirae Asset Venture Tower, 20 Pangyoyeok-ro 241beon-gil, Bundang-gu, Seongnam-si, Gyeonggi-do, Korea
+        `
+      },
+      {
+        itemType: 'header',
+        text: `Ethical Guidelines for Receiving Gifts and Entertainment`
+      },
+      {
+        itemType: 'pagaraph',
+        text: `
+        Kakao Brain employees and their family members shall not receive any money or entertainment that may cause a conflict of interest, and competitors, customers, and other business partners shall not offer money or entertainment.
+
+        In principle, the gift or money received shall be returned without delay. Gifts or money that has already been received shall be returned to the Culture Team for further guidance.
+
+        Kakao Brain employees shall not solicit gifts, honoraria, or business favors for the benefit of themselves and their family or acquaintances, and problems may arise in the case of the following.
+
+        - Where a stakeholder provides meals, entertainment, etc. to Kakao Brain employees
+        - Where a stakeholder provides money or a wreath for congratulations or condolences to Kakao Brain employees
+        - Where a stakeholder provides lecture fees, meals, and performance tickets to Kakao Brain employees in the name of training, company retreat, cultural event, etc.
+        - Where a stakeholder accompanies a Kakao Brain employee for the purpose of business and provides convenience such as vehicle, accommodation, and tour guide
+        - Where a stakeholder provides convenience to Kakao Brain employees in a way such as giving a gift or special discount
+        `
+      }
+    ]
+  }
+}
 
 export default {
   ABOUT,
-  PRIVACY
+  PRIVACY,
+  ETHICS
 }
