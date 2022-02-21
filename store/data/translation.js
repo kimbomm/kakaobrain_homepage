@@ -80,11 +80,14 @@ const ABOUT = {
     },
     EN: {
       aboutTitleText: {
-        text: 'kakaobrain is...</br>As an AI frontier that completes differentiated element technology, big models, and digital humans, it contributes to thetechnology community and pioneers new service areas that enhance the value of use and quality of life.'
+        text: `
+        As a company at the AI frontier working on its core research,
+        large-scale AI model and digital humans, kakaobrain contributes to the tech community and explores new service areas to improve value and quality of life.
+        `
       },
       aboutConA: {
         title:
-          'We develop technology from unthinkable questions &amp; change everyone&rsquo;s lives.',
+          'We develop technology from unthinkable questions and bring changes to everyone’s life.',
         text: 'Unthinkable question makes impactful answer.'
       },
       visionList: [
@@ -92,41 +95,41 @@ const ABOUT = {
           num: '¹',
           txt: 'outstanding',
           subtxt:
-            'Top-notch experts gather to develop innovative technologies that are the basis for solving all problems.'
+            'The world-class experts are developing innovative technologies that are fundamental to solving all kinds of problems.'
         },
         {
           num: '²',
           txt: 'actualized',
           subtxt:
-            'It pioneers technology-based business areas and materializes them into services that improve quality of life.'
+            'We explore business areas built on technology and make services to improve quality of life into a reality.'
         },
         {
           num: '³',
           txt: 'open',
           subtxt:
-            'By disclosing and sharing technical know-how, it contributes to the AI ecosystem and creates new value.'
+            'By opening and sharing technical know-how, kakaobrain contributes to the AI community to create new values.'
         },
         {
           num: '⁴',
           txt: 'impactful',
           subtxt:
-            'Leads valuable changes in the world so that everyone can live a better life.'
+            'We make valuable changes in the world so that everyone can live a better life.'
         }
       ],
       aboutConB: {
         title:
-          'Create the impactof the world in a way thatno one has thought of.',
+          'We seek to create an impact in the world with unthinkable ideas.',
         content: [
           {
             title: 'Open Research.',
             sub: [
               {
                 title: 'Create Novel Algorithm',
-                text: 'Prospect future deep learning prior research anddevelop original algorithms to lay the foundation for newchallenges.'
+                text: 'We forecast the future in deep learning research and develop original algorithms to build the foundation for new challenges.'
               },
               {
-                title: 'Develop Commercial-le vel Model',
-                text: 'By conducting application research and further expanding the model scale, we complete the technology and digital human necessary for service development.'
+                title: 'Develop Commercial-level Model',
+                text: 'By conducting applied research and further scaling up the AI model size, we work towards completing digital humans and technologies required for our service development.'
               }
             ]
           },
@@ -135,7 +138,7 @@ const ABOUT = {
             sub: [
               {
                 title: 'Make Impact Product',
-                text: 'Based on its own technology portfolio, it develops high value-added services that improve the quality of life of all users.'
+                text: 'Based on our own technology portfolio, we develop high value services that improve users’ quality of life.'
               }
             ]
           }
@@ -145,16 +148,16 @@ const ABOUT = {
         title: 'Our Brand'
       },
       aboutConTxtBData: {
-        text: 'People looking for unexpected answers from unthinkable questions, kakaobrain krews share with you the new journey and stories they are making with AI.'
+        text: 'We share with you the new journeys and stories that kakaobrain krews are making with AI searching for unexpected answers to unthinkable questions.'
       },
       aboutConC: {
         title: 'Unthinkable Question',
         desp: [
-          'We are an AI company where specialists from various fields with various questions and thoughts gather to conflict each other&rsquo;s thoughts and know-how, creating new possibilities and dialectical values.',
-          'We are preparing for a world where everyone enjoys various benefits through leading AI technologies and high value-added services, and AI naturally permeates into everyone&rsquo;s daily lives and becomes natural like air.'
+          'We are an AI-specialized company where specialists from different fields with various questions and thoughts gather and collide with each other’s ideas and know-how to create new possibilities and dialectic values.',
+          'With the leading AI technology and high value services, we are preparing for a world in which AI is naturally permeated into people’s lives, where everyone can benefit.'
         ],
-        text: 'It captures flexible and diverse identities with its own design, and reflects the essence of circulation, harmony, artificial intelligence technology, development, and growth in terms of meaning and visual aspects as a motif.',
-        download: 'Click the button below to download the Brand file.'
+        text: 'Our unique design captures flexible and diverse identities and reflects the essence of cycle, harmony, AI technology, development, and growth in meaning and visual aspects.',
+        download: 'Click below to download our brand file.'
       }
     }
   },
