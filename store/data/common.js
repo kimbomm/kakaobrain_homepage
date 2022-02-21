@@ -40,10 +40,10 @@ const menus = [
         link: '/contents/research/challenge'
       },
       {
-        category: 'article',
+        category: 'publications',
         nick: 'Publications',
         name: 'Publications',
-        link: '/contents/research/article'
+        link: '/contents/research/publications'
       },
       {
         category: 'collaborative',
