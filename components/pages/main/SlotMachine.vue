@@ -8,7 +8,7 @@
               <img
                 :key="itemIndex"
                 :src="
-                  require(`@/assets/images/slot/${data[itemIndex].image}.svg`)
+                  require(`@/assets/images/slot/${data[itemIndex].image}.jpg`)
                 "
                 alt=""
                 :class="{
