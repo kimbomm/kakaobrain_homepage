@@ -26,6 +26,7 @@
 <style lang="scss" scoped>
   .detail-title {
     margin-left: getMargin(2);
+    margin-bottom: 60px;
     width: getWidth(6);
     line-height: 120%;
     font-size: 90px;
@@ -36,17 +37,20 @@
   @include pc-large {
     .detail-title {
       font-size: 120px;
+      margin-bottom: 100px;
     }
   }
 
   @include pc-4k {
     .detail-title {
       font-size: 180px;
+      margin-bottom: 150px;
     }
   }
   @include tablet {
     .detail-title {
       font-size: 50px;
+      margin-bottom: 40px;
     }
   }
 
@@ -55,6 +59,7 @@
       width: 100%;
       margin-left: 0;
       font-size: 30px;
+      margin-bottom: 20px;
     }
   }
 </style>

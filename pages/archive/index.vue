@@ -15,7 +15,7 @@
       </ul>
     </div>
     <div class="contents-list-text">
-      <DetailText :data="detailText" />
+      <DetailText :data="description[language]" />
     </div>
     <!-- reference: https://github.com/paulcollett/vue-masonry-css -->
     <masonry
@@ -56,9 +56,15 @@
     },
     data() {
       return {
-        detailText: {
-          itemType: 'pagaraph',
-          text: '우리가 퍼블리싱한 것에 대한 설명글이 들어갑니다. 논문 리스트는 안들어갑니다.우리가 퍼블리싱한 것에 대한 설명글이 들어갑니다. 논문 리스트는 안들어갑니다.우리가 퍼블리싱한 것에 대한 설명글이 들어갑니다. 논문 리스트는 안들어갑니다. 논문을 제외한 모든 글들이 아카이빙됩니다.'
+        description: {
+          KR: {
+            itemType: 'pagaraph',
+            text: '카카오브레인은 생각하지 못한 물음으로부터, 세상을 변화시킬 해답을 찾아가는 팀입니다. 우리는 AI 선행 연구부터, 프로덕트까지 모든 스토리를 공개하며 공유합니다. 이러한 행동은 AI 커뮤니티에 기여하며, 그로 인해 우리의 삶이 좀 더 나아질 것을 믿기 때문입니다.'
+          },
+          EN: {
+            itemType: 'pagaraph',
+            text: '카카오브레인은 생각하지 못한 물음으로부터, 세상을 변화시킬 해답을 찾아가는 팀입니다. 우리는 AI 선행 연구부터, 프로덕트까지 모든 스토리를 공개하며 공유합니다. 이러한 행동은 AI 커뮤니티에 기여하며, 그로 인해 우리의 삶이 좀 더 나아질 것을 믿기 때문입니다.'
+          }
         },
         pageData: {
           offset: 0,

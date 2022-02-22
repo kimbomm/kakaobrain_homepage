@@ -195,17 +195,11 @@
       }
     }
   }
-  .contents-title {
-    margin-bottom: 60px;
-  }
   .tit-text {
     line-height: 150%;
     font-size: 16px;
   }
   @include pc-large {
-    .contents-title {
-      margin-bottom: 100px;
-    }
     .tit-text {
       font-size: 22px;
     }
@@ -236,9 +230,6 @@
     }
   }
   @include pc-4k {
-    .contents-title {
-      margin-bottom: 150px;
-    }
     .tit-text {
       font-size: 32px;
     }
@@ -268,9 +259,6 @@
     }
   }
   @include tablet {
-    .contents-title {
-      margin-bottom: 40px;
-    }
     .tit-text {
       font-size: 14px;
     }
@@ -304,9 +292,8 @@
     }
   }
   @include mobile {
-    .contents-title {
+    .contentTitle {
       margin-top: 60px;
-      margin-bottom: 20px;
     }
     [class*='l-ml'] {
       margin-left: 0 !important;

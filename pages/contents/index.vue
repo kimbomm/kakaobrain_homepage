@@ -203,9 +203,6 @@
   .content-inner {
     margin: 0 20px;
   }
-  .detail-title {
-    margin-bottom: 60px;
-  }
   .detail-text {
     margin-bottom: 100px;
   }
@@ -227,9 +224,6 @@
       &.no-thumbnail {
         padding: 400px 0 0;
       }
-    }
-    .detail-title {
-      margin-bottom: 100px;
     }
     .detail-text {
       margin-bottom: 200px;
@@ -253,9 +247,6 @@
         margin-bottom: 300px;
       }
     }
-    .detail-title {
-      margin-bottom: 150px;
-    }
     .detail-text {
       margin-bottom: 300px;
     }
@@ -277,10 +268,6 @@
       &.no-thumbnail {
         padding: 200px 0 0;
       }
-    }
-
-    .detail-title {
-      margin-bottom: 40px;
     }
     .detail-text {
       margin-bottom: 100px;
@@ -308,9 +295,6 @@
     }
     .bread-crumb {
       padding: 0 20px;
-    }
-    .detail-title {
-      margin-bottom: 20px;
     }
     .type-thesis {
       .detail-title {

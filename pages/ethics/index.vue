@@ -99,9 +99,6 @@
       margin-bottom: 100px;
     }
   }
-  .detail-title {
-    margin-bottom: 200px;
-  }
   .detail-text {
     margin-bottom: 100px;
   }
@@ -116,9 +113,6 @@
     .top {
       padding: 400px 0 0;
     }
-    .detail-title {
-      margin-bottom: 300px;
-    }
     .detail-text {
       margin-bottom: 200px;
     }
@@ -132,9 +126,6 @@
         margin-bottom: 300px;
       }
     }
-    .detail-title {
-      margin-bottom: 400px;
-    }
     .detail-text {
       margin-bottom: 250px;
     }
@@ -145,9 +136,6 @@
     }
     .top {
       padding: 200px 0 0;
-    }
-    .detail-title {
-      margin-bottom: 40px;
     }
     .detail-text {
       margin-bottom: 100px;
@@ -161,9 +149,6 @@
     .top {
       display: block;
       padding: 60px 0 0;
-    }
-    .detail-title {
-      margin-bottom: 20px;
     }
   }
 </style>
