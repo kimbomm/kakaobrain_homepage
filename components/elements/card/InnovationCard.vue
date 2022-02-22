@@ -101,8 +101,7 @@
   .Innovation {
     position: relative;
     display: inline-block;
-    // max-width: 550px;
-    // min-width: 300px;
+    width: 100%;
     height: 700px;
     padding: 20px;
     box-shadow: 30px 30px 50px -10px rgba(0, 0, 0, 0.2);

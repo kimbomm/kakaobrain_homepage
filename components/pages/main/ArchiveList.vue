@@ -4,9 +4,10 @@
     <div class="gl-8 l-ml-2">
       <span>ARCHIVE@kakaobrain</span>
       <span></span>
-      <nuxt-link to="/archive"
-        ><span class="title-italic">VIEW LIST </span><span class="arrow"></span></nuxt-link
-      >
+      <nuxt-link to="/archive">
+        <span class="title-italic">VIEW LIST</span>
+        <span class="arrow"></span>
+      </nuxt-link>
     </div>
     <ul class="main-archive-list">
       <li v-for="(item, index) in list" :key="index" class="gl-2">
@@ -77,15 +78,14 @@
         vertical-align: middle;
         font-style: italic;
       }
-      .arrow{
+      .arrow {
         margin-left: 12px;
         vertical-align: middle;
-        font-size:26px;
+        font-size: 26px;
       }
     }
     &-list {
       margin-top: 100px;
-      padding-bottom: 100px;
       display: flex;
       justify-content: space-between;
       -ms-overflow-style: none; /* IE and Edge */
@@ -101,8 +101,8 @@
         span {
           font-size: 52px;
         }
-        .arrow{
-          font-size:32px;
+        .arrow {
+          font-size: 32px;
         }
       }
       &-list {
@@ -116,8 +116,8 @@
         span {
           font-size: 74px;
         }
-        .arrow{
-          font-size:42px;
+        .arrow {
+          font-size: 42px;
         }
       }
       &-list {
@@ -132,8 +132,8 @@
         span {
           font-size: 30px;
         }
-        .arrow{
-          font-size:20px;
+        .arrow {
+          font-size: 20px;
         }
       }
       &-list {
@@ -162,8 +162,8 @@
               display: none;
             }
           }
-          .arrow{
-            font-size:14px;
+          .arrow {
+            font-size: 14px;
           }
         }
         > span {

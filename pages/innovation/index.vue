@@ -1,9 +1,9 @@
 <template>
   <div class="innovation">
-    <div class="contents-selector l-ml-2 gl-6">
+    <div class="contents-selector">
       <FilterSelector :list="filter" />
     </div>
-    <div v-if="filter.length > 0" class="contents-sticker l-ml-3 gl-5">
+    <div v-if="filter.length > 0" class="contents-sticker">
       <ul>
         <li
           v-for="(item, index) in filter"
@@ -151,9 +151,13 @@
     margin-bottom: 500px;
   }
   .contents-selector {
+    width: getWidth(6);
+    margin-left: getMargin(2);
     margin-bottom: 60px;
   }
   .contents-sticker {
+    width: getWidth(5);
+    margin-left: getMargin(3);
     margin-bottom: 60px;
     .item {
       display: inline-block;
@@ -208,17 +212,9 @@
       margin-bottom: 100px;
     }
     .contents-sticker {
+      width: getWidth(6);
       margin-bottom: 40px;
-    }
-    .l-ml-3 {
-      margin-left: calc(
-        calc((100vw - 20px * 11) / 10) * 2 + 20px * 2
-      ) !important;
-    }
-    .gl-5 {
-      width: calc(
-        calc((100vw - 20px * 11) / 10) * 6 + 20px * (6 - 1)
-      ) !important;
+      margin-left: getMarin(2);
     }
   }
   @include mobile {
@@ -227,28 +223,20 @@
       margin-bottom: 200px;
     }
     .contents-selector {
+      width: 100%;
+      margin-left: 0;
       margin-bottom: 20px;
     }
     .masonry {
       padding: 0;
-    }
-    .l-ml-2 {
-      margin-left: 0px !important;
-    }
-    .l-ml-3 {
-      margin-left: 0px !important;
-    }
-    .gl-6 {
-      width: 100% !important;
-    }
-    .gl-5 {
-      width: 100% !important;
     }
 
     .contents-selector {
       margin: 157px 0 20px;
     }
     .contents-sticker {
+      width: 100%;
+      margin-left: 0;
       margin-bottom: 20px;
     }
   }

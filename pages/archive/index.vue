@@ -1,9 +1,9 @@
 <template>
   <div class="archive-wrap">
-    <div class="contents-selector l-ml-2 gl-6">
+    <div class="contents-selector">
       <FilterSelector :list="filter" />
     </div>
-    <div v-if="filter.length > 0" class="contents-sticker l-ml-3 gl-5">
+    <div v-if="filter.length > 0" class="contents-sticker">
       <ul>
         <li
           v-for="(item, index) in filter"
@@ -40,12 +40,14 @@
   import ArchiveCard from '@/components/elements/card/ArchiveCard'
   import DetailText from '@/components/detail/DetailText'
   import FilterSelector from '@/components/elements/filter/FilterSelector'
+  import Sticker from '@/components/elements/button/Sticker'
   export default {
     mixins: [mixinGlobal],
     components: {
       ArchiveCard,
       DetailText,
-      FilterSelector
+      FilterSelector,
+      Sticker
     },
     computed: {
       ...mapState({
@@ -143,67 +145,107 @@
 </script>
 <style lang="scss" scoped>
   .archive-wrap {
-    padding: 0 20px;
-  }
-  .masonry {
-    // padding: 0 20px;
-  }
-  /deep/ .archive {
-    min-width: initial;
-    max-width: initial;
-    width: 100%;
-    height: auto;
-    margin-bottom: 50px;
+    padding: 320px 20px 0;
+    margin-bottom: 500px;
   }
   .contents-selector {
-    margin: 320px 0 60px;
+    width: getWidth(6);
+    margin-left: getMargin(2);
+    margin-bottom: 60px;
+  }
+  .contents-sticker {
+    width: getWidth(5);
+    margin-left: getMargin(3);
+    margin-bottom: 60px;
+    .item {
+      display: inline-block;
+      &:not(:last-child) {
+        margin-right: 10px;
+        margin-bottom: 10px;
+      }
+    }
   }
   .contents-list-text {
     margin-bottom: 200px;
   }
+  /deep/ .archive {
+    width: 100%;
+    margin-bottom: 70px;
+  }
 
-  @include pc-4k {
-    /deep/ .archive {
-      margin-bottom: 100px !important;
+  @include pc-large {
+    .archive-wrap {
+      padding-top: 400px;
+      margin-bottom: 700px;
     }
     .contents-selector {
-      margin: 600px 0 120px;
-    }
-    .contents-list-text {
-      margin-bottom: 460px !important;
-    }
-  }
-  @include pc-large {
-    /deep/ .archive {
-      margin-bottom: 70px;
+      margin-bottom: 120px;
     }
     .contents-list-text {
       margin-bottom: 300px;
     }
   }
-  @include tablet {
+
+  @include pc-4k {
+    .archive-wrap {
+      padding-top: 600px;
+      margin-bottom: 1000px;
+    }
     .contents-selector {
-      margin: 200px 0 40px;
+      margin-bottom: 120px;
+    }
+    .contents-sticker {
+      margin-bottom: 120px;
+    }
+    .contents-list-text {
+      margin-bottom: 460px !important;
+    }
+    /deep/ .archive {
+      margin-bottom: 100px;
+    }
+  }
+
+  @include tablet {
+    .archive-wrap {
+      padding-top: 200px;
+      margin-bottom: 300px;
+    }
+    .contents-selector {
+      margin-bottom: 40px;
     }
     .contents-list-text {
       margin-bottom: 100px;
     }
+    .contents-sticker {
+      width: getWidth(6);
+      margin-bottom: 40px;
+      margin-left: getMarin(2);
+    }
+    /deep/ .archive {
+      margin-bottom: 50px;
+    }
   }
   @include mobile {
+    .archive-wrap {
+      padding-top: 76px;
+      margin-bottom: 200px;
+    }
+    .contents-selector {
+      width: 100%;
+      margin-left: 0;
+      margin-bottom: 20px;
+    }
     .masonry {
       padding: 0;
     }
-    .l-ml-2 {
-      margin-left: 0px !important;
-    }
-    .l-ml-3 {
-      margin-left: 0px !important;
-    }
-    .gl-6 {
-      width: 100% !important;
-    }
+
     .contents-selector {
       margin: 157px 0 20px;
+    }
+    .contents-sticker {
+      width: 100%;
+      margin-left: 0;
+      margin-bottom: 20px;
     }
   }
 </style>
