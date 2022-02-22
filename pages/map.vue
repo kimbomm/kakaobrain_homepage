@@ -30,7 +30,7 @@
                   <span :key="index">
                     {{ number }}
                   </span>
-                  <br  :key="`index-${index}`" v-if="index === 2" />
+                  <br :key="`index-${index}`" v-if="index === 2" />
                 </template>
               </div>
             </li>
@@ -147,9 +147,9 @@
 </script>
 <style lang="scss" scoped>
   .map {
-    margin-bottom:596px;
+    margin-bottom: 596px;
     padding: 0 20px;
-    padding-top:320px;
+    padding-top: 320px;
     section {
       margin-top: 200px;
     }
@@ -162,7 +162,7 @@
   }
   .map-js {
     height: 400px;
-    width: getWidht(6);
+    width: getWidth(6);
     margin: 60px 0 60px getMargin(2);
   }
   .bus-method {
@@ -185,8 +185,8 @@
           padding-right: 5px;
         }
       }
-      &:not(:nth-child(2)){
-        br{
+      &:not(:nth-child(2)) {
+        br {
           display: none;
         }
       }
@@ -199,7 +199,7 @@
   }
   @include pc-large {
     .map {
-      padding-top:440px;
+      padding-top: 440px;
       section {
         margin-top: 240px;
       }
@@ -230,7 +230,7 @@
   }
   @include pc-4k {
     .map {
-      padding-top:660px;
+      padding-top: 660px;
       section {
         margin-top: 400px;
       }
@@ -260,8 +260,8 @@
   }
   @include tablet {
     .map {
-      margin-bottom:300px;
-      padding-top:200px;
+      margin-bottom: 300px;
+      padding-top: 200px;
       section {
         margin-top: 100px;
       }
@@ -297,8 +297,8 @@
       margin-left: 0 !important;
     }
     .map {
-      margin-bottom:200px;
-      padding-top:157px;
+      margin-bottom: 200px;
+      padding-top: 157px;
       section {
         margin-top: 60px;
       }
@@ -318,15 +318,14 @@
       width: 100%;
       li {
         display: block;
-        &:nth-child(2){
+        &:nth-child(2) {
           width: getWidth(8) !important;
         }
         > div {
-           span {
+          span {
             padding-right: 1px !important;
           }
         }
-
       }
     }
   }

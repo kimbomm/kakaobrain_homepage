@@ -26,7 +26,7 @@
 <style lang="scss" scoped>
   .detail-title {
     margin-left: getMargin(2);
-    width: getWidht(6);
+    width: getWidth(6);
     line-height: 120%;
     font-size: 90px;
     font-weight: 900;
