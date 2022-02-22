@@ -157,13 +157,12 @@
         const navi = this.$refs['issue-navi']
         const issue = this.$refs['issue']
         if (
-          window.scrollY >= navi.offsetTop &&
           window.scrollY <=
-            issue.offsetTop + issue.offsetHeight - navi.offsetHeight
+            issue.offsetTop + issue.offsetHeight - navi.offsetHeight &&
+          window.scrollY + navi.offsetTop + navi.offsetHeight <=
+            issue.offsetTop + issue.offsetHeight
         ) {
-          navi.style = `transform: translateY(${
-            window.scrollY - navi.offsetTop
-          }px)`
+          navi.style = `transform: translateY(${window.scrollY}px)`
         }
       },
       onSetInterval() {
