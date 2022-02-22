@@ -30,6 +30,7 @@
   </nuxt-link>
 </template>
 <script>
+  import { mapActions } from 'vuex'
   export default {
     name: 'ArchiveCard',
     props: {
@@ -64,12 +65,21 @@
         }
 
         return classList.join(' ')
+      },
+      async thumbnail() {
+        let thumbnail = null
+        // if (this.data) {
+        //   await
+        // }
+        return null
       }
+    },
+    methods: {
+      ...mapActions(['getContentDetail'])
     }
   }
 </script>
 <style lang="scss" scoped>
-  @import '@/assets/scss/mixins.scss';
   .area {
     .archive {
     }
@@ -77,8 +87,8 @@
   .archive {
     position: relative;
     display: inline-block;
-    max-width: 360px;
-    min-width: 300px;
+    // max-width: 360px;
+    // min-width: 300px;
     box-shadow: 30px 30px 50px -10px #cfd0d3;
     background-color: $gray-0;
     color: $gray-9;
@@ -122,8 +132,6 @@
       }
     }
     &.main-card {
-      min-width: initial;
-      max-width: initial;
       width: getWidth(2);
     }
   }
