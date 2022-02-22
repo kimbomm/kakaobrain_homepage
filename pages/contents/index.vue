@@ -10,7 +10,7 @@
         />
       </div>
       <div class="content-inner">
-        <DetailTitle :text="data.title" />
+        <DetailTitle :text="data.title" :content-prop="data.contentProp" />
         <template v-for="(content, index) in ContentItems">
           <component
             :is="validContent(content, index)"

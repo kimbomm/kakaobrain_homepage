@@ -1,5 +1,5 @@
 <template>
-  <div class="detail-title">{{ text }}</div>
+  <div :class="classBind">{{ text }}</div>
 </template>
 <script>
   export default {
@@ -10,15 +10,20 @@
         default: '',
         required: true
       },
-      type: {
-        type: String,
-        default: '',
-        required: false
-      },
-      ml: {
-        type: String,
-        default: '',
-        required: false
+      contentProp: {
+        type: Object
+      }
+    },
+    computed: {
+      classBind() {
+        let classList = ['detail-title']
+        if (
+          this.contentProp &&
+          Object.keys(this.contentProp).includes('isTitleH2')
+        ) {
+          classList.push('detail-title__h2')
+        }
+        return classList.join(' ')
       }
     }
   }
@@ -32,12 +37,18 @@
     font-size: 90px;
     font-weight: 900;
     word-break: keep-all;
+    &__h2 {
+      font-size: 40px;
+    }
   }
 
   @include pc-large {
     .detail-title {
       font-size: 120px;
       margin-bottom: 100px;
+      &__h2 {
+        font-size: 52px;
+      }
     }
   }
 
@@ -45,12 +56,18 @@
     .detail-title {
       font-size: 180px;
       margin-bottom: 150px;
+      &__h2 {
+        font-size: 78px;
+      }
     }
   }
   @include tablet {
     .detail-title {
       font-size: 50px;
       margin-bottom: 40px;
+      &__h2 {
+        font-size: 32px;
+      }
     }
   }
 
@@ -60,6 +77,9 @@
       margin-left: 0;
       font-size: 30px;
       margin-bottom: 20px;
+      &__h2 {
+        font-size: 26px;
+      }
     }
   }
 </style>

@@ -74,6 +74,7 @@
         this.list = res.data.list
       },
       onScroll() {
+        console.log(this.$refs['backgroundFlow'].offsetTop)
         if (
           window.scrollY >= this.$refs['flow'].offsetTop &&
           window.scrollY <=
@@ -99,7 +100,7 @@
       transform: translateX(0);
     }
     to {
-      transform: translateX(calc(-100% + 100vw));
+      transform: translateX(calc(-100%));
     }
   }
   @keyframes ani-right {
@@ -111,13 +112,11 @@
     }
   }
   .flow {
-    padding-top: 100vh;
     position: relative;
+    padding: 510px 0;
   }
   .background-flow {
     position: absolute;
-    min-height: 100vh;
-    top: 0;
     left: 0;
     display: flex;
     flex-direction: column;
@@ -137,7 +136,8 @@
   }
   .flow-txt {
     font-size: 180px;
-    display: flex;
+    width: auto;
+    display: inline-flex;
     flex-wrap: nowrap;
     white-space: nowrap;
     align-items: center;
@@ -174,7 +174,7 @@
     }
   }
   .article-list {
-    padding: 0 20px 500px;
+    padding: 470px 20px 0;
     position: relative;
     z-index: 1;
     .article {
