@@ -1,7 +1,7 @@
 <template>
   <div>
-    <BreadCrumb :data="breadcrumb" :full="true" />
     <div class="map">
+      <BreadCrumb :data="breadcrumb" :full="true" />
       <div class="contents-title">
         <DetailTitle text="오시는 길" />
       </div>
@@ -38,7 +38,10 @@
         </div>
         <div class="text-h3 l-ml-3"><span>문의</span></div>
         <div class="text-content l-ml-3">
-          <span> contact@kakaobrain.com으로 연락 바랍니다. </span>
+          <span>
+            <a href="mailto:contact@kakaobrain.com">contact@kakaobrain.com</a>
+            으로 연락 바랍니다.
+          </span>
         </div>
       </section>
     </div>
@@ -192,12 +195,20 @@
       }
     }
   }
+  .contents-title {
+    margin-bottom: 60px;
+  }
   .tit-text {
-    margin-bottom: 30px;
     line-height: 150%;
     font-size: 16px;
   }
   @include pc-large {
+    .contents-title {
+      margin-bottom: 100px;
+    }
+    .tit-text {
+      font-size: 22px;
+    }
     .map {
       padding-top: 440px;
       section {
@@ -223,12 +234,14 @@
         }
       }
     }
-    .tit-text {
-      margin-bottom: 50px;
-      font-size: 22px;
-    }
   }
   @include pc-4k {
+    .contents-title {
+      margin-bottom: 150px;
+    }
+    .tit-text {
+      font-size: 32px;
+    }
     .map {
       padding-top: 660px;
       section {
@@ -253,12 +266,14 @@
         }
       }
     }
-    .tit-text {
-      margin-bottom: 70px;
-      font-size: 32px;
-    }
   }
   @include tablet {
+    .contents-title {
+      margin-bottom: 40px;
+    }
+    .tit-text {
+      font-size: 14px;
+    }
     .map {
       margin-bottom: 300px;
       padding-top: 200px;
@@ -287,18 +302,18 @@
         }
       }
     }
-    .tit-text {
-      margin-bottom: 20px;
-      font-size: 14px;
-    }
   }
   @include mobile {
+    .contents-title {
+      margin-top: 60px;
+      margin-bottom: 20px;
+    }
     [class*='l-ml'] {
       margin-left: 0 !important;
     }
     .map {
       margin-bottom: 200px;
-      padding-top: 157px;
+      padding-top: 100px;
       section {
         margin-top: 60px;
       }
