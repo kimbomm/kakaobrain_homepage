@@ -1,8 +1,8 @@
 <template>
-  <div class="innovation">
-    <div ref="innovation">
+  <div class="innovation" ref="innovation">
+    <div class="scroll-box" ref="scrollBox">
       <transition name="slideInRight">
-        <ul v-show="isShow" ref="list" class="innovation-list l-pl-2">
+        <ul v-show="isShow" ref="list" class="innovation-list">
           <li v-for="(item, index) in list" :key="index" class="gl-3">
             <InnovationCard
               :isMainCard="true"
@@ -24,6 +24,20 @@
   import { mapActions } from 'vuex'
   import InnovationCard from '@/components/elements/card/InnovationCard'
   export default {
+    props: {
+      flag: {
+        type: Boolean,
+        default: false
+      },
+      start: {
+        type: Boolean,
+        default: true
+      },
+      end: {
+        type: Boolean,
+        default: false
+      }
+    },
     components: {
       InnovationCard
     },
@@ -39,18 +53,21 @@
         list: []
       }
     },
+    watch: {
+      flag(val) {
+        if (val) {
+          // setTimeout(() => {
+          //   this.isChanged = false
+          // }, 1000)
+        }
+      }
+    },
     mounted() {
       this.init()
       window.addEventListener('scroll', this.onScroll)
-      // this.$refs['list'].addEventListener('wheel', e => {
-      //   this.cardWheelEvent(e)
-      // })
     },
     beforeDestroy() {
       window.removeEventListener('scroll', this.onScroll)
-      // this.$refs['list'].removeEventListener('wheel', e => {
-      //   this.cardWheelEvent(e)
-      // })
     },
     methods: {
       ...mapActions({
@@ -67,19 +84,30 @@
         ) {
           if (!this.isShow) {
             this.isShow = true
-            this.$refs['list'].addEventListener('wheel', e => {
-              this.cardWheelEvent(e)
-            })
+            this.$refs['innovation'].addEventListener(
+              'wheel',
+              this.cardWheelEvent
+            )
           }
         }
       },
       cardWheelEvent(e) {
+        const ref = this.$refs['list']
+        const refScrollBox = this.$refs['scrollBox']
         const wheelX = Math.abs(e.deltaX)
         const wheelY = Math.abs(e.deltaY)
-        if (wheelY > wheelX) {
+        if (this.flag) {
           e.preventDefault()
-          // this.$refs['list'].scrollLeft += e.deltaY * 0.2
-          window.scrollY += e.deltaY * 0.2
+          if (wheelY > wheelX) {
+            refScrollBox.scrollLeft += e.deltaY * 0.2
+          }
+          this.$emit('update:start', refScrollBox.scrollLeft === 0)
+          this.$emit(
+            'update:end',
+            ref.offsetWidth > refScrollBox.scrollWidth
+              ? refScrollBox.scrollLeft <= refScrollBox.scrollWidth - 300
+              : true
+          )
         }
       }
     }
@@ -101,22 +129,21 @@
     margin-left: $gutter;
     display: flex;
     align-items: center;
-    > div {
+    .scroll-box {
       width: 100%;
-    }
-    &-list {
       overflow-x: auto;
-      transition: all 0.3s linear;
-      width: 100%;
-      padding: 70px 0;
-      display: flex;
-      flex-wrap: nowrap;
+      white-space: nowrap;
+      padding: 70px getMargin(2);
       -ms-overflow-style: none; /* IE and Edge */
       scrollbar-width: none; /* Firefox */
       &::-webkit-scrollbar {
         display: none; /* Chrome, Safari, Opera*/
       }
-      padding-right: getMargin(2);
+    }
+    &-list {
+      transition: all 0.3s linear;
+      display: inline-flex;
+      flex-wrap: nowrap;
       li {
         margin-right: 100px;
         flex: 0 0 getWidth(3);

@@ -19,7 +19,12 @@
     <div class="slogan-wrap">
       <Slogan :data="sloganData3" />
     </div>
-    <InnovationList />
+    <InnovationList
+      ref="innovation"
+      :flag.sync="scroll.innovation.flag"
+      :start.sync="scroll.innovation.start"
+      :end.sync="scroll.innovation.end"
+    />
     <BrainGoal />
     <ArchiveList />
     <TeamBrain />
@@ -106,53 +111,84 @@
             flag: false,
             start: true,
             end: false
+          },
+          innovation: {
+            flag: false,
+            start: true,
+            end: false
           }
         }
       }
     },
     mounted() {
-      this.$refs.main.addEventListener('wheel', this.onWheel)
+      this.$refs.main.addEventListener('wheel', this.onWheel, {
+        passive: false
+      })
     },
     methods: {
       async onWheel(e) {
-        await this.slotScroll(e)
-
+        // e.preventDefault()
         if (this.stopFlag) {
           e.preventDefault()
-          return false
         }
+        await this.slotScroll(e)
+        await this.innovationScroll(e)
       },
       slotScroll(e) {
         const wheelY = e.deltaY
-        const refSlot = this.$refs.slot
+        const ref = this.$refs.slot
         const scrollCenter = window.scrollY + window.innerHeight / 2
-        const slotCenter = refSlot.$el.offsetTop + refSlot.$el.offsetHeight / 2
+        const refCenter = ref.$el.offsetTop + ref.$el.offsetHeight / 2
+
         if (
-          this.stopFlag &&
+          this.scroll.slot.flag &&
           ((wheelY > 0 && this.scroll.slot.end) ||
             (wheelY < 0 && this.scroll.slot.start))
         ) {
           this.stopFlag = false
           this.scroll.slot.flag = false
           setTimeout(() => {
-            refSlot.setSlot()
-          }, 500)
+            ref.setSlot()
+          }, 1000)
         } else if (
           !this.scroll.slot.flag &&
           ((wheelY > 0 && !this.scroll.slot.end) ||
             (wheelY < 0 && !this.scroll.slot.start)) &&
-          slotCenter >= scrollCenter - 300 &&
-          slotCenter <= scrollCenter + 300
+          refCenter > window.scrollY &&
+          refCenter < window.scrollY + window.innerHeight
         ) {
-          window.scrollTo(0, slotCenter - window.innerHeight / 2)
+          window.scrollTo(0, refCenter - window.innerHeight / 2)
+          this.stopFlag = true
           this.$nextTick(() => {
-            if (!this.stopFlag) {
-              this.stopFlag = true
-              this.scroll.slot.flag = true
-            }
+            this.scroll.slot.flag = true
           })
-          e.preventDefault()
-          return false
+        }
+      },
+      innovationScroll(e) {
+        const wheelY = e.deltaY
+        const ref = this.$refs.innovation
+        const scrollCenter = window.scrollY + window.innerHeight / 2
+        const refCenter = ref.$el.offsetTop + ref.$el.offsetHeight / 2
+
+        if (
+          this.scroll.innovation.flag &&
+          ((wheelY > 0 && this.scroll.innovation.end) ||
+            (wheelY < 0 && this.scroll.innovation.start))
+        ) {
+          this.stopFlag = false
+          this.scroll.innovation.flag = false
+        } else if (
+          !this.scroll.innovation.flag &&
+          ((wheelY > 0 && !this.scroll.innovation.end) ||
+            (wheelY < 0 && !this.scroll.innovation.start)) &&
+          refCenter > window.scrollY &&
+          refCenter < window.scrollY + window.innerHeight
+        ) {
+          window.scrollTo(0, refCenter - window.innerHeight / 2)
+          this.stopFlag = true
+          this.$nextTick(() => {
+            this.scroll.innovation.flag = true
+          })
         }
       }
     }

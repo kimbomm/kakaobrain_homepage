@@ -101,7 +101,8 @@
         upIndex: null,
         bottomIndex: 1,
         slot: [],
-        lastScrollTop: 0
+        lastScrollTop: 0,
+        timer: null
       }
     },
     watch: {
@@ -123,38 +124,46 @@
     methods: {
       onScroll(e) {
         const targetText = this.$refs['slot-text']
-        if (!this.isChanged && this.flag) {
-          this.isChanged = true
-          if (e.deltaY > 0) {
-            if (this.activeIndex < this.slotLength - 1) {
-              this.prevIndex = this.activeIndex
-              this.activeIndex++
-              this.upIndex = this.prevIndex
-              this.bottomIndex =
-                this.activeIndex + 1 === this.slotLength
-                  ? null
-                  : this.activeIndex + 1
-            }
-          } else {
-            if (this.activeIndex > 0) {
-              this.prevIndex = this.activeIndex
-              this.activeIndex = this.activeIndex - 1
-              this.upIndex =
-                this.activeIndex === 0 ? null : this.activeIndex - 1
-              this.bottomIndex = this.prevIndex
-            }
-          }
-          targetText.style = `transform: translateY(-${
-            targetText.offsetHeight * (this.activeIndex / this.slotLength)
-          }px)`
-          this.setImage()
+        const _this = this
 
-          setTimeout(() => {
-            this.isChanged = false
-            this.$emit('update:start', this.activeIndex === 0)
-            this.$emit('update:end', this.activeIndex === this.slotLength - 1)
-          }, 1000)
+        if (this.timer !== null) {
+          // 움직임
+          clearTimeout(this.timer)
+          if (!_this.isChanged && _this.flag) {
+            _this.isChanged = true
+            if (e.deltaY > 0) {
+              if (_this.activeIndex < _this.slotLength - 1) {
+                _this.prevIndex = _this.activeIndex
+                _this.activeIndex++
+                _this.upIndex = _this.prevIndex
+                _this.bottomIndex =
+                  _this.activeIndex + 1 === _this.slotLength
+                    ? null
+                    : _this.activeIndex + 1
+              }
+            } else {
+              if (_this.activeIndex > 0) {
+                _this.prevIndex = _this.activeIndex
+                _this.activeIndex = _this.activeIndex - 1
+                _this.upIndex =
+                  _this.activeIndex === 0 ? null : _this.activeIndex - 1
+                _this.bottomIndex = _this.prevIndex
+              }
+            }
+            targetText.style = `transform: translateY(-${
+              targetText.offsetHeight * (_this.activeIndex / _this.slotLength)
+            }px)`
+            _this.setImage()
+          }
         }
+
+        this.timer = setTimeout(function () {
+          // 멈춤
+          // console.log('멈춤')
+          _this.isChanged = false
+          _this.$emit('update:start', _this.activeIndex === 0)
+          _this.$emit('update:end', _this.activeIndex === _this.slotLength - 1)
+        }, 500)
       },
       setImage() {
         setTimeout(() => {
