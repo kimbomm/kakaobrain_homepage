@@ -105,7 +105,7 @@
           this.$emit(
             'update:end',
             ref.offsetWidth > refScrollBox.scrollWidth
-              ? refScrollBox.scrollLeft >= refScrollBox.scrollWidth * 0.8
+              ? refScrollBox.scrollLeft >= refScrollBox.scrollWidth * 0.95
               : true
           )
         }
