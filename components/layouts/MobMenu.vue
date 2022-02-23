@@ -77,11 +77,18 @@
       setTimeout(() => {
         this.isAnimation = true
       }, 300)
+      window.addEventListener('scroll', this.onScroll)
     },
     beforeDestroy() {
       this.isAnimation = false
+      window.removeEventListener('scroll', this.onScroll)
     },
     methods: {
+      onScroll(e) {
+        e.preventDefault()
+        e.stopPropagation()
+        return false
+      },
       onClose() {
         this.$emit('onClose')
       },
@@ -229,17 +236,16 @@
     .mob-menu {
       &-top {
         align-items: center;
-        padding: 0 20px;
-        padding-top: 20px;
-        // height: 56px;
+        padding: 0 15px 0 20px;
+        height: 56px;
         // height: 51px;
         span {
           font-size: 18px;
         }
         button {
-          position: absolute;
-          top: 13px;
-          right: 15px;
+          // position: absolute;
+          // top: 13px;
+          // right: 15px;
           width: 30px;
           height: 30px;
         }
