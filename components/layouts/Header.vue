@@ -34,7 +34,9 @@
         if (this.isFilterMenuOpen || !this.isDark) {
           classList.push('header__light')
         }
-
+        if (this.$route.path !== '/') {
+          classList.push('header__light-blue')
+        }
         return classList.join(' ')
       }
     }
@@ -136,6 +138,9 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      &__light-blue {
+        background-color: $surface-1;
+      }
     }
     .header,
     .header-item {
