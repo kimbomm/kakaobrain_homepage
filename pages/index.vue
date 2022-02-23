@@ -121,9 +121,7 @@
       }
     },
     mounted() {
-      this.$refs.main.addEventListener('wheel', this.onWheel, {
-        passive: false
-      })
+      this.$refs.main.addEventListener('wheel', this.onWheel)
     },
     methods: {
       async onWheel(e) {

@@ -1,0 +1,16 @@
+@keyframes slot-to-top {
+  from {
+    top: 100%;
+  }
+  to {
+    top: 0;
+  }
+}
+@keyframes slot-to-bottom {
+  from {
+    top: -100%;
+  }
+  to {
+    top: 0;
+  }
+}

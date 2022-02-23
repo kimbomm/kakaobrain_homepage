@@ -12,12 +12,13 @@
                 "
                 alt=""
                 :class="{
-                  active: idx === activeIndex,
-                  'prev-active': idx === prevIndex,
-                  'wait-up': idx === upIndex,
-                  'wait-bottom': idx === bottomIndex
+                  'active-to-top': idx === activeIndex && wheelDir > 0,
+                  'active-to-bottom': idx === activeIndex && wheelDir < 0,
+                  'prev-active': idx === prevIndex
                 }"
               />
+              <!-- 'wait-up': idx === upIndex,
+                  'wait-bottom': idx === bottomIndex -->
             </template>
           </div>
         </div>
@@ -102,73 +103,67 @@
         bottomIndex: 1,
         slot: [],
         lastScrollTop: 0,
-        timer: null
+        timer: null,
+        wheelDir: 1,
+        wheelInfo: {
+          deltaY: null
+        }
       }
     },
     watch: {
       flag(val) {
         if (val) {
-          setTimeout(() => {
-            this.isChanged = false
-          }, 1000)
+          this.isChanged = false
         }
       }
     },
     mounted() {
-      window.addEventListener('wheel', this.onScroll)
+      this.$refs.machine.addEventListener('wheel', this.onScroll)
       this.setSlot()
     },
     beforeDestroy() {
-      window.removeEventListener('wheel', this.onScroll)
+      this.$refs.machine.removeEventListener('wheel', this.onScroll)
     },
     methods: {
       onScroll(e) {
         const targetText = this.$refs['slot-text']
-        const _this = this
-
-        if (this.timer !== null) {
-          // 움직임
-          clearTimeout(this.timer)
-          if (!_this.isChanged && _this.flag) {
-            _this.isChanged = true
-            if (e.deltaY > 0) {
-              if (_this.activeIndex < _this.slotLength - 1) {
-                _this.prevIndex = _this.activeIndex
-                _this.activeIndex++
-                _this.upIndex = _this.prevIndex
-                _this.bottomIndex =
-                  _this.activeIndex + 1 === _this.slotLength
-                    ? null
-                    : _this.activeIndex + 1
-              }
-            } else {
-              if (_this.activeIndex > 0) {
-                _this.prevIndex = _this.activeIndex
-                _this.activeIndex = _this.activeIndex - 1
-                _this.upIndex =
-                  _this.activeIndex === 0 ? null : _this.activeIndex - 1
-                _this.bottomIndex = _this.prevIndex
-              }
+        if (this.isChanged) {
+          e.preventDefault()
+          e.stopPropagation()
+        } else if (!this.isChanged && this.flag && this.wheelSpeed(e)) {
+          this.isChanged = true
+          if (e.deltaY > 0) {
+            this.wheelDir = 1
+            if (this.activeIndex < this.slotLength - 1) {
+              this.prevIndex = this.activeIndex
+              this.activeIndex++
             }
-            targetText.style = `transform: translateY(-${
-              targetText.offsetHeight * (_this.activeIndex / _this.slotLength)
-            }px)`
-            _this.setImage()
+          } else {
+            this.wheelDir = -1
+            if (this.activeIndex > 0) {
+              this.prevIndex = this.activeIndex
+              this.activeIndex = this.activeIndex - 1
+            }
           }
-        }
+          targetText.style = `transform: translateY(-${
+            targetText.offsetHeight * (this.activeIndex / this.slotLength)
+          }px)`
 
-        this.timer = setTimeout(function () {
-          // 멈춤
-          // console.log('멈춤')
-          _this.isChanged = false
-          _this.$emit('update:start', _this.activeIndex === 0)
-          _this.$emit('update:end', _this.activeIndex === _this.slotLength - 1)
-        }, 500)
+          setTimeout(() => {
+            this.changeState()
+          }, 1000)
+        }
       },
-      setImage() {
-        setTimeout(() => {
-          this.prevIndex = null
-        }, 350)
+      wheelSpeed(e) {
+        const isStart =
+          !this.isChanged && this.wheelInfo.deltaY < Math.abs(e.deltaY)
+        this.wheelInfo.deltaY = Math.abs(e.deltaY)
+        return isStart
+      },
+      changeState() {
+        this.isChanged = false
+        this.$emit('update:start', this.activeIndex === 0)
+        this.$emit('update:end', this.activeIndex === this.slotLength - 1)
       },
       setSlot() {
         this.slot = []
@@ -227,7 +222,10 @@
       position: absolute;
       display: block;
       height: 500px;
-      transition: top 0.3s linear;
+      transition: top 0.3s ease-out;
+      animation-timing-function: cubic-bezier(0.94, 0.22, 0.42, 0.83);
+      animation-duration: 1000ms;
+      animation-fill-mode: both;
       top: -100%;
       left: -100%;
       &.prev-active {
@@ -235,16 +233,15 @@
         left: 0 !important;
         z-index: 0;
       }
-      &.active {
-        top: 0;
+      &.active-to-bottom {
+        animation-name: 'slot-to-bottom';
         left: 0;
         z-index: 1;
       }
-      &.wait-up {
-        top: -100%;
-      }
-      &.wait-bottom {
-        top: 100%;
+      &.active-to-top {
+        animation-name: 'slot-to-top';
+        left: 0;
+        z-index: 1;
       }
     }
   }
@@ -255,7 +252,7 @@
     height: calc(160px * 1.1 * 5);
     overflow: hidden;
     > div {
-      transition: transform 0.3s linear;
+      transition: transform 1s cubic-bezier(0.94, 0.22, 0.42, 0.83);
     }
     p {
       overflow: hidden;
@@ -267,7 +264,6 @@
       font-size: 160px;
       font-weight: 900;
       line-height: 1.1;
-      transition: transform 0.3s linear;
     }
   }
   .slogan-text {
