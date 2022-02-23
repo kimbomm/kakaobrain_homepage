@@ -295,7 +295,6 @@
     }
     &-title {
       width: 100%;
-      height: 110px;
       font-size: 90px;
       line-height: 1;
       font-weight: 900;
@@ -304,6 +303,7 @@
         display: block;
         width: 100%;
         height: 100%;
+        padding-bottom: 20px;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -380,8 +380,10 @@
       padding-top: 152px;
     }
     .issue-title {
-      height: 152px;
       font-size: 122px;
+      span {
+        padding-bottom: 30px;
+      }
     }
     .issue-thumbnail {
       height: 1328px;
@@ -411,8 +413,10 @@
       padding-top: 210px;
     }
     .issue-title {
-      height: 210px;
       font-size: 180px;
+      span {
+        padding-bottom: 30px;
+      }
     }
     .issue-thumbnail {
       padding-top: 2010px;
@@ -449,8 +453,10 @@
       padding-top: 90px;
     }
     .issue-title {
-      height: 90px;
       font-size: 70px;
+      span {
+        padding-bottom: 20px;
+      }
     }
     .issue-thumbnail {
       padding-top: 552px;
@@ -542,8 +548,9 @@
     }
     .issue-title {
       font-size: 40px;
-      max-height: 130px;
       span {
+        max-height: 130px;
+        height: 100%;
         white-space: normal;
         display: -webkit-box;
         word-wrap: break-word;
@@ -551,11 +558,15 @@
         -webkit-box-orient: vertical;
         overflow: hidden;
         text-overflow: ellipsis;
+        padding-bottom: 10px;
       }
     }
     .issue-thumbnail {
       padding-top: 470px;
       margin-bottom: 10px;
+      > div {
+        box-shadow: initial;
+      }
     }
     .issue-info {
       padding-top: 0;

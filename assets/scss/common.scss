@@ -100,6 +100,17 @@ body {
     text-align: right !important;
   }
 }
+.pc-only {
+  @include mobile {
+    display: none;
+  }
+}
+.mo-only {
+  display: none;
+  @include mobile {
+    display: inline;
+  }
+}
 
 .text {
   &-h1 {

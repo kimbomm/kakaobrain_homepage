@@ -293,7 +293,7 @@
   }
   @include mobile {
     .main {
-      padding-top: 130px;
+      padding-top: 96px;
       .question {
         margin-top: 240px;
       }
