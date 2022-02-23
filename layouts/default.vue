@@ -106,10 +106,10 @@
       transform: translateY(-100%);
     }
   }
-  @include tablet {
-    .header.is-hide {
-      opacity: 1;
-      transform: initial;
-    }
-  }
+  // @include tablet {
+  //   .header.is-hide {
+  //     opacity: 1;
+  //     transform: initial;
+  //   }
+  // }
 </style>

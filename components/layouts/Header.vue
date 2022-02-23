@@ -63,6 +63,7 @@
       img {
         width: 80px;
         height: 20px;
+        vertical-align: middle;
       }
     }
     &-con {
@@ -129,9 +130,9 @@
       top: 0;
       left: 0;
       width: 100%;
-      // height: 56px;
+      height: 56px;
       padding: 0 20px;
-      padding-top: 20px;
+      background-color: #fff;
       display: flex;
       justify-content: space-between;
       align-items: center;
