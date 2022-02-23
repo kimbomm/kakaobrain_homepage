@@ -26,7 +26,7 @@
     width: getMargin(5);
     margin-left: getMargin(3);
     line-height: 150%;
-    font-size: 16px;
+    font-size: map-get($font, defualt);
     font-weight: 400;
     word-break: keep-all;
     a {
@@ -36,13 +36,13 @@
 
   @include pc-large {
     .detail-text {
-      font-size: 22px;
+      font-size: map-get($font-large, defualt);
     }
   }
 
   @include pc-4k {
     .detail-text {
-      font-size: 32px;
+      font-size: map-get($font-4k, defualt);
     }
   }
 
@@ -50,7 +50,7 @@
     .detail-text {
       width: getWidth(6);
       margin-left: getMarin(2);
-      font-size: 14px;
+      font-size: map-get($font-tablet, defualt);
     }
   }
 
@@ -58,7 +58,7 @@
     .detail-text {
       width: 100%;
       margin-left: 0;
-      font-size: 16px;
+      font-size: map-get($font-mobile, defualt);
     }
   }
 </style>

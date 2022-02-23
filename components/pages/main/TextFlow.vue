@@ -74,7 +74,7 @@
         this.list = res.data.list
       },
       onScroll() {
-        console.log(this.$refs['backgroundFlow'].offsetTop)
+        // console.log(this.$refs['backgroundFlow'].offsetTop)
         if (
           window.scrollY >= this.$refs['flow'].offsetTop &&
           window.scrollY <=

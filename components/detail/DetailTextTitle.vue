@@ -24,29 +24,29 @@
     margin-left: getMargin(3);
     line-height: 130%;
     font-weight: 900;
-    font-size: 40px;
+    font-size: map-get($font, h2);
     line-height: 1.3;
-    margin-bottom: calc(40px * 1.3);
+    margin-bottom: calc(#{map-get($font, h2)}* 1.3);
   }
 
   @include pc-large {
     .detail-subTit {
-      font-size: 52px;
-      margin-bottom: calc(52px * 1.3);
+      font-size: map-get($font-large, h2);
+      margin-bottom: calc(#{map-get($font-large, h2)} * 1.3);
     }
   }
 
   @include pc-4k {
     .detail-subTit {
-      font-size: 78px;
-      margin-bottom: calc(78px * 1.3);
+      font-size: map-get($font-4k, h2);
+      margin-bottom: calc(#{map-get($font-4k, h2)} * 1.3);
     }
   }
 
   @include tablet {
     .detail-subTit {
-      font-size: 32px;
-      margin-bottom: calc(32px * 1.3);
+      font-size: map-get($font-tablet, h2);
+      margin-bottom: calc(#{map-get($font-tablet, h2)} * 1.3);
       margin-left: getMargin(2);
     }
   }
@@ -54,8 +54,8 @@
     .detail-subTit {
       width: 100%;
       margin-left: 0;
-      font-size: 26px;
-      margin-bottom: calc(26px * 1.3);
+      font-size: map-get($font-mobile, h2);
+      margin-bottom: calc(#{map-get($font-mobile, h2)} * 1.3);
     }
   }
 </style>

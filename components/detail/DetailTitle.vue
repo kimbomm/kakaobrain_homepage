@@ -34,39 +34,39 @@
     margin-bottom: 60px;
     width: getWidth(6);
     line-height: 120%;
-    font-size: 90px;
+    font-size: map-get($font, h1);
     font-weight: 900;
     word-break: keep-all;
     &__h2 {
-      font-size: 40px;
+      font-size: map-get($font, h1-sub);
     }
   }
 
   @include pc-large {
     .detail-title {
-      font-size: 120px;
+      font-size: map-get($font-large, h1);
       margin-bottom: 100px;
       &__h2 {
-        font-size: 52px;
+        font-size: map-get($font-large, h1-sub);
       }
     }
   }
 
   @include pc-4k {
     .detail-title {
-      font-size: 180px;
+      font-size: map-get($font-4k, h1);
       margin-bottom: 150px;
       &__h2 {
-        font-size: 78px;
+        font-size: map-get($font-4k, h1-sub);
       }
     }
   }
   @include tablet {
     .detail-title {
-      font-size: 50px;
+      font-size: map-get($font-tablet, h1);
       margin-bottom: 40px;
       &__h2 {
-        font-size: 32px;
+        font-size: map-get($font-tablet, h1-sub);
       }
     }
   }
@@ -75,10 +75,10 @@
     .detail-title {
       width: 100%;
       margin-left: 0;
-      font-size: 30px;
+      font-size: map-get($font-mobile, h1);
       margin-bottom: 20px;
       &__h2 {
-        font-size: 26px;
+        font-size: map-get($font-mobile, h1-sub);
       }
     }
   }
