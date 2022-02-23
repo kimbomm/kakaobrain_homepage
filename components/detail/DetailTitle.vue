@@ -19,7 +19,8 @@
         let classList = ['detail-title']
         if (
           this.contentProp &&
-          Object.keys(this.contentProp).includes('isTitleH2')
+          Object.keys(this.contentProp).includes('isTitleH2') &&
+          this.contentProp.isTitleH2
         ) {
           classList.push('detail-title__h2')
         }
