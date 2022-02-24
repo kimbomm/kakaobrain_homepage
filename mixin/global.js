@@ -5,7 +5,6 @@ export default {
   },
   computed: {
     ...mapState({
-      touchDevice: state => state.touchDevice,
       language: state => state.language
     })
   },

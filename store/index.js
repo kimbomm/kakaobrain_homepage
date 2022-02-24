@@ -14,7 +14,11 @@ export const state = () => ({
   touchDevice: false,
   isFilterMenuOpen: false,
   breadcrumb: [],
-  isScrollUp: false
+  isScrollUp: false,
+  device: {
+    touch: false,
+    mobile: false
+  }
 })
 export const getters = {
   // newsCategory(state) {
@@ -29,7 +33,7 @@ export const mutations = {
     state.isFilterMenuOpen = payload
   },
   setTouchDevice(state, payload) {
-    state.touchDevice = payload
+    state.device = Object.assign(state.device, payload)
   },
   setLanguage(state, payload) {
     state.language = payload

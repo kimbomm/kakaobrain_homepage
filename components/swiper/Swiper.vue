@@ -1,7 +1,7 @@
 <template>
   <div class="story-telling">
     <swiper
-      v-show="!isMobile && viewPortWidth > 768"
+      v-show="!device.mobile && viewPortWidth > 768"
       ref="mySwiper"
       class="swiper"
       :options="swiperOption"
@@ -27,7 +27,7 @@
       <div class="swiper-button-prev" slot="button-prev"></div>
       <div class="swiper-button-next" slot="button-next"></div>
     </swiper>
-    <div v-show="isMobile || viewPortWidth <= 768" class="mobile-story">
+    <div v-show="device.mobile || viewPortWidth <= 768" class="mobile-story">
       <ul>
         <li
           v-for="(content, index) in data.ContentItems"
@@ -121,14 +121,13 @@
         timer: null,
         isChange: false,
         isEndSlide: false,
-        isMobile: false,
         isEventAdd: false,
         viewPortWidth: 0
       }
     },
     computed: {
       ...mapState({
-        touchDevice: state => state.touchDevice
+        device: state => state.device
       }),
       mySwiper() {
         return this.$refs.mySwiper.$swiper
@@ -140,7 +139,7 @@
     async mounted() {
       await this.checkMobile()
       this.$nextTick(async () => {
-        this.isEndSlide = this.isMobile || this.viewPortWidth <= 768
+        this.isEndSlide = this.device.mobile || this.viewPortWidth <= 768
         this.$nuxt.$emit('onSlideEnd', this.isEndSlide)
         await this.resizeEvent()
         await window.addEventListener('resize', this.resizeEvent)
@@ -152,7 +151,7 @@
     methods: {
       async resizeEvent() {
         this.viewPortWidth = window.innerWidth
-        if (this.isMobile || this.viewPortWidth <= 768) {
+        if (this.device.mobile || this.viewPortWidth <= 768) {
           await this.removeEvent()
         } else {
           await this.addEvent()
@@ -175,10 +174,6 @@
             .getElementsByClassName('swiper')[0]
             .removeEventListener('wheel', this.onWheel)
         }
-      },
-      checkMobile() {
-        const device = this.$device
-        this.isMobile = device.iphone || device.androidPhone || device.mobile
       },
       onClick(index) {
         this.mySwiper.slideTo(index)

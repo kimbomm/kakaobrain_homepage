@@ -1,5 +1,5 @@
 <template>
-  <div class="wrap">
+  <div :class="classBind">
     <div class="l-pages">
       <FilterList v-if="!isStoryPage" />
       <Header />
@@ -39,8 +39,17 @@
     },
     computed: {
       ...mapState({
-        touchDevice: state => state.touchDevice
+        device: state => state.device
       }),
+      classBind() {
+        let classList = ['wrap']
+        if (this.device.touch && !this.device.mobile) {
+          classList.push('device-tablet')
+        } else if (this.device.touch && this.device.mobile) {
+          classList.push('device-mobile')
+        }
+        return classList.join(' ')
+      },
       route() {
         return this.$route.path
       }
@@ -66,11 +75,13 @@
       await this.$store.commit('setIsDark', true)
       await this.checkDevice()
       window.addEventListener('scroll', this.onScroll)
+      window.addEventListener('resize', this.checkDevice)
     },
     beforeDestroy() {
       this.$nuxt.$off('story-page', this.onStoryPage)
       this.$nuxt.$off('onSlideEnd', this.onSlideEnd)
       window.removeEventListener('scroll', this.onScroll)
+      window.removeEventListener('resize', this.checkDevice)
     },
     methods: {
       ...mapMutations({
@@ -86,6 +97,7 @@
       },
       checkDevice() {
         const device = this.$device
+        const isMobile = device.iphone || device.androidPhone || device.mobile
         const isTouchDevice =
           device.ipad ||
           device.iphone ||
@@ -93,7 +105,10 @@
           device.androidPhone ||
           device.mobile
 
-        this.setTouchDevice(isTouchDevice)
+        this.setTouchDevice({
+          touch: isTouchDevice,
+          mobile: isMobile
+        })
       },
       onScroll() {
         if (window.scrollY > this.prevY && window.scrollY !== 0) {

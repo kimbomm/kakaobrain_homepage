@@ -5,11 +5,11 @@
   import { mapState } from 'vuex'
   export default {
     computed: {
-      ...mapState(['touchDevice'])
+      ...mapState(['device'])
     },
     mounted() {
       const _this = this
-      if (!this.touchDevice) {
+      if (!this.device.touch) {
         window.addEventListener('mousemove', function (e) {
           _this.calcRadius(e.clientX, e.clientY)
         })
@@ -17,7 +17,7 @@
     },
     beforeDestroy() {
       const _this = this
-      if (!this.touchDevice) {
+      if (!this.device.touch) {
         window.removeEventListener('mousemove', function (e) {
           _this.calcRadius(e.clientX, e.clientY)
         })

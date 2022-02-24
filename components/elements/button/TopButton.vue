@@ -17,7 +17,7 @@
   import { mapState } from 'vuex'
   export default {
     computed: {
-      ...mapState(['touchDevice'])
+      ...mapState(['device'])
     },
     data() {
       return {
@@ -31,12 +31,12 @@
         window.scrollTo(0, 0)
       },
       onMouseEnter() {
-        if (!this.touchDevice) {
+        if (!this.device.touch) {
           this.interval = setInterval(this.onChangeImage, 200)
         }
       },
       onMouseLeave() {
-        if (this.interval && !this.touchDevice) {
+        if (this.interval && !this.device.touch) {
           clearInterval(this.interval)
           this.interval = null
         }
