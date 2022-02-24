@@ -9,7 +9,7 @@ const menus = [
       {
         category: 'introduce',
         nick: 'Introduce',
-        name: 'Unthinkable Question!',
+        name: 'Unthinkable Question',
         link: '/about'
       },
       {
