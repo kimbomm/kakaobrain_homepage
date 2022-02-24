@@ -2,7 +2,7 @@
   <div class="wrap">
     <div class="l-pages">
       <FilterList v-if="!isStoryPage" />
-      <Header :class="{ 'is-hide': isMouseWheel }" />
+      <Header />
       <div class="container">
         <Nuxt />
       </div>
@@ -33,14 +33,24 @@
       return {
         isStoryPage: false,
         isFooterShow: true,
-        isMouseWheel: false
+        isMouseWheel: false,
+        prevY: 0
       }
     },
     computed: {
       ...mapState({
-        touchDevice: state => state.touchDevice,
-        list: state => state.innovation.list
-      })
+        touchDevice: state => state.touchDevice
+      }),
+      route() {
+        return this.$route.path
+      }
+    },
+    watch: {
+      route(val) {
+        if (val) {
+          this.setIsScrollUp(false)
+        }
+      }
     },
     created() {
       this.$nuxt.$on('story-page', this.onStoryPage)
@@ -55,17 +65,18 @@
     async mounted() {
       await this.$store.commit('setIsDark', true)
       await this.checkDevice()
-      window.addEventListener('wheel', this.onWheel)
+      window.addEventListener('scroll', this.onScroll)
     },
     beforeDestroy() {
       this.$nuxt.$off('story-page', this.onStoryPage)
       this.$nuxt.$off('onSlideEnd', this.onSlideEnd)
-      window.removeEventListener('wheel', this.onWheel)
+      window.removeEventListener('scroll', this.onScroll)
     },
     methods: {
       ...mapMutations({
         setTouchDevice: 'setTouchDevice',
-        setLanguage: 'setLanguage'
+        setLanguage: 'setLanguage',
+        setIsScrollUp: 'setIsScrollUp'
       }),
       onStoryPage(value) {
         this.isStoryPage = value
@@ -84,12 +95,13 @@
 
         this.setTouchDevice(isTouchDevice)
       },
-      onWheel(e) {
-        if (e.wheelDelta > 0) {
-          this.isMouseWheel = false
+      onScroll() {
+        if (window.scrollY > this.prevY && window.scrollY !== 0) {
+          this.setIsScrollUp(true)
         } else {
-          this.isMouseWheel = true
+          this.setIsScrollUp(false)
         }
+        this.prevY = window.scrollY
       }
     }
   }
@@ -99,17 +111,4 @@
     background-color: $surface-1;
     overflow-x: hidden;
   }
-  .header {
-    transition: all 0.5s linear;
-    &.is-hide {
-      opacity: 0;
-      transform: translateY(-100%);
-    }
-  }
-  // @include tablet {
-  //   .header.is-hide {
-  //     opacity: 1;
-  //     transform: initial;
-  //   }
-  // }
 </style>

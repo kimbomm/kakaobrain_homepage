@@ -1,6 +1,12 @@
 <template>
   <header :class="classBind">
-    <div class="header-top">
+    <div
+      :class="{
+        'header-top': true,
+        'hide-target': true,
+        'is-hide': isScrollUp
+      }"
+    >
       <h1 class="b-logo gl-2">
         <nuxt-link to="/">
           <img
@@ -27,7 +33,8 @@
     computed: {
       ...mapState({
         isDark: state => state.isDark,
-        isFilterMenuOpen: state => state.isFilterMenuOpen
+        isFilterMenuOpen: state => state.isFilterMenuOpen,
+        isScrollUp: state => state.isScrollUp
       }),
       classBind() {
         let classList = ['header']

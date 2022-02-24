@@ -13,7 +13,8 @@ export const state = () => ({
   filterList: [],
   touchDevice: false,
   isFilterMenuOpen: false,
-  breadcrumb: []
+  breadcrumb: [],
+  isScrollUp: false
 })
 export const getters = {
   // newsCategory(state) {
@@ -40,7 +41,10 @@ export const mutations = {
     state.filterList = payload
   },
   setBreadCrumb(state, payload) {
-    this.breadcrumb = [...payload]
+    state.breadcrumb = [...payload]
+  },
+  setIsScrollUp(state, payload) {
+    state.isScrollUp = payload
   }
 }
 export const actions = {

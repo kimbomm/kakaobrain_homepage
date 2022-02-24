@@ -17,7 +17,11 @@
         </ul>
       </div>
     </div>
-    <button class="menu-btn" @click="hideMenu(true)" title="메뉴 열기"></button>
+    <button
+      :class="{ 'menu-btn': true, 'is-hide': isScrollUp }"
+      @click="hideMenu(true)"
+      title="메뉴 열기"
+    ></button>
     <transition name="slide">
       <div v-if="this.isMenu" class="hide" @mouseleave="hideMenu(false)">
         <div class="lang">
@@ -111,12 +115,16 @@
         menus: state => state.menus,
         language: state => state.language,
         isDark: state => state.isDark,
-        isFilterMenuOpen: state => state.isFilterMenuOpen
+        isFilterMenuOpen: state => state.isFilterMenuOpen,
+        isScrollUp: state => state.isScrollUp
       }),
       classBind() {
-        let classList = ['menu', 'menu-outer']
+        let classList = ['menu', 'menu-outer', 'hide-target']
         if (this.isFilterMenuOpen || !this.isDark) {
           classList.push('menu__light')
+        }
+        if (this.isScrollUp) {
+          classList.push('is-hide')
         }
 
         return classList.join(' ')
@@ -153,18 +161,9 @@
     opacity: 0;
     transform: translateY(-30%);
   }
-  @keyframes fadeUp {
-    from {
-      transform: translateY(10%);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
   .animation {
     opacity: 0;
-    animation-duration: 0.3s;
+    animation-duration: 1s;
     animation-fill-mode: both;
     animation-timing-function: ease-out;
     &.delay-0 {

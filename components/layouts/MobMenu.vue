@@ -101,25 +101,16 @@
   }
 </script>
 <style lang="scss" scoped>
-  @keyframes fadeUp {
-    from {
-      transform: translateY(10%);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
   .animation {
     opacity: 0;
-    animation-duration: 0.3s;
+    animation-duration: 1s;
     animation-fill-mode: both;
     animation-timing-function: ease-out;
     &.delay-0 {
       animation-delay: 0.1s;
     }
     &.delay-1 {
-      animation-delay: 0.1s;
+      animation-delay: 0.2s;
     }
     &.delay-2 {
       animation-delay: 0.3s;
@@ -133,6 +124,9 @@
   }
   .fade-up {
     animation-name: fadeUp;
+    -webkit-animation-name: fadeUp;
+    -moz-animation-name: fadeUp;
+    -ms-animation-name: fadeUp;
   }
   .mob-menu {
     display: none;

@@ -4,6 +4,15 @@ body {
   font-family: 'NotoSansKR', 'Inter', sans-serif;
   word-break: keep-all;
 }
+
+.hide-target {
+  transition: all 0.5s linear;
+}
+.is-hide {
+  opacity: 0;
+  transform: translateY(-100%);
+}
+
 .btn {
   padding: 8px 14px;
   border: 1px solid $gray-9;
