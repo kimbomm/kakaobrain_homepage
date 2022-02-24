@@ -18,7 +18,7 @@
       </div>
     </div>
     <button
-      :class="{ 'menu-btn': true, 'is-hide': isScrollUp }"
+      :class="{ 'menu-btn': true, 'hide-target': true, 'is-hide': isScrollUp }"
       @click="hideMenu(true)"
       title="메뉴 열기"
     ></button>
