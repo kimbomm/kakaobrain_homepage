@@ -158,7 +158,7 @@
   .menu-list {
     font-size: 20px;
     line-height: 1.3;
-    font-weight: bold;
+    font-weight: 600;
     margin-bottom: 20px;
     &:last-child {
       margin-bottom: 0;
