@@ -7,7 +7,7 @@
             v-for="(menu, index) in menus"
             :key="`menu-${index}`"
             class="menu-item"
-            @mouseenter="hideMenu(true)"
+            @mouseenter="setIsMenuOpen(true)"
           >
             <button type="button">
               <!-- <span v-if="menu.alarm" class="num">{{ menu.alarm }}</span> -->
@@ -19,11 +19,11 @@
     </div>
     <button
       :class="{ 'menu-btn': true, 'hide-target': true, 'is-hide': isScrollUp }"
-      @click="hideMenu(true)"
+      @click="setIsMenuOpen(true)"
       title="메뉴 열기"
     ></button>
     <transition name="slide">
-      <div v-if="this.isMenu" class="hide" @mouseleave="hideMenu(false)">
+      <div v-if="isMenuOpen" class="hide" @mouseleave="setIsMenuOpen(false)">
         <div class="lang">
           <ul>
             <li
@@ -60,7 +60,7 @@
                   :class="`sub-item animation delay-${idx} ${
                     isAnimation ? 'fade-up' : ''
                   }`"
-                  @click="hideMenu(false)"
+                  @click="setIsMenuOpen(false)"
                 >
                   <template v-if="subMenu.name !== 'Principle'">
                     <nuxt-link :to="subMenu.link">{{ subMenu.name }}</nuxt-link>
@@ -76,9 +76,6 @@
           </ul>
         </div>
       </div>
-    </transition>
-    <transition name="slide">
-      <MobMenu v-if="this.isMenu" @onClose="hideMenu(false)" />
     </transition>
   </div>
 </template>
@@ -100,13 +97,15 @@
       }
     },
     watch: {
-      isMenu(val) {
+      isMenuOpen(val) {
         if (val) {
+          this.scrollControl(document.querySelector('body'), 'block')
           setTimeout(() => {
             this.isAnimation = true
           }, 300)
         } else {
           this.isAnimation = false
+          this.scrollControl(document.querySelector('body'), 'enable')
         }
       }
     },
@@ -116,7 +115,8 @@
         language: state => state.language,
         isDark: state => state.isDark,
         isFilterMenuOpen: state => state.isFilterMenuOpen,
-        isScrollUp: state => state.isScrollUp
+        isScrollUp: state => state.isScrollUp,
+        isMenuOpen: state => state.isMenuOpen
       }),
       classBind() {
         let classList = ['menu', 'menu-outer', 'hide-target']
@@ -141,14 +141,9 @@
     },
     methods: {
       ...mapMutations({
-        setLanguage: 'setLanguage'
+        setLanguage: 'setLanguage',
+        setIsMenuOpen: 'setIsMenuOpen'
       }),
-      hideMenu(value) {
-        value
-          ? this.scrollControl(document.querySelector('body'), 'block')
-          : this.scrollControl(document.querySelector('body'), 'enable')
-        this.isMenu = value
-      },
       async selectLang(lang) {
         localStorage.setItem('language', lang)
         await this.setLanguage(lang)
@@ -159,11 +154,6 @@
   }
 </script>
 <style lang="scss" scoped>
-  .slide-enter,
-  .slide-leave-to {
-    opacity: 0;
-    transform: translateY(-30%);
-  }
   .animation {
     opacity: 0;
     animation-duration: 1s;
@@ -229,9 +219,6 @@
     background-image: url('~/assets/images/mob_menu.svg');
     background-size: cover;
     background-position: center center;
-  }
-  .mob-menu {
-    transition: all 0.3s ease-in-out;
   }
   .hide {
     position: fixed;

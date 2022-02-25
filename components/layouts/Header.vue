@@ -1,28 +1,33 @@
 <template>
-  <header :class="classBind">
-    <div class="header-top">
-      <h1 class="b-logo gl-2">
-        <nuxt-link to="/">
-          <img
-            v-if="isFilterMenuOpen || !isDark"
-            src="@/assets/images/logo-w.png"
-          />
-          <img v-else src="@/assets/images/logo.png" />
-        </nuxt-link>
-      </h1>
-      <div class="header-con">
-        <div class="header-item">Unthinkable Question</div>
+  <div>
+    <header :class="classBind">
+      <div class="header-top">
+        <h1 class="b-logo gl-2">
+          <nuxt-link to="/">
+            <img
+              v-if="isFilterMenuOpen || !isDark"
+              src="@/assets/images/logo-w.png"
+            />
+            <img v-else src="@/assets/images/logo.png" />
+          </nuxt-link>
+        </h1>
+        <div class="header-con">
+          <div class="header-item">Unthinkable Question</div>
+        </div>
       </div>
-    </div>
-    <Menu />
-  </header>
+      <Menu />
+    </header>
+    <MobMenu />
+  </div>
 </template>
 <script>
   import { mapState } from 'vuex'
   import Menu from '@/components/layouts/Menu'
+  import MobMenu from '@/components/layouts/MobMenu'
   export default {
     components: {
-      Menu
+      Menu,
+      MobMenu
     },
     computed: {
       ...mapState({
@@ -45,7 +50,6 @@
 </script>
 <style lang="scss" scoped>
   .header {
-    position: relative;
     position: fixed;
     top: 20px;
     left: 20px;

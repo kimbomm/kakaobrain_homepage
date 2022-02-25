@@ -132,7 +132,15 @@
         this.touchInfo.end = e.touches[0].clientY
       },
       touchEnd() {
-        this.setIsScrollUp(this.touchInfo.end < this.touchInfo.start)
+        if (this.touchInfo.start && this.touchInfo.end) {
+          this.setIsScrollUp(this.touchInfo.end < this.touchInfo.start)
+          this.$nextTick(() => {
+            this.touchInfo = {
+              start: null,
+              end: null
+            }
+          })
+        }
       }
     }
   }

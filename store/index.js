@@ -5,6 +5,7 @@ export const state = () => ({
   isDark: true,
   language: 'KR',
   menus: data.menus,
+  isMenuOpen: false,
   footerMenu: data.footer,
   members: data.members,
   sns: data.sns,
@@ -49,6 +50,9 @@ export const mutations = {
   },
   setIsScrollUp(state, payload) {
     state.isScrollUp = payload
+  },
+  setIsMenuOpen(state, payload) {
+    state.isMenuOpen = payload
   }
 }
 export const actions = {

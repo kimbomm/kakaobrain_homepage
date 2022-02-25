@@ -71,3 +71,9 @@
     transform: translateY(0);
   }
 }
+
+.slide-enter,
+.slide-leave-to {
+  opacity: 0;
+  transform: translateY(-30%);
+}
