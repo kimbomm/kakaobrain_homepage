@@ -178,7 +178,8 @@ const sns = [
     name: 'linkedin',
     link: 'https://www.linkedin.com/company/kakaobrain/'
   },
-  { name: 'kakao', link: 'http://pf.kakao.com/_xhFyTb' },
+  // { name: 'kakao', link: 'http://pf.kakao.com/_xhFyTb' },
+  { name: 'github', link: 'https://github.com/kakaobrain' },
   {
     name: 'youtube',
     link: 'https://www.youtube.com/channel/UCdfmJNL-t_PdVHyn__tGrpg'
