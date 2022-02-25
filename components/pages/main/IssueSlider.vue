@@ -124,7 +124,7 @@
         }
       }
     },
-    async mounted() {
+    async created() {
       await this.fetchList()
     },
     async beforeDestroy() {

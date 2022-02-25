@@ -1,3 +1,5 @@
+import Vue from 'vue'
+
 function changeNumFont(number) {
   let returnFont = []
   // let returnFont = ''
@@ -55,7 +57,23 @@ function setParameters(payload) {
   return createdParam
 }
 
+function scrollControl(el, method) {
+  switch (method) {
+    case 'block':
+      bodyScrollLock.disableBodyScroll(el)
+      break
+    case 'enable':
+      bodyScrollLock.enableBodyScroll(el)
+      break
+    default:
+      bodyScrollLock.clearAllBodyScrollLocks()
+      break
+  }
+}
+Vue.prototype.scrollControl = scrollControl
+
 export default {
   changeNumFont,
-  setParameters
+  setParameters,
+  scrollControl
 }

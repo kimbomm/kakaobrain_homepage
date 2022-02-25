@@ -14,7 +14,8 @@
                 :class="{
                   'active-to-top': idx === activeIndex && wheelDir > 0,
                   'active-to-bottom': idx === activeIndex && wheelDir < 0,
-                  'prev-active': idx === prevIndex
+                  'prev-active-to-top': idx === prevIndex && wheelDir > 0,
+                  'prev-active-to-bottom': idx === prevIndex && wheelDir < 0
                 }"
               />
               <!-- 'wait-up': idx === upIndex,
@@ -97,16 +98,17 @@
         ],
         slotLength: 5,
         isChanged: true,
-        prevIndex: null,
+        prevIndex: 0,
         activeIndex: 0,
-        upIndex: null,
-        bottomIndex: 1,
         slot: [],
-        lastScrollTop: 0,
-        timer: null,
         wheelDir: 1,
         wheelInfo: {
           deltaY: null
+        },
+        isScrollUp: null,
+        touchInfo: {
+          start: null,
+          end: null
         }
       }
     },
@@ -118,41 +120,70 @@
       }
     },
     mounted() {
-      this.$refs.machine.addEventListener('wheel', this.onScroll)
+      this.$refs.machine.addEventListener('wheel', this.onWheel)
+      window.addEventListener('touchstart', this.touchStart)
+      window.addEventListener('touchmove', this.touchMove)
+      this.$refs.machine.addEventListener('touchend', this.onWheel)
       this.setSlot()
     },
     beforeDestroy() {
-      this.$refs.machine.removeEventListener('wheel', this.onScroll)
+      this.$refs.machine.removeEventListener('wheel', this.onWheel)
+      window.removeEventListener('touchstart', this.onTouchStart)
+      window.removeEventListener('touchmove', this.onTouchMove)
+      this.$refs.machine.removeEventListener('touchend', this.onWheel)
     },
     methods: {
-      onScroll(e) {
-        const targetText = this.$refs['slot-text']
-        if (this.isChanged) {
-          e.preventDefault()
-          e.stopPropagation()
-        } else if (!this.isChanged && this.flag && this.wheelSpeed(e)) {
-          this.isChanged = true
-          if (e.deltaY > 0) {
+      touchStart(e) {
+        this.touchInfo.start = e.touches[0].clientY
+      },
+      touchMove(e) {
+        this.touchInfo.end = e.touches[0].clientY
+      },
+      onWheel(e) {
+        if (e.type !== 'wheel') {
+          this.isScrollUp = this.touchInfo.end < this.touchInfo.start
+        }
+        const condition =
+          e.type === 'wheel' ? e.deltaY && this.wheelSpeed(e) : true
+        const isUp = e.type === 'wheel' ? e.deltaY > 0 : this.isScrollUp
+
+        if (condition && this.flag && !this.isChanged) {
+          if (e.type === 'wheel') {
+            e.preventDefault()
+          }
+          if (isUp) {
             this.wheelDir = 1
+            this.onMove('up')
+          } else {
+            this.wheelDir = -1
+            this.onMove('down')
+          }
+        }
+      },
+      onMove(type) {
+        const targetText = this.$refs['slot-text']
+        this.isChanged = true
+        switch (type) {
+          case 'up':
             if (this.activeIndex < this.slotLength - 1) {
               this.prevIndex = this.activeIndex
               this.activeIndex++
             }
-          } else {
-            this.wheelDir = -1
+            break
+          case 'down':
             if (this.activeIndex > 0) {
               this.prevIndex = this.activeIndex
               this.activeIndex = this.activeIndex - 1
             }
-          }
-          targetText.style = `transform: translateY(-${
-            targetText.offsetHeight * (this.activeIndex / this.slotLength)
-          }px)`
-
-          setTimeout(() => {
-            this.changeState()
-          }, 1000)
+            break
         }
+        targetText.style = `transform: translateY(-${
+          targetText.offsetHeight * (this.activeIndex / this.slotLength)
+        }px)`
+
+        setTimeout(() => {
+          this.changeState()
+        }, 1000)
       },
       wheelSpeed(e) {
         const isStart =
@@ -165,14 +196,19 @@
         this.$emit('update:start', this.activeIndex === 0)
         this.$emit('update:end', this.activeIndex === this.slotLength - 1)
       },
-      setSlot() {
+      setSlot(isTop) {
         this.slot = []
         for (let i = 0; i < this.slotLength; i++) {
           this.slot.push(this.getRandomNum())
         }
-      },
-      delSlot() {
-        this.slot = []
+        if (isTop) {
+          const targetText = this.$refs['slot-text']
+          this.prevIndex = 0
+          this.activeIndex = 0
+          targetText.style = `transform: translateY(-${
+            targetText.offsetHeight * (this.activeIndex / this.slotLength)
+          }px)`
+        }
       },
       getRandomNum() {
         const num = Math.floor(Math.random() * (this.data.length - 1))
@@ -196,7 +232,8 @@
     // position: relative;
     background-color: $surface-2;
     margin: 0 20px;
-    height: 1500px;
+    // height: 1500px;
+    height: 100vh !important;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -228,8 +265,13 @@
       animation-fill-mode: both;
       top: -100%;
       left: -100%;
-      &.prev-active {
-        top: 0 !important;
+      &.prev-active-to-top {
+        animation-name: 'prev-slot-to-top';
+        left: 0 !important;
+        z-index: 0;
+      }
+      &.prev-active-to-bottom {
+        animation-name: 'prev-slot-to-bottom';
         left: 0 !important;
         z-index: 0;
       }

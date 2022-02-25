@@ -1,3 +1,19 @@
+@include animation('prev-slot-to-top') {
+  from {
+    top: 0;
+  }
+  to {
+    top: -100%;
+  }
+}
+@include animation('prev-slot-to-bottom') {
+  from {
+    top: 0;
+  }
+  to {
+    top: 100%;
+  }
+}
 @include animation('slot-to-top') {
   from {
     top: 100%;

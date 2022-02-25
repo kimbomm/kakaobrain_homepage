@@ -34,7 +34,11 @@
         isStoryPage: false,
         isFooterShow: true,
         isMouseWheel: false,
-        prevY: 0
+        prevY: 0,
+        touchInfo: {
+          start: null,
+          end: null
+        }
       }
     },
     computed: {
@@ -76,6 +80,9 @@
       await this.checkDevice()
       window.addEventListener('scroll', this.onScroll)
       window.addEventListener('resize', this.checkDevice)
+      window.addEventListener('touchstart', this.touchStart)
+      window.addEventListener('touchmove', this.touchMove)
+      window.addEventListener('touchend', this.touchEnd)
     },
     beforeDestroy() {
       this.$nuxt.$off('story-page', this.onStoryPage)
@@ -117,6 +124,15 @@
           this.setIsScrollUp(false)
         }
         this.prevY = window.scrollY
+      },
+      touchStart(e) {
+        this.touchInfo.start = e.touches[0].clientY
+      },
+      touchMove(e) {
+        this.touchInfo.end = e.touches[0].clientY
+      },
+      touchEnd() {
+        this.setIsScrollUp(this.touchInfo.end < this.touchInfo.start)
       }
     }
   }

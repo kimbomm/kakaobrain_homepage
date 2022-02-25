@@ -117,68 +117,153 @@
             start: true,
             end: false
           }
+        },
+        isScrollUp: null,
+        touchInfo: {
+          start: null,
+          end: null
+        },
+        state: {
+          slotFinish: true
         }
       }
     },
     mounted() {
-      this.$refs.main.addEventListener('wheel', this.onWheel)
+      window.addEventListener('wheel', this.onScroll)
+      window.addEventListener('touchstart', this.touchStart)
+      window.addEventListener('touchmove', this.touchMove)
+      window.addEventListener('touchend', this.onScroll)
+      this.$nuxt.$on('home-reset', this.scrollReset)
+    },
+    beforeDestroy() {
+      window.removeEventListener('wheel', this.onScroll)
+      window.removeEventListener('touchstart', this.onTouchStart)
+      window.removeEventListener('touchmove', this.onTouchMove)
+      window.removeEventListener('touchend', this.onScroll)
+      this.$nuxt.$off('home-reset', this.scrollReset)
     },
     methods: {
-      async onWheel(e) {
-        // e.preventDefault()
+      scrollReset() {
+        this.stopFlag = false
+        this.scroll = {
+          slot: {
+            flag: false,
+            start: true,
+            end: false
+          },
+          innovation: {
+            flag: false,
+            start: true,
+            end: false
+          }
+        }
+        this.isScrollUp = null
+        this.touchInfo = {
+          start: null,
+          end: null
+        }
+        this.$refs.slot.setSlot(true)
+      },
+      touchStart(e) {
+        this.touchInfo.start = e.touches[0].clientY
+      },
+      touchMove(e) {
+        this.touchInfo.end = e.touches[0].clientY
+      },
+      async onScroll(e) {
+        if (e.type !== 'wheel') {
+          this.isScrollUp = this.touchInfo.end < this.touchInfo.start
+        }
         if (this.stopFlag) {
-          e.preventDefault()
+          this.scrollControl(document.querySelector('body'), 'block')
         }
         await this.slotScroll(e)
-        await this.innovationScroll(e)
+        // await this.innovationScroll(e)
       },
-      slotScroll(e) {
-        const wheelY = e.deltaY
+      setState(type, target) {
+        switch (type) {
+          case 'stop':
+            this.stopFlag = true
+            this.scroll[target].flag = true
+            this.scrollControl(document.querySelector('body'), 'block')
+            break
+          case 'go':
+            this.stopFlag = false
+            this.scroll[target].flag = false
+            this.scrollControl(document.querySelector('body'), 'enable')
+            break
+        }
+      },
+      chkCondition(type, event, target) {
+        let condition = false
+        const targetInfo = this.scroll[target]
+        switch (type) {
+          case 'stop':
+            condition =
+              event.type === 'wheel'
+                ? !targetInfo.flag &&
+                  ((event.deltaY > 0 && !targetInfo.end) ||
+                    (event.deltaY < 0 && !targetInfo.start))
+                : !targetInfo.flag &&
+                  ((this.isScrollUp && !targetInfo.end) ||
+                    (!this.isScrollUp && !targetInfo.start))
+            break
+          case 'go':
+            condition =
+              event.type === 'wheel'
+                ? targetInfo.flag &&
+                  ((event.deltaY > 0 && targetInfo.end) ||
+                    (event.deltaY < 0 && targetInfo.start))
+                : targetInfo.flag &&
+                  ((this.isScrollUp && targetInfo.end) ||
+                    (!this.isScrollUp && targetInfo.start))
+            break
+        }
+        return condition
+      },
+      async slotScroll(e) {
         const ref = this.$refs.slot
-        const scrollCenter = window.scrollY + window.innerHeight / 2
         const refCenter = ref.$el.offsetTop + ref.$el.offsetHeight / 2
 
-        if (
-          this.scroll.slot.flag &&
-          ((wheelY > 0 && this.scroll.slot.end) ||
-            (wheelY < 0 && this.scroll.slot.start))
-        ) {
-          this.stopFlag = false
-          this.scroll.slot.flag = false
-          setTimeout(() => {
-            ref.setSlot()
-          }, 1000)
+        if (await this.chkCondition('go', e, 'slot')) {
+          this.setState('go', 'slot')
         } else if (
-          !this.scroll.slot.flag &&
-          ((wheelY > 0 && !this.scroll.slot.end) ||
-            (wheelY < 0 && !this.scroll.slot.start)) &&
+          (await this.chkCondition('stop', e, 'slot')) &&
           refCenter > window.scrollY &&
           refCenter < window.scrollY + window.innerHeight
         ) {
-          window.scrollTo(0, refCenter - window.innerHeight / 2)
-          this.stopFlag = true
+          await this.setState('stop', 'slot')
+          await window.scrollTo(0, refCenter - window.innerHeight / 2)
           this.$nextTick(() => {
-            this.scroll.slot.flag = true
+            this.state.slotFinish = false
           })
+        } else {
+          if (
+            !this.stopFlag &&
+            !this.state.slotFinish &&
+            (window.scrollY + window.innerHeight <= ref.$el.offsetTop ||
+              window.scrollY >= ref.$el.offsetTop + ref.$el.offsetHeight)
+          ) {
+            ref.setSlot()
+            this.state.slotFinish = true
+          }
         }
       },
       innovationScroll(e) {
-        const wheelY = e.deltaY
         const ref = this.$refs.innovation
-        const scrollCenter = window.scrollY + window.innerHeight / 2
         const refCenter = ref.$el.offsetTop + ref.$el.offsetHeight / 2
 
         if (
           this.scroll.innovation.flag &&
-          ((wheelY > 0 && this.scroll.innovation.end) ||
-            (wheelY < 0 && this.scroll.innovation.start))
+          ((this.isScrollUp && this.scroll.innovation.end) ||
+            (!this.isScrollUp && this.scroll.innovation.start))
         ) {
           this.stopFlag = false
           this.scroll.innovation.flag = false
         } else if (
           !this.scroll.innovation.flag &&
-          ((wheelY > 0 && !this.scroll.innovation.end) ||
-            (wheelY < 0 && !this.scroll.innovation.start)) &&
+          ((this.isScrollUp && !this.scroll.innovation.end) ||
+            (this.isScrollUp && !this.scroll.innovation.start)) &&
           refCenter > window.scrollY &&
           refCenter < window.scrollY + window.innerHeight
         ) {
