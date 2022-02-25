@@ -32,18 +32,18 @@
 }
 @include animation('ani-left') {
   from {
-    transform: translateX(100%);
+    transform: translateX(100vw);
   }
   to {
-    transform: translateX(-100%);
+    transform: translateX(calc(-200% + 100vw));
   }
 }
 @include animation('ani-left2') {
   from {
-    transform: translateX(0);
+    transform: translateX(calc(-100% + 100vw));
   }
   to {
-    transform: translateX(-200%);
+    transform: translateX(calc(-300% + 100vw));
   }
 }
 @include animation('ani-right') {
