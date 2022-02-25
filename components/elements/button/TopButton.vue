@@ -14,7 +14,7 @@
   </button>
 </template>
 <script>
-  import { mapState } from 'vuex'
+  import { mapState, mapMutations } from 'vuex'
   export default {
     computed: {
       ...mapState(['device'])
@@ -27,8 +27,12 @@
     },
     mounted() {},
     methods: {
+      ...mapMutations({
+        setIsScrollUp: 'setIsScrollUp'
+      }),
       toScrollTop() {
         window.scrollTo(0, 0)
+        this.setIsScrollUp(false)
         this.scrollControl(document.getElementsByTagName('body'))
         if (this.$route.path === '/') {
           this.$nuxt.$emit('home-reset')

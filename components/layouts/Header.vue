@@ -1,12 +1,6 @@
 <template>
   <header :class="classBind">
-    <div
-      :class="{
-        'header-top': true,
-        'hide-target': true,
-        'is-hide': isScrollUp
-      }"
-    >
+    <div class="header-top">
       <h1 class="b-logo gl-2">
         <nuxt-link to="/">
           <img
@@ -37,9 +31,12 @@
         isScrollUp: state => state.isScrollUp
       }),
       classBind() {
-        let classList = ['header']
+        let classList = ['header', 'hide-target']
         if (this.isFilterMenuOpen || !this.isDark) {
           classList.push('header__light')
+        }
+        if (this.isScrollUp) {
+          classList.push('is-hide')
         }
         return classList.join(' ')
       }
