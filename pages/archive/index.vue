@@ -65,7 +65,7 @@
           },
           EN: {
             itemType: 'pagaraph',
-            text: '카카오브레인은 생각하지 못한 물음으로부터, 세상을 변화시킬 해답을 찾아가는 팀입니다. 우리는 AI 선행 연구부터, 프로덕트까지 모든 스토리를 공개하며 공유합니다. 이러한 행동은 AI 커뮤니티에 기여하며, 그로 인해 우리의 삶이 좀 더 나아질 것을 믿기 때문입니다.'
+            text: 'Kakaobrain is a seeking answers that will change the world from Unexpected Questions. We open and share all the stories from prcedent research on AI to products. We believe these actions contribute to the AI community and make our lives a little better. '
           }
         },
         pageData: {
