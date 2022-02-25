@@ -128,16 +128,16 @@
             },
             image: 'slot_9'
           },
+          // {
+          //   txt: {
+          //     KR: '우주의 시작은?',
+          //     EN: 'Where did the universe begin?'
+          //   },
+          //   image: 'slot_10'
+          // },
           {
             txt: {
-              KR: '우주의 시작은?',
-              EN: 'Where did the universe begin?'
-            },
-            image: 'slot_10'
-          },
-          {
-            txt: {
-              KR: '세상 모든 사람에게 주치의가 생길 수 있을까?',
+              KR: '세상 모든 사람에게 주치의가 있을 수 있을까?',
               EN: 'Can everyone in the world have a family doctor?'
             },
             image: 'slot_11'
