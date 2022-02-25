@@ -27,7 +27,7 @@
           <div ref="slot-text">
             <template v-for="itemIndex in slot">
               <p :key="itemIndex">
-                {{ data[itemIndex].txt }}
+                {{ data[itemIndex].txt[language] }}
               </p>
             </template>
           </div>
@@ -40,6 +40,7 @@
   </div>
 </template>
 <script>
+  import { mapState } from 'vuex'
   export default {
     props: {
       flag: {
@@ -58,43 +59,138 @@
     data() {
       return {
         data: [
-          { txt: '사과는 왜 떨어지는 걸까?', image: 'slot_0' },
+          // {
+          //   txt: {
+          //     KR: '사과는 왜 떨어지는 걸까?',
+          //     EN: '사과는 왜 떨어지는 걸까?'
+          //   },
+          //   image: 'slot_0'
+          // },
           {
-            txt: '우리 아이 건강 상담을 AI가 해줄 수 는 없을까?',
+            txt: {
+              KR: '우리 아이 건강 상담을 AI가 해줄 수 는 없을까?',
+              EN: 'Can AI provide health counseling for my child?'
+            },
             image: 'slot_1'
           },
-          { txt: '나는 왜 태어났나?', image: 'slot_2' },
-          { txt: 'AI가 수능을 볼 수 있을까?', image: 'slot_3' },
+          // {
+          //   txt: {
+          //     KR: '나는 왜 태어났나?',
+          //     EN: '나는 왜 태어났나?',
+          //   },
+          //   image: 'slot_2'
+          // },
           {
-            txt: '인공신경망은 사람의 지능을 뛰어넘을 수 있을까?',
+            txt: {
+              KR: 'AI가 수능을 볼 수 있을까?',
+              EN: 'Can AI take the SAT?'
+            },
+            image: 'slot_3'
+          },
+          {
+            txt: {
+              KR: '인공신경망은 사람의 지능을 뛰어넘을 수 있을까?',
+              EN: 'Can artificial neural networks surpass human intelligence?'
+            },
             image: 'slot_4'
           },
-          { txt: '나와 친구같은 AI가 있으면 어떨까?', image: 'slot_5' },
-          { txt: '우리는 오늘을 왜 사는걸까?', image: 'slot_6' },
           {
-            txt: '팬데믹 시대의 세상을 좀 더 안전하게 만들 수 없을까?',
+            txt: {
+              KR: '나와 친구같은 AI가 있으면 어떨까?',
+              EN: 'What if I had an AI bestie?'
+            },
+            image: 'slot_5'
+          },
+          // {
+          //   txt: {
+          //     KR: '우리는 오늘을 왜 사는걸까?',
+          //     EN: '우리는 오늘을 왜 사는걸까?',
+          //   }, image: 'slot_6'
+          // },
+          {
+            txt: {
+              KR: '팬데믹 시대의 세상을 좀 더 안전하게 만들 수 없을까?',
+              EN: 'Can we make the world a little safer in a pandemic?'
+            },
             image: 'slot_7'
           },
-          { txt: '왜 사람은 일해야 하는가?', image: 'slot_8' },
+          // {
+          //   txt: {
+          //     KR: '왜 사람은 일해야 하는가?',
+          //     EN: '왜 사람은 일해야 하는가?',
+          //   },
+          //   image: 'slot_8'
+          // },
           {
-            txt: '최고의 언어모델을 100배 더 좋게 만들 수 있을까?',
+            txt: {
+              KR: '최고의 언어모델을 100배 더 좋게 만들 수 있을까?',
+              EN: 'Can we make the best language model 100 times better?'
+            },
             image: 'slot_9'
           },
-          { txt: '우주의 시작은?', image: 'slot_10' },
           {
-            txt: '세상 모든 사람에게 주치의가 생길 수 있을까?',
+            txt: {
+              KR: '우주의 시작은?',
+              EN: 'Where did the universe begin?'
+            },
+            image: 'slot_10'
+          },
+          {
+            txt: {
+              KR: '세상 모든 사람에게 주치의가 생길 수 있을까?',
+              EN: 'Can everyone in the world have a family doctor?'
+            },
             image: 'slot_11'
           },
-          { txt: 'AI로 집값을 잡을 수 있을까?', image: 'slot_12' },
-          { txt: 'AI가 사람의 마음을 치료할 수 있을까?', image: 'slot_13' },
-          { txt: 'AI가 생활을 위협할까?', image: 'slot_14' },
-          { txt: '초거대 인공지능은 뭘까?', image: 'slot_15' },
           {
-            txt: '한번도 보지 못한 것을 떠올릴 수는 없을까?',
-            image: 'slot_16'
+            txt: {
+              KR: 'AI로 집값을 잡을 수 있을까?',
+              EN: 'Can AI be used to control house prices?'
+            },
+            image: 'slot_12'
           },
-          { txt: '1억년 후 세상을 예측할 수 있을까?', image: 'slot_17' },
-          { txt: '코로나는 언제 끝날까?', image: 'slot_18' }
+          {
+            txt: {
+              KR: 'AI가 사람의 마음을 치료할 수 있을까?',
+              EN: 'Can AI cure the human mind?'
+            },
+            image: 'slot_13'
+          },
+          {
+            txt: {
+              KR: 'AI가 생활을 위협할까?',
+              EN: 'Will AI threaten our lives?'
+            },
+            image: 'slot_14'
+          },
+          // {
+          //   txt: {
+          //     KR: '초거대 인공지능은 뭘까?',
+          //     EN: '초거대 인공지능은 뭘까?',
+          //   },
+          //   image: 'slot_15'
+          // },
+          // {
+          //   txt: {
+          //     KR: '한번도 보지 못한 것을 떠올릴 수는 없을까?',
+          //     EN: '한번도 보지 못한 것을 떠올릴 수는 없을까?',
+          //   },
+          //   image: 'slot_16'
+          // },
+          {
+            txt: {
+              KR: '1억년 후 세상을 예측할 수 있을까?',
+              EN: 'Can we predict the world 100 million years from now?'
+            },
+            image: 'slot_17'
+          }
+          // {
+          //   txt: {
+          //     KR: '코로나는 언제 끝날까?',
+          //     EN: '코로나는 언제 끝날까?',
+          //   },
+          //   image: 'slot_18'
+          // }
         ],
         slotLength: 5,
         isChanged: true,
@@ -111,6 +207,9 @@
           end: null
         }
       }
+    },
+    computed: {
+      ...mapState(['language'])
     },
     watch: {
       flag(val) {
