@@ -177,6 +177,7 @@
     .top-section {
       display: block;
       height: auto;
+      margin-top: 60px;
     }
     .bread-crumb {
       padding: 0 20px;
