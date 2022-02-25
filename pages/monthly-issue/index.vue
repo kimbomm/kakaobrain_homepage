@@ -41,9 +41,10 @@
           },
           EN: {
             itemType: 'pagaraph',
-            text: `왜 사과는 떨어지는 것일까? 생각하지 못한 물음이 세상을 바꿨습니다.
-            매월 카카오브레인은 생각하지 못한 물음을 던지고, 물음에 대한 답을 찾아가는 여정을 함께 나눕니다.
-            이러한 생각지 못한 물음의 여정들이 AI 기술을 좀더 강하게, 우리의 삶을 좀더 풍요롭게 할 수 있다고 믿습니다. 그럼, 함께 가볼까요?
+            text: `Why do apples fall? An unexpected question changed the world.
+            Every month, Kakao Brain asks unexpected questions and shares Why do apples fall? An Unexpected Question changed the world.
+            Every month, Kakao Brain asks Unexpected Questions and shares the journey to find answers.
+            We believe that the journeys toward Unexpected Questions can make AI technology stronger and enrich our lives. So, would you like to jump in together?
             `
           }
         },
