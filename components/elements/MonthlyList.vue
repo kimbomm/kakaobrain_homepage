@@ -24,7 +24,7 @@
               @
               {{ $dayjs(data.Content.createAt).format('YYYY') }}
             </div>
-            <div class="name">{{ data.Content.title }}</div>
+            <div class="name">{{ data.title }}</div>
           </div>
         </div>
       </nuxt-link>
