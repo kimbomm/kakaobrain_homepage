@@ -144,6 +144,9 @@
         setLanguage: 'setLanguage'
       }),
       hideMenu(value) {
+        value
+          ? this.scrollControl(document.querySelector('body'), 'block')
+          : this.scrollControl(document.querySelector('body'), 'enable')
         this.isMenu = value
       },
       async selectLang(lang) {
