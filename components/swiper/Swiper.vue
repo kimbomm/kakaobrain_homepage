@@ -137,7 +137,7 @@
       }
     },
     async mounted() {
-      await this.checkMobile()
+      // await this.checkMobile()
       this.$nextTick(async () => {
         this.isEndSlide = this.device.mobile || this.viewPortWidth <= 768
         this.$nuxt.$emit('onSlideEnd', this.isEndSlide)
@@ -282,6 +282,7 @@
         font-weight: 900;
         margin-bottom: 40px;
         line-height: 120%;
+        word-break: break-word;
       }
       &-txt {
         font-size: 16px;

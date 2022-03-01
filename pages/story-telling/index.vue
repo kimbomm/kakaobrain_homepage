@@ -42,7 +42,7 @@
     },
     async beforeDestroy() {
       await this.$nuxt.$emit('story-page', false)
-      await this.$store.commit('setIsDark', false)
+      await this.$store.commit('setIsDark', true)
       window.removeEventListener('resize', this.onResizeEvent)
     },
     methods: {
@@ -51,7 +51,6 @@
         this.viewPortWidth = window.innerWidth
         if (this.isMobile || this.viewPortWidth <= 768) {
           await this.$store.commit('setIsDark', true)
-          await this.$nuxt.$emit('story-page', false)
         } else {
           await this.$store.commit('setIsDark', false)
           await this.$nuxt.$emit('story-page', true)

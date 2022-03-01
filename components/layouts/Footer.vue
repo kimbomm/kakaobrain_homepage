@@ -108,7 +108,7 @@
     }
   }
   .footer {
-    margin: 0 20px 20px;
+    padding: 0 20px 20px;
     > div {
       position: relative;
     }
@@ -162,19 +162,6 @@
     margin-bottom: 20px;
     &:last-child {
       margin-bottom: 0;
-    }
-  }
-
-  .footer__light {
-    background-color: $gray-9;
-    .footer-bottom {
-      color: $gray-0;
-    }
-    .b-symbol {
-      background-image: url('~/assets/images/b-w-symbol.png');
-    }
-    .menu-list {
-      color: $gray-0;
     }
   }
 
@@ -257,7 +244,7 @@
       }
     }
     .footer {
-      margin-bottom: 50px;
+      padding-bottom: 50px;
       &-shape {
         display: none;
       }
