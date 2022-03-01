@@ -111,7 +111,7 @@
       }
     }
     .top {
-      padding: 400px 0 0;
+      padding: 440px 0 0;
     }
     .detail-text {
       margin-bottom: 200px;

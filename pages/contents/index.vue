@@ -222,7 +222,7 @@
     .top {
       padding: 130px 20px 100px;
       &.no-thumbnail {
-        padding: 400px 0 0;
+        padding: 440px 0 0;
       }
     }
     .detail-text {
