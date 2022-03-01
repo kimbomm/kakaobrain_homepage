@@ -180,6 +180,9 @@
             if (item.value === data.value) item.isChecked = data.isChecked
           }
         })
+        if (this.checkedList.length === 0) {
+          this.filterList[0].isChecked = true
+        }
         this.pageData.tag =
           this.checkedList.join('|') === 'all' ? '' : this.checkedList.join('|')
         this.fetchList()

@@ -49,12 +49,12 @@
         let list = []
         list = [...this.list]
         return list
+      },
+      checkedList() {
+        let list = []
+        list = this.list.filter(item => item.isChecked)
+        return list
       }
-      // checkedList() {
-      //   let list = []
-      //   list = this.list.filter(item => item.isChecked)
-      //   return list
-      // }
     },
     watch: {
       filterList: {
@@ -103,14 +103,13 @@
           }
         })
 
-        await this.setCheckList()
-      },
-      async setCheckList() {
-        const checkedList = await this.list.filter(item => item.isChecked)
-        const isAll = await checkedList.find(obj => {
+        if (this.checkedList.length === 0) {
+          this.list[0].isChecked = true
+        }
+        const isAll = await this.checkedList.find(obj => {
           return obj.value == 'all'
         })
-        await this.setFilter(isAll ? [] : checkedList.map(obj => obj.text))
+        await this.setFilter(isAll ? [] : this.checkedList.map(obj => obj.text))
       }
     }
   }
