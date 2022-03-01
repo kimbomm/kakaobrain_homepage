@@ -17,7 +17,18 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' }
+      { name: 'format-detection', content: 'telephone=no' },
+      { property: '“og:type', content: '“website”' },
+      { property: '“og:url”', content: 'https://www.kakaobrain.com' },
+      { property: '“og:image”', content: '/metaimg.png' },
+      {
+        property: '“og:description”',
+        content: 'Unthinkable question makes impactful answer.'
+      },
+      { property: '“og:site_name”', content: 'kakaobrain' },
+      { property: '“og:locale”', content: '“en_US”' },
+      { property: '“og:image:width', content: '1200' },
+      { property: '“og:image:height”', content: '630' }
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     script: [{ src: '/script/bodyScrollLock.js' }]
