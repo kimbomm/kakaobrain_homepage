@@ -280,6 +280,7 @@
 <style lang="scss" scoped>
   .main {
     padding-top: 200px;
+    margin-bottom: 500px;
     .question {
       margin-top: 436px;
     }
@@ -309,6 +310,7 @@
   @include pc-large {
     .main {
       padding-top: 300px;
+      margin-bottom: 670px;
       .question {
         margin-top: 990px;
       }
@@ -333,6 +335,7 @@
   @include pc-4k {
     .main {
       padding-top: 260px;
+      margin-bottom: 1000px;
       .question {
         margin-top: 1500px;
       }
@@ -359,6 +362,7 @@
   @include tablet {
     .main {
       padding-top: 200px;
+      margin-bottom: 400px;
       .question {
         margin-top: 400px;
       }
@@ -379,6 +383,7 @@
   @include mobile {
     .main {
       padding-top: 96px;
+      margin-bottom: 200px;
       .question {
         margin-top: 240px;
       }
