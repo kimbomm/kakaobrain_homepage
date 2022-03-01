@@ -170,6 +170,7 @@
       }
     }
     &-content {
+      margin-top: 46px;
       height: calc(100% - 46px);
       padding: 0 20px 50px 20px;
       margin-left: getMargin(2);
@@ -255,6 +256,7 @@
         }
       }
       &-content {
+        margin-top: 56px;
         height: calc(100% - 56px);
         margin-left: getMargin(1);
       }

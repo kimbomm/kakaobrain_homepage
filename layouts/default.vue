@@ -6,7 +6,7 @@
       <div class="container">
         <Nuxt />
       </div>
-      <Footer v-if="isFooterShow" />
+      <Footer v-if="isFooterShow" :class="{ footer__story: isStoryPage }" />
     </div>
     <template v-if="!isStoryPage">
       <CardinalPoints />
@@ -149,5 +149,52 @@
   .wrap {
     background-color: $surface-1;
     overflow-x: hidden;
+  }
+  .footer__story {
+    padding-top: 500px;
+    background-color: $gray-9;
+    /deep/ {
+      .footer-bottom {
+        color: $gray-0;
+      }
+      .b-symbol {
+        background-image: url('~/assets/images/b-w-symbol.png');
+      }
+      .menu-list {
+        color: $gray-0;
+      }
+    }
+  }
+  @include pc-large {
+    .footer__story {
+      padding-top: 700px;
+    }
+  }
+  @include pc-4k {
+    .footer__story {
+      padding-top: 1000px;
+    }
+  }
+  @include tablet {
+    .footer__story {
+      padding-top: 200px;
+    }
+  }
+  @include mobile {
+    .footer__story {
+      padding-top: 100px;
+      background-color: $gray-0;
+      /deep/ {
+        .footer-bottom {
+          color: $gray-9;
+        }
+        .b-symbol {
+          background-image: url('~/assets/images/b-symbol.svg');
+        }
+        .menu-list {
+          color: $gray-9;
+        }
+      }
+    }
   }
 </style>
