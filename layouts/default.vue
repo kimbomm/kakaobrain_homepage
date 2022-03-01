@@ -8,10 +8,8 @@
       </div>
       <Footer v-if="isFooterShow" :class="{ footer__story: isStoryPage }" />
     </div>
-    <template v-if="!isStoryPage">
-      <CardinalPoints />
-      <TopButton />
-    </template>
+    <CardinalPoints v-show="!isStoryPage" />
+    <TopButton v-show="!isStoryPage" />
   </div>
 </template>
 <script>

@@ -120,7 +120,7 @@
       margin-top: 56px;
       .bread-crumb {
         left: 0;
-        padding-top: 80px;
+        padding: 20px;
       }
     }
     .like {
