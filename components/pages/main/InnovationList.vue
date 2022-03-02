@@ -101,13 +101,16 @@
           if (wheelY > wheelX) {
             refScrollBox.scrollLeft += e.deltaY * 0.2
           }
-          this.$emit('update:start', refScrollBox.scrollLeft === 0)
-          this.$emit(
-            'update:end',
-            ref.offsetWidth > refScrollBox.scrollWidth
-              ? refScrollBox.scrollLeft >= refScrollBox.scrollWidth * 0.95
-              : true
-          )
+          setTimeout(() => {
+            this.$emit('update:start', refScrollBox.scrollLeft === 0)
+            this.$emit(
+              'update:end',
+              ref.offsetWidth > refScrollBox.offsetWidth
+                ? refScrollBox.scrollLeft >=
+                    (refScrollBox.scrollWidth - refScrollBox.offsetWidth) * 0.95
+                : true
+            )
+          }, 1000)
         }
       }
     }

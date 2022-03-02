@@ -116,7 +116,7 @@
       flex-direction: column;
       justify-content: space-between;
       height: 100%;
-      word-break: break-all;
+      word-break: keep-all;
     }
     &-tit {
       margin-bottom: 110px;
@@ -124,7 +124,6 @@
       font-size: 30px;
       height: calc(30px * 1 * 8);
       font-weight: 400;
-      word-break: keep-all;
       overflow: hidden;
       text-overflow: ellipsis;
       display: -webkit-box;
