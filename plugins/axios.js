@@ -8,8 +8,9 @@ export default ({ $axios, redirect }) => {
 
   // $axios.onError(error => {
   //   const code = parseInt(error.response && error.response.status)
-  //   if (code) {
-  //     redirect('/error')
-  //   }
+  //   return true
+  //   // if (code) {
+  //   //   redirect('/error')
+  //   // }
   // })
 }

@@ -80,6 +80,20 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+  generate: {
+    routes: [
+      // '/contents/research/challenge',
+      // '/contents/research/publications',
+      // '/contents/research/collaborative',
+      // '/contents/tech/highlight',
+      // '/contents/tech/dataset',
+      // '/contents/tech/brain',
+      // '/contents/tech/large',
+      // '/contents/tech/digital',
+      // '/contents/document/news',
+      // '/contents/document/documentary'
+    ]
+  },
 
   styleResources: {
     scss: [

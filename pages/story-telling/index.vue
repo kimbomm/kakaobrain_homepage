@@ -31,9 +31,9 @@
     },
     async created() {
       await this.$nuxt.$emit('story-page', true)
-      await this.init()
     },
     async mounted() {
+      await this.init()
       await this.checkMobile()
       this.$nextTick(async () => {
         await this.onResizeEvent()

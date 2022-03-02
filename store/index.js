@@ -103,7 +103,7 @@ export const actions = {
   },
   async getTags({}, payload) {
     const params = utility.setParameters(payload)
-    const res = this.$axios(`/tag?${params}`)
+    const res = await this.$axios(`/tag?${params}`)
     return res
   }
 }
