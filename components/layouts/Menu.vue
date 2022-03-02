@@ -96,19 +96,6 @@
         ]
       }
     },
-    watch: {
-      isMenuOpen(val) {
-        if (val) {
-          this.scrollControl(document.querySelector('body'), 'block')
-          setTimeout(() => {
-            this.isAnimation = true
-          }, 300)
-        } else {
-          this.isAnimation = false
-          this.scrollControl(document.querySelector('body'), 'enable')
-        }
-      }
-    },
     computed: {
       ...mapState({
         menus: state => state.menus,
@@ -137,6 +124,19 @@
             'https://www.kakaocorp.com/page/responsible/aiEthics?lang=ENG&tab=all'
         }
         return link
+      }
+    },
+    watch: {
+      isMenuOpen(val) {
+        if (val) {
+          this.scrollControl(document.querySelector('body'), 'block')
+          setTimeout(() => {
+            this.isAnimation = true
+          }, 300)
+        } else {
+          this.isAnimation = false
+          this.scrollControl(document.querySelector('body'), 'enable')
+        }
       }
     },
     methods: {

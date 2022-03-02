@@ -21,7 +21,7 @@
   </div>
 </template>
 <script>
-  import { mapActions } from 'vuex'
+  import { mapState, mapActions } from 'vuex'
   import InnovationCard from '@/components/elements/card/InnovationCard'
   export default {
     props: {
@@ -48,10 +48,15 @@
           offset: 0,
           limit: 8,
           contentType: 'THESIS',
-          targetLang: 'KR'
+          targetLang: 'EN'
         },
         list: []
       }
+    },
+    computed: {
+      ...mapState({
+        language: state => state.language
+      })
     },
     watch: {
       flag(val) {
@@ -74,6 +79,7 @@
         getContentList: 'getContentList'
       }),
       async init() {
+        this.pageData.language = this.language
         const res = await this.getContentList(this.pageData)
         this.list = res.data.list
       },

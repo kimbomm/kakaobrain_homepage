@@ -23,7 +23,7 @@
   </div>
 </template>
 <script>
-  import { mapActions } from 'vuex'
+  import { mapState, mapActions } from 'vuex'
   import ArchiveCard from '@/components/elements/card/ArchiveCard'
   export default {
     components: {
@@ -35,10 +35,15 @@
           offset: 0,
           limit: 5,
           contentType: 'ARTICLE',
-          targetLang: 'KR'
+          targetLang: 'EN'
         },
         list: []
       }
+    },
+    computed: {
+      ...mapState({
+        language: state => state.language
+      })
     },
     mounted() {
       this.init()
@@ -48,6 +53,7 @@
         getContentList: 'getContentList'
       }),
       async init() {
+        this.pageData.language = this.language
         const res = await this.getContentList(this.pageData)
         this.list = res.data.list
       }
