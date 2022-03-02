@@ -107,20 +107,18 @@
         const ref = this.$refs['flow']
         const refList = this.$refs['list']
         const refFlow = this.$refs['backgroundFlow']
-        // console.log(refList)
-        // return false
         if (
           window.scrollY + window.innerHeight / 2 >=
             ref.offsetTop + refList.offsetTop + refFlow.offsetHeight / 2 &&
-          window.scrollY <=
-            ref.offsetTop + ref.offsetHeight - window.innerHeight
+          refFlow.offsetTop + refFlow.offsetHeight <=
+            refList.offsetTop + refList.offsetHeight
         ) {
           const top =
             window.scrollY +
             window.innerHeight / 2 -
             (ref.offsetTop + refList.offsetTop + refFlow.offsetHeight / 2) +
             refList.offsetTop
-          // console.log('top::', top)
+
           refFlow.classList.add('scrolled')
           refFlow.style = `top: ${top}px;`
         } else if (window.scrollY < this.$refs['flow'].offsetTop) {
