@@ -144,9 +144,11 @@
       transition: all 0.3s linear;
       display: inline-flex;
       flex-wrap: nowrap;
+
       li {
         margin-right: 100px;
         flex: 0 0 getWidth(3);
+        white-space: normal;
         &:last-child {
           flex: 0;
           display: inline-flex;

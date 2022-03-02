@@ -117,7 +117,7 @@
     background-color: $gray-0;
     color: $gray-9;
     box-sizing: border-box;
-    word-break: break-all;
+    word-break: keep-all;
     &:not(:last-child) {
       margin-right: 20px;
     }
@@ -133,7 +133,6 @@
       padding: 20px 20px 0;
       font-size: 30px;
       font-weight: 400;
-      word-break: break-all;
     }
     &-con {
       .tag {
