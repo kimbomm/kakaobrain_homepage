@@ -134,7 +134,8 @@
       window.addEventListener('touchmove', this.touchMove)
       window.addEventListener('touchend', this.onScroll)
       this.$nuxt.$on('home-reset', this.scrollReset)
-      this.scrollControl(document.querySelector('body'), 'enable')
+      this.$nuxt.$emit('bodyLock', false)
+      // this.scrollControl(document.querySelector('body'), 'enable')
     },
     beforeDestroy() {
       window.removeEventListener('wheel', this.onScroll)
@@ -142,7 +143,8 @@
       window.removeEventListener('touchmove', this.onTouchMove)
       window.removeEventListener('touchend', this.onScroll)
       this.$nuxt.$off('home-reset', this.scrollReset)
-      this.scrollControl(document.querySelector('body'), 'enable')
+      this.$nuxt.$emit('bodyLock', false)
+      // this.scrollControl(document.querySelector('body'), 'enable')
     },
     methods: {
       scrollReset() {
@@ -177,7 +179,8 @@
           this.isScrollUp = this.touchInfo.end < this.touchInfo.start
         }
         if (this.stopFlag) {
-          this.scrollControl(document.querySelector('body'), 'block')
+          this.$nuxt.$emit('bodyLock', true)
+          // this.scrollControl(document.querySelector('body'), 'block')
         }
         await this.slotScroll(e)
         await this.innovationScroll(e)
@@ -187,12 +190,14 @@
           case 'stop':
             this.stopFlag = true
             this.scroll[target].flag = true
-            this.scrollControl(document.querySelector('body'), 'block')
+            this.$nuxt.$emit('bodyLock', true)
+            // this.scrollControl(document.querySelector('body'), 'block')
             break
           case 'go':
             this.stopFlag = false
             this.scroll[target].flag = false
-            this.scrollControl(document.querySelector('body'), 'enable')
+            this.$nuxt.$emit('bodyLock', false)
+            // this.scrollControl(document.querySelector('body'), 'enable')
             break
         }
       },

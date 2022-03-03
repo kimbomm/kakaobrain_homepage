@@ -57,23 +57,23 @@ function setParameters(payload) {
   return createdParam
 }
 
-function scrollControl(el, method) {
-  switch (method) {
-    case 'block':
-      bodyScrollLock.disableBodyScroll(el)
-      break
-    case 'enable':
-      bodyScrollLock.enableBodyScroll(el)
-      break
-    default:
-      bodyScrollLock.clearAllBodyScrollLocks()
-      break
-  }
-}
-Vue.prototype.scrollControl = scrollControl
+// function scrollControl(el, method) {
+//   switch (method) {
+//     case 'block':
+//       bodyScrollLock.disableBodyScroll(el)
+//       break
+//     case 'enable':
+//       bodyScrollLock.enableBodyScroll(el)
+//       break
+//     default:
+//       bodyScrollLock.clearAllBodyScrollLocks()
+//       break
+//   }
+// }
+// Vue.prototype.scrollControl = scrollControl
 
 export default {
   changeNumFont,
-  setParameters,
-  scrollControl
+  setParameters
+  // scrollControl
 }

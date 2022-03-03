@@ -43,8 +43,8 @@ export default {
       { hid: 'og:image:width', name: 'og:image:width', content: '1200' },
       { hid: 'og:image:height', name: 'og:image:height', content: '630' }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
-    script: [{ src: '/script/bodyScrollLock.js' }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    // script: [{ src: '/script/bodyScrollLock.js' }]
   },
   axios: {
     credentials: true,
@@ -61,6 +61,7 @@ export default {
   plugins: [
     { src: '@/plugins/axios.js' },
     { src: '@/plugins/eventbus.js' },
+    { src: '@/plugins/v-body-scroll-lock.js' },
     { src: '@/plugins/vue-device-detector.js', ssr: false },
     { src: '@/plugins/vue-masonry-css.js', ssr: false }
   ],

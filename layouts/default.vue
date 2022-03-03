@@ -1,5 +1,6 @@
 <template>
-  <div :class="classBind">
+  <div :class="classBind" v-body-scroll-lock="bodyLock">
+    <!-- <div :class="classBind"> -->
     <div class="l-pages">
       <FilterList v-if="!isStoryPage" />
       <Header />
@@ -36,7 +37,8 @@
         touchInfo: {
           start: null,
           end: null
-        }
+        },
+        bodyLock: false
       }
     },
     computed: {
@@ -64,6 +66,7 @@
       }
     },
     created() {
+      this.$nuxt.$on('bodyLock', this.onBodyLock)
       this.$nuxt.$on('story-page', this.onStoryPage)
       this.$nuxt.$on('onSlideEnd', this.onSlideEnd)
     },
@@ -94,6 +97,9 @@
         setLanguage: 'setLanguage',
         setIsScrollUp: 'setIsScrollUp'
       }),
+      onBodyLock(value) {
+        this.bodyLock = value
+      },
       onStoryPage(value) {
         this.isStoryPage = value
       },
