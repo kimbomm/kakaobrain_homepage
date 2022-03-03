@@ -61,7 +61,7 @@ export default {
   plugins: [
     { src: '@/plugins/axios.js' },
     { src: '@/plugins/eventbus.js' },
-    { src: '@/plugins/v-body-scroll-lock.js' },
+    { src: '@/plugins/v-body-scroll-lock.js', ssr: false },
     { src: '@/plugins/vue-device-detector.js', ssr: false },
     { src: '@/plugins/vue-masonry-css.js', ssr: false }
   ],
