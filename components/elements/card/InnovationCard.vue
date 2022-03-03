@@ -171,7 +171,8 @@
         font-size: 40px;
         line-height: 0.9;
         height: auto;
-        max-height: calc(40px * 0.9 * 8);
+        padding-bottom: 5px;
+        max-height: calc(40px * 0.9 * 8 + 5px);
         margin-bottom: 0;
       }
     }

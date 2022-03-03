@@ -328,7 +328,7 @@
       margin-top: 500px;
     }
     .team {
-      margin-top: 500px;
+      margin-top: 440px;
     }
   }
   @include pc-large {
@@ -352,7 +352,7 @@
         margin-top: 700px;
       }
       .team {
-        margin-top: 700px;
+        margin-top: 640px;
       }
     }
   }
@@ -379,7 +379,7 @@
         margin-top: 1000px;
       }
       .team {
-        margin-top: 1500px;
+        margin-top: 1440px;
       }
     }
   }
@@ -400,7 +400,7 @@
         margin-top: 300px;
       }
       .team {
-        margin-top: 400px;
+        margin-top: 340px;
       }
     }
   }
@@ -428,7 +428,7 @@
         margin-top: 300px;
       }
       .team {
-        margin-top: 200px;
+        margin-top: 140px;
       }
     }
   }

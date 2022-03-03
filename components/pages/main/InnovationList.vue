@@ -113,7 +113,7 @@
               'update:end',
               ref.offsetWidth > refScrollBox.offsetWidth
                 ? refScrollBox.scrollLeft >=
-                    (refScrollBox.scrollWidth - refScrollBox.offsetWidth) * 0.95
+                    refScrollBox.scrollWidth - refScrollBox.offsetWidth
                 : true
             )
           }, 1000)

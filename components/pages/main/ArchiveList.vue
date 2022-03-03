@@ -92,6 +92,7 @@
     }
     &-list {
       margin-top: 100px;
+      padding-bottom: 60px;
       display: flex;
       justify-content: space-between;
       -ms-overflow-style: none; /* IE and Edge */
@@ -133,8 +134,11 @@
   }
   @include tablet {
     .main-archive {
-      // padding: 0;
+      padding: 0;
       > div {
+        &:nth-child(1) {
+          padding: 0 20px;
+        }
         span {
           font-size: 30px;
         }
@@ -143,7 +147,7 @@
         }
       }
       &-list {
-        padding-left: getMargin(2);
+        padding-left: calc(#{getMargin(2)} + 20px);
         justify-content: flex-start;
         flex-wrap: nowrap;
         overflow-x: auto;
@@ -156,7 +160,6 @@
   }
   @include mobile {
     .main-archive {
-      padding: 0;
       > div {
         width: 100% !important;
         margin-left: 0 !important;
