@@ -107,14 +107,14 @@
         const ref = this.$refs['flow']
         const refList = this.$refs['list']
         const refFlow = this.$refs['backgroundFlow']
-
+        let top = 0
         if (
           window.scrollY + window.innerHeight / 2 >=
             ref.offsetTop + refList.offsetTop + refFlow.offsetHeight / 2 &&
           refFlow.offsetTop + refFlow.offsetHeight <=
             refList.offsetTop + refList.offsetHeight
         ) {
-          let top =
+          top =
             window.scrollY +
             window.innerHeight / 2 -
             (ref.offsetTop + refList.offsetTop + refFlow.offsetHeight / 2) +
@@ -125,13 +125,14 @@
           ) {
             top =
               refList.offsetTop + refList.offsetHeight - refFlow.offsetHeight
+            refFlow.style = `position:absolute; top: ${top}px; transform: translateY(0)`
+          } else {
+            refFlow.style = ''
+            refFlow.classList.add('scrolled')
           }
-
-          refFlow.classList.add('scrolled')
-          refFlow.style = `top: ${top}px;`
         } else if (window.scrollY < this.$refs['flow'].offsetTop) {
-          refFlow.classList.remove('scrolled')
           refFlow.style = ''
+          refFlow.classList.remove('scrolled')
         }
       }
     }
@@ -175,6 +176,10 @@
       }
     }
     &.scrolled {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+
       > div {
         &:nth-child(1) {
           .flow-txt {
