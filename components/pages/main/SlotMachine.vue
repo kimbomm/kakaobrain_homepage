@@ -202,14 +202,12 @@
           deltaY: null
         },
         isScrollUp: null,
-        touchInfo: {
-          start: null,
-          end: null
-        }
+        prevY: 0,
+        slotChange: true
       }
     },
     computed: {
-      ...mapState(['language'])
+      ...mapState(['language', 'device'])
     },
     watch: {
       flag(val) {
@@ -219,43 +217,73 @@
       }
     },
     mounted() {
-      this.$refs.machine.addEventListener('wheel', this.onWheel)
-      window.addEventListener('touchstart', this.touchStart)
-      window.addEventListener('touchmove', this.touchMove)
-      this.$refs.machine.addEventListener('touchend', this.onWheel)
+      this.scrollBody.addEventListener('scroll', this.onWheel)
+      this.scrollBody.addEventListener('wheel', this.onWheel)
       this.setSlot()
     },
     beforeDestroy() {
-      this.$refs.machine.removeEventListener('wheel', this.onWheel)
-      window.removeEventListener('touchstart', this.onTouchStart)
-      window.removeEventListener('touchmove', this.onTouchMove)
-      this.$refs.machine.removeEventListener('touchend', this.onWheel)
+      this.scrollBody.removeEventListener('scroll', this.onWheel)
+      this.scrollBody.removeEventListener('wheel', this.onWheel)
     },
     methods: {
-      touchStart(e) {
-        this.touchInfo.start = e.touches[0].clientY
-      },
-      touchMove(e) {
-        this.touchInfo.end = e.touches[0].clientY
-      },
       onWheel(e) {
-        if (e.type !== 'wheel') {
-          this.isScrollUp = this.touchInfo.end < this.touchInfo.start
-        }
-        const condition =
-          e.type === 'wheel' ? e.deltaY && this.wheelSpeed(e) : true
-        const isUp = e.type === 'wheel' ? e.deltaY > 0 : this.isScrollUp
+        if (
+          (this.device.touch || window.innerWidth <= 1024) &&
+          e.type === 'scroll'
+        ) {
+          this.isScrollUp =
+            this.scrollBody.scrollTop > this.prevY &&
+            this.scrollBody.scrollTop !== 0
+          const ref = this.$refs['slot-contents']
+          const refCenter = ref.offsetTop + ref.offsetHeight / 2
+          for (let i = 0; i < this.slotLength; i++) {
+            if (
+              refCenter >=
+                this.scrollBody.scrollTop +
+                  (window.innerHeight * i) / this.slotLength &&
+              refCenter <=
+                this.scrollBody.scrollTop +
+                  (window.innerHeight * (i + 1)) / this.slotLength
+            ) {
+              if (this.activeIndex === this.slotLength - 1 - i) {
+                return false
+              }
+              this.activeIndex = this.slotLength - 1 - i
+              if (this.isScrollUp) {
+                this.wheelDir = 1
+                this.prevIndex =
+                  this.activeIndex === 0 ? 0 : this.activeIndex - 1
+              } else {
+                this.wheelDir = -1
+                this.prevIndex = this.activeIndex + 1
+              }
 
-        if (condition && this.flag && !this.isChanged) {
-          if (e.type === 'wheel') {
-            e.preventDefault()
+              const targetText = this.$refs['slot-text']
+              targetText.style = `transform: translateY(-${
+                targetText.offsetHeight * (this.activeIndex / this.slotLength)
+              }px)`
+              this.slotChange = false
+            }
           }
-          if (isUp) {
-            this.wheelDir = 1
-            this.onMove('up')
-          } else {
-            this.wheelDir = -1
-            this.onMove('down')
+          if (
+            !this.slotChange &&
+            (this.scrollBody.scrollTop + window.innerHeight < ref.offsetTop ||
+              this.scrollBody.scrollTop > ref.offsetTop + ref.offsetHeight)
+          ) {
+            this.setSlot()
+            this.slotChange = true
+          }
+          this.prevY = this.scrollBody.scrollTop
+        } else if (e.type === 'wheel') {
+          if (this.wheelSpeed(e) && this.flag && !this.isChanged) {
+            e.preventDefault()
+            if (e.deltaY > 0) {
+              this.wheelDir = 1
+              this.onMove('up')
+            } else {
+              this.wheelDir = -1
+              this.onMove('down')
+            }
           }
         }
       },
@@ -332,7 +360,7 @@
     background-color: $surface-2;
     margin: 0 20px;
     // height: 1500px;
-    height: 100vh !important;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -417,7 +445,7 @@
   }
   @include pc-large {
     .machine {
-      height: 2000px;
+      // height: 2000px;
     }
     .slot-contents {
       height: 600px;
@@ -441,7 +469,7 @@
   }
   @include pc-4k {
     .machine {
-      height: 3000px;
+      // height: 3000px;
     }
     .slot-contents {
       height: 900px;
@@ -470,6 +498,7 @@
     .slot-contents {
       height: 300px;
       img {
+        animation-duration: 500ms;
         height: 300px;
       }
       .slot-image {
@@ -478,6 +507,9 @@
     }
     .slot-text {
       height: calc(90px * 1.1 * 5);
+      > div {
+        transition-duration: 500ms;
+      }
       p {
         height: calc(90px * 1.1 * 5);
         font-size: 90px;

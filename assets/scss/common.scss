@@ -4,6 +4,18 @@ body {
   font-family: 'NotoSansKR', 'Inter', sans-serif;
   word-break: keep-all;
 }
+html,
+body,
+#__nuxt,
+#__layout {
+  height: 100%;
+  overflow: hidden;
+}
+.wrap {
+  height: 100%;
+  overflow-y: auto;
+  // scroll-behavior: smooth;
+}
 
 .hide-target {
   transition: all 0.5s linear;

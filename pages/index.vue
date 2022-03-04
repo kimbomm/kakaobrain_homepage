@@ -31,6 +31,7 @@
   </div>
 </template>
 <script>
+  import { mapState } from 'vuex'
   import mixinGlobal from '@/mixin/global.js'
   import IssueSlider from '@/components/pages/main/IssueSlider'
   import UnthinkableQuestion from '@/components/pages/main/UnthinkableQuestion'
@@ -128,22 +129,25 @@
         }
       }
     },
-    mounted() {
-      window.addEventListener('wheel', this.onScroll)
+    computed: {
+      ...mapState(['device'])
+    },
+    async mounted() {
+      this.scrollBody.addEventListener('wheel', this.onScroll)
       window.addEventListener('touchstart', this.touchStart)
       window.addEventListener('touchmove', this.touchMove)
       window.addEventListener('touchend', this.onScroll)
       this.$nuxt.$on('home-reset', this.scrollReset)
-      this.$nuxt.$emit('bodyLock', false)
+      this.$nuxt.$emit('scrollLock', false)
       // this.scrollControl(document.querySelector('body'), 'enable')
     },
     beforeDestroy() {
-      window.removeEventListener('wheel', this.onScroll)
+      this.scrollBody.removeEventListener('wheel', this.onScroll)
       window.removeEventListener('touchstart', this.onTouchStart)
       window.removeEventListener('touchmove', this.onTouchMove)
       window.removeEventListener('touchend', this.onScroll)
       this.$nuxt.$off('home-reset', this.scrollReset)
-      this.$nuxt.$emit('bodyLock', false)
+      this.$nuxt.$emit('scrollLock', false)
       // this.scrollControl(document.querySelector('body'), 'enable')
     },
     methods: {
@@ -175,11 +179,13 @@
         this.touchInfo.end = e.touches[0].clientY
       },
       async onScroll(e) {
+        // console.log(e.deltaY)
+        if (this.device.touch || window.innerWidth <= 1024) return false
         if (e.type !== 'wheel') {
           this.isScrollUp = this.touchInfo.end < this.touchInfo.start
         }
         if (this.stopFlag) {
-          this.$nuxt.$emit('bodyLock', true)
+          this.$nuxt.$emit('scrollLock', true)
           // this.scrollControl(document.querySelector('body'), 'block')
         }
         await this.slotScroll(e)
@@ -190,20 +196,19 @@
           case 'stop':
             this.stopFlag = true
             this.scroll[target].flag = true
-            this.$nuxt.$emit('bodyLock', true)
-            // this.scrollControl(document.querySelector('body'), 'block')
+            this.$nuxt.$emit('scrollLock', true)
             break
           case 'go':
             this.stopFlag = false
             this.scroll[target].flag = false
-            this.$nuxt.$emit('bodyLock', false)
-            // this.scrollControl(document.querySelector('body'), 'enable')
+            this.$nuxt.$emit('scrollLock', false)
             break
         }
       },
       chkCondition(type, event, target) {
         let condition = false
         const targetInfo = this.scroll[target]
+        // console.log(event.deltaY, targetInfo.start, targetInfo.end)
         switch (type) {
           case 'stop':
             condition =
@@ -231,16 +236,20 @@
       async slotScroll(e) {
         const ref = this.$refs.slot
         const refCenter = ref.$el.offsetTop + ref.$el.offsetHeight / 2
+        const scrollCenter = this.scrollBody.scrollTop + window.innerHeight / 2
 
         if (await this.chkCondition('go', e, 'slot')) {
           this.setState('go', 'slot')
         } else if (
           (await this.chkCondition('stop', e, 'slot')) &&
-          refCenter > window.scrollY &&
-          refCenter < window.scrollY + window.innerHeight
+          refCenter > scrollCenter - 20 &&
+          refCenter < scrollCenter + 20
         ) {
           await this.setState('stop', 'slot')
-          await window.scrollTo(0, refCenter - window.innerHeight / 2)
+          await this.scrollBody.scrollTo({
+            top: refCenter - window.innerHeight / 2,
+            behavior: 'smooth'
+          })
           this.$nextTick(() => {
             this.state.slotFinish = false
           })
@@ -248,57 +257,34 @@
           if (
             !this.stopFlag &&
             !this.state.slotFinish &&
-            (window.scrollY + window.innerHeight <= ref.$el.offsetTop ||
-              window.scrollY >= ref.$el.offsetTop + ref.$el.offsetHeight)
+            (this.scrollBody.scrollTop + window.innerHeight <=
+              ref.$el.offsetTop ||
+              this.scrollBody.scrollTop >=
+                ref.$el.offsetTop + ref.$el.offsetHeight)
           ) {
             ref.setSlot()
             this.state.slotFinish = true
           }
         }
       },
-      // async innovationScroll(e) {
-      //   const ref = this.$refs.innovation
-      //   const refCenter = ref.$el.offsetTop + ref.$el.offsetHeight / 2
-
-      //   if (await this.chkCondition('go', e, 'slot')) {
-      //     this.setState('go', 'slot')
-      //   } else if (
-      //     (await this.chkCondition('stop', e, 'slot')) &&
-      //     refCenter > window.scrollY &&
-      //     refCenter < window.scrollY + window.innerHeight
-      //   ) {
-      //     await this.setState('stop', 'slot')
-      //     await window.scrollTo(0, refCenter - window.innerHeight / 2)
-      //     this.$nextTick(() => {
-      //       this.state.slotFinish = false
-      //     })
-      //   } else {
-      //     if (
-      //       !this.stopFlag &&
-      //       !this.state.slotFinish &&
-      //       (window.scrollY + window.innerHeight <= ref.$el.offsetTop ||
-      //         window.scrollY >= ref.$el.offsetTop + ref.$el.offsetHeight)
-      //     ) {
-      //       ref.setSlot()
-      //       this.state.slotFinish = true
-      //     }
-      //   }
-      // },
       async innovationScroll(e) {
         const ref = this.$refs.innovation
         const refCenter = ref.$el.offsetTop + ref.$el.offsetHeight / 2
+        const scrollCenter = this.scrollBody.scrollTop + window.innerHeight / 2
 
         if (await this.chkCondition('go', e, 'innovation')) {
-          this.setState('go', 'innovation')
+          await this.setState('go', 'innovation')
         } else if (
           (await this.chkCondition('stop', e, 'innovation')) &&
-          refCenter > window.scrollY &&
-          refCenter < window.scrollY + window.innerHeight
+          refCenter > scrollCenter - 20 &&
+          refCenter < scrollCenter + 20
         ) {
           await this.setState('stop', 'innovation')
-          window.scrollTo(0, refCenter - window.innerHeight / 2)
-          // this.stopFlag = true
-          this.$nextTick(() => {
+          await this.scrollBody.scrollTo({
+            top: refCenter - window.innerHeight / 2,
+            behavior: 'smooth'
+          })
+          await this.$nextTick(() => {
             this.scroll.innovation.flag = true
           })
         }
@@ -398,6 +384,9 @@
       .slogan-wrap {
         margin-top: 400px;
       }
+      .machine-wrap {
+        margin-top: 100px;
+      }
       .innovation {
         margin-top: 100px;
       }
@@ -424,7 +413,9 @@
       }
       .machine-wrap {
         margin-top: 40px;
-        margin-bottom: 372px;
+        & + .slogan-wrap {
+          margin-top: 372px;
+        }
       }
       .innovation {
         margin-top: 40px;

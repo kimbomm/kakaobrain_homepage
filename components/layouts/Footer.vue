@@ -64,12 +64,12 @@
         return this.isScrollEnd ? false : this.isMouseWheel
       }
     },
-    mounted() {
-      window.addEventListener('wheel', this.onWheel)
-      window.addEventListener('scroll', this.onScroll)
+    async mounted() {
+      this.scrollBody.addEventListener('wheel', this.onWheel)
+      this.scrollBody.addEventListener('scroll', this.onScroll)
     },
     beforeDestroy() {
-      window.removeEventListener('wheel', this.onWheel)
+      this.scrollBody.removeEventListener('wheel', this.onWheel)
     },
     methods: {
       menuLink(data) {
@@ -84,7 +84,7 @@
       onScroll() {
         this.isScrollEnd =
           document.querySelector('body').scrollHeight - window.innerHeight ===
-          window.scrollY
+          this.scrollBody.scrollTop
       },
       onWheel(e) {
         this.isMouseWheel = e.wheelDelta < 0

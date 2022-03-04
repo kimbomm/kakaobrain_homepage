@@ -67,12 +67,14 @@
         }
       }
     },
-    mounted() {
-      this.init()
-      window.addEventListener('scroll', this.onScroll)
+    async mounted() {
+      await this.init()
+      await this.scrollBody.addEventListener('scroll', this.onScroll)
+      await this.scrollBody.addEventListener('wheel', this.cardWheelEvent)
     },
-    beforeDestroy() {
-      window.removeEventListener('scroll', this.onScroll)
+    async beforeDestroy() {
+      await this.scrollBody.addEventListener('scroll', this.onScroll)
+      await this.scrollBody.removeEventListener('wheel', this.cardWheelEvent)
     },
     methods: {
       ...mapActions({
@@ -82,18 +84,15 @@
         this.pageData.language = this.language
         const res = await this.getContentList(this.pageData)
         this.list = res.data.list
+        this.isShow = true
       },
       onScroll() {
         if (
-          window.scrollY + window.innerHeight >
+          this.scrollBody.scrollTop + window.innerHeight >
           this.$refs['innovation'].offsetTop
         ) {
           if (!this.isShow) {
             this.isShow = true
-            this.$refs['innovation'].addEventListener(
-              'wheel',
-              this.cardWheelEvent
-            )
           }
         }
       },
@@ -103,20 +102,18 @@
         const wheelX = Math.abs(e.deltaX)
         const wheelY = Math.abs(e.deltaY)
         if (this.flag) {
-          e.preventDefault()
           if (wheelY > wheelX) {
-            refScrollBox.scrollLeft += e.deltaY * 0.2
+            refScrollBox.scrollLeft += Math.floor(e.deltaY) * 0.2
           }
           setTimeout(() => {
-            this.$emit('update:start', refScrollBox.scrollLeft === 0)
-            this.$emit(
-              'update:end',
+            const isEnd =
               ref.offsetWidth > refScrollBox.offsetWidth
                 ? refScrollBox.scrollLeft >=
-                    refScrollBox.scrollWidth - refScrollBox.offsetWidth
+                  refScrollBox.scrollWidth - refScrollBox.offsetWidth - 10
                 : true
-            )
-          }, 1000)
+            this.$emit('update:start', refScrollBox.scrollLeft === 0)
+            this.$emit('update:end', isEnd)
+          }, 500)
         }
       }
     }
@@ -208,9 +205,11 @@
       height: 570px;
       margin-left: 0;
       width: 100%;
+      .scroll-box {
+        padding: 0 20px;
+      }
     }
     .innovation-list {
-      padding: 0 20px !important;
       li {
         flex: 0 0 300px;
         margin-right: 20px;

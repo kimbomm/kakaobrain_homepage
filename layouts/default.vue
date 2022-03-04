@@ -1,10 +1,10 @@
 <template>
-  <div :class="classBind" v-body-scroll-lock="bodyLock">
+  <div :class="classBind">
     <!-- <div :class="classBind"> -->
     <div class="l-pages">
       <FilterList v-if="!isStoryPage" />
       <Header />
-      <div class="container">
+      <div class="container" v-body-scroll-lock="bodyLock">
         <Nuxt />
       </div>
       <Footer v-if="isFooterShow" :class="{ footer__story: isStoryPage }" />
@@ -14,6 +14,7 @@
   </div>
 </template>
 <script>
+  import Vue from 'vue'
   import Header from '@/components/layouts/Header'
   import Footer from '@/components/layouts/Footer'
   import FilterList from '@/components/elements/filter/FilterList'
@@ -30,6 +31,8 @@
     },
     data() {
       return {
+        // scrollBody: null,
+        scrollLock: false,
         isStoryPage: false,
         isFooterShow: true,
         isMouseWheel: false,
@@ -66,11 +69,13 @@
       }
     },
     created() {
-      this.$nuxt.$on('bodyLock', this.onBodyLock)
+      this.$nuxt.$on('scrollLock', this.onScrollLock)
       this.$nuxt.$on('story-page', this.onStoryPage)
       this.$nuxt.$on('onSlideEnd', this.onSlideEnd)
     },
     beforeMount() {
+      Vue.prototype.scrollBody = document.querySelector('.wrap')
+      Vue.prototype.scrollLock = false
       const language = localStorage.getItem('language')
       if (language) {
         this.setLanguage(language)
@@ -79,17 +84,16 @@
     async mounted() {
       await this.$store.commit('setIsDark', true)
       await this.checkDevice()
-      window.addEventListener('scroll', this.onScroll)
-      window.addEventListener('resize', this.checkDevice)
-      window.addEventListener('touchstart', this.touchStart)
-      window.addEventListener('touchmove', this.touchMove)
-      window.addEventListener('touchend', this.touchEnd)
+      this.scrollBody.addEventListener('scroll', this.onScroll)
+      this.scrollBody.addEventListener('wheel', this.onWheel)
+      this.scrollBody.addEventListener('resize', this.checkDevice)
     },
     beforeDestroy() {
       this.$nuxt.$off('story-page', this.onStoryPage)
       this.$nuxt.$off('onSlideEnd', this.onSlideEnd)
-      window.removeEventListener('scroll', this.onScroll)
-      window.removeEventListener('resize', this.checkDevice)
+      // this.scrollBody.removeEventListener('scroll', this.onScroll)
+      // this.scrollBody.removeEventListener('wheel', this.onWheel)
+      // this.scrollBody.removeEventListener('resize', this.checkDevice)
     },
     methods: {
       ...mapMutations({
@@ -97,8 +101,8 @@
         setLanguage: 'setLanguage',
         setIsScrollUp: 'setIsScrollUp'
       }),
-      onBodyLock(value) {
-        this.bodyLock = value
+      onScrollLock(value) {
+        this.scrollLock = value
       },
       onStoryPage(value) {
         this.isStoryPage = value
@@ -121,31 +125,42 @@
           mobile: isMobile
         })
       },
+      onWheel(e) {
+        e.preventDefault()
+        if (this.scrollLock) return false
+        this.scrollBody.scrollTop += Math.floor(e.deltaY) * 0.3
+        if (this.scrollBody.scrollTop < 0) this.scrollBody.scrollTop = 0
+        if (this.scrollBody.scrollTop > this.scrollBody.scrollHeight)
+          this.scrollBody.scrollTop = this.scrollBody.scrollHeight
+      },
       onScroll() {
-        if (window.scrollY > this.prevY && window.scrollY !== 0) {
+        if (
+          this.scrollBody.scrollTop > this.prevY &&
+          this.scrollBody.scrollTop !== 0
+        ) {
           this.setIsScrollUp(true)
         } else {
           this.setIsScrollUp(false)
         }
-        this.prevY = window.scrollY
-      },
-      touchStart(e) {
-        this.touchInfo.start = e.touches[0].clientY
-      },
-      touchMove(e) {
-        this.touchInfo.end = e.touches[0].clientY
-      },
-      touchEnd() {
-        if (this.touchInfo.start && this.touchInfo.end) {
-          this.setIsScrollUp(this.touchInfo.end < this.touchInfo.start)
-          this.$nextTick(() => {
-            this.touchInfo = {
-              start: null,
-              end: null
-            }
-          })
-        }
+        this.prevY = this.scrollBody.scrollTop
       }
+      // touchStart(e) {
+      //   this.touchInfo.start = e.touches[0].clientY
+      // },
+      // touchMove(e) {
+      //   this.touchInfo.end = e.touches[0].clientY
+      // },
+      // touchEnd() {
+      //   if (this.touchInfo.start && this.touchInfo.end) {
+      //     this.setIsScrollUp(this.touchInfo.end < this.touchInfo.start)
+      //     this.$nextTick(() => {
+      //       this.touchInfo = {
+      //         start: null,
+      //         end: null
+      //       }
+      //     })
+      //   }
+      // }
     }
   }
 </script>

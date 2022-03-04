@@ -31,9 +31,12 @@
         setIsScrollUp: 'setIsScrollUp'
       }),
       toScrollTop() {
-        window.scrollTo(0, 0)
+        this.scrollBody.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        })
         this.setIsScrollUp(false)
-        this.scrollControl(document.getElementsByTagName('body'))
+        // this.scrollControl(document.getElementsByTagName('body'))
         if (this.$route.path === '/') {
           this.$nuxt.$emit('home-reset')
         }

@@ -146,22 +146,22 @@
         //   ? this.scrollControl(document.querySelector('body'), 'enable')
         //   : this.scrollControl(document.querySelector('body'), 'block')
         await this.resizeEvent()
-        await window.addEventListener('wheel', this.onWheel)
-        await window.addEventListener('resize', this.resizeEvent)
+        await this.scrollBody.addEventListener('wheel', this.onWheel)
+        await this.scrollBody.addEventListener('resize', this.resizeEvent)
       })
     },
     async beforeDestroy() {
-      this.$nuxt.$emit('bodyLock', false)
+      this.$nuxt.$emit('scrollLock', false)
       // this.scrollControl(document.querySelector('body'), 'enable')
-      await window.removeEventListener('wheel', this.onWheel)
-      await window.removeEventListener('resize', this.resizeEvent)
+      await this.scrollBody.removeEventListener('wheel', this.onWheel)
+      await this.scrollBody.removeEventListener('resize', this.resizeEvent)
     },
     methods: {
       async resizeEvent() {
         this.viewPortWidth = window.innerWidth
         this.device.mobile || this.viewPortWidth <= 768
-          ? this.$nuxt.$emit('bodyLock', false)
-          : this.$nuxt.$emit('bodyLock', true)
+          ? this.$nuxt.$emit('scrollLock', false)
+          : this.$nuxt.$emit('scrollLock', true)
         // ? this.scrollControl(document.querySelector('body'), 'enable')
         // : this.scrollControl(document.querySelector('body'), 'block')
       },
@@ -173,9 +173,9 @@
         if (!this.device.mobile && this.viewPortWidth > 768) {
           if (!this.isChange) {
             this.isChange = true
-            if (e.deltaY > 0 && window.scrollY === 0)
+            if (e.deltaY > 0 && this.scrollBody.scrollTop === 0)
               this.onClick(this.mySwiper.activeIndex + 1)
-            if (e.deltaY < 0 && window.scrollY === 0)
+            if (e.deltaY < 0 && this.scrollBody.scrollTop === 0)
               this.onClick(this.mySwiper.activeIndex - 1)
           } else {
             e.preventDefault
@@ -193,10 +193,10 @@
       storyList() {
         this.isStory = !this.isStory
         if (this.isStory) {
-          this.$nuxt.$emit('bodyLock', true)
+          this.$nuxt.$emit('scrollLock', true)
           // this.scrollControl(document.querySelector('body'), 'block')
         } else if (this.swiperSize - 1 === this.mySwiper.activeIndex) {
-          this.$nuxt.$emit('bodyLock', false)
+          this.$nuxt.$emit('scrollLock', false)
           // this.scrollControl(document.querySelector('body'), 'enable')
         }
       },
@@ -204,10 +204,10 @@
         this.isEndSlide = this.swiperSize - 1 === this.mySwiper.activeIndex
         this.isEndSlide
           ? setTimeout(() => {
-              this.$nuxt.$emit('bodyLock', true)
+              this.$nuxt.$emit('scrollLock', true)
               // this.scrollControl(document.querySelector('body'), 'enable')
             }, 1000)
-          : (window.scrollTo(0, 0), this.$nuxt.$emit('bodyLock', false))
+          : (window.scrollTo(0, 0), this.$nuxt.$emit('scrollLock', false))
         // this.scrollControl(document.querySelector('body'), 'block'))
         // setTimeout(
         //   () => {

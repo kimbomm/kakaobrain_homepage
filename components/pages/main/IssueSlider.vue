@@ -92,6 +92,7 @@
         isShow: false,
         activeIndex: 0,
         autoLoad: null,
+        interval: 10000,
         pageData: {
           offset: 0,
           limit: 20,
@@ -117,20 +118,19 @@
         deep: true,
         handler(val) {
           this.isShow = true
-          if (val.length > 0) window.addEventListener('wheel', this.onScroll)
           if (val.length > 1) {
             this.onSetInterval()
           }
         }
       }
     },
-    async created() {
+    async mounted() {
       await this.fetchList()
+      await this.scrollBody.addEventListener('wheel', this.onScroll)
     },
     async beforeDestroy() {
       await clearInterval(this.autoLoad)
-      if (this.list > 0)
-        await window.removeEventListener('wheel', this.onScroll)
+      await this.scrollBody.removeEventListener('wheel', this.onScroll)
     },
     methods: {
       ...mapActions({
@@ -157,19 +157,19 @@
         const navi = this.$refs['issue-navi']
         const issue = this.$refs['issue']
         if (
-          window.scrollY <=
+          this.scrollBody.scrollTop <=
             issue.offsetTop + issue.offsetHeight - navi.offsetHeight &&
-          window.scrollY + navi.offsetTop + navi.offsetHeight <=
+          this.scrollBody.scrollTop + navi.offsetTop + navi.offsetHeight <=
             issue.offsetTop + issue.offsetHeight
         ) {
-          navi.style = `transform: translateY(${window.scrollY}px)`
+          navi.style = `transform: translateY(${this.scrollBody.scrollTop}px)`
         }
       },
       onSetInterval() {
         const _this = this
         this.autoLoad = setInterval(() => {
           _this.onClick('next')
-        }, 10000)
+        }, this.interval)
       },
       onClick(type, event) {
         const _this = this

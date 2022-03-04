@@ -126,9 +126,10 @@
         const masonry = this.$refs.masonry.$el
         if (
           masonry.offsetHeight > 0 &&
-          masonry.offsetTop + masonry.offsetHeight > window.scrollY &&
+          masonry.offsetTop + masonry.offsetHeight >
+            this.scrollBody.scrollTop &&
           masonry.offsetTop + masonry.offsetHeight <
-            window.scrollY + window.innerHeight &&
+            this.scrollBody.scrollTop + window.innerHeight &&
           !this.isAdd
         ) {
           this.isAdd = true

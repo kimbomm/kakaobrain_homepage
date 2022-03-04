@@ -87,10 +87,10 @@
     },
     async mounted() {
       await this.init()
-      window.addEventListener('scroll', this.onScroll)
+      await this.scrollBody.addEventListener('scroll', this.onScroll)
     },
     beforeDestroy() {
-      window.removeEventListener('scroll', this.onScroll)
+      this.scrollBody.removeEventListener('scroll', this.onScroll)
     },
     methods: {
       ...mapActions({
@@ -103,19 +103,18 @@
         this.list = res.data.list
       },
       onScroll(e) {
-        e.preventDefault()
         const ref = this.$refs['flow']
         const refList = this.$refs['list']
         const refFlow = this.$refs['backgroundFlow']
         let top = 0
         if (
-          window.scrollY + window.innerHeight / 2 >=
+          this.scrollBody.scrollTop + window.innerHeight / 2 >=
             ref.offsetTop + refList.offsetTop + refFlow.offsetHeight / 2 &&
           refFlow.offsetTop + refFlow.offsetHeight <=
             refList.offsetTop + refList.offsetHeight
         ) {
           top =
-            window.scrollY +
+            this.scrollBody.scrollTop +
             window.innerHeight / 2 -
             (ref.offsetTop + refList.offsetTop + refFlow.offsetHeight / 2) +
             refList.offsetTop
@@ -130,7 +129,7 @@
             refFlow.style = ''
             refFlow.classList.add('scrolled')
           }
-        } else if (window.scrollY < this.$refs['flow'].offsetTop) {
+        } else if (this.scrollBody.scrollTop < this.$refs['flow'].offsetTop) {
           refFlow.style = ''
           refFlow.classList.remove('scrolled')
         }

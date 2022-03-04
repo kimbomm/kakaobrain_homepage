@@ -129,15 +129,13 @@
     watch: {
       isMenuOpen(val) {
         if (val) {
-          this.$nuxt.$emit('bodyLock', true)
-          // this.scrollControl(document.querySelector('body'), 'block')
+          this.$nuxt.$emit('scrollLock', true)
           setTimeout(() => {
             this.isAnimation = true
           }, 300)
         } else {
           this.isAnimation = false
-          this.$nuxt.$emit('bodyLock', false)
-          // this.scrollControl(document.querySelector('body'), 'enable')
+          this.$nuxt.$emit('scrollLock', false)
         }
       }
     },

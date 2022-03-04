@@ -51,14 +51,12 @@
         return this.list.length === this.tagTotal
       }
     },
-    created() {
-      this.init()
-    },
-    mounted() {
-      window.addEventListener('scroll', this.onScroll)
+    async mounted() {
+      await this.init()
+      await this.scrollBody.addEventListener('scroll', this.onScroll)
     },
     beforeDestroy() {
-      window.removeEventListener('scroll', this.onScroll)
+      this.scrollBody.removeEventListener('scroll', this.onScroll)
     },
     methods: {
       ...mapActions({
@@ -66,7 +64,7 @@
       }),
       onScroll() {
         if (
-          window.scrollY + window.innerHeight >=
+          this.scrollBody.scrollTop + window.innerHeight >=
           this.$refs['count'].offsetTop
         ) {
           setInterval(() => {
@@ -129,6 +127,7 @@
             font-size: 266px;
             line-height: 1;
             font-weight: 100;
+            letter-spacing: -15px;
           }
         }
       }
