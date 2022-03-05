@@ -49,7 +49,7 @@
   @include tablet {
     .detail-text {
       width: getWidth(6);
-      margin-left: getMarin(2);
+      margin-left: getMargin(2);
       font-size: map-get($font-tablet, defualt);
     }
   }

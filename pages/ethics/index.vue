@@ -142,6 +142,9 @@
     }
   }
   @include mobile {
+    .detail-title {
+      font-size: 40px;
+    }
     .content-detail {
       padding: 76px 20px 0;
       margin-bottom: 100px;

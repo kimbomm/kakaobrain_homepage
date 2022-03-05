@@ -307,6 +307,10 @@
       section {
         margin-top: 60px;
       }
+      .text-h1 {
+        font-size: 40px;
+        margin-bottom: 30px;
+      }
       .text-h2 {
         margin-bottom: 30px;
       }

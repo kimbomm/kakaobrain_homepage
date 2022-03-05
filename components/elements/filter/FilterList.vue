@@ -1,6 +1,9 @@
 <template>
   <transition name="slide">
     <div v-if="isFilterMenuOpen" class="filter-list">
+      <nuxt-link class="logo tablet-only" to="/">
+        <img src="@/assets/images/logo-w.png" />
+      </nuxt-link>
       <div class="gl-6">
         <h3>Category</h3>
         <ul>
@@ -66,16 +69,6 @@
           this.list = this.list.concat(filters)
         }
       }
-      // checkedList: {
-      //   deep: true,
-      //   handler(val) {
-      //     console.log('val:', val)
-      //     const isAll = this.checkedList.find(obj => {
-      //       return obj.value == 'all'
-      //     })
-      //     this.setFilter(isAll ? [] : this.checkedList.map(obj => obj.text))
-      //   }
-      // }
     },
     mounted() {
       // this.init()
@@ -89,6 +82,7 @@
       ...mapActions(['changeFilterMenuOpen']),
       ...mapMutations(['setFilter']),
       onClose() {
+        this.$nuxt.$emit('scrollLock', false)
         this.changeFilterMenuOpen(false)
       },
       async onChange(data) {
@@ -157,5 +151,24 @@
   .slide-leave-to {
     opacity: 0;
     transform: translateY(-100%);
+  }
+  @include tablet {
+    .logo {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      img {
+        height: 21px;
+      }
+    }
+    .filter-list {
+      bottom: 0;
+      z-index: 30;
+    }
+    .btn-close {
+      top: 20px;
+      right: 20px;
+      bottom: initial;
+    }
   }
 </style>

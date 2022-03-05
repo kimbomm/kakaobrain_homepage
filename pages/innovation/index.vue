@@ -174,6 +174,10 @@
     margin-bottom: 200px;
   }
 
+  /deep/ .Innovation {
+    margin-bottom: 70px;
+  }
+
   @include pc-large {
     .innovation {
       padding-top: 400px;
@@ -201,6 +205,9 @@
     .contents-list-text {
       margin-bottom: 460px !important;
     }
+    /deep/ .Innovation {
+      margin-bottom: 100px;
+    }
   }
 
   @include tablet {
@@ -219,10 +226,13 @@
       margin-bottom: 40px;
       margin-left: getMarin(2);
     }
+    /deep/ .Innovation {
+      margin-bottom: 50px;
+    }
   }
   @include mobile {
     .innovation {
-      padding-top: 76px;
+      padding-top: 56px;
       margin-bottom: 200px;
     }
     .contents-selector {
@@ -235,7 +245,7 @@
     }
 
     .contents-selector {
-      margin: 157px 0 20px;
+      margin: 100px 0 20px;
     }
     .contents-sticker {
       width: 100%;

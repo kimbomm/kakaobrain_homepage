@@ -1,10 +1,9 @@
 <template>
   <div :class="classBind">
-    <!-- <div :class="classBind"> -->
     <div class="l-pages">
       <FilterList v-if="!isStoryPage" />
       <Header />
-      <div class="container" v-body-scroll-lock="bodyLock">
+      <div class="container">
         <Nuxt />
       </div>
       <Footer v-if="isFooterShow" :class="{ footer__story: isStoryPage }" />
@@ -31,7 +30,6 @@
     },
     data() {
       return {
-        // scrollBody: null,
         scrollLock: false,
         isStoryPage: false,
         isFooterShow: true,

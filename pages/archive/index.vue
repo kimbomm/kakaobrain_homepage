@@ -170,7 +170,6 @@
     margin-bottom: 200px;
   }
   /deep/ .archive {
-    width: 100%;
     margin-bottom: 70px;
   }
 
@@ -219,8 +218,8 @@
     }
     .contents-sticker {
       width: getWidth(6);
+      margin-left: getMargin(2);
       margin-bottom: 40px;
-      margin-left: getMarin(2);
     }
     /deep/ .archive {
       margin-bottom: 50px;
@@ -228,7 +227,7 @@
   }
   @include mobile {
     .archive-wrap {
-      padding-top: 76px;
+      padding-top: 56px;
       margin-bottom: 200px;
     }
     .contents-selector {
@@ -241,7 +240,7 @@
     }
 
     .contents-selector {
-      margin: 157px 0 20px;
+      margin: 100px 0 20px;
     }
     .contents-sticker {
       width: 100%;
