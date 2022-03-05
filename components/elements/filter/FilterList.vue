@@ -4,7 +4,7 @@
       <nuxt-link class="logo tablet-only" to="/">
         <img src="@/assets/images/logo-w.png" />
       </nuxt-link>
-      <div class="gl-6">
+      <div>
         <h3>Category</h3>
         <ul>
           <li v-for="(item, index) in categoryList" :key="index">
@@ -121,6 +121,7 @@
     transition: all 0.2s ease-out;
     > div {
       margin: 0 auto;
+      width: getWidth(6);
     }
     h3 {
       color: #fff;
@@ -162,13 +163,36 @@
       }
     }
     .filter-list {
-      bottom: 0;
+      height: 100vh;
       z-index: 30;
     }
     .btn-close {
       top: 20px;
       right: 20px;
       bottom: initial;
+    }
+  }
+  @include mobile {
+    .filter-list {
+      padding-top: 116px;
+      overflow: hidden;
+      > div {
+        width: 100%;
+        margin: 0;
+        padding: {
+          left: calc(20px + #{getMargin(1)});
+          right: 20px;
+        }
+      }
+      ul {
+        height: calc(100vh - 116px - 66px);
+        overflow: auto;
+      }
+    }
+    .btn-close {
+      img {
+        width: 30px;
+      }
     }
   }
 </style>
