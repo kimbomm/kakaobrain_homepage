@@ -165,7 +165,7 @@
   }
   .map-js {
     height: 400px;
-    width: getWidth(6);
+    width: getWidth(7);
     margin: 60px 0 60px getMargin(2);
   }
   .bus-method {
@@ -298,9 +298,12 @@
     [class*='l-ml'] {
       margin-left: 0 !important;
     }
+    .contents-title {
+      margin-top: 60px;
+    }
     .map {
       margin-bottom: 200px;
-      padding-top: 100px;
+      padding-top: 76px;
       section {
         margin-top: 60px;
       }
@@ -309,6 +312,7 @@
       }
     }
     .map-js {
+      width: 100%;
       margin: {
         top: 30px;
         bottom: 30px;
