@@ -3,7 +3,7 @@
     <div class="menu-list gl-6">
       <div class="menu-thumbnail gl-1">
         <nuxt-link
-          v-if="data.titleMediaId"
+          v-if="data.titleMediaId && data.TitleMedia"
           :to="{
             path: '/contents',
             query: { contentId: data.contentId }

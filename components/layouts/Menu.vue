@@ -10,8 +10,17 @@
             @mouseenter="setIsMenuOpen(true)"
           >
             <button type="button">
-              <!-- <span v-if="menu.alarm" class="num">{{ menu.alarm }}</span> -->
-              <span class="txt">{{ menu.name }}</span>
+              <span class="txt">
+                <sup
+                  v-if="
+                    Object.keys(count).includes(menu.category) &&
+                    count[menu.category]
+                  "
+                  class="num"
+                  >{{ count[menu.category] }}</sup
+                >
+                {{ menu.name }}
+              </span>
             </button>
           </li>
         </ul>
@@ -49,10 +58,17 @@
               :key="`menu-${index}`"
               class="menu-item"
             >
-              <!-- <span v-if="menu.alarm" class="num">{{ menu.alarm }}</span> -->
-              <span :class="`animation ${isAnimation ? 'fade-up' : ''}`">{{
-                menu.name
-              }}</span>
+              <span :class="`animation ${isAnimation ? 'fade-up' : ''}`">
+                <sup
+                  v-if="
+                    Object.keys(count).includes(menu.category) &&
+                    count[menu.category]
+                  "
+                  class="num"
+                  >{{ count[menu.category] }}</sup
+                >
+                {{ menu.name }}
+              </span>
               <ul class="sub">
                 <li
                   v-for="(subMenu, idx) in menu.sub"
@@ -80,7 +96,7 @@
   </div>
 </template>
 <script>
-  import { mapState, mapMutations } from 'vuex'
+  import { mapState, mapMutations, mapActions } from 'vuex'
   import MobMenu from '@/components/layouts/MobMenu'
   export default {
     components: {
@@ -93,7 +109,13 @@
         languageList: [
           { name: 'English', value: 'EN' },
           { name: 'Korean', value: 'KR' }
-        ]
+        ],
+        pageData: {
+          offset: 0,
+          limit: 0,
+          contentType: 'ALL',
+          targetLang: 'EN'
+        }
       }
     },
     computed: {
@@ -103,7 +125,8 @@
         isDark: state => state.isDark,
         isFilterMenuOpen: state => state.isFilterMenuOpen,
         isScrollUp: state => state.isScrollUp,
-        isMenuOpen: state => state.isMenuOpen
+        isMenuOpen: state => state.isMenuOpen,
+        count: state => state.count
       }),
       classBind() {
         let classList = ['menu', 'menu-outer', 'hide-target']
@@ -139,16 +162,31 @@
         }
       }
     },
+    async mounted() {
+      await this.init()
+    },
     methods: {
       ...mapMutations({
         setLanguage: 'setLanguage',
         setIsMenuOpen: 'setIsMenuOpen'
       }),
+      ...mapActions({
+        getCount: 'getCount'
+      }),
+      async init() {
+        this.pageData.language = this.language
+        const keys = Object.keys(this.count)
+        keys.forEach(async category1 => {
+          await this.getCount({
+            category1,
+            pageData: this.pageData
+          })
+        })
+      },
       async selectLang(lang) {
         localStorage.setItem('language', lang)
         await this.setLanguage(lang)
         await window.location.reload(true)
-        // location.href = '/'
       }
     }
   }
@@ -187,9 +225,6 @@
         margin-right: 30px;
       }
       .num {
-        padding-right: 6px;
-        vertical-align: top;
-        font-size: 12px;
         font-weight: 400;
       }
       .txt {
@@ -248,13 +283,10 @@
     }
     text-align: center;
     .menu {
-      // position: fixed;
-      // left: 0;
-      // right: 0;
-      // top: 0;
       padding: 90px 0 84px;
       background-color: $gray-9;
       &-item {
+        position: relative;
         text-align: left;
         vertical-align: top;
         color: $gray-0;
@@ -262,6 +294,11 @@
         line-height: 1.3;
         &:not(:last-child) {
           margin-right: 50px;
+        }
+        .num {
+          position: absolute;
+          top: -4px;
+          right: calc(100% + 4px);
         }
       }
     }

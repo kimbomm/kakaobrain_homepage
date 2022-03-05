@@ -2,14 +2,17 @@ import data from './data/common.js'
 import utility from '/util/utility.js'
 
 export const state = () => ({
-  isDark: true,
   language: 'KR',
-  menus: data.menus,
+  isDark: true,
   isMenuOpen: false,
+  menus: data.menus,
   footerMenu: data.footer,
-  members: data.members,
   sns: data.sns,
-  category: data.category,
+  count: {
+    research: 0,
+    tech: 0,
+    document: 0
+  },
   filter: [],
   filterList: [],
   touchDevice: false,
@@ -21,11 +24,7 @@ export const state = () => ({
     mobile: false
   }
 })
-export const getters = {
-  // newsCategory(state) {
-  //   return state.category.news
-  // }
-}
+
 export const mutations = {
   setIsDark(state, payload) {
     state.isDark = payload
@@ -53,11 +52,25 @@ export const mutations = {
   },
   setIsMenuOpen(state, payload) {
     state.isMenuOpen = payload
+  },
+  setCategoryCount(state, payload) {
+    state.count[payload.category] = payload.count
   }
 }
 export const actions = {
   changeFilterMenuOpen({ commit }, payload) {
     commit('setIsFilterMenuOpen', payload)
+  },
+  async getCount({ commit }, payload) {
+    const params = utility.setParameters(payload.pageData)
+    const res = await this.$axios.get(
+      `/category/${payload.category1}?${params}`
+    )
+    commit('setCategoryCount', {
+      category: payload.category1,
+      count: res.data.count
+    })
+    // console.log(res.data)
   },
   async getContentDetail({}, payload) {
     const res = await this.$axios.get(`/content/${payload}`)

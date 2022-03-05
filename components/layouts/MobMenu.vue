@@ -23,8 +23,18 @@
               }menu-toggle`"
               @click="onClick(index)"
             >
-              <span class="menu-name">{{ menu.name }}</span>
-              <!-- <span v-if="menu.alarm" class="menu-num">{{ menu.alarm }}</span> -->
+              <span class="menu-name">
+                {{ menu.name }}
+                <sup
+                  v-if="
+                    Object.keys(count).includes(menu.category) &&
+                    count[menu.category]
+                  "
+                  class="num"
+                >
+                  {{ count[menu.category] }}
+                </sup>
+              </span>
             </button>
             <ul class="sub-menu">
               <li
@@ -68,7 +78,8 @@
       ...mapState({
         menus: state => state.menus,
         language: state => state.language,
-        isMenuOpen: state => state.isMenuOpen
+        isMenuOpen: state => state.isMenuOpen,
+        count: state => state.count
       }),
       principleLink() {
         let link =
