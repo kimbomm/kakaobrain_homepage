@@ -20,9 +20,9 @@
         >
           <div class="thumbnail-data">
             <div class="date">
-              {{ $dayjs(data.Content.createAt).format('MMMM') }}
+              {{ $dayjs(data.month).format('MMMM') }}
               @
-              {{ $dayjs(data.Content.createAt).format('YYYY') }}
+              {{ $dayjs(data.month).format('YYYY') }}
             </div>
             <div class="name">{{ data.title }}</div>
           </div>
