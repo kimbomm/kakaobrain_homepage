@@ -58,7 +58,7 @@
     .full-con {
       position: relative;
       width: 100%;
-      min-height:1827px;
+      min-height: 1827px;
       padding: 400px 0;
       img {
         position: absolute;
@@ -67,7 +67,7 @@
         transform: translate(-50%, -50%);
         width: 100%;
         height: 100%;
-        object-fit:cover;
+        object-fit: cover;
       }
       //
       .inner {
@@ -174,7 +174,7 @@
   @include pc-large {
     .about-full-con-d {
       .full-con {
-        min-height:2389px;
+        min-height: 2389px;
         padding: 530px 0;
         .inner {
           .tit {
@@ -227,7 +227,7 @@
   @include pc-4k {
     .about-full-con-d {
       .full-con {
-        min-height:3709px;
+        min-height: 3709px;
         padding: 800px 0;
         .inner {
           .tit {
@@ -377,7 +377,7 @@
   @include tablet {
     .about-full-con-d {
       .full-con {
-        min-height:1070px;
+        min-height: 1070px;
         padding: 200px 0px;
         .inner {
           .tit {
@@ -482,7 +482,7 @@
   @include mobile {
     .about-full-con-d {
       .full-con {
-        min-height:1400px;
+        min-height: 1400px;
         padding: 100px 0px;
         .inner {
           .tit {
@@ -561,6 +561,7 @@
             &-text {
               .tit {
                 font-size: 15px;
+                margin: 0;
               }
             }
           }
