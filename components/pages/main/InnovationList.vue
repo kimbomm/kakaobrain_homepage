@@ -73,7 +73,7 @@
       await this.scrollBody.addEventListener('wheel', this.cardWheelEvent)
     },
     async beforeDestroy() {
-      await this.scrollBody.addEventListener('scroll', this.onScroll)
+      await this.scrollBody.removeEventListener('scroll', this.onScroll)
       await this.scrollBody.removeEventListener('wheel', this.cardWheelEvent)
     },
     methods: {
