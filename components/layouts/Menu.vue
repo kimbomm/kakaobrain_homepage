@@ -174,7 +174,7 @@
         getCount: 'getCount'
       }),
       async init() {
-        this.pageData.language = this.language
+        this.pageData.targetLang = this.language
         const keys = Object.keys(this.count)
         keys.forEach(async category1 => {
           await this.getCount({

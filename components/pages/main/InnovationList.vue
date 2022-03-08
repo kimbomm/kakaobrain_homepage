@@ -81,7 +81,7 @@
         getContentList: 'getContentList'
       }),
       async init() {
-        this.pageData.language = this.language
+        this.pageData.targetLang = this.language
         const res = await this.getContentList(this.pageData)
         this.list = res.data.list
         this.isShow = true
