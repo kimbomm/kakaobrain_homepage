@@ -9,7 +9,10 @@ export default {
     })
   },
   async mounted() {
-    window.scrollTo(0, 0)
+    this.scrollBody.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
   },
   beforeDestroy() {},
   methods: {}
