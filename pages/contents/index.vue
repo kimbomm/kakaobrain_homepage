@@ -114,7 +114,7 @@
         if (res.data.contentType === 'THESIS' && res.data.writer) {
           const header = {
             itemType: 'header',
-            text: this.language === 'KR' ? '저자' : 'Author'
+            text: 'Authors'
           }
           const writer = {
             itemType: 'pagaraph',
