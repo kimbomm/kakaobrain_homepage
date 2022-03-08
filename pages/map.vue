@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="map">
+    <div :class="classBind">
       <BreadCrumb :data="breadcrumb[language]" :full="true" />
       <div class="contents-title">
         <DetailTitle :text="data.MainTitle" />
@@ -147,6 +147,14 @@
       data() {
         let data = this.mapData[this.language]
         return data
+      },
+      classBind() {
+        let classList = ['map']
+        if (this.language === 'EN') {
+          classList.push('map__en')
+        }
+
+        return classList.join(' ')
       }
     },
     mounted() {
@@ -229,6 +237,17 @@
     line-height: 150%;
     font-size: 16px;
   }
+  .map__en {
+    .bus-method li {
+      > div:nth-child(1) {
+        flex: 0 0 70px;
+        width: 70px;
+      }
+      > div:nth-child(2) {
+        flex: 0 0 calc(100% - 70px);
+      }
+    }
+  }
   @include pc-large {
     .tit-text {
       font-size: 22px;
@@ -262,6 +281,17 @@
         }
       }
     }
+    .map__en {
+      .bus-method li {
+        > div:nth-child(1) {
+          flex: 0 0 90px;
+          width: 90px;
+        }
+        > div:nth-child(2) {
+          flex: 0 0 calc(100% - 90px);
+        }
+      }
+    }
   }
   @include pc-4k {
     .tit-text {
@@ -292,6 +322,17 @@
         }
         > div:nth-child(2) {
           flex: 0 0 calc(100% - 100px);
+        }
+      }
+    }
+    .map__en {
+      .bus-method li {
+        > div:nth-child(1) {
+          flex: 0 0 130px;
+          width: 130px;
+        }
+        > div:nth-child(2) {
+          flex: 0 0 calc(100% - 130px);
         }
       }
     }
@@ -329,6 +370,17 @@
         }
         > div:nth-child(2) {
           flex: 0 0 calc(100% - 40px);
+        }
+      }
+    }
+    .map__en {
+      .bus-method li {
+        > div:nth-child(1) {
+          flex: 0 0 60px;
+          width: 60px;
+        }
+        > div:nth-child(2) {
+          flex: 0 0 calc(100% - 60px);
         }
       }
     }
@@ -373,10 +425,15 @@
         &:nth-child(2) {
           width: getWidth(8) !important;
         }
-        > div {
-          span {
-            padding-right: 1px !important;
-          }
+      }
+    }
+    .map__en {
+      .bus-method li {
+        > div:nth-child(1) {
+          width: 100%;
+        }
+        > div:nth-child(2) {
+          width: 100%;
         }
       }
     }
