@@ -1,12 +1,18 @@
 <template>
   <div>
     <div class="menu-list gl-6">
-      <div
-        class="menu-thumbnail gl-1"
-        :style="`background-image: url(${envVariable(
-          data.titleMediaId ? data.titleMediaId : data.contentProp.mediaId
-        )})`"
-      ></div>
+      <div class="menu-thumbnail gl-1">
+        <div
+          v-if="
+            data.titleMediaId ||
+            (data.contentProp &&
+              Object.keys(data.contentProp).includes('mediaId'))
+          "
+          :style="`background-image: url(${envVariable(
+            data.titleMediaId ? data.titleMediaId : data.contentProp.mediaId
+          )})`"
+        ></div>
+      </div>
       <div class="list-data gl-5">
         <div class="tit">
           <nuxt-link
@@ -63,9 +69,12 @@
       box-sizing: border-box;
     }
     &-thumbnail {
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center center;
+      > div {
+        height: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+      }
     }
   }
   .list-data {
