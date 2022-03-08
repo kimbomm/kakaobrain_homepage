@@ -4,25 +4,9 @@
       <div
         class="menu-thumbnail gl-1"
         :style="`background-image: url(${envVariable(
-          data.TitleMedia ? data.TitleMedia.url : data.contentProp.mediaId
+          data.titleMediaId ? data.titleMediaId : data.contentProp.mediaId
         )})`"
-      >
-        <!-- <nuxt-link
-          v-if="
-            (data.titleMediaId && data.TitleMedia) || data.contentProp.mediaId
-          "
-          :to="{
-            path: '/contents',
-            query: { contentId: data.contentId }
-          }"
-        >
-          <img
-            :src="`${envVariable(
-              data.TitleMedia ? data.TitleMedia.url : data.contentProp.mediaId
-            )}`"
-          />
-        </nuxt-link> -->
-      </div>
+      ></div>
       <div class="list-data gl-5">
         <div class="tit">
           <nuxt-link
