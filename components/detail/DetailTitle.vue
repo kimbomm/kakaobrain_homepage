@@ -1,5 +1,5 @@
 <template>
-  <div :class="classBind">{{ text }}</div>
+  <div :class="classBind" v-html="text"></div>
 </template>
 <script>
   export default {

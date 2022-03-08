@@ -1,53 +1,54 @@
 <template>
   <div>
     <div class="map">
-      <BreadCrumb :data="breadcrumb" :full="true" />
+      <BreadCrumb :data="breadcrumb[language]" :full="true" />
       <div class="contents-title">
-        <DetailTitle text="오시는 길" />
+        <DetailTitle :text="data.MainTitle" />
       </div>
       <div class="tit-text l-ml-3">
-        카카오브레인 크루가 모여 생각하지 못한 질문을 던지고 해답을 찾아가는
-        장소입니다.
+        <p v-html="data.MainTitleText"></p>
       </div>
       <section>
-        <div class="text-h2 l-ml-3"><span>주소</span></div>
+        <div class="text-h2 l-ml-3">
+          <span v-html="data.address.title"></span>
+        </div>
         <div class="text-content l-ml-3">
-          <span
-            >경기도 성남시 분당구 판교역로241번길 20 미래에셋벤처타워 11층
-            (우)13494</span
-          >
+          <span v-html="data.address.text"></span>
         </div>
         <div id="map" class="map-js"></div>
         <div class="bus-method l-ml-3">
-          <div class="text-h3"><span>주변 버스</span></div>
+          <div class="text-h3">
+            <span v-html="data.method.title"></span>
+          </div>
           <ul>
-            <li v-for="(item, index) in bus" :key="`label-${index}`" class="">
+            <li
+              v-for="(item, index) in data.method.list"
+              :key="`label-${index}`"
+              class=""
+            >
               <div class="text-h4">
-                <span>{{ item.label }}</span>
+                <span>{{ item.name }}</span>
               </div>
               <div class="text-content">
-                <template v-for="(number, index) in item.method">
-                  <span :key="index">
-                    {{ number }}
-                  </span>
-                  <br :key="`index-${index}`" v-if="index === 2" />
-                </template>
+                <div v-for="(number, idx) in item.bus" :key="idx">
+                  {{ number }}
+                </div>
               </div>
             </li>
           </ul>
         </div>
-        <div class="text-h3 l-ml-3"><span>문의</span></div>
+        <div class="text-h3 l-ml-3">
+          <span v-html="data.method.info.title">문의</span>
+        </div>
         <div class="text-content l-ml-3">
-          <span>
-            <a href="mailto:contact@kakaobrain.com">contact@kakaobrain.com</a>
-            으로 연락 바랍니다.
-          </span>
+          <p v-html="data.method.info.text"></p>
         </div>
       </section>
     </div>
   </div>
 </template>
 <script>
+  import { mapState } from 'vuex'
   import mixinGlobal from '@/mixin/global.js'
   import BreadCrumb from '@/components/elements/BreadCrumb'
   import DetailTitle from '@/components/detail/DetailTitle'
@@ -59,10 +60,32 @@
     },
     data() {
       return {
-        breadcrumb: [
-          { link: '', sub: 'sub', text: '오시는길' },
-          { link: '', sub: '', text: '우리가 일하는 곳' }
-        ],
+        breadcrumb: {
+          KR: [
+            {
+              link: '',
+              sub: 'sub',
+              text: '오시는길'
+            },
+            {
+              link: '',
+              sub: '',
+              text: '우리가 일하는 곳'
+            }
+          ],
+          EN: [
+            {
+              link: '',
+              sub: 'sub',
+              text: 'Maps&Directions'
+            },
+            {
+              link: '',
+              sub: '',
+              text: 'where we work'
+            }
+          ]
+        },
         bus: [
           {
             label: '일반',
@@ -114,6 +137,16 @@
             ]
           }
         ]
+      }
+    },
+    computed: {
+      ...mapState({
+        language: state => state.language,
+        mapData: state => state.translation.MAP
+      }),
+      data() {
+        let data = this.mapData[this.language]
+        return data
       }
     },
     mounted() {
@@ -180,13 +213,10 @@
       }
       > div:nth-child(1) {
         flex: 0 0 50px;
+        width: 50px;
       }
       > div:nth-child(2) {
         flex: 0 0 calc(100% - 50px);
-        span {
-          display: inline-block;
-          padding-right: 5px;
-        }
       }
       &:not(:nth-child(2)) {
         br {
@@ -225,6 +255,10 @@
         margin-bottom: 5px;
         > div:nth-child(1) {
           flex: 0 0 70px;
+          width: 70px;
+        }
+        > div:nth-child(2) {
+          flex: 0 0 calc(100% - 70px);
         }
       }
     }
@@ -254,6 +288,10 @@
         margin-bottom: 20px;
         > div:nth-child(1) {
           flex: 0 0 100px;
+          width: 100px;
+        }
+        > div:nth-child(2) {
+          flex: 0 0 calc(100% - 100px);
         }
       }
     }
@@ -287,6 +325,10 @@
         margin-bottom: 10px;
         > div:nth-child(1) {
           flex: 0 0 40px;
+          width: 40px;
+        }
+        > div:nth-child(2) {
+          flex: 0 0 calc(100% - 40px);
         }
       }
     }

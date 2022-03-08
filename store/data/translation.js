@@ -867,8 +867,78 @@ const ETHICS = {
   }
 }
 
+const MAP = {
+  KR: {
+    MainTitle: '찾아오시는</br>길.',
+    MainTitleText:
+      '카카오브레인 크루가 모여 생각하지 못한 질문을 던지고 해답을 찾아가는 장소입니다.',
+    address: {
+      title: '주소',
+      text: '경기도 성남시 분당구 판교역로241번길 20 미래에셋벤처타워 11층 (우)13494'
+    },
+    method: {
+      title: '주변 버스',
+      list: [
+        {
+          name: '일반',
+          bus: ['101 15-1 330 350 357 370 380 382 55 260 390']
+        },
+        {
+          name: '마을',
+          bus: [
+            '602-1(일반형)(평일) 602-1(일반형)(휴일) 602-1(출퇴근맞춤형)',
+            '602-2(일반형)(평일) 602-2(출퇴근맞춤형) 71 73 73(맞춤형) 73-1 75 75(맞춤형) 812'
+          ]
+        },
+        {
+          name: '직행',
+          bus: ['4000 6003 9007 3000 1007 1009 5600 5700 6900 1007-1']
+        }
+      ],
+      info: {
+        title: '문의',
+        text: '<a href="mailto:contact@kakaobrain.com">contact@kakaobrain.com</a>으로 연락 바랍니다.'
+      }
+    }
+  },
+  EN: {
+    MainTitle: 'Maps<br/>& Directions',
+    MainTitleText:
+      'Innovation at kakaobrain starts with questions from its krew members.',
+    address: {
+      title: 'Address',
+      text: '11F, Mirae Asset Venture Tower, 20, Pangyoyeok-ro 241beon-gil, Bundang-gu, Seongnam-si, Gyeonggi-do, 13494, Korea'
+    },
+    method: {
+      title: 'Buses',
+      list: [
+        {
+          name: 'City Buses',
+          bus: ['101 15-1 330 350 357 370 380 382 55 260 390']
+        },
+        {
+          name: 'Maeul (Village) Buses',
+          bus: [
+            '602-1(General)(Weekdays) 602-1(General)(Weekends and Holidays) 602-1(Squirrel Bus)',
+            '602-2(General)(Weekdays) 602-2(Squirrel Bus) 71 73 73(Squirrel Bus) 73-1 75 75(Squirrel Bus) 812'
+          ]
+        },
+        {
+          name: 'G-Bus',
+          bus: ['4000 6003 9007 3000 1007 1009 5600 5700 6900 1007-1']
+        }
+      ],
+      info: {
+        title: 'Contact Us',
+        text: 'Send us an email to <a href="mailto:contact@kakaobrain.com">contact@kakaobrain.com</a>'
+      }
+    }
+  }
+}
+
 export default {
   ABOUT,
   PRIVACY,
-  ETHICS
+  ETHICS,
+  MAP
 }
