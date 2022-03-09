@@ -102,7 +102,8 @@
         image: require('~/assets/images/main_img_dummy.png'),
         list: [],
         activeContent: null,
-        breadcrumb: []
+        breadcrumb: [],
+        navigatorY: null
       }
     },
     computed: {
@@ -127,6 +128,8 @@
     async mounted() {
       await this.fetchList()
       await this.scrollBody.addEventListener('wheel', this.onScroll)
+      await window.addEventListener('resize', this.onResize)
+      await this.naviPosition()
     },
     async beforeDestroy() {
       await clearInterval(this.autoLoad)
@@ -153,16 +156,31 @@
           this.activeContent.Content.category2
         )
       },
+      naviPosition() {
+        const ref = this.$refs['issue-navi']
+        this.navigatorY = window.innerHeight - ref.offsetTop - ref.offsetHeight
+        ref.style = `transform: translateY(${this.navigatorY}px)`
+      },
+      async onResize() {
+        if (window.innerWidth > 1024) {
+          await this.naviPosition()
+        }
+      },
       onScroll() {
         const navi = this.$refs['issue-navi']
         const issue = this.$refs['issue']
         if (
           this.scrollBody.scrollTop <=
             issue.offsetTop + issue.offsetHeight - navi.offsetHeight &&
-          this.scrollBody.scrollTop + navi.offsetTop + navi.offsetHeight <=
+          this.navigatorY +
+            this.scrollBody.scrollTop +
+            navi.offsetTop +
+            navi.offsetHeight <=
             issue.offsetTop + issue.offsetHeight
         ) {
-          navi.style = `transform: translateY(${this.scrollBody.scrollTop}px)`
+          navi.style = `transform: translateY(${
+            this.navigatorY + this.scrollBody.scrollTop
+          }px)`
         }
       },
       onSetInterval() {
@@ -220,19 +238,19 @@
           { text: info.category1.nick, sub: subClass, link: '' },
           { text: info.category2.nick, sub: 'sub', link: info.category2.link }
         )
-        if (this.activeContent.Content.ContentTags.length > 0) {
-          for (
-            let i = 0;
-            i < this.activeContent.Content.ContentTags.length;
-            i++
-          ) {
-            this.breadcrumb.push({
-              text: this.activeContent.Content.ContentTags[i].tag,
-              sub: '',
-              link: this.activeContent.Content.ContentTags[i].link
-            })
-          }
-        }
+        // if (this.activeContent.Content.ContentTags.length > 0) {
+        //   for (
+        //     let i = 0;
+        //     i < this.activeContent.Content.ContentTags.length;
+        //     i++
+        //   ) {
+        //     this.breadcrumb.push({
+        //       text: this.activeContent.Content.ContentTags[i].tag,
+        //       sub: '',
+        //       link: this.activeContent.Content.ContentTags[i].link
+        //     })
+        //   }
+        // }
       },
       envVariable(url) {
         return `${this.$config.baseURL}${url}`
