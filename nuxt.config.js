@@ -86,16 +86,16 @@ export default {
   build: {},
   generate: {
     routes: [
-      // '/contents/research/challenge',
-      // '/contents/research/publications',
-      // '/contents/research/collaborative',
-      // '/contents/tech/highlight',
-      // '/contents/tech/dataset',
-      // '/contents/tech/brain',
-      // '/contents/tech/large',
-      // '/contents/tech/digital',
-      // '/contents/document/news',
-      // '/contents/document/documentary'
+      '/contents/research/challenge',
+      '/contents/research/publications',
+      '/contents/research/collaborative',
+      '/contents/tech/highlight',
+      '/contents/tech/dataset',
+      '/contents/tech/brain',
+      '/contents/tech/large',
+      '/contents/tech/digital',
+      '/contents/document/news',
+      '/contents/document/documentary'
     ]
   },
 
