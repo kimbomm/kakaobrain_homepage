@@ -24,11 +24,7 @@
   </div>
 </template>
 <script>
-  import Error404 from '@/components/error/Error404'
   export default {
-    components: {
-      Error404
-    },
     props: ['error'],
     layout: 'errorLayout',
     computed: {
