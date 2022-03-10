@@ -128,8 +128,6 @@
     async mounted() {
       await this.fetchList()
       await this.scrollBody.addEventListener('wheel', this.onScroll)
-      await window.addEventListener('resize', this.onResize)
-      await this.naviPosition()
     },
     async beforeDestroy() {
       await clearInterval(this.autoLoad)
@@ -156,26 +154,13 @@
           this.activeContent.Content.category2
         )
       },
-      naviPosition() {
-        const ref = this.$refs['issue-navi']
-        this.navigatorY = window.innerHeight - ref.offsetTop - ref.offsetHeight
-        ref.style = `transform: translateY(${this.navigatorY}px)`
-      },
-      async onResize() {
-        if (window.innerWidth > 1024) {
-          await this.naviPosition()
-        }
-      },
       onScroll() {
         const navi = this.$refs['issue-navi']
         const issue = this.$refs['issue']
         if (
           this.scrollBody.scrollTop <=
             issue.offsetTop + issue.offsetHeight - navi.offsetHeight &&
-          this.navigatorY +
-            this.scrollBody.scrollTop +
-            navi.offsetTop +
-            navi.offsetHeight <=
+          this.scrollBody.scrollTop + navi.offsetTop + navi.offsetHeight <=
             issue.offsetTop + issue.offsetHeight
         ) {
           navi.style = `transform: translateY(${
@@ -344,7 +329,7 @@
     }
     &-navi {
       margin-top: 98px;
-      transition: transform 0.1s linear;
+      transition: transform 0.2s linear;
       .buttons {
         font-size: 16px;
         display: flex;
