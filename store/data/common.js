@@ -80,8 +80,8 @@ const menus = [
       },
       {
         category: 'large',
-        nick: 'Large Scale',
-        name: 'Large Scale',
+        nick: 'Large Scale AI',
+        name: 'Large Scale AI',
         link: '/contents/tech/large'
       },
       {
