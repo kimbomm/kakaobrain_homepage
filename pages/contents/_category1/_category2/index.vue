@@ -15,6 +15,7 @@
             v-for="(item, index) in filterList"
             :key="index"
             class="contents-item"
+            v-show="isFolding ? index < 10 : true"
           >
             <Checkbox
               :checkboxText="item.text"
@@ -25,6 +26,14 @@
             />
           </li>
         </ul>
+        <div class="more">
+          <button
+            :class="{ 'more-button': true, 'is-folding': isFolding }"
+            @click="isFolding = !isFolding"
+          >
+            더보기
+          </button>
+        </div>
       </div>
 
       <div>
@@ -104,7 +113,8 @@
           category1: null,
           category2: null
         },
-        filterList: [{ value: 'all', text: 'All', isChecked: true }]
+        filterList: [{ value: 'all', text: 'All', isChecked: true }],
+        isFolding: true
       }
     },
     computed: {
@@ -225,6 +235,24 @@
       }
     }
   }
+  .more {
+    margin-top: 10px;
+    text-align: right;
+    .more-button {
+      font-size: 0;
+      &:before {
+        content: '▲';
+        font-size: 10px;
+        line-height: 1.2;
+        color: #000;
+      }
+      &.is-folding {
+        &:before {
+          content: '▼';
+        }
+      }
+    }
+  }
   @include pc-large {
     .tit-text {
       margin-bottom: 50px;
@@ -240,6 +268,9 @@
           margin-bottom: 260px;
         }
       }
+    }
+    .more {
+      margin-top: 20px;
     }
   }
   @include pc-4k {
@@ -257,6 +288,9 @@
           margin-bottom: 374px;
         }
       }
+    }
+    .more {
+      margin-top: 40px;
     }
   }
 
