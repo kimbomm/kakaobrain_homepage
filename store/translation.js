@@ -4,5 +4,6 @@ export const state = () => ({
   ABOUT: translation.ABOUT,
   PRIVACY: translation.PRIVACY,
   ETHICS: translation.ETHICS,
-  MAP: translation.MAP
+  MAP: translation.MAP,
+  SUBTITLE: translation.SUBTITLE
 })

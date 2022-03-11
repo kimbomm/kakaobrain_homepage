@@ -6,7 +6,7 @@
         <DetailTitle :text="title" />
       </div>
       <div class="tit-text l-ml-3 gl-5">
-        카카오브레인에서 새로운 소식을 전해드립니다.
+        <p v-html="description"></p>
       </div>
 
       <div class="contents-checkbox l-ml-3 gl-5">
@@ -49,7 +49,7 @@
   </div>
 </template>
 <script>
-  import { mapActions } from 'vuex'
+  import { mapState, mapActions } from 'vuex'
   import mixinGlobal from '@/mixin/global.js'
   import BreadCrumb from '@/components/elements/BreadCrumb'
   import DetailTitle from '@/components/detail/DetailTitle'
@@ -108,6 +108,13 @@
       }
     },
     computed: {
+      ...mapState({
+        language: state => state.language,
+        subtitle: state => state.translation.SUBTITLE
+      }),
+      description() {
+        return this.subtitle[this.$route.params.category1][this.language]
+      },
       checkedList() {
         let list = []
         list = this.filterList.filter(item => item.isChecked)

@@ -936,9 +936,27 @@ const MAP = {
   }
 }
 
+const SUBTITLE = {
+  research: {
+    KR: `왜 카카오브레인은 끊임없이 AI 기술을 오픈할까요? 공개와 공유의 문화가 기술을 진화시킵니다. 카카오브레인은 논문 발표와 코드 공개를 통해서 실질적인 핵심적인 기술로 쓰시고, 이것이 우리의 삶을 좀더 풍요롭게 할 수 있도록 최선을 다합니다.`,
+    EN: `Why does Kakao Brain constantly open its AI technology? A culture of openness and sharing evolves technology. Kakao Brain publishes theses and opens the codes to make them available as practical core technologies. This way, we are doing our best to make our lives richer.`
+  },
+  tech: {
+    KR: `카카오브레인은 생각하지 못한 물음으로부터, 세상을 변화시킬 해답을 찾아가는 팀입니다.<br/>
+    우리는 AI 선행 연구부터, 프로덕트까지 모든 스토리를 공개하며 공유합니다. 이러한 행동은 AI 커뮤니티에 기여하며, 그로 인해 우리의 삶이 좀 더 나아질 것을 믿기 때문입니다.`,
+    EN: `Kakaobrain is a seeking answers that will change the world from Unexpected Questions.<br/>
+    We open and share all the stories from prcedent research on AI to products. We believe these actions contribute to the AI community and make our lives a little better.`
+  },
+  document: {
+    KR: `왜 사과는 떨어지는 것일까? 생각하지 못한 물음이 세상을 바꿨습니다. 매월 카카오브레인은 생각하지 못한 물음을 던지고, 물음에 대한 답을 찾아가는 여정을 함께 나눕니다. 이러한 생각지 못한 물음의 여정들이 AI 기술을 좀더 강하게, 우리의 삶을 좀더 풍요롭게 할 수 있다고 믿습니다. 그럼, 함께 가볼까요?`,
+    EN: `Why do apples fall? An unexpected question changed the world. Every month, Kakao Brain asks unexpected questions and shares Why do apples fall? An Unexpected Question changed the world. Every month, Kakao Brain asks Unexpected Questions and shares the journey to find answers. We believe that the journeys toward Unexpected Questions can make AI technology stronger and enrich our lives. So, would you like to jump in together?`
+  }
+}
+
 export default {
   ABOUT,
   PRIVACY,
   ETHICS,
-  MAP
+  MAP,
+  SUBTITLE
 }
