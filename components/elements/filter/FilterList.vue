@@ -64,7 +64,9 @@
       filterList: {
         deep: true,
         handler(val) {
-          const filters = this.filterList.map(tag => {
+          const set = new Set(this.filterList)
+          const newFilterList = [...set]
+          const filters = newFilterList.map(tag => {
             return { value: tag, text: tag, isChecked: false }
           })
           this.list = this.list.concat(filters)
