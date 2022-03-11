@@ -163,9 +163,9 @@
         font-weight: 400;
         color: $kakao-black;
         .flow-txt {
-          animation-duration: 70s;
+          animation-duration: 100s;
           &:nth-child(2) {
-            animation-delay: 35s;
+            animation-delay: 50s;
           }
         }
       }
@@ -195,8 +195,8 @@
   }
   .flow-txt {
     &:nth-child(2) {
-      animation-delay: 25s;
-      animation-duration: 50s;
+      animation-delay: 50s;
+      animation-duration: 100s;
       &.ani__left {
         animation-name: ani-left2;
       }
@@ -210,7 +210,7 @@
     flex-wrap: nowrap;
     white-space: nowrap;
     align-items: center;
-    animation-duration: 50s;
+    animation-duration: 100s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
     transition: text-shadow 0.5s linear, color 0.5s linear;
