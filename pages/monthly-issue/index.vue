@@ -41,8 +41,7 @@
           },
           EN: {
             itemType: 'pagaraph',
-            text: `Why do apples fall? An unexpected question changed the world.
-            Every month, Kakao Brain asks unexpected questions and shares Why do apples fall? An Unexpected Question changed the world.
+            text: `Why do apples fall? An Unexpected Question changed the world.
             Every month, Kakao Brain asks Unexpected Questions and shares the journey to find answers.
             We believe that the journeys toward Unexpected Questions can make AI technology stronger and enrich our lives. So, would you like to jump in together?
             `
