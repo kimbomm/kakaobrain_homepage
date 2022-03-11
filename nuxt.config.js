@@ -9,7 +9,7 @@ export default {
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'kakaobrain_homepage',
+    title: '카카오브레인',
     htmlAttrs: {
       lang: 'en'
     },
