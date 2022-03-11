@@ -1,7 +1,10 @@
 export default {
   publicRuntimeConfig: {
     baseURL: process.env.VUE_APP_BASE_URL,
-    apiBaseURL: process.env.VUE_APP_API_BASE_URL
+    apiBaseURL: process.env.VUE_APP_API_BASE_URL,
+    googleAnalytics: {
+      id: process.env.GOOGLE_ANALYTICS_ID
+    }
   },
   env: {
     baseURL: process.env.VUE_APP_BASE_URL,
@@ -69,7 +72,14 @@ export default {
   // components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: ['@nuxtjs/style-resources', '@nuxtjs/dotenv'],
+  buildModules: [
+    '@nuxtjs/style-resources',
+    '@nuxtjs/dotenv',
+    '@nuxtjs/google-analytics'
+  ],
+  googleAnalytics: {
+    id: process.env.GOOGLE_ANALYTICS_ID
+  },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: ['@nuxtjs/axios', '@nuxtjs/dayjs'],
