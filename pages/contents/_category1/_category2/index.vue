@@ -242,7 +242,7 @@
       font-size: 0;
       &:before {
         content: '▲';
-        font-size: 10px;
+        font-size: 18px;
         line-height: 1.2;
         color: #000;
       }

@@ -54,6 +54,26 @@
             </ul>
           </li>
         </ul>
+
+        <div class="lang">
+          <ul>
+            <li
+              v-for="(item, index) in languageList"
+              :key="index"
+              :class="`lang-item animation delay-${index + 3} ${
+                isAnimation ? 'fade-up' : ''
+              }`"
+            >
+              <button
+                :class="item.value === language ? 'is-active' : ''"
+                @click="selectLang(item.value)"
+              >
+                {{ item.name }}
+              </button>
+            </li>
+          </ul>
+        </div>
+
         <MobMenuFooter @onClose="onClose" />
       </div>
     </div>
@@ -71,7 +91,11 @@
     data() {
       return {
         active: [],
-        isAnimation: false
+        isAnimation: false,
+        languageList: [
+          { name: 'English', value: 'EN' },
+          { name: 'Korean', value: 'KR' }
+        ]
       }
     },
     computed: {
@@ -102,7 +126,7 @@
       window.removeEventListener('scroll', this.onScroll)
     },
     methods: {
-      ...mapMutations(['setIsMenuOpen']),
+      ...mapMutations(['setIsMenuOpen', 'setLanguage']),
       onScroll(e) {
         e.preventDefault()
         e.stopPropagation()
@@ -115,6 +139,11 @@
         this.active.includes(idx)
           ? (this.active = this.active.filter(item => item != idx))
           : this.active.push(idx)
+      },
+      async selectLang(lang) {
+        localStorage.setItem('language', lang)
+        await this.setLanguage(lang)
+        await window.location.reload(true)
       }
     }
   }
@@ -243,12 +272,39 @@
     top: -7px;
     left: -2px;
   }
+  .lang {
+    margin-top: 110px;
+    z-index: 10;
+    cursor: pointer;
+    &-item {
+      font-size: 20px;
+      line-height: 1.3;
+      margin-bottom: 22px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      button {
+        color: $gray-0;
+        &.is-active,
+        &:hover {
+          color: $brain-yellow;
+        }
+      }
+    }
+  }
   @include tablet {
     .mob-menu {
       display: block;
     }
   }
   @include mobile {
+    .lang {
+      margin-top: 50px;
+      &-item {
+        margin-bottom: 17px;
+        font-size: 16px;
+      }
+    }
     .mob-menu {
       &-top {
         align-items: center;
