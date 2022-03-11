@@ -14,8 +14,8 @@
             :to="
               data.Content.contentType !== 'STORY'
                 ? {
-                    name: 'contents-contentId',
-                    params: { contentId: data.contentId }
+                    path: 'contents',
+                    query: { contentId: data.contentId }
                   }
                 : {
                     path: 'story-telling',
@@ -30,8 +30,8 @@
           :to="
             data.Content.contentType !== 'STORY'
               ? {
-                  name: 'contents-contentId',
-                  params: { contentId: data.contentId }
+                  path: 'contents',
+                  query: { contentId: data.contentId }
                 }
               : {
                   path: 'story-telling',
