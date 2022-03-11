@@ -22,26 +22,26 @@ export default {
         'http-equiv': 'Content-Security-Policy',
         content: 'upgrade-insecure-requests'
       },
-      { hid: 'og:type', name: 'og:type', content: 'website' },
+      { hid: 'og:type', property: 'og:type', content: 'website' },
       {
         hid: 'og:url',
-        name: 'og:url',
+        property: 'og:url',
         content: 'https://www.kakaobrain.com'
       },
       {
         hid: 'og:image',
-        name: 'og:image',
+        property: 'og:image',
         content: process.env.VUE_APP_BASE_URL + '/metaimg.png'
       },
       {
         hid: 'og:description',
-        name: 'og:description',
+        property: 'og:description',
         content: 'Unthinkable question makes impactful answer.'
       },
-      { hid: 'og:site_name', name: 'og:site_name', content: 'kakaobrain' },
-      { hid: 'og:locale', name: 'og:locale', content: 'en_US' },
-      { hid: 'og:image:width', name: 'og:image:width', content: '1200' },
-      { hid: 'og:image:height', name: 'og:image:height', content: '630' }
+      { hid: 'og:site_name', property: 'og:site_name', content: 'kakaobrain' },
+      { hid: 'og:locale', property: 'og:locale', content: 'en_US' },
+      { hid: 'og:image:width', property: 'og:image:width', content: '1200' },
+      { hid: 'og:image:height', property: 'og:image:height', content: '630' }
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
     // script: [{ src: '/script/bodyScrollLock.js' }]
