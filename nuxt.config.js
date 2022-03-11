@@ -85,7 +85,7 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
   generate: {
-    fallback: '404.html',
+    // fallback: '404.html',
     routes: [
       '/contents/research/challenge',
       '/contents/research/publications',

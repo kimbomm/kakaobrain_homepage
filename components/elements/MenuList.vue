@@ -67,9 +67,8 @@
       box-sizing: border-box;
     }
     &-thumbnail {
-      height: 110px;
       > div {
-        height: 100%;
+        height: 110px;
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center center;
@@ -113,7 +112,7 @@
   }
 
   @include pc-large {
-    .menu-thumbnail {
+    .menu-thumbnail > div {
       height: 146px;
     }
     .list-data {
@@ -135,7 +134,7 @@
     }
   }
   @include pc-4k {
-    .menu-thumbnail {
+    .menu-thumbnail > div {
       height: 266px;
     }
     .list-data {
@@ -164,7 +163,7 @@
     }
   }
   @include tablet {
-    .menu-thumbnail {
+    .menu-thumbnail > div {
       height: 110px;
     }
     .list-data {
@@ -204,7 +203,7 @@
     }
   }
   @include mobile {
-    .menu-thumbnail {
+    .menu-thumbnail > div {
       height: 170px;
     }
     .menu-list {
