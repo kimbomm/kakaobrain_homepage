@@ -26,7 +26,7 @@
             />
           </li>
         </ul>
-        <div class="more">
+        <div v-if="filterList.length > 10" class="more">
           <button
             :class="{ 'more-button': true, 'is-folding': isFolding }"
             @click="isFolding = !isFolding"
