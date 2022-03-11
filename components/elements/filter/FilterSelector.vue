@@ -47,10 +47,14 @@
     methods: {
       ...mapActions(['changeFilterMenuOpen']),
       onOpenFilter() {
-        this.isFilterMenuOpen
-          ? this.changeFilterMenuOpen(false)
-          : (this.$nuxt.$emit('scrollLock', true),
-            this.changeFilterMenuOpen(true))
+        if (this.isFilterMenuOpen) {
+          this.changeFilterMenuOpen(false)
+        } else {
+          this.changeFilterMenuOpen(true)
+          // if (window.inner <= 1024) {
+          this.$nuxt.$emit('scrollLock', true)
+          // }
+        }
       }
     }
   }

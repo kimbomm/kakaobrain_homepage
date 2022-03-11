@@ -4,7 +4,7 @@
       <nuxt-link class="logo tablet-only" to="/">
         <img src="@/assets/images/logo-w.png" />
       </nuxt-link>
-      <div>
+      <div ref="filter-list">
         <h3>Category</h3>
         <ul>
           <li v-for="(item, index) in categoryList" :key="index">
@@ -40,14 +40,6 @@
         filterList: state => state.filterList,
         isFilterMenuOpen: state => state.isFilterMenuOpen
       }),
-      // list() {
-      //   let list = [{ value: 'all', text: 'All', isChecked: true }]
-      //   const filters = this.filterList.map(tag => {
-      //     return { value: tag, text: tag, isChecked: false }
-      //   })
-      //   list = list.concat(filters)
-      //   return list
-      // },
       categoryList() {
         let list = []
         list = [...this.list]
@@ -60,6 +52,15 @@
       }
     },
     watch: {
+      isFilterMenuOpen(val) {
+        if (val) {
+          this.$nextTick(() => {
+            document
+              .querySelector('.filter-list')
+              .addEventListener('wheel', this.onWheel)
+          })
+        }
+      },
       filterList: {
         deep: true,
         handler(val) {
@@ -73,6 +74,11 @@
     mounted() {
       // this.init()
     },
+    beforeDestroy() {
+      document
+        .querySelector('.filter-list')
+        .removeEventListener('wheel', this.onWheel)
+    },
     data() {
       return {
         list: [{ value: 'all', text: 'All', isChecked: true }]
@@ -81,6 +87,13 @@
     methods: {
       ...mapActions(['changeFilterMenuOpen']),
       ...mapMutations(['setFilter']),
+      onWheel(e) {
+        const ref = this.$refs['filter-list']
+        const scrollHeight = ref.scrollHeight - ref.offsetHeight
+        if (ref.scrollTop <= scrollHeight) {
+          ref.scrollTop += e.deltaY
+        }
+      },
       onClose() {
         this.$nuxt.$emit('scrollLock', false)
         this.changeFilterMenuOpen(false)
@@ -114,12 +127,14 @@
     top: 0;
     left: 0;
     width: 100%;
-    padding-top: 140px;
-    padding-bottom: calc(60px - 14px);
     background-color: #000;
     z-index: 2;
     transition: all 0.2s ease-out;
     > div {
+      height: 492px;
+      overflow-y: auto;
+      padding-top: 140px;
+      padding-bottom: 60px;
       margin: 0 auto;
       width: getWidth(6);
     }
@@ -153,6 +168,18 @@
     opacity: 0;
     transform: translateY(-100%);
   }
+  @include pc-large {
+    .filter-list > div {
+      height: 580px;
+      padding: 160px 0 80px;
+    }
+  }
+  @include pc-4k {
+    .filter-list > div {
+      height: 900px;
+      padding: 270px 0 100px;
+    }
+  }
   @include tablet {
     .logo {
       position: absolute;
@@ -163,8 +190,11 @@
       }
     }
     .filter-list {
-      height: 100vh;
       z-index: 30;
+      > div {
+        height: 100vh;
+        padding-top: 140px;
+      }
     }
     .btn-close {
       top: 20px;
@@ -174,12 +204,12 @@
   }
   @include mobile {
     .filter-list {
-      padding-top: 116px;
-      overflow: hidden;
       > div {
         width: 100%;
         margin: 0;
+        overflow: hidden;
         padding: {
+          top: 116px;
           left: calc(20px + #{getMargin(1)});
           right: 20px;
         }
