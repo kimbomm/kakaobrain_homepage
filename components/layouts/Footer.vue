@@ -23,7 +23,7 @@
       </div>
       <div class="footer-bottom">
         <div :class="{ copy: true, 'is-hide': onHide }">
-          <span class="info-txt">@2021</span>
+          <span class="info-txt">@2022</span>
           <div class="copyright">
             Copyright ⓒ kakaobrain Corp. <span>All rights reserved.</span>
           </div>
