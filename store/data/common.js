@@ -4,7 +4,6 @@ const menus = [
     category: 'about',
     nick: 'About',
     link: '/about',
-    alarm: '',
     sub: [
       {
         category: 'introduce',
@@ -31,7 +30,6 @@ const menus = [
     category: 'research',
     nick: 'Research',
     link: '/research',
-    alarm: '172',
     sub: [
       {
         category: 'challenge',
@@ -58,14 +56,13 @@ const menus = [
     category: 'tech',
     nick: 'Tech',
     link: '/tech',
-    alarm: '54',
     sub: [
-      {
-        category: 'highlight',
-        nick: 'Highlight',
-        name: 'Highlight',
-        link: '/contents/tech/highlight'
-      },
+      // {
+      //   category: 'highlight',
+      //   nick: 'Highlight',
+      //   name: 'Highlight',
+      //   link: '/contents/tech/highlight'
+      // },
       {
         category: 'dataset',
         nick: 'Datasets',
@@ -97,7 +94,6 @@ const menus = [
     category: 'document',
     nick: 'Docu.B',
     link: '/document',
-    alarm: '78',
     sub: [
       {
         category: 'news',
