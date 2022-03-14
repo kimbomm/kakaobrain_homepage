@@ -25,7 +25,7 @@
             text = '권한이 없습니다.'
             break
           case 404:
-            text = 'The page tou requested could not found.'
+            text = 'The page you requested could not found.'
             break
           case 500:
             text = 'Server Error'
