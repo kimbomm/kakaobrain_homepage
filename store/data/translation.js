@@ -7,7 +7,7 @@ const ABOUT = {
       aboutConA: {
         title: `생각하지 못한<br/>
         물음으로부터 기술을 발전시키고,<br/>
-        모두의 생활을변화시킵니다.
+        모두의 생활을 변화시킵니다.
         `,
         text: 'Unthinkable question makes impactful answer.'
       },
