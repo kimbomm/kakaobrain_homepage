@@ -1,5 +1,6 @@
 export default {
   publicRuntimeConfig: {
+    url: process.env.BASE_URL,
     baseURL: process.env.VUE_APP_BASE_URL,
     apiBaseURL: process.env.VUE_APP_API_BASE_URL,
     googleAnalytics: {
@@ -34,7 +35,7 @@ export default {
       {
         hid: 'og:image',
         property: 'og:image',
-        content: process.env.VUE_APP_BASE_URL + '/metaimg.png'
+        content: process.env.BASE_URL + '/metaimg.png'
       },
       {
         hid: 'og:description',
@@ -100,7 +101,7 @@ export default {
       '/contents/research/challenge',
       '/contents/research/publications',
       '/contents/research/collaborative',
-      '/contents/tech/highlight',
+      // '/contents/tech/highlight',
       '/contents/tech/dataset',
       '/contents/tech/brain',
       '/contents/tech/large',
