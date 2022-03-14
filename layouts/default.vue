@@ -33,13 +33,11 @@
         scrollLock: false,
         isStoryPage: false,
         isFooterShow: true,
-        isMouseWheel: false,
         prevY: 0,
         touchInfo: {
           start: null,
           end: null
-        },
-        bodyLock: false
+        }
       }
     },
     computed: {
@@ -142,23 +140,6 @@
         }
         this.prevY = this.scrollBody.scrollTop
       }
-      // touchStart(e) {
-      //   this.touchInfo.start = e.touches[0].clientY
-      // },
-      // touchMove(e) {
-      //   this.touchInfo.end = e.touches[0].clientY
-      // },
-      // touchEnd() {
-      //   if (this.touchInfo.start && this.touchInfo.end) {
-      //     this.setIsScrollUp(this.touchInfo.end < this.touchInfo.start)
-      //     this.$nextTick(() => {
-      //       this.touchInfo = {
-      //         start: null,
-      //         end: null
-      //       }
-      //     })
-      //   }
-      // }
     }
   }
 </script>

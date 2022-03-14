@@ -2,7 +2,7 @@ import data from './data/common.js'
 import utility from '/util/utility.js'
 
 export const state = () => ({
-  language: 'KR',
+  language: 'EN',
   isDark: true,
   isMenuOpen: false,
   menus: data.menus,
