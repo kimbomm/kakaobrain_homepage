@@ -68,7 +68,7 @@ const ABOUT = {
         title: 'Our Brand'
       },
       aboutConTxtBData: {
-        text: '생각지도 못한 질문에서 예상치 못한 답을 찾는카카오브레인 크루들이 AI로 만들어가는 새로운 여정과 이야기를여러분과 공유합니다.'
+        text: '생각지도 못한 질문에서 예상치 못한 답을 찾는 카카오브레인 크루들이 AI로 만들어가는 새로운 여정과 이야기를 여러분과 공유합니다.'
       },
       aboutConC: {
         title: 'Unthinkable Question',
