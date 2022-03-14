@@ -5,8 +5,10 @@ const ABOUT = {
         text: '카카오브레인은차별화된 요소 기술과 빅 모델 및 디지털 휴먼을 완성하는 AI 프론티어로서 기술 커뮤니티에 기여하고,사용 가치와 삶의 질을 높이는 새로운 서비스 영역을 개척합니다.'
       },
       aboutConA: {
-        title:
-          '생각하지 못한 물음으로부터기술을 발전시키고, 모두의 생활을변화시킵니다.',
+        title: `생각하지 못한<br/>
+        물음으로부터 기술을 발전시키고,<br/>
+        모두의 생활을변화시킵니다.
+        `,
         text: 'Unthinkable question makes impactful answer.'
       },
       visionList: [
