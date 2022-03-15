@@ -83,7 +83,15 @@ export default {
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/axios', '@nuxtjs/dayjs'],
+  modules: ['@nuxtjs/axios', '@nuxtjs/dayjs', '@nuxtjs/sitemap'],
+  sitemap: {
+    hostname: 'https://www.kakaobrain.com/',
+    defaults: {
+      changefreq: 'daily',
+      priority: 1,
+      lastmod: new Date()
+    }
+  },
 
   dayjs: {
     locales: ['en', 'ko'],
@@ -108,7 +116,13 @@ export default {
       '/contents/tech/digital',
       '/contents/document/news',
       '/contents/document/documentary'
-    ]
+    ],
+    async routes() {
+      const { $content } = require('@nuxt/content')
+      const files = await $content({ deep: true }).only(['path']).fetch()
+
+      return files.map(file => (file.path === '/index' ? '/' : file.path))
+    }
   },
 
   styleResources: {
