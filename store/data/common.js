@@ -156,7 +156,7 @@ const footer = [
       KR: '오픈미니컨',
       EN: 'Open Minicon'
     },
-    link: 'https://kakaobrain.com/openminicon',
+    link: 'https://openminicon.kakaobrain.com',
     target: '_blank'
   },
   {
