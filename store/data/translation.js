@@ -508,7 +508,7 @@ const PRIVACY = {
       {
         itemType: 'pagaraph',
         text: `
-          kakaobrain website collects minimum personal information necessary for using the site, apart from personal information for job applications.
+          Kakaobrain website collects minimum personal information necessary for using the site, apart from personal information for job applications.
 
           [Application for employment - Filling out the application form]
 
@@ -558,7 +558,7 @@ const PRIVACY = {
       {
         itemType: 'pagaraph',
         text: `
-          1) kakaobrain outsources the following personal information processing to smoothly handle personal information and improve its services. We will notify the data subject in advance of any changes concerning the entity outsourced to process personal information (the outsourcee) or the outsourced work.
+          1) Kakaobrain outsources the following personal information processing to smoothly handle personal information and improve its services. We will notify the data subject in advance of any changes concerning the entity outsourced to process personal information (the outsourcee) or the outsourced work.
 
           - Entity outsourced with the work 1 (outsourcee): Midasin Co., Ltd.
           - Details of outsourced tasks: Operation of the job opening website and its management IT system, and operation and management of relevant job opening website and its management IT system
@@ -566,7 +566,7 @@ const PRIVACY = {
           - Entity outsourced with the work 2 (outsourcee): Wecruit Co., Ltd.
           - Details of outsourced tasks: Reference check (if applicable)
           
-          kakaobrain outsources the following personal information processing tasks to smoothly handle personal information and improve its services. We further manage and supervise the outsourcee to prevent it from not violating laws related to personal information protection.        
+          Kakaobrain outsources the following personal information processing tasks to smoothly handle personal information and improve its services. We further manage and supervise the outsourcee to prevent it from not violating laws related to personal information protection.        
         `
       },
       {
@@ -576,7 +576,7 @@ const PRIVACY = {
       {
         itemType: 'pagaraph',
         text: `
-        1) kakaobrain processes and retains personal information within the period of retention and use of personal information according to the statutes or within the period of retention and use of personal information agreed upon at the time of collecting personal information from data subjects. Such information will be destroyed without delay once the purpose for personal information processing is achieved.
+        1) Kakaobrain processes and retains personal information within the period of retention and use of personal information according to the statutes or within the period of retention and use of personal information agreed upon at the time of collecting personal information from data subjects. Such information will be destroyed without delay once the purpose for personal information processing is achieved.
 
         2) The personal information processing and retention period are as follows. Each of the following information will be destroyed without delay in case the data subject explicitly requests destruction.
         
@@ -592,7 +592,7 @@ const PRIVACY = {
       {
         itemType: 'pagaraph',
         text: `
-        1) kakaobrain destroys personal information without delay when the personal information becomes unnecessary owing to the expiry of the retention period, attainment of the purpose of processing the information, etc.
+        1) Kakaobrain destroys personal information without delay when the personal information becomes unnecessary owing to the expiry of the retention period, attainment of the purpose of processing the information, etc.
 
         2) Where the personal information must be retained despite the expiry of the retention period agreed upon by the data object, or attainment of the purpose of processing the information, etc. under other statutes (see ‘5. The period for processing and retaining personal information’), the relevant personal information shall be moved to a separate database (DB) or stored in a different location separate from other personal information.
         
@@ -621,9 +621,9 @@ const PRIVACY = {
         
         3) Where the data subject requests correction or deletion of personal information errors, such information will not be used or provided until the correction or deletion is complete.
         
-        4) kakaobrain does not collect personal information from children under the age of 14: Provided, That the rights of the legal representative concerning the processing of personal information of children under the age of 14 are guaranteed in the event where personal information of children under the age of 14 is collected.
+        4) Kakaobrain does not collect personal information from children under the age of 14: Provided, That the rights of the legal representative concerning the processing of personal information of children under the age of 14 are guaranteed in the event where personal information of children under the age of 14 is collected.
         
-        5) kakaobrain checks whether the person requesting access, correction, deletion, or suspension of processing according to the rights of the data subject is the person or a legitimate representative.        
+        5) Kakaobrain checks whether the person requesting access, correction, deletion, or suspension of processing according to the rights of the data subject is the person or a legitimate representative.        
         `
       },
       {
@@ -672,7 +672,7 @@ const PRIVACY = {
       {
         itemType: 'pagaraph',
         text: `
-        kakaobrain takes the following administrative, technical, and physical measures to ensure the safety of personal information.
+        Kakaobrain takes the following administrative, technical, and physical measures to ensure the safety of personal information.
 
         1) Establishment and implementation of the internal personal information management plan
         We establish and implement an ‘internal management plan for personal information’ based on the ‘criteria for measures to ensure the safety of personal information’.
@@ -703,7 +703,7 @@ const PRIVACY = {
       {
         itemType: 'pagaraph',
         text: `
-        kakaobrain designates a privacy officer to take overall responsibility concerning personal information processing and handle complaints and damage relief of data subjects related to personal information processing as follows.
+        Kakaobrain designates a privacy officer to take overall responsibility concerning personal information processing and handle complaints and damage relief of data subjects related to personal information processing as follows.
 
         Please contact the privacy officer or the person in charge below if you have any questions, opinions or any possibility of personal information divulgence while using the website. We will take measures without delay and notify you of the outcome.
         
