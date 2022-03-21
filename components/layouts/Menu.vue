@@ -186,7 +186,11 @@
       async selectLang(lang) {
         localStorage.setItem('language', lang)
         await this.setLanguage(lang)
-        await window.location.reload(true)
+        if (this.$route.path === '/contents') {
+          this.$nuxt.$emit('langChange')
+        } else {
+          await window.location.reload(true)
+        }
       }
     }
   }

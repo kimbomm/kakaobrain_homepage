@@ -91,18 +91,20 @@
         return classList.join(' ')
       }
     },
+    created() {
+      this.$nuxt.$on('langChange', this.onLangChange)
+    },
     async mounted() {
       await this.init()
     },
     methods: {
       ...mapActions(['getContentDetail', 'getNickName']),
+      onLangChange() {
+        window.location = `/contents?contentId=${this.data.contentProp.langLink}`
+      },
       async init() {
         const res = await this.getContentDetail(this.contentId)
         this.data = res.data
-        if (this.data.targetLang !== this.language) {
-          alert(`해당 컨텐츠는 ${this.language} 페이지에서 제공하지 않습니다.`)
-          history.go(-1)
-        }
         this.contentType = this.data.contentType
         this.ContentItems = this.data.ContentItems
         if (
