@@ -11,6 +11,7 @@
 </template>
 <script>
   import { mapActions } from 'vuex'
+  import Utility from '@/util/utility.js'
   import BreadCrumb from '@/components/elements/BreadCrumb'
   import Swiper from '@/components/swiper/Swiper'
   import Like from '@/components/elements/Like'
@@ -67,7 +68,10 @@
         )
         this.data = res.data
         if (this.data.category1 && this.data.category2) {
-          await this.setBreadcrumb(this.data.category1, this.data.category2)
+          await this.setBreadcrumb(
+            this.data.category1,
+            Utility.changeCategory2(this.data.category2)
+          )
         }
       },
       async setBreadcrumb(category1, category2) {

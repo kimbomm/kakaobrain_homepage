@@ -79,7 +79,7 @@
 </template>
 <script>
   import { mapState, mapActions } from 'vuex'
-  import util from '@/util/utility.js'
+  import Utility from '@/util/utility.js'
   import BreadCrumb from '@/components/elements/BreadCrumb'
   import Sticker from '@/components/elements/button/Sticker'
   export default {
@@ -111,7 +111,7 @@
         issueList: state => state.issue.list
       }),
       curPage() {
-        return util.changeNumFont(this.activeIndex + 1)
+        return Utility.changeNumFont(this.activeIndex + 1)
       }
     },
     watch: {
@@ -151,7 +151,7 @@
         this.activeContent = this.list[this.activeIndex]
         await this.setBreadcrumb(
           this.activeContent.Content.category1,
-          this.activeContent.Content.category2
+          Utility.changeCategory2(this.activeContent.Content.category2)
         )
       },
       onScroll() {

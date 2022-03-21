@@ -57,6 +57,26 @@ function setParameters(payload) {
   return createdParam
 }
 
+function changeCategory2(category2) {
+  let category = category2
+  switch (category) {
+    case 'datasets':
+      category = 'dataset'
+      break
+    case 'brain_cloud':
+      category = 'brain'
+      break
+    case 'large_scale':
+      category = 'large'
+      break
+    case 'digital_human':
+      category = 'digital'
+      break
+  }
+
+  return category
+}
+
 // function scrollControl(el, method) {
 //   switch (method) {
 //     case 'block':
@@ -74,6 +94,7 @@ function setParameters(payload) {
 
 export default {
   changeNumFont,
-  setParameters
+  setParameters,
+  changeCategory2
   // scrollControl
 }

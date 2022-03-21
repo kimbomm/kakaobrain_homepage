@@ -53,6 +53,7 @@
 </template>
 <script>
   import { mapActions } from 'vuex'
+  import Utility from '@/util/utility.js'
   import BreadCrumb from '@/components/elements/BreadCrumb'
   export default {
     props: {
@@ -97,7 +98,7 @@
       await this.setImagePath()
       await this.setBreadcrumb(
         this.data.Content.category1,
-        this.data.Content.category2
+        Utility.changeCategory2(this.data.Content.category2)
       )
       window.addEventListener('resize', this.setImagePath)
     },

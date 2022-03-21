@@ -28,6 +28,7 @@
 <script>
   import mixinGlobal from '@/mixin/global.js'
   import { mapState, mapActions } from 'vuex'
+  import Utility from '@/util/utility.js'
   import BreadCrumb from '@/components/elements/BreadCrumb'
   import DetailImage from '@/components/detail/DetailImage'
   import DetailYoutube from '@/components/detail/DetailYoutube'
@@ -127,7 +128,10 @@
           this.ContentItems = this.ContentItems.concat([header, writer])
         }
 
-        await this.setBreadcrumb(this.data.category1, this.data.category2)
+        await this.setBreadcrumb(
+          this.data.category1,
+          Utility.changeCategory2(this.data.category2)
+        )
         this.isLoad = true
       },
       validContent(content, index) {

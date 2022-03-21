@@ -60,6 +60,7 @@
 <script>
   import { mapState, mapActions } from 'vuex'
   import mixinGlobal from '@/mixin/global.js'
+  import Utility from '@/util/utility.js'
   import BreadCrumb from '@/components/elements/BreadCrumb'
   import DetailTitle from '@/components/detail/DetailTitle'
   import Checkbox from '@/components/elements/filter/Checkbox'
@@ -87,7 +88,7 @@
       const category2List = subList.map(item => item.category)
 
       const category1 = ctx.params.category1
-      const category2 = ctx.params.category2
+      const category2 = Utility.changeCategory2(ctx.params.category2)
 
       if (
         !category1List.includes(category1) ||
@@ -149,7 +150,7 @@
         this.pageData.targetLang = this.$store.state.language
         const res = await this.getCategoryList({
           category1: this.$route.params.category1,
-          category2: this.$route.params.category2,
+          category2: Utility.changeCategory2(this.$route.params.category2),
           pageData: this.pageData
         })
         if (res) {
@@ -166,9 +167,10 @@
       },
       async setBreadcrumb() {
         let subClass = ''
+        console.log(this)
         const info = await this.getNickName({
           category1: this.$route.params.category1,
-          category2: this.$route.params.category2
+          category2: Utility.changeCategory2(this.$route.params.category2)
         })
 
         switch (this.$route.params.category1) {

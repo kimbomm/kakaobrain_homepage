@@ -36,6 +36,7 @@
 </template>
 <script>
   import { mapActions } from 'vuex'
+  import Utility from '@/util/utility.js'
   import BreadCrumb from '@/components/elements/BreadCrumb'
   export default {
     props: {
@@ -63,7 +64,7 @@
       async init() {
         await this.setBreadcrumb(
           this.data.Content.category1,
-          this.data.Content.category2
+          Utility.changeCategory2(this.data.Content.category2)
         )
       },
       async setBreadcrumb(category1, category2) {
@@ -102,8 +103,6 @@
   }
 </script>
 <style lang="scss" scoped>
-  @import '@/assets/scss/mixins.scss';
-
   .monthly {
     &-list {
       display: flex;

@@ -67,25 +67,25 @@ const menus = [
         category: 'dataset',
         nick: 'Datasets',
         name: 'Datasets',
-        link: '/contents/tech/dataset'
+        link: '/contents/tech/datasets'
       },
       {
         category: 'brain',
         nick: 'Brain Cloud',
         name: 'Brain Cloud',
-        link: '/contents/tech/brain'
+        link: '/contents/tech/brain_cloud'
       },
       {
         category: 'large',
         nick: 'Large Scale AI',
         name: 'Large Scale AI',
-        link: '/contents/tech/large'
+        link: '/contents/tech/large_scale'
       },
       {
         category: 'digital',
         nick: 'Digital Human',
         name: 'Digital Human',
-        link: '/contents/tech/digital'
+        link: '/contents/tech/digital_human'
       }
     ]
   },
