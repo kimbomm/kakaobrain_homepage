@@ -99,8 +99,12 @@
     },
     methods: {
       ...mapActions(['getContentDetail', 'getNickName']),
-      onLangChange() {
-        window.location = `/contents?contentId=${this.data.contentProp.langLink}`
+      async onLangChange() {
+        if (this.data.contentProp.langLink) {
+          window.location = `/contents?contentId=${this.data.contentProp.langLink}`
+        } else {
+          await window.location.reload(true)
+        }
       },
       async init() {
         const res = await this.getContentDetail(this.contentId)
