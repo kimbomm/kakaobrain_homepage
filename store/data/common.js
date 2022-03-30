@@ -176,7 +176,7 @@ const footer = [
       KR: '영입',
       EN: 'Careers'
     },
-    link: 'https://kakaobrain.recruiter.co.kr/appsite/company/index',
+    link: 'https://recruit.kakaobrain.com/',
     target: '_blank'
   }
 ]
