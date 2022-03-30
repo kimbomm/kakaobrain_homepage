@@ -9,19 +9,22 @@ const menus = [
         category: 'introduce',
         nick: 'Introduce',
         name: 'Unthinkable Question',
-        link: '/about'
+        link: '/about',
+        target: ''
       },
       {
         category: 'culture',
         nick: 'Culture',
         name: 'Culture',
-        link: '/about/culture'
+        link: '/about/culture',
+        target: ''
       },
       {
-        category: 'principle',
-        nick: 'Principle',
-        name: 'Principle',
-        link: '/about/principle'
+        category: 'career',
+        nick: 'Careers',
+        name: 'Careers',
+        link: 'https://recruit.kakaobrain.com/',
+        target: '_blank'
       }
     ]
   },
@@ -35,19 +38,22 @@ const menus = [
         category: 'challenge',
         nick: 'Challenge',
         name: 'Challenge',
-        link: '/contents/research/challenge'
+        link: '/contents/research/challenge',
+        target: ''
       },
       {
         category: 'publications',
         nick: 'Publications',
         name: 'Publications',
-        link: '/contents/research/publications'
+        link: '/contents/research/publications',
+        target: ''
       },
       {
         category: 'collaborative',
         nick: 'Collabo',
         name: 'Collaborative Research',
-        link: '/contents/research/collaborative'
+        link: '/contents/research/collaborative',
+        target: ''
       }
     ]
   },
@@ -67,25 +73,29 @@ const menus = [
         category: 'dataset',
         nick: 'Datasets',
         name: 'Datasets',
-        link: '/contents/tech/datasets'
+        link: '/contents/tech/datasets',
+        target: ''
       },
       {
         category: 'brain',
         nick: 'Brain Cloud',
         name: 'Brain Cloud',
-        link: '/contents/tech/brain_cloud'
+        link: '/contents/tech/brain_cloud',
+        target: ''
       },
       {
         category: 'large',
         nick: 'Large Scale AI',
         name: 'Large Scale AI',
-        link: '/contents/tech/large_scale'
+        link: '/contents/tech/large_scale',
+        target: ''
       },
       {
         category: 'digital',
         nick: 'Digital Human',
         name: 'Digital Human',
-        link: '/contents/tech/digital_human'
+        link: '/contents/tech/digital_human',
+        target: ''
       }
     ]
   },
@@ -99,13 +109,15 @@ const menus = [
         category: 'news',
         nick: 'News',
         name: 'News',
-        link: '/contents/document/news'
+        link: '/contents/document/news',
+        target: ''
       },
       {
         category: 'documentary',
         nick: 'Documentary',
         name: 'Documentary',
-        link: '/contents/document/documentary'
+        link: '/contents/document/documentary',
+        target: ''
       }
     ]
   }

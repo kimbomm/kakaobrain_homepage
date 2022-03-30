@@ -78,14 +78,9 @@
                   }`"
                   @click="setIsMenuOpen(false)"
                 >
-                  <template v-if="subMenu.name !== 'Principle'">
-                    <nuxt-link :to="subMenu.link">{{ subMenu.name }}</nuxt-link>
-                  </template>
-                  <template v-else>
-                    <a :href="principleLink" target="_blank">{{
-                      subMenu.name
-                    }}</a>
-                  </template>
+                  <a :href="subMenu.link" :target="subMenu.target">
+                    {{ subMenu.name }}
+                  </a>
                 </li>
               </ul>
             </li>
