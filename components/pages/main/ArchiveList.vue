@@ -2,7 +2,7 @@
 <template>
   <div class="main-archive">
     <div class="gl-8 l-ml-2">
-      <span>ARCHIVE@kakaobrain</span>
+      <span>ARCHIVE@Kakao Brain</span>
       <span></span>
       <nuxt-link to="/archive">
         <span class="title-italic">VIEW LIST</span>

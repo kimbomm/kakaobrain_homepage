@@ -25,7 +25,7 @@
         <div :class="{ copy: true, 'is-hide': onHide }">
           <span class="info-txt">@2022</span>
           <div class="copyright">
-            Copyright ⓒ kakaobrain Corp. <span>All rights reserved.</span>
+            Copyright ⓒ Kakao Brain Corp. <span>All rights reserved.</span>
           </div>
         </div>
         <SnsLink />

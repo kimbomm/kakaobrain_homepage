@@ -41,7 +41,7 @@
             새로운 서비스 영역을 개척합니다.`
           ],
           EN: [
-            `Innovation at kakaobrain starts<br>with questions from its krew members`,
+            `Innovation at Kakao Brain starts<br>with questions from its krew members`,
             `Our innovation is to contribute our world-leading technology on large-scale AI models and<br/>Digital Human to the tech community, and to create services that improve the value and quality of life.`
           ]
         }

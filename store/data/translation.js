@@ -84,7 +84,7 @@ const ABOUT = {
       aboutTitleText: {
         text: `
         As a company at the AI frontier working on its core research,
-        large-scale AI model and digital humans, kakaobrain contributes to the tech community and explores new service areas to improve value and quality of life.
+        large-scale AI model and digital humans, Kakao Brain contributes to the tech community and explores new service areas to improve value and quality of life.
         `
       },
       aboutConA: {
@@ -109,7 +109,7 @@ const ABOUT = {
           num: '³',
           txt: 'open',
           subtxt:
-            'By opening and sharing technical know-how, kakaobrain contributes to the AI community to create new values.'
+            'By opening and sharing technical know-how, Kakao Brain contributes to the AI community to create new values.'
         },
         {
           num: '⁴',
@@ -150,7 +150,7 @@ const ABOUT = {
         title: 'Our Brand'
       },
       aboutConTxtBData: {
-        text: 'We share with you the new journeys and stories that kakaobrain krews are making with AI searching for unexpected answers to unthinkable questions.'
+        text: 'We share with you the new journeys and stories that Kakao Brain krews are making with AI searching for unexpected answers to unthinkable questions.'
       },
       aboutConC: {
         title: 'Unthinkable Question',
@@ -220,21 +220,21 @@ const ABOUT = {
         title: 'Why do we do what we do?'
       },
       aboutConTxt2: {
-        text: 'This is a number one question for kakaobrain krews. We motivate ourselves.To lead, not to be led, by work,  one should always be the first to think, question, and act. Our preferred way of work is to trust you to work on your own with the belief that you are the best judge of your work.'
+        text: 'This is a number one question for Kakao Brain krews. We motivate ourselves.To lead, not to be led, by work,  one should always be the first to think, question, and act. Our preferred way of work is to trust you to work on your own with the belief that you are the best judge of your work.'
       },
       aboutConE: {
         title: 'We promote<br />“horizontal communication”.',
         text: `
         It means a culture in which everyone can freely express their opinions. Anyone can present their ideas in discussions regardless of their positions as if the organization is structured "horizontally". Also, everyone is welcome to talk directly to the CEO to discuss their concerns, and  our company-wide forums are held at all times.
         <br /><br />
-        With Kakaobrain’s ‘horizontal communication’, ideas and opinions discussed can lead to a better decision.After inconclusive discussions, when the moment comes a 'decision' must be made, each designated decision-makers are to make the final call.`
+        With Kakao Brain’s ‘horizontal communication’, ideas and opinions discussed can lead to a better decision.After inconclusive discussions, when the moment comes a 'decision' must be made, each designated decision-makers are to make the final call.`
       },
       aboutConF: {
         title: 'We strive for greater autonomy with less rules.',
         text: `
-        We try to minimize regulations that typically follows with any organizational culture as if it is non-existent. We try to promote as much autonomy throughout the possible decision-making process by encouraging active discussions between Kakaobrain krews.
+        We try to minimize regulations that typically follows with any organizational culture as if it is non-existent. We try to promote as much autonomy throughout the possible decision-making process by encouraging active discussions between Kakao Brain krews.
         <br/><br/>
-        In other words, we create a system with the least number of rules. Kakaobrain’s tendency  to make policy and rules naturally rather than artificially applies not only to work culture but also to employee benefits and perks.
+        In other words, we create a system with the least number of rules. Kakao Brain’s tendency  to make policy and rules naturally rather than artificially applies not only to work culture but also to employee benefits and perks.
         `,
         recruit:
           'Click below to explore our culture and recruitment process in detail.'
@@ -496,9 +496,9 @@ const PRIVACY = {
       {
         itemType: 'pagaraph',
         text: `
-          kakaobrain complies with the personal information protection regulations and guidelines under the statutes of the Personal Information Protection Act related laws for data subjects to use the service with confidence by protecting their valuable personal information.
+        Kakao Brain complies with the personal information protection regulations and guidelines under the statutes of the Personal Information Protection Act related laws for data subjects to use the service with confidence by protecting their valuable personal information.
         
-          According to the privacy policy, kakaobrain may use personal information obtained from data subjects for the following purposes in the following method. We also take measures to protect such information. 
+          According to the privacy policy, Kakao Brain may use personal information obtained from data subjects for the following purposes in the following method. We also take measures to protect such information. 
         `
       },
       {
@@ -508,7 +508,7 @@ const PRIVACY = {
       {
         itemType: 'pagaraph',
         text: `
-          Kakaobrain website collects minimum personal information necessary for using the site, apart from personal information for job applications.
+        Kakao Brain website collects minimum personal information necessary for using the site, apart from personal information for job applications.
 
           [Application for employment - Filling out the application form]
 
@@ -543,7 +543,7 @@ const PRIVACY = {
       {
         itemType: 'pagaraph',
         text: `
-          kakaobrain uses personal information of the data subject within the scope stated in ‘2. Purpose of processing personal information,’ and it does not use or provide to other persons, companies, or institutions beyond such scope.
+        Kakao Brain uses personal information of the data subject within the scope stated in ‘2. Purpose of processing personal information,’ and it does not use or provide to other persons, companies, or institutions beyond such scope.
 
           However, the personal information of the data subject may be provided to a third party only in case of the following
           
@@ -558,7 +558,7 @@ const PRIVACY = {
       {
         itemType: 'pagaraph',
         text: `
-          1) Kakaobrain outsources the following personal information processing to smoothly handle personal information and improve its services. We will notify the data subject in advance of any changes concerning the entity outsourced to process personal information (the outsourcee) or the outsourced work.
+          1) Kakao Brain outsources the following personal information processing to smoothly handle personal information and improve its services. We will notify the data subject in advance of any changes concerning the entity outsourced to process personal information (the outsourcee) or the outsourced work.
 
           - Entity outsourced with the work 1 (outsourcee): Midasin Co., Ltd.
           - Details of outsourced tasks: Operation of the job opening website and its management IT system, and operation and management of relevant job opening website and its management IT system
@@ -566,7 +566,7 @@ const PRIVACY = {
           - Entity outsourced with the work 2 (outsourcee): Wecruit Co., Ltd.
           - Details of outsourced tasks: Reference check (if applicable)
           
-          Kakaobrain outsources the following personal information processing tasks to smoothly handle personal information and improve its services. We further manage and supervise the outsourcee to prevent it from not violating laws related to personal information protection.        
+          Kakao Brain outsources the following personal information processing tasks to smoothly handle personal information and improve its services. We further manage and supervise the outsourcee to prevent it from not violating laws related to personal information protection.        
         `
       },
       {
@@ -576,7 +576,7 @@ const PRIVACY = {
       {
         itemType: 'pagaraph',
         text: `
-        1) Kakaobrain processes and retains personal information within the period of retention and use of personal information according to the statutes or within the period of retention and use of personal information agreed upon at the time of collecting personal information from data subjects. Such information will be destroyed without delay once the purpose for personal information processing is achieved.
+        1) Kakao Brain processes and retains personal information within the period of retention and use of personal information according to the statutes or within the period of retention and use of personal information agreed upon at the time of collecting personal information from data subjects. Such information will be destroyed without delay once the purpose for personal information processing is achieved.
 
         2) The personal information processing and retention period are as follows. Each of the following information will be destroyed without delay in case the data subject explicitly requests destruction.
         
@@ -592,7 +592,7 @@ const PRIVACY = {
       {
         itemType: 'pagaraph',
         text: `
-        1) Kakaobrain destroys personal information without delay when the personal information becomes unnecessary owing to the expiry of the retention period, attainment of the purpose of processing the information, etc.
+        1) Kakao Brain destroys personal information without delay when the personal information becomes unnecessary owing to the expiry of the retention period, attainment of the purpose of processing the information, etc.
 
         2) Where the personal information must be retained despite the expiry of the retention period agreed upon by the data object, or attainment of the purpose of processing the information, etc. under other statutes (see ‘5. The period for processing and retaining personal information’), the relevant personal information shall be moved to a separate database (DB) or stored in a different location separate from other personal information.
         
@@ -610,7 +610,7 @@ const PRIVACY = {
       {
         itemType: 'pagaraph',
         text: `
-        The data subject may exercise rights concerning personal information protection for the following items at any time to kakaobrain.
+        The data subject may exercise rights concerning personal information protection for the following items at any time to Kakao Brain.
 
         - Request access to his/her own personal information
         - Request correction of personal information
@@ -621,9 +621,9 @@ const PRIVACY = {
         
         3) Where the data subject requests correction or deletion of personal information errors, such information will not be used or provided until the correction or deletion is complete.
         
-        4) Kakaobrain does not collect personal information from children under the age of 14: Provided, That the rights of the legal representative concerning the processing of personal information of children under the age of 14 are guaranteed in the event where personal information of children under the age of 14 is collected.
+        4) Kakao Brain does not collect personal information from children under the age of 14: Provided, That the rights of the legal representative concerning the processing of personal information of children under the age of 14 are guaranteed in the event where personal information of children under the age of 14 is collected.
         
-        5) Kakaobrain checks whether the person requesting access, correction, deletion, or suspension of processing according to the rights of the data subject is the person or a legitimate representative.        
+        5) Kakao Brain checks whether the person requesting access, correction, deletion, or suspension of processing according to the rights of the data subject is the person or a legitimate representative.        
         `
       },
       {
@@ -672,7 +672,7 @@ const PRIVACY = {
       {
         itemType: 'pagaraph',
         text: `
-        Kakaobrain takes the following administrative, technical, and physical measures to ensure the safety of personal information.
+        Kakao Brain takes the following administrative, technical, and physical measures to ensure the safety of personal information.
 
         1) Establishment and implementation of the internal personal information management plan
         We establish and implement an ‘internal management plan for personal information’ based on the ‘criteria for measures to ensure the safety of personal information’.
@@ -703,7 +703,7 @@ const PRIVACY = {
       {
         itemType: 'pagaraph',
         text: `
-        Kakaobrain designates a privacy officer to take overall responsibility concerning personal information processing and handle complaints and damage relief of data subjects related to personal information processing as follows.
+        Kakao Brain designates a privacy officer to take overall responsibility concerning personal information processing and handle complaints and damage relief of data subjects related to personal information processing as follows.
 
         Please contact the privacy officer or the person in charge below if you have any questions, opinions or any possibility of personal information divulgence while using the website. We will take measures without delay and notify you of the outcome.
         
@@ -841,7 +841,7 @@ const ETHICS = {
       {
         itemType: 'pagaraph',
         text: `
-        Kakaobrain Ethical Management Team
+        Kakao Brain Ethical Management Team
         11F Mirae Asset Venture Tower, 20 Pangyoyeok-ro 241beon-gil, Bundang-gu, Seongnam-si, Gyeonggi-do, Korea
         `
       },
@@ -906,7 +906,7 @@ const MAP = {
   EN: {
     MainTitle: 'Maps<br/>& Directions',
     MainTitleText:
-      'Innovation at kakaobrain starts with questions from its krew members.',
+      'Innovation at Kakao Brain starts with questions from its krew members.',
     address: {
       title: 'Address',
       text: '11F, Mirae Asset Venture Tower, 20, Pangyoyeok-ro 241beon-gil, Bundang-gu, Seongnam-si, Gyeonggi-do, 13494, Korea'
@@ -946,7 +946,7 @@ const SUBTITLE = {
   tech: {
     KR: `카카오브레인은 생각하지 못한 물음으로부터, 세상을 변화시킬 해답을 찾아가는 팀입니다.<br/>
     우리는 AI 선행 연구부터, 프로덕트까지 모든 스토리를 공개하며 공유합니다. 이러한 행동은 AI 커뮤니티에 기여하며, 그로 인해 우리의 삶이 좀 더 나아질 것을 믿기 때문입니다.`,
-    EN: `Kakaobrain is a seeking answers that will change the world from Unexpected Questions.<br/>
+    EN: `Kakao Brain is a seeking answers that will change the world from Unexpected Questions.<br/>
     We open and share all the stories from prcedent research on AI to products. We believe these actions contribute to the AI community and make our lives a little better.`
   },
   document: {

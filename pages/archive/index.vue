@@ -65,7 +65,7 @@
           },
           EN: {
             itemType: 'pagaraph',
-            text: 'Kakaobrain is a seeking answers that will change the world from Unexpected Questions. We open and share all the stories from prcedent research on AI to products. We believe these actions contribute to the AI community and make our lives a little better. '
+            text: 'Kakao Brain is a seeking answers that will change the world from Unexpected Questions. We open and share all the stories from prcedent research on AI to products. We believe these actions contribute to the AI community and make our lives a little better. '
           }
         },
         pageData: {

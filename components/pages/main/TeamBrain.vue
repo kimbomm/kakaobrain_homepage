@@ -7,7 +7,7 @@
         <p>
           Recommendation<br />
           keywords by<br />
-          <span>kakaobrain.</span>
+          <span>Kakao Brain.</span>
         </p>
         <span ref="count" class="team-number">{{ NUMBER }}</span>
       </div>

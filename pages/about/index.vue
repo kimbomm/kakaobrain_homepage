@@ -61,13 +61,13 @@
           title: 'Unthinkable <span class="string">Question.</span>'
         },
         aboutTitleText: {
-          text: 'kakaobrain is...</br>As an AI frontier that completes differentiated element technology, big models, and digital humans, it contributes to the<br/>technology community and pioneers new service areas that enhance the value of use and quality of life.'
+          text: 'Kakao Brain is...</br>As an AI frontier that completes differentiated element technology, big models, and digital humans, it contributes to the<br/>technology community and pioneers new service areas that enhance the value of use and quality of life.'
         },
         aboutConTitData: {
           title: 'Our Brand'
         },
         aboutConTxtBData: {
-          text: 'People looking for unexpected answers from unthinkable questions, kakaobrain krews share with you the new journey and stories they are making with AI.'
+          text: 'People looking for unexpected answers from unthinkable questions, Kakao Brain krews share with you the new journey and stories they are making with AI.'
         },
 
         breadcrumb: [
