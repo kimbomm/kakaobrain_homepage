@@ -2,48 +2,41 @@
   <div :class="articleClassBind">
     <div class="date">
       <span class="gl-1">
-        {{ $dayjs(data.Content.acceptAt).format('YYYY/MM/DD') }}
+        <template v-if="data.Content">
+          {{ $dayjs(data.Content.acceptAt).format('YYYY/MM/DD') }}
+        </template>
+        <template v-else>
+          {{ $dayjs(data.updateAt).format('YYYY/MM/DD') }}
+        </template>
       </span>
-      <span> {{ $dayjs().diff(data.Content.acceptAt, 'hour') }}h </span>
+      <span>
+        <template v-if="data.Content">
+          {{ $dayjs().diff(data.Content.acceptAt, 'hour') }}h
+        </template>
+        <template v-else>
+          {{ $dayjs().diff(data.acceptAt, 'hour') }}h
+        </template>
+      </span>
     </div>
 
     <div :class="gridClassBind">
       <div class="article-info">
         <div class="thumbnail">
-          <nuxt-link
-            :to="
-              data.Content.contentType !== 'STORY'
-                ? {
-                    path: 'contents',
-                    query: { contentId: data.contentId }
-                  }
-                : {
-                    path: 'story-telling',
-                    query: { contentId: data.contentId }
-                  }
-            "
-          >
+          <a :href="contentLink" :target="data.Content ? '' : '_blank'">
             <img :src="srcPath" />
-          </nuxt-link>
+          </a>
         </div>
-        <nuxt-link
-          :to="
-            data.Content.contentType !== 'STORY'
-              ? {
-                  path: 'contents',
-                  query: { contentId: data.contentId }
-                }
-              : {
-                  path: 'story-telling',
-                  query: { contentId: data.contentId }
-                }
-          "
-        >
+        <a :href="contentLink" :target="data.Content ? '' : '_blank'">
           <div class="title">
-            <span>☞ {{ data.Content.title }}</span>
+            <span>
+              ☞
+              {{
+                data.Content ? data.Content.title : data.contentProp.outerTitle
+              }}
+            </span>
             <span></span>
           </div>
-        </nuxt-link>
+        </a>
       </div>
       <div class="tags">
         <BreadCrumb :data="breadcrumb" />
@@ -92,14 +85,28 @@
           classList.push(`gl-${this.data.contentProp.position.width}`)
         }
         return classList
+      },
+      contentLink() {
+        let link = ''
+        if (this.data.Content) {
+          link =
+            this.data.Content.contentType !== 'STORY'
+              ? `/contents?contentId=${this.data.contentId}`
+              : `/story-telling?contentId=${this.data.contentId}`
+        } else {
+          link = this.data.contentProp.outerLink
+        }
+        return link
       }
     },
     async mounted() {
       await this.setImagePath()
-      await this.setBreadcrumb(
-        this.data.Content.category1,
-        Utility.changeCategory2(this.data.Content.category2)
-      )
+      if (this.data.Content) {
+        await this.setBreadcrumb(
+          this.data.Content.category1,
+          Utility.changeCategory2(this.data.Content.category2)
+        )
+      }
       window.addEventListener('resize', this.setImagePath)
     },
     beforeDestroy() {
