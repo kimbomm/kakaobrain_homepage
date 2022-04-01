@@ -23,7 +23,7 @@ const menus = [
         category: 'career',
         nick: 'Careers',
         name: 'Careers',
-        link: 'https://recruit.kakaobrain.com/',
+        link: 'https://careers.kakaobrain.com/',
         target: '_blank'
       }
     ]
@@ -176,7 +176,7 @@ const footer = [
       KR: '영입',
       EN: 'Careers'
     },
-    link: 'https://recruit.kakaobrain.com/',
+    link: 'https://careers.kakaobrain.com/',
     target: '_blank'
   }
 ]
