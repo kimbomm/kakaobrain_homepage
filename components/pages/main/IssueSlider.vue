@@ -126,6 +126,7 @@
       }
     },
     async mounted() {
+      await this.getList()
       await this.fetchList()
       await this.scrollBody.addEventListener('wheel', this.onScroll)
     },
@@ -135,6 +136,7 @@
     },
     methods: {
       ...mapActions({
+        getList: 'getList',
         getIssueList: 'getMonthlyList',
         getCategoryList: 'getCategoryList',
         getNickName: 'getNickName'
