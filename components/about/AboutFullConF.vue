@@ -47,7 +47,7 @@
 
         <div class="link l-ml-3">
           <div class="txt">{{ data.recruit }}</div>
-          <a href="https://careers.kakaobrain.com/" target="_blank">
+          <a href="https://recruits.kakaobrain.com/" target="_blank">
             <button type="button" class="btn">
               <span>Go to →</span>
             </button>
