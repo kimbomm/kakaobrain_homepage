@@ -23,7 +23,7 @@ const menus = [
         category: 'career',
         nick: 'Careers',
         name: 'Careers',
-        link: 'https://careers.kakaobrain.com/',
+        link: 'https://recruit.kakaobrain.com/',
         target: '_blank'
       }
     ]
