@@ -102,7 +102,7 @@
       }
       &__full {
         position: static;
-        padding: 0 20px;
+        padding: 0;
       }
     }
   }
