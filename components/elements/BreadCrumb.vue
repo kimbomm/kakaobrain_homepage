@@ -94,9 +94,6 @@
   }
   @include mobile {
     .bread-crumb {
-      &.gl-1 {
-        width: 100% !important;
-      }
       li {
         display: inline-flex;
         // margin-bottom: 20px;
@@ -105,7 +102,7 @@
       }
       &__full {
         position: static;
-        padding: 0;
+        padding: 0 20px;
       }
     }
   }
