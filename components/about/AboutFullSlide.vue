@@ -33,6 +33,10 @@
           slidesPerView: 1,
           spaceBetween: 0,
           mousewheel: false,
+          autoplay: {
+            delay: 3000,
+            disableOnInteraction: false
+          },
           pagination: {
             el: '.swiper-pagination',
             type: 'fraction'
