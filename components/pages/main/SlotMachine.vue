@@ -87,17 +87,13 @@
     },
     async mounted() {
       await this.init()
-      if (this.data.length > 0) {
-        await this.setSlot()
-        await this.scrollBody.addEventListener('scroll', this.onWheel)
-        await this.scrollBody.addEventListener('wheel', this.onWheel)
-      }
+      await this.setSlot()
+      await this.scrollBody.addEventListener('scroll', this.onWheel)
+      await this.scrollBody.addEventListener('wheel', this.onWheel)
     },
     beforeDestroy() {
-      if (this.data.length > 0) {
-        this.scrollBody.removeEventListener('scroll', this.onWheel)
-        this.scrollBody.removeEventListener('wheel', this.onWheel)
-      }
+      this.scrollBody.removeEventListener('scroll', this.onWheel)
+      this.scrollBody.removeEventListener('wheel', this.onWheel)
     },
     methods: {
       ...mapActions(['getLibraryCategory']),
