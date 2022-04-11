@@ -117,16 +117,12 @@ export const actions = {
   },
   async getTags({}, payload) {
     const params = utility.setParameters(payload)
-    const res = await this.$axios(`/tag?${params}`)
+    const res = await this.$axios.get(`/tag?${params}`)
     return res
   },
-  async getList({}, payload) {
-    const params = utility.setParameters(payload)
-    return await this.$axios.get(
-      `https://api.lever.co/v0/postings/kakaobrain?${params}`
-      // {
-      //   withCredentials: true
-      // }
-    )
+  async getLibraryCategory({}, payload) {
+    const params = utility.setParameters(payload.params)
+    const res = await this.$axios.get(`/library/${payload.category}?${params}`)
+    return res
   }
 }
