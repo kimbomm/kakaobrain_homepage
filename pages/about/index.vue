@@ -21,7 +21,7 @@
     <AboutConTxtB :data="data.aboutConTxtBData" />
     <AboutLargeLogo />
     <AboutFullConC :data="data.aboutConC" />
-    <!-- <AboutFullSlide /> -->
+    <AboutFullSlide />
   </div>
 </template>
 <script>

@@ -107,7 +107,6 @@
         })
 
         this.data = res.data.list
-        console.log(res.data)
       },
       onWheel(e) {
         if (
