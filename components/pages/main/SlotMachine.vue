@@ -61,7 +61,7 @@
     data() {
       return {
         data: [],
-        slotLength: 5,
+        slotLength: 0,
         isChanged: true,
         prevIndex: 0,
         activeIndex: 0,
@@ -107,6 +107,7 @@
         })
 
         this.data = res.data.list
+        this.slotLength = this.data.length > 5 ? 5 : this.data.length
       },
       onWheel(e) {
         if (
