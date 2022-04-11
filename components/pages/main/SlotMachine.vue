@@ -1,5 +1,5 @@
 <template>
-  <div class="machine-wrap">
+  <div v-if="data.length > 0" class="machine-wrap">
     <div ref="machine" class="machine">
       <div ref="slot-contents" class="slot-contents">
         <div class="slot-image">
@@ -86,14 +86,18 @@
       }
     },
     async mounted() {
-      this.scrollBody.addEventListener('scroll', this.onWheel)
-      this.scrollBody.addEventListener('wheel', this.onWheel)
       await this.init()
-      await this.setSlot()
+      if (this.data.length > 0) {
+        await this.setSlot()
+        await this.scrollBody.addEventListener('scroll', this.onWheel)
+        await this.scrollBody.addEventListener('wheel', this.onWheel)
+      }
     },
     beforeDestroy() {
-      this.scrollBody.removeEventListener('scroll', this.onWheel)
-      this.scrollBody.removeEventListener('wheel', this.onWheel)
+      if (this.data.length > 0) {
+        this.scrollBody.removeEventListener('scroll', this.onWheel)
+        this.scrollBody.removeEventListener('wheel', this.onWheel)
+      }
     },
     methods: {
       ...mapActions(['getLibraryCategory']),
