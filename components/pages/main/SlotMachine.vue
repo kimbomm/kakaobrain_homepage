@@ -225,8 +225,9 @@
         }
       },
       getRandomNum() {
-        const num = Math.floor(Math.random() * (this.data.length - 1))
-        if (this.slot.includes(num)) {
+        const num = Math.floor(Math.random() * this.data.length)
+
+        if (this.slot.includes(num) || num === this.data.length) {
           return this.getRandomNum()
         } else {
           return num
