@@ -100,6 +100,35 @@ const menus = [
     ]
   },
   {
+    name: 'Log B',
+    category: 'log_b',
+    nick: 'Log B',
+    link: '/log_b',
+    sub: [
+      {
+        category: 'talk',
+        nick: 'Talk',
+        name: 'Talk',
+        link: '/contents/log_b/talk',
+        target: ''
+      },
+      {
+        category: 'conference',
+        nick: 'Conference',
+        name: 'Conference',
+        link: '/contents/log_b/conference',
+        target: ''
+      },
+      {
+        category: 'v_log',
+        nick: 'VLog',
+        name: 'VLog',
+        link: '/contents/log_b/v_log',
+        target: ''
+      }
+    ]
+  },
+  {
     name: 'Docu.B',
     category: 'document',
     nick: 'Docu.B',

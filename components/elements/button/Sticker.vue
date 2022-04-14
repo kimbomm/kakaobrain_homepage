@@ -3,7 +3,7 @@
     <button
       type="button"
       :class="classBind"
-      :disabled="!sub || !link ? true : false"
+      :disabled="!link ? true : false"
       @click="onClick"
     >
       <span class="txt">{{ text }}</span>
@@ -55,8 +55,6 @@
   }
 </script>
 <style lang="scss" scoped>
-  @import '@/assets/scss/mixins.scss';
-
   .btn {
     display: inline-flex;
     justify-content: center;
@@ -129,6 +127,18 @@
         }
       }
     }
+    &.log_b {
+      background-color: $brain-magenta;
+      border: none;
+      color: $gray-0;
+      .txt {
+        &::before {
+          content: '❖';
+          display: inline-block;
+          padding-right: 2px;
+        }
+      }
+    }
     &.tech {
       background-color: $brain-purple;
       border: none;
@@ -142,7 +152,6 @@
       }
     }
   }
-
 
   @include pc-large {
     .btn {

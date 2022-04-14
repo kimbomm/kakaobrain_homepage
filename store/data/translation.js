@@ -955,10 +955,24 @@ const SUBTITLE = {
   }
 }
 
+const LOGB = {
+  main: {
+    KR: {
+      title: 'Log B.',
+      description: `카카오브레인 크루들의 생각과 이야기들을 영상으로 공유합니다.`
+    },
+    EN: {
+      title: 'Log B.',
+      description: `카카오브레인 크루들의 생각과 이야기들을 영상으로 공유합니다.`
+    }
+  }
+}
+
 export default {
   ABOUT,
   PRIVACY,
   ETHICS,
   MAP,
-  SUBTITLE
+  SUBTITLE,
+  LOGB
 }
