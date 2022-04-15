@@ -79,6 +79,7 @@
       span {
         font-size: 40px;
         font-weight: 300;
+        white-space: nowrap;
       }
       .title-italic {
         vertical-align: middle;
