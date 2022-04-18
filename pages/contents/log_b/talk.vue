@@ -54,7 +54,6 @@
     },
     data() {
       return {
-        title: 'Talk&#46; ',
         category1: 'log_b',
         category2: 'talk',
         breadcrumb: [],
