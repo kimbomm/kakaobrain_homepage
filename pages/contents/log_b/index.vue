@@ -20,6 +20,7 @@
           </li>
         </ul>
       </div>
+      <ThumbnailMovie :data="data" />
     </div>
   </div>
 </template>
@@ -30,12 +31,14 @@
   import BreadCrumb from '@/components/elements/BreadCrumb'
   import DetailTitle from '@/components/detail/DetailTitle'
   import Sticker from '@/components/elements/button/Sticker'
+  import ThumbnailMovie from '@/components/pages/contents/logB/ThumbnailMovie'
   export default {
     mixins: [mixinGlobal],
     components: {
       BreadCrumb,
       DetailTitle,
-      Sticker
+      Sticker,
+      ThumbnailMovie
     },
     data() {
       return {
@@ -49,7 +52,8 @@
           { text: 'Talk', sub: '', link: '/contents/log_b/talk' },
           { text: 'Conference', sub: '', link: '/contents/log_b/conference' },
           { text: 'VLOG', sub: '', link: '/contents/log_b/v_log' }
-        ]
+        ],
+        data: null
       }
     },
     computed: {
@@ -86,7 +90,7 @@
     &-link {
       width: getWidth(5);
       margin-left: getMargin(3);
-      margin-bottom: 130px;
+      margin-bottom: 140px;
     }
     &-item {
       display: inline-block;
