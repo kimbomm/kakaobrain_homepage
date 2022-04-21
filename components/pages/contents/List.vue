@@ -150,7 +150,6 @@
       },
       async setBreadcrumb() {
         let subClass = ''
-        console.log(this)
         const info = await this.getNickName({
           category1: this.category1,
           category2: Utility.changeCategory2(this.category2)

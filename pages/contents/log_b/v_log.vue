@@ -27,28 +27,24 @@
   </div>
 </template>
 <script>
-  import { mapState, mapMutations, mapActions } from 'vuex'
+  import { mapState, mapActions } from 'vuex'
   import mixinGlobal from '@/mixin/global.js'
   import Utility from '@/util/utility.js'
   import ArchiveCard from '@/components/elements/card/ArchiveCard'
   import BreadCrumb from '@/components/elements/BreadCrumb'
   import DetailTitle from '@/components/detail/DetailTitle'
   import DetailText from '@/components/detail/DetailText'
-  import Sticker from '@/components/elements/button/Sticker'
   export default {
     mixins: [mixinGlobal],
     components: {
       ArchiveCard,
       BreadCrumb,
       DetailTitle,
-      DetailText,
-      Sticker
+      DetailText
     },
     computed: {
       ...mapState({
-        filter: state => state.filter,
         language: state => state.language,
-        innovationList: state => state.innovation.list,
         translation: state => state.translation.LOGB
       })
     },
@@ -70,17 +66,6 @@
         isAdd: false
       }
     },
-    watch: {
-      filter: {
-        deep: true,
-        async handler(val) {
-          // console.log(val)
-          this.pageData.offset = 0
-          this.pageData.tag = val.join('|')
-          await this.init()
-        }
-      }
-    },
     async created() {
       await this.init()
       await this.setBreadcrumb()
@@ -90,25 +75,20 @@
     },
     async beforeDestroy() {
       await window.removeEventListener('scroll', this.onScroll)
-      await this.setFilterList([])
     },
     methods: {
       ...mapActions({
-        getContentList: 'getContentList',
         getCategoryList: 'getCategoryList',
         getNickName: 'getNickName'
       }),
-      ...mapMutations({
-        setFilterList: 'setFilterList'
-      }),
       async init() {
-        const res = await this.getContentList(this.pageData)
+        const res = await this.getCategoryList({
+          category1: this.category1,
+          category2: this.category2,
+          pageData: this.pageData
+        })
         this.list = res.data.list
         this.total = res.data.count
-        if (!this.isInit) {
-          await this.setFilterList(res.data.tags)
-          this.isInit = true
-        }
       },
       async setBreadcrumb() {
         let subClass = ''
@@ -149,7 +129,11 @@
       async addList() {
         if (this.list.length < this.total) {
           this.pageData.offset += this.pageData.limit
-          const res = await this.getContentList(this.pageData)
+          const res = await this.getCategoryList({
+            category1: this.category1,
+            category2: this.category2,
+            pageData: this.pageData
+          })
           this.list = this.list.concat(res.data.list)
           this.total = res.data.count
           this.isAdd = false

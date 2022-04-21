@@ -3,7 +3,7 @@ const menus = [
     name: 'About',
     category: 'about',
     nick: 'About',
-    link: '/about',
+    link: '',
     sub: [
       {
         category: 'introduce',
@@ -32,7 +32,7 @@ const menus = [
     name: 'Research',
     category: 'research',
     nick: 'Research',
-    link: '/research',
+    link: '',
     sub: [
       {
         category: 'challenge',
@@ -61,7 +61,7 @@ const menus = [
     name: 'Tech',
     category: 'tech',
     nick: 'Tech',
-    link: '/tech',
+    link: '',
     sub: [
       // {
       //   category: 'highlight',
@@ -132,7 +132,7 @@ const menus = [
     name: 'Docu.B',
     category: 'document',
     nick: 'Docu.B',
-    link: '/document',
+    link: '',
     sub: [
       {
         category: 'news',

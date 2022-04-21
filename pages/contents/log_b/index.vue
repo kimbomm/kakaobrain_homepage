@@ -20,7 +20,7 @@
           </li>
         </ul>
       </div>
-      <ThumbnailMovie :data="data" />
+      <ThumbnailMovie v-if="data" :data="data" />
     </div>
   </div>
 </template>
@@ -67,13 +67,26 @@
     },
     methods: {
       ...mapActions({
-        getCategoryList: 'getCategoryList',
-        getNickName: 'getNickName'
+        getLibraryCategory: 'getLibraryCategory',
+        getContentDetail: 'getContentDetail'
       }),
       async init() {
-        // await this.setBreadcrumb()
-        // await this.fetchList()
-        // await this.filterInit()
+        const res = await this.getLibraryCategory({
+          category: 'log_b_main',
+          params: {
+            offset: 0,
+            limit: 1,
+            order: 'RANDOM'
+          }
+        })
+        if (res) {
+          const res2 = await this.getContentDetail(
+            res.data.list[0].prop.contentId
+          )
+          if (res2) {
+            this.data = res2.data
+          }
+        }
       }
     }
   }
@@ -83,12 +96,12 @@
     margin-bottom: 30px;
     line-height: 150%;
     font-size: 16px;
-    width: getWidth(5);
+    width: getWidth(7);
     margin-left: getMargin(3);
   }
   .contents {
     &-link {
-      width: getWidth(5);
+      width: getWidth(7);
       margin-left: getMargin(3);
       margin-bottom: 140px;
     }
@@ -104,23 +117,40 @@
       margin-bottom: 50px;
       font-size: 22px;
     }
+    .contents-link {
+      margin-bottom: 200px;
+    }
   }
   @include pc-4k {
     .tit-text {
       margin-bottom: 70px;
       font-size: 32px;
     }
+    .contents-link {
+      margin-bottom: 300px;
+    }
   }
   @include tablet {
     .tit-text {
       margin-bottom: 20px;
       font-size: 14px;
+      margin-left: getMargin(2);
+    }
+    .contents-link {
+      margin-bottom: 100px;
+      margin-left: getMargin(2);
     }
   }
   @include mobile {
     .tit-text {
+      width: 100%;
+      margin-left: 0;
       margin-bottom: 20px;
       font-size: 14px;
+    }
+    .contents-link {
+      width: 100%;
+      margin-left: 0;
     }
   }
 </style>
