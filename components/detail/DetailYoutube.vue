@@ -1,11 +1,13 @@
 <template>
   <div class="youtube">
     <iframe
-      :src="`https://www.youtube.com/embed/${data.itemProp.youtube.id}`"
+      :id="data.itemProp.youtube.id"
+      :src="`https://www.youtube.com/embed/${data.itemProp.youtube.id}?enablejsapi=1&version=3&playerapiid=ytplayer`"
       title="YouTube video player"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen
+      :onload="onPlay()"
     />
   </div>
 </template>
@@ -15,6 +17,20 @@
       data: {
         type: Object,
         default: () => {}
+      }
+    },
+    async mounted() {
+      // await this.onPlay()
+    },
+    methods: {
+      onPlay() {
+        console.log('play!!')
+        // document
+        //   .getElementById(this.data.itemProp.youtube.id)
+        //   .contentWindow.postMessage(
+        //     '{"event":"command","func":"' + 'playVideo' + '","args":""}',
+        //     '*'
+        //   )
       }
     }
   }

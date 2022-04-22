@@ -3,7 +3,7 @@ const menus = [
     name: 'About',
     category: 'about',
     nick: 'About',
-    link: '/about',
+    link: '',
     sub: [
       {
         category: 'introduce',
@@ -32,7 +32,7 @@ const menus = [
     name: 'Research',
     category: 'research',
     nick: 'Research',
-    link: '/research',
+    link: '',
     sub: [
       {
         category: 'challenge',
@@ -61,7 +61,7 @@ const menus = [
     name: 'Tech',
     category: 'tech',
     nick: 'Tech',
-    link: '/tech',
+    link: '',
     sub: [
       // {
       //   category: 'highlight',
@@ -100,10 +100,46 @@ const menus = [
     ]
   },
   {
+    name: 'Log B',
+    category: 'log_b',
+    nick: 'Log B',
+    link: '/log_b',
+    sub: [
+      {
+        category: 'home',
+        nick: 'Home',
+        name: 'Home',
+        link: '/contents/log_b',
+        target: ''
+      },
+      {
+        category: 'talk',
+        nick: 'Talk',
+        name: 'Talk',
+        link: '/contents/log_b/talk',
+        target: ''
+      },
+      {
+        category: 'conference',
+        nick: 'Conference',
+        name: 'Conference',
+        link: '/contents/log_b/conference',
+        target: ''
+      },
+      {
+        category: 'v_log',
+        nick: 'VLog',
+        name: 'VLog',
+        link: '/contents/log_b/v_log',
+        target: ''
+      }
+    ]
+  },
+  {
     name: 'Docu.B',
     category: 'document',
     nick: 'Docu.B',
-    link: '/document',
+    link: '',
     sub: [
       {
         category: 'news',

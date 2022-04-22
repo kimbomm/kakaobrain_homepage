@@ -11,7 +11,8 @@ export const state = () => ({
   count: {
     research: 0,
     tech: 0,
-    document: 0
+    document: 0,
+    log_b: 0
   },
   filter: [],
   filterList: [],

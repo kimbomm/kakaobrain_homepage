@@ -133,6 +133,7 @@
       padding: 20px 20px 0;
       font-size: 30px;
       font-weight: 400;
+      overflow-wrap: anywhere;
     }
     &-con {
       .tag {

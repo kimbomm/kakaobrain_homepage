@@ -5,11 +5,11 @@
       <div class="contents-title">
         <DetailTitle :text="title" />
       </div>
-      <div class="tit-text l-ml-3 gl-5">
+      <div class="tit-text">
         <p v-html="description"></p>
       </div>
 
-      <div class="contents-checkbox l-ml-3 gl-5">
+      <div class="contents-checkbox">
         <ul>
           <li
             v-for="(item, index) in filterList"
@@ -38,11 +38,7 @@
 
       <div>
         <ul>
-          <li
-            v-for="(item, index) in list"
-            :key="index"
-            class="contents-list l-ml-2"
-          >
+          <li v-for="(item, index) in list" :key="index" class="contents-list">
             <MenuList :data="item" />
           </li>
         </ul>
@@ -76,25 +72,16 @@
       MenuList,
       ListPaging
     },
-    asyncData(ctx) {
-      const category1List = ctx.store.state.menus.map(item => item.category)
-
-      const sub = ctx.store.state.menus.map(item => item.sub)
-      let subList = []
-      for (let i = 0; i < sub.length; i++) {
-        subList = subList.concat(sub[i])
-      }
-
-      const category2List = subList.map(item => item.category)
-
-      const category1 = ctx.params.category1
-      const category2 = Utility.changeCategory2(ctx.params.category2)
-
-      if (
-        !category1List.includes(category1) ||
-        !category2List.includes(category2)
-      ) {
-        ctx.redirect('/')
+    props: {
+      category1: {
+        type: String,
+        default: '',
+        require: true
+      },
+      category2: {
+        type: String,
+        default: '',
+        require: true
       }
     },
     data() {
@@ -110,10 +97,6 @@
         },
         total: null,
         tags: [],
-        params: {
-          category1: null,
-          category2: null
-        },
         filterList: [{ value: 'all', text: 'All', isChecked: true }],
         isFolding: true
       }
@@ -124,7 +107,7 @@
         subtitle: state => state.translation.SUBTITLE
       }),
       description() {
-        return this.subtitle[this.$route.params.category1][this.language]
+        return this.subtitle[this.category1][this.language]
       },
       checkedList() {
         let list = []
@@ -149,8 +132,8 @@
       async fetchList() {
         this.pageData.targetLang = this.$store.state.language
         const res = await this.getCategoryList({
-          category1: this.$route.params.category1,
-          category2: Utility.changeCategory2(this.$route.params.category2),
+          category1: this.category1,
+          category2: Utility.changeCategory2(this.category2),
           pageData: this.pageData
         })
         if (res) {
@@ -167,18 +150,17 @@
       },
       async setBreadcrumb() {
         let subClass = ''
-        console.log(this)
         const info = await this.getNickName({
-          category1: this.$route.params.category1,
-          category2: Utility.changeCategory2(this.$route.params.category2)
+          category1: this.category1,
+          category2: Utility.changeCategory2(this.category2)
         })
 
-        switch (this.$route.params.category1) {
+        switch (this.category1) {
           case 'document':
             subClass = 'docu'
             break
           default:
-            subClass = this.$route.params.category1
+            subClass = this.category1
             break
         }
 
@@ -218,10 +200,14 @@
     margin-bottom: 30px;
     line-height: 150%;
     font-size: 16px;
+    width: getWidth(5);
+    margin-left: getMargin(3);
   }
 
   .contents {
     &-checkbox {
+      width: getWidth(5);
+      margin-left: getMargin(3);
       margin-bottom: 130px;
     }
     &-item {
@@ -232,6 +218,7 @@
       }
     }
     &-list {
+      margin-left: getMargin(2);
       &:not(:last-child) {
         margin-bottom: 200px;
       }
@@ -298,6 +285,8 @@
 
   @include tablet {
     .tit-text {
+      width: getWidth(6);
+      margin-left: getMargin(2);
       margin-bottom: 20px;
       font-size: 14px;
     }
@@ -305,6 +294,8 @@
     .contents {
       &-checkbox {
         margin-bottom: 140px;
+        width: getWidth(6);
+        margin-left: getMargin(2);
       }
       &-list {
         &:not(:last-child) {
@@ -313,19 +304,7 @@
       }
     }
     .contents-list {
-      &.l-ml-2 {
-        margin-left: 0px !important;
-      }
-    }
-    &.l-ml-3 {
-      margin-left: calc(
-        calc((100vw - 20px * 11) / 10) * 2 + 20px * 2
-      ) !important;
-    }
-    &.gl-5 {
-      width: calc(
-        calc((100vw - 20px * 11) / 10) * 6 + 20px * (6 - 1)
-      ) !important;
+      margin-left: 0;
     }
   }
   @include mobile {
@@ -335,6 +314,8 @@
     .tit-text {
       margin-bottom: 20px;
       font-size: 14px;
+      width: 100%;
+      margin-left: 0;
     }
 
     .contents {
@@ -344,6 +325,8 @@
         }
       }
       &-checkbox {
+        width: 100%;
+        margin-left: 0;
         margin-bottom: 100px;
       }
       &-list {
@@ -351,15 +334,6 @@
           margin-bottom: 80px;
         }
       }
-    }
-    .l-ml-2 {
-      margin-left: 0px !important;
-    }
-    .l-ml-3 {
-      margin-left: 0px !important;
-    }
-    .gl-5 {
-      width: 100% !important;
     }
   }
 </style>

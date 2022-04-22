@@ -955,10 +955,54 @@ const SUBTITLE = {
   }
 }
 
+const LOGB = {
+  main: {
+    KR: {
+      title: 'Log B.',
+      description: `카카오브레인 크루들의 생각과 이야기들을 영상으로 공유합니다.`
+    },
+    EN: {
+      title: 'Log B.',
+      description: `카카오브레인 크루들의 생각과 이야기들을 영상으로 공유합니다.`
+    }
+  },
+  talk: {
+    KR: {
+      title: 'Talk.',
+      description: `Curtis Unthinkable Question을 소개합니다.<br/>AI는 인간처럼 쉽게 배울 수 없을까요? AI는 메타버스, 블록체인과 결합되었을때 어떻게 세상이 변화될까요?<br/>세상의 모든 빌문에 대해 Curtis의 토크쇼에 초대합니다.`
+    },
+    EN: {
+      title: 'Talk.',
+      description: `Introducing the Curtis Unthinkable Question.<br/>Won’t AI be able learn as seamlessly as humans? How will the world change when AI is integrated into the metaverse and blockchain systems?<br/>Discover answers to all the world’s questions on Curtis’ talk show.`
+    }
+  },
+  conference: {
+    KR: {
+      title: 'Conference.',
+      description: `카카오브레인은 전체 카카오브레인 크루들이 모두 모여 매월 하루동안 AI 연구 성과와 AI 핵심 트렌드를 공유하는 미니컨을 진행합니다. 미니컨에서 공유된 정보와 이야기를 나눕니다.`
+    },
+    EN: {
+      title: 'Conference.',
+      description: `In kakaobrain, the entire kakaobrain crew gathers and conducts a mini conference to share the outcomes of AI research and AI core trends on one day every month. Come together to share information and narratives at the mini conference.`
+    }
+  },
+  vlog: {
+    KR: {
+      title: 'Vlog.',
+      description: `세상을 바꿀 AI 기술을 개발하고, 우리의 삶을 풍요롭게 만드는 AI 프러덕트를 만들어가면서 겪어내는 카카오브레인에 안과 밖의 이야기들을 나눕니다. 카카오브레인의 어제, 오늘 그리고 내일의 이야기를 공개합니다.`
+    },
+    EN: {
+      title: 'Vlog.',
+      description: `At kakaobrain, we share both stories about what happens both inside and outside the company as we develop AI technologies that will change the world and create AI products that enrich our lives. Discover the past, present and future of kakaobrain at our Vlog.`
+    }
+  }
+}
+
 export default {
   ABOUT,
   PRIVACY,
   ETHICS,
   MAP,
-  SUBTITLE
+  SUBTITLE,
+  LOGB
 }
