@@ -100,7 +100,8 @@
           tag: '',
           status: 'ACCEPT',
           contentType: 'ALL'
-        }
+        },
+        list: []
       }
     },
     computed: {
@@ -123,16 +124,22 @@
           category: 'log_b_main',
           params: {
             offset: 0,
-            limit: 1,
-            order: 'RANDOM'
+            limit: 99
           }
         })
         if (res) {
-          const res2 = await this.getContentDetail(
-            res.data.list[0].prop.contentId
+          this.list = res.data.list
+          const targetList = await this.list.filter(
+            item => item.prop.targetLang === this.language
           )
-          if (res2) {
-            this.data = res2.data
+
+          if (targetList.length > 0) {
+            const RANDOMDATA =
+              targetList[Math.floor(Math.random() * targetList.length)]
+            const res2 = await this.getContentDetail(RANDOMDATA.prop.contentId)
+            if (res2) {
+              this.data = res2.data
+            }
           }
         }
         this.fetchList()
