@@ -175,15 +175,22 @@
     .description {
       font-size: map-get($font-tablet, default);
       margin-bottom: 80px;
+      margin-left: getMargin(2);
+      width: getWidth(7);
     }
     /deep/ .archive {
       margin-bottom: 50px;
     }
   }
   @include mobile {
+    .category-contents {
+      margin-top: 60px;
+    }
     .description {
+      width: 100%;
       font-size: 14px;
       margin-bottom: 100px;
+      margin-left: 0;
     }
     .masonry {
       padding: 0;

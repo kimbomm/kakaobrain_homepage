@@ -106,6 +106,13 @@ const menus = [
     link: '/log_b',
     sub: [
       {
+        category: 'home',
+        nick: 'Home',
+        name: 'Home',
+        link: '/contents/log_b',
+        target: ''
+      },
+      {
         category: 'talk',
         nick: 'Talk',
         name: 'Talk',

@@ -21,6 +21,26 @@
         </ul>
       </div>
       <ThumbnailMovie v-if="data" :data="data" />
+      <div
+        v-for="(menu, index) in menuList"
+        :key="`menu-${index}`"
+        class="recent-list"
+      >
+        <div class="recent-list__header">
+          <h2>{{ menu.name }}</h2>
+          <nuxt-link class="btn-link" :to="menu.link">View List</nuxt-link>
+        </div>
+        <ul>
+          <li v-for="(item, idx) in menu.data" :key="`data-${idx}`">
+            <ArchiveCard
+              :data="item"
+              :tit="item.title"
+              :tag="item.ContentTags"
+              :theme="idx % 2 === 1 ? 'dark' : ''"
+            />
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
@@ -32,13 +52,15 @@
   import DetailTitle from '@/components/detail/DetailTitle'
   import Sticker from '@/components/elements/button/Sticker'
   import ThumbnailMovie from '@/components/pages/contents/logB/ThumbnailMovie'
+  import ArchiveCard from '@/components/elements/card/ArchiveCard'
   export default {
     mixins: [mixinGlobal],
     components: {
       BreadCrumb,
       DetailTitle,
       Sticker,
-      ThumbnailMovie
+      ThumbnailMovie,
+      ArchiveCard
     },
     data() {
       return {
@@ -53,7 +75,32 @@
           { text: 'Conference', sub: '', link: '/contents/log_b/conference' },
           { text: 'VLOG', sub: '', link: '/contents/log_b/v_log' }
         ],
-        data: null
+        data: null,
+        menuList: [
+          {
+            name: 'Talk',
+            link: '/contents/log_b/talk',
+            data: []
+          },
+          {
+            name: 'Conference',
+            link: '/contents/log_b/conference',
+            data: []
+          },
+          {
+            name: 'VLog',
+            link: '/contents/log_b/v_log',
+            data: []
+          }
+        ],
+        pageData: {
+          offset: 0,
+          limit: 3,
+          targetLang: this.$store.state.language,
+          tag: '',
+          status: 'ACCEPT',
+          contentType: 'ALL'
+        }
       }
     },
     computed: {
@@ -68,7 +115,8 @@
     methods: {
       ...mapActions({
         getLibraryCategory: 'getLibraryCategory',
-        getContentDetail: 'getContentDetail'
+        getContentDetail: 'getContentDetail',
+        getCategoryList: 'getCategoryList'
       }),
       async init() {
         const res = await this.getLibraryCategory({
@@ -87,6 +135,18 @@
             this.data = res2.data
           }
         }
+        this.fetchList()
+      },
+      async fetchList() {
+        const category2 = ['talk', 'conference', 'v_log']
+        category2.forEach(async (categoryName, index) => {
+          const res = await this.getCategoryList({
+            category1: 'log_b',
+            category2: categoryName,
+            pageData: this.pageData
+          })
+          if (res) this.menuList[index].data = res.data.list
+        })
       }
     }
   }
@@ -112,6 +172,41 @@
       }
     }
   }
+  .recent-list {
+    width: getWidth(6);
+    margin-top: 200px;
+    margin-left: getMargin(2);
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 30px;
+      h2 {
+        font-size: map-get($font, h2);
+        line-height: 1;
+      }
+    }
+    ul {
+      display: flex;
+      justify-content: space-between;
+    }
+    li {
+      flex: 0 0 getWidth(2);
+    }
+  }
+  .btn-link {
+    font-size: 16px;
+    line-height: 1;
+    font-weight: 300;
+    text-transform: uppercase;
+    font-style: italic;
+    &:after {
+      content: '';
+      font-family: 'Inter';
+      font-style: normal;
+      margin-left: 10px;
+    }
+  }
   @include pc-large {
     .tit-text {
       margin-bottom: 50px;
@@ -119,6 +214,18 @@
     }
     .contents-link {
       margin-bottom: 200px;
+    }
+    .recent-list {
+      margin-top: 300px;
+      &__header {
+        margin-bottom: 30px;
+        h2 {
+          font-size: 64px;
+        }
+      }
+    }
+    .btn-link {
+      font-size: 26px;
     }
   }
   @include pc-4k {
@@ -128,6 +235,18 @@
     }
     .contents-link {
       margin-bottom: 300px;
+    }
+    .recent-list {
+      margin-top: 370px;
+      &__header {
+        margin-bottom: 70px;
+        h2 {
+          font-size: 82px;
+        }
+      }
+    }
+    .btn-link {
+      font-size: 36px;
     }
   }
   @include tablet {
@@ -140,6 +259,26 @@
       margin-bottom: 100px;
       margin-left: getMargin(2);
     }
+    .recent-list {
+      width: getWidth(8);
+      margin-left: getMargin(1);
+      &__header {
+        margin-left: getMargin(1);
+        margin-bottom: 20px;
+        h2 {
+          font-size: 24px;
+        }
+      }
+      li {
+        flex: 0 0 getWidth(4);
+        &:nth-child(3) {
+          display: none;
+        }
+      }
+    }
+    .btn-link {
+      font-size: 16px;
+    }
   }
   @include mobile {
     .tit-text {
@@ -151,6 +290,27 @@
     .contents-link {
       width: 100%;
       margin-left: 0;
+    }
+    .recent-list {
+      margin-top: 100px;
+      margin-left: 0;
+      width: 100%;
+      &__header {
+        padding-left: 0;
+        margin-bottom: 10px;
+        h2 {
+          font-size: 20px;
+        }
+      }
+      li {
+        flex: 1;
+        &:nth-child(2) {
+          display: none;
+        }
+      }
+    }
+    .btn-link {
+      font-size: 14px;
     }
   }
 </style>

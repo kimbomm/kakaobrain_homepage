@@ -2,13 +2,13 @@
   <div v-if="data" class="content-log_b">
     <div class="visual">
       <div>
-        <div
+        <button
           v-if="!isPlay"
           class="thumbnail"
           :style="`background-image: url(${$config.baseURL}${youtubeItem.itemProp.youtube.media.url})`"
-        >
-          <button class="btn-play" @click="onPlay">재생하기</button>
-        </div>
+          @click="onPlay"
+          title="영상보기"
+        ></button>
         <iframe
           id="iframe"
           :src="`https://www.youtube.com/embed/${youtubeItem.itemProp.youtube.id}?enablejsapi=1&version=3&playerapiid=ytplayer`"
@@ -41,26 +41,6 @@
         Detail View
       </nuxt-link>
     </div>
-    <div
-      v-for="(menu, index) in menuList"
-      :key="`menu-${index}`"
-      class="recent-list"
-    >
-      <div class="recent-list__header">
-        <h2>{{ menu.name }}</h2>
-        <nuxt-link class="btn-link" :to="menu.link">View List</nuxt-link>
-      </div>
-      <ul>
-        <li v-for="(item, idx) in menu.data" :key="`data-${idx}`">
-          <ArchiveCard
-            :data="item"
-            :tit="item.title"
-            :tag="item.ContentTags"
-            :theme="index % 2 === 0 ? 'dark' : ''"
-          />
-        </li>
-      </ul>
-    </div>
   </div>
 </template>
 
@@ -85,32 +65,7 @@
       return {
         isPlay: false,
         breadcrumb: [],
-        hashList: [],
-        menuList: [
-          {
-            name: 'Talk',
-            link: '/contents/log_b/talk',
-            data: []
-          },
-          {
-            name: 'Conference',
-            link: '/contents/log_b/conference',
-            data: []
-          },
-          {
-            name: 'VLog',
-            link: '/contents/log_b/v_log',
-            data: []
-          }
-        ],
-        pageData: {
-          offset: 0,
-          limit: 3,
-          targetLang: this.$store.state.language,
-          tag: '',
-          status: 'ACCEPT',
-          contentType: 'ALL'
-        }
+        hashList: []
       }
     },
     computed: {
@@ -123,7 +78,7 @@
       }
     },
     async mounted() {
-      this.init()
+      // this.init()
       this.setBreadcrumb(
         this.data.category1,
         Utility.changeCategory2(this.data.category2)
@@ -182,9 +137,6 @@
         }
       },
       onPlay() {
-        // console.log(document.getElementById('iframe').contentWindow)
-        // console.log(
-        // )
         this.isPlay = true
         document
           .getElementById('iframe')
@@ -267,41 +219,6 @@
       margin-left: 10px;
     }
   }
-  .recent-list {
-    width: getWidth(6);
-    margin-top: 200px;
-    &__header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      margin-bottom: 30px;
-      h2 {
-        font-size: map-get($font, h2);
-        line-height: 1;
-      }
-    }
-    ul {
-      display: flex;
-      justify-content: space-between;
-    }
-    li {
-      flex: 0 0 getWidth(2);
-    }
-  }
-  .btn-play {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 0;
-    height: 0;
-    border-left: 70px solid #fff;
-    border-top: 37px solid transparent;
-    border-bottom: 37px solid transparent;
-    box-shadow: 10px 20px 20px rgba(207, 208, 211, 0.3);
-    text-indent: -99999px;
-    font-size: 0;
-  }
 
   @include pc-large {
     .visual-content {
@@ -313,15 +230,6 @@
         margin-bottom: 80px;
         .date {
           font-size: 16px;
-        }
-      }
-    }
-    .recent-list {
-      margin-top: 300px;
-      &__header {
-        margin-bottom: 30px;
-        h2 {
-          font-size: 64px;
         }
       }
     }
@@ -339,15 +247,6 @@
         margin-bottom: 110px;
         .date {
           font-size: 24px;
-        }
-      }
-    }
-    .recent-list {
-      margin-top: 370px;
-      &__header {
-        margin-bottom: 70px;
-        h2 {
-          font-size: 82px;
         }
       }
     }
@@ -371,22 +270,6 @@
       }
       .info {
         margin-bottom: 40px;
-      }
-    }
-    .recent-list {
-      width: getWidth(8);
-      &__header {
-        margin-left: getMargin(1);
-        margin-bottom: 20px;
-        h2 {
-          font-size: 24px;
-        }
-      }
-      li {
-        flex: 0 0 getWidth(4);
-        &:nth-child(3) {
-          display: none;
-        }
       }
     }
     .btn-link {
@@ -422,23 +305,6 @@
     }
     .hash-list {
       margin-bottom: 6px;
-    }
-    .recent-list {
-      margin-top: 100px;
-      width: 100%;
-      &__header {
-        padding-left: 0;
-        margin-bottom: 10px;
-        h2 {
-          font-size: 20px;
-        }
-      }
-      li {
-        flex: 1;
-        &:nth-child(2) {
-          display: none;
-        }
-      }
     }
     .btn-link {
       font-size: 14px;
