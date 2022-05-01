@@ -2,92 +2,72 @@
   <div class="menu">
     <div :class="classBind">
       <div class="menu-list">
-        <ul>
+        <ul :class="{ 'menu-enter': isHover }">
           <li
             v-for="(menu, index) in menus"
             :key="`menu-${index}`"
             class="menu-item"
-            @mouseenter="setIsMenuOpen(true)"
+            @mouseenter=";(hoverIndex = index), (isHover = true)"
+            @mouseleave="isHover = false"
           >
-            <button type="button">
-              <span class="txt">
-                <sup
-                  v-if="
-                    Object.keys(count).includes(menu.category) &&
-                    count[menu.category]
-                  "
-                  class="num"
-                  >{{ count[menu.category] }}</sup
-                >
-                {{ menu.name }}
-              </span>
+            <button type="button" class="txt" @click="openMenu(index)">
+              <sup
+                v-if="
+                  Object.keys(count).includes(menu.category) &&
+                  count[menu.category]
+                "
+                class="num"
+                >{{ count[menu.category] }}</sup
+              >
+              {{ menu.name }}
             </button>
+            <ul v-show="clickIndex === index">
+              <li v-for="subMenu in menu.sub" :key="subMenu.category">
+                <a
+                  v-if="subMenu.target"
+                  :href="subMenu.link"
+                  :target="subMenu.target"
+                  @click.prevent="clickIndex = null"
+                >
+                  {{ subMenu.name }}
+                </a>
+                <nuxt-link v-else :to="subMenu.link">
+                  {{ subMenu.name }}
+                </nuxt-link>
+              </li>
+            </ul>
           </li>
         </ul>
       </div>
+    </div>
+    <div
+      :class="{
+        'common-menu': true,
+        'hide-target': true,
+        'is-hide': isScrollUp
+      }"
+    >
+      <button
+        class="btn-lang"
+        @click="selectLang(language === 'KR' ? 'EN' : 'KR')"
+      >
+        <img
+          v-if="language === 'EN'"
+          :src="require(`@/assets/images/icon-en.png`)"
+          :alt="language"
+        />
+        <img
+          v-if="language === 'KR'"
+          :src="require(`@/assets/images/icon-kr.png`)"
+          :alt="language"
+        />
+      </button>
     </div>
     <button
       :class="{ 'menu-btn': true, 'hide-target': true, 'is-hide': isScrollUp }"
       @click="setIsMenuOpen(true)"
       title="메뉴 열기"
     ></button>
-    <transition name="slide">
-      <div v-if="isMenuOpen" class="hide" @mouseleave="setIsMenuOpen(false)">
-        <div class="lang">
-          <ul>
-            <li
-              v-for="(item, index) in languageList"
-              :key="index"
-              :class="`lang-item animation delay-${index} ${
-                isAnimation ? 'fade-up' : ''
-              }`"
-            >
-              <button
-                :class="item.value === language ? 'is-active' : ''"
-                @click="selectLang(item.value)"
-              >
-                {{ item.name }}
-              </button>
-            </li>
-          </ul>
-        </div>
-        <div class="menu">
-          <ul>
-            <li
-              v-for="(menu, index) in menus"
-              :key="`menu-${index}`"
-              class="menu-item"
-            >
-              <span :class="`animation ${isAnimation ? 'fade-up' : ''}`">
-                <sup
-                  v-if="
-                    Object.keys(count).includes(menu.category) &&
-                    count[menu.category]
-                  "
-                  class="num"
-                  >{{ count[menu.category] }}</sup
-                >
-                {{ menu.name }}
-              </span>
-              <ul class="sub">
-                <li
-                  v-for="(subMenu, idx) in menu.sub"
-                  :key="`sub-${idx}`"
-                  :class="`sub-item animation delay-${idx} ${
-                    isAnimation ? 'fade-up' : ''
-                  }`"
-                  @click="setIsMenuOpen(false)"
-                >
-                  <a :href="subMenu.link" :target="subMenu.target">
-                    {{ subMenu.name }}
-                  </a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </transition>
   </div>
 </template>
 <script>
@@ -101,6 +81,9 @@
       return {
         isMenu: false,
         isAnimation: false,
+        isHover: false,
+        hoverIndex: null,
+        clickIndex: null,
         languageList: [
           { name: 'English', value: 'EN' },
           { name: 'Korean', value: 'KR' }
@@ -133,15 +116,6 @@
         }
 
         return classList.join(' ')
-      },
-      principleLink() {
-        let link =
-          'https://www.kakaocorp.com/page/responsible/aiEthics?lang=KOR&tab=all'
-        if (this.language === 'EN') {
-          link =
-            'https://www.kakaocorp.com/page/responsible/aiEthics?lang=ENG&tab=all'
-        }
-        return link
       }
     },
     watch: {
@@ -157,8 +131,14 @@
         }
       }
     },
+    created() {
+      this.$nuxt.$on('closeMenu', this.closeMenu)
+    },
     async mounted() {
       await this.init()
+    },
+    beforeDestroy() {
+      this.$nuxt.$off('closeMenu', this.closeMenu)
     },
     methods: {
       ...mapMutations({
@@ -181,10 +161,23 @@
       async selectLang(lang) {
         localStorage.setItem('language', lang)
         await this.setLanguage(lang)
+
         if (this.$route.path === '/contents') {
           this.$nuxt.$emit('langChange')
         } else {
           await window.location.reload(true)
+        }
+      },
+      openMenu(index) {
+        if (this.clickIndex === index) {
+          this.clickIndex = null
+        } else {
+          this.clickIndex = index
+        }
+      },
+      closeMenu() {
+        if (this.clickIndex >= 0) {
+          this.clickIndex = null
         }
       }
     }
@@ -217,9 +210,12 @@
   }
   .menu {
     z-index: 10;
+    display: flex;
     &-item {
+      position: relative;
       display: inline-block;
       font-weight: 900;
+      padding: 0 0 10px;
       &:not(:last-child) {
         margin-right: 30px;
       }
@@ -235,6 +231,44 @@
         padding: 0px;
         background-color: rgba(0, 0, 0, 0);
         color: $gray-9;
+      }
+      ul {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 10px 30px;
+        border-radius: 78px;
+        background-color: #000;
+        display: flex;
+        white-space: nowrap;
+        li {
+          margin-right: 30px;
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+        a {
+          font-size: 14px;
+          line-height: 2.1;
+          color: #fff;
+          font-weight: 400;
+          &:hover {
+            color: $brain-yellow;
+          }
+        }
+      }
+    }
+    .menu-enter {
+      .menu-item {
+        button {
+          color: $gray-5;
+        }
+        &:hover {
+          button {
+            color: #000;
+          }
+        }
       }
     }
     &__light {
@@ -254,81 +288,18 @@
     background-size: cover;
     background-position: center center;
   }
-  .hide {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    transition: all 0.3s ease-in-out;
-    .lang {
-      position: absolute;
-      right: 30px;
-      top: 20px;
-      z-index: 10;
-      cursor: pointer;
-      &-item {
-        font-size: 12px;
-        &:not(:last-child) {
-          margin-bottom: 20px;
-        }
-        button {
-          color: $gray-0;
-          &.is-active,
-          &:hover {
-            color: $brain-yellow;
-          }
-        }
+  .common-menu {
+    font-size: 0;
+    margin-left: 30px;
+    button {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+      &:last-child {
+        margin-right: 0;
       }
-    }
-    text-align: center;
-    .menu {
-      padding: 90px 0 84px;
-      background-color: $gray-9;
-      &-item {
-        position: relative;
-        text-align: left;
-        vertical-align: top;
-        color: $gray-0;
-        font-size: 22px;
-        line-height: 1.3;
-        &:not(:last-child) {
-          margin-right: 50px;
-        }
-        .num {
-          position: absolute;
-          top: -4px;
-          right: calc(100% + 4px);
-        }
-      }
-    }
-    .sub {
-      margin-top: 30px;
-      &-item {
-        font-size: 14px;
-        line-height: 2.3;
-        font-weight: 400;
-        a {
-          position: relative;
-          color: $gray-0;
-          &:before {
-            content: '';
-            position: absolute;
-            display: inline-block;
-            bottom: -2px;
-            left: 0;
-            height: 1px;
-            background-color: #fff;
-            width: 40%;
-            opacity: 0;
-            transition: all 0.3s ease-out;
-          }
-          &:hover {
-            &:before {
-              width: 100%;
-              opacity: 1;
-            }
-          }
-        }
+      img {
+        width: 100%;
       }
     }
   }
@@ -339,11 +310,24 @@
         font-size: 22px;
       }
     }
+    .common-menu {
+      margin-left: 36px;
+      button {
+        width: 26px;
+        height: 26px;
+      }
+    }
   }
   @include pc-4k {
     .menu-item {
       .txt {
         font-size: 34px;
+      }
+    }
+    .common-menu {
+      button {
+        width: 40px;
+        height: 40px;
       }
     }
   }
@@ -357,6 +341,14 @@
     .menu-btn {
       display: block;
     }
+    .common-menu {
+      margin-left: 0;
+      margin-right: 5px;
+      button {
+        width: 40px;
+        height: 40px;
+      }
+    }
   }
   @include mobile {
     .menu-btn {
@@ -365,6 +357,13 @@
       right: 15px;
       width: 30px;
       height: 30px;
+    }
+    .common-menu {
+      margin-right: 35px;
+      button {
+        width: 30px;
+        height: 30px;
+      }
     }
   }
 </style>

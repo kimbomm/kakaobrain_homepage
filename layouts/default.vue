@@ -1,5 +1,5 @@
 <template>
-  <div :class="classBind">
+  <div :class="classBind" @click="pageClick">
     <div class="l-pages">
       <FilterList v-if="!isStoryPage" />
       <Header />
@@ -139,6 +139,15 @@
           this.setIsScrollUp(false)
         }
         this.prevY = this.scrollBody.scrollTop
+      },
+      pageClick(e) {
+        if (
+          (e.target.offsetParent &&
+            !e.target.offsetParent.classList.contains('menu-item')) ||
+          !e.target.offsetParent
+        ) {
+          this.$nuxt.$emit('closeMenu', true)
+        }
       }
     }
   }
