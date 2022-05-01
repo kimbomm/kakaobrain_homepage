@@ -288,6 +288,9 @@
     }
   }
   @include mobile {
+    .category-contents {
+      margin-top: 60px;
+    }
     .tit-text {
       width: 100%;
       margin-left: 0;

@@ -50,7 +50,7 @@
           </li>
         </ul>
 
-        <div class="lang">
+        <!-- <div class="lang">
           <ul>
             <li
               v-for="(item, index) in languageList"
@@ -67,7 +67,7 @@
               </button>
             </li>
           </ul>
-        </div>
+        </div> -->
 
         <MobMenuFooter @onClose="onClose" />
       </div>
