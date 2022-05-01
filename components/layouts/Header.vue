@@ -57,7 +57,7 @@
     z-index: 20;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    // align-items: center;
     flex-wrap: nowrap;
     font-size: 16px;
     line-height: 1.3;
