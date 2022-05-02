@@ -51,8 +51,8 @@
         class="btn-lang"
         @click="selectLang(cookieLang === 'KR' ? 'EN' : 'KR')"
       >
-        <img v-if="cookieLang === 'KR'" src="@/assets/images/icon-kr.png" />
-        <img v-else src="@/assets/images/icon-en.png" />
+        <img v-show="cookieLang === 'KR'" src="@/assets/images/icon-kr.png" />
+        <img v-show="cookieLang === 'EN'" src="@/assets/images/icon-en.png" />
       </button>
     </div>
     <button
