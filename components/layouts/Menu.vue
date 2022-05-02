@@ -51,6 +51,7 @@
         class="btn-lang"
         @click="selectLang(cookieLang === 'KR' ? 'EN' : 'KR')"
       >
+        { cookieLang }
         <img
           :src="require(`@/assets/images/icon-${cookieLang.toLowerCase()}.png`)"
           :alt="`${cookieLang} 언어 이미지`"
@@ -157,7 +158,6 @@
       },
       async selectLang(lang) {
         this.$cookies.set('brain_home_language', lang)
-        console.log(lang)
         await this.setLanguage(lang)
 
         this.$nextTick(() => {
