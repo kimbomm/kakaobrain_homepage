@@ -72,7 +72,7 @@
     beforeMount() {
       Vue.prototype.scrollBody = document.querySelector('.wrap')
       Vue.prototype.scrollLock = false
-      const language = localStorage.getItem('language')
+      const language = this.$cookies.get('brain_home_language')
       if (language) {
         this.setLanguage(language)
       }

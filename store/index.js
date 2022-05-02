@@ -1,10 +1,8 @@
 import data from './data/common.js'
 import utility from '/util/utility.js'
-import cookie from 'js-cookie'
 
-const language = cookie.get('bran_language')
 export const state = () => ({
-  language: language || 'EN',
+  language: 'EN',
   isDark: true,
   isMenuOpen: false,
   menus: data.menus,

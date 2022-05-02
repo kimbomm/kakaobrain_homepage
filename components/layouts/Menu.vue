@@ -31,7 +31,7 @@
                 >
                   {{ subMenu.name }}
                 </a>
-                <nuxt-link v-else :to="subMenu.link">
+                <nuxt-link v-else exact :to="subMenu.link">
                   {{ subMenu.name }}
                 </nuxt-link>
               </li>
@@ -49,17 +49,11 @@
     >
       <button
         class="btn-lang"
-        @click="selectLang(language === 'KR' ? 'EN' : 'KR')"
+        @click="selectLang(cookieLang === 'KR' ? 'EN' : 'KR')"
       >
         <img
-          v-if="language === 'EN'"
-          :src="require(`@/assets/images/icon-en.png`)"
-          :alt="language"
-        />
-        <img
-          v-if="language === 'KR'"
-          :src="require(`@/assets/images/icon-kr.png`)"
-          :alt="language"
+          :src="require(`@/assets/images/icon-${cookieLang.toLowerCase()}.png`)"
+          :alt="`${cookieLang} 언어 이미지`"
         />
       </button>
     </div>
@@ -116,6 +110,9 @@
         }
 
         return classList.join(' ')
+      },
+      cookieLang() {
+        return this.$cookies.get('brain_home_language') || this.language
       }
     },
     watch: {
@@ -159,14 +156,17 @@
         })
       },
       async selectLang(lang) {
-        localStorage.setItem('language', lang)
+        this.$cookies.set('brain_home_language', lang)
+        console.log(lang)
         await this.setLanguage(lang)
 
-        if (this.$route.path === '/contents') {
-          this.$nuxt.$emit('langChange')
-        } else {
-          await window.location.reload(true)
-        }
+        this.$nextTick(() => {
+          if (this.$route.path === '/contents') {
+            this.$nuxt.$emit('langChange')
+          } else {
+            window.location.reload(true)
+          }
+        })
       },
       openMenu(index) {
         if (this.clickIndex === index) {
@@ -253,6 +253,7 @@
           line-height: 2.1;
           color: #fff;
           font-weight: 400;
+          &.nuxt-link-active,
           &:hover {
             color: $brain-yellow;
           }
@@ -291,6 +292,7 @@
   .common-menu {
     font-size: 0;
     margin-left: 30px;
+    padding-top: 3px;
     button {
       width: 20px;
       height: 20px;
@@ -312,6 +314,7 @@
     }
     .common-menu {
       margin-left: 36px;
+      padding-top: 5px;
       button {
         width: 26px;
         height: 26px;
@@ -325,6 +328,7 @@
       }
     }
     .common-menu {
+      padding-top: 6px;
       button {
         width: 40px;
         height: 40px;
