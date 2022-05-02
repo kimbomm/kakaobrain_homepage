@@ -83,7 +83,12 @@ export default {
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/axios', '@nuxtjs/dayjs', '@nuxtjs/sitemap'],
+  modules: [
+    '@nuxtjs/axios',
+    '@nuxtjs/dayjs',
+    '@nuxtjs/sitemap',
+    'cookie-universal-nuxt'
+  ],
   sitemap: {
     hostname: 'https://www.kakaobrain.com/',
     defaults: {
