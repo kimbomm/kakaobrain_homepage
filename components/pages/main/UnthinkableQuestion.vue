@@ -128,7 +128,7 @@
     .question {
       &-content {
         margin-top: 70px;
-        padding-left: 0;
+        padding-left: 100px;
         p:nth-child(1) {
           font-size: 54px;
           margin-bottom: 20px;
@@ -167,6 +167,7 @@
         }
       }
       &-content {
+        padding-left: 40px;
         p:nth-child(1) {
           font-size: 84px;
         }
