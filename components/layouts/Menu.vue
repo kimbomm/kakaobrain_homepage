@@ -51,7 +51,7 @@
         class="btn-lang"
         @click="selectLang(cookieLang === 'KR' ? 'EN' : 'KR')"
       >
-        { cookieLang }
+        {{ cookieLang }}
         <img
           :src="require(`@/assets/images/icon-${cookieLang.toLowerCase()}.png`)"
           :alt="`${cookieLang} 언어 이미지`"
