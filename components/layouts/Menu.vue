@@ -348,6 +348,7 @@
     .common-menu {
       margin-left: 0;
       margin-right: 5px;
+      padding-top: 0;
       button {
         width: 40px;
         height: 40px;
