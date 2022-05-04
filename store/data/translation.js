@@ -169,7 +169,7 @@ const ABOUT = {
         title: 'Our way</br><span class="string">of working.</span>'
       },
       aboutTitleText: {
-        text: '자기 주도적으로 성잘할 수 있는 좋은 기회가 많이 주어지고,훌륭한 동료들을 통해 함께 성장할 수 있는 우리는 어떻게 일을 하고 있을지 알아봅니다.'
+        text: '자기 주도적으로 성장할 수 있는 좋은 기회가 많이 주어지고, 훌륭한 동료들을 통해 함께 성장하는 우리가 어떻게 일을 하고 있을지 알아봅니다.'
       },
       aboutConD: {
         title: '우리는 더 나은 결과를 위해 공개하고 공유해요',
