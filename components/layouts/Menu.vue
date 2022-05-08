@@ -48,12 +48,9 @@
       }"
     >
       <button
-        class="btn-lang"
+        :class="`btn-lang ${cookieLang}`"
         @click="selectLang(cookieLang === 'KR' ? 'EN' : 'KR')"
-      >
-        <img v-show="cookieLang === 'KR'" src="@/assets/images/icon-kr.png" />
-        <img v-show="cookieLang === 'EN'" src="@/assets/images/icon-en.png" />
-      </button>
+      ></button>
     </div>
     <button
       :class="{ 'menu-btn': true, 'hide-target': true, 'is-hide': isScrollUp }"

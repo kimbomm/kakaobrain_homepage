@@ -230,3 +230,20 @@ body,
     }
   }
 }
+
+.btn-lang {
+  background-size: cover;
+  background-repeat: no-repeat;
+  &.KR {
+    background-image: url('../images/icon-kr.png');
+    @include tablet {
+      background-image: url('../images/icon-kr-mo.png');
+    }
+  }
+  &.EN {
+    background-image: url('../images/icon-en.png');
+    @include tablet {
+      background-image: url('../images/icon-en-mo.png');
+    }
+  }
+}
