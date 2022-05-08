@@ -21,7 +21,12 @@
               >
               {{ menu.name }}
             </button>
-            <ul v-show="clickIndex === index">
+            <ul
+              v-show="clickIndex === index"
+              :ref="`subMenu-${index}`"
+              :id="`subMenu-${index}`"
+              :class="`subMenu-${index}`"
+            >
               <li v-for="subMenu in menu.sub" :key="subMenu.category">
                 <a
                   v-if="subMenu.target"
@@ -167,6 +172,18 @@
           this.clickIndex = null
         } else {
           this.clickIndex = index
+          this.$nextTick(() => {
+            const menu = this.$refs[`subMenu-${index}`][0]
+            const subMenuPos =
+              menu.parentElement.offsetLeft +
+              menu.parentElement.offsetWidth / 2 +
+              menu.offsetWidth / 2
+            if (subMenuPos > window.innerWidth) {
+              menu.style.left = `calc(50% - ${
+                subMenuPos - window.innerWidth + 20
+              }px)`
+            }
+          })
         }
       },
       closeMenu() {
