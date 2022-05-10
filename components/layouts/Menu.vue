@@ -226,7 +226,6 @@
       position: relative;
       display: inline-block;
       font-weight: 900;
-      padding: 0 0 10px;
       &:not(:last-child) {
         margin-right: 30px;
       }
@@ -245,7 +244,7 @@
       }
       ul {
         position: absolute;
-        top: 100%;
+        top: calc(100% + 10px);
         left: 50%;
         transform: translateX(-50%);
         padding: 10px 30px;
