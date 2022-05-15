@@ -104,11 +104,9 @@
           this.data.contentProp.langLink &&
           this.data.targetLang !== this.language
         ) {
-          console.log(this.data)
           window.location = `/contents?contentId=${this.data.contentProp.langLink}`
         } else {
-          console.log(this.data)
-          // await window.location.reload(true)
+          await window.location.reload(true)
         }
       },
       async init() {
