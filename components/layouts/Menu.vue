@@ -160,11 +160,12 @@
         await this.setLanguage(lang)
 
         this.$nextTick(() => {
-          if (this.$route.path === '/contents') {
-            this.$nuxt.$emit('langChange')
-          } else {
-            window.location.reload(true)
-          }
+          console.log(this.$route.path)
+          // if (this.$route.path === '/contents') {
+          //   this.$nuxt.$emit('langChange')
+          // } else {
+          //   window.location.reload(true)
+          // }
         })
       },
       openMenu(index) {
