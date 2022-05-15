@@ -102,7 +102,7 @@
       async onLangChange() {
         if (
           this.data.contentProp.langLink &&
-          this.data.targetLang !== language
+          this.data.targetLang !== this.language
         ) {
           window.location = `/contents?contentId=${this.data.contentProp.langLink}`
         } else {
