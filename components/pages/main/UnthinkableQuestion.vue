@@ -67,7 +67,6 @@
     }
     &-content {
       margin-top: 40px;
-      padding-left: 20px;
       word-break: keep-all;
       p:nth-child(1) {
         font-size: 40px;
@@ -128,7 +127,6 @@
     .question {
       &-content {
         margin-top: 70px;
-        padding-left: 100px;
         p:nth-child(1) {
           font-size: 54px;
           margin-bottom: 20px;
@@ -167,7 +165,6 @@
         }
       }
       &-content {
-        padding-left: 40px;
         p:nth-child(1) {
           font-size: 84px;
         }
@@ -248,7 +245,6 @@
       }
       &-content {
         margin-top: 50px;
-        padding-left: 0;
         p:nth-child(1) {
           font-size: 20px;
           font-weight: 700;
