@@ -100,7 +100,10 @@
     methods: {
       ...mapActions(['getContentDetail', 'getNickName']),
       async onLangChange() {
-        if (this.data.contentProp.langLink) {
+        if (
+          this.data.contentProp.langLink &&
+          this.data.targetLang !== language
+        ) {
           window.location = `/contents?contentId=${this.data.contentProp.langLink}`
         } else {
           await window.location.reload(true)
@@ -113,6 +116,7 @@
         this.ContentItems = this.data.ContentItems
         if (
           res.data.contentType === 'ARTICLE' &&
+          res.data.ContentItems.length > 0 &&
           res.data.ContentItems[0].itemType === 'image'
         ) {
           this.thumbnail = this.ContentItems.slice(0, 1)
