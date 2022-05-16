@@ -7,7 +7,7 @@
       /> -->
       <div class="uq-text gl-8">
         <img
-          src="@/assets/images/main_uq.png"
+          src="@/assets/images/main_uq.svg"
           alt="Unthinkable Question 텍스트 이미지"
         />
       </div>
