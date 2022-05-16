@@ -190,6 +190,7 @@
       margin-bottom: 30px;
       h2 {
         font-size: map-get($font, h2);
+        font-weight: 600;
         line-height: 1;
       }
     }
@@ -306,7 +307,7 @@
       margin-left: 0;
       width: 100%;
       &__header {
-        padding-left: 0;
+        margin-left: 0;
         margin-bottom: 10px;
         h2 {
           font-size: 20px;
