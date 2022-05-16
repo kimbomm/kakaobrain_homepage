@@ -229,6 +229,7 @@
         margin-bottom: 30px;
         h2 {
           font-size: 64px;
+          line-height: 1.3;
         }
       }
     }
@@ -275,6 +276,7 @@
         margin-bottom: 20px;
         h2 {
           font-size: 24px;
+          line-height: 1.3;
         }
       }
       li {
