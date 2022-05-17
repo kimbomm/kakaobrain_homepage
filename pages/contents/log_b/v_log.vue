@@ -11,8 +11,39 @@
     </div>
     <!-- reference: https://github.com/paulcollett/vue-masonry-css -->
     <masonry
+      v-if="!device.touch"
       ref="masonry"
-      :cols="{ default: 5, 1024: 2, 768: 1 }"
+      :cols="5"
+      :gutter="{ default: '20px', 768: '0px' }"
+      class="masonry"
+    >
+      <ArchiveCard
+        v-for="(item, index) in list"
+        :key="index"
+        :data="item"
+        :theme="Math.random() > 0.5 ? 'dark' : ''"
+        :isMasonry="true"
+      />
+    </masonry>
+    <masonry
+      v-else-if="device.touch && !device.mobile"
+      ref="masonry"
+      :cols="2"
+      :gutter="{ default: '20px', 768: '0px' }"
+      class="masonry"
+    >
+      <ArchiveCard
+        v-for="(item, index) in list"
+        :key="index"
+        :data="item"
+        :theme="Math.random() > 0.5 ? 'dark' : ''"
+        :isMasonry="true"
+      />
+    </masonry>
+    <masonry
+      v-else-if="device.touch && device.mobile"
+      ref="masonry"
+      :cols="1"
       :gutter="{ default: '20px', 768: '0px' }"
       class="masonry"
     >
@@ -44,6 +75,7 @@
     },
     computed: {
       ...mapState({
+        device: state => state.device,
         language: state => state.language,
         translation: state => state.translation.LOGB
       })
