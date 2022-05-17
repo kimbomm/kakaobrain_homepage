@@ -9,13 +9,15 @@
           @click="onPlay"
           title="영상보기"
         ></button>
-        <iframe
-          id="iframe"
-          :src="`https://www.youtube.com/embed/${youtubeItem.itemProp.youtube.id}?enablejsapi=1&version=3&playerapiid=ytplayer`"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        />
+        <div>
+          <iframe
+            id="iframe"
+            :src="`https://www.youtube.com/embed/${youtubeItem.itemProp.youtube.id}?enablejsapi=1&version=3&playerapiid=ytplayer`"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          />
+        </div>
       </div>
       <div>
         <BreadCrumb :data="breadcrumb" />
@@ -160,8 +162,12 @@
       &:nth-child(1) {
         position: relative;
         flex: 0 0 getWidth(6);
-        padding-top: calc(9 / 16 * 100%);
         overflow: hidden;
+        > div {
+          position: relative;
+          padding-top: calc(9 / 16 * 100%);
+          height: 100%;
+        }
         .thumbnail {
           position: absolute;
           top: 0;
