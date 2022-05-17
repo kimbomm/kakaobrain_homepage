@@ -166,7 +166,7 @@
         > div {
           position: relative;
           padding-top: calc(9 / 16 * 100%);
-          height: 100%;
+          height: 0;
         }
         .thumbnail {
           position: absolute;
