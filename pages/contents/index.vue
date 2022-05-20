@@ -100,6 +100,7 @@
     methods: {
       ...mapActions(['getContentDetail', 'getNickName']),
       async onLangChange() {
+        alert('!!!!')
         if (
           this.data.contentProp.langLink &&
           this.data.targetLang !== this.language

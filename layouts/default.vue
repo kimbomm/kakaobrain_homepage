@@ -2,6 +2,7 @@
   <div :class="classBind" @click="pageClick">
     <div class="l-pages">
       <FilterList v-if="!isStoryPage" />
+      <SearchPage v-if="isSearchShow" />
       <Header />
       <div class="container">
         <Nuxt />
@@ -19,6 +20,7 @@
   import FilterList from '@/components/elements/filter/FilterList'
   import CardinalPoints from '@/components/elements/button/CardinalPoints'
   import TopButton from '@/components/elements/button/TopButton'
+  import SearchPage from '@/components/pages/search/index'
   import { mapState, mapMutations } from 'vuex'
   export default {
     components: {
@@ -26,13 +28,15 @@
       Footer,
       FilterList,
       CardinalPoints,
-      TopButton
+      TopButton,
+      SearchPage
     },
     data() {
       return {
         scrollLock: false,
         isStoryPage: false,
         isFooterShow: true,
+        isSearchShow: false,
         prevY: 0,
         touchInfo: {
           start: null,
@@ -69,6 +73,7 @@
       this.$nuxt.$on('scrollLock', this.onScrollLock)
       this.$nuxt.$on('story-page', this.onStoryPage)
       this.$nuxt.$on('onSlideEnd', this.onSlideEnd)
+      this.$nuxt.$on('onSearch', this.onSearch)
     },
     beforeMount() {
       Vue.prototype.scrollBody = document.querySelector('.wrap')
@@ -149,6 +154,10 @@
         ) {
           this.$nuxt.$emit('closeMenu', true)
         }
+      },
+      onSearch(val) {
+        this.isSearchShow = val
+        this.onScrollLock(val)
       }
     }
   }
@@ -172,6 +181,15 @@
         color: $gray-0;
       }
     }
+  }
+  .search {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: auto;
+    z-index: 3;
   }
   @include pc-large {
     .footer__story {
