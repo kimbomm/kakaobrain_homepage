@@ -10,51 +10,53 @@
       <p v-html="translation.talk[language].description"></p>
     </div>
     <!-- reference: https://github.com/paulcollett/vue-masonry-css -->
-    <masonry
-      v-if="!device.touch"
-      ref="masonry"
-      :cols="5"
-      :gutter="{ default: '20px', 768: '0px' }"
-      class="masonry"
-    >
-      <ArchiveCard
-        v-for="(item, index) in list"
-        :key="index"
-        :data="item"
-        :theme="Math.random() > 0.5 ? 'dark' : ''"
-        :isMasonry="true"
-      />
-    </masonry>
-    <masonry
-      v-else-if="device.touch && !device.mobile"
-      ref="masonry"
-      :cols="2"
-      :gutter="{ default: '20px', 768: '0px' }"
-      class="masonry"
-    >
-      <ArchiveCard
-        v-for="(item, index) in list"
-        :key="index"
-        :data="item"
-        :theme="Math.random() > 0.5 ? 'dark' : ''"
-        :isMasonry="true"
-      />
-    </masonry>
-    <masonry
-      v-else-if="device.touch && device.mobile"
-      ref="masonry"
-      :cols="1"
-      :gutter="{ default: '20px', 768: '0px' }"
-      class="masonry"
-    >
-      <ArchiveCard
-        v-for="(item, index) in list"
-        :key="index"
-        :data="item"
-        :theme="Math.random() > 0.5 ? 'dark' : ''"
-        :isMasonry="true"
-      />
-    </masonry>
+    <template v-if="onCheckDevice">
+      <masonry
+        v-if="!device.touch"
+        ref="masonry"
+        :cols="5"
+        :gutter="{ default: '20px', 768: '0px' }"
+        class="masonry"
+      >
+        <ArchiveCard
+          v-for="(item, index) in list"
+          :key="index"
+          :data="item"
+          :theme="Math.random() > 0.5 ? 'dark' : ''"
+          :isMasonry="true"
+        />
+      </masonry>
+      <masonry
+        v-else-if="device.touch && !device.mobile"
+        ref="masonry"
+        :cols="2"
+        :gutter="{ default: '20px', 768: '0px' }"
+        class="masonry"
+      >
+        <ArchiveCard
+          v-for="(item, index) in list"
+          :key="index"
+          :data="item"
+          :theme="Math.random() > 0.5 ? 'dark' : ''"
+          :isMasonry="true"
+        />
+      </masonry>
+      <masonry
+        v-else-if="device.touch && device.mobile"
+        ref="masonry"
+        :cols="1"
+        :gutter="{ default: '20px', 768: '0px' }"
+        class="masonry"
+      >
+        <ArchiveCard
+          v-for="(item, index) in list"
+          :key="index"
+          :data="item"
+          :theme="Math.random() > 0.5 ? 'dark' : ''"
+          :isMasonry="true"
+        />
+      </masonry>
+    </template>
   </div>
 </template>
 <script>
@@ -82,6 +84,7 @@
     },
     data() {
       return {
+        onCheckDevice: false,
         category1: 'log_b',
         category2: 'talk',
         breadcrumb: [],
@@ -96,6 +99,16 @@
         total: 0,
         isInit: false,
         isAdd: false
+      }
+    },
+    watch: {
+      device: {
+        deep: true,
+        handler(val) {
+          if (val) {
+            this.onCheckDevice = true
+          }
+        }
       }
     },
     async created() {
