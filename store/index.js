@@ -21,8 +21,8 @@ export const state = () => ({
   breadcrumb: [],
   isScrollUp: false,
   device: {
-    touch: false,
-    mobile: false
+    touch: null,
+    mobile: null
   }
 })
 
