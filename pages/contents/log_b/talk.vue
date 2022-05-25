@@ -14,7 +14,7 @@
       <masonry
         v-if="!device.touch"
         ref="masonry"
-        :cols="5"
+        :cols="{ default: 5, 1024: 2, 768: 1 }"
         :gutter="{ default: '20px', 768: '0px' }"
         class="masonry"
       >
