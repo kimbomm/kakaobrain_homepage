@@ -117,6 +117,14 @@
     },
     mounted() {
       window.addEventListener('scroll', this.onScroll)
+      this.$nextTick(() => {
+        if (
+          typeof this.device.touch === 'boolean' &&
+          typeof this.device.mobile === 'boolean'
+        ) {
+          this.onCheckDevice = true
+        }
+      })
     },
     async beforeDestroy() {
       await window.removeEventListener('scroll', this.onScroll)
