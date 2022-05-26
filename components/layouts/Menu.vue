@@ -32,8 +32,8 @@
                   v-if="subMenu.target"
                   :href="subMenu.link"
                   :target="subMenu.target"
-                  @click.prevent="clickIndex = null"
                 >
+                  <!-- @click.prevent="clickIndex = null" -->
                   {{ subMenu.name }}
                 </a>
                 <nuxt-link v-else exact :to="subMenu.link">
