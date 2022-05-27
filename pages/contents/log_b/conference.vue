@@ -116,7 +116,7 @@
       await this.setBreadcrumb()
     },
     mounted() {
-      window.addEventListener('scroll', this.onScroll)
+      this.scrollBody.addEventListener('scroll', this.onScroll)
       this.$nextTick(() => {
         if (
           typeof this.device.touch === 'boolean' &&
@@ -127,7 +127,7 @@
       })
     },
     async beforeDestroy() {
-      await window.removeEventListener('scroll', this.onScroll)
+      await this.scrollBody.removeEventListener('scroll', this.onScroll)
     },
     methods: {
       ...mapActions({
