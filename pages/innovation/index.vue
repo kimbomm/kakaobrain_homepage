@@ -100,10 +100,10 @@
       await this.init()
     },
     mounted() {
-      window.addEventListener('scroll', this.onScroll)
+      this.scrollBody.addEventListener('scroll', this.onScroll)
     },
     async beforeDestroy() {
-      await window.removeEventListener('scroll', this.onScroll)
+      await this.scrollBody.removeEventListener('scroll', this.onScroll)
       await this.setFilterList([])
     },
     methods: {
