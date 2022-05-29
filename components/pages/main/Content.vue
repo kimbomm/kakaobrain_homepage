@@ -3,7 +3,11 @@
     <div class="date">
       <span class="gl-1">
         <template v-if="data.Content">
-          {{ $dayjs(data.Content.acceptAt).format('YYYY/MM/DD') }}
+          {{
+            $dayjs(data.Content.showAt || data.Content.acceptAt).format(
+              'YYYY/MM/DD'
+            )
+          }}
         </template>
         <template v-else>
           {{ $dayjs(data.updateAt).format('YYYY/MM/DD') }}
@@ -11,10 +15,12 @@
       </span>
       <span>
         <template v-if="data.Content">
-          {{ $dayjs().diff(data.Content.acceptAt, 'hour') }}h
+          {{
+            $dayjs().diff(data.Content.showAt || data.Content.acceptAt, 'hour')
+          }}h
         </template>
         <template v-else>
-          {{ $dayjs().diff(data.acceptAt, 'hour') }}h
+          {{ $dayjs().diff(data.showAt || data.acceptAt, 'hour') }}h
         </template>
       </span>
     </div>

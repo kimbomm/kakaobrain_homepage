@@ -31,7 +31,9 @@
       </nuxt-link>
       <div class="info">
         <HashTag size="sm" :hashList="hashList" />
-        <div class="date">@{{ $dayjs(data.acceptAt).format('YYYYMMDD') }}</div>
+        <div class="date">
+          @{{ $dayjs(data.showAt || data.acceptAt).format('YYYYMMDD') }}
+        </div>
       </div>
       <nuxt-link
         class="btn-link"
