@@ -35,7 +35,9 @@
             </div>
           </div>
           <div class="list-date">
-            {{ data && $dayjs(data.updateAt).format('YYYYMMDD') }}
+            {{
+              data && $dayjs(data.showAt || data.acceptAt).format('YYYYMMDD')
+            }}
           </div>
         </div>
       </div>
