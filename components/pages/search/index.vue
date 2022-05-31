@@ -29,38 +29,108 @@
             <span> How about this? </span>
           </template>
         </div>
-        <masonry
-          v-if="list.length > 0"
-          ref="masonry"
-          :cols="{ default: 3, 1024: 2, 768: 1 }"
-          :gutter="{ default: '20px', 768: '0px' }"
-          class="masonry area"
-        >
-          <template v-for="(item, index) in list">
-            <div :key="index">
-              <ArchiveCard
-                :data="item"
-                :theme="Math.random() > 0.5 ? 'dark' : ''"
-              />
-            </div>
+        <template v-if="onCheckDevice">
+          <template v-if="list.length > 0">
+            <masonry
+              v-if="!device.touch"
+              ref="masonry"
+              :cols="{ default: 3, 1024: 2, 768: 1 }"
+              :gutter="{ default: '20px', 768: '0px' }"
+              class="masonry area"
+            >
+              <template v-for="(item, index) in list">
+                <div :key="index">
+                  <ArchiveCard
+                    :data="item"
+                    :theme="Math.random() > 0.5 ? 'dark' : ''"
+                  />
+                </div>
+              </template>
+            </masonry>
+            <masonry
+              v-else-if="device.touch && !device.mobile"
+              ref="masonry"
+              :cols="2"
+              :gutter="{ default: '20px', 768: '0px' }"
+              class="masonry area"
+            >
+              <template v-for="(item, index) in list">
+                <div :key="index">
+                  <ArchiveCard
+                    :data="item"
+                    :theme="Math.random() > 0.5 ? 'dark' : ''"
+                  />
+                </div>
+              </template>
+            </masonry>
+            <masonry
+              v-else-if="device.touch && device.mobile"
+              ref="masonry"
+              :cols="1"
+              :gutter="{ default: '20px', 768: '0px' }"
+              class="masonry area"
+            >
+              <template v-for="(item, index) in list">
+                <div :key="index">
+                  <ArchiveCard
+                    :data="item"
+                    :theme="Math.random() > 0.5 ? 'dark' : ''"
+                  />
+                </div>
+              </template>
+            </masonry>
           </template>
-        </masonry>
-        <masonry
-          v-else
-          ref="masonry"
-          :cols="{ default: 3, 1024: 2, 768: 1 }"
-          :gutter="{ default: '20px', 768: '0px' }"
-          class="masonry area"
-        >
-          <template v-for="(item, index) in nodataList">
-            <div :key="index">
-              <ArchiveCard
-                :data="item"
-                :theme="Math.random() > 0.5 ? 'dark' : ''"
-              />
-            </div>
+          <template v-else>
+            <masonry
+              v-if="!device.touch"
+              ref="masonry"
+              :cols="{ default: 3, 1024: 2, 768: 1 }"
+              :gutter="{ default: '20px', 768: '0px' }"
+              class="masonry area"
+            >
+              <template v-for="(item, index) in nodataList">
+                <div :key="index">
+                  <ArchiveCard
+                    :data="item"
+                    :theme="Math.random() > 0.5 ? 'dark' : ''"
+                  />
+                </div>
+              </template>
+            </masonry>
+            <masonry
+              v-else-if="device.touch && !device.mobile"
+              ref="masonry"
+              :cols="2"
+              :gutter="{ default: '20px', 768: '0px' }"
+              class="masonry area"
+            >
+              <template v-for="(item, index) in nodataList">
+                <div :key="index">
+                  <ArchiveCard
+                    :data="item"
+                    :theme="Math.random() > 0.5 ? 'dark' : ''"
+                  />
+                </div>
+              </template>
+            </masonry>
+            <masonry
+              v-else-if="device.touch && device.mobile"
+              ref="masonry"
+              :cols="1"
+              :gutter="{ default: '20px', 768: '0px' }"
+              class="masonry area"
+            >
+              <template v-for="(item, index) in nodataList">
+                <div :key="index">
+                  <ArchiveCard
+                    :data="item"
+                    :theme="Math.random() > 0.5 ? 'dark' : ''"
+                  />
+                </div>
+              </template>
+            </masonry>
           </template>
-        </masonry>
+        </template>
       </template>
     </div>
   </div>
@@ -89,6 +159,7 @@
     },
     data() {
       return {
+        onCheckDevice: false,
         inputVal: '', //state?
         hasResult: false,
         tagCnt: 5,
@@ -107,13 +178,23 @@
       }
     },
     computed: {
-      ...mapState(['language', 'keyword']),
+      ...mapState(['language', 'keyword', 'device']),
       classBind() {
         const classList = ['search-result']
         if (this.list.length > 0) {
           classList.push('is-result')
         }
         return classList.join(' ')
+      }
+    },
+    watch: {
+      device: {
+        deep: true,
+        handler(val) {
+          if (val) {
+            this.onCheckDevice = true
+          }
+        }
       }
     },
     async created() {
@@ -124,6 +205,14 @@
       if (this.keyword) {
         this.getResult(this.keyword, 'keyword')
       }
+      this.$nextTick(() => {
+        if (
+          typeof this.device.touch === 'boolean' &&
+          typeof this.device.mobile === 'boolean'
+        ) {
+          this.onCheckDevice = true
+        }
+      })
     },
     async beforeDestroy() {
       this.$refs.search.removeEventListener('wheel', this.onWheel)
