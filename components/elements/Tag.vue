@@ -1,31 +1,22 @@
 <template>
-  <button
-    ref="tag"
-    class="tag"
-    :disabled="!data.link"
-    @click="onClick(data.link)"
-  >
-    <span class="tag-name">{{ data.tag }}</span>
+  <button class="tag" @click="onClick">
+    <span class="tag-name">{{ title }}</span>
   </button>
 </template>
 <script>
   export default {
     props: {
-      data: {
-        type: Object,
-        default: () => {}
+      title: {
+        type: String,
+        default: ''
       }
     },
     data() {
       return {}
     },
     methods: {
-      onClick(link) {
-        if (link.indexOf(location.origin) !== -1) {
-          this.$router.push(link)
-        } else {
-          window.open(link, '_blank')
-        }
+      onClick() {
+        this.$emit('onClick')
       }
     }
   }

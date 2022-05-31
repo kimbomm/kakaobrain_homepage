@@ -224,7 +224,7 @@
     .contents-sticker {
       width: getWidth(6);
       margin-bottom: 40px;
-      margin-left: getMarin(2);
+      margin-left: getMargin(2);
     }
     /deep/ .Innovation {
       margin-bottom: 50px;

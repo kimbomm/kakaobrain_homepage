@@ -14,7 +14,10 @@
       <div class="team-members">
         <ul>
           <li v-for="(item, index) in list" :key="index">
-            <Tag :data="item" />
+            <Tag
+              :title="item[`title${language}`]"
+              @onClick="onClickKeyword(item)"
+            />
           </li>
         </ul>
       </div>
@@ -27,7 +30,7 @@
   </div>
 </template>
 <script>
-  import { mapActions } from 'vuex'
+  import { mapState, mapActions, mapMutations } from 'vuex'
   import Tag from '@/components/elements/Tag'
   export default {
     components: {
@@ -38,15 +41,15 @@
         NUMBER: 0,
         pageData: {
           offset: 0,
-          limit: 20,
-          contentType: 'ALL',
-          targetLAng: this.$store.state.language
+          limit: 20
         },
         list: [],
-        tagTotal: 0
+        tagTotal: 0,
+        category: 'searchKeyword'
       }
     },
     computed: {
+      ...mapState(['language']),
       isAll() {
         return this.list.length === this.tagTotal
       }
@@ -59,9 +62,8 @@
       this.scrollBody.removeEventListener('scroll', this.onScroll)
     },
     methods: {
-      ...mapActions({
-        getTags: 'getTags'
-      }),
+      ...mapMutations(['setIsMenuOpen', 'setKeyword']),
+      ...mapActions(['getLibraryCategory', 'getTags']),
       onScroll() {
         if (
           this.scrollBody.scrollTop + window.innerHeight >=
@@ -75,17 +77,27 @@
         }
       },
       async init() {
-        const res = await this.getTags(this.pageData)
+        const res = await this.getLibraryCategory({
+          category: this.category,
+          params: this.pageData
+        })
         this.list = res.data.list
         this.tagTotal = res.data.count
       },
       async addTag() {
         if (this.list.length < this.tagTotal) {
           this.pageData.offset += 20
-          const res = await this.getTags(this.pageData)
+          const res = await this.getLibraryCategory({
+            category: this.category,
+            params: this.pageData
+          })
           this.list = this.list.concat(res.data.list)
           this.tagTotal = res.data.count
         }
+      },
+      onClickKeyword(data) {
+        this.setKeyword(data[`title${this.language}`])
+        this.$nuxt.$emit('onSearch', true)
       }
     }
   }

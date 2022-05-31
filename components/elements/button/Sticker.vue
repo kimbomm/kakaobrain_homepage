@@ -3,7 +3,7 @@
     <button
       type="button"
       :class="classBind"
-      :disabled="!link ? true : false"
+      :disabled="isButton ? false : !link ? true : false"
       @click="onClick"
     >
       <span class="txt">{{ text }}</span>
@@ -34,6 +34,10 @@
         type: Boolean,
         default: true,
         require: false
+      },
+      isButton: {
+        type: Boolean,
+        default: false
       }
     },
     computed: {

@@ -1,6 +1,6 @@
 <template>
   <div class="menu">
-    <div :class="classBind">
+    <div v-if="!isSearchShow" :class="classBind">
       <div class="menu-list">
         <ul :class="{ 'menu-enter': isHover }">
           <li
@@ -49,15 +49,25 @@
       :class="{
         'common-menu': true,
         'hide-target': true,
-        'is-hide': isScrollUp
+        'is-hide': isScrollUp,
+        'is-search': isSearchShow
       }"
     >
-      <button
-        :class="`btn-lang ${cookieLang}`"
-        @click="selectLang(cookieLang === 'KR' ? 'EN' : 'KR')"
-      ></button>
+      <template v-if="!isSearchShow">
+        <button class="common-search" @click="onSearch(true)">검색하기</button>
+        <button
+          :class="`btn-lang ${cookieLang}`"
+          @click="selectLang(cookieLang === 'KR' ? 'EN' : 'KR')"
+        ></button>
+      </template>
+      <template v-else>
+        <button class="btn-search-close" @click="onSearch(false)">
+          검색창닫기
+        </button>
+      </template>
     </div>
     <button
+      v-if="!isSearchShow"
       :class="{ 'menu-btn': true, 'hide-target': true, 'is-hide': isScrollUp }"
       @click="setIsMenuOpen(true)"
       title="메뉴 열기"
@@ -87,7 +97,8 @@
           limit: 0,
           contentType: 'ALL',
           targetLang: 'EN'
-        }
+        },
+        isSearchShow: false
       }
     },
     computed: {
@@ -126,21 +137,39 @@
           this.isAnimation = false
           this.$nuxt.$emit('scrollLock', false)
         }
+      },
+      $route: {
+        deep: true,
+        handler(val) {
+          if (this.isSearchShow) {
+            this.onSearch(false)
+          }
+        }
       }
     },
     created() {
       this.$nuxt.$on('closeMenu', this.closeMenu)
+      this.$nuxt.$on('onSearch', val => {
+        this.isSearchShow = val
+        if (!val) {
+          this.setKeyword(null)
+        }
+      })
     },
     async mounted() {
       await this.init()
     },
     beforeDestroy() {
       this.$nuxt.$off('closeMenu', this.closeMenu)
+      this.$nuxt.$off('onSearch', val => {
+        this.isSearchShow = val
+      })
     },
     methods: {
       ...mapMutations({
         setLanguage: 'setLanguage',
-        setIsMenuOpen: 'setIsMenuOpen'
+        setIsMenuOpen: 'setIsMenuOpen',
+        setKeyword: 'setKeyword'
       }),
       ...mapActions({
         getCount: 'getCount'
@@ -193,6 +222,9 @@
         if (this.clickIndex >= 0) {
           this.clickIndex = null
         }
+      },
+      onSearch(val) {
+        this.$nuxt.$emit('onSearch', val)
       }
     }
   }
@@ -306,15 +338,20 @@
     font-size: 0;
     margin-left: 30px;
     padding-top: 3px;
+    &.is-search {
+      margin-right: 0;
+    }
     button {
       width: 20px;
       height: 20px;
       margin-right: 10px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      text-indent: -9999px;
+      font-size: 0;
+      vertical-align: middle;
       &:last-child {
         margin-right: 0;
-      }
-      img {
-        width: 100%;
       }
     }
   }

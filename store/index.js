@@ -23,7 +23,8 @@ export const state = () => ({
   device: {
     touch: null,
     mobile: null
-  }
+  },
+  keyword: null
 })
 
 export const mutations = {
@@ -56,6 +57,9 @@ export const mutations = {
   },
   setCategoryCount(state, payload) {
     state.count[payload.category] = payload.count
+  },
+  setKeyword(state, payload) {
+    state.keyword = payload
   }
 }
 export const actions = {
