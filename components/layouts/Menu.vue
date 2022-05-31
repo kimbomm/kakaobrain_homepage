@@ -149,17 +149,27 @@
     },
     created() {
       this.$nuxt.$on('closeMenu', this.closeMenu)
+      this.$nuxt.$on('onSearch', val => {
+        this.isSearchShow = val
+        if (!val) {
+          this.setKeyword(null)
+        }
+      })
     },
     async mounted() {
       await this.init()
     },
     beforeDestroy() {
       this.$nuxt.$off('closeMenu', this.closeMenu)
+      this.$nuxt.$off('onSearch', val => {
+        this.isSearchShow = val
+      })
     },
     methods: {
       ...mapMutations({
         setLanguage: 'setLanguage',
-        setIsMenuOpen: 'setIsMenuOpen'
+        setIsMenuOpen: 'setIsMenuOpen',
+        setKeyword: 'setKeyword'
       }),
       ...mapActions({
         getCount: 'getCount'
@@ -215,7 +225,6 @@
       },
       onSearch(val) {
         this.$nuxt.$emit('onSearch', val)
-        this.isSearchShow = val
       }
     }
   }

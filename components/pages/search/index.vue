@@ -4,7 +4,13 @@
       <SearchInput :value.sync="pageData.filter" @search="getResult" />
     </div>
     <div class="search-tag">
-      <Sticker v-for="item in tagSet" :key="item.value" :text="item.name" />
+      <Sticker
+        v-for="(item, index) in keywordList"
+        :key="index"
+        :text="item[`title${language}`]"
+        :is-button="true"
+        @click.native="getResult(item[`title${language}`], 'keyword')"
+      />
     </div>
     <div :class="classBind">
       <!-- / default / result / no result /분기 수정 필요 -->
@@ -24,6 +30,7 @@
           </template>
         </div>
         <masonry
+          v-if="list.length > 0"
           ref="masonry"
           :cols="{ default: 3, 1024: 2, 768: 1 }"
           :gutter="{ default: '20px', 768: '0px' }"
@@ -38,13 +45,29 @@
             </div>
           </template>
         </masonry>
+        <masonry
+          v-else
+          ref="masonry"
+          :cols="{ default: 3, 1024: 2, 768: 1 }"
+          :gutter="{ default: '20px', 768: '0px' }"
+          class="masonry area"
+        >
+          <template v-for="(item, index) in nodataList">
+            <div :key="index">
+              <ArchiveCard
+                :data="item"
+                :theme="Math.random() > 0.5 ? 'dark' : ''"
+              />
+            </div>
+          </template>
+        </masonry>
       </template>
     </div>
   </div>
 </template>
 
 <script>
-  import { mapActions } from 'vuex'
+  import { mapState, mapActions } from 'vuex'
   import SearchInput from '@/components/elements/SearchInput'
   import Sticker from '@/components/elements/button/Sticker'
   import InnovationCard from '@/components/elements/card/InnovationCard'
@@ -77,10 +100,14 @@
           filter: ''
         },
         list: [],
-        total: 0
+        total: 0,
+        category: 'searchKeyword',
+        keywordList: [],
+        nodataList: []
       }
     },
     computed: {
+      ...mapState(['language', 'keyword']),
       classBind() {
         const classList = ['search-result']
         if (this.list.length > 0) {
@@ -90,38 +117,54 @@
       }
     },
     async created() {
-      // await this.init()
+      await this.getSearchKeyword()
     },
     async mounted() {
       this.$refs.search.addEventListener('wheel', this.onWheel)
+      if (this.keyword) {
+        this.getResult(this.keyword, 'keyword')
+      }
     },
     async beforeDestroy() {
       this.$refs.search.removeEventListener('wheel', this.onWheel)
     },
     methods: {
-      ...mapActions({
-        getContentList: 'getContentList'
-      }),
+      ...mapActions(['getContentList', 'getLibraryCategory']),
       onWheel(e) {
         this.$refs.search.scrollTop += Math.floor(e.deltaY) * 0.3
-      },
-      async init() {
-        const res = await this.getContentList(this.pageData)
-        this.list = res.data.list.slice(40, -1).sort(() => Math.random() - 0.5)
-        this.total = this.list.length
-        this.hasResult = this.list.length <= 0 ? false : true
-        // this.hasResult = this.list.length <= 0 ? true : false // no result 테스트용
       },
       async onSearch() {
         const res = await this.getContentList(this.pageData)
         this.list = res.data.list
         this.total = res.data.count
       },
-      async getResult(val) {
+      async getResult(val, type) {
         if (val.trim().length > 0) {
+          if (type === 'keyword') this.pageData.filter = val
           this.inputVal = this.pageData.filter
           await this.onSearch()
         }
+      },
+      async getSearchKeyword() {
+        const res = await this.getLibraryCategory({
+          category: this.category,
+          params: {
+            order: 'RANDOM',
+            offset: 0,
+            limit: 5
+          }
+        })
+        this.keywordList = res.data.list
+        const filters = this.keywordList
+          .map(item => item[`title${this.language}`])
+          .join('|')
+        const nodataRes = await this.getContentList({
+          offset: 0,
+          limit: 99,
+          targetLang: this.language,
+          filters: filters
+        })
+        this.nodataList = nodataRes.data.list
       }
     }
   }
@@ -130,6 +173,7 @@
   .search {
     padding: 190px 20px 0;
     background-color: #f5f7fa;
+    transition: all 0.2s linear;
     &-input {
       width: getWidth(6);
       margin: 0 auto 50px;

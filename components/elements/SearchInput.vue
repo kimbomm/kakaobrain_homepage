@@ -23,6 +23,11 @@
         default: ''
       }
     },
+    watch: {
+      value(val) {
+        this.inputVal = val
+      }
+    },
     data() {
       return {
         inputVal: '',

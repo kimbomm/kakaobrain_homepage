@@ -2,7 +2,9 @@
   <div :class="classBind" @click="pageClick">
     <div class="l-pages">
       <FilterList v-if="!isStoryPage" />
-      <SearchPage v-if="isSearchShow" />
+      <transition name="slide">
+        <SearchPage v-if="isSearchShow" />
+      </transition>
       <Header />
       <div class="container">
         <Nuxt />
@@ -158,6 +160,7 @@
       onSearch(val) {
         this.isSearchShow = val
         this.onScrollLock(val)
+        this.setIsScrollUp(false)
       }
     }
   }
