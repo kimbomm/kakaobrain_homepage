@@ -55,12 +55,10 @@
       if (!ctx.query.contentId) {
         ctx.redirect('/')
       }
-      return {
-        contentId: ctx.query.contentId
-      }
     },
     data() {
       return {
+        contentId: null,
         contentType: null,
         isLoad: false,
         categoryType: null,
@@ -91,7 +89,18 @@
         return classList.join(' ')
       }
     },
+    watch: {
+      $route: {
+        deep: true,
+        handler(val) {
+          console.log('!!!', val)
+          this.contentId = val.query.contentId
+          this.init()
+        }
+      }
+    },
     created() {
+      this.contentId = this.$route.query.contentId
       this.$nuxt.$on('langChange', this.onLangChange)
     },
     async mounted() {
@@ -100,7 +109,6 @@
     methods: {
       ...mapActions(['getContentDetail', 'getNickName']),
       async onLangChange() {
-        alert('!!!!')
         if (
           this.data.contentProp.langLink &&
           this.data.targetLang !== this.language
@@ -185,6 +193,7 @@
         }
 
         this.title = info.category2.name
+        this.breadcrumb = []
         this.breadcrumb.push(
           { text: info.category1.nick, sub: subClass, link: '' },
           { text: info.category2.nick, sub: 'sub', link: info.category2.link }
