@@ -93,9 +93,12 @@
       $route: {
         deep: true,
         handler(val) {
-          console.log('!!!', val)
           this.contentId = val.query.contentId
           this.init()
+          this.scrollBody.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          })
         }
       }
     },
