@@ -70,17 +70,17 @@
         meta: [
           {
             hid: 'og-title',
-            property: 'og:title',
+            name: 'og:title',
             content: this.contentData.title
           },
           {
             hid: 'og:url',
-            property: 'og:url',
+            name: 'og:url',
             content: `${this.$config.url}${this.$route.fullPath}`
           },
           {
             hid: 'og:image',
-            property: 'og:image',
+            name: 'og:image',
             content: `${this.$config.baseURL}${this.contentData.contentProp.mediaId}`
           },
         ]
