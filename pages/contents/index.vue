@@ -51,9 +51,39 @@
       DetailTextItem,
       Like
     },
-    asyncData(ctx) {
+    async asyncData(ctx) {
       if (!ctx.query.contentId) {
         ctx.redirect('/')
+      }
+      try {
+        const res = await ctx.store.dispatch('getContentDetail', ctx.query.contentId)
+        return {
+          contentData: res.data
+        }
+      } catch (error) {
+        console.error(error)
+      }
+    },
+    head() {
+      return {
+        title: this.contentData.title,
+        meta: [
+          {
+            hid: 'og-title',
+            name: 'og:title',
+            content: this.contentData.title
+          },
+          {
+            hid: 'og:url',
+            name: 'og:url',
+            content: `${this.$config.url}${this.$route.fullPath}`
+          },
+          {
+            hid: 'og:image',
+            name: 'og:image',
+            content: `${this.$config.baseURL}${this.contentData.contentProp.mediaId}`
+          },
+        ]
       }
     },
     data() {
