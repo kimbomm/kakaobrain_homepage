@@ -1,17 +1,21 @@
 <template>
   <div ref="search" class="search">
-    <div class="search-input">
-      <SearchInput :value.sync="pageData.filter" @search="getResult" />
-    </div>
-    <div class="search-tag">
-      <Sticker
-        v-for="(item, index) in keywordList"
-        :key="index"
-        :text="item[`title${language}`]"
-        :is-button="true"
-        @click.native="getResult(item[`title${language}`], 'keyword')"
-      />
-    </div>
+    <transition name="slide" :duration="800">
+      <div v-if="isLoad" class="search-input">
+        <SearchInput :value.sync="pageData.filter" @search="getResult" />
+      </div>
+    </transition>
+    <transition name="slide" :duration="800">
+      <div v-if="isLoad" class="search-tag">
+        <Sticker
+          v-for="(item, index) in keywordList"
+          :key="index"
+          :text="item[`title${language}`]"
+          :is-button="true"
+          @click.native="getResult(item[`title${language}`], 'keyword')"
+        />
+      </div>
+    </transition>
     <div :class="classBind">
       <!-- / default / result / no result /분기 수정 필요 -->
       <template v-if="inputVal">
@@ -159,6 +163,7 @@
     },
     data() {
       return {
+        isLoad: false,
         onCheckDevice: false,
         inputVal: '', //state?
         hasResult: false,
@@ -201,18 +206,21 @@
       await this.getSearchKeyword()
     },
     async mounted() {
-      this.$refs.search.addEventListener('wheel', this.onWheel)
-      if (this.keyword) {
-        this.getResult(this.keyword, 'keyword')
-      }
-      this.$nextTick(() => {
-        if (
-          typeof this.device.touch === 'boolean' &&
-          typeof this.device.mobile === 'boolean'
-        ) {
-          this.onCheckDevice = true
+      setTimeout(() => {
+        this.isLoad = true
+        this.$refs.search.addEventListener('wheel', this.onWheel)
+        if (this.keyword) {
+          this.getResult(this.keyword, 'keyword')
         }
-      })
+        this.$nextTick(() => {
+          if (
+            typeof this.device.touch === 'boolean' &&
+            typeof this.device.mobile === 'boolean'
+          ) {
+            this.onCheckDevice = true
+          }
+        })
+      }, 500)
     },
     async beforeDestroy() {
       this.$refs.search.removeEventListener('wheel', this.onWheel)
@@ -266,6 +274,7 @@
     &-input {
       width: getWidth(6);
       margin: 0 auto 50px;
+      transition: all 0.2s linear;
     }
     &-tag {
       width: getWidth(6);
@@ -275,6 +284,7 @@
       flex-wrap: wrap;
       gap: 10px;
       justify-content: center;
+      transition: all 0.2s linear;
     }
 
     &-result {
