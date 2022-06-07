@@ -212,7 +212,7 @@
               menu.offsetWidth / 2
             if (subMenuPos > window.innerWidth) {
               menu.style.left = `calc(50% - ${
-                subMenuPos - window.innerWidth + 20
+                subMenuPos - window.innerWidth + 40
               }px)`
             }
           })

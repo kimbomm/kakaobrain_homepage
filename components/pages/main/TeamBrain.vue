@@ -96,8 +96,12 @@
         }
       },
       onClickKeyword(data) {
-        this.setKeyword(data[`title${this.language}`])
-        this.$nuxt.$emit('onSearch', true)
+        if (data.prop && data.prop.link) {
+          window.open(data.prop.link, '_blank')
+        } else {
+          this.setKeyword(data[`title${this.language}`])
+          this.$nuxt.$emit('onSearch', true)
+        }
       }
     }
   }
