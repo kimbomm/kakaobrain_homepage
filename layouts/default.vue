@@ -2,7 +2,7 @@
   <div :class="classBind" @click="pageClick">
     <div class="l-pages">
       <FilterList v-if="!isStoryPage" />
-      <transition name="slide">
+      <transition name="fade">
         <SearchPage v-if="isSearchShow" />
       </transition>
       <Header />

@@ -1,11 +1,11 @@
 <template>
   <div ref="search" class="search">
-    <transition name="slide" :duration="800">
+    <transition name="slide-fade" :duration="800">
       <div v-if="isLoad" class="search-input">
         <SearchInput :value.sync="pageData.filter" @search="getResult" />
       </div>
     </transition>
-    <transition name="slide" :duration="800">
+    <transition name="slide-fade" :duration="800">
       <div v-if="isLoad" class="search-tag">
         <Sticker
           v-for="(item, index) in keywordList"
