@@ -54,6 +54,13 @@
       }"
     >
       <template v-if="!isSearchShow">
+        <a
+          class="tag-link"
+          href="https://careers.kakaobrain.com/"
+          target="_blank"
+        >
+          Careers
+        </a>
         <button class="common-search" @click="onSearch(true)">검색하기</button>
         <button
           :class="`btn-lang ${cookieLang}`"
@@ -354,6 +361,18 @@
         margin-right: 0;
       }
     }
+    a.tag-link {
+      display: inline-block;
+      vertical-align: middle;
+      cursor: pointer;
+      margin-right: 10px;
+      font-size: 12px;
+      line-height: 1.3;
+      padding: 4px 12px;
+      border-radius: 100px;
+      background-color: #000;
+      color: #fff;
+    }
   }
 
   @include pc-large {
@@ -369,6 +388,10 @@
         width: 26px;
         height: 26px;
       }
+      a.tag-link {
+        padding: 6px 14px;
+        font-size: 14px;
+      }
     }
   }
   @include pc-4k {
@@ -382,6 +405,10 @@
       button {
         width: 40px;
         height: 40px;
+      }
+      a.tag-link {
+        padding: 10px 20px;
+        font-size: 22px;
       }
     }
   }
@@ -402,6 +429,9 @@
       button {
         width: 40px;
         height: 40px;
+      }
+      a.tag-link {
+        display: none;
       }
     }
   }

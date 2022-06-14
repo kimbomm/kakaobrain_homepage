@@ -50,24 +50,18 @@
           </li>
         </ul>
 
-        <!-- <div class="lang">
-          <ul>
-            <li
-              v-for="(item, index) in languageList"
-              :key="index"
-              :class="`lang-item animation delay-${index + 3} ${
-                isAnimation ? 'fade-up' : ''
-              }`"
-            >
-              <button
-                :class="item.value === language ? 'is-active' : ''"
-                @click="selectLang(item.value)"
-              >
-                {{ item.name }}
-              </button>
-            </li>
-          </ul>
-        </div> -->
+        <div class="etc-menu">
+          <a
+            href="https://careers.kakaobrain.com/"
+            target="_blank"
+            :class="`tag-link animation delay-4 ${
+              isAnimation ? 'fade-up' : ''
+            }`"
+            @click="onClose()"
+          >
+            Careers
+          </a>
+        </div>
 
         <MobMenuFooter @onClose="onClose" />
       </div>
@@ -267,24 +261,16 @@
     top: -7px;
     left: -2px;
   }
-  .lang {
-    margin-top: 110px;
-    z-index: 10;
-    cursor: pointer;
-    &-item {
-      font-size: 20px;
+  .etc-menu {
+    margin-top: 60px;
+    .tag-link {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #fff;
+      border-radius: 100px;
+      font-size: 14px;
       line-height: 1.3;
-      margin-bottom: 22px;
-      &:last-child {
-        margin-bottom: 0;
-      }
-      button {
-        color: $gray-0;
-        &.is-active,
-        &:hover {
-          color: $brain-yellow;
-        }
-      }
+      color: #000;
     }
   }
   @include tablet {
@@ -328,6 +314,11 @@
     }
     .menu-list {
       margin-top: 116px;
+    }
+    .etc-menu {
+      .tag-link {
+        padding: 8px 16px;
+      }
     }
   }
 </style>
