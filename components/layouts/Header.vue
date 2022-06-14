@@ -57,7 +57,6 @@
     z-index: 20;
     display: flex;
     justify-content: space-between;
-    // align-items: center;
     flex-wrap: nowrap;
     font-size: 16px;
     line-height: 1.3;
@@ -70,7 +69,6 @@
       img {
         width: 80px;
         height: 20px;
-        vertical-align: middle;
       }
     }
     &-con {
@@ -130,6 +128,9 @@
           height: 21px;
         }
       }
+      .header-con {
+        display: none;
+      }
     }
   }
   @include mobile {
@@ -147,9 +148,6 @@
     .header,
     .header-item {
       font-size: 18px;
-      &-con {
-        display: none;
-      }
     }
   }
 </style>

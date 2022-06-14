@@ -344,7 +344,7 @@
   .common-menu {
     font-size: 0;
     margin-left: 30px;
-    padding-top: 3px;
+    display: inline-flex;
     &.is-search {
       margin-right: 0;
     }
@@ -356,14 +356,13 @@
       background-repeat: no-repeat;
       text-indent: -9999px;
       font-size: 0;
-      vertical-align: middle;
       &:last-child {
         margin-right: 0;
       }
     }
     a.tag-link {
       display: inline-block;
-      vertical-align: middle;
+      margin-top: -1px;
       cursor: pointer;
       margin-right: 10px;
       font-size: 12px;
