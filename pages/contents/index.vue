@@ -19,9 +19,8 @@
           >
           </component>
         </template>
+        <Like :content-id="data.contentId" :good-count="data.goodCount" />
       </div>
-
-      <!-- <Like /> -->
     </template>
   </div>
 </template>
@@ -56,7 +55,10 @@
         ctx.redirect('/')
       }
       try {
-        const res = await ctx.store.dispatch('getContentDetail', ctx.query.contentId)
+        const res = await ctx.store.dispatch(
+          'getContentDetail',
+          ctx.query.contentId
+        )
         return {
           contentData: res.data
         }
@@ -82,7 +84,7 @@
             hid: 'og:image',
             name: 'og:image',
             content: `${this.$config.baseURL}${this.contentData.contentProp.mediaId}`
-          },
+          }
         ]
       }
     },
