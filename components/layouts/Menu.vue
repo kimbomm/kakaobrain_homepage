@@ -267,7 +267,7 @@
     align-items: flex-start;
     > .menu {
       position: relative;
-      top: -5px;
+      top: -3px;
     }
     &-item {
       position: relative;
@@ -381,6 +381,9 @@
   }
 
   @include pc-large {
+    .menu > .menu {
+      top: -5px;
+    }
     .menu-item {
       .txt {
         font-size: 22px;
