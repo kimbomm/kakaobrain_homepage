@@ -361,8 +361,9 @@
       }
     }
     a.tag-link {
+      position: relative;
+      top: -1px;
       display: inline-block;
-      margin-top: -1px;
       cursor: pointer;
       margin-right: 10px;
       font-size: 12px;
@@ -382,7 +383,6 @@
     }
     .common-menu {
       margin-left: 36px;
-      padding-top: 5px;
       button {
         width: 26px;
         height: 26px;
@@ -400,7 +400,6 @@
       }
     }
     .common-menu {
-      padding-top: 6px;
       button {
         width: 40px;
         height: 40px;
@@ -424,7 +423,6 @@
     .common-menu {
       margin-left: 0;
       margin-right: 5px;
-      padding-top: 0;
       button {
         width: 40px;
         height: 40px;
