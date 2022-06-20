@@ -264,6 +264,11 @@
   .menu {
     z-index: 10;
     display: flex;
+    align-items: flex-start;
+    > .menu {
+      position: relative;
+      top: -5px;
+    }
     &-item {
       position: relative;
       display: inline-block;
@@ -362,7 +367,7 @@
     }
     a.tag-link {
       position: relative;
-      top: -1px;
+      top: -2px;
       display: inline-block;
       cursor: pointer;
       margin-right: 10px;
@@ -405,6 +410,7 @@
         height: 40px;
       }
       a.tag-link {
+        top: -4px;
         padding: 10px 20px;
         font-size: 22px;
       }
