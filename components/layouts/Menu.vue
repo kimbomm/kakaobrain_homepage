@@ -459,7 +459,7 @@
         height: 30px;
       }
       &.is-search {
-        margin-right: 0;
+        margin-right: -5px;
       }
     }
   }

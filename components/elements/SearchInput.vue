@@ -132,8 +132,8 @@
       &-area {
         height: 30px;
         flex: 0 0 calc(100% - 30px);
-        padding: 0 10px;
         input {
+          padding: 0 10px;
           font-size: 22px;
         }
       }
