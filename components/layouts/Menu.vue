@@ -439,6 +439,9 @@
       a.tag-link {
         display: none;
       }
+      &.is-search {
+        margin-right: 0;
+      }
     }
   }
   @include mobile {
@@ -454,6 +457,9 @@
       button {
         width: 30px;
         height: 30px;
+      }
+      &.is-search {
+        margin-right: 0;
       }
     }
   }

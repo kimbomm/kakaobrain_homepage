@@ -51,6 +51,7 @@
     padding-bottom: 30px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
   .input {
     &-icon {
@@ -73,6 +74,7 @@
         line-height: 1.3;
         font-weight: 600;
         color: $gray-9;
+        box-sizing: border-box;
         &::placeholder {
           color: $surface-5;
         }
@@ -128,8 +130,9 @@
         height: 30px;
       }
       &-area {
-        height: 29px;
-        flex: 0 0 calc(100% - 40px);
+        height: 30px;
+        flex: 0 0 calc(100% - 30px);
+        padding: 0 10px;
         input {
           font-size: 22px;
         }
@@ -138,16 +141,21 @@
   }
 
   @include mobile {
+    .block {
+      padding-bottom: 6px;
+    }
     .input {
       &-icon {
-        flex: 0 0 22px;
-        height: 22px;
+        flex: 0 0 30px;
+        height: 30px;
+        padding: 4px;
       }
       &-area {
         height: 21px;
         flex: 0 0 calc(100% - 30px);
         input {
           font-size: 16px;
+          padding: 0 3px;
         }
       }
     }
