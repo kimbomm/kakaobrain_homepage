@@ -31,6 +31,8 @@
     border-radius: 100px;
     border: 1px solid #000000;
     position: relative;
+    color: $gray-9;
+    font-family: 'NotoSansKR', 'Inter', sans-serif;
     &:disabled {
       background-color: inherit;
       border-color: inherit;
