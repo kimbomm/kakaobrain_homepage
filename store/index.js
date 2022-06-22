@@ -129,5 +129,9 @@ export const actions = {
     const params = utility.setParameters(payload.params)
     const res = await this.$axios.get(`/library/${payload.category}?${params}`)
     return res
+  },
+  async postContentGood({}, contentId) {
+    const res = await this.$axios.post(`/content/${contentId}/good`)
+    return res
   }
 }
