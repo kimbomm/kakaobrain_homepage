@@ -963,7 +963,7 @@ const LOGB = {
     },
     EN: {
       title: 'Log B.',
-      description: `카카오브레인 크루들의 생각과 이야기들을 영상으로 공유합니다.`
+      description: `We share the thoughts and stories of the Kakao Brain crew through video.`
     }
   },
   talk: {
