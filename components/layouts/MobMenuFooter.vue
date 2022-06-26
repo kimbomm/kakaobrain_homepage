@@ -83,8 +83,8 @@
     margin-top: 140px;
     ul {
       display: flex;
-      flex-wrap: wrap;
       margin-bottom: 22px;
+      white-space: nowrap;
       &:last-child {
         margin-bottom: 0;
       }
