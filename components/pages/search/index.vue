@@ -268,7 +268,7 @@
 </script>
 <style lang="scss" scoped>
   .search {
-    padding: 190px 20px 0;
+    padding: 190px 20px 300px;
     background-color: #f5f7fa;
     transition: all 0.2s linear;
     &-input {
@@ -351,6 +351,7 @@
   @include pc-4k {
     .search {
       padding-top: 460px;
+      padding-bottom: 600px;
       &-input {
         margin-bottom: 90px;
       }
@@ -377,6 +378,7 @@
   @include tablet {
     .search {
       padding-top: 190px;
+      padding-bottom: 200px;
       &-input {
         margin-bottom: 30px;
       }
