@@ -153,6 +153,7 @@
       height: 50px;
       border: 1px solid $gray-9;
       cursor: pointer;
+      color: $gray-9;
       &:before {
         content: '♥';
         font-size: 20px;
