@@ -54,6 +54,28 @@
   import ThumbnailMovie from '@/components/pages/contents/logB/ThumbnailMovie'
   import ArchiveCard from '@/components/elements/card/ArchiveCard'
   export default {
+    head() {
+      return {
+        title: 'Kakao Brain, Log B',
+        meta: [
+          {
+            hid: 'og-title',
+            name: 'og:title',
+            content: 'Kakao Brain, Log B'
+          },
+          {
+            hid: 'og:url',
+            name: 'og:url',
+            content: 'https://kakaobrain.com/contents/log_b'
+          },
+          {
+            hid: 'og:image',
+            name: 'og:image',
+            content: process.env.BASE_URL + '/meta/meta_homepage_logB.png'
+          }
+        ]
+      }
+    },
     mixins: [mixinGlobal],
     components: {
       BreadCrumb,
