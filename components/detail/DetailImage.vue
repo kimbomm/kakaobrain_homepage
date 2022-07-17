@@ -3,8 +3,26 @@
     <div class="image">
       <img :src="srcPath" />
     </div>
-    <div v-if="!this.isThumbnail && data.text" class="detail-text">
-      {{ data.text }}
+    <div v-if="!this.isThumbnail && imageText" class="detail-text">
+      {{ imageText }}
+    </div>
+    <div v-if="isPc && imagesList.pc.length > 1" class="images">
+      <button
+        v-for="(item, idx) in imagesList.pc"
+        :key="idx"
+        @click="onImageChange(item)"
+      >
+        <img :src="item.url" />
+      </button>
+    </div>
+    <div v-else-if="isMob && imagesList.mobile.length > 1" class="images">
+      <button
+        v-for="(item, idx) in imagesList.mobile"
+        :key="idx"
+        @click="onImageChange(item)"
+      >
+        <img :src="item.url" />
+      </button>
     </div>
   </div>
 </template>
@@ -23,7 +41,12 @@
     },
     data() {
       return {
-        srcPath: null
+        srcPath: null,
+        imageText: null,
+        imagesList: {
+          pc: [],
+          mobile: []
+        }
       }
     },
     computed: {
@@ -43,7 +66,9 @@
       }
     },
     mounted() {
+      this.imageText = this.data.text
       this.setImagePath()
+      this.setImageButton()
       window.addEventListener('resize', this.setImagePath)
     },
     beforeDestroy() {
@@ -67,6 +92,30 @@
           }
         }
         this.srcPath = path
+      },
+      setImageButton() {
+        if (
+          this.data.itemProp.images &&
+          ((this.data.itemProp.images.pc &&
+            this.data.itemProp.images.pc.length > 0) ||
+            (this.data.itemProp.images.mobile &&
+              this.data.itemProp.images.mobile.length > 0))
+        ) {
+          Object.keys(this.imagesList).forEach(device => {
+            this.imagesList[device] = this.data.itemProp.images[device].map(
+              (image, index) => {
+                return {
+                  url: `${this.$config.baseURL}${image.url}`,
+                  text: this.data.itemProp.imageDesp[device][index]
+                }
+              }
+            )
+          })
+        }
+      },
+      onImageChange(data) {
+        this.srcPath = data.url
+        this.imageText = data.text
       }
     }
   }
@@ -105,6 +154,24 @@
     font-weight: 400;
     color: $gray-5;
   }
+  .images {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    button {
+      width: 70px;
+      height: 70px;
+      padding: {
+        top: 10px;
+        right: 10px;
+      }
+      img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
 
   @include pc-large {
     .detail-image {
@@ -137,6 +204,13 @@
     .detail-text {
       font-size: 12px;
     }
+    .images {
+      margin-top: 40px;
+      button {
+        width: 80px;
+        height: 80px;
+      }
+    }
   }
   @include tablet {
     .detail-image {
@@ -152,6 +226,13 @@
     .detail-text {
       margin-top: 6px;
       font-size: 12px;
+    }
+    .images {
+      margin-top: 10px;
+      button {
+        width: 30px;
+        height: 30px;
+      }
     }
   }
   @include mobile {
