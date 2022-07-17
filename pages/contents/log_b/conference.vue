@@ -74,18 +74,18 @@
         meta: [
           {
             hid: 'og-title',
-            name: 'og:title',
+            property: 'og:title',
             content: 'Kakao Brain, Conference'
           },
           {
             hid: 'og:url',
-            name: 'og:url',
+            property: 'og:url',
             content: 'https://kakaobrain.com/contents/log_b/conference'
           },
           {
             hid: 'og:image',
-            name: 'og:image',
-            content: process.env.BASE_URL + '/meta/meta_homepage_logB.png'
+            property: 'og:image',
+            content: this.$config.url + '/meta/meta_homepage_logB.png'
           }
         ]
       }

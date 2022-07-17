@@ -47,18 +47,18 @@
         meta: [
           {
             hid: 'og-title',
-            name: 'og:title',
+            property: 'og:title',
             content: 'About Kakao Brain'
           },
           {
             hid: 'og:url',
-            name: 'og:url',
+            property: 'og:url',
             content: 'https://kakaobrain.com/about'
           },
           {
             hid: 'og:image',
-            name: 'og:image',
-            content: process.env.BASE_URL + '/meta/meta_homepage_about.png'
+            property: 'og:image',
+            content: this.$config.url + '/meta/meta_homepage_about.png'
           }
         ]
       }
