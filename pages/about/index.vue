@@ -42,18 +42,18 @@
     mixins: [mixinGlobal],
     name: 'index',
     head: {
-      title: 'About Kakao Brain',
+      // title: 'About Kakao Brain',
       meta: [
-        {
-          hid: 'og-title',
-          property: 'og:title',
-          content: 'About Kakao Brain'
-        },
-        {
-          hid: 'og:url',
-          property: 'og:url',
-          content: 'https://kakaobrain.com/about'
-        },
+        // {
+        //   hid: 'og-title',
+        //   property: 'og:title',
+        //   content: 'About Kakao Brain'
+        // },
+        // {
+        //   hid: 'og:url',
+        //   property: 'og:url',
+        //   content: 'https://kakaobrain.com/about'
+        // },
         {
           hid: 'og:image',
           property: 'og:image',

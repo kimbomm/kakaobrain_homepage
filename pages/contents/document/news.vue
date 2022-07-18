@@ -5,18 +5,18 @@
   import ContentsList from '@/components/pages/contents/List'
   export default {
     head: {
-      title: 'Kakao Brain, News',
+      // title: 'Kakao Brain, News',
       meta: [
-        {
-          hid: 'og-title',
-          property: 'og:title',
-          content: 'Kakao Brain, News'
-        },
-        {
-          hid: 'og:url',
-          property: 'og:url',
-          content: 'https://kakaobrain.com/contents/document/news'
-        },
+        // {
+        //   hid: 'og-title',
+        //   property: 'og:title',
+        //   content: 'Kakao Brain, News'
+        // },
+        // {
+        //   hid: 'og:url',
+        //   property: 'og:url',
+        //   content: 'https://kakaobrain.com/contents/document/news'
+        // },
         {
           hid: 'og:image',
           property: 'og:image',

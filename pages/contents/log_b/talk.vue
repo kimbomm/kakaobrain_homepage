@@ -69,18 +69,18 @@
   import DetailText from '@/components/detail/DetailText'
   export default {
     head: {
-      title: 'Kakao Brain, Talk',
+      // title: 'Kakao Brain, Talk',
       meta: [
-        {
-          hid: 'og-title',
-          property: 'og:title',
-          content: 'Kakao Brain, Talk'
-        },
-        {
-          hid: 'og:url',
-          property: 'og:url',
-          content: 'https://kakaobrain.com/contents/log_b/talk'
-        },
+        // {
+        //   hid: 'og-title',
+        //   property: 'og:title',
+        //   content: 'Kakao Brain, Talk'
+        // },
+        // {
+        //   hid: 'og:url',
+        //   property: 'og:url',
+        //   content: 'https://kakaobrain.com/contents/log_b/talk'
+        // },
         {
           hid: 'og:image',
           property: 'og:image',

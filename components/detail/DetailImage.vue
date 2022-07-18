@@ -6,7 +6,7 @@
     <div v-if="!this.isThumbnail && imageText" class="detail-text">
       {{ imageText }}
     </div>
-    <div v-if="isPc && imagesList.pc.length > 1" class="images">
+    <!-- <div v-if="isPc && imagesList.pc.length > 1" class="images">
       <button
         v-for="(item, idx) in imagesList.pc"
         :key="idx"
@@ -23,7 +23,7 @@
       >
         <img :src="item.url" />
       </button>
-    </div>
+    </div> -->
   </div>
 </template>
 <script>

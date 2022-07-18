@@ -69,18 +69,18 @@
   import DetailText from '@/components/detail/DetailText'
   export default {
     head: {
-      title: 'Kakao Brain, Conference',
+      // title: 'Kakao Brain, Conference',
       meta: [
-        {
-          hid: 'og-title',
-          property: 'og:title',
-          content: 'Kakao Brain, Conference'
-        },
-        {
-          hid: 'og:url',
-          property: 'og:url',
-          content: 'https://kakaobrain.com/contents/log_b/conference'
-        },
+        // {
+        //   hid: 'og-title',
+        //   property: 'og:title',
+        //   content: 'Kakao Brain, Conference'
+        // },
+        // {
+        //   hid: 'og:url',
+        //   property: 'og:url',
+        //   content: 'https://kakaobrain.com/contents/log_b/conference'
+        // },
         {
           hid: 'og:image',
           property: 'og:image',
