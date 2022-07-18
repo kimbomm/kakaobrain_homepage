@@ -41,27 +41,25 @@
   export default {
     mixins: [mixinGlobal],
     name: 'index',
-    head() {
-      return {
-        title: 'About Kakao Brain',
-        meta: [
-          {
-            hid: 'og-title',
-            property: 'og:title',
-            content: 'About Kakao Brain'
-          },
-          {
-            hid: 'og:url',
-            property: 'og:url',
-            content: 'https://kakaobrain.com/about'
-          },
-          {
-            hid: 'og:image',
-            property: 'og:image',
-            content: this.$config.url + '/meta/meta_homepage_about.png'
-          }
-        ]
-      }
+    head: {
+      title: 'About Kakao Brain',
+      meta: [
+        {
+          hid: 'og-title',
+          property: 'og:title',
+          content: 'About Kakao Brain'
+        },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: 'https://kakaobrain.com/about'
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: this.$config.url + '/meta/meta_homepage_about.png'
+        }
+      ]
     },
     components: {
       BreadCrumb,

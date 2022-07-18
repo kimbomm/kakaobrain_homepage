@@ -95,7 +95,7 @@ export default {
     'cookie-universal-nuxt'
   ],
   sitemap: {
-    hostname: 'https://www.kakaobrain.com/',
+    hostname: process.env.BASE_URL,
     defaults: {
       changefreq: 'daily',
       priority: 1,

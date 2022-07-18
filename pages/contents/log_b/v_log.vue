@@ -68,27 +68,25 @@
   import DetailTitle from '@/components/detail/DetailTitle'
   import DetailText from '@/components/detail/DetailText'
   export default {
-    head() {
-      return {
-        title: 'Kakao Brain, Vlog',
-        meta: [
-          {
-            hid: 'og-title',
-            property: 'og:title',
-            content: 'Kakao Brain, Vlog'
-          },
-          {
-            hid: 'og:url',
-            property: 'og:url',
-            content: 'https://kakaobrain.com/contents/log_b/v_log'
-          },
-          {
-            hid: 'og:image',
-            property: 'og:image',
-            content: this.$config.url + '/meta/meta_homepage_logB.png'
-          }
-        ]
-      }
+    head: {
+      title: 'Kakao Brain, Vlog',
+      meta: [
+        {
+          hid: 'og-title',
+          property: 'og:title',
+          content: 'Kakao Brain, Vlog'
+        },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: 'https://kakaobrain.com/contents/log_b/v_log'
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: this.$config.url + '/meta/meta_homepage_logB.png'
+        }
+      ]
     },
     mixins: [mixinGlobal],
     components: {
