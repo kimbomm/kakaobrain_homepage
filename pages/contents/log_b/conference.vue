@@ -84,7 +84,7 @@
         {
           hid: 'og:image',
           property: 'og:image',
-          content: process.env.BASE_URL + '/meta/meta_homepage_logB.png'
+          content: 'https://stgkakaobrain.com/meta/meta_homepage_logB.png'
         }
       ]
     },
