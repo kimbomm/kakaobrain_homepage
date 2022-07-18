@@ -5,6 +5,11 @@ export default {
     apiBaseURL: process.env.VUE_APP_API_BASE_URL,
     googleAnalytics: {
       id: process.env.GOOGLE_ANALYTICS_ID
+    },
+    kakaoAPI: {
+      key: process.env.KAKAO_MAP_API_KEY,
+      latlng_x: process.env.KAKAO_MAP_LATLNG_X,
+      latlng_y: process.env.KAKAO_MAP_LATLNG_Y
     }
   },
   env: {
@@ -90,7 +95,7 @@ export default {
     'cookie-universal-nuxt'
   ],
   sitemap: {
-    hostname: 'https://www.kakaobrain.com/',
+    hostname: process.env.BASE_URL,
     defaults: {
       changefreq: 'daily',
       priority: 1,

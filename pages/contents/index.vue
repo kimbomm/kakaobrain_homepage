@@ -72,17 +72,17 @@
         meta: [
           {
             hid: 'og-title',
-            name: 'og:title',
+            property: 'og:title',
             content: this.contentData.title
           },
           {
             hid: 'og:url',
-            name: 'og:url',
+            property: 'og:url',
             content: `${this.$config.url}${this.$route.fullPath}`
           },
           {
             hid: 'og:image',
-            name: 'og:image',
+            property: 'og:image',
             content: `${this.$config.baseURL}${this.contentData.contentProp.mediaId}`
           }
         ]

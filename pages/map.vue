@@ -163,8 +163,7 @@
       } else {
         const script = document.createElement('script')
         script.onload = () => kakao.maps.load(this.initMap)
-        script.src =
-          'http://dapi.kakao.com/v2/maps/sdk.js?autoload=false&appkey=3f7d10880673cfd60711d3200fb1b6ac'
+        script.src = `http://dapi.kakao.com/v2/maps/sdk.js?autoload=false&appkey=${this.$config.kakaoAPI.key}`
         document.head.appendChild(script)
       }
     },
@@ -172,13 +171,16 @@
       initMap() {
         const container = document.querySelector('#map')
         const options = {
-          center: new kakao.maps.LatLng(37.402748780301465, 127.10738647849486),
+          center: new kakao.maps.LatLng(
+            this.$config.kakaoAPI.latlng_x,
+            this.$config.kakaoAPI.latlng_y
+          ),
           level: 3
         }
         const map = new kakao.maps.Map(container, options)
         const markerPosition = new kakao.maps.LatLng(
-          37.402748780301465,
-          127.10738647849486
+          this.$config.kakaoAPI.latlng_x,
+          this.$config.kakaoAPI.latlng_y
         )
 
         const marker = new kakao.maps.Marker({

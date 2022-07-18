@@ -68,6 +68,26 @@
   import DetailTitle from '@/components/detail/DetailTitle'
   import DetailText from '@/components/detail/DetailText'
   export default {
+    head: {
+      title: 'Kakao Brain, Vlog',
+      meta: [
+        {
+          hid: 'og-title',
+          property: 'og:title',
+          content: 'Kakao Brain, Vlog'
+        },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: 'https://kakaobrain.com/contents/log_b/v_log'
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: 'https://stgkakaobrain.com/meta/meta_homepage_logB.png'
+        }
+      ]
+    },
     mixins: [mixinGlobal],
     components: {
       ArchiveCard,

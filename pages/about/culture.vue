@@ -33,6 +33,26 @@
   export default {
     mixins: [mixinGlobal],
     name: 'index',
+    head: {
+      title: 'About Kakao Brain',
+      meta: [
+        {
+          hid: 'og-title',
+          property: 'og:title',
+          content: 'About Kakao Brain'
+        },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: 'https://kakaobrain.com/about/culture'
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: 'https://stgkakaobrain.com/meta/meta_homepage_about.png'
+        }
+      ]
+    },
     components: {
       BreadCrumb,
       AboutTitle,
