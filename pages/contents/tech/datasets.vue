@@ -20,7 +20,7 @@
         {
           hid: 'og:image',
           property: 'og:image',
-          content: this.$config.url + '/meta/meta_homepage_tech.png'
+          content: process.env.BASE_URL + '/meta/meta_homepage_tech.png'
         }
       ]
     },
