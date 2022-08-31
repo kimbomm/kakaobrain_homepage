@@ -71,7 +71,7 @@
         title: this.contentData.title,
         meta: [
           {
-            hid: 'og-title',
+            hid: 'og:title',
             property: 'og:title',
             content: this.contentData.title
           },
