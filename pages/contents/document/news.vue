@@ -4,25 +4,21 @@
 <script>
   import ContentsList from '@/components/pages/contents/List'
   export default {
-    head: {
-      // title: 'Kakao Brain, News',
-      meta: [
-        // {
-        //   hid: 'og-title',
-        //   property: 'og:title',
-        //   content: 'Kakao Brain, News'
-        // },
-        // {
-        //   hid: 'og:url',
-        //   property: 'og:url',
-        //   content: 'https://kakaobrain.com/contents/document/news'
-        // },
-        {
-          hid: 'og:image',
-          property: 'og:image',
-          content: 'https://stgkakaobrain.com/meta/meta_homepage_docuB.png'
-        }
-      ]
+    head() {
+      return {
+        meta: [
+          {
+            hid: 'og:url',
+            property: 'og:url',
+            content: `${process.env.BASE_URL}/contents/document/news`
+          },
+          {
+            hid: 'og:image',
+            property: 'og:image',
+            content: `${process.env.BASE_URL}/meta/meta_homepage_docuB.png`
+          }
+        ]
+      }
     },
     components: {
       ContentsList

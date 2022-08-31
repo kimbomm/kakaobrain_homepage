@@ -57,14 +57,16 @@
       ArchiveList,
       TeamBrain
     },
-    head: {
-      meta: [
-        {
-          hid: 'og:image',
-          property: 'og:image',
-          content: 'https://kakaobrain.com/metaimg.png'
-        }
-      ]
+    head() {
+      return {
+        meta: [
+          {
+            hid: 'og:image',
+            property: 'og:image',
+            content: `${process.env.BASE_URL}/metaimg.png`
+          }
+        ]
+      }
     },
     data() {
       return {

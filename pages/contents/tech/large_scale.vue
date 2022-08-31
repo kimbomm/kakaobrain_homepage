@@ -4,25 +4,21 @@
 <script>
   import ContentsList from '@/components/pages/contents/List'
   export default {
-    head: {
-      // title: 'Kakao Brain, Large Scale AI',
-      meta: [
-        // {
-        //   hid: 'og-title',
-        //   property: 'og:title',
-        //   content: 'Kakao Brain, Large Scale AI'
-        // },
-        // {
-        //   hid: 'og:url',
-        //   property: 'og:url',
-        //   content: 'https://kakaobrain.com/contents/tech/large_scale'
-        // },
-        {
-          hid: 'og:image',
-          property: 'og:image',
-          content: 'https://stgkakaobrain.com/meta/meta_homepage_tech.png'
-        }
-      ]
+    head() {
+      return {
+        meta: [
+          {
+            hid: 'og:url',
+            property: 'og:url',
+            content: `${process.env.BASE_URL}/contents/tech/large_scale`
+          },
+          {
+            hid: 'og:image',
+            property: 'og:image',
+            content: `${process.env.BASE_URL}/meta/meta_homepage_tech.png`
+          }
+        ]
+      }
     },
     components: {
       ContentsList
