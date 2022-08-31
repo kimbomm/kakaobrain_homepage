@@ -37,11 +37,11 @@ export default {
         property: 'og:url',
         content: 'https://www.kakaobrain.com'
       },
-      {
-        hid: 'og:image',
-        property: 'og:image',
-        content: process.env.BASE_URL + '/metaimg.png'
-      },
+      // {
+      //   hid: 'og:image',
+      //   property: 'og:image',
+      //   content: process.env.BASE_URL + '/metaimg.png'
+      // },
       {
         hid: 'og:description',
         property: 'og:description',

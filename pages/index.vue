@@ -57,6 +57,15 @@
       ArchiveList,
       TeamBrain
     },
+    head: {
+      meta: [
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: 'https://kakaobrain.com/metaimg.png'
+        }
+      ]
+    },
     data() {
       return {
         sloganData1: {
