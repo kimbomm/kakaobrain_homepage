@@ -4,4 +4,4 @@ services:
   app:
     build: ./
     ports:
-      - '3011:80'
+      - '80'
