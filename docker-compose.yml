@@ -1,9 +1,9 @@
 version: '3'
 
 services:
-  node:
-    restart: 'always'
+  app:
+    image: 'kakaobrain_homepage_app:latest'
     build:
       context: .
     ports:
-      - 80
+      - '3011:80'
