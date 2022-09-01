@@ -1,9 +1,10 @@
 FROM nginx
 
-COPY ./dist /usr/share/nginx/html
-COPY ./nginx/nginx.conf /etc/nginx/conf.d/default.conf
+# COPY ./dist /usr/share/nginx/html
+# COPY ./nginx/nginx.conf /etc/nginx/conf.d/default.conf
 
-WORKDIR /usr/share/nginx/html
+# WORKDIR /usr/share/nginx/html
+RUN npm run build
+RUN npm run start
 
-
-EXPOSE 80
+EXPOSE 3011:80
