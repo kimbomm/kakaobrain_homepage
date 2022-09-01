@@ -7,6 +7,6 @@ RUN npm install
 
 # WORKDIR /usr/share/nginx/html
 RUN npm run build
-CMD ["npm", "start"]
+RUN npm run start
 
 EXPOSE 3011
