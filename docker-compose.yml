@@ -5,3 +5,5 @@ services:
     image: 'kakaobrain_homepage_app:latest'
     build:
       context: .
+    ports:
+      - '3011:80'
