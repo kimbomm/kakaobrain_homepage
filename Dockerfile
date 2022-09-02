@@ -8,5 +8,5 @@ RUN npm install
 # WORKDIR /usr/share/nginx/html
 RUN npm run build
 
-EXPOSE 3011
+EXPOSE 80
 CMD ["npm", "run","start"]
