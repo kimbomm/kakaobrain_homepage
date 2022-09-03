@@ -1,8 +1,8 @@
 FROM node:14
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
-COPY . ./
+COPY . /app
 RUN npm install
 
 EXPOSE 80
