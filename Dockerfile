@@ -1,36 +1,15 @@
-# FROM nginx
-# RUN apt-get update
-# RUN apt-get install npm -y
+FROM node:14
 
-# # 웹서버 설정파일 복사
-# # 프로젝트 루트 밑에 docker폴더, default.conf 생성
-# COPY ./nginx/nginx.conf /etc/nginx/conf.d/nginx.conf
-# WORKDIR /usr/share/nginx/html
+WORKDIR /usr/src/app
 
-# COPY ./package*.json ./
-# # 모듈 설치
-# RUN npm install
-# # 소스 복사
-# COPY ./ ./
-
-# # 빌드
-# RUN npm run build
-# # 컨테이너 실행시 시작
-# CMD [ "npm", "run", "start" ]
-
-FROM nginx
-RUN apt-get update
-RUN apt-get install npm -y
-COPY ./ /usr/share/nginx/html
-COPY ./nginx/nginx.conf /etc/nginx/conf.d/default.conf
-WORKDIR /usr/share/nginx/html
-
+COPY . ./
 RUN npm install
 
-# 빌드
-RUN npm run build
-# 컨테이너 실행시 시작
-
 EXPOSE 80
+
+# ENV HOST=0.0.0.0
+# ENV PORT=8080
+
+RUN npm run build
 
 CMD [ "npm", "run", "start" ]
