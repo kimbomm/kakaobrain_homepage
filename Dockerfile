@@ -1,33 +1,18 @@
-# FROM node:14-alpine
-# WORKDIR /app
-# COPY ./ /app
-# RUN npm install
-# # COPY ./dist /usr/share/nginx/html
-# # COPY ./nginx/nginx.conf /etc/nginx/conf.d/default.conf
+FROM node:14-alpine
+RUN mkdir -p /usr/src/nuxt-app
+WORKDIR /usr/src/nuxt-app
 
-# # WORKDIR /usr/share/nginx/html
-# RUN npm run build
+RUN apk update && apk upgrade
+RUN apk add git
 
-# # ENV HOST 0.0.0.0
-# EXPOSE 3011
-# CMD ["npm", "run","start"]
-
-FROM nginx
-RUN apt-get update
-RUN apt-get install npm -y
-
-# 웹서버 설정파일 복사
-# 프로젝트 루트 밑에 docker폴더, nginx.conf 생성
-COPY ./nginx/nginx.conf /etc/nginx/conf.d/nginx.conf
-WORKDIR /usr/share/nginx/html
-
-COPY ./package*.json ./
-# 모듈 설치
+COPY . /usr/src/nuxt-app/
 RUN npm install
-# 소스 복사
-COPY ./ ./
+# COPY ./dist /usr/share/nginx/html
+# COPY ./nginx/nginx.conf /etc/nginx/conf.d/default.conf
 
-# 빌드
+# WORKDIR /usr/share/nginx/html
+EXPOSE 5000
 RUN npm run build
-# 컨테이너 실행시 시작
-CMD [ "npm", "start" ]
+
+# ENV HOST 0.0.0.0
+CMD ["npm", "start"]

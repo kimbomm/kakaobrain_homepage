@@ -5,4 +5,4 @@ services:
     image: 'kakaobrain_homepage_app:latest'
     build: ./
     ports:
-      - '8011:80'
+      - 5000
