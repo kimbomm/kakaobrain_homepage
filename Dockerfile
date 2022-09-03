@@ -11,7 +11,7 @@ RUN npm install
 # COPY ./nginx/nginx.conf /etc/nginx/conf.d/default.conf
 
 # WORKDIR /usr/share/nginx/html
-EXPOSE 5000
+EXPOSE 80
 RUN npm run build
 
 # ENV HOST 0.0.0.0
