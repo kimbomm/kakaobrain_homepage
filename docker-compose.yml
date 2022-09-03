@@ -3,7 +3,6 @@ version: '3'
 services:
   app:
     image: 'kakaobrain_homepage_app:latest'
-    build:
-      context: .
+    build: ./
     ports:
       - '8011:80'
