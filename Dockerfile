@@ -30,4 +30,4 @@ COPY ./ ./
 # 빌드
 RUN npm run build
 # 컨테이너 실행시 시작
-CMD [ "npm", "run", "start" ]
+CMD [ "npm", "start" ]
