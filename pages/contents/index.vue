@@ -73,7 +73,7 @@
           {
             hid: 'og:title',
             property: 'og:title',
-            content: this.contentData.title
+            content: this.contentData.title || '상세페이지'
           },
           {
             hid: 'og:url',
