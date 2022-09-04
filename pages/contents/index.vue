@@ -83,12 +83,8 @@
           {
             hid: 'og:image',
             property: 'og:image',
-            content:
-              this.contentData &&
-              this.contentData.contentProp &&
-              this.contentData.contentProp.mediaId
-                ? `${this.$config.baseURL}${this.contentData.contentProp.mediaId}`
-                : `${process.env.BASE_URL}/metaimg.png`
+            content: `${this.$config.baseURL}${this.contentData.contentProp.mediaId}`
+            // `${process.env.BASE_URL}/metaimg.png`
           }
         ]
       }
