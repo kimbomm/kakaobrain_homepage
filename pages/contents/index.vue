@@ -68,7 +68,7 @@
     },
     head() {
       return {
-        title: this.contentData.title,
+        // title: this.contentData.title,
         meta: [
           {
             hid: 'og:title',
