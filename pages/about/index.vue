@@ -52,9 +52,7 @@
           {
             hid: 'og:image',
             property: 'og:image',
-            // content: `${process.env.BASE_URL}/meta/meta_homepage_about.png`
-            content:
-              'https://homeapi.stgkakaobrain.com/media/dbeb6663-5e47-4984-acc7-a4ead315cafa.png'
+            content: `${process.env.BASE_URL}/meta/meta_homepage_about.png`
           }
         ]
       }
