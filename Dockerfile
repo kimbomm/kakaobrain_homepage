@@ -1,5 +1,15 @@
-FROM nginx
-COPY ./dist /usr/share/nginx/html
-WORKDIR /usr/share/nginx/html
+FROM node:14
 
-EXPOSE 80
+WORKDIR /app
+
+COPY . /app
+RUN npm install
+
+EXPOSE 8086
+
+ENV HOST=0.0.0.0
+ENV PORT=8086
+
+RUN npm run build
+
+CMD [ "npm", "run", "start" ]

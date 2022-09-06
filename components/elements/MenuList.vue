@@ -2,15 +2,16 @@
   <div>
     <div class="menu-list gl-6">
       <div class="menu-thumbnail gl-1">
-        <nuxt-link
-          v-if="data.titleMediaId"
-          :to="{
-            path: '/contents',
-            query: { contentId: data.contentId }
-          }"
-        >
-          <img :src="`${envVariable(data.TitleMedia.url)}`" />
-        </nuxt-link>
+        <div
+          v-if="
+            data.titleMediaId ||
+            (data.contentProp &&
+              Object.keys(data.contentProp).includes('mediaId'))
+          "
+          :style="`background-image: url(${envVariable(
+            data.titleMediaId ? data.titleMediaId : data.contentProp.mediaId
+          )})`"
+        ></div>
       </div>
       <div class="list-data gl-5">
         <div class="tit">
@@ -34,7 +35,9 @@
             </div>
           </div>
           <div class="list-date">
-            {{ data && $dayjs(data.updateAt).format('YYYYMMDD') }}
+            {{
+              data && $dayjs(data.showAt || data.acceptAt).format('YYYYMMDD')
+            }}
           </div>
         </div>
       </div>
@@ -59,8 +62,6 @@
   }
 </script>
 <style lang="scss" scoped>
-  @import '@/assets/scss/mixins.scss';
-
   .menu {
     &-list {
       display: flex;
@@ -68,8 +69,11 @@
       box-sizing: border-box;
     }
     &-thumbnail {
-      img {
-        width: 100%;
+      > div {
+        height: 110px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
       }
     }
   }
@@ -83,7 +87,7 @@
     .tit {
       padding-bottom: 33px;
       font-size: 30px;
-      line-height: 100%;
+      line-height: 1.3;
     }
   }
   .tag {
@@ -109,25 +113,10 @@
     }
   }
 
-  @include pc-4k {
-    .list-data {
-      .tit {
-        padding-bottom: 98px;
-        font-size: 60px;
-      }
-    }
-    .tag {
-      .item-box {
-        .item {
-          font-size: 24px !important;
-        }
-      }
-      .list-date {
-        font-size: 24px !important;
-      }
-    }
-  }
   @include pc-large {
+    .menu-thumbnail > div {
+      height: 146px;
+    }
     .list-data {
       padding: 30px 0 0;
       .tit {
@@ -146,6 +135,28 @@
       }
     }
   }
+  @include pc-4k {
+    .menu-thumbnail > div {
+      height: 266px;
+    }
+    .list-data {
+      .tit {
+        padding-bottom: 98px;
+        font-size: 60px;
+      }
+    }
+    .tag {
+      .item-box {
+        .item {
+          font-size: 24px;
+        }
+      }
+      .list-date {
+        font-size: 24px;
+      }
+    }
+  }
+
   @media screen and (max-width: 1400px) {
     .list-data {
       .tit {
@@ -154,6 +165,9 @@
     }
   }
   @include tablet {
+    .menu-thumbnail > div {
+      height: 110px;
+    }
     .list-data {
       padding: 20px 0 0;
       .tit {
@@ -191,6 +205,9 @@
     }
   }
   @include mobile {
+    .menu-thumbnail > div {
+      height: 170px;
+    }
     .menu-list {
       padding-top: 20px;
       border-top: 1px solid $gray-9;

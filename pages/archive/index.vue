@@ -1,9 +1,9 @@
 <template>
   <div class="archive-wrap">
-    <div class="contents-selector l-ml-2 gl-6">
+    <div class="contents-selector">
       <FilterSelector :list="filter" />
     </div>
-    <div v-if="filter.length > 0" class="contents-sticker l-ml-3 gl-5">
+    <div v-if="filter.length > 0" class="contents-sticker">
       <ul>
         <li
           v-for="(item, index) in filter"
@@ -15,7 +15,7 @@
       </ul>
     </div>
     <div class="contents-list-text">
-      <DetailText :data="detailText" />
+      <DetailText :data="description[language]" />
     </div>
     <!-- reference: https://github.com/paulcollett/vue-masonry-css -->
     <masonry
@@ -40,12 +40,14 @@
   import ArchiveCard from '@/components/elements/card/ArchiveCard'
   import DetailText from '@/components/detail/DetailText'
   import FilterSelector from '@/components/elements/filter/FilterSelector'
+  import Sticker from '@/components/elements/button/Sticker'
   export default {
     mixins: [mixinGlobal],
     components: {
       ArchiveCard,
       DetailText,
-      FilterSelector
+      FilterSelector,
+      Sticker
     },
     computed: {
       ...mapState({
@@ -56,9 +58,15 @@
     },
     data() {
       return {
-        detailText: {
-          itemType: 'pagaraph',
-          text: '우리가 퍼블리싱한 것에 대한 설명글이 들어갑니다. 논문 리스트는 안들어갑니다.우리가 퍼블리싱한 것에 대한 설명글이 들어갑니다. 논문 리스트는 안들어갑니다.우리가 퍼블리싱한 것에 대한 설명글이 들어갑니다. 논문 리스트는 안들어갑니다. 논문을 제외한 모든 글들이 아카이빙됩니다.'
+        description: {
+          KR: {
+            itemType: 'pagaraph',
+            text: '카카오브레인은 생각하지 못한 물음으로부터, 세상을 변화시킬 해답을 찾아가는 팀입니다. 우리는 AI 선행 연구부터, 프로덕트까지 모든 스토리를 공개하며 공유합니다. 이러한 행동은 AI 커뮤니티에 기여하며, 그로 인해 우리의 삶이 좀 더 나아질 것을 믿기 때문입니다.'
+          },
+          EN: {
+            itemType: 'pagaraph',
+            text: 'Kakao Brain is a seeking answers that will change the world from Unexpected Questions. We open and share all the stories from prcedent research on AI to products. We believe these actions contribute to the AI community and make our lives a little better. '
+          }
         },
         pageData: {
           offset: 0,
@@ -88,10 +96,10 @@
       await this.init()
     },
     mounted() {
-      window.addEventListener('scroll', this.onScroll)
+      this.scrollBody.addEventListener('scroll', this.onScroll)
     },
     async beforeDestroy() {
-      await window.removeEventListener('scroll', this.onScroll)
+      await this.scrollBody.removeEventListener('scroll', this.onScroll)
       await this.setFilterList([])
     },
     methods: {
@@ -114,9 +122,10 @@
         const masonry = this.$refs.masonry.$el
         if (
           masonry.offsetHeight > 0 &&
-          masonry.offsetTop + masonry.offsetHeight > window.scrollY &&
+          masonry.offsetTop + masonry.offsetHeight >
+            this.scrollBody.scrollTop &&
           masonry.offsetTop + masonry.offsetHeight <
-            window.scrollY + window.innerHeight &&
+            this.scrollBody.scrollTop + window.innerHeight &&
           !this.isAdd
         ) {
           this.isAdd = true
@@ -137,67 +146,106 @@
 </script>
 <style lang="scss" scoped>
   .archive-wrap {
-    padding: 0 20px;
-  }
-  .masonry {
-    // padding: 0 20px;
-  }
-  /deep/ .archive {
-    min-width: initial;
-    max-width: initial;
-    width: 100%;
-    height: auto;
-    margin-bottom: 50px;
+    padding: 320px 20px 0;
+    margin-bottom: 500px;
   }
   .contents-selector {
-    margin: 320px 0 60px;
+    width: getWidth(6);
+    margin-left: getMargin(2);
+    margin-bottom: 60px;
+  }
+  .contents-sticker {
+    width: getWidth(5);
+    margin-left: getMargin(3);
+    margin-bottom: 60px;
+    .item {
+      display: inline-block;
+      &:not(:last-child) {
+        margin-right: 10px;
+        margin-bottom: 10px;
+      }
+    }
   }
   .contents-list-text {
     margin-bottom: 200px;
   }
+  /deep/ .archive {
+    margin-bottom: 70px;
+  }
 
-  @include pc-4k {
-    /deep/ .archive {
-      margin-bottom: 100px !important;
+  @include pc-large {
+    .archive-wrap {
+      padding-top: 400px;
+      margin-bottom: 700px;
     }
     .contents-selector {
-      margin: 600px 0 120px;
-    }
-    .contents-list-text {
-      margin-bottom: 460px !important;
-    }
-  }
-  @include pc-large {
-    /deep/ .archive {
-      margin-bottom: 70px;
+      margin-bottom: 120px;
     }
     .contents-list-text {
       margin-bottom: 300px;
     }
   }
-  @include tablet {
+
+  @include pc-4k {
+    .archive-wrap {
+      padding-top: 600px;
+      margin-bottom: 1000px;
+    }
     .contents-selector {
-      margin: 200px 0 40px;
+      margin-bottom: 120px;
+    }
+    .contents-sticker {
+      margin-bottom: 120px;
+    }
+    .contents-list-text {
+      margin-bottom: 460px !important;
+    }
+    /deep/ .archive {
+      margin-bottom: 100px;
+    }
+  }
+
+  @include tablet {
+    .archive-wrap {
+      padding-top: 200px;
+      margin-bottom: 300px;
+    }
+    .contents-selector {
+      margin-bottom: 40px;
     }
     .contents-list-text {
       margin-bottom: 100px;
     }
+    .contents-sticker {
+      width: getWidth(6);
+      margin-left: getMargin(2);
+      margin-bottom: 40px;
+    }
+    /deep/ .archive {
+      margin-bottom: 50px;
+    }
   }
   @include mobile {
+    .archive-wrap {
+      padding-top: 56px;
+      margin-bottom: 200px;
+    }
+    .contents-selector {
+      width: 100%;
+      margin-left: 0;
+      margin-bottom: 20px;
+    }
     .masonry {
       padding: 0;
     }
-    .l-ml-2 {
-      margin-left: 0px !important;
-    }
-    .l-ml-3 {
-      margin-left: 0px !important;
-    }
-    .gl-6 {
-      width: 100% !important;
-    }
+
     .contents-selector {
-      margin: 157px 0 20px;
+      margin: 100px 0 20px;
+    }
+    .contents-sticker {
+      width: 100%;
+      margin-left: 0;
+      margin-bottom: 20px;
     }
   }
 </style>

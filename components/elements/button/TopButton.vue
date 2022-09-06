@@ -14,10 +14,10 @@
   </button>
 </template>
 <script>
-  import { mapState } from 'vuex'
+  import { mapState, mapMutations } from 'vuex'
   export default {
     computed: {
-      ...mapState(['touchDevice'])
+      ...mapState(['device'])
     },
     data() {
       return {
@@ -27,16 +27,27 @@
     },
     mounted() {},
     methods: {
+      ...mapMutations({
+        setIsScrollUp: 'setIsScrollUp'
+      }),
       toScrollTop() {
-        window.scrollTo(0, 0)
+        this.scrollBody.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        })
+        this.setIsScrollUp(false)
+        // this.scrollControl(document.getElementsByTagName('body'))
+        if (this.$route.path === '/') {
+          this.$nuxt.$emit('home-reset')
+        }
       },
       onMouseEnter() {
-        if (!this.touchDevice) {
+        if (!this.device.touch) {
           this.interval = setInterval(this.onChangeImage, 200)
         }
       },
       onMouseLeave() {
-        if (this.interval && !this.touchDevice) {
+        if (this.interval && !this.device.touch) {
           clearInterval(this.interval)
           this.interval = null
         }

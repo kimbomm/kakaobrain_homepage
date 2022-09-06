@@ -4,7 +4,7 @@
 
     <div class="text-box">
       <div class="contents-list-text">
-        <DetailText :data="detailText" />
+        <DetailText :data="description[language]" />
       </div>
     </div>
 
@@ -18,7 +18,7 @@
   </div>
 </template>
 <script>
-  import { mapActions } from 'vuex'
+  import { mapState, mapActions } from 'vuex'
   import ListTitle from '@/components/detail/ListTitle'
   import DetailText from '@/components/detail/DetailText'
   import MonthlyList from '@/components/elements/MonthlyList'
@@ -31,9 +31,21 @@
     },
     data() {
       return {
-        detailText: {
-          itemType: 'pagaraph',
-          text: '카카오브레인이 세계 정상의 AI 연구실과 함께 인간의 인식과 추론의 한계에 도전합니다. 카카오브레인은 고려대와 서울대, 포항공대와 한양대, KAIST와 UNIST 등 7개 대학 AI 연구실과 산학 협력을 맺고 3년간 공동 연구를 시작했습니다.\n\n카카오브레인과 각 학교 AI 연구실은 이번 협력을 통해 AI 연구의 스테레오타입을 넘어선 새로운 연구 방법론을 정립하려 노력한다고 합니다. 우리의 연구가 어떻게 세상을 바꿔나갈지 가슴이 웅장해지는데요. 카카오브레인의 공동연구 노하우를 공개합니다.'
+        description: {
+          KR: {
+            itemType: 'pagaraph',
+            text: `왜 사과는 떨어지는 것일까? 생각하지 못한 물음이 세상을 바꿨습니다.
+            매월 카카오브레인은 생각하지 못한 물음을 던지고, 물음에 대한 답을 찾아가는 여정을 함께 나눕니다.
+            이러한 생각지 못한 물음의 여정들이 AI 기술을 좀더 강하게, 우리의 삶을 좀더 풍요롭게 할 수 있다고 믿습니다. 그럼, 함께 가볼까요?
+            `
+          },
+          EN: {
+            itemType: 'pagaraph',
+            text: `Why do apples fall? An Unexpected Question changed the world.
+            Every month, Kakao Brain asks Unexpected Questions and shares the journey to find answers.
+            We believe that the journeys toward Unexpected Questions can make AI technology stronger and enrich our lives. So, would you like to jump in together?
+            `
+          }
         },
         list: [],
         pageData: {
@@ -43,6 +55,11 @@
           targetLang: this.$store.state.language
         }
       }
+    },
+    computed: {
+      ...mapState({
+        language: state => state.language
+      })
     },
     mounted() {
       this.init()

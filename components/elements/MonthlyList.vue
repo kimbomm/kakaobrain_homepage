@@ -5,8 +5,8 @@
         :to="
           data.Content.contentType !== 'STORY'
             ? {
-                name: 'contents-contentId',
-                params: { contentId: data.contentId }
+                path: 'contents',
+                query: { contentId: data.contentId }
               }
             : {
                 path: 'story-telling',
@@ -20,11 +20,11 @@
         >
           <div class="thumbnail-data">
             <div class="date">
-              {{ $dayjs(data.Content.createAt).format('MMMM') }}
+              {{ $dayjs(data.month).format('MMMM') }}
               @
-              {{ $dayjs(data.Content.createAt).format('YYYY') }}
+              {{ $dayjs(data.month).format('YYYY') }}
             </div>
-            <div class="name">{{ data.Content.title }}</div>
+            <div class="name">{{ data.title }}</div>
           </div>
         </div>
       </nuxt-link>
@@ -36,6 +36,7 @@
 </template>
 <script>
   import { mapActions } from 'vuex'
+  import Utility from '@/util/utility.js'
   import BreadCrumb from '@/components/elements/BreadCrumb'
   export default {
     props: {
@@ -63,7 +64,7 @@
       async init() {
         await this.setBreadcrumb(
           this.data.Content.category1,
-          this.data.Content.category2
+          Utility.changeCategory2(this.data.Content.category2)
         )
       },
       async setBreadcrumb(category1, category2) {
@@ -102,8 +103,6 @@
   }
 </script>
 <style lang="scss" scoped>
-  @import '@/assets/scss/mixins.scss';
-
   .monthly {
     &-list {
       display: flex;

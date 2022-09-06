@@ -1,0 +1,92 @@
+@include animation('prev-slot-to-top') {
+  from {
+    top: 0;
+  }
+  to {
+    top: -100%;
+  }
+}
+@include animation('prev-slot-to-bottom') {
+  from {
+    top: 0;
+  }
+  to {
+    top: 100%;
+  }
+}
+@include animation('slot-to-top') {
+  from {
+    top: 100%;
+  }
+  to {
+    top: 0;
+  }
+}
+@include animation('slot-to-bottom') {
+  from {
+    top: -100%;
+  }
+  to {
+    top: 0;
+  }
+}
+@include animation('ani-left') {
+  from {
+    transform: translateX(100vw);
+  }
+  to {
+    transform: translateX(calc(-200% + 100vw));
+  }
+}
+@include animation('ani-left2') {
+  from {
+    transform: translateX(calc(-100% + 100vw));
+  }
+  to {
+    transform: translateX(calc(-300% + 100vw));
+  }
+}
+@include animation('ani-right') {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+@include animation('ani-right2') {
+  from {
+    transform: translateX(-200%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@include animation('fadeUp') {
+  from {
+    transform: translateY(10%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-enter,
+.slide-leave-to {
+  opacity: 0;
+  transform: translateY(-30%);
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.slide-fade-enter {
+  opacity: 0;
+  transform: translateY(-30%);
+}
+.slide-fade-leave-to {
+  opacity: 0;
+}

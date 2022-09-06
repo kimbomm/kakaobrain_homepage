@@ -1,5 +1,5 @@
 <template>
-  <div class="content-detail">
+  <div :class="classBind">
     <template v-if="data">
       <BreadCrumb :data="breadcrumb" :full="true" />
       <div :class="topClassBind">
@@ -10,7 +10,7 @@
         />
       </div>
       <div class="content-inner">
-        <DetailTitle :text="data.title" />
+        <DetailTitle :text="data.title" :content-prop="data.contentProp" />
         <template v-for="(content, index) in ContentItems">
           <component
             :is="validContent(content, index)"
@@ -19,15 +19,15 @@
           >
           </component>
         </template>
+        <Like :content-id="data.contentId" :good-count="data.goodCount" />
       </div>
-
-      <!-- <Like /> -->
     </template>
   </div>
 </template>
 <script>
   import mixinGlobal from '@/mixin/global.js'
   import { mapState, mapActions } from 'vuex'
+  import Utility from '@/util/utility.js'
   import BreadCrumb from '@/components/elements/BreadCrumb'
   import DetailImage from '@/components/detail/DetailImage'
   import DetailYoutube from '@/components/detail/DetailYoutube'
@@ -50,23 +50,49 @@
       DetailTextItem,
       Like
     },
-    asyncData(ctx) {
+    async asyncData(ctx) {
       if (!ctx.query.contentId) {
         ctx.redirect('/')
       }
+      try {
+        const res = await ctx.store.dispatch(
+          'getContentDetail',
+          ctx.query.contentId
+        )
+        return {
+          contentData: res.data
+        }
+      } catch (error) {
+        console.error(error)
+      }
+    },
+    head() {
       return {
-        contentId: ctx.query.contentId
+        // title: this.contentData.title,
+        meta: [
+          {
+            hid: 'og:title',
+            property: 'og:title',
+            content: this.contentData.title || '상세페이지'
+          },
+          {
+            hid: 'og:url',
+            property: 'og:url',
+            content: `${this.$config.url}${this.$route.fullPath}`
+          },
+          {
+            hid: 'og:image',
+            property: 'og:image',
+            content: `${this.$config.baseURL}${this.contentData.contentProp.mediaId}`
+            // `${process.env.BASE_URL}/metaimg.png`
+          }
+        ]
       }
     },
     data() {
       return {
-        /**
-         * categoryType
-         * typeA - thumbnail형
-         * typeB - 빅타이틀 형
-         * typeC - article 형
-         * typeD - storyTelling 형
-         */
+        contentId: null,
+        contentType: null,
         isLoad: false,
         categoryType: null,
         data: null,
@@ -79,6 +105,15 @@
       ...mapState({
         language: state => state.language
       }),
+      classBind() {
+        let classList = ['content-detail']
+        switch (this.contentType) {
+          case 'THESIS':
+            classList.push('type-thesis')
+            break
+        }
+        return classList.join(' ')
+      },
       topClassBind() {
         let classList = ['top']
         if (!this.thumbnail) {
@@ -87,17 +122,46 @@
         return classList.join(' ')
       }
     },
+    watch: {
+      $route: {
+        deep: true,
+        handler(val) {
+          this.contentId = val.query.contentId
+          this.init()
+          this.scrollBody.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          })
+        }
+      }
+    },
+    created() {
+      this.contentId = this.$route.query.contentId
+      this.$nuxt.$on('langChange', this.onLangChange)
+    },
     async mounted() {
       await this.init()
     },
     methods: {
       ...mapActions(['getContentDetail', 'getNickName']),
+      async onLangChange() {
+        if (
+          this.data.contentProp.langLink &&
+          this.data.targetLang !== this.language
+        ) {
+          window.location = `/contents?contentId=${this.data.contentProp.langLink}`
+        } else {
+          await window.location.reload(true)
+        }
+      },
       async init() {
         const res = await this.getContentDetail(this.contentId)
         this.data = res.data
+        this.contentType = this.data.contentType
         this.ContentItems = this.data.ContentItems
         if (
           res.data.contentType === 'ARTICLE' &&
+          res.data.ContentItems.length > 0 &&
           res.data.ContentItems[0].itemType === 'image'
         ) {
           this.thumbnail = this.ContentItems.slice(0, 1)
@@ -110,7 +174,7 @@
         if (res.data.contentType === 'THESIS' && res.data.writer) {
           const header = {
             itemType: 'header',
-            text: this.language === 'KR' ? '저자' : 'Author'
+            text: 'Authors'
           }
           const writer = {
             itemType: 'pagaraph',
@@ -119,7 +183,10 @@
           this.ContentItems = this.ContentItems.concat([header, writer])
         }
 
-        await this.setBreadcrumb(this.data.category1, this.data.category2)
+        await this.setBreadcrumb(
+          this.data.category1,
+          Utility.changeCategory2(this.data.category2)
+        )
         this.isLoad = true
       },
       validContent(content, index) {
@@ -162,6 +229,7 @@
         }
 
         this.title = info.category2.name
+        this.breadcrumb = []
         this.breadcrumb.push(
           { text: info.category1.nick, sub: subClass, link: '' },
           { text: info.category2.nick, sub: 'sub', link: info.category2.link }
@@ -198,12 +266,13 @@
 
   .content-inner {
     margin: 0 20px;
-    /deep/ .detail-title {
+  }
+  .detail-text {
+    margin-bottom: 100px;
+  }
+  .type-thesis {
+    .detail-title {
       margin-bottom: 200px;
-    }
-    /deep/ .detail-subTit {
-      margin-top: 150px;
-      margin-bottom: 60px;
     }
   }
 
@@ -217,20 +286,16 @@
     .top {
       padding: 130px 20px 100px;
       &.no-thumbnail {
-        padding: 400px 0 0;
+        padding: 440px 0 0;
       }
     }
-    .content-inner {
-      padding-top: 440px;
-      /deep/ .detail-title {
+    .detail-text {
+      margin-bottom: 200px;
+    }
+
+    .type-thesis {
+      .detail-title {
         margin-bottom: 300px;
-      }
-      /deep/ .detail-subTit {
-        margin-top: 200px;
-        margin-bottom: 30px;
-      }
-      /deep/ .detail-text {
-        margin-bottom: 30px;
       }
     }
   }
@@ -246,17 +311,15 @@
         margin-bottom: 300px;
       }
     }
-    .content-inner {
-      padding-top: 660px;
-      /deep/ .detail-title {
+    .detail-text {
+      margin-bottom: 300px;
+    }
+    .type-thesis {
+      .detail-title {
         margin-bottom: 400px;
       }
-      /deep/ .detail-subTit {
-        margin-top: 250px;
-        margin-bottom: 60px;
-      }
-      /deep/ .detail-text {
-        margin-bottom: 60px;
+      .detail-text {
+        margin-bottom: 250px;
       }
     }
   }
@@ -270,14 +333,15 @@
         padding: 200px 0 0;
       }
     }
-    .content-inner {
-      padding-top: 100px;
-      /deep/ .detail-title {
+    .detail-text {
+      margin-bottom: 100px;
+    }
+    .type-thesis {
+      .detail-title {
         margin-bottom: 40px;
       }
-      /deep/ .detail-subTit {
-        margin-top: 100px;
-        margin-bottom: 60px;
+      .detail-text {
+        margin-bottom: 100px;
       }
     }
   }
@@ -296,14 +360,9 @@
     .bread-crumb {
       padding: 0 20px;
     }
-    .content-inner {
-      padding-top: 0;
-      /deep/ .detail-title {
+    .type-thesis {
+      .detail-title {
         margin-bottom: 20px;
-      }
-      /deep/ .detail-subTit {
-        margin-top: 100px;
-        margin-bottom: 30px;
       }
     }
   }

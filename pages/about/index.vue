@@ -41,6 +41,22 @@
   export default {
     mixins: [mixinGlobal],
     name: 'index',
+    head() {
+      return {
+        meta: [
+          {
+            hid: 'og:url',
+            property: 'og:url',
+            content: `${process.env.BASE_URL}/about`
+          },
+          {
+            hid: 'og:image',
+            property: 'og:image',
+            content: `${process.env.BASE_URL}/meta/meta_homepage_about.png`
+          }
+        ]
+      }
+    },
     components: {
       BreadCrumb,
       AboutTitle,
@@ -61,13 +77,13 @@
           title: 'Unthinkable <span class="string">Question.</span>'
         },
         aboutTitleText: {
-          text: 'kakaobrain is...</br>As an AI frontier that completes differentiated element technology, big models, and digital humans, it contributes to the<br/>technology community and pioneers new service areas that enhance the value of use and quality of life.'
+          text: 'Kakao Brain is...</br>As an AI frontier that completes differentiated element technology, big models, and digital humans, it contributes to the<br/>technology community and pioneers new service areas that enhance the value of use and quality of life.'
         },
         aboutConTitData: {
           title: 'Our Brand'
         },
         aboutConTxtBData: {
-          text: 'People looking for unexpected answers from unthinkable questions, kakaobrain krews share with you the new journey and stories they are making with AI.'
+          text: 'People looking for unexpected answers from unthinkable questions, Kakao Brain krews share with you the new journey and stories they are making with AI.'
         },
 
         breadcrumb: [
@@ -234,6 +250,7 @@
     .top-section {
       display: block;
       height: auto;
+      margin-top: 60px;
     }
     .bread-crumb {
       padding: 0 20px;

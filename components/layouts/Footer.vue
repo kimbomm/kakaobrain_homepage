@@ -23,9 +23,9 @@
       </div>
       <div class="footer-bottom">
         <div :class="{ copy: true, 'is-hide': onHide }">
-          <span class="info-txt">@2021</span>
+          <span class="info-txt">@2022</span>
           <div class="copyright">
-            Copyright ⓒ kakaobrain Corp. <span>All rights reserved.</span>
+            Copyright ⓒ Kakao Brain Corp. <span>All rights reserved.</span>
           </div>
         </div>
         <SnsLink />
@@ -64,12 +64,12 @@
         return this.isScrollEnd ? false : this.isMouseWheel
       }
     },
-    mounted() {
-      window.addEventListener('wheel', this.onWheel)
-      window.addEventListener('scroll', this.onScroll)
+    async mounted() {
+      this.scrollBody.addEventListener('wheel', this.onWheel)
+      this.scrollBody.addEventListener('scroll', this.onScroll)
     },
     beforeDestroy() {
-      window.removeEventListener('wheel', this.onWheel)
+      this.scrollBody.removeEventListener('wheel', this.onWheel)
     },
     methods: {
       menuLink(data) {
@@ -84,7 +84,7 @@
       onScroll() {
         this.isScrollEnd =
           document.querySelector('body').scrollHeight - window.innerHeight ===
-          window.scrollY
+          this.scrollBody.scrollTop
       },
       onWheel(e) {
         this.isMouseWheel = e.wheelDelta < 0
@@ -108,7 +108,7 @@
     }
   }
   .footer {
-    margin: 0 20px 20px;
+    padding: 0 20px 20px;
     > div {
       position: relative;
     }
@@ -158,23 +158,10 @@
   .menu-list {
     font-size: 20px;
     line-height: 1.3;
-    font-weight: bold;
+    font-weight: 600;
     margin-bottom: 20px;
     &:last-child {
       margin-bottom: 0;
-    }
-  }
-
-  .footer__light {
-    background-color: $gray-9;
-    .footer-bottom {
-      color: $gray-0;
-    }
-    .b-symbol {
-      background-image: url('~/assets/images/b-w-symbol.png');
-    }
-    .menu-list {
-      color: $gray-0;
     }
   }
 
@@ -257,7 +244,7 @@
       }
     }
     .footer {
-      margin-bottom: 50px;
+      padding-bottom: 50px;
       &-shape {
         display: none;
       }

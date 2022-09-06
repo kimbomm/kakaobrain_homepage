@@ -101,8 +101,7 @@
   .Innovation {
     position: relative;
     display: inline-block;
-    max-width: 550px;
-    min-width: 300px;
+    width: 100%;
     height: 700px;
     padding: 20px;
     box-shadow: 30px 30px 50px -10px rgba(0, 0, 0, 0.2);
@@ -117,7 +116,7 @@
       flex-direction: column;
       justify-content: space-between;
       height: 100%;
-      word-break: break-all;
+      word-break: keep-all;
     }
     &-tit {
       margin-bottom: 110px;
@@ -125,7 +124,6 @@
       font-size: 30px;
       height: calc(30px * 1 * 8);
       font-weight: 400;
-      word-break: keep-all;
       overflow: hidden;
       text-overflow: ellipsis;
       display: -webkit-box;
@@ -161,8 +159,8 @@
     }
     &.main-card {
       width: getWidth(3);
-      max-width: initial;
-      min-width: initial;
+      // max-width: initial;
+      // min-width: initial;
       height: 640px;
       .Innovation-inner {
         display: flex;
@@ -173,7 +171,8 @@
         font-size: 40px;
         line-height: 0.9;
         height: auto;
-        max-height: calc(40px * 0.9 * 8);
+        padding-bottom: 5px;
+        max-height: calc(40px * 0.9 * 8 + 5px);
         margin-bottom: 0;
       }
     }

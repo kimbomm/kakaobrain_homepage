@@ -27,7 +27,7 @@
           <div class="issue-title">
             <transition name="only-fade">
               <span v-if="isShow" class="fade">
-                {{ activeContent.Content.title }}
+                {{ activeContent.title }}
               </span>
             </transition>
           </div>
@@ -79,7 +79,7 @@
 </template>
 <script>
   import { mapState, mapActions } from 'vuex'
-  import util from '@/util/utility.js'
+  import Utility from '@/util/utility.js'
   import BreadCrumb from '@/components/elements/BreadCrumb'
   import Sticker from '@/components/elements/button/Sticker'
   export default {
@@ -92,6 +92,7 @@
         isShow: false,
         activeIndex: 0,
         autoLoad: null,
+        interval: 10000,
         pageData: {
           offset: 0,
           limit: 20,
@@ -101,7 +102,8 @@
         image: require('~/assets/images/main_img_dummy.png'),
         list: [],
         activeContent: null,
-        breadcrumb: []
+        breadcrumb: [],
+        navigatorY: null
       }
     },
     computed: {
@@ -109,7 +111,7 @@
         issueList: state => state.issue.list
       }),
       curPage() {
-        return util.changeNumFont(this.activeIndex + 1)
+        return Utility.changeNumFont(this.activeIndex + 1)
       }
     },
     watch: {
@@ -125,11 +127,11 @@
     },
     async mounted() {
       await this.fetchList()
-      window.addEventListener('scroll', this.onScroll)
+      await this.scrollBody.addEventListener('wheel', this.onScroll)
     },
-    beforeDestroy() {
-      clearInterval(this.autoLoad)
-      window.removeEventListener('scroll', this.onScroll)
+    async beforeDestroy() {
+      await clearInterval(this.autoLoad)
+      await this.scrollBody.removeEventListener('wheel', this.onScroll)
     },
     methods: {
       ...mapActions({
@@ -149,19 +151,20 @@
         this.activeContent = this.list[this.activeIndex]
         await this.setBreadcrumb(
           this.activeContent.Content.category1,
-          this.activeContent.Content.category2
+          Utility.changeCategory2(this.activeContent.Content.category2)
         )
       },
       onScroll() {
         const navi = this.$refs['issue-navi']
         const issue = this.$refs['issue']
         if (
-          window.scrollY >= navi.offsetTop &&
-          window.scrollY <=
-            issue.offsetTop + issue.offsetHeight - navi.offsetHeight
+          this.scrollBody.scrollTop <=
+            issue.offsetTop + issue.offsetHeight - navi.offsetHeight &&
+          this.scrollBody.scrollTop + navi.offsetTop + navi.offsetHeight <=
+            issue.offsetTop + issue.offsetHeight
         ) {
           navi.style = `transform: translateY(${
-            window.scrollY - navi.offsetTop
+            this.navigatorY + this.scrollBody.scrollTop
           }px)`
         }
       },
@@ -169,7 +172,7 @@
         const _this = this
         this.autoLoad = setInterval(() => {
           _this.onClick('next')
-        }, 10000)
+        }, this.interval)
       },
       onClick(type, event) {
         const _this = this
@@ -220,19 +223,19 @@
           { text: info.category1.nick, sub: subClass, link: '' },
           { text: info.category2.nick, sub: 'sub', link: info.category2.link }
         )
-        if (this.activeContent.Content.ContentTags.length > 0) {
-          for (
-            let i = 0;
-            i < this.activeContent.Content.ContentTags.length;
-            i++
-          ) {
-            this.breadcrumb.push({
-              text: this.activeContent.Content.ContentTags[i].tag,
-              sub: '',
-              link: this.activeContent.Content.ContentTags[i].link
-            })
-          }
-        }
+        // if (this.activeContent.Content.ContentTags.length > 0) {
+        //   for (
+        //     let i = 0;
+        //     i < this.activeContent.Content.ContentTags.length;
+        //     i++
+        //   ) {
+        //     this.breadcrumb.push({
+        //       text: this.activeContent.Content.ContentTags[i].tag,
+        //       sub: '',
+        //       link: this.activeContent.Content.ContentTags[i].link
+        //     })
+        //   }
+        // }
       },
       envVariable(url) {
         return `${this.$config.baseURL}${url}`
@@ -248,7 +251,7 @@
   .fade-enter,
   .fade-leave-to {
     opacity: 0;
-    transform: translateY(100%);
+    transform: translateY(5%);
   }
   .only-fade-enter,
   .only-fade-leave-to {
@@ -274,8 +277,6 @@
     }
   }
   .issue {
-    $titleHeight: 90px;
-    $titleMargin: 20px;
     width: getWidth(9);
     display: flex;
     justify-content: space-between;
@@ -284,7 +285,7 @@
       width: getWidth(8);
     }
     &-info {
-      padding-top: $titleHeight + $titleMargin;
+      padding-top: 110px;
       margin-left: 20px;
       text-align: right;
       .btn {
@@ -296,16 +297,16 @@
       }
     }
     &-title {
-      font-size: $titleHeight;
-      line-height: 1.1;
+      width: 100%;
+      font-size: 90px;
+      line-height: 1;
       font-weight: 900;
       font-style: italic;
-      margin-bottom: $titleMargin;
-      width: 100%;
       span {
         display: block;
         width: 100%;
-        line-height: 100%;
+        height: 100%;
+        padding-bottom: 20px;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -328,7 +329,7 @@
     }
     &-navi {
       margin-top: 98px;
-      transition: transform 0.1s linear;
+      transition: transform 0.2s linear;
       .buttons {
         font-size: 16px;
         display: flex;
@@ -372,8 +373,6 @@
     }
   }
   @include pc-large {
-    $titleHeight: 122px;
-    $titleMargin: 30px;
     .issue-slider {
       &-info {
         margin-bottom: 50px;
@@ -381,11 +380,13 @@
       }
     }
     .issue-info {
-      padding-top: $titleHeight + $titleMargin;
+      padding-top: 152px;
     }
     .issue-title {
-      font-size: $titleHeight;
-      margin-bottom: $titleMargin;
+      font-size: 122px;
+      span {
+        padding-bottom: 30px;
+      }
     }
     .issue-thumbnail {
       height: 1328px;
@@ -405,8 +406,6 @@
   }
 
   @include pc-4k {
-    $titleHeight: 180px;
-    $titleMargin: 30px;
     .issue-slider {
       &-info {
         margin-bottom: 60px;
@@ -414,11 +413,13 @@
       }
     }
     .issue-info {
-      padding-top: $titleHeight + $titleMargin;
+      padding-top: 210px;
     }
     .issue-title {
-      font-size: $titleHeight;
-      margin-bottom: $titleMargin;
+      font-size: 180px;
+      span {
+        padding-bottom: 30px;
+      }
     }
     .issue-thumbnail {
       padding-top: 2010px;
@@ -445,8 +446,6 @@
   }
 
   @include tablet {
-    $titleHeight: 70px;
-    $titleMargin: 20px;
     .issue-slider {
       &-info {
         margin-bottom: 50px;
@@ -454,11 +453,13 @@
       }
     }
     .issue-info {
-      padding-top: $titleHeight + $titleMargin;
+      padding-top: 90px;
     }
     .issue-title {
-      font-size: $titleHeight;
-      margin-bottom: $titleMargin;
+      font-size: 70px;
+      span {
+        padding-bottom: 20px;
+      }
     }
     .issue-thumbnail {
       padding-top: 552px;
@@ -550,9 +551,9 @@
     }
     .issue-title {
       font-size: 40px;
-      margin-bottom: 10px;
-      max-height: calc(48px * 3);
       span {
+        max-height: 130px;
+        height: 100%;
         white-space: normal;
         display: -webkit-box;
         word-wrap: break-word;
@@ -560,11 +561,15 @@
         -webkit-box-orient: vertical;
         overflow: hidden;
         text-overflow: ellipsis;
+        padding-bottom: 10px;
       }
     }
     .issue-thumbnail {
       padding-top: 470px;
       margin-bottom: 10px;
+      > div {
+        box-shadow: initial;
+      }
     }
     .issue-info {
       padding-top: 0;

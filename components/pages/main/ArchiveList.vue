@@ -2,11 +2,12 @@
 <template>
   <div class="main-archive">
     <div class="gl-8 l-ml-2">
-      <span>ARCHIVE@kakaobrain</span>
+      <span>ARCHIVE@Kakao Brain</span>
       <span></span>
-      <nuxt-link to="/archive"
-        ><span class="title-italic">VIEW LIST </span><span class="arrow"></span></nuxt-link
-      >
+      <nuxt-link to="/archive">
+        <span class="title-italic">VIEW LIST</span>
+        <span class="arrow"></span>
+      </nuxt-link>
     </div>
     <ul class="main-archive-list">
       <li v-for="(item, index) in list" :key="index" class="gl-2">
@@ -22,7 +23,7 @@
   </div>
 </template>
 <script>
-  import { mapActions } from 'vuex'
+  import { mapState, mapActions } from 'vuex'
   import ArchiveCard from '@/components/elements/card/ArchiveCard'
   export default {
     components: {
@@ -34,10 +35,15 @@
           offset: 0,
           limit: 5,
           contentType: 'ARTICLE',
-          targetLang: 'KR'
+          targetLang: 'EN'
         },
         list: []
       }
+    },
+    computed: {
+      ...mapState({
+        language: state => state.language
+      })
     },
     mounted() {
       this.init()
@@ -47,6 +53,7 @@
         getContentList: 'getContentList'
       }),
       async init() {
+        this.pageData.targetLang = this.language
         const res = await this.getContentList(this.pageData)
         this.list = res.data.list
       }
@@ -72,20 +79,21 @@
       span {
         font-size: 40px;
         font-weight: 300;
+        white-space: nowrap;
       }
       .title-italic {
         vertical-align: middle;
         font-style: italic;
       }
-      .arrow{
+      .arrow {
         margin-left: 12px;
         vertical-align: middle;
-        font-size:26px;
+        font-size: 26px;
       }
     }
     &-list {
       margin-top: 100px;
-      padding-bottom: 100px;
+      padding-bottom: 60px;
       display: flex;
       justify-content: space-between;
       -ms-overflow-style: none; /* IE and Edge */
@@ -101,8 +109,8 @@
         span {
           font-size: 52px;
         }
-        .arrow{
-          font-size:32px;
+        .arrow {
+          font-size: 32px;
         }
       }
       &-list {
@@ -116,8 +124,8 @@
         span {
           font-size: 74px;
         }
-        .arrow{
-          font-size:42px;
+        .arrow {
+          font-size: 42px;
         }
       }
       &-list {
@@ -127,17 +135,20 @@
   }
   @include tablet {
     .main-archive {
-      // padding: 0;
+      padding: 0;
       > div {
+        &:nth-child(1) {
+          padding: 0 20px;
+        }
         span {
           font-size: 30px;
         }
-        .arrow{
-          font-size:20px;
+        .arrow {
+          font-size: 20px;
         }
       }
       &-list {
-        padding-left: getMargin(2);
+        padding-left: calc(#{getMargin(2)} + 20px);
         justify-content: flex-start;
         flex-wrap: nowrap;
         overflow-x: auto;
@@ -150,7 +161,6 @@
   }
   @include mobile {
     .main-archive {
-      padding: 0;
       > div {
         width: 100% !important;
         margin-left: 0 !important;
@@ -162,8 +172,8 @@
               display: none;
             }
           }
-          .arrow{
-            font-size:14px;
+          .arrow {
+            font-size: 14px;
           }
         }
         > span {

@@ -1,40 +1,48 @@
 <template>
-  <header :class="classBind">
-    <div class="header-top">
-      <h1 class="b-logo gl-2">
-        <nuxt-link to="/">
-          <img
-            v-if="isFilterMenuOpen || !isDark"
-            src="@/assets/images/logo-w.png"
-          />
-          <img v-else src="@/assets/images/logo.png" />
-        </nuxt-link>
-      </h1>
-      <div class="header-con">
-        <div class="header-item">Unthinkable Question</div>
+  <div>
+    <header :class="classBind">
+      <div class="header-top">
+        <h1 class="b-logo gl-2">
+          <nuxt-link to="/">
+            <img
+              v-if="isFilterMenuOpen || !isDark"
+              src="@/assets/images/logo-w.png"
+            />
+            <img v-else src="@/assets/images/logo.png" />
+          </nuxt-link>
+        </h1>
+        <div class="header-con">
+          <div class="header-item">Unthinkable Question</div>
+        </div>
       </div>
-    </div>
-    <Menu />
-  </header>
+      <Menu />
+    </header>
+    <MobMenu />
+  </div>
 </template>
 <script>
   import { mapState } from 'vuex'
   import Menu from '@/components/layouts/Menu'
+  import MobMenu from '@/components/layouts/MobMenu'
   export default {
     components: {
-      Menu
+      Menu,
+      MobMenu
     },
     computed: {
       ...mapState({
         isDark: state => state.isDark,
-        isFilterMenuOpen: state => state.isFilterMenuOpen
+        isFilterMenuOpen: state => state.isFilterMenuOpen,
+        isScrollUp: state => state.isScrollUp
       }),
       classBind() {
-        let classList = ['header']
+        let classList = ['header', 'hide-target']
         if (this.isFilterMenuOpen || !this.isDark) {
           classList.push('header__light')
         }
-
+        if (this.isScrollUp) {
+          classList.push('is-hide')
+        }
         return classList.join(' ')
       }
     }
@@ -42,15 +50,13 @@
 </script>
 <style lang="scss" scoped>
   .header {
-    position: relative;
     position: fixed;
     top: 20px;
     left: 20px;
     right: 20px;
-    z-index: 3;
+    z-index: 20;
     display: flex;
     justify-content: space-between;
-    align-items: center;
     flex-wrap: nowrap;
     font-size: 16px;
     line-height: 1.3;
@@ -122,6 +128,9 @@
           height: 21px;
         }
       }
+      .header-con {
+        display: none;
+      }
     }
   }
   @include mobile {
@@ -129,9 +138,9 @@
       top: 0;
       left: 0;
       width: 100%;
-      // height: 56px;
+      height: 56px;
       padding: 0 20px;
-      padding-top:20px;
+      background-color: $surface-1;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -139,9 +148,6 @@
     .header,
     .header-item {
       font-size: 18px;
-      &-con {
-        display: none;
-      }
     }
   }
 </style>

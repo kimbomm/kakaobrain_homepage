@@ -1,3 +1,5 @@
+import Vue from 'vue'
+
 function changeNumFont(number) {
   let returnFont = []
   // let returnFont = ''
@@ -55,7 +57,44 @@ function setParameters(payload) {
   return createdParam
 }
 
+function changeCategory2(category2) {
+  let category = category2
+  switch (category) {
+    case 'datasets':
+      category = 'dataset'
+      break
+    case 'brain_cloud':
+      category = 'brain'
+      break
+    case 'large_scale':
+      category = 'large'
+      break
+    case 'digital_human':
+      category = 'digital'
+      break
+  }
+
+  return category
+}
+
+// function scrollControl(el, method) {
+//   switch (method) {
+//     case 'block':
+//       bodyScrollLock.disableBodyScroll(el)
+//       break
+//     case 'enable':
+//       bodyScrollLock.enableBodyScroll(el)
+//       break
+//     default:
+//       bodyScrollLock.clearAllBodyScrollLocks()
+//       break
+//   }
+// }
+// Vue.prototype.scrollControl = scrollControl
+
 export default {
   changeNumFont,
-  setParameters
+  setParameters,
+  changeCategory2
+  // scrollControl
 }

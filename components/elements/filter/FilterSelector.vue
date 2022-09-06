@@ -47,9 +47,14 @@
     methods: {
       ...mapActions(['changeFilterMenuOpen']),
       onOpenFilter() {
-        this.isFilterMenuOpen
-          ? this.changeFilterMenuOpen(false)
-          : this.changeFilterMenuOpen(true)
+        if (this.isFilterMenuOpen) {
+          this.changeFilterMenuOpen(false)
+        } else {
+          this.changeFilterMenuOpen(true)
+          // if (window.inner <= 1024) {
+          this.$nuxt.$emit('scrollLock', true)
+          // }
+        }
       }
     }
   }
@@ -68,7 +73,7 @@
       background-color: transparent;
     }
     .text {
-      font-size: 90px;
+      font-size: map-get($font, h1);
       font-weight: 900;
     }
     .arrow {
@@ -79,17 +84,6 @@
     &.is-active {
       .arrow {
         transform: rotate(180deg);
-      }
-    }
-  }
-  @include pc-4k {
-    .filter {
-      .text {
-        font-size: 164px !important;
-      }
-      .arrow {
-        font-size: 40px !important;
-        margin-left: 56px !important;
       }
     }
   }
@@ -104,17 +98,29 @@
       }
     }
   }
+  @include pc-4k {
+    .filter {
+      .text {
+        font-size: 164px;
+      }
+      .arrow {
+        font-size: 40px;
+        margin-left: 56px;
+      }
+    }
+  }
+
   @include tablet {
     .filter {
       .text {
-        font-size: 50px;
+        font-size: map-get($font-tablet, h1);
       }
     }
   }
   @include mobile {
     .filter {
       .text {
-        font-size: 30px;
+        font-size: map-get($font-mobile, h1);
       }
       .arrow {
         font-size: 10px;

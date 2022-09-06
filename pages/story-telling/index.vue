@@ -11,6 +11,7 @@
 </template>
 <script>
   import { mapActions } from 'vuex'
+  import Utility from '@/util/utility.js'
   import BreadCrumb from '@/components/elements/BreadCrumb'
   import Swiper from '@/components/swiper/Swiper'
   import Like from '@/components/elements/Like'
@@ -31,9 +32,9 @@
     },
     async created() {
       await this.$nuxt.$emit('story-page', true)
-      await this.init()
     },
     async mounted() {
+      await this.init()
       await this.checkMobile()
       this.$nextTick(async () => {
         await this.onResizeEvent()
@@ -42,7 +43,7 @@
     },
     async beforeDestroy() {
       await this.$nuxt.$emit('story-page', false)
-      await this.$store.commit('setIsDark', false)
+      await this.$store.commit('setIsDark', true)
       window.removeEventListener('resize', this.onResizeEvent)
     },
     methods: {
@@ -51,7 +52,6 @@
         this.viewPortWidth = window.innerWidth
         if (this.isMobile || this.viewPortWidth <= 768) {
           await this.$store.commit('setIsDark', true)
-          await this.$nuxt.$emit('story-page', false)
         } else {
           await this.$store.commit('setIsDark', false)
           await this.$nuxt.$emit('story-page', true)
@@ -68,7 +68,10 @@
         )
         this.data = res.data
         if (this.data.category1 && this.data.category2) {
-          await this.setBreadcrumb(this.data.category1, this.data.category2)
+          await this.setBreadcrumb(
+            this.data.category1,
+            Utility.changeCategory2(this.data.category2)
+          )
         }
       },
       async setBreadcrumb(category1, category2) {
@@ -121,7 +124,7 @@
       margin-top: 56px;
       .bread-crumb {
         left: 0;
-        padding-top: 80px;
+        padding: 20px;
       }
     }
     .like {

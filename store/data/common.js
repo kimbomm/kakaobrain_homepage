@@ -3,26 +3,28 @@ const menus = [
     name: 'About',
     category: 'about',
     nick: 'About',
-    link: '/about',
-    alarm: '',
+    link: '',
     sub: [
       {
         category: 'introduce',
         nick: 'Introduce',
-        name: 'Unthinkable Question!',
-        link: '/about'
+        name: 'Unthinkable Question',
+        link: '/about',
+        target: ''
       },
       {
         category: 'culture',
         nick: 'Culture',
         name: 'Culture',
-        link: '/about/culture'
+        link: '/about/culture',
+        target: ''
       },
       {
-        category: 'principle',
-        nick: 'Principle',
-        name: 'Principle',
-        link: '/about/principle'
+        category: 'career',
+        nick: 'Careers',
+        name: 'Careers',
+        link: 'https://careers.kakaobrain.com/',
+        target: '_blank'
       }
     ]
   },
@@ -30,26 +32,28 @@ const menus = [
     name: 'Research',
     category: 'research',
     nick: 'Research',
-    link: '/research',
-    alarm: '172',
+    link: '',
     sub: [
       {
         category: 'challenge',
         nick: 'Challenge',
         name: 'Challenge',
-        link: '/contents/research/challenge'
+        link: '/contents/research/challenge',
+        target: ''
       },
       {
-        category: 'article',
+        category: 'publications',
         nick: 'Publications',
         name: 'Publications',
-        link: '/contents/research/article'
+        link: '/contents/research/publications',
+        target: ''
       },
       {
         category: 'collaborative',
         nick: 'Collabo',
         name: 'Collaborative Research',
-        link: '/contents/research/collaborative'
+        link: '/contents/research/collaborative',
+        target: ''
       }
     ]
   },
@@ -57,38 +61,77 @@ const menus = [
     name: 'Tech',
     category: 'tech',
     nick: 'Tech',
-    link: '/tech',
-    alarm: '54',
+    link: '',
     sub: [
-      {
-        category: 'highlight',
-        nick: 'Highlight',
-        name: 'Highlight',
-        link: '/contents/tech/highlight'
-      },
+      // {
+      //   category: 'highlight',
+      //   nick: 'Highlight',
+      //   name: 'Highlight',
+      //   link: '/contents/tech/highlight'
+      // },
       {
         category: 'dataset',
         nick: 'Datasets',
         name: 'Datasets',
-        link: '/contents/tech/dataset'
+        link: '/contents/tech/datasets',
+        target: ''
       },
       {
         category: 'brain',
         nick: 'Brain Cloud',
         name: 'Brain Cloud',
-        link: '/contents/tech/brain'
+        link: '/contents/tech/brain_cloud',
+        target: ''
       },
       {
         category: 'large',
-        nick: 'Large Scale',
-        name: 'Large Scale',
-        link: '/contents/tech/large'
+        nick: 'Large Scale AI',
+        name: 'Large Scale AI',
+        link: '/contents/tech/large_scale',
+        target: ''
       },
       {
         category: 'digital',
         nick: 'Digital Human',
         name: 'Digital Human',
-        link: '/contents/tech/digital'
+        link: '/contents/tech/digital_human',
+        target: ''
+      }
+    ]
+  },
+  {
+    name: 'Log B',
+    category: 'log_b',
+    nick: 'Log B',
+    link: '/log_b',
+    sub: [
+      {
+        category: 'home',
+        nick: 'Home',
+        name: 'Home',
+        link: '/contents/log_b',
+        target: ''
+      },
+      {
+        category: 'talk',
+        nick: 'Talk',
+        name: 'Talk',
+        link: '/contents/log_b/talk',
+        target: ''
+      },
+      {
+        category: 'conference',
+        nick: 'Conference',
+        name: 'Conference',
+        link: '/contents/log_b/conference',
+        target: ''
+      },
+      {
+        category: 'v_log',
+        nick: 'VLog',
+        name: 'VLog',
+        link: '/contents/log_b/v_log',
+        target: ''
       }
     ]
   },
@@ -96,20 +139,21 @@ const menus = [
     name: 'Docu.B',
     category: 'document',
     nick: 'Docu.B',
-    link: '/document',
-    alarm: '78',
+    link: '',
     sub: [
       {
         category: 'news',
         nick: 'News',
         name: 'News',
-        link: '/contents/document/news'
+        link: '/contents/document/news',
+        target: ''
       },
       {
         category: 'documentary',
         nick: 'Documentary',
         name: 'Documentary',
-        link: '/contents/document/documentary'
+        link: '/contents/document/documentary',
+        target: ''
       }
     ]
   }
@@ -136,8 +180,8 @@ const footer = [
       KR: '사이버윤리실',
       EN: 'Cyber Ethics'
     },
-    link: 'https://www.kakaocorp.com/policy/cyberEthics/info?lang=',
-    target: '_blank'
+    link: '/ethics',
+    target: ''
   },
   {
     name: {
@@ -160,15 +204,15 @@ const footer = [
       KR: '오픈미니컨',
       EN: 'Open Minicon'
     },
-    link: 'https://kakaobrain.com/openminicon',
+    link: 'https://openminicon.kakaobrain.com',
     target: '_blank'
   },
   {
     name: {
       KR: '영입',
-      EN: 'Recruit'
+      EN: 'Careers'
     },
-    link: 'https://kakaobrain.recruiter.co.kr/appsite/company/index',
+    link: 'https://careers.kakaobrain.com/',
     target: '_blank'
   }
 ]
@@ -178,7 +222,8 @@ const sns = [
     name: 'linkedin',
     link: 'https://www.linkedin.com/company/kakaobrain/'
   },
-  { name: 'kakao', link: 'http://pf.kakao.com/_xhFyTb' },
+  // { name: 'kakao', link: 'http://pf.kakao.com/_xhFyTb' },
+  { name: 'github', link: 'https://github.com/kakaobrain' },
   {
     name: 'youtube',
     link: 'https://www.youtube.com/channel/UCdfmJNL-t_PdVHyn__tGrpg'

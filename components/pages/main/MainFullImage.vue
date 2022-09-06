@@ -4,23 +4,18 @@
       <!-- <img src="@/assets/images/main_img_dummy.jpeg" /> -->
     </div>
     <div>
-      <span>
-        Core Value →
-        <span class="s-weight">¹</span>
-        outstanding
-        <span class="s-weight">²</span>
-        actualized
-        <span class="s-weight">³</span>
-        open
-        <span class="s-weight">⁴</span>
-        impactful
-      </span>
+      <span>Core Value → </span>
+      <span class="s-weight">¹</span><span>outstanding</span>
+      <span class="s-weight">²</span><span>actualized</span>
+      <span class="s-weight">³</span><span>open</span>
+      <span class="s-weight">⁴</span><span>impactful</span>
     </div>
   </div>
 </template>
 <style lang="scss" scoped>
   .full-image {
     padding-left: 20px;
+    font-size: 0;
     > div {
       &:nth-child(1) {
         position: relative;
@@ -33,13 +28,15 @@
       &:nth-child(2) {
         margin-left: getMargin(2);
         margin-top: 20px;
-        font-weight: 600;
-        font-size: 40px;
-        line-height: 1.1;
+        span {
+          font-weight: 600;
+          font-size: 40px;
+          line-height: 1.1;
+          &.s-weight {
+            font-weight: 100;
+          }
+        }
       }
-    }
-    .s-weight {
-      font-weight: 100;
     }
   }
   @include pc-large {
@@ -49,7 +46,9 @@
           height: 2000px;
         }
         &:nth-child(2) {
-          font-size: 48px;
+          span {
+            font-size: 48px;
+          }
         }
       }
     }
@@ -62,7 +61,9 @@
         }
         &:nth-child(2) {
           margin-top: 40px;
-          font-size: 72px;
+          span {
+            font-size: 72px;
+          }
         }
       }
     }
@@ -75,7 +76,9 @@
         }
         &:nth-child(2) {
           margin-top: 20px;
-          font-size: 20px;
+          span {
+            font-size: 20px;
+          }
         }
       }
     }
@@ -90,7 +93,9 @@
         &:nth-child(2) {
           margin-left: 0;
           margin-top: 10px;
-          font-size: 12px;
+          span {
+            font-size: 12px;
+          }
         }
       }
     }

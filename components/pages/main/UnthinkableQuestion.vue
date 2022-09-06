@@ -7,7 +7,7 @@
       /> -->
       <div class="uq-text gl-8">
         <img
-          src="@/assets/images/main_uq.png"
+          src="@/assets/images/main_uq.svg"
           alt="Unthinkable Question 텍스트 이미지"
         />
       </div>
@@ -35,13 +35,13 @@
       return {
         translation: {
           KR: [
-            `카카오브레인의 혁신은<br> 모든 크루의 물음에서 시작합니다.`,
-            `우리의 혁신은 차별화된 요소 기술과 빅 모델 및<br/> 디지털 휴먼을 완성하는 AI
-            프론티어로서<br class="pc-br"/> 기술 커뮤니티에 기여하고, 사용 가치와 삶의 질을<br/> 높이는
+            `카카오브레인의 혁신은 모든 크루의 물음에서 시작합니다.`,
+            `우리의 혁신은 차별화된 요소 기술과 빅 모델 및<br class="mo-only"/> 디지털 휴먼을 완성하는 AI
+            프론티어로서<br /> 기술 커뮤니티에 기여하고, 사용 가치와 삶의 질을<br class="mo-only"/> 높이는
             새로운 서비스 영역을 개척합니다.`
           ],
           EN: [
-            `Innovation at kakaobrain starts<br>with questions from its krew members`,
+            `Innovation at Kakao Brain starts<br>with questions from its krew members`,
             `Our innovation is to contribute our world-leading technology on large-scale AI models and<br/>Digital Human to the tech community, and to create services that improve the value and quality of life.`
           ]
         }
@@ -67,7 +67,6 @@
     }
     &-content {
       margin-top: 40px;
-      padding-left: 20px;
       word-break: keep-all;
       p:nth-child(1) {
         font-size: 40px;
@@ -77,12 +76,6 @@
       p:nth-child(2) {
         font-size: 18px;
         line-height: 1.4;
-      }
-      .pc-br {
-        display: block;
-      }
-      br {
-        display: none;
       }
     }
   }
@@ -134,7 +127,6 @@
     .question {
       &-content {
         margin-top: 70px;
-        padding-left: 0;
         p:nth-child(1) {
           font-size: 54px;
           margin-bottom: 20px;
@@ -253,7 +245,6 @@
       }
       &-content {
         margin-top: 50px;
-        padding-left: 0;
         p:nth-child(1) {
           font-size: 20px;
           font-weight: 700;
@@ -287,16 +278,6 @@
         right: 85px;
         width: 50px;
         height: 50px;
-      }
-    }
-  }
-
-  @media screen and (max-width: 500px) {
-    .question {
-      &-content {
-        br {
-          display: block;
-        }
       }
     }
   }

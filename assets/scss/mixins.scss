@@ -11,11 +11,17 @@
   }
 }
 @mixin tablet {
+  .device-tablet {
+    @content;
+  }
   @media screen and (max-width: 1024px) {
     @content;
   }
 }
 @mixin mobile {
+  .device-mobile {
+    @content;
+  }
   @media screen and (max-width: 768px) {
     @content;
   }
@@ -35,4 +41,19 @@
       padding-left: getMargin(#{$i}) !important;
     }
   }
-} ;
+}
+
+@mixin animation($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}

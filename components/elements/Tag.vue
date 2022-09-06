@@ -1,31 +1,22 @@
 <template>
-  <button
-    ref="tag"
-    class="tag"
-    :disabled="!data.link"
-    @click="onClick(data.link)"
-  >
-    <span class="tag-name">{{ data.tag }}</span>
+  <button class="tag" @click="onClick">
+    <span class="tag-name">{{ title }}</span>
   </button>
 </template>
 <script>
   export default {
     props: {
-      data: {
-        type: Object,
-        default: () => {}
+      title: {
+        type: String,
+        default: ''
       }
     },
     data() {
       return {}
     },
     methods: {
-      onClick(link) {
-        if (link.indexOf(location.origin) !== -1) {
-          this.$router.push(link)
-        } else {
-          window.open(link, '_blank')
-        }
+      onClick() {
+        this.$emit('onClick')
       }
     }
   }
@@ -40,6 +31,8 @@
     border-radius: 100px;
     border: 1px solid #000000;
     position: relative;
+    color: $gray-9;
+    font-family: 'NotoSansKR', 'Inter', sans-serif;
     &:disabled {
       background-color: inherit;
       border-color: inherit;

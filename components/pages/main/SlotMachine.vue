@@ -1,5 +1,5 @@
 <template>
-  <div class="machine-wrap">
+  <div v-if="data.length > 0" class="machine-wrap">
     <div ref="machine" class="machine">
       <div ref="slot-contents" class="slot-contents">
         <div class="slot-image">
@@ -7,17 +7,17 @@
             <template v-for="(itemIndex, idx) in slot">
               <img
                 :key="itemIndex"
-                :src="
-                  require(`@/assets/images/slot/${data[itemIndex].image}.svg`)
-                "
+                :src="`${$config.baseURL}${data[itemIndex].Media.url}`"
                 alt=""
                 :class="{
-                  active: idx === activeIndex,
-                  'prev-active': idx === prevIndex,
-                  'wait-up': idx === upIndex,
-                  'wait-bottom': idx === bottomIndex
+                  'active-to-top': idx === activeIndex && wheelDir > 0,
+                  'active-to-bottom': idx === activeIndex && wheelDir < 0,
+                  'prev-active-to-top': idx === prevIndex && wheelDir > 0,
+                  'prev-active-to-bottom': idx === prevIndex && wheelDir < 0
                 }"
               />
+              <!-- 'wait-up': idx === upIndex,
+                  'wait-bottom': idx === bottomIndex -->
             </template>
           </div>
         </div>
@@ -25,7 +25,11 @@
           <div ref="slot-text">
             <template v-for="itemIndex in slot">
               <p :key="itemIndex">
-                {{ data[itemIndex].txt }}
+                {{
+                  language === 'KR'
+                    ? data[itemIndex].contentKR
+                    : data[itemIndex].contentEN
+                }}
               </p>
             </template>
           </div>
@@ -38,150 +42,188 @@
   </div>
 </template>
 <script>
+  import { mapState, mapActions } from 'vuex'
   export default {
-    data() {
-      return {
-        data: [
-          { txt: '사과는 왜 떨어지는 걸까?', image: 'slot_0' },
-          {
-            txt: '우리 아이 건강 상담을 AI가 해줄 수 는 없을까?',
-            image: 'slot_1'
-          },
-          { txt: '나는 왜 태어났나?', image: 'slot_2' },
-          { txt: 'AI가 수능을 볼 수 있을까?', image: 'slot_3' },
-          {
-            txt: '인공신경망은 사람의 지능을 뛰어넘을 수 있을까?',
-            image: 'slot_4'
-          },
-          { txt: '나와 친구같은 AI가 있으면 어떨까?', image: 'slot_5' },
-          { txt: '우리는 오늘을 왜 사는걸까?', image: 'slot_6' },
-          {
-            txt: '팬데믹 시대의 세상을 좀 더 안전하게 만들 수 없을까?',
-            image: 'slot_7'
-          },
-          { txt: '왜 사람은 일해야 하는가?', image: 'slot_8' },
-          {
-            txt: '최고의 언어모델을 100배 더 좋게 만들 수 있을까?',
-            image: 'slot_9'
-          },
-          { txt: '우주의 시작은?', image: 'slot_10' },
-          {
-            txt: '세상 모든 사람에게 주치의가 생길 수 있을까?',
-            image: 'slot_11'
-          },
-          { txt: 'AI로 집값을 잡을 수 있을까?', image: 'slot_12' },
-          { txt: 'AI가 사람의 마음을 치료할 수 있을까?', image: 'slot_13' },
-          { txt: 'AI가 생활을 위협할까?', image: 'slot_14' },
-          { txt: '초거대 인공지능은 뭘까?', image: 'slot_15' },
-          {
-            txt: '한번도 보지 못한 것을 떠올릴 수는 없을까?',
-            image: 'slot_16'
-          },
-          { txt: '1억년 후 세상을 예측할 수 있을까?', image: 'slot_17' },
-          { txt: '코로나는 언제 끝날까?', image: 'slot_18' }
-        ],
-        isChanged: false,
-        prevIndex: 0,
-        activeIndex: 0,
-        upIndex: null,
-        bottomIndex: null,
-        slot: [],
-        lastScrollTop: 0
+    props: {
+      flag: {
+        type: Boolean,
+        default: false
+      },
+      start: {
+        type: Boolean,
+        default: true
+      },
+      end: {
+        type: Boolean,
+        default: false
       }
     },
-    mounted() {
-      window.addEventListener('scroll', this.onScroll)
-      this.setSlot()
+    data() {
+      return {
+        data: [],
+        slotLength: 0,
+        isChanged: true,
+        prevIndex: 0,
+        activeIndex: 0,
+        slot: [],
+        wheelDir: 1,
+        wheelInfo: {
+          deltaY: null
+        },
+        isScrollUp: null,
+        prevY: 0,
+        slotChange: true
+      }
+    },
+    computed: {
+      ...mapState(['language', 'device'])
+    },
+    watch: {
+      flag(val) {
+        if (val) {
+          this.isChanged = false
+        }
+      }
+    },
+    async mounted() {
+      await this.init()
+      await this.setSlot()
+      await this.scrollBody.addEventListener('scroll', this.onWheel)
+      await this.scrollBody.addEventListener('wheel', this.onWheel)
     },
     beforeDestroy() {
-      window.removeEventListener('scroll', this.onScroll)
+      this.scrollBody.removeEventListener('scroll', this.onWheel)
+      this.scrollBody.removeEventListener('wheel', this.onWheel)
     },
     methods: {
-      onScroll(e) {
-        const target = this.$refs['slot-contents']
-        const targetImage = this.$refs['slot-image']
-        const targetText = this.$refs['slot-text']
-
-        const targetCenter = target.offsetTop + target.offsetHeight / 2
-        if (
-          targetCenter <= window.scrollY + window.innerHeight &&
-          targetCenter >= window.scrollY + window.innerHeight * 0.75
-        ) {
-          this.isChanged = false
-          this.prevIndex = window.scrollY > this.lastScrollTop ? null : 1
-          this.activeIndex = 0
-          this.upIndex = null
-          this.bottomIndex = 1
-
-          targetText.style = `transform: translateY(0)`
-        } else if (
-          targetCenter <= window.scrollY + window.innerHeight * 0.75 &&
-          targetCenter >= window.scrollY + window.innerHeight * 0.5
-        ) {
-          this.isChanged = false
-          this.prevIndex = window.scrollY > this.lastScrollTop ? 0 : 2
-          this.activeIndex = 1
-          this.upIndex = 0
-          this.bottomIndex = 2
-
-          targetText.style = `transform: translateY(-${
-            targetText.offsetHeight * 0.25
-          }px)`
-        } else if (
-          targetCenter <= window.scrollY + window.innerHeight * 0.5 &&
-          targetCenter >= window.scrollY + window.innerHeight * 0.25
-        ) {
-          this.isChanged = false
-          this.prevIndex = window.scrollY > this.lastScrollTop ? 1 : 3
-          this.activeIndex = 2
-          this.upIndex = 1
-          this.bottomIndex = 3
-
-          targetText.style = `transform: translateY(-${
-            targetText.offsetHeight * 0.5
-          }px)`
-        } else if (
-          targetCenter <= window.scrollY + window.innerHeight * 0.25 &&
-          targetCenter >= window.scrollY + window.innerHeight * 0
-        ) {
-          this.isChanged = false
-          this.prevIndex = window.scrollY > this.lastScrollTop ? 2 : 3
-          this.activeIndex = 3
-          this.upIndex = 2
-          this.bottomIndex = null
-
-          targetText.style = `transform: translateY(-${
-            targetText.offsetHeight * 0.75
-          }px)`
-        } else if (
-          target.offsetTop > window.scrollY + target.offsetHeight ||
-          window.scrollY > target.offsetTop + target.offsetHeight
-        ) {
-          this.setSlot()
-        }
-        this.setImage()
-        this.lastScrollTop = window.scrollY
-      },
-      setImage() {
-        setTimeout(() => {
-          this.prevIndex = null
-        }, 350)
-      },
-      setSlot() {
-        if (!this.isChanged) {
-          this.slot = []
-          for (let i = 0; i < 4; i++) {
-            this.slot.push(this.getRandomNum())
+      ...mapActions(['getLibraryCategory']),
+      async init() {
+        const res = await this.getLibraryCategory({
+          category: 'rollingText',
+          params: {
+            offset: 0,
+            limit: 99
           }
-          this.isChanged = true
+        })
+
+        this.data = res.data.list
+        this.slotLength = this.data.length > 5 ? 5 : this.data.length
+      },
+      onWheel(e) {
+        if (
+          (this.device.touch || window.innerWidth <= 1024) &&
+          e.type === 'scroll'
+        ) {
+          this.isScrollUp =
+            this.scrollBody.scrollTop > this.prevY &&
+            this.scrollBody.scrollTop !== 0
+          const ref = this.$refs['slot-contents']
+          const refCenter = ref.offsetTop + ref.offsetHeight / 2
+          for (let i = 0; i < this.slotLength; i++) {
+            if (
+              refCenter >=
+                this.scrollBody.scrollTop +
+                  (window.innerHeight * i) / this.slotLength &&
+              refCenter <=
+                this.scrollBody.scrollTop +
+                  (window.innerHeight * (i + 1)) / this.slotLength
+            ) {
+              if (this.activeIndex === this.slotLength - 1 - i) {
+                return false
+              }
+              this.activeIndex = this.slotLength - 1 - i
+              if (this.isScrollUp) {
+                this.wheelDir = 1
+                this.prevIndex =
+                  this.activeIndex === 0 ? 0 : this.activeIndex - 1
+              } else {
+                this.wheelDir = -1
+                this.prevIndex = this.activeIndex + 1
+              }
+
+              const targetText = this.$refs['slot-text']
+              targetText.style = `transform: translateY(-${
+                targetText.offsetHeight * (this.activeIndex / this.slotLength)
+              }px)`
+              this.slotChange = false
+            }
+          }
+          if (
+            !this.slotChange &&
+            (this.scrollBody.scrollTop + window.innerHeight < ref.offsetTop ||
+              this.scrollBody.scrollTop > ref.offsetTop + ref.offsetHeight)
+          ) {
+            this.setSlot()
+            this.slotChange = true
+          }
+          this.prevY = this.scrollBody.scrollTop
+        } else if (e.type === 'wheel') {
+          if (this.wheelSpeed(e) && this.flag && !this.isChanged) {
+            e.preventDefault()
+            if (e.deltaY > 0) {
+              this.wheelDir = 1
+              this.onMove('up')
+            } else {
+              this.wheelDir = -1
+              this.onMove('down')
+            }
+          }
         }
       },
-      delSlot() {
+      onMove(type) {
+        const targetText = this.$refs['slot-text']
+        this.isChanged = true
+        switch (type) {
+          case 'up':
+            if (this.activeIndex < this.slotLength - 1) {
+              this.prevIndex = this.activeIndex
+              this.activeIndex++
+            }
+            break
+          case 'down':
+            if (this.activeIndex > 0) {
+              this.prevIndex = this.activeIndex
+              this.activeIndex = this.activeIndex - 1
+            }
+            break
+        }
+        targetText.style = `transform: translateY(-${
+          targetText.offsetHeight * (this.activeIndex / this.slotLength)
+        }px)`
+
+        setTimeout(() => {
+          this.changeState()
+        }, 1000)
+      },
+      wheelSpeed(e) {
+        const isStart =
+          !this.isChanged && this.wheelInfo.deltaY < Math.abs(e.deltaY)
+        this.wheelInfo.deltaY = Math.abs(e.deltaY)
+        return isStart
+      },
+      changeState() {
+        this.isChanged = false
+        this.$emit('update:start', this.activeIndex === 0)
+        this.$emit('update:end', this.activeIndex === this.slotLength - 1)
+      },
+      setSlot(isTop) {
         this.slot = []
+        for (let i = 0; i < this.slotLength; i++) {
+          this.slot.push(this.getRandomNum())
+        }
+        if (isTop) {
+          const targetText = this.$refs['slot-text']
+          this.prevIndex = 0
+          this.activeIndex = 0
+          targetText.style = `transform: translateY(-${
+            targetText.offsetHeight * (this.activeIndex / this.slotLength)
+          }px)`
+        }
       },
       getRandomNum() {
-        const num = Math.floor(Math.random() * (this.data.length - 1))
-        if (this.slot.includes(num)) {
+        const num = Math.floor(Math.random() * this.data.length)
+
+        if (this.slot.includes(num) || num === this.data.length) {
           return this.getRandomNum()
         } else {
           return num
@@ -201,7 +243,8 @@
     // position: relative;
     background-color: $surface-2;
     margin: 0 20px;
-    height: 1500px;
+    // height: 1500px;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -221,30 +264,37 @@
       position: absolute;
       top: 0;
       left: 50%;
-      transform: translateX(-50%);
+      transform: translate3d(-50%, 0, 0);
     }
     img {
       position: absolute;
       display: block;
       height: 500px;
-      transition: top 0.3s linear;
+      transition: top 0.3s ease-out;
+      animation-timing-function: cubic-bezier(0.94, 0.22, 0.42, 0.83);
+      animation-duration: 1000ms;
+      animation-fill-mode: both;
       top: -100%;
       left: -100%;
-      &.prev-active {
-        top: 0 !important;
+      &.prev-active-to-top {
+        animation-name: 'prev-slot-to-top';
         left: 0 !important;
         z-index: 0;
       }
-      &.active {
-        top: 0;
+      &.prev-active-to-bottom {
+        animation-name: 'prev-slot-to-bottom';
+        left: 0 !important;
+        z-index: 0;
+      }
+      &.active-to-bottom {
+        animation-name: 'slot-to-bottom';
         left: 0;
         z-index: 1;
       }
-      &.wait-up {
-        top: -100%;
-      }
-      &.wait-bottom {
-        top: 100%;
+      &.active-to-top {
+        animation-name: 'slot-to-top';
+        left: 0;
+        z-index: 1;
       }
     }
   }
@@ -252,10 +302,10 @@
     position: relative;
     z-index: 0;
     width: 100%;
-    height: calc(160px * 3);
+    height: calc(160px * 1.1 * 5);
     overflow: hidden;
     > div {
-      transition: transform 0.3s linear;
+      transition: transform 1s cubic-bezier(0.94, 0.22, 0.42, 0.83);
     }
     p {
       overflow: hidden;
@@ -263,11 +313,10 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 160px * 0.7;
-      height: calc(160px * 3);
+      height: calc(160px * 1.1 * 5);
+      font-size: 160px;
       font-weight: 900;
-      transition: transform 0.3s linear;
-      line-height: 110%;
+      line-height: 1.1;
     }
   }
   .slogan-text {
@@ -280,7 +329,7 @@
   }
   @include pc-large {
     .machine {
-      height: 2000px;
+      // height: 2000px;
     }
     .slot-contents {
       height: 600px;
@@ -292,10 +341,10 @@
       }
     }
     .slot-text {
-      height: calc(210px * 3);
+      height: calc(210px * 1.1 * 5);
       p {
-        font-size: 210px * 0.7;
-        height: calc(210px * 3);
+        height: calc(210px * 1.1 * 5);
+        font-size: 210px;
       }
     }
     .slogan-text {
@@ -304,7 +353,7 @@
   }
   @include pc-4k {
     .machine {
-      height: 3000px;
+      // height: 3000px;
     }
     .slot-contents {
       height: 900px;
@@ -316,10 +365,10 @@
       }
     }
     .slot-text {
-      height: calc(320px * 3);
+      height: calc(320px * 1.1 * 5);
       p {
-        font-size: 320px * 0.7;
-        height: calc(320px * 3);
+        height: calc(320px * 1.1 * 5);
+        font-size: 320px;
       }
     }
     .slogan-text {
@@ -333,6 +382,7 @@
     .slot-contents {
       height: 300px;
       img {
+        animation-duration: 500ms;
         height: 300px;
       }
       .slot-image {
@@ -340,10 +390,13 @@
       }
     }
     .slot-text {
-      height: calc(90px * 3);
+      height: calc(90px * 1.1 * 5);
+      > div {
+        transition-duration: 500ms;
+      }
       p {
-        font-size: 90px * 0.7;
-        height: calc(90px * 3);
+        height: calc(90px * 1.1 * 5);
+        font-size: 90px;
       }
     }
     .slogan-text {
@@ -365,10 +418,10 @@
       }
     }
     .slot-text {
-      height: calc(28px * 3);
+      height: calc(28px * 1.1 * 5);
       p {
-        font-size: 28px * 0.7;
-        height: calc(28px * 3);
+        height: calc(28px * 1.1 * 5);
+        font-size: 28px;
       }
     }
     .slogan-text {

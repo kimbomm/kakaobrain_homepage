@@ -1,31 +1,60 @@
 <template>
   <div ref="flow" class="flow">
     <div ref="backgroundFlow" class="background-flow">
-      <div class="flow-txt ani__left">
-        <span>Our core Value →</span>
-        <MainEasterEgg :order="0" :sec="5000" />
-        <span>¹Outstanding</span>
-        <MainEasterEgg :order="1" :sec="6000" />
-        <span>²actualized</span>
-        <MainEasterEgg :order="2" :sec="7000" />
-        <span>³open</span>
-        <MainEasterEgg :order="3" :sec="5000" />
-        <span>⁴impactful</span>
+      <div>
+        <div class="flow-txt ani__left">
+          <span>Our core Value →</span>
+          <MainEasterEgg :order="0" :sec="5000" />
+          <span>¹Outstanding</span>
+          <MainEasterEgg :order="1" :sec="6000" />
+          <span>²actualized</span>
+          <MainEasterEgg :order="2" :sec="7000" />
+          <span>³open</span>
+          <MainEasterEgg :order="3" :sec="5000" />
+          <span>⁴impactful</span>
+        </div>
+        <div class="flow-txt ani__left">
+          <span>Our core Value →</span>
+          <MainEasterEgg :order="0" :sec="5000" />
+          <span>¹Outstanding</span>
+          <MainEasterEgg :order="1" :sec="6000" />
+          <span>²actualized</span>
+          <MainEasterEgg :order="2" :sec="7000" />
+          <span>³open</span>
+          <MainEasterEgg :order="3" :sec="5000" />
+          <span>⁴impactful</span>
+        </div>
       </div>
-      <div class="flow-txt ani__right">
-        <span>
-          clr agent learning video qa video understanding multi-modal
-          understanding gm
-        </span>
+      <div>
+        <div class="flow-txt ani__right">
+          <span>
+            clr agent learning video qa video understanding multi-modal
+            understanding gm
+          </span>
+        </div>
+        <div class="flow-txt ani__right">
+          <span>
+            clr agent learning video qa video understanding multi-modal
+            understanding gm
+          </span>
+        </div>
       </div>
-      <div class="flow-txt ani__left">
-        <span>
-          largescale / kogpt engpt align/clip dall-e digital human pose api
-          facetalk bg blur
-        </span>
+      <div>
+        <div class="flow-txt ani__left">
+          <span>
+            largescale / kogpt engpt align/clip dall-e digital human pose api
+            facetalk bg blur
+          </span>
+        </div>
+        <div class="flow-txt ani__left">
+          <span>
+            largescale / kogpt engpt align/clip dall-e digital human pose api
+            facetalk bg blur
+          </span>
+        </div>
       </div>
     </div>
-    <div class="article-list">
+    <div ref="list" class="article-list">
       <template v-for="(item, index) in list">
         <Content
           :key="index"
@@ -58,10 +87,10 @@
     },
     async mounted() {
       await this.init()
-      window.addEventListener('scroll', this.onScroll)
+      await this.scrollBody.addEventListener('scroll', this.onScroll)
     },
     beforeDestroy() {
-      window.removeEventListener('scroll', this.onScroll)
+      this.scrollBody.removeEventListener('scroll', this.onScroll)
     },
     methods: {
       ...mapActions({
@@ -73,60 +102,89 @@
         })
         this.list = res.data.list
       },
-      onScroll() {
+      onScroll(e) {
+        const ref = this.$refs['flow']
+        const refList = this.$refs['list']
+        const refFlow = this.$refs['backgroundFlow']
+        let top = 0
         if (
-          window.scrollY >= this.$refs['flow'].offsetTop &&
-          window.scrollY <=
-            this.$refs['flow'].offsetTop +
-              this.$refs['flow'].offsetHeight -
-              window.innerHeight
+          this.scrollBody.scrollTop + window.innerHeight / 2 >=
+            ref.offsetTop + refList.offsetTop + refFlow.offsetHeight / 2 &&
+          refFlow.offsetTop + refFlow.offsetHeight <=
+            refList.offsetTop + refList.offsetHeight
         ) {
-          this.$refs['backgroundFlow'].classList.add('scrolled')
-          this.$refs['backgroundFlow'].style = `position: absolute; top: ${
-            window.scrollY - this.$refs['flow'].offsetTop
-          }px`
-        } else if (window.scrollY < this.$refs['flow'].offsetTop) {
-          this.$refs['backgroundFlow'].classList.remove('scrolled')
-          this.$refs['backgroundFlow'].style = 'position: absolute'
+          top =
+            this.scrollBody.scrollTop +
+            window.innerHeight / 2 -
+            (ref.offsetTop + refList.offsetTop + refFlow.offsetHeight / 2) +
+            refList.offsetTop
+          if (
+            top + refFlow.offsetHeight >
+            refList.offsetTop + refList.offsetHeight
+          ) {
+            top =
+              refList.offsetTop + refList.offsetHeight - refFlow.offsetHeight
+            refFlow.style = `position:absolute; top: ${top}px; transform: translateY(0)`
+          } else {
+            refFlow.style = ''
+            refFlow.classList.add('scrolled')
+          }
+        } else if (this.scrollBody.scrollTop < this.$refs['flow'].offsetTop) {
+          refFlow.style = ''
+          refFlow.classList.remove('scrolled')
         }
       }
     }
   }
 </script>
 <style lang="scss" scoped>
-  @keyframes ani-left {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(calc(-100% + 100vw));
-    }
-  }
-  @keyframes ani-right {
-    from {
-      transform: translateX(calc(-100% + 100vw));
-    }
-    to {
-      transform: translateX(0);
-    }
-  }
   .flow {
-    padding-top: 100vh;
     position: relative;
+    padding: 510px 0;
   }
   .background-flow {
     position: absolute;
-    min-height: 100vh;
-    top: 0;
     left: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    transition: top linear;
+    > div {
+      width: 100%;
+      display: inline-block;
+      vertical-align: middle;
+      white-space: nowrap;
+      &:nth-child(1) {
+        .flow-txt {
+          font-weight: 600;
+          color: $surface-1;
+          text-shadow: -1px -1px 0 $kakao-black, 1px -1px 0 $kakao-black,
+            -1px 1px 0 $kakao-black, 1px 1px 0 $kakao-black;
+        }
+      }
+      &:nth-child(2) {
+        font-weight: 400;
+        color: $kakao-black;
+        .flow-txt {
+          animation-duration: 100s;
+          &:nth-child(2) {
+            animation-delay: 50s;
+          }
+        }
+      }
+      &:nth-child(3) {
+        font-weight: 100;
+        color: $kakao-black;
+      }
+    }
     &.scrolled {
-      .flow-txt {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+
+      > div {
         &:nth-child(1) {
-          text-shadow: -1px -1px 0 $surface-4, 1px -1px 0 $surface-4,
-            -1px 1px 0 $surface-4, 1px 1px 0 $surface-4;
+          .flow-txt {
+            text-shadow: -1px -1px 0 $surface-4, 1px -1px 0 $surface-4,
+              -1px 1px 0 $surface-4, 1px 1px 0 $surface-4;
+          }
         }
         &:nth-child(2),
         &:nth-child(3) {
@@ -136,8 +194,19 @@
     }
   }
   .flow-txt {
+    &:nth-child(2) {
+      animation-delay: 50s;
+      animation-duration: 100s;
+      &.ani__left {
+        animation-name: ani-left2;
+      }
+      &.ani__right {
+        animation-name: ani-right2;
+      }
+    }
     font-size: 180px;
-    display: flex;
+    width: auto;
+    display: inline-flex;
     flex-wrap: nowrap;
     white-space: nowrap;
     align-items: center;
@@ -151,20 +220,6 @@
     &.ani__right {
       animation-name: ani-right;
     }
-    &:nth-child(1) {
-      font-weight: 600;
-      color: $surface-1;
-      text-shadow: -1px -1px 0 $kakao-black, 1px -1px 0 $kakao-black,
-        -1px 1px 0 $kakao-black, 1px 1px 0 $kakao-black;
-    }
-    &:nth-child(2) {
-      font-weight: 400;
-      color: $kakao-black;
-    }
-    &:nth-child(3) {
-      font-weight: 100;
-      color: $kakao-black;
-    }
     .easter-egg {
       flex: 0 0 190px;
       height: 190px;
@@ -174,7 +229,11 @@
     }
   }
   .article-list {
-    padding: 0 20px 500px;
+    padding: {
+      top: 550px;
+      left: 20px;
+      right: 20px;
+    }
     position: relative;
     z-index: 1;
     .article {
@@ -182,8 +241,11 @@
     }
   }
   @include pc-large {
+    .flow {
+      padding: 1004px 0;
+    }
     .article-list {
-      padding-bottom: 991px;
+      padding-top: 700px;
       .article {
         margin-top: 460px;
       }
@@ -197,8 +259,11 @@
     }
   }
   @include pc-4k {
+    .flow {
+      padding: 1545px 0;
+    }
     .article-list {
-      padding-bottom: 1440px;
+      padding-top: 840px;
       .article {
         margin-top: 770px;
       }
@@ -212,8 +277,11 @@
     }
   }
   @include tablet {
+    .flow {
+      padding: 407px 0;
+    }
     .article-list {
-      padding-bottom: 400px;
+      padding-top: 366px;
       .article {
         margin-top: 164px;
       }
@@ -227,6 +295,9 @@
     }
   }
   @include mobile {
+    .flow {
+      padding: 245px 0;
+    }
     .flow-txt {
       font-size: 50px;
       .easter-egg {
@@ -235,7 +306,7 @@
       }
     }
     .article-list {
-      padding: 0 0 240px;
+      padding-top: 150px;
       .article {
         margin-top: 70px;
         &[class*='l-ml'] {

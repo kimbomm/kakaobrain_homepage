@@ -1,9 +1,9 @@
 <template>
   <div class="innovation">
-    <div class="contents-selector l-ml-2 gl-6">
+    <div class="contents-selector">
       <FilterSelector :list="filter" />
     </div>
-    <div v-if="filter.length > 0" class="contents-sticker l-ml-3 gl-5">
+    <div v-if="filter.length > 0" class="contents-sticker">
       <ul>
         <li
           v-for="(item, index) in filter"
@@ -16,7 +16,7 @@
     </div>
 
     <div class="contents-list-text">
-      <DetailText :data="detailText" />
+      <DetailText :data="description[language]" />
     </div>
     <!-- reference: https://github.com/paulcollett/vue-masonry-css -->
     <masonry
@@ -60,9 +60,17 @@
     },
     data() {
       return {
-        detailText: {
-          itemType: 'pagaraph',
-          text: '우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다. 우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다. 우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다. 우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다. 우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다. 우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다. 우리가 획득한 성과와 논문에 대한 설명글이 들어갑니다.'
+        description: {
+          KR: {
+            itemType: 'pagaraph',
+            text: `왜 카카오브레인은 끊임없이 AI 기술을 오픈할까요? 공개와 공유의 문화가 기술을 진화시킵니다.
+            카카오브레인은 논문 발표와 코드 공개를 통해서 실질적인 핵심적인 기술로 쓰이며, 이것이 우리의 삶을 좀더 풍요롭게 할 수 있도록 최선을 다합니다.`
+          },
+          EN: {
+            itemType: 'pagaraph',
+            text: `Why does Kakao Brain constantly open its AI technology? A culture of openness and sharing evolves technology.
+            Kakao Brain publishes theses and opens the codes to make them available as practical core technologies. This way, we are doing our best to make our lives richer.`
+          }
         },
         pageData: {
           offset: 0,
@@ -92,10 +100,10 @@
       await this.init()
     },
     mounted() {
-      window.addEventListener('scroll', this.onScroll)
+      this.scrollBody.addEventListener('scroll', this.onScroll)
     },
     async beforeDestroy() {
-      await window.removeEventListener('scroll', this.onScroll)
+      await this.scrollBody.removeEventListener('scroll', this.onScroll)
       await this.setFilterList([])
     },
     methods: {
@@ -118,9 +126,10 @@
         const masonry = this.$refs.masonry.$el
         if (
           masonry.offsetHeight > 0 &&
-          masonry.offsetTop + masonry.offsetHeight > window.scrollY &&
+          masonry.offsetTop + masonry.offsetHeight >
+            this.scrollBody.scrollTop &&
           masonry.offsetTop + masonry.offsetHeight <
-            window.scrollY + window.innerHeight &&
+            this.scrollBody.scrollTop + window.innerHeight &&
           !this.isAdd
         ) {
           this.isAdd = true
@@ -145,9 +154,13 @@
     margin-bottom: 500px;
   }
   .contents-selector {
+    width: getWidth(6);
+    margin-left: getMargin(2);
     margin-bottom: 60px;
   }
   .contents-sticker {
+    width: getWidth(5);
+    margin-left: getMargin(3);
     margin-bottom: 60px;
     .item {
       display: inline-block;
@@ -159,6 +172,10 @@
   }
   .contents-list-text {
     margin-bottom: 200px;
+  }
+
+  /deep/ .Innovation {
+    margin-bottom: 70px;
   }
 
   @include pc-large {
@@ -188,6 +205,9 @@
     .contents-list-text {
       margin-bottom: 460px !important;
     }
+    /deep/ .Innovation {
+      margin-bottom: 100px;
+    }
   }
 
   @include tablet {
@@ -202,47 +222,34 @@
       margin-bottom: 100px;
     }
     .contents-sticker {
+      width: getWidth(6);
       margin-bottom: 40px;
+      margin-left: getMargin(2);
     }
-    .l-ml-3 {
-      margin-left: calc(
-        calc((100vw - 20px * 11) / 10) * 2 + 20px * 2
-      ) !important;
-    }
-    .gl-5 {
-      width: calc(
-        calc((100vw - 20px * 11) / 10) * 6 + 20px * (6 - 1)
-      ) !important;
+    /deep/ .Innovation {
+      margin-bottom: 50px;
     }
   }
   @include mobile {
     .innovation {
-      padding-top: 76px;
+      padding-top: 56px;
       margin-bottom: 200px;
     }
     .contents-selector {
+      width: 100%;
+      margin-left: 0;
       margin-bottom: 20px;
     }
     .masonry {
       padding: 0;
     }
-    .l-ml-2 {
-      margin-left: 0px !important;
-    }
-    .l-ml-3 {
-      margin-left: 0px !important;
-    }
-    .gl-6 {
-      width: 100% !important;
-    }
-    .gl-5 {
-      width: 100% !important;
-    }
 
     .contents-selector {
-      margin: 157px 0 20px;
+      margin: 100px 0 20px;
     }
     .contents-sticker {
+      width: 100%;
+      margin-left: 0;
       margin-bottom: 20px;
     }
   }

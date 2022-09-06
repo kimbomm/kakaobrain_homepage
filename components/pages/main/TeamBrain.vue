@@ -5,16 +5,19 @@
     <div class="team-content">
       <div>
         <p>
-          Someone who is making<br />
-          the world better on<br />
-          <span>kakaobrain.</span>
+          Recommendation<br />
+          keywords by<br />
+          <span>Kakao Brain.</span>
         </p>
         <span ref="count" class="team-number">{{ NUMBER }}</span>
       </div>
       <div class="team-members">
         <ul>
           <li v-for="(item, index) in list" :key="index">
-            <Tag :data="item" />
+            <Tag
+              :title="item[`title${language}`]"
+              @onClick="onClickKeyword(item)"
+            />
           </li>
         </ul>
       </div>
@@ -22,16 +25,12 @@
         <button class="more" title="더보기" @click="addTag" :disabled="isAll">
           <img src="@/assets/images/arrow-down.svg" alt="more button image" />
         </button>
-        <button class="apply" style="display: none">
-          <span class="apply-text">Apply!!!!! </span
-          ><span class="apply-mark">&nbsp;&nbsp;</span>
-        </button>
       </div>
     </div>
   </div>
 </template>
 <script>
-  import { mapActions } from 'vuex'
+  import { mapState, mapActions, mapMutations } from 'vuex'
   import Tag from '@/components/elements/Tag'
   export default {
     components: {
@@ -40,58 +39,68 @@
     data() {
       return {
         NUMBER: 0,
-        total: 81,
         pageData: {
           offset: 0,
-          limit: 20,
-          contentType: 'ALL',
-          targetLAng: this.$store.state.language
+          limit: 20
         },
         list: [],
-        tagTotal: 0
+        tagTotal: 0,
+        category: 'searchKeyword'
       }
     },
     computed: {
+      ...mapState(['language']),
       isAll() {
         return this.list.length === this.tagTotal
       }
     },
-    created() {
-      this.init()
-    },
-    mounted() {
-      window.addEventListener('scroll', this.onScroll)
+    async mounted() {
+      await this.init()
+      await this.scrollBody.addEventListener('scroll', this.onScroll)
     },
     beforeDestroy() {
-      window.removeEventListener('scroll', this.onScroll)
+      this.scrollBody.removeEventListener('scroll', this.onScroll)
     },
     methods: {
-      ...mapActions({
-        getTags: 'getTags'
-      }),
+      ...mapMutations(['setIsMenuOpen', 'setKeyword']),
+      ...mapActions(['getLibraryCategory', 'getTags']),
       onScroll() {
         if (
-          window.scrollY + window.innerHeight >=
+          this.scrollBody.scrollTop + window.innerHeight >=
           this.$refs['count'].offsetTop
         ) {
           setInterval(() => {
-            if (this.NUMBER < this.total) {
+            if (this.NUMBER < this.tagTotal) {
               this.NUMBER++
             }
           }, 400)
         }
       },
       async init() {
-        const res = await this.getTags(this.pageData)
+        const res = await this.getLibraryCategory({
+          category: this.category,
+          params: this.pageData
+        })
         this.list = res.data.list
         this.tagTotal = res.data.count
       },
       async addTag() {
         if (this.list.length < this.tagTotal) {
           this.pageData.offset += 20
-          const res = await this.getTags(this.pageData)
+          const res = await this.getLibraryCategory({
+            category: this.category,
+            params: this.pageData
+          })
           this.list = this.list.concat(res.data.list)
           this.tagTotal = res.data.count
+        }
+      },
+      onClickKeyword(data) {
+        if (data.prop && data.prop.link) {
+          window.open(data.prop.link, '_blank')
+        } else {
+          this.setKeyword(data[`title${this.language}`])
+          this.$nuxt.$emit('onSearch', true)
         }
       }
     }
@@ -134,6 +143,7 @@
             font-size: 266px;
             line-height: 1;
             font-weight: 100;
+            letter-spacing: -15px;
           }
         }
       }
@@ -271,7 +281,7 @@
   }
   @include tablet {
     .team {
-      margin-bottom:300px;
+      margin-bottom: 300px;
       &-title {
         font-size: 16px;
       }

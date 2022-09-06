@@ -1,8 +1,8 @@
 <template>
-  <div class="innovation">
-    <div ref="innovation">
+  <div class="innovation" ref="innovation">
+    <div class="scroll-box" ref="scrollBox">
       <transition name="slideInRight">
-        <ul v-show="isShow" ref="list" class="innovation-list l-pl-2">
+        <ul v-show="isShow" ref="list" class="innovation-list">
           <li v-for="(item, index) in list" :key="index" class="gl-3">
             <InnovationCard
               :isMainCard="true"
@@ -21,9 +21,23 @@
   </div>
 </template>
 <script>
-  import { mapActions } from 'vuex'
+  import { mapState, mapActions } from 'vuex'
   import InnovationCard from '@/components/elements/card/InnovationCard'
   export default {
+    props: {
+      flag: {
+        type: Boolean,
+        default: false
+      },
+      start: {
+        type: Boolean,
+        default: true
+      },
+      end: {
+        type: Boolean,
+        default: false
+      }
+    },
     components: {
       InnovationCard
     },
@@ -34,51 +48,72 @@
           offset: 0,
           limit: 8,
           contentType: 'THESIS',
-          targetLang: 'KR'
+          targetLang: 'EN'
         },
         list: []
       }
     },
-    mounted() {
-      this.init()
-      window.addEventListener('scroll', this.onScroll)
-      // this.$refs['list'].addEventListener('wheel', e => {
-      //   this.cardWheelEvent(e)
-      // })
+    computed: {
+      ...mapState({
+        language: state => state.language
+      })
     },
-    beforeDestroy() {
-      window.removeEventListener('scroll', this.onScroll)
-      // this.$refs['list'].removeEventListener('wheel', e => {
-      //   this.cardWheelEvent(e)
-      // })
+    watch: {
+      flag(val) {
+        if (val) {
+          // setTimeout(() => {
+          //   this.isChanged = false
+          // }, 1000)
+        }
+      }
+    },
+    async mounted() {
+      await this.init()
+      await this.scrollBody.addEventListener('scroll', this.onScroll)
+      await this.scrollBody.addEventListener('wheel', this.cardWheelEvent)
+    },
+    async beforeDestroy() {
+      await this.scrollBody.removeEventListener('scroll', this.onScroll)
+      await this.scrollBody.removeEventListener('wheel', this.cardWheelEvent)
     },
     methods: {
       ...mapActions({
         getContentList: 'getContentList'
       }),
       async init() {
+        this.pageData.targetLang = this.language
         const res = await this.getContentList(this.pageData)
         this.list = res.data.list
+        this.isShow = true
       },
       onScroll() {
         if (
-          window.scrollY + window.innerHeight >
+          this.scrollBody.scrollTop + window.innerHeight >
           this.$refs['innovation'].offsetTop
         ) {
           if (!this.isShow) {
             this.isShow = true
-            this.$refs['list'].addEventListener('wheel', e => {
-              this.cardWheelEvent(e)
-            })
           }
         }
       },
       cardWheelEvent(e) {
+        const ref = this.$refs['list']
+        const refScrollBox = this.$refs['scrollBox']
         const wheelX = Math.abs(e.deltaX)
         const wheelY = Math.abs(e.deltaY)
-        if (wheelY > wheelX) {
-          e.preventDefault()
-          this.$refs['list'].scrollLeft += e.deltaY * 0.2
+        if (this.flag) {
+          if (wheelY > wheelX) {
+            refScrollBox.scrollLeft += Math.floor(e.deltaY) * 0.2
+          }
+          setTimeout(() => {
+            const isEnd =
+              ref.offsetWidth > refScrollBox.offsetWidth
+                ? refScrollBox.scrollLeft >=
+                  refScrollBox.scrollWidth - refScrollBox.offsetWidth - 10
+                : true
+            this.$emit('update:start', refScrollBox.scrollLeft === 0)
+            this.$emit('update:end', isEnd)
+          }, 500)
         }
       }
     }
@@ -100,25 +135,26 @@
     margin-left: $gutter;
     display: flex;
     align-items: center;
-    > div {
+    .scroll-box {
       width: 100%;
-    }
-    &-list {
       overflow-x: auto;
-      transition: all 0.3s linear;
-      width: 100%;
-      padding: 70px 0;
-      display: flex;
-      flex-wrap: nowrap;
+      white-space: nowrap;
+      padding: 70px getMargin(2);
       -ms-overflow-style: none; /* IE and Edge */
       scrollbar-width: none; /* Firefox */
       &::-webkit-scrollbar {
         display: none; /* Chrome, Safari, Opera*/
       }
-      padding-right: getMargin(2);
+    }
+    &-list {
+      transition: all 0.3s linear;
+      display: inline-flex;
+      flex-wrap: nowrap;
+
       li {
         margin-right: 100px;
         flex: 0 0 getWidth(3);
+        white-space: normal;
         &:last-child {
           flex: 0;
           display: inline-flex;
@@ -169,9 +205,11 @@
       height: 570px;
       margin-left: 0;
       width: 100%;
+      .scroll-box {
+        padding: 0 20px;
+      }
     }
     .innovation-list {
-      padding: 0 20px !important;
       li {
         flex: 0 0 300px;
         margin-right: 20px;

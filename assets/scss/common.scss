@@ -2,7 +2,29 @@ html,
 body {
   scroll-behavior: smooth;
   font-family: 'NotoSansKR', 'Inter', sans-serif;
+  word-break: keep-all;
 }
+html,
+body,
+#__nuxt,
+#__layout {
+  height: 100%;
+  overflow: hidden;
+}
+.wrap {
+  height: 100%;
+  overflow-y: auto;
+  // scroll-behavior: smooth;
+}
+
+.hide-target {
+  transition: all 0.5s linear;
+}
+.is-hide {
+  opacity: 0;
+  transform: translateY(-100%);
+}
+
 .btn {
   padding: 8px 14px;
   border: 1px solid $gray-9;
@@ -31,13 +53,6 @@ body {
   @include mobile() {
     margin-left: -2px;
     margin-right: -6px;
-  }
-}
-.icon {
-  &-sns {
-    width: 34px;
-    height: 34px;
-    border-radius: 50px;
   }
 }
 .string {
@@ -99,60 +114,95 @@ body {
     text-align: right !important;
   }
 }
+.pc-only {
+  @include mobile {
+    display: none;
+  }
+}
+.tablet-only {
+  display: none;
+  @include tablet {
+    display: block;
+  }
+}
+.mo-only {
+  display: none;
+  @include mobile {
+    display: inline;
+  }
+}
 
 .text {
   &-h1 {
-    font-size: 90px;
+    font-size: map-get($font, h1);
     color: $gray-9;
     font-weight: 900;
     line-height: 1.2;
+    @include pc-large() {
+      font-size: map-get($font-large, h1);
+    }
+    @include pc-4k() {
+      font-size: map-get($font-4k, h1);
+    }
+    @include tablet() {
+      font-size: map-get($font-tablet, h1);
+    }
+    @include mobile() {
+      font-size: map-get($font-mobile, h1);
+    }
   }
   &-h2 {
-    font-size: 40px;
+    font-size: map-get($font, h2);
     color: $gray-9;
     font-weight: 900;
     line-height: 1.3;
     @include pc-large() {
-      font-size: 52px;
+      font-size: map-get($font-large, h2);
     }
     @include pc-4k() {
-      font-size: 80px;
+      font-size: map-get($font-4k, h2);
     }
     @include tablet() {
-      font-size: 38px;
+      font-size: map-get($font-tablet, h2);
     }
     @include mobile() {
-      font-size: 30px;
+      font-size: map-get($font-mobile, h2);
     }
   }
   &-h3 {
-    font-size: 20px;
+    font-size: map-get($font, h3);
     color: $gray-9;
     font-weight: 900;
     line-height: 1.3;
     @include pc-large() {
-      font-size: 30px;
+      font-size: map-get($font-large, h3);
     }
     @include pc-4k() {
-      font-size: 42px;
+      font-size: map-get($font-4k, h3);
     }
     @include tablet() {
-      font-size: 20px;
+      font-size: map-get($font-tablet, h3);
+    }
+    @include mobile() {
+      font-size: map-get($font-mobile, h3);
     }
   }
   &-h4 {
-    font-size: 16px;
+    font-size: map-get($font, default);
     color: $gray-9;
     font-weight: 600;
     line-height: 1.5;
     @include pc-large() {
-      font-size: 22px;
+      font-size: map-get($font-large, default);
     }
     @include pc-4k() {
-      font-size: 32px;
+      font-size: map-get($font-4k, default);
     }
     @include tablet() {
-      font-size: 14px;
+      font-size: map-get($font-tablet, default);
+    }
+    @include mobile() {
+      font-size: map-get($font-mobile, default);
     }
   }
   &-content {
@@ -177,6 +227,38 @@ body {
   .slogan-desp {
     .br {
       display: block;
+    }
+  }
+}
+.common-search {
+  background-image: url('../images/icon-search.png');
+}
+.btn-search-close {
+  background-image: url('../images/icon-search-close.png');
+}
+@include tablet {
+  .common-search {
+    background-image: url('../images/icon-search_m.png');
+  }
+  .btn-search-close {
+    background-image: url('../images/icon-search-close_m.png');
+  }
+}
+.btn-lang {
+  &.KR {
+    background-image: url('../images/icon-kr.png');
+  }
+  &.EN {
+    background-image: url('../images/icon-en.png');
+  }
+}
+@include tablet {
+  .btn-lang {
+    &.KR {
+      background-image: url('../images/icon-kr-mo.png');
+    }
+    &.EN {
+      background-image: url('../images/icon-en-mo.png');
     }
   }
 }

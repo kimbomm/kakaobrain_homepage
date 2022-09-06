@@ -1,9 +1,5 @@
 <template>
-  <div class="monthly l-ml-3">
-    <div class="detail gl-5">
-      <div class="detail-subTit">{{ data.text }}</div>
-    </div>
-  </div>
+  <div class="detail-subTit">{{ data.text }}</div>
 </template>
 <script>
   export default {
@@ -23,57 +19,43 @@
   }
 </script>
 <style lang="scss" scoped>
-  @import '@/assets/scss/mixins.scss';
-
-  .detail {
-    margin-bottom: 30px;
-    &-subTit {
-      line-height: 130%;
-      font-size: 40px;
-      font-weight: 900;
-    }
+  .detail-subTit {
+    width: getWidth(5);
+    margin-left: getMargin(3);
+    line-height: 130%;
+    font-weight: 900;
+    font-size: map-get($font, h2);
+    line-height: 1.3;
+    margin-bottom: calc(#{map-get($font, h2)}* 1.3);
   }
 
   @include pc-large {
-    .detail {
-      &-subTit {
-        font-size: 52px;
-      }
+    .detail-subTit {
+      font-size: map-get($font-large, h2);
+      margin-bottom: calc(#{map-get($font-large, h2)} * 1.3);
     }
   }
 
   @include pc-4k {
-    .detail {
-      &-subTit {
-        font-size: 78px;
-      }
+    .detail-subTit {
+      font-size: map-get($font-4k, h2);
+      margin-bottom: calc(#{map-get($font-4k, h2)} * 1.3);
     }
   }
 
   @include tablet {
-    .detail {
-      &-subTit {
-        font-size: 32px;
-      }
-    }
-    .l-ml-3 {
-      margin-left: calc(
-        calc((100vw - 20px * 11) / 10) * 2 + 20px * 2
-      ) !important;
+    .detail-subTit {
+      font-size: map-get($font-tablet, h2);
+      margin-bottom: calc(#{map-get($font-tablet, h2)} * 1.3);
+      margin-left: getMargin(2);
     }
   }
   @include mobile {
-    .detail {
-      // padding: 0 20px;
-      &-subTit {
-        font-size: 26px;
-      }
-    }
-    .gl-5 {
-      width: 100% !important;
-    }
-    .l-ml-3 {
-      margin-left: 0px !important;
+    .detail-subTit {
+      width: 100%;
+      margin-left: 0;
+      font-size: map-get($font-mobile, h2);
+      margin-bottom: calc(#{map-get($font-mobile, h2)} * 1.3);
     }
   }
 </style>

@@ -27,7 +27,7 @@
     </div>
     <div class="copy">
       <p>
-        Copyright ⓒ kakaobrain Corp. <br />
+        Copyright ⓒ Kakao Brain Corp. <br />
         All rights reserved.
       </p>
     </div>
@@ -80,11 +80,11 @@
 </script>
 <style lang="scss" scoped>
   .menu-footer {
-    margin-top: 100px;
+    margin-top: 140px;
     ul {
       display: flex;
-      flex-wrap: wrap;
       margin-bottom: 22px;
+      white-space: nowrap;
       &:last-child {
         margin-bottom: 0;
       }
@@ -95,6 +95,7 @@
         font-size: 12px;
         line-height: 1.3;
         color: #fff;
+        font-weight: 600;
       }
     }
   }
@@ -123,5 +124,10 @@
     font-size: 12px;
     line-height: 1.3;
     color: $surface-6;
+  }
+  @include mobile {
+    .menu-footer {
+      margin-top: 100px;
+    }
   }
 </style>

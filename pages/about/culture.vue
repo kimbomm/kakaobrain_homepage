@@ -33,6 +33,22 @@
   export default {
     mixins: [mixinGlobal],
     name: 'index',
+    head() {
+      return {
+        meta: [
+          {
+            hid: 'og:url',
+            property: 'og:url',
+            content: 'https://kakaobrain.com/culture'
+          },
+          {
+            hid: 'og:image',
+            property: 'og:image',
+            content: `${process.env.BASE_URL}/meta/meta_homepage_about.png`
+          }
+        ]
+      }
+    },
     components: {
       BreadCrumb,
       AboutTitle,
@@ -177,6 +193,7 @@
     .top-section {
       display: block;
       height: auto;
+      margin-top: 60px;
     }
     .bread-crumb {
       padding: 0 20px;

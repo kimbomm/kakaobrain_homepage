@@ -21,20 +21,24 @@
               </li>
             </ul>
           </div>
-          <div class="archive-thumbnail">
-            <img :src="require(`@/assets/images/archive_img_1.png`)" />
-          </div>
+          <div
+            v-if="thumbnail"
+            class="archive-thumbnail"
+            :style="`background-image: url(${thumbnail})`"
+          ></div>
         </div>
       </div>
     </div>
   </nuxt-link>
 </template>
 <script>
+  import { mapActions } from 'vuex'
   export default {
     name: 'ArchiveCard',
     props: {
       data: {
-        type: Object
+        type: Object,
+        default: () => {}
       },
       isMainCard: {
         type: Boolean,
@@ -48,6 +52,11 @@
         type: String,
         default: '',
         require: false
+      }
+    },
+    data() {
+      return {
+        thumbnail: null
       }
     },
     computed: {
@@ -65,25 +74,50 @@
 
         return classList.join(' ')
       }
+    },
+    watch: {
+      data: {
+        deep: true,
+        async handler(val) {
+          if (this.data.titleMediaId) {
+            this.thumbnail = `${this.$config.baseURL}${this.data.titleMediaId}`
+          } else if (
+            this.data.contentProp &&
+            Object.keys(this.data.contentProp).includes('mediaId')
+          ) {
+            this.thumbnail = `${this.$config.baseURL}${this.data.contentProp.mediaId}`
+          }
+        }
+      }
+    },
+    async mounted() {
+      await this.setThumnail()
+    },
+    methods: {
+      ...mapActions(['getContentDetail']),
+      setThumnail() {
+        if (this.data.titleMediaId) {
+          this.thumbnail = `${this.$config.baseURL}${this.data.titleMediaId}`
+        } else if (
+          this.data.contentProp &&
+          Object.keys(this.data.contentProp).includes('mediaId')
+        ) {
+          this.thumbnail = `${this.$config.baseURL}${this.data.contentProp.mediaId}`
+        }
+      }
     }
   }
 </script>
 <style lang="scss" scoped>
-  @import '@/assets/scss/mixins.scss';
-  .area {
-    .archive {
-    }
-  }
   .archive {
     position: relative;
     display: inline-block;
-    max-width: 360px;
-    min-width: 300px;
+    width: 100%;
     box-shadow: 30px 30px 50px -10px #cfd0d3;
     background-color: $gray-0;
     color: $gray-9;
     box-sizing: border-box;
-    word-break: break-all;
+    word-break: keep-all;
     &:not(:last-child) {
       margin-right: 20px;
     }
@@ -99,7 +133,7 @@
       padding: 20px 20px 0;
       font-size: 30px;
       font-weight: 400;
-      word-break: break-all;
+      overflow-wrap: anywhere;
     }
     &-con {
       .tag {
@@ -117,13 +151,12 @@
       }
     }
     &-thumbnail {
-      img {
-        width: 100%;
-      }
+      height: 200px;
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
     }
     &.main-card {
-      min-width: initial;
-      max-width: initial;
       width: getWidth(2);
     }
   }
@@ -149,6 +182,9 @@
           }
         }
       }
+      &-thumbnail {
+        height: 250px;
+      }
     }
   }
   @include pc-4k {
@@ -167,11 +203,17 @@
           }
         }
       }
+      &-thumbnail {
+        height: 380px;
+      }
     }
   }
   @include tablet {
     .archive.main-card {
       width: getWidth(3);
+    }
+    .archive-thumbnail {
+      height: 140px;
     }
   }
   @include mobile {

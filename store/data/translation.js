@@ -2,11 +2,13 @@ const ABOUT = {
   question: {
     KR: {
       aboutTitleText: {
-        text: '카카오브레인은차별화된 요소 기술과 빅 모델 및 디지털 휴먼을 완성하는 AI 프론티어로서 기술 커뮤니티에 기여하고,사용 가치와 삶의 질을 높이는 새로운 서비스 영역을 개척합니다.'
+        text: '카카오브레인은 차별화된 요소 기술과 빅 모델 및 디지털 휴먼을 완성하는 AI 프론티어로서 기술 커뮤니티에 기여하고, 사용 가치와 삶의 질을 높이는 새로운 서비스 영역을 개척합니다.'
       },
       aboutConA: {
-        title:
-          '생각하지 못한 물음으로부터기술을 발전시키고, 모두의 생활을변화시킵니다.',
+        title: `생각하지 못한<br/>
+        물음으로부터 기술을 발전시키고,<br/>
+        모두의 생활을 변화시킵니다.
+        `,
         text: 'Unthinkable question makes impactful answer.'
       },
       visionList: [
@@ -66,7 +68,7 @@ const ABOUT = {
         title: 'Our Brand'
       },
       aboutConTxtBData: {
-        text: '생각지도 못한 질문에서 예상치 못한 답을 찾는카카오브레인 크루들이 AI로 만들어가는 새로운 여정과 이야기를여러분과 공유합니다.'
+        text: '생각지도 못한 질문에서 예상치 못한 답을 찾는 카카오브레인 크루들이 AI로 만들어가는 새로운 여정과 이야기를 여러분과 공유합니다.'
       },
       aboutConC: {
         title: 'Unthinkable Question',
@@ -80,11 +82,14 @@ const ABOUT = {
     },
     EN: {
       aboutTitleText: {
-        text: 'kakaobrain is...</br>As an AI frontier that completes differentiated element technology, big models, and digital humans, it contributes to thetechnology community and pioneers new service areas that enhance the value of use and quality of life.'
+        text: `
+        As a company at the AI frontier working on its core research,
+        large-scale AI model and digital humans, Kakao Brain contributes to the tech community and explores new service areas to improve value and quality of life.
+        `
       },
       aboutConA: {
         title:
-          'We develop technology from unthinkable questions &amp; change everyone&rsquo;s lives.',
+          'We develop technology from unthinkable questions and bring changes to everyone’s life.',
         text: 'Unthinkable question makes impactful answer.'
       },
       visionList: [
@@ -92,41 +97,41 @@ const ABOUT = {
           num: '¹',
           txt: 'outstanding',
           subtxt:
-            'Top-notch experts gather to develop innovative technologies that are the basis for solving all problems.'
+            'The world-class experts are developing innovative technologies that are fundamental to solving all kinds of problems.'
         },
         {
           num: '²',
           txt: 'actualized',
           subtxt:
-            'It pioneers technology-based business areas and materializes them into services that improve quality of life.'
+            'We explore business areas built on technology and make services to improve quality of life into a reality.'
         },
         {
           num: '³',
           txt: 'open',
           subtxt:
-            'By disclosing and sharing technical know-how, it contributes to the AI ecosystem and creates new value.'
+            'By opening and sharing technical know-how, Kakao Brain contributes to the AI community to create new values.'
         },
         {
           num: '⁴',
           txt: 'impactful',
           subtxt:
-            'Leads valuable changes in the world so that everyone can live a better life.'
+            'We make valuable changes in the world so that everyone can live a better life.'
         }
       ],
       aboutConB: {
         title:
-          'Create the impactof the world in a way thatno one has thought of.',
+          'We seek to create an impact in the world with unthinkable ideas.',
         content: [
           {
             title: 'Open Research.',
             sub: [
               {
                 title: 'Create Novel Algorithm',
-                text: 'Prospect future deep learning prior research anddevelop original algorithms to lay the foundation for newchallenges.'
+                text: 'We forecast the future in deep learning research and develop original algorithms to build the foundation for new challenges.'
               },
               {
-                title: 'Develop Commercial-le vel Model',
-                text: 'By conducting application research and further expanding the model scale, we complete the technology and digital human necessary for service development.'
+                title: 'Develop Commercial-level Model',
+                text: 'By conducting applied research and further scaling up the AI model size, we work towards completing digital humans and technologies required for our service development.'
               }
             ]
           },
@@ -135,7 +140,7 @@ const ABOUT = {
             sub: [
               {
                 title: 'Make Impact Product',
-                text: 'Based on its own technology portfolio, it develops high value-added services that improve the quality of life of all users.'
+                text: 'Based on our own technology portfolio, we develop high value services that improve users’ quality of life.'
               }
             ]
           }
@@ -145,16 +150,16 @@ const ABOUT = {
         title: 'Our Brand'
       },
       aboutConTxtBData: {
-        text: 'People looking for unexpected answers from unthinkable questions, kakaobrain krews share with you the new journey and stories they are making with AI.'
+        text: 'We share with you the new journeys and stories that Kakao Brain krews are making with AI searching for unexpected answers to unthinkable questions.'
       },
       aboutConC: {
         title: 'Unthinkable Question',
         desp: [
-          'We are an AI company where specialists from various fields with various questions and thoughts gather to conflict each other&rsquo;s thoughts and know-how, creating new possibilities and dialectical values.',
-          'We are preparing for a world where everyone enjoys various benefits through leading AI technologies and high value-added services, and AI naturally permeates into everyone&rsquo;s daily lives and becomes natural like air.'
+          'We are an AI-specialized company where specialists from different fields with various questions and thoughts gather and collide with each other’s ideas and know-how to create new possibilities and dialectic values.',
+          'With the leading AI technology and high value services, we are preparing for a world in which AI is naturally permeated into people’s lives, where everyone can benefit.'
         ],
-        text: 'It captures flexible and diverse identities with its own design, and reflects the essence of circulation, harmony, artificial intelligence technology, development, and growth in terms of meaning and visual aspects as a motif.',
-        download: 'Click the button below to download the Brand file.'
+        text: 'Our unique design captures flexible and diverse identities and reflects the essence of cycle, harmony, AI technology, development, and growth in meaning and visual aspects.',
+        download: 'Click below to download our brand file.'
       }
     }
   },
@@ -164,11 +169,11 @@ const ABOUT = {
         title: 'Our way</br><span class="string">of working.</span>'
       },
       aboutTitleText: {
-        text: '자기 주도적으로 성잘할 수 있는 좋은 기회가 많이 주어지고,훌륭한 동료들을 통해 함께 성장할 수 있는 우리는 어떻게 일을 하고 있을지 알아봅니다.'
+        text: '자기 주도적으로 성장할 수 있는 좋은 기회가 많이 주어지고, 훌륭한 동료들을 통해 함께 성장하는 우리가 어떻게 일을 하고 있을지 알아봅니다.'
       },
       aboutConD: {
         title: '우리는 더 나은 결과를 위해 공개하고 공유해요',
-        text: '정보의 독점은 권력이 될 수 있고 수직적인 소통 구조를 만들어 크루들의 업무 자율성을 떨어뜨릴 수 잇습니다. 하지만 정보가 공유되면 업무의 자율성을 높이고, 집단지성의 효과를 크게 할 수 있습니다. 그래서 우리는 공유/공개를 위해 Notion, Slack, Google Workspace, Github과 같은 협업툴을 사용하고 누구나 접근하고 참여할 수 있게 합니다.공유/공개도 해야 되는&lsquo;일&rsquo;이지만, 공유가 최종 목적은 아닙니다. 효율적으로 일하는 방식을 끊임없이 고민하며 우리가 함께 성장 할 수 있도록 서로 돕습니다.또한 올바른 공개 문화를 위해 보안을 지키고 크루끼리만 공유합니다.'
+        text: '정보의 독점은 권력이 될 수 있고 수직적인 소통 구조를 만들어 크루들의 업무 자율성을 떨어뜨릴 수 있습니다. 하지만 정보가 공유되면 업무의 자율성을 높이고, 집단지성의 효과를 크게 할 수 있습니다. 그래서 우리는 공유/공개를 위해 Notion, Slack, Google Workspace, Github과 같은 협업툴을 사용하고 누구나 접근하고 참여할 수 있게 합니다.공유/공개도 해야 되는&lsquo;일&rsquo;이지만, 공유가 최종 목적은 아닙니다. 효율적으로 일하는 방식을 끊임없이 고민하며 우리가 함께 성장 할 수 있도록 서로 돕습니다.또한 올바른 공개 문화를 위해 보안을 지키고 크루끼리만 공유합니다.'
       },
       aboutConTit: {
         title: '우리는 스스로 몰입하고<br/>자기 주도적으로 일해요.'
@@ -215,21 +220,21 @@ const ABOUT = {
         title: 'Why do we do what we do?'
       },
       aboutConTxt2: {
-        text: 'This is a number one question for kakaobrain krews. We motivate ourselves.To lead, not to be led, by work,  one should always be the first to think, question, and act. Our preferred way of work is to trust you to work on your own with the belief that you are the best judge of your work.'
+        text: 'This is a number one question for Kakao Brain krews. We motivate ourselves.To lead, not to be led, by work,  one should always be the first to think, question, and act. Our preferred way of work is to trust you to work on your own with the belief that you are the best judge of your work.'
       },
       aboutConE: {
         title: 'We promote<br />“horizontal communication”.',
         text: `
         It means a culture in which everyone can freely express their opinions. Anyone can present their ideas in discussions regardless of their positions as if the organization is structured "horizontally". Also, everyone is welcome to talk directly to the CEO to discuss their concerns, and  our company-wide forums are held at all times.
         <br /><br />
-        With Kakaobrain’s ‘horizontal communication’, ideas and opinions discussed can lead to a better decision.After inconclusive discussions, when the moment comes a 'decision' must be made, each designated decision-makers are to make the final call.`
+        With Kakao Brain’s ‘horizontal communication’, ideas and opinions discussed can lead to a better decision.After inconclusive discussions, when the moment comes a 'decision' must be made, each designated decision-makers are to make the final call.`
       },
       aboutConF: {
         title: 'We strive for greater autonomy with less rules.',
         text: `
-        We try to minimize regulations that typically follows with any organizational culture as if it is non-existent. We try to promote as much autonomy throughout the possible decision-making process by encouraging active discussions between Kakaobrain krews.
+        We try to minimize regulations that typically follows with any organizational culture as if it is non-existent. We try to promote as much autonomy throughout the possible decision-making process by encouraging active discussions between Kakao Brain krews.
         <br/><br/>
-        In other words, we create a system with the least number of rules. Kakaobrain’s tendency  to make policy and rules naturally rather than artificially applies not only to work culture but also to employee benefits and perks.
+        In other words, we create a system with the least number of rules. Kakao Brain’s tendency  to make policy and rules naturally rather than artificially applies not only to work culture but also to employee benefits and perks.
         `,
         recruit:
           'Click below to explore our culture and recruitment process in detail.'
@@ -491,9 +496,9 @@ const PRIVACY = {
       {
         itemType: 'pagaraph',
         text: `
-          kakaobrain complies with the personal information protection regulations and guidelines under the statutes of the Personal Information Protection Act related laws for data subjects to use the service with confidence by protecting their valuable personal information.
+        Kakao Brain complies with the personal information protection regulations and guidelines under the statutes of the Personal Information Protection Act related laws for data subjects to use the service with confidence by protecting their valuable personal information.
         
-          According to the privacy policy, kakaobrain may use personal information obtained from data subjects for the following purposes in the following method. We also take measures to protect such information. 
+          According to the privacy policy, Kakao Brain may use personal information obtained from data subjects for the following purposes in the following method. We also take measures to protect such information. 
         `
       },
       {
@@ -503,7 +508,7 @@ const PRIVACY = {
       {
         itemType: 'pagaraph',
         text: `
-          kakaobrain website collects minimum personal information necessary for using the site, apart from personal information for job applications.
+        Kakao Brain website collects minimum personal information necessary for using the site, apart from personal information for job applications.
 
           [Application for employment - Filling out the application form]
 
@@ -538,7 +543,7 @@ const PRIVACY = {
       {
         itemType: 'pagaraph',
         text: `
-          kakaobrain uses personal information of the data subject within the scope stated in ‘2. Purpose of processing personal information,’ and it does not use or provide to other persons, companies, or institutions beyond such scope.
+        Kakao Brain uses personal information of the data subject within the scope stated in ‘2. Purpose of processing personal information,’ and it does not use or provide to other persons, companies, or institutions beyond such scope.
 
           However, the personal information of the data subject may be provided to a third party only in case of the following
           
@@ -553,7 +558,7 @@ const PRIVACY = {
       {
         itemType: 'pagaraph',
         text: `
-          1) kakaobrain outsources the following personal information processing to smoothly handle personal information and improve its services. We will notify the data subject in advance of any changes concerning the entity outsourced to process personal information (the outsourcee) or the outsourced work.
+          1) Kakao Brain outsources the following personal information processing to smoothly handle personal information and improve its services. We will notify the data subject in advance of any changes concerning the entity outsourced to process personal information (the outsourcee) or the outsourced work.
 
           - Entity outsourced with the work 1 (outsourcee): Midasin Co., Ltd.
           - Details of outsourced tasks: Operation of the job opening website and its management IT system, and operation and management of relevant job opening website and its management IT system
@@ -561,7 +566,7 @@ const PRIVACY = {
           - Entity outsourced with the work 2 (outsourcee): Wecruit Co., Ltd.
           - Details of outsourced tasks: Reference check (if applicable)
           
-          kakaobrain outsources the following personal information processing tasks to smoothly handle personal information and improve its services. We further manage and supervise the outsourcee to prevent it from not violating laws related to personal information protection.        
+          Kakao Brain outsources the following personal information processing tasks to smoothly handle personal information and improve its services. We further manage and supervise the outsourcee to prevent it from not violating laws related to personal information protection.        
         `
       },
       {
@@ -571,7 +576,7 @@ const PRIVACY = {
       {
         itemType: 'pagaraph',
         text: `
-        1) kakaobrain processes and retains personal information within the period of retention and use of personal information according to the statutes or within the period of retention and use of personal information agreed upon at the time of collecting personal information from data subjects. Such information will be destroyed without delay once the purpose for personal information processing is achieved.
+        1) Kakao Brain processes and retains personal information within the period of retention and use of personal information according to the statutes or within the period of retention and use of personal information agreed upon at the time of collecting personal information from data subjects. Such information will be destroyed without delay once the purpose for personal information processing is achieved.
 
         2) The personal information processing and retention period are as follows. Each of the following information will be destroyed without delay in case the data subject explicitly requests destruction.
         
@@ -587,7 +592,7 @@ const PRIVACY = {
       {
         itemType: 'pagaraph',
         text: `
-        1) kakaobrain destroys personal information without delay when the personal information becomes unnecessary owing to the expiry of the retention period, attainment of the purpose of processing the information, etc.
+        1) Kakao Brain destroys personal information without delay when the personal information becomes unnecessary owing to the expiry of the retention period, attainment of the purpose of processing the information, etc.
 
         2) Where the personal information must be retained despite the expiry of the retention period agreed upon by the data object, or attainment of the purpose of processing the information, etc. under other statutes (see ‘5. The period for processing and retaining personal information’), the relevant personal information shall be moved to a separate database (DB) or stored in a different location separate from other personal information.
         
@@ -605,7 +610,7 @@ const PRIVACY = {
       {
         itemType: 'pagaraph',
         text: `
-        The data subject may exercise rights concerning personal information protection for the following items at any time to kakaobrain.
+        The data subject may exercise rights concerning personal information protection for the following items at any time to Kakao Brain.
 
         - Request access to his/her own personal information
         - Request correction of personal information
@@ -616,9 +621,9 @@ const PRIVACY = {
         
         3) Where the data subject requests correction or deletion of personal information errors, such information will not be used or provided until the correction or deletion is complete.
         
-        4) kakaobrain does not collect personal information from children under the age of 14: Provided, That the rights of the legal representative concerning the processing of personal information of children under the age of 14 are guaranteed in the event where personal information of children under the age of 14 is collected.
+        4) Kakao Brain does not collect personal information from children under the age of 14: Provided, That the rights of the legal representative concerning the processing of personal information of children under the age of 14 are guaranteed in the event where personal information of children under the age of 14 is collected.
         
-        5) kakaobrain checks whether the person requesting access, correction, deletion, or suspension of processing according to the rights of the data subject is the person or a legitimate representative.        
+        5) Kakao Brain checks whether the person requesting access, correction, deletion, or suspension of processing according to the rights of the data subject is the person or a legitimate representative.        
         `
       },
       {
@@ -667,7 +672,7 @@ const PRIVACY = {
       {
         itemType: 'pagaraph',
         text: `
-        kakaobrain takes the following administrative, technical, and physical measures to ensure the safety of personal information.
+        Kakao Brain takes the following administrative, technical, and physical measures to ensure the safety of personal information.
 
         1) Establishment and implementation of the internal personal information management plan
         We establish and implement an ‘internal management plan for personal information’ based on the ‘criteria for measures to ensure the safety of personal information’.
@@ -698,7 +703,7 @@ const PRIVACY = {
       {
         itemType: 'pagaraph',
         text: `
-        kakaobrain designates a privacy officer to take overall responsibility concerning personal information processing and handle complaints and damage relief of data subjects related to personal information processing as follows.
+        Kakao Brain designates a privacy officer to take overall responsibility concerning personal information processing and handle complaints and damage relief of data subjects related to personal information processing as follows.
 
         Please contact the privacy officer or the person in charge below if you have any questions, opinions or any possibility of personal information divulgence while using the website. We will take measures without delay and notify you of the outcome.
         
@@ -732,8 +737,272 @@ const PRIVACY = {
     ]
   }
 }
+const ETHICS = {
+  KR: {
+    title: '사이버윤리실 안내',
+    ContentItems: [
+      {
+        itemType: 'pagaraph',
+        text: `카카오브레인 사이버윤리실은 카카오브레인 임직원의 불공정한 행위나 금품, 접대와 같은 부당한 요구, 회사 자산의 부당 사용이나 남용, 협력업체에 대한 부정 투자, 비공개 정보의 유출, 문서나 데이터의 조작, 기타 비리 및 부정 행위를 신고, 상담하는 곳입니다. 어떤 경우에도 제보자가 안심하고 제보할 수 있도록 신고 내용과 제보자의 신분은 철저하게 보호되며, 빠른 시일 내에 처리할 수 있도록 최선을 다할 것입니다.`
+      },
+      {
+        itemType: 'header',
+        text: `신고유형`
+      },
+      {
+        itemType: 'pagaraph',
+        text: `
+        - 이해관계자로부터 사례를 받는 경우
+        - 협력업체 선정의 투명성 결여
+        - 회사자산 부당 사용 및 남용
+        - 거래처에 대한 부정 투자
+        - 임직원의 이중취업
+        - 회사정보 유출
+        - 기타 도덕적 해이
+        - 성적 괴롭힘
+        - 직장내 괴롭힘
+        `
+      },
+      {
+        itemType: 'header',
+        text: `신고처`
+      },
+      {
+        itemType: 'pagaraph',
+        text: `<a class="link-tag" href="mailto:hotline@kakaobrain.com">[hotline@kakaobrain.com]</a>`
+      },
+      {
+        itemType: 'header',
+        text: `우편`
+      },
+      {
+        itemType: 'pagaraph',
+        text: `경기 성남시 분당구 판교역로241번길 20 미래에셋벤처타워 11층 (주)카카오브레인 윤리경영팀`
+      },
+      {
+        itemType: 'header',
+        text: `선물 및 향응 수수에 관한 윤리지침`
+      },
+      {
+        itemType: 'pagaraph',
+        text: `
+        카카오브레인 직원 및 그 가족 구성원들은 이해관계의 충돌을 일으킬 수 있는 어떠한 금품 및 향응을 받아서는 아니되며 경쟁사, 고객, 기타 업무상의 비지니스 파트너들도 금품 및 향응을 제공해서는 안됩니다. 선물 및 금품 수령시 즉시 반환이 원칙이며 이미 수령한 선물 및 금품은 컬처팀에 반납하여 추후 안내를 받아야 합니다. 카카오브레인 직원은 본인 및 가족 또는 지인의 이익을 위하여 선물, 사례, 사업상의 우대를 청하여서는 아니되며, 아래의 경우 문제가 발생할 수 있습니다.
+        
+        - 이해관계자가 카카오브레인 직원에게 식사, 향응 등을 제공하는 경우
+        - 이해관계자가 카카오브레인 직원의 경조사에 경조금 또는 화환을 제공하는 경우
+        - 이해관계자가 카카오브레인 직원에게 교육, 단합대회, 문화행사 등의 명분으로 강사료, 식대, 공연티켓 등을 제공하는 경우
+        - 이해관계자가 업무를 목적으로 카카오브레인 직원과 동행하면서 차량, 숙박비, 관광가이드 등의 편의를 제공하는 경우
+        - 이해관계자가 카카오브레인 직원에게 경품제공, 특별할인 등의 방식으로 편의를 제공하는 경우
+        `
+      }
+    ]
+  },
+  EN: {
+    title: 'Cyber Ethics Office Information',
+    ContentItems: [
+      {
+        itemType: 'pagaraph',
+        text: `
+        Kakao Brain’s Cyber Ethics Office is responsible for receiving reports or providing counseling concerning unfair actions by Kakao Brain executives and employees; unreasonable demands such as money or service; improper use or abuse of company assets; improper investment in business partners; divulgence of confidential information, manipulation of documents or data; and other irregularities or misconduct.
+        
+        In any case, we thoroughly protect the contents of the report and the identity of the informant for the informant to report with confidence, and we will do our best to handle it as soon as possible.
+        `
+      },
+      {
+        itemType: 'header',
+        text: `Report type`
+      },
+      {
+        itemType: 'pagaraph',
+        text: `
+        - When receiving honoraria from a stakeholder
+        - Lack of transparency in supplier selection
+        - Misuse and abuse of company assets
+        - Improper investment in customers
+        - Double employment of employees
+        - Divulgence of company information
+        - Other moral hazards
+        - Sexual harassment
+        - Workplace bullying
+        `
+      },
+      {
+        itemType: 'header',
+        text: `Report to`
+      },
+      {
+        itemType: 'pagaraph',
+        text: `<a class="link-tag" href="mailto:hotline@kakaobrain.com">[hotline@kakaobrain.com]</a>`
+      },
+      {
+        itemType: 'header',
+        text: `Postal address`
+      },
+      {
+        itemType: 'pagaraph',
+        text: `
+        Kakao Brain Ethical Management Team
+        11F Mirae Asset Venture Tower, 20 Pangyoyeok-ro 241beon-gil, Bundang-gu, Seongnam-si, Gyeonggi-do, Korea
+        `
+      },
+      {
+        itemType: 'header',
+        text: `Ethical Guidelines for Receiving Gifts and Entertainment`
+      },
+      {
+        itemType: 'pagaraph',
+        text: `
+        Kakao Brain employees and their family members shall not receive any money or entertainment that may cause a conflict of interest, and competitors, customers, and other business partners shall not offer money or entertainment.
+
+        In principle, the gift or money received shall be returned without delay. Gifts or money that has already been received shall be returned to the Culture Team for further guidance.
+
+        Kakao Brain employees shall not solicit gifts, honoraria, or business favors for the benefit of themselves and their family or acquaintances, and problems may arise in the case of the following.
+
+        - Where a stakeholder provides meals, entertainment, etc. to Kakao Brain employees
+        - Where a stakeholder provides money or a wreath for congratulations or condolences to Kakao Brain employees
+        - Where a stakeholder provides lecture fees, meals, and performance tickets to Kakao Brain employees in the name of training, company retreat, cultural event, etc.
+        - Where a stakeholder accompanies a Kakao Brain employee for the purpose of business and provides convenience such as vehicle, accommodation, and tour guide
+        - Where a stakeholder provides convenience to Kakao Brain employees in a way such as giving a gift or special discount
+        `
+      }
+    ]
+  }
+}
+
+const MAP = {
+  KR: {
+    MainTitle: '찾아오시는</br>길.',
+    MainTitleText:
+      '카카오브레인 크루가 모여 생각하지 못한 질문을 던지고 해답을 찾아가는 장소입니다.',
+    address: {
+      title: '주소',
+      text: '경기도 성남시 분당구 판교역로 152 12층'
+    },
+    method: {
+      title: '주변 버스',
+      list: [
+        {
+          name: '일반',
+          bus: ['101 15-1 330 350 357 370 380 382 55 260 390']
+        },
+        {
+          name: '마을',
+          bus: [
+            '602-1(일반형)(평일) 602-1(일반형)(휴일) 602-1(출퇴근맞춤형)',
+            '602-2(일반형)(평일) 602-2(출퇴근맞춤형) 71 73 73(맞춤형) 73-1 75 75(맞춤형) 812'
+          ]
+        },
+        {
+          name: '직행',
+          bus: ['4000 6003 9007 3000 1007 1009 5600 5700 6900 1007-1']
+        }
+      ],
+      info: {
+        title: '문의',
+        text: '<a href="mailto:contact@kakaobrain.com">contact@kakaobrain.com</a>으로 연락 바랍니다.'
+      }
+    }
+  },
+  EN: {
+    MainTitle: 'Maps<br/>& Directions',
+    MainTitleText:
+      'Innovation at Kakao Brain starts with questions from its krew members.',
+    address: {
+      title: 'Address',
+      text: '12F, 152, Pangyoyeok-ro, Bundang-gu, Seongnam-si, Gyeonggi-do, Republic of Korea'
+    },
+    method: {
+      title: 'Buses',
+      list: [
+        {
+          name: 'City Buses',
+          bus: ['101 15-1 330 350 357 370 380 382 55 260 390']
+        },
+        {
+          name: 'Maeul (Village) Buses',
+          bus: [
+            '602-1(General)(Weekdays) 602-1(General)(Weekends and Holidays) 602-1(Squirrel Bus)',
+            '602-2(General)(Weekdays) 602-2(Squirrel Bus) 71 73 73(Squirrel Bus) 73-1 75 75(Squirrel Bus) 812'
+          ]
+        },
+        {
+          name: 'G-Bus',
+          bus: ['4000 6003 9007 3000 1007 1009 5600 5700 6900 1007-1']
+        }
+      ],
+      info: {
+        title: 'Contact Us',
+        text: 'Send us an email to <a href="mailto:contact@kakaobrain.com">contact@kakaobrain.com</a>'
+      }
+    }
+  }
+}
+
+const SUBTITLE = {
+  research: {
+    KR: `왜 카카오브레인은 끊임없이 AI 기술을 오픈할까요? 공개와 공유의 문화가 기술을 진화시킵니다. 카카오브레인은 논문 발표와 코드 공개를 통해서 실질적인 핵심적인 기술로 쓰시고, 이것이 우리의 삶을 좀더 풍요롭게 할 수 있도록 최선을 다합니다.`,
+    EN: `Why does Kakao Brain constantly open its AI technology? A culture of openness and sharing evolves technology. Kakao Brain publishes theses and opens the codes to make them available as practical core technologies. This way, we are doing our best to make our lives richer.`
+  },
+  tech: {
+    KR: `카카오브레인은 생각하지 못한 물음으로부터, 세상을 변화시킬 해답을 찾아가는 팀입니다.<br/>
+    우리는 AI 선행 연구부터, 프로덕트까지 모든 스토리를 공개하며 공유합니다. 이러한 행동은 AI 커뮤니티에 기여하며, 그로 인해 우리의 삶이 좀 더 나아질 것을 믿기 때문입니다.`,
+    EN: `Kakao Brain is a seeking answers that will change the world from Unexpected Questions.<br/>
+    We open and share all the stories from prcedent research on AI to products. We believe these actions contribute to the AI community and make our lives a little better.`
+  },
+  document: {
+    KR: `왜 사과는 떨어지는 것일까? 생각하지 못한 물음이 세상을 바꿨습니다. 매월 카카오브레인은 생각하지 못한 물음을 던지고, 물음에 대한 답을 찾아가는 여정을 함께 나눕니다. 이러한 생각지 못한 물음의 여정들이 AI 기술을 좀더 강하게, 우리의 삶을 좀더 풍요롭게 할 수 있다고 믿습니다. 그럼, 함께 가볼까요?`,
+    EN: `Why do apples fall? An Unexpected Question changed the world. Every month, Kakao Brain asks Unexpected Questions and shares the journey to find answers. We believe that the journeys toward Unexpected Questions can make AI technology stronger and enrich our lives. So, would you like to jump in together?`
+  }
+}
+
+const LOGB = {
+  main: {
+    KR: {
+      title: 'Log B.',
+      description: `카카오브레인 크루들의 생각과 이야기들을 영상으로 공유합니다.`
+    },
+    EN: {
+      title: 'Log B.',
+      description: `We share the thoughts and stories of the Kakao Brain crew through video.`
+    }
+  },
+  talk: {
+    KR: {
+      title: 'Talk.',
+      description: `Curtis Unthinkable Question을 소개합니다.<br/>AI는 인간처럼 쉽게 배울 수 없을까요? AI는 메타버스, 블록체인과 결합되었을때 어떻게 세상이 변화될까요?<br/>세상의 모든 빌문에 대해 Curtis의 토크쇼에 초대합니다.`
+    },
+    EN: {
+      title: 'Talk.',
+      description: `Introducing the Curtis Unthinkable Question.<br/>Won’t AI be able learn as seamlessly as humans? How will the world change when AI is integrated into the metaverse and blockchain systems?<br/>Discover answers to all the world’s questions on Curtis’ talk show.`
+    }
+  },
+  conference: {
+    KR: {
+      title: 'Conference.',
+      description: `카카오브레인은 전체 카카오브레인 크루들이 모두 모여 매월 하루동안 AI 연구 성과와 AI 핵심 트렌드를 공유하는 미니컨을 진행합니다. 미니컨에서 공유된 정보와 이야기를 나눕니다.`
+    },
+    EN: {
+      title: 'Conference.',
+      description: `In kakaobrain, the entire kakaobrain crew gathers and conducts a mini conference to share the outcomes of AI research and AI core trends on one day every month. Come together to share information and narratives at the mini conference.`
+    }
+  },
+  vlog: {
+    KR: {
+      title: 'Vlog.',
+      description: `세상을 바꿀 AI 기술을 개발하고, 우리의 삶을 풍요롭게 만드는 AI 프러덕트를 만들어가면서 겪어내는 카카오브레인에 안과 밖의 이야기들을 나눕니다. 카카오브레인의 어제, 오늘 그리고 내일의 이야기를 공개합니다.`
+    },
+    EN: {
+      title: 'Vlog.',
+      description: `At kakaobrain, we share both stories about what happens both inside and outside the company as we develop AI technologies that will change the world and create AI products that enrich our lives. Discover the past, present and future of kakaobrain at our Vlog.`
+    }
+  }
+}
 
 export default {
   ABOUT,
-  PRIVACY
+  PRIVACY,
+  ETHICS,
+  MAP,
+  SUBTITLE,
+  LOGB
 }

@@ -1,9 +1,5 @@
 <template>
-  <div class="monthly l-ml-2">
-    <div class="detail gl-6">
-      <div class="detail-title">{{ text }}</div>
-    </div>
-  </div>
+  <div :class="classBind" v-html="text"></div>
 </template>
 <script>
   export default {
@@ -14,70 +10,77 @@
         default: '',
         required: true
       },
-      type: {
-        type: String,
-        default: '',
-        required: false
-      },
-      ml: {
-        type: String,
-        default: '',
-        required: false
+      contentProp: {
+        type: Object
+      }
+    },
+    computed: {
+      classBind() {
+        let classList = ['detail-title']
+        if (
+          this.contentProp &&
+          Object.keys(this.contentProp).includes('isTitleH2') &&
+          this.contentProp.isTitleH2
+        ) {
+          classList.push('detail-title__h2')
+        }
+        return classList.join(' ')
       }
     }
   }
 </script>
 <style lang="scss" scoped>
-  @import '@/assets/scss/mixins.scss';
-
-  .detail {
+  .detail-title {
+    margin-left: getMargin(2);
     margin-bottom: 60px;
-    &-title {
-      line-height: 120%;
-      font-size: 90px;
-      font-weight: 900;
-      word-break: keep-all;
+    width: getWidth(6);
+    line-height: 120%;
+    font-size: map-get($font, h1);
+    font-weight: 900;
+    word-break: keep-all;
+    &__h2 {
+      font-size: map-get($font, h1-sub);
     }
   }
 
   @include pc-large {
-    .detail {
+    .detail-title {
+      font-size: map-get($font-large, h1);
       margin-bottom: 100px;
-      &-title {
-        font-size: 120px;
+      &__h2 {
+        font-size: map-get($font-large, h1-sub);
       }
     }
   }
 
   @include pc-4k {
-    .detail {
+    .detail-title {
+      font-size: map-get($font-4k, h1);
       margin-bottom: 150px;
-      &-title {
-        font-size: 180px;
+      &__h2 {
+        font-size: map-get($font-4k, h1-sub);
       }
     }
   }
   @include tablet {
-    .detail {
+    .detail-title {
+      font-size: map-get($font-tablet, h1);
       margin-bottom: 40px;
-      &-title {
-        font-size: 50px;
+      &__h2 {
+        font-size: map-get($font-tablet, h1-sub);
       }
     }
   }
 
   @include mobile {
-    .detail {
+    .detail-title {
+      width: 100%;
+      margin-left: 0;
+      font-size: map-get($font-mobile, h1);
       margin-bottom: 20px;
-      &-title {
-        font-size: 30px;
+      &__h2 {
+        font-size: map-get($font-mobile, h1-sub);
       }
-    }
-    .gl-6 {
-      width: 100% !important;
-    }
-    .l-ml-2 {
-      margin-left: 0px !important;
     }
   }
 </style>

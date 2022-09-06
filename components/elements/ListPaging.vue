@@ -174,36 +174,14 @@
     .link {
       font-family: 'Inter';
       font-size: 16px;
-      padding: 0;
+      padding: 3px 0;
       font-weight: 400;
+      color: #000;
       &.active {
         font-weight: 600;
       }
       &.more {
         cursor: auto;
-      }
-    }
-  }
-  @include pc-4k {
-    .paging {
-      margin-top: 374px !important;
-      &-prev {
-        margin-right: 15px !important;
-        font-size: 26px !important;
-      }
-      &-next {
-        margin-left: 15px !important;
-        font-size: 26px !important;
-      }
-      &-num {
-        li {
-          &:not(:last-child) {
-            margin-right: 15px !important;
-          }
-        }
-        .link {
-          font-size: 26px !important;
-        }
       }
     }
   }
@@ -230,6 +208,31 @@
       }
     }
   }
+
+  @include pc-4k {
+    .paging {
+      margin-top: 374px;
+      &-prev {
+        margin-right: 15px;
+        font-size: 26px;
+      }
+      &-next {
+        margin-left: 15px;
+        font-size: 26px;
+      }
+      &-num {
+        li {
+          &:not(:last-child) {
+            margin-right: 15px;
+          }
+        }
+        .link {
+          font-size: 26px;
+        }
+      }
+    }
+  }
+
   @include tablet {
     .paging {
       margin-top: 150px;
@@ -276,7 +279,7 @@
         li {
           &:not(:last-child) {
             // margin-right: 12px;
-            margin-right: 8%;
+            margin-right: 5px;
           }
         }
         .link {

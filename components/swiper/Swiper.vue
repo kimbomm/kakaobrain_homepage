@@ -1,11 +1,12 @@
 <template>
   <div class="story-telling">
     <swiper
-      v-show="!isMobile && viewPortWidth > 768"
+      v-show="!device.mobile && viewPortWidth > 768"
       ref="mySwiper"
       class="swiper"
       :options="swiperOption"
       @slideChange="onSlideChange"
+      @touchEnd="onTouchEnd"
     >
       <swiper-slide v-for="(content, index) in data.ContentItems" :key="index">
         <div
@@ -27,7 +28,7 @@
       <div class="swiper-button-prev" slot="button-prev"></div>
       <div class="swiper-button-next" slot="button-next"></div>
     </swiper>
-    <div v-show="isMobile || viewPortWidth <= 768" class="mobile-story">
+    <div v-show="device.mobile || viewPortWidth <= 768" class="mobile-story">
       <ul>
         <li
           v-for="(content, index) in data.ContentItems"
@@ -108,6 +109,7 @@
           direction: 'vertical',
           slidesPerView: 1,
           spaceBetween: 0,
+          mousewheel: false,
           pagination: {
             el: '.swiper-pagination',
             type: 'fraction'
@@ -121,14 +123,13 @@
         timer: null,
         isChange: false,
         isEndSlide: false,
-        isMobile: false,
         isEventAdd: false,
         viewPortWidth: 0
       }
     },
     computed: {
       ...mapState({
-        touchDevice: state => state.touchDevice
+        device: state => state.device
       }),
       mySwiper() {
         return this.$refs.mySwiper.$swiper
@@ -138,80 +139,85 @@
       }
     },
     async mounted() {
-      await this.checkMobile()
+      // await this.checkMobile()
+
       this.$nextTick(async () => {
-        this.isEndSlide = this.isMobile || this.viewPortWidth <= 768
-        this.$nuxt.$emit('onSlideEnd', this.isEndSlide)
+        // this.device.mobile || this.viewPortWidth <= 768
+        //   ? this.scrollControl(document.querySelector('body'), 'enable')
+        //   : this.scrollControl(document.querySelector('body'), 'block')
         await this.resizeEvent()
-        await window.addEventListener('resize', this.resizeEvent)
+        await this.scrollBody.addEventListener('wheel', this.onWheel)
+        await this.scrollBody.addEventListener('resize', this.resizeEvent)
       })
     },
     async beforeDestroy() {
-      await this.removeEvent()
+      this.$nuxt.$emit('scrollLock', false)
+      // this.scrollControl(document.querySelector('body'), 'enable')
+      await this.scrollBody.removeEventListener('wheel', this.onWheel)
+      await this.scrollBody.removeEventListener('resize', this.resizeEvent)
     },
     methods: {
       async resizeEvent() {
         this.viewPortWidth = window.innerWidth
-        if (this.isMobile || this.viewPortWidth <= 768) {
-          await this.removeEvent()
-        } else {
-          await this.addEvent()
-        }
-      },
-      addEvent() {
-        if (!this.isEventAdd) {
-          this.isEventAdd = true
-          this.$nuxt.$emit('onSlideEnd', false)
-          document
-            .getElementsByClassName('swiper')[0]
-            .addEventListener('wheel', this.onWheel)
-        }
-      },
-      removeEvent() {
-        if (this.isEventAdd) {
-          this.isEventAdd = false
-          this.$nuxt.$emit('onSlideEnd', true)
-          document
-            .getElementsByClassName('swiper')[0]
-            .removeEventListener('wheel', this.onWheel)
-        }
-      },
-      checkMobile() {
-        const device = this.$device
-        this.isMobile = device.iphone || device.androidPhone || device.mobile
+        this.device.mobile || this.viewPortWidth <= 768
+          ? this.$nuxt.$emit('scrollLock', false)
+          : this.$nuxt.$emit('scrollLock', true)
+        // ? this.scrollControl(document.querySelector('body'), 'enable')
+        // : this.scrollControl(document.querySelector('body'), 'block')
       },
       onClick(index) {
         this.mySwiper.slideTo(index)
         this.isStory = false
       },
       onWheel(e) {
-        if (!this.isChange) {
-          this.isChange = true
-          if (e.deltaY > 0) this.onClick(this.mySwiper.activeIndex + 1)
-          if (e.deltaY < 0) this.onClick(this.mySwiper.activeIndex - 1)
-        } else {
-          e.preventDefault
-        }
-        if (this.timer !== null) {
-          clearTimeout(this.timer)
-        }
+        if (!this.device.mobile && this.viewPortWidth > 768) {
+          if (!this.isChange) {
+            this.isChange = true
+            if (e.deltaY > 0 && this.scrollBody.scrollTop === 0)
+              this.onClick(this.mySwiper.activeIndex + 1)
+            if (e.deltaY < 0 && this.scrollBody.scrollTop === 0)
+              this.onClick(this.mySwiper.activeIndex - 1)
+          } else {
+            e.preventDefault
+          }
+          if (this.timer !== null) {
+            clearTimeout(this.timer)
+          }
 
-        const _this = this
-        this.timer = setTimeout(function () {
-          _this.isChange = false
-        }, 66)
+          const _this = this
+          this.timer = setTimeout(function () {
+            _this.isChange = false
+          }, 66)
+        }
       },
       storyList() {
         this.isStory = !this.isStory
+        if (this.isStory) {
+          this.$nuxt.$emit('scrollLock', true)
+          // this.scrollControl(document.querySelector('body'), 'block')
+        } else if (this.swiperSize - 1 === this.mySwiper.activeIndex) {
+          this.$nuxt.$emit('scrollLock', false)
+          // this.scrollControl(document.querySelector('body'), 'enable')
+        }
       },
       onSlideChange() {
         this.isEndSlide = this.swiperSize - 1 === this.mySwiper.activeIndex
-        setTimeout(
-          () => {
-            this.$nuxt.$emit('onSlideEnd', this.isEndSlide)
-          },
-          this.isEndSlide ? 1000 : 0
-        )
+        this.isEndSlide
+          ? setTimeout(() => {
+              this.$nuxt.$emit('scrollLock', true)
+              // this.scrollControl(document.querySelector('body'), 'enable')
+            }, 1000)
+          : (window.scrollTo(0, 0), this.$nuxt.$emit('scrollLock', false))
+        // this.scrollControl(document.querySelector('body'), 'block'))
+        // setTimeout(
+        //   () => {
+        //     this.$nuxt.$emit('onSlideEnd', this.isEndSlide)
+        //   },
+        //   this.isEndSlide ? 1000 : 0
+        // )
+      },
+      onTouchEnd(swiper, event) {
+        console.log(swiper, event)
       },
       envVariable(url) {
         return `${this.$config.baseURL}${url}`
@@ -287,6 +293,7 @@
         font-weight: 900;
         margin-bottom: 40px;
         line-height: 120%;
+        word-break: break-word;
       }
       &-txt {
         font-size: 16px;
