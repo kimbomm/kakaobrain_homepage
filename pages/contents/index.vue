@@ -70,9 +70,9 @@
       let ogImageURL = `${process.env.BASE_URL}/metaimg.png`
       if (this.contentData) {
         if (this.contentData.contentProp.mediaId) {
-          ogImageURL = `${this.$config.url}${this.contentData.contentProp.mediaId}`
+          ogImageURL = `${this.$config.baseURL}${this.contentData.contentProp.mediaId}`
         } else if (this.contentData.titleMediaId) {
-          ogImageURL = `${this.$config.url}${this.contentData.titleMediaId}`
+          ogImageURL = `${this.$config.baseURL}${this.contentData.titleMediaId}`
         }
       }
       return {
