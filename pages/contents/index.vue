@@ -68,17 +68,13 @@
     },
     head() {
       const ogImage = () => {
-        let ogImageURL = this.$config.baseURL
+        let ogImageURL = `${process.env.BASE_URL}/metaimg.png`
         if (this.contentData) {
           if (this.contentData.contentProp.mediaId) {
-            ogImageURL += this.contentData.contentProp.mediaId
+            ogImageURL = `${this.$config.url}${this.contentData.contentProp.mediaId}`
           } else if (this.contentData.titleMediaId) {
-            ogImageURL += this.contentData.titleMediaId
-          } else {
-            ogImageURL = `${process.env.BASE_URL}/metaimg.png`
+            ogImageURL = `${this.$config.url}${this.contentData.titleMediaId}`
           }
-        } else {
-          ogImageURL = `${process.env.BASE_URL}/metaimg.png`
         }
         return ogImageURL
       }
