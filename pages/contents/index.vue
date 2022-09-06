@@ -93,7 +93,7 @@
           {
             hid: 'og:image',
             property: 'og:image',
-            content: ogImageURL
+            content: ogImage
             //
           }
         ]
