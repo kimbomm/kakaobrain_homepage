@@ -67,13 +67,23 @@
       }
     },
     head() {
+      const ogImage = () => {
+        let ogImageURL = `${process.env.BASE_URL}/metaimg.png`
+        if (this.contentData) {
+          if (this.contentData.contentProp.mediaId) {
+            ogImageURL = `${this.$config.url}${this.contentData.contentProp.mediaId}`
+          } else if (this.contentData.titleMediaId) {
+            ogImageURL = `${this.$config.url}${this.contentData.titleMediaId}`
+          }
+        }
+        return ogImageURL
+      }
       return {
-        // title: this.contentData.title,
         meta: [
           {
             hid: 'og:title',
             property: 'og:title',
-            content: this.contentData.title || '상세페이지'
+            content: this.contentData.title
           },
           {
             hid: 'og:url',
@@ -83,8 +93,8 @@
           {
             hid: 'og:image',
             property: 'og:image',
-            content: `${this.$config.baseURL}${this.contentData.contentProp.mediaId}`
-            // `${process.env.BASE_URL}/metaimg.png`
+            content: ogImageURL
+            //
           }
         ]
       }
