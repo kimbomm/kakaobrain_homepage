@@ -67,16 +67,13 @@
       }
     },
     head() {
-      const ogImage = () => {
-        let ogImageURL = `${process.env.BASE_URL}/metaimg.png`
-        if (this.contentData) {
-          if (this.contentData.contentProp.mediaId) {
-            ogImageURL = `${this.$config.url}${this.contentData.contentProp.mediaId}`
-          } else if (this.contentData.titleMediaId) {
-            ogImageURL = `${this.$config.url}${this.contentData.titleMediaId}`
-          }
+      let ogImageURL = `${process.env.BASE_URL}/metaimg.png`
+      if (this.contentData) {
+        if (this.contentData.contentProp.mediaId) {
+          ogImageURL = `${this.$config.url}${this.contentData.contentProp.mediaId}`
+        } else if (this.contentData.titleMediaId) {
+          ogImageURL = `${this.$config.url}${this.contentData.titleMediaId}`
         }
-        return ogImageURL
       }
       return {
         meta: [
@@ -93,7 +90,7 @@
           {
             hid: 'og:image',
             property: 'og:image',
-            content: ogImage
+            content: ogImageURL
             //
           }
         ]
