@@ -27,6 +27,12 @@ export const state = () => ({
   keyword: null
 })
 
+export const getters = {
+  getLanguage(state) {
+    return state.language
+  }
+}
+
 export const mutations = {
   setIsDark(state, payload) {
     state.isDark = payload
