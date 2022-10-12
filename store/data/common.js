@@ -1,7 +1,7 @@
 const menus = [
   {
     name: 'B^',
-    category: 'b^',
+    category: 'b',
     nick: 'B^',
     link: '',
     sub: [
