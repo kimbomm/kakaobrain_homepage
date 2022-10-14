@@ -1,5 +1,20 @@
 const menus = [
   {
+    name: 'B^',
+    category: 'b',
+    nick: 'B^',
+    link: '',
+    sub: [
+      {
+        category: 'discover',
+        nick: 'Discover',
+        name: 'Discover',
+        link: '/b/discover',
+        target: ''
+      }
+    ]
+  },
+  {
     name: 'About',
     category: 'about',
     nick: 'About',
