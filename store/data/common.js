@@ -7,9 +7,16 @@ const menus = [
     sub: [
       {
         category: 'discover',
-        nick: 'Discover',
-        name: 'Discover',
+        nick: 'DISCOVER',
+        name: 'DISCOVER',
         link: '/b/discover',
+        target: ''
+      },
+      {
+        category: 'healthcare',
+        nick: 'HEALTHCARE',
+        name: 'HEALTHCARE',
+        link: '/b/healthcare',
         target: ''
       }
     ]

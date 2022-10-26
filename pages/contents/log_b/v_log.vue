@@ -219,7 +219,7 @@
     width: getWidth(5);
     margin-left: getMargin(3);
   }
-  /deep/ .archive {
+  ::v-deep .archive {
     margin-bottom: 70px;
   }
 
@@ -235,7 +235,7 @@
       font-size: map-get($font-4k, default);
       margin-bottom: 300px;
     }
-    /deep/ .archive {
+    ::v-deep .archive {
       margin-bottom: 100px;
     }
   }
@@ -247,7 +247,7 @@
       margin-left: getMargin(2);
       width: getWidth(7);
     }
-    /deep/ .archive {
+    ::v-deep .archive {
       margin-bottom: 50px;
     }
   }
