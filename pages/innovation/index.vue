@@ -174,7 +174,7 @@
     margin-bottom: 200px;
   }
 
-  /deep/ .Innovation {
+  ::v-deep .Innovation {
     margin-bottom: 70px;
   }
 
@@ -205,7 +205,7 @@
     .contents-list-text {
       margin-bottom: 460px !important;
     }
-    /deep/ .Innovation {
+    ::v-deep .Innovation {
       margin-bottom: 100px;
     }
   }
@@ -226,7 +226,7 @@
       margin-bottom: 40px;
       margin-left: getMargin(2);
     }
-    /deep/ .Innovation {
+    ::v-deep .Innovation {
       margin-bottom: 50px;
     }
   }
