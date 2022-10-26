@@ -173,7 +173,7 @@
   .footer__story {
     padding-top: 500px;
     background-color: $gray-9;
-    /deep/ {
+    ::v-deep {
       .footer-bottom {
         color: $gray-0;
       }
@@ -213,7 +213,7 @@
     .footer__story {
       padding-top: 100px;
       background-color: $gray-0;
-      /deep/ {
+      ::v-deep {
         .footer-bottom {
           color: $gray-9;
         }
