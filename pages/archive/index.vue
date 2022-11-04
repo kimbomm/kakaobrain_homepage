@@ -169,7 +169,7 @@
   .contents-list-text {
     margin-bottom: 200px;
   }
-  /deep/ .archive {
+  ::v-deep .archive {
     margin-bottom: 70px;
   }
 
@@ -200,7 +200,7 @@
     .contents-list-text {
       margin-bottom: 460px !important;
     }
-    /deep/ .archive {
+    ::v-deep .archive {
       margin-bottom: 100px;
     }
   }
@@ -221,7 +221,7 @@
       margin-left: getMargin(2);
       margin-bottom: 40px;
     }
-    /deep/ .archive {
+    ::v-deep .archive {
       margin-bottom: 50px;
     }
   }
