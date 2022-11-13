@@ -954,8 +954,8 @@ const SUBTITLE = {
     EN: `Why do apples fall? An Unexpected Question changed the world. Every month, Kakao Brain asks Unexpected Questions and shares the journey to find answers. We believe that the journeys toward Unexpected Questions can make AI technology stronger and enrich our lives. So, would you like to jump in together?`
   },
   b: {
-    KR: `B^`,
-    EN: `B^`
+    KR: `카카오브레인이 헬스케어 AI 사업에 집중하는 까닭은 무엇일까요? 라지-스케일(Large-Scale) AI를 활용한 스마트 어시스턴트를 진단 및 치료 분야에 적용하면 그 누구도 생각하지 못했던 미래를 만들 수 있다고 믿기 때문입니다. 카카오브레인이 AI 헬스케어로 만들 “모두가 건강한 세상“, 기대하셔도 좋습니다.`,
+    EN: `What is Kakao Brain’s goal in the healthcare AI business? By applying Large scale AI to assist in diagnosis and treatment, we can create a future that no one could have imagined. Look forward to a “World where everyone is healthy” made by Kakao Brain.`
   }
 }
 
