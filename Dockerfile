@@ -10,6 +10,6 @@ EXPOSE 8086
 ENV HOST=0.0.0.0
 ENV PORT=8086
 
-RUN npm run build:stg
+RUN npm run build:prod
 
-CMD [ "npm", "run", "start:stg" ]
+CMD [ "npm", "run", "start:prod" ]
