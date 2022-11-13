@@ -61,6 +61,12 @@
       return {
         meta: [
           {
+            hid: 'og:description',
+            property: 'og:description',
+            content:
+              'Our innovation is to contribute our world-leading technology on large-scale AI models and Digital Human to the tech community, and to create services that improve the value and quality of life.'
+          },
+          {
             hid: 'og:image',
             property: 'og:image',
             content: `${process.env.BASE_URL}/metaimg.png`

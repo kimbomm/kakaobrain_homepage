@@ -45,7 +45,8 @@ export default {
       {
         hid: 'og:description',
         property: 'og:description',
-        content: 'Unthinkable question makes impactful answer.'
+        content:
+          'Our innovation is to contribute our world-leading technology on large-scale AI models and Digital Human to the tech community, and to create services that improve the value and quality of life.'
       },
       { hid: 'og:site_name', property: 'og:site_name', content: 'kakaobrain' },
       { hid: 'og:locale', property: 'og:locale', content: 'en_US' },

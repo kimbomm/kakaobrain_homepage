@@ -876,7 +876,7 @@ const MAP = {
       '카카오브레인 크루가 모여 생각하지 못한 질문을 던지고 해답을 찾아가는 장소입니다.',
     address: {
       title: '주소',
-      text: '경기도 성남시 분당구 판교역로 152 12층'
+      text: '경기도 성남시 판교역로 152 알파돔타워 12층 (주)카카오브레인'
     },
     method: {
       title: '주변 버스',
@@ -909,7 +909,7 @@ const MAP = {
       'Innovation at Kakao Brain starts with questions from its krew members.',
     address: {
       title: 'Address',
-      text: '12F, 152, Pangyoyeok-ro, Bundang-gu, Seongnam-si, Gyeonggi-do, Republic of Korea'
+      text: '12F, 152 Alpha Dome Tower, Pangyo Station-ro, Seongnam-si, Gyeonggi-do'
     },
     method: {
       title: 'Buses',
