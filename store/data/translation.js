@@ -777,7 +777,7 @@ const ETHICS = {
       },
       {
         itemType: 'pagaraph',
-        text: `경기 성남시 분당구 판교역로241번길 20 미래에셋벤처타워 11층 (주)카카오브레인 윤리경영팀`
+        text: `경기도 성남시 판교역로 152 알파돔타워 12층 (주)카카오브레인 윤리경영팀`
       },
       {
         itemType: 'header',
@@ -842,7 +842,7 @@ const ETHICS = {
         itemType: 'pagaraph',
         text: `
         Kakao Brain Ethical Management Team
-        11F Mirae Asset Venture Tower, 20 Pangyoyeok-ro 241beon-gil, Bundang-gu, Seongnam-si, Gyeonggi-do, Korea
+        12F, 152 Alpha Dome Tower, Pangyo Station-ro, Seongnam-si, Gyeonggi-do, Korea
         `
       },
       {
