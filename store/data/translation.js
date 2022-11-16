@@ -250,8 +250,8 @@ const PRIVACY = {
       {
         itemType: 'pagaraph',
         text: `
-          카카오브레인은 귀하의 소중한 개인정보를 보호함으로써 정보주체가 안심하고 서비스를 이용할 수 있도록 『개인정보 보호법』  관련 법령 상의 개인정보 보호규정 및 가이드라인을 준수하고 있습니다.
-        
+          카카오브레인은 귀하의 소중한 개인정보를 보호함으로써 정보주체가 안심하고 서비스를 이용할 수 있도록 『개인정보 보호법』 관련 법령 상의 개인정보 보호규정 및 가이드라인을 준수하고 있습니다.
+    
           카카오브레인은 개인정보 처리방침을 통해 정보주체가 제공하는 개인정보가 어떠한 용도와 방식으로 이용되고 있으며, 개인정보 보호를 위해 어떠한 조치가 취해지고 있는지 알려드립니다.
         `
       },
@@ -264,9 +264,17 @@ const PRIVACY = {
         text: `
           카카오브레인의 홈페이지는 입사지원을 위한 개인정보 외에는 사이트 이용을 위해 필요한 최소한의 범위로 개인정보를 수집합니다.
 
-          [입사지원-입사지원서 작성]
+          [지원서 등록]
 
-          필수 l 성명, 휴대전화번호, 이메일주소, 비밀번호, 장애/보훈여부, 병역사항
+          필수 l 성명, 휴대 전화번호, 이메일주소, 비밀번호, 장애/보훈여부, 병역사항
+
+          선택 | 링크드인 주소, 깃허브 주소, 포트폴리오주소, 산업기능요원-전문연구요원 지원여부, 외국인 비자유무, 지원경로
+
+          [지원서 작성 및 인재풀 등록]
+
+          필수 | 희망직군, 경력사항(입사일, 퇴사일, 회사명, 직급, 담당업무, 고용형태), 프로젝트-포트폴리오 수행이력(시작일, 종료일, 소속 회사명, 프로젝트명, 프로젝트 유형, 프로젝트 내용 및 역할, 사용기술), 병역사항-구분)
+
+          선택 | 자기소개, 학력사항(입학일, 졸업일, 졸업유무, 교육기관 이름, 전공, 학점), 자격증 정보(발급일, 자격증 명칭, 발급기관, 급수), 어학사항(언어, 시험명, 점수/급, 주관, 취득일, 효력일), 수상경력(수상일, 수상명, 발급기관, 급수), 보훈사항(보훈대상), 장애사항(장애유형, 장애급수)
 
           [홈페이지 이용-자동생성]
 
@@ -285,9 +293,9 @@ const PRIVACY = {
           정보주체의 개인정보에 대한 처리(수집, 이용 등) 목적은 다음과 같습니다.
 
           - 인재 영입 전형의 진행 및 전형 단계별 안내
-          - 인재 Pool 등록에 동의한 경우 상시 인재 영입 대상자 검토 등에 활용
+          - 인재풀 등록에 동의한 경우 상시 인재 영입 대상자 검토 등에 활용
           - 문의사항 접수 시 민원처리 및 처리결과 고지
-          - 평판조회 진행
+          - 평판조회 진행(필요 시)
         `
       },
       {
@@ -298,11 +306,36 @@ const PRIVACY = {
         itemType: 'pagaraph',
         text: `
           카카오브레인은 정보주체의 개인정보를 ‘2. 개인정보의 처리 목적'에서 고지한 범위 내에서 사용하며, 동 범위를 초과하여 이용하거나 타인 또는 타기업, 기관에 제공하지 않습니다.
-
+        
           단, 다음의 경우에 한해 정보주체의 개인정보를 제3자에게 제공할 수 있습니다.
 
-          - 정보주체(귀하)로부터 별도의 동의를 받은 경우
-          - 법률에 특별한 규정이 있거나 법령상 의무를 준수하기 위하여 불가피한 경우        
+            - 정보주체(귀하)로부터 별도의 동의를 받은 경우
+            - 법률에 특별한 규정이 있거나 법령상 의무를 준수하기 위하여 불가피한 경우
+            
+            [개인정보 국외이전]
+
+            원활한 서비스 제공 및 이용자 편의 증진 등을 위하여 해외 클라우드 서비스 등을 이용하고 있습니다. 이와 관련하여 개인정보 국외이전에 대해 다음과 같이 안내드립니다.
+
+            1) Lever
+
+            a) 주소 : 1125 Mission Street San Francisco, CA 94103
+            b) 전화 : +1 (415) 458-2731
+            c) 이전 항목 : 지원자 등록, 지원서 작성 및 공고지원-인재풀 등록 정보 일체
+            d) 이전 국가 : 미국
+            e) 일시 : 영입 지원 시점부터
+            f) 방법 : 영입 지원시 네트워크를 통해 전송
+            g) 이전 목적 : 영입 서비스 제공
+            h) 보유-이용기간 : 영입 종료시까지
+
+            2) HackerRank
+
+            a) 주소 : Mountain View HQ 700 E El Camino Real #300
+            b) 전화 : +1 (415) 900-4023 (US)
+            c) 이전 항목 : 이메일
+            d) 이전 국가 : 미국
+            e) 일시 : 영입 코딩 테스트 등록 시점
+            f) 이전 목적 : 코딩테스트 서비스 제공
+            g) 보유-이용기간 : 영입 종료시까지
         `
       },
       {
@@ -314,11 +347,14 @@ const PRIVACY = {
         text: `
           1) 카카오브레인은 원활한 개인정보 업무처리 및 서비스 향상을 위하여 다음과 같이 개인정보 처리업무를 위탁하고 있습니다. 개인정보 처리 업무를 위탁받는 자(수탁자) 및 위탁하는 업무의 내용이 변경될 경우, 미리 그 사실을 정보주체에게 고지하겠습니다.
 
-          - 위탁받는 자 1 (수탁자) : (주)마이다스인
-          - 위탁하는 업무의 내용 : 영입홈페이지 및 영입관리 전산시스템의 운영 및 관련 영입홈페이지 및 영입관리 전산시스템의 운영 및 관리
+          - 위탁받는 자 1 (수탁자) : Lever
+          - 위탁하는 업무의 내용 : 영입 솔루션 운영(영입관련 전산시스템 운영 관리)
 
           - 위탁받는 자 2 (수탁자) : (주)위크루트
           - 위탁하는 업무의 내용 : 평판조회 (해당자에 한함)
+
+          - 위탁받는 자 3 (수탁자) : HackerRank
+          - 코딩테스트 (해당자에 한함)
 
           카카오브레인은 원활한 개인정보 업무처리 및 서비스 향상을 위하여 다음과 같이 개인정보 처리업무를 위탁하고 있습니다. 그리고 위탁 받은 업체가 개인정보보호 관계 법령을 위반하지 않도록 관리·감독하고 있습니다.
         `
@@ -332,11 +368,9 @@ const PRIVACY = {
         text: `
           1) 카카오브레인은 법령에 따른 개인정보 보유∙이용기간 또는 정보주체로부터 개인정보를 수집시에 동의받은 개인정보 보유∙이용기간 내에서 개인정보를 처리∙보유하며, 개인정보의 처리 목적이 달성된 후에는 해당 정보를 지체 없이 파기 합니다.
 
-          2) 개인정보 처리 및 보유 기간은 다음과 같으며, 아래 각 항목에 대하여 정보주체가 명시적으로 파기 요청을 하는 경우 지체없이 파기합니다.
+          2) 개인정보 처리 및 보유 기간은 다음과 같으며, 아래 각 항목에 대하여 정보주체가 명시적으로 파기 요청을 하는 경우 지체없이 파기합니다. 단, 통신비밀보호법의 규정에 의하여 정보주체의 인터넷 로그기록 및 접속지 추적자료는 3개월간 별도 보관합니다
 
-          - 입사 지원 정보, 인재 Pool 등록 정보 : 입사자 – 재직중 보관: 미입사자(전형탈락자) – 영입절차가 완료되는 시점까지
-
-          단, 통신비밀보호법의 규정에 의하여 정보주체의 인터넷 로그기록 및 접속지 추적자료는 3개월간 별도 보관합니다.        
+          입사 지원 및 인재풀 등록 정보 : 입사자는 재직중 보관이며, 미입사자(전형탈락자)는 영입절차가 완료되는 시점까지 보관합니다    
         `
       },
       {
@@ -352,7 +386,7 @@ const PRIVACY = {
 
           3) 개인정보의 파기 절차 및 방법은 다음과 같습니다.
 
-          - 파기 절차 : 회사는 파기 사유가 발생한 개인정보를 선정하고, 회사의 개인정보 파기 책임자의 승인을 받아 개인정보를 파기합니다.
+          - 파기 절차 : 회사는 파기 사유가 발생한 개인정보를 선정하고, 회사의 개인정보 파기 책임자의 승인을 받아 개인정보를 파기합니다
 
           - 파기 방법 : 종이 문서에 기록∙저장된 개인정보는 분쇄기로 분쇄하거나 소각을 통해 파기하며, 전자적 파일 형태로 기록∙저장된 개인정보는 기록을 재생할 수 없는 기술적 방법을 이용하여 파기합니다.
         `
@@ -414,9 +448,9 @@ const PRIVACY = {
 
           4) Google Analytics 서비스 이용은?
 
-          회사는 보다 나은 서비스의 제공을 위해 Google, Inc. (이하 “Google”)가 제공하는 웹로그 분석 도구인 Google Analytics를 이용하고 있습니다. Google Analytics는 쿠키를 통하여 웹사이트 이용자의 행태정보를 수집하게 되며, 이 경우 이용자 개인을 식별할 수 없는 비식별 정보만이 수집됩니다. 쿠키가 생성한 웹사이트 이용(IP주소를 포함) 정보는 미국에 서버가 있는 Google에 전송되어 보관됩니다.
+          회사는 보다 나은 서비스의 제공을 위해 Google, Inc. (이하 “Google”)가 제공하는 웹로그 분석 도구인 Google Analytics를 이용하고 있습니다. Google Analytics는 쿠키를 통하여 웹사이트 이용자의 행태정보를 수집하게 되며, 이 경우 이용자 개인을 식별할 수 없는 비식별 정보만이 수집됩니다. 쿠키가 생성한 웹사이트 이용(IP주소를 포함) 정보는 미국에 서버가 있는 Google에 전송되어 보관됩니다
 
-          Google Analytics 이용을 원하지 않는 경우, <a class="link-tag" href="https://tools.google.com/dlpage/gaoptout" target="_blank">Google 애널리틱스 차단 브라우저 부가 기능</a>으로 브라우저 부가기능을 다운로드 및 설치하여 Google Analytics 이용을 거부할 수 있습니다.
+          Google Analytics 이용을 원하지 않는 경우, Google 애널리틱스 차단 브라우저 부가 기능 (링크 : https://tools.google.com/dlpage/gaoptout) 로 브라우저 부가기능을 다운로드 및 설치하여 Google Analytics 이용을 거부할 수 있습니다.
         `
       },
       {
@@ -429,13 +463,13 @@ const PRIVACY = {
           카카오브레인은 개인정보의 안전성 확보를 위해 다음과 같은 관리적, 기술적 및 물리적 조치를 취하고 있습니다.
 
           1) 개인정보 내부 관리계획의 수립 및 시행
-          ‘개인정보의 안전성 확보조치 기준’에 의거하여 ‘개인정보 내부 관리계획’을 수립 및 시행합니다.
+          ‘개인정보의 안전성 확보조치 기준’에 의거하여 ‘개인정보 내부 관리 계획’을 수립 및 시행합니다.
 
           2) 개인정보취급자 지정의 최소화 및 교육
           개인정보취급자의 지정을 최소화하고 정기적인 교육을 시행하고 있습니다.
 
           3) 개인정보에 대한 접근 제한
-          개인정보를 처리하는 데이터베이스시스템에 대한 접근권한 관리를 통해 개인정보에 대한 접근을 통제하고 내∙외부로부터의  무단 접근을 통제하고 있습니다.
+          개인정보를 처리하는 데이터베이스시스템에 대한 접근권한 관리를 통해 개인정보에 대한 접근을 통제하고 내∙외부로부터의 무단 접근을 통제하고 있습니다.
 
           4) 접속기록의 보관 및 위변조 방지
           개인정보처리시스템에 접속한 기록(접속로그)을 법적 요구사항에 부합하도록 보관, 관리하고 있으며, 접속기록이 위∙변조되지 않도록 통제하고 있습니다.
@@ -447,7 +481,7 @@ const PRIVACY = {
           해킹이나 컴퓨터 바이러스 등에 의한 개인정보 유출 및 훼손을 막기 위하여 보안프로그램을 설치하고 주기적인 갱신·점검을 하고 있습니다.
 
           7) 비인가자에 대한 출입 통제
-          개인정보를 보관하고 있는 장소에 대하여 보호구역으로 설정하여 출입을 통제하고 있습니다.        
+          개인정보를 보관하고 있는 장소에 대하여 보호구역으로 설정하여 출입을 통제하고 있습니다.    
         `
       },
       {
@@ -463,15 +497,16 @@ const PRIVACY = {
 
           ※  개인정보 보호책임자
 
-          - 성명 : 배은재
-          - 이메일주소 : sharon.ej@kakaobrain.com
+          - 책임자 : 카카오브레인 김광섭 CTO
+          - 문의 : career@kakaobrain.com
 
 
           또한, 개인정보침해로 인한 피해구제, 상담 등을 위해 개인정보 분쟁조정위원회, 한국인터넷진흥원 개인정보침해신고센터 등에 문의하실 수 있습니다.
 
-          - 개인정보 분쟁조정위원회 : 1833-6972 ([www.kopico.go.kr)](http://www.kopico.go.kr%29/)
-          - 개인정보침해신고센터: (국번없이) 118 (privacy.kisa.or.kr)
-          - 경찰청 사이버안전지킴이 : (국번없이) 182 (cyberbureau.police.go.kr)        
+          - 개인정보 분쟁조정위원회 : 1833-6972[www.kopico.go.kr))
+          - 개인정보 침해신고센터 : (국번없이) 118 (privacy.kisa.or.kr)
+          - 경찰청 사이버안전국 : (국번없이) 182 (cyberbureau.police.go.kr)    
+          - 대검찰청 사이버수사과 : (국번없이) 1301 (www.spo.go.kr)  
         `
       },
       {
@@ -485,7 +520,17 @@ const PRIVACY = {
 
           다만, 이용자 권리의 중대한 변경이 발생할 때에는 최소 30일 전에 미리 알려드리겠습니다.
 
-          - 개인정보처리방침 버전번호 : v1.0        
+          - 개인정보처리방침 버전번호 : v2.0 
+        `
+      },
+      {
+        itemType: 'header',
+        text: `12. 개인정보 처리방침의 시행일`
+      },
+      {
+        itemType: 'pagaraph',
+        text: `
+          이 <개인정보 처리방침>은 2022. 11. 14. 부터 적용됩니다.
         `
       }
     ]
@@ -496,7 +541,7 @@ const PRIVACY = {
       {
         itemType: 'pagaraph',
         text: `
-        Kakao Brain complies with the personal information protection regulations and guidelines under the statutes of the Personal Information Protection Act related laws for data subjects to use the service with confidence by protecting their valuable personal information.
+          Kakao Brain complies with the personal information protection regulations and guidelines under the statutes of the Personal Information Protection Act related laws for data subjects to use the service with confidence by protecting their valuable personal information.
         
           According to the privacy policy, Kakao Brain may use personal information obtained from data subjects for the following purposes in the following method. We also take measures to protect such information. 
         `
@@ -508,16 +553,21 @@ const PRIVACY = {
       {
         itemType: 'pagaraph',
         text: `
-        Kakao Brain website collects minimum personal information necessary for using the site, apart from personal information for job applications.
+          Kakao Brain website collects minimum personal information necessary for using the site, apart from personal information for job applications.
 
-          [Application for employment - Filling out the application form]
+          [Registration of application]
 
           Mandatory l Name, mobile phone number, e-mail address, password, disability/veteran status, military service
+          Optional l LinkedIn address, GitHub address, portfolio address, application for skilled industrial personnel - technical research personnel, alien visa, application channel
+
+          [Preparation of application and registration for manpower pool]
+
+          Mandatory l desired job group, work experience (employment date, resignation date, company name, title, responsibilities, employment form), list of projects and portfolio (starting date, ending date, company name, project title, type, and content, role, used skills), military service-classified)
+          Optional l self-introduction, academic background (enrollment date, graduation date, graduation, educational institution, major, grades), certificates or licenses (issuance date, name, issuing agency, grade), language skill (language, test, grade/rank, organizer, acquisition date, effective date), awards (award date, award title, institutions, ranks), veteran reward (subject to veteran reward), disability (disability type, class)
 
           [Using the website-automatically created]
 
           Access record (IP address, access time), session cookie information
-
           Private Policy - Automatically collected personal information – The following information may be automatically created and obtained during your use of services. Service usage records (IP address, access date and time), cookies, device information (user's browser type and OS)
         `
       },
@@ -533,22 +583,46 @@ const PRIVACY = {
           - Introduce the human resource hiring process and its stages
           - Review candidates for job openings among those who registered at the HR database
           - Handle and notify of any inquiries received 
-          - Reference check        
+          - Reference check   
         `
       },
       {
         itemType: 'header',
-        text: `3. Provision of personal information to third parties`
+        text: `3. Provision to third parties and cross-border transfer of personal information`
       },
       {
         itemType: 'pagaraph',
         text: `
         Kakao Brain uses personal information of the data subject within the scope stated in ‘2. Purpose of processing personal information,’ and it does not use or provide to other persons, companies, or institutions beyond such scope.
 
-          However, the personal information of the data subject may be provided to a third party only in case of the following
+        However, the personal information of the data subject may be provided to a third party only in case of the following
           
-          - Where it obtained separate consent from the data subject (you)
-          - Where it is inevitable as per special provisions in the law or to comply with statutory obligations               
+        - Where it obtained separate consent from the data subject (you)
+        - Where it is inevitable as per special provisions in the law or to comply with statutory obligations
+
+        [Cross-border transfer of personal information]
+
+        Kakao Brain uses an overseas cloud service, etc. in order to provide services smoothly and increase users’ convenience. In this regard, please refer to the following information for the cross-border of transfer of personal information:
+
+        1) Lever:
+
+          a) Address: 1125 Mission Street San Francisco, CA 94103
+          b) Tel.: +1 (415) 458-2731
+          c) Transferred items: applicant registration, application preparation and application through notice- and any and all information regarding registration for manpower pool
+          d) Destination: U.S.
+          e) Date: from application with the job opening system f) Method: transmission through a network upon application with the job opening system 
+          g) Purpose: provision of job opening service
+          h) Retention-use period: until the end of recruitment
+
+        2) HackerRank
+
+          a) Address: Mountain View HQ 700 E El Camino Real #300
+          b) Tel.: +1 (415) 900-4023 (US)
+          c) Transferred items: e-mail
+          d) Destination: the U.S.
+          e) Date: upon registration of recruitment coding test
+          f) Purpose: provision of coding test service
+          h) Retention-use period: until the end of recruitment          
         `
       },
       {
@@ -560,13 +634,16 @@ const PRIVACY = {
         text: `
           1) Kakao Brain outsources the following personal information processing to smoothly handle personal information and improve its services. We will notify the data subject in advance of any changes concerning the entity outsourced to process personal information (the outsourcee) or the outsourced work.
 
-          - Entity outsourced with the work 1 (outsourcee): Midasin Co., Ltd.
-          - Details of outsourced tasks: Operation of the job opening website and its management IT system, and operation and management of relevant job opening website and its management IT system
-          
+          - Entity outsourced with the work 1 (outsourcee): Lever
+          - Details of outsourced tasks: Operation of the job opening solution ( operation and management of IT system regarding job opening)
+
           - Entity outsourced with the work 2 (outsourcee): Wecruit Co., Ltd.
           - Details of outsourced tasks: Reference check (if applicable)
-          
-          Kakao Brain outsources the following personal information processing tasks to smoothly handle personal information and improve its services. We further manage and supervise the outsourcee to prevent it from not violating laws related to personal information protection.        
+
+          - Entity outsourced with the work 3 (outsourcee): HackerRank
+          - Details of outsourced tasks: Coding test (if applicable)
+
+          Kakao Brain outsources the following personal information processing tasks to smoothly handle personal information and improve its services. We further manage and supervise the outsourcee to prevent it from not violating laws related to personal information protection.
         `
       },
       {
@@ -578,11 +655,9 @@ const PRIVACY = {
         text: `
         1) Kakao Brain processes and retains personal information within the period of retention and use of personal information according to the statutes or within the period of retention and use of personal information agreed upon at the time of collecting personal information from data subjects. Such information will be destroyed without delay once the purpose for personal information processing is achieved.
 
-        2) The personal information processing and retention period are as follows. Each of the following information will be destroyed without delay in case the data subject explicitly requests destruction.
-        
+        2) The personal information processing and retention period are as follows. Each of the following information will be destroyed without delay in case the data subject explicitly requests destruction. However, the Internet logs and access point tracking data of the data subject are retained separately for 3 months according to the provisions of the Protection of Communication Secrets Act.
+
         - Job application information, Information registered in the HR database: Acceptant – Retained while employed: Non-acceptant (those rejected from the screening) – Until the recruitment process is complete
-        
-        However, the Internet logs and access point tracking data of the data subject are retained separately for 3 months according to the provisions of the Protection of Communication Secrets Act.        
         `
       },
       {
@@ -595,12 +670,12 @@ const PRIVACY = {
         1) Kakao Brain destroys personal information without delay when the personal information becomes unnecessary owing to the expiry of the retention period, attainment of the purpose of processing the information, etc.
 
         2) Where the personal information must be retained despite the expiry of the retention period agreed upon by the data object, or attainment of the purpose of processing the information, etc. under other statutes (see ‘5. The period for processing and retaining personal information’), the relevant personal information shall be moved to a separate database (DB) or stored in a different location separate from other personal information.
-        
+
         3) The procedure and method for the destruction of personal information are as follows.
-        
+
         - Destruction procedure: The company selects the personal information for which the reason for destruction occurred and destroys the concerned information with the approval of the person in charge of personal information destruction of the company.
-        
-        - Destruction method: Personal information recorded and stored in paper documents is destroyed by shredding or incineration. Personal information recorded and stored in electronic files is destroyed using a technical method so that such records cannot be reproduced.        
+
+        - Destruction method: Personal information recorded and stored in paper documents is destroyed by shredding or incineration. Personal information recorded and stored in electronic files is destroyed using a technical method so that such records cannot be reproduced.
         `
       },
       {
@@ -616,14 +691,14 @@ const PRIVACY = {
         - Request correction of personal information
         - Request deletion of personal information
         - Request of suspension of processing of personal information
-        
+
         2) Exercise of rights concerning access, correction, deletion, and suspension of processing of personal information will be handled without delay upon contact to the person in charge of personal information protection in writing, by phone or e-mail: Provided, That request of access and correction of personal information in the job application may be restricted in case the submission period of such application is over.
-        
+
         3) Where the data subject requests correction or deletion of personal information errors, such information will not be used or provided until the correction or deletion is complete.
-        
+
         4) Kakao Brain does not collect personal information from children under the age of 14: Provided, That the rights of the legal representative concerning the processing of personal information of children under the age of 14 are guaranteed in the event where personal information of children under the age of 14 is collected.
-        
-        5) Kakao Brain checks whether the person requesting access, correction, deletion, or suspension of processing according to the rights of the data subject is the person or a legitimate representative.        
+
+        5) Kakao Brain checks whether the person requesting access, correction, deletion, or suspension of processing according to the rights of the data subject is the person or a legitimate representative.
         `
       },
       {
@@ -635,34 +710,34 @@ const PRIVACY = {
         text: `
         The company installs and operates cookies and “Google Analytics”, and users may reject them.
         Cookies are used to support users with faster and more convenient website and provide customized services.
-        
+
         1) What are cookies?
-        
+
         A cookie is a very small text file that the server for operating the website sends to the user's browser. The file is stored on the user's computer.
-        
+
         2) Why do we use cookies?
-        
+
         Cookies are used to store the user's preferred settings to support a faster web environment and improve services for the convenience of the users. This allows the users to use the service more easily.
-        
+
         3) What if I want to refuse cookies from collecting the information?
-        
+
         Users have the option to install cookies. Therefore, the user may accept all cookies, check each time a cookie is saved, or refuse to save all cookies by setting options in the web browser. However, refusing to install cookies may make using the website inconvenient and make it difficult to use some services that require login.
-        
+
         How to set options in the web browser
-        
+
         - Internet Explorer
-        
+
         Tools (on the toolbar at the top of the browser)> Internet Options > Privacy > Settings
-        
+
         - Chrome
-        
+
         Settings (in the setting menu at the right side of the browser) > Show advanced settings > Content setting button for personal information > Cookies
-        
+
         4) How to use Google Analytics service?
-        
+
         The company uses Google Analytics, a web analytics tool provided by Google, Inc. (hereafter “Google”) to provide better services. Google Analytics collects the behavioral information of website users, which will be limited to non-identifying information that cannot be used to identify individual users. Website usage information generated by cookies (including IP address) is transmitted and stored by Google, which has servers located in the United States.
-        
-        You may download and install the browser add-on function from  <a class="link-tag" href="https://support.google.com/analytics/answer/181881?hl=en" target="_blank">Google Analytics Blocker Browser Add-on</a> if you do not wish to use Google Analytics.
+
+        You may download and install the browser add-on function from [https://tools.google.com/dlpage/gaoptout](https://tools.google.com/dlpage/gaoptout) if you do not wish to use Google Analytics.
         `
       },
       {
@@ -676,24 +751,24 @@ const PRIVACY = {
 
         1) Establishment and implementation of the internal personal information management plan
         We establish and implement an ‘internal management plan for personal information’ based on the ‘criteria for measures to ensure the safety of personal information’.
-        
+
         2) Minimized designation and training of personal information controllers
         We minimize the designation of personal information handlers and conduct regular training.
-        
+
         3) Restricted access to personal information
         We restrict access to personal information and control unauthorized access from inside and outside by managing access rights to the database system processing personal information.
-        
+
         4) Storage and prevention of forgery or alteration of access records 
         We store and manage the records of access to the personal information processing system (access logs) to comply with legal requirements and control access records to prevent forgery or alteration.
-        
+
         5) Encryption of personal information
         We use a separate security function for an encrypted use of important personal information of data subjects when storing and transmitting.
-        
+
         6) Security program installation and periodic inspection/update
         We install and periodically update and inspect security programs to prevent divulgence and damage of personal information caused by hacking, computer virus, etc.
-        
+
         7) Access restriction of unauthorized persons
-        We designate a protected area and restrict access concerning the place where personal information is stored.        
+        We designate a protected area and restrict access concerning the place where personal information is stored.  
         `
       },
       {
@@ -706,18 +781,18 @@ const PRIVACY = {
         Kakao Brain designates a privacy officer to take overall responsibility concerning personal information processing and handle complaints and damage relief of data subjects related to personal information processing as follows.
 
         Please contact the privacy officer or the person in charge below if you have any questions, opinions or any possibility of personal information divulgence while using the website. We will take measures without delay and notify you of the outcome.
-        
+
         ※ Privacy officer
-        
-        - Name: Bae Eun-jae
-        - Email Address : sharon.ej@kakaobrain.com
+
+        - Name: Gwang-sup Kim, CTO of Kakao Brain
+        - Email Address :career@Kakao Brain.com
             
-        
+
         Furthermore, you may contact the Personal Information Dispute Mediation Committee or the Personal Information Infringement Report Center of the Korea Internet & Security Agency for remedy of damage, counseling, etc. from personal information infringement.
-        
+
         - Personal Information Dispute Mediation Committee: 1833-6972 ([www.kopico.go.kr)](http://www.kopico.go.kr%29/)
         - Personal Information Infringement Report Center: (without area code) 118 (privacy.kisa.or.kr)
-        - Korean National Police Agency Cyber Bureau: (without area code) 182 (cyberbureau.police.go.kr)        
+        - Korean National Police Agency Cyber Bureau: (without area code) 182 (cyberbureau.police.go.kr)
         `
       },
       {
@@ -730,8 +805,8 @@ const PRIVACY = {
         In the case of any addition, deletion, or modification of the contents of the privacy policy due to changes in laws, policies, or security technologies, the reason and details of the change will be notified via the website implementing such change, and the privacy policy comes into effect seven days after the announcement.
 
         Provided, That we will notify you of any significant changes in user rights at least 30 days in advance
-        
-        - Privacy Policy Version Number: v1.0           
+
+        - Privacy Policy Version Number: v2.0        
         `
       }
     ]
