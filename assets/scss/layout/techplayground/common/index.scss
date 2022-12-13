@@ -1,0 +1,51 @@
+@import './intro.scss';
+$groundGutter: 14px;
+$groundGrid: 70px;
+@function getGroundWidth($gridNumber) {
+  $returnWidth: 0;
+  $returnWidth: calc(#{$groundGrid} * #{$gridNumber} + #{$groundGutter} * (#{$gridNumber} - 1));
+  @return $returnWidth;
+}
+@function getGroundMargin($gridNumber) {
+  $returnMargin: 0;
+  $returnMargin: calc(#{$groundGrid} * #{$gridNumber} + #{$groundGutter} * #{$gridNumber});
+  @return $returnMargin;
+}
+@for $i from 1 through 10 {
+  .p_gl-#{$i} {
+    width: getGroundWidth(#{$i});
+  }
+}
+@for $i from 1 through 6 {
+  .p_l-ml-#{$i} {
+    margin-left: getGroundMargin(#{$i});
+  }
+
+  .p_l-pl-#{$i} {
+    padding-left: getGroundMargin(#{$i});
+  }
+}
+.container {
+  max-width: 994px;
+  margin: 0 auto;
+}
+
+.heading {
+  font-size: 50px;
+  line-height: 1;
+  font-weight: 700;
+  color: $kakao-black;
+  text-transform: uppercase;
+}
+.lh-12 {
+  line-height: 1.2;
+}
+.description {
+  font-size: 16px;
+  line-height: 1.5;
+  color: $gray-7;
+  font-weight: 400;
+  word-break: keep-all;
+}
+
+
