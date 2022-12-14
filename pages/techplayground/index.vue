@@ -2,22 +2,8 @@
   <div class="techplayground-page">
     <div class="intro">
       <div class="intro-content">
-        <div class="intro-symbol">
-          <div class="symbol symbol-1"></div>
-          <div class="symbol symbol-2"></div>
-          <div class="symbol symbol-3"></div>
-          <div class="symbol symbol-4"></div>
-          <div class="symbol symbol-5"></div>
-        </div>
+        <img src="@/assets/images/playground/main/img_pc_topvisual.png" alt="">
         <b>Play on<br>Playground</b>
-        <div class="intro-symbol">
-          <div class="symbol symbol-6"></div>
-          <div class="symbol symbol-7"></div>
-          <div class="symbol symbol-8"></div>
-          <div class="symbol symbol-9"></div>
-          <div class="symbol symbol-10"></div>
-          <div class="symbol symbol-11"></div>
-        </div>
       </div>
     </div>
     <div class="container">

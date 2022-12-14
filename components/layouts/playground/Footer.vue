@@ -2,9 +2,14 @@
   <footer class="footer">
     <div class="container">
       <ul class="footer-menus">
-        <li v-for="menu in menus" :key="menu.name">
-          <nuxt-link v-if="!menu.target" :to="menu.link">{{ menu.name }}</nuxt-link>
-          <a v-else :href="menu.link" target="_blank">{{ menu.name }}</a>
+        <li>
+          <nuxt-link :to="'#'">main</nuxt-link>
+        </li>
+        <li>
+          <a href="mailto:bizdev@kakaobrain.com">contract</a>
+        </li>
+        <li>
+          <a href="https://kakaobrain.com/privacy" target="_blank">privacy policy</a>
         </li>
       </ul>
       <div class="ref">
@@ -19,13 +24,7 @@
 <script>
 export default {
   data() {
-    return {
-      menus: [
-        { name: 'main', link: '#', target: '' },
-        { name: 'contract', link: '#', target: '_blank' },
-        { name: 'privacy policy', link: '#', target: '_blank' },
-      ]
-    }
+    return {}
   }
 }
 </script>
