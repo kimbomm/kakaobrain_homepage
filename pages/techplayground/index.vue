@@ -31,8 +31,8 @@
         <li></li>
         <li></li>
       </ul>
-      <h4 class="heading p_l-ml-3 p_gl-7">What is<br>Playground</h4>
-      <p class="description p_l-ml-4 p_gl-8">
+      <h4 class="heading">What is<br>Playground</h4>
+      <p class="description">
         Playground는 카카오브레인 기술 제품의 체험 공간입니다.<br>카카오브레인의 최신 기술을 Tech Playground를 통해 만나보세요!
       </p>
       <div class="business">

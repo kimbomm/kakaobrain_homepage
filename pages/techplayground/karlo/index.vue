@@ -28,15 +28,15 @@
         <img class="gallery-symbol" src="@/assets/images/playground/karlo/diacritic.png"/>
         <img class="gallery-symbol" src="@/assets/images/playground/karlo/diacritic-1.png"/>
       </div>
-      <h4 class="heading p_l-ml-3 p_gl-7">
+      <h4 class="heading">
         Start a new world of art, AI Artist_ Karlo
       </h4>
-      <p class="description p_l-ml-4 p_gl-8">
+      <p class="description">
         Karlo API는 사용자가 입력한 문장과 이미지를 기반으로 새로운 이미지를 만드는 기능을 제공합니다. 생성형 인공지능 Karlo는 1억 8만 장 규모의 이미지-텍스트 쌍 데이터 학습을 통해 이미지와 텍스트 간의 연관성을 이해합니다. 사용자가 묘사한 내용을 이해하고, 픽셀 단위로 완전히 새로운 이미지를 생성합니다.
         <br><br>
         또한 사용자가 원하는 콘셉트에 맞춰 창작 활동을 할 수 있도록 사물, 배경, 조명, 구도, 다양한 화풍을지원합니다.
       </p>
-      <h4 class="heading lh-12 p_l-ml-3 p_gl-7">
+      <h4 class="heading lh-12">
         What is Karlo?
       </h4>
       <ul class="introduce">
@@ -49,10 +49,10 @@
         </li>
       </ul>
       <div class="experience">
-        <h4 class="heading lh-12 p_l-ml-3 p_gl-7">
+        <h4 class="heading lh-12">
           Experience it.
         </h4>
-        <p class="description p_l-ml-4 p_gl-8">
+        <p class="description">
           Karlo를 통해 사용자들에게<br>
           서비스 브랜드와 콘텐츠를 향한 영감을 불어넣어 보세요.
         </p>
@@ -78,16 +78,20 @@ export default {
         { name: 'Images &<br>Works', desp: '사용자가 입력한 문장을 기반으로 사실적인 이미지와 다양한 작품을 생성할 수 있는 AI 모델입니다.' },
         { name: '180,000,000<br>Images', desp: '1억 8천만장 규모의 이미지와 이미지를 설명하는 텍스트와의 관계를 학습한 멀티모달 AI 모델입니다.' },
         { name: 'Understanding &<br>Creating', desp: '학습된 결과를 바탕으로 사용자가 입력한 문장을 이해하고, 세상에 없던 새로운 이미지를 생성해냅니다.' }
-      ]
+      ],
+      interval: null
     }
   },
   created() {
     this.activeIdx = 1
-    setInterval(() => {
+    this.interval = setInterval(() => {
       this.activeIdx < this.totalImage
         ? this.activeIdx++
         : this.activeIdx = 1
     }, 7000)
+  },
+  beforeDestroy() {
+    clearInterval(this.interval)
   },
   methods: {}
 }
