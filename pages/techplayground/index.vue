@@ -28,8 +28,6 @@
             </div>
           </div>
         </li>
-        <li></li>
-        <li></li>
       </ul>
       <h4 class="heading">What is<br>Playground</h4>
       <p class="description">
@@ -45,6 +43,7 @@
       <div class="banner">
         <a href="#">
           <img src="@/assets/images/playground/main/img_banner.png" alt="">
+          <img src="@/assets/images/playground/main/img_banner_mo.png" alt="">
         </a>
       </div>
     </div>

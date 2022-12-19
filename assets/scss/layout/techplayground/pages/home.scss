@@ -12,7 +12,6 @@
   background-size: cover;
   background-position: center center;
   overflow: hidden;
-  margin-bottom: 140px;
   &-content {
     position: absolute;
     top: 50%;
@@ -172,6 +171,9 @@ h5.title {
     width: 100%;
     vertical-align: middle;
   }
+  img:nth-child(2) {
+    display: none;
+  }
 }
 
 @include pc-large {
@@ -182,5 +184,53 @@ h5.title {
 @include pc-middle {
   .intro {
     height: 400px;
+  }
+}
+@include tablet {
+  .container {
+    padding: 100px 20px 200px;
+  }
+  .tech {
+    gap: 20px;
+    margin-bottom: 100px;
+    li {
+      flex: 0 0 320px;
+    }
+  }
+  h4.heading {
+    margin-bottom: 20px;
+  }
+  .business {
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 100px;
+  }
+}
+@include mobile {
+  h5.title {
+    line-height: 1.3;
+  }
+  .tech {
+    li {
+      flex: 1;
+    }
+  }
+  .business {
+    .mail {
+      float: initial;
+      display: block;
+      margin-top: 20px;
+    }
+    .desp {
+      margin-top: 20px;
+    }
+  }
+  .banner {
+    img:nth-child(1) {
+      display: none;
+    }
+    img:nth-child(2) {
+      display: block;
+    }
   }
 }

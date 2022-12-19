@@ -61,6 +61,7 @@
         <div class="result-contents">
           <div class="content">
             <div class="proceeding">
+              <img src="@/assets/images/playground/loading.gif" />
               <p>Karlo가 열심히 그리고 있어요.</p>
             </div>
           </div>
