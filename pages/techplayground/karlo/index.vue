@@ -13,7 +13,7 @@
         </b>
         <p class="karlo-description">
           Karlo는 사용자가 입력한 문장을 기반으로<br>
-          사실적인 이미지와 다양한 작품을 생성할 수 있는<br>
+          사실적인 이미지와 다양한 작품을 생성할 수 있는<br class="pc-only">
           AI 모델입니다.
         </p>
       </div>
@@ -27,6 +27,9 @@
         <img class="gallery-symbol" src="@/assets/images/playground/karlo/karlo_symbol_sm.png"/>
         <img class="gallery-symbol" src="@/assets/images/playground/karlo/diacritic.png"/>
         <img class="gallery-symbol" src="@/assets/images/playground/karlo/diacritic-1.png"/>
+        <img class="gallery-symbol tablet-only" src="@/assets/images/playground/karlo/karlo_symbol_sm_mo.png"/>
+        <img class="gallery-symbol tablet-only" src="@/assets/images/playground/karlo/diacritic_mo.png"/>
+        <img class="gallery-symbol tablet-only" src="@/assets/images/playground/karlo/diacritic-1_mo.png"/>
       </div>
       <h4 class="heading">
         Start a new world of art, AI Artist_ Karlo
@@ -48,6 +51,18 @@
           <p>{{ item.desp }}</p>
         </li>
       </ul>
+      <h4 class="heading lh-12">
+        features
+      </h4>
+      <ul class="introduce">
+        <li v-for="(item, idx) in feature" :key="item.name">
+          <div>
+            <span class="circle">{{ idx + 1 }}</span>
+            <span class="name" v-html="item.name"></span>
+          </div>
+          <p>{{ item.desp }}</p>
+        </li>
+      </ul>
       <div class="experience">
         <h4 class="heading lh-12">
           Experience it.
@@ -56,7 +71,7 @@
           Karlo를 통해 사용자들에게<br>
           서비스 브랜드와 콘텐츠를 향한 영감을 불어넣어 보세요.
         </p>
-        <nuxt-link to="#">Go fot it!</nuxt-link>
+        <tech-button text="Go fot it!" />
       </div>
     </div>
     <div class="karlo-mark">
@@ -68,7 +83,11 @@
   </div>
 </template>
 <script>
+import TechButton from '@/components/techplayground/common/Button'
 export default {
+  components: {
+    TechButton
+  },
   layout: 'playground',
   data() {
     return {
@@ -78,6 +97,11 @@ export default {
         { name: 'Images &<br>Works', desp: '사용자가 입력한 문장을 기반으로 사실적인 이미지와 다양한 작품을 생성할 수 있는 AI 모델입니다.' },
         { name: '180,000,000<br>Images', desp: '1억 8천만장 규모의 이미지와 이미지를 설명하는 텍스트와의 관계를 학습한 멀티모달 AI 모델입니다.' },
         { name: 'Understanding &<br>Creating', desp: '학습된 결과를 바탕으로 사용자가 입력한 문장을 이해하고, 세상에 없던 새로운 이미지를 생성해냅니다.' }
+      ],
+      feature: [
+        { name: 'Generation', desp: '입력된 단어나 문장을 기반으로 관련된 이미지와 다양한 작품을 생성할 수 있습니다.' },
+        { name: 'Variation', desp: '입력된 이미지의 내용을 이해하여 새로운 이미지를 생성합니다.' },
+        { name: 'Inpainting', desp: '입력된 텍스트에 따라 이미지의 일부 영역을 사용자 의도에 맞게 편집합니다.' }
       ],
       interval: null
     }
