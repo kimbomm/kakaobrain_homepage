@@ -17,15 +17,21 @@
         </div>
         <div class="demo-contents">
           <ul class="demo-tab">
-            <li v-for="(tab, i) in tabs" :key="tab.name"><button :class="{ 'is-active': i === activeTab }" @click="tabClick(i)">{{ tab.name }}</button></li>
+            <li v-for="tab in tabs" :key="tab.name"><button :class="{ 'is-active': tab.value === activeTab }" @click="tabClick(tab)">{{ tab.name }}</button></li>
           </ul>
+          <tech-selectbox
+            class="demo-select tablet-only"
+            :value.sync="activeTab"
+            :select-list="tabs"
+            size="large"
+          />
           <div class="tab-contents">
+            <div class="info">
+              <p v-if="activeTab === 0">사용자가 입력한 단어나 문장을 기반으로 관련된 이미지와 다양한 작품을 생성합니다.</p>
+              <p v-else-if="activeTab === 1">사용자가 업로드한 이미지를 기반으로 관련된 이미지와 다양한 작품을 생성합니다.</p>
+              <p v-else-if="activeTab === 2">사용자가 업로드한 이미지와, 편집할 부분과 함께 입력된 단어나 문장(공백 가능)을 기반으로 새로운 작품을 생성합니다.</p>
+            </div>
             <div class="content">
-              <div class="info">
-                <p v-if="activeTab === 0">사용자가 입력한 단어나 문장을 기반으로 관련된 이미지와 다양한 작품을 생성합니다.</p>
-                <p v-else-if="activeTab === 1">사용자가 업로드한 이미지를 기반으로 관련된 이미지와 다양한 작품을 생성합니다.</p>
-                <p v-else-if="activeTab === 2">사용자가 업로드한 이미지와, 편집할 부분과 함께 입력된 단어나 문장(공백 가능)을 기반으로 새로운 작품을 생성합니다.</p>
-              </div>
               <div class="head-title">
                 <span>Text Prompt</span>
               </div>
@@ -72,6 +78,7 @@
   </div>
 </template>
 <script>
+import { mapState } from 'vuex'
 import TechButton from '@/components/techplayground/common/Button'
 import TechSelectbox from '@/components/techplayground/common/Selectbox'
 export default {
@@ -82,11 +89,11 @@ export default {
   layout: 'playground',
   data() {
     return {
-      activeTab: 0,
+      activeTab: 1,
       tabs: [
-        { name: 'Image Generation' },
-        { name: 'Image Variation' },
-        { name: 'Image Inpainting' },
+        { name: 'Image Generation', value: 1 },
+        { name: 'Image Variation', value: 2 },
+        { name: 'Image Inpainting', value: 3 },
       ],
       textarea: '',
       maxByte: 250,
@@ -98,9 +105,14 @@ export default {
       ]
     }
   },
+  computed: {
+    ...mapState({
+      device: state => state.device
+    }),
+  },
   methods: {
-    tabClick(idx) {
-      this.activeTab = idx
+    tabClick(tab) {
+      this.activeTab = tab.value
     },
     getStringToByte(string) {
       return string.replace(/[\0-\x7f]|([0-\u07ff]|(.))/g,"$&$1$2").length

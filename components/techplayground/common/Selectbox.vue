@@ -1,12 +1,12 @@
 <template>
-  <div class="selectbox">
+  <div :class="classBind">
     <button @focus="onFocus()" @blur="onBlur()">
       <span v-if="!value" class="placeholder">선택하기</span>
       <span>{{ selectedItem.name }}</span>
     </button>
     <ul v-if="isFocus" class="selectbox-list">
       <li v-for="item in selectList" :key="item.value">
-        <button @click="onSelect(item)">{{ item.name }}</button>
+        <button :class="{ 'active': item.value === value }" @click="onSelect(item)">{{ item.name }}</button>
       </li>
     </ul>
   </div>
@@ -20,6 +20,9 @@ export default {
     selectList: {
       type: Array,
       default: () => []
+    },
+    size: {
+      default: ''
     }
   },
   data() {
@@ -28,11 +31,23 @@ export default {
     }
   },
   computed: {
+    classBind() {
+      const classList = ['selectbox']
+      if (this.size) classList.push(`size__${this.size}`)
+      return classList.join(' ')
+    },
     selectedItem() {
       return this.value ? this.selectList.find(item => item.value === this.value) : null
     }
   },
   methods: {
+    onClick() {
+      this.$nextTick(() => {
+        if (this.isFocus) {
+          this.onBlur()
+        }
+      })
+    },
     onFocus() {
       this.isFocus = true
     },
