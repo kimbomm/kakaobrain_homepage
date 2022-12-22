@@ -329,6 +329,10 @@ i.ic-caret_circle {
 @include mobile {
   .intro {
     height: 420px;
+    background-image: url('@/assets/images/playground/demo/top_intro_bg_mo.png');
+    &:before {
+      display: none;
+    }
     &:after {
       background-image: url('@/assets/images/playground/demo/top_intro_content_mo.png');
       background-size: auto;
