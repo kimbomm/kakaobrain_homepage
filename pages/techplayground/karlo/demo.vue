@@ -37,7 +37,7 @@
               </div>
               <div class="experience">
                 <div class="experience-tool">
-                  <textarea v-model="textarea" placeholder="상상하는 문장이나, 생각나는 모습을 입력하세요."></textarea>
+                  <textarea v-model="textarea" placeholder="상상하는 문장이나, 생각나는 모습을 입력하세요." @keyup="onTextareaChange"></textarea>
                   <div class="byte">{{ getStringToByte(textarea) }}/{{ maxByte }}</div>
                 </div>
               </div>
@@ -119,6 +119,35 @@ export default {
     },
     onChange(selectItem) {
       console.log(selectItem)
+    },
+    onTextareaChange() {
+      this.textarea = this.getLimitedByteText(this.textarea, 250)
+    },
+    getLimitedByteText(inputText, maxByte) {
+      const characters = inputText.split('')
+      let validText = ''
+      let totalByte = 0
+
+      for (let i = 0; i < characters.length; i += 1) {
+        const character = characters[i]
+        const decimal = character.charCodeAt(0)
+        const byte = this.getByteLength(decimal) // 글자 한 개가 몇 바이트 길이인지 구해주기
+
+        // 현재까지의 바이트 길이와 더해 최대 바이트 길이를 넘지 않으면 
+        if (totalByte + byte <= maxByte) { 
+          totalByte += byte      // 바이트 길이 값을 더해 현재까지의 총 바이트 길이 값을 구함
+          validText += character // 글자를 더해 현재까지의 총 문자열 값을 구함
+        } else {      
+          alert('최대 250byte를 넘길 수 없습니다.')           // 최대 바이트 길이를 넘으면
+          break                  // for 루프 종료
+        }
+      }
+
+      return validText
+    },
+    getByteLength(decimal) {
+      const LINE_FEED = 10
+      return (decimal >> 7) || (LINE_FEED === decimal) ? 2 : 1
     }
   }
 }
