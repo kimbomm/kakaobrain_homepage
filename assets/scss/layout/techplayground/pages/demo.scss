@@ -282,13 +282,6 @@ i.ic-caret_circle {
   .demo-select {
     margin-bottom: 14px;
   }
-  ::v-deep {
-    .selectbox {
-      > button {
-        width: 100%;
-      }
-    }
-  }
   .experience {
     &-tool {
       height: 200px;

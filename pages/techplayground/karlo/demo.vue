@@ -49,7 +49,7 @@
                     <span>Text Prompt</span>
                   </div>
                   <div class="experience-tool">
-                    <textarea v-model="textarea" placeholder="상상하는 문장이나, 생각나는 모습을 입력하세요." @keyup="onTextareaChange"></textarea>
+                    <textarea v-model="textarea" placeholder="상상하는 문장이나, 생각나는 모습을 입력하세요." @keyup="onTextareaChange" @change="onTextareaChange"></textarea>
                     <div class="byte">{{ getStringToByte(textarea) }}/{{ maxByte }}</div>
                   </div>
                 </div>
