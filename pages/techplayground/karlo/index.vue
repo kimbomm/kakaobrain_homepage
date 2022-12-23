@@ -32,12 +32,12 @@
         <img class="gallery-symbol tablet-only" src="@/assets/images/playground/karlo/diacritic-1_mo.png"/>
       </div>
       <h4 class="heading">
-        Start a new world of art, AI Artist_ Karlo
+        START A NEW WORLD OF ART CREATION, with KARLO API
       </h4>
       <p class="description">
         Karlo API는 사용자가 입력한 문장과 이미지를 기반으로 새로운 이미지를 만드는 기능을 제공합니다. 생성형 인공지능 Karlo는 1억 8만 장 규모의 이미지-텍스트 쌍 데이터 학습을 통해 이미지와 텍스트 간의 연관성을 이해합니다. 사용자가 묘사한 내용을 이해하고, 픽셀 단위로 완전히 새로운 이미지를 생성합니다.
         <br><br>
-        또한 사용자가 원하는 콘셉트에 맞춰 창작 활동을 할 수 있도록 사물, 배경, 조명, 구도, 다양한 화풍을지원합니다.
+        또한 사용자가 원하는 콘셉트에 맞춰 창작 활동을 할 수 있도록<br>사물, 배경, 조명, 구도, 다양한 화풍을 지원합니다.
       </p>
       <h4 class="heading lh-12">
         What is Karlo?
@@ -71,7 +71,7 @@
           Karlo를 통해 사용자들에게<br>
           서비스 브랜드와 콘텐츠를 향한 영감을 불어넣어 보세요.
         </p>
-        <tech-button text="Go fot it!" />
+        <tech-button text="Go fot it!" @click="$router.push('/techplayground/karlo/demo')" />
       </div>
     </div>
     <div class="karlo-mark">

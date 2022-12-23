@@ -100,6 +100,14 @@
   .content {
     height: 100%;
     padding: 0 20px 20px;
+    &-title {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      > div {
+        flex: 1;
+      }
+    }
   }
   .head-title {
     font-size: 12px;
@@ -146,6 +154,9 @@
     overflow: hidden;
     position: relative;
     flex: 1;
+  }
+  &-content {
+    width: 100%;
   }
   textarea {
     resize: none;
@@ -323,7 +334,6 @@ i.ic-caret_circle {
       height: 320px;
     }
   }
-
 }
 
 @include mobile {
@@ -337,6 +347,15 @@ i.ic-caret_circle {
       background-image: url('@/assets/images/playground/demo/top_intro_content_mo.png');
       background-size: auto;
       background-position: calc(50% + 30px) center;
+    }
+  }
+  .experience {
+    display: block;
+    &-content {
+      margin-bottom: 30px;
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
   }
 }

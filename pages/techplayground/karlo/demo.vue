@@ -27,18 +27,31 @@
           />
           <div class="tab-contents">
             <div class="info">
-              <p v-if="activeTab === 0">사용자가 입력한 단어나 문장을 기반으로 관련된 이미지와 다양한 작품을 생성합니다.</p>
-              <p v-else-if="activeTab === 1">사용자가 업로드한 이미지를 기반으로 관련된 이미지와 다양한 작품을 생성합니다.</p>
-              <p v-else-if="activeTab === 2">사용자가 업로드한 이미지와, 편집할 부분과 함께 입력된 단어나 문장(공백 가능)을 기반으로 새로운 작품을 생성합니다.</p>
+              <p v-if="activeTab === 1">사용자가 입력한 단어나 문장을 기반으로 관련된 이미지와 다양한 작품을 생성합니다.</p>
+              <p v-else-if="activeTab === 2">사용자가 업로드한 이미지를 기반으로 관련된 이미지와 다양한 작품을 생성합니다.</p>
+              <p v-else-if="activeTab === 3">사용자가 업로드한 이미지와, 편집할 부분과 함께 입력된 단어나 문장(공백 가능)을 기반으로 새로운 작품을 생성합니다.</p>
             </div>
             <div class="content">
-              <div class="head-title">
-                <span>Text Prompt</span>
-              </div>
               <div class="experience">
-                <div class="experience-tool">
-                  <textarea v-model="textarea" placeholder="상상하는 문장이나, 생각나는 모습을 입력하세요." @keyup="onTextareaChange"></textarea>
-                  <div class="byte">{{ getStringToByte(textarea) }}/{{ maxByte }}</div>
+                <div v-if="activeTab !== 1" class="experience-content">
+                  <div class="head-title">
+                    <span>Image Input</span>
+                  </div>
+                  <div v-if="activeTab === 2" class="experience-tool">
+                    <karlo-editor :crop="true" :key="'crop'" />
+                  </div>
+                  <div v-if="activeTab === 3" class="experience-tool">
+                    <karlo-editor :crop="true" :masking="true" :key="'masking'" />
+                  </div>
+                </div>
+                <div v-if="activeTab !== 2" class="experience-content">
+                  <div class="head-title">
+                    <span>Text Prompt</span>
+                  </div>
+                  <div class="experience-tool">
+                    <textarea v-model="textarea" placeholder="상상하는 문장이나, 생각나는 모습을 입력하세요." @keyup="onTextareaChange"></textarea>
+                    <div class="byte">{{ getStringToByte(textarea) }}/{{ maxByte }}</div>
+                  </div>
                 </div>
               </div>
               <div class="head-title">
@@ -81,10 +94,12 @@
 import { mapState } from 'vuex'
 import TechButton from '@/components/techplayground/common/Button'
 import TechSelectbox from '@/components/techplayground/common/Selectbox'
+import KarloEditor from '@/components/techplayground/demo/KarloEditor'
 export default {
   components: {
     TechButton,
-    TechSelectbox
+    TechSelectbox,
+    KarloEditor
   },
   layout: 'playground',
   data() {
@@ -102,7 +117,7 @@ export default {
         { name: '1장', value: 1 },
         { name: '2장', value: 2 },
         { name: '3장', value: 3 }
-      ]
+      ],
     }
   },
   computed: {
