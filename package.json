@@ -21,6 +21,7 @@
     "@nuxtjs/dayjs": "^1.4.1",
     "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/sitemap": "^2.4.0",
+    "@toast-ui/vue-image-editor": "^3.15.2",
     "axios": "^0.24.0",
     "cookie-universal-nuxt": "^2.1.5",
     "core-js": "^3.15.1",
