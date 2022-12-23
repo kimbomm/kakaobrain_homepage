@@ -143,8 +143,12 @@ export default {
       }
     },
     onMaskingEnd() {
-      this.$refs.editor.invoke('stopDrawingMode')
-      this.isMaskingMode = false
+      if (this.isMaskingMode) {
+        this.$refs.editor.invoke('stopDrawingMode')
+        this.isMaskingMode = false
+      } else {
+        this.onClear()
+      }
     },
     /**
      * 이미지 masking mode
