@@ -10,6 +10,11 @@
     @content;
   }
 }
+@mixin pc-middle {
+  @media screen and (max-width: 1440px) {
+    @content;
+  }
+}
 @mixin tablet {
   .device-tablet {
     @content;
