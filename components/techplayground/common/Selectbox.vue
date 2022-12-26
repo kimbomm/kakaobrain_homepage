@@ -1,6 +1,6 @@
 <template>
   <div :class="classBind">
-    <button @click="onFocus()" @blur="onBlur()">
+    <button :disabled="disabled" @click="onFocus" @blur="onBlur()">
       <span v-if="!value" class="placeholder">선택하기</span>
       <span>{{ selectedItem.name }}</span>
     </button>
@@ -23,6 +23,9 @@ export default {
     },
     size: {
       default: ''
+    },
+    disabled: {
+      default: false
     }
   },
   data() {
@@ -48,7 +51,10 @@ export default {
         }
       })
     },
-    onFocus() {
+    onFocus(event) {
+      if (!this.isFocus) {
+        event.target.focus()
+      }
       this.isFocus = !this.isFocus
     },
     onBlur() {

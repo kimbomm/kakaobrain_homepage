@@ -1,5 +1,8 @@
 <template>
-  <button :class="classBind">{{ text }}</button>
+  <button
+    :class="classBind"
+    :disabled="disabled"
+  >{{ text }}</button>
 </template>
 <script>
 export default {
@@ -9,6 +12,9 @@ export default {
       default: ''
     },
     full: {
+      default: false
+    },
+    disabled: {
       default: false
     },
     theme: {
