@@ -59,6 +59,7 @@ export default {
   },
   data() {
     return {
+      origin: null,
       brush: {
         min: 1,
         max: 20,
@@ -90,7 +91,10 @@ export default {
     onDrop(event) {
       event.preventDefault()
       const files = event.dataTransfer.files
-      console.log('onDrop::', files)
+      if (!files[0].type.includes('image')) {
+        alert('지원하지 않는 형식의 파일입니다.')
+        return false
+      }
       const newEvent = {
         target: {
           files,
@@ -99,8 +103,12 @@ export default {
       this.onFileChange(newEvent)
     },
     onFileChange(event) {
+      this.$emit('fileUpload', true)
       this.isUploadFile = !this.isUploadFile
       this.$refs.editor.invoke('loadImageFromFile', event.target.files[0])
+      this.$nextTick(() => {
+        this.origin = this.onToDataURL()
+      })
     },
     onUndo() {
       if (!this.$refs.editor.invoke('isEmptyUndoStack')) {
@@ -126,6 +134,7 @@ export default {
     onClear() {
       this.$refs.editor.invoke('stopDrawingMode')
       this.isUploadFile = false
+      this.origin = null
     },
     /**
      * 이미지 crop mode
@@ -167,6 +176,12 @@ export default {
       this.$refs.editor.invoke('setBrush', {
         width: this.brush.width
       })
+    },
+    onToDataURL() {
+      return this.$refs.editor.invoke('toDataURL')
+    },
+    onGetOrigin() {
+      return this.origin
     }
   }
 }

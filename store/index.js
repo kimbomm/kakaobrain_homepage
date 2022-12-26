@@ -139,5 +139,14 @@ export const actions = {
   async postContentGood({}, contentId) {
     const res = await this.$axios.post(`/content/${contentId}/good`)
     return res
+  },
+  async postKarloT2i(payload) {
+    return await this.$axios.post('/karlo/t2i', payload)
+  },
+  async postKarloVariations(payload) {
+    return await this.$axios.post('/karlo/variations', payload)
+  },
+  async postKarloInpainting(payload) {
+    return await this.$axios.post('/karlo/inpainting', payload)
   }
 }
