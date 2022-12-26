@@ -99,7 +99,7 @@
                   :select-list="selectList"
                   @change="onChange"
                 />
-                <p>*생성할 수 있는 이미지가 <span class="color-">16</span>장 남았습니다.</p>
+                <p>*생성할 수 있는 이미지가 <span class="color-orange">60</span>장 남았습니다.</p>
               </div>
               <tech-button
                 text="Generate!"
@@ -126,8 +126,8 @@
                 class="swiper"
                 :options="swiperOption"
               >
-                <swiper-slide v-for="item in resData[activeTab].images" :key="item.id">
-                  <karlo-canvas :base64-data="item.image" />
+                <swiper-slide v-for="(item, idx) in resData[activeTab].images" :key="item.id">
+                  <karlo-canvas :ref="`masking-canvas-${idx}`" :base64-data="item.image" />
                 </swiper-slide>
               </swiper>
             </client-only>
@@ -136,7 +136,13 @@
               <p>Karlo가 열심히 그리고 있어요.</p>
             </div>
           </div>
-          <tech-button text="Download" :disabled="!resData[activeTab] || isGenerating" theme="mint" :full="true" />
+          <tech-button
+            text="Download"
+            :disabled="!resData[activeTab] || isGenerating"
+            theme="mint"
+            :full="true"
+            @click.native="onDownload()"
+          />
         </div>
       </div>
     </div>
@@ -148,6 +154,8 @@ import TechButton from '@/components/techplayground/common/Button'
 import TechSelectbox from '@/components/techplayground/common/Selectbox'
 import KarloCanvas from '@/components/techplayground/demo/KarloCanvas'
 import KarloEditor from '@/components/techplayground/demo/KarloEditor'
+import JSZip from 'jszip'
+import { saveAs } from 'file-saver'
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 import 'swiper/css/swiper.css'
 export default {
@@ -214,6 +222,9 @@ export default {
       }
     },
   },
+  mounted() {
+    this.onDownload()
+  },
   methods: {
     tabClick(tab) {
       this.activeTab = tab.value
@@ -264,42 +275,79 @@ export default {
       }
     },
     async onGenerate() {
-      this.isGenerating = true
-      let params = null
-      let res = ''
-      switch (this.activeTab) {
-        case 1:
-          params = {
-            prompt: {
-              text: this.t2i,
-              batch_size: this.selectedValue
+      try {
+        this.isGenerating = true
+        let params = null
+        let res = ''
+        switch (this.activeTab) {
+          case 1:
+            params = {
+              prompt: {
+                text: this.t2i,
+                batch_size: this.selectedValue
+              }
             }
-          }
-          res = await this.$axios.post('/karlo/t2i', params)
-          break
-        case 2:
-          params = {
-            prompt: {
-              image: await this.$refs.variation.onToDataURL(),
-              batch_size: this.selectedValue
+            res = await this.$axios.post('/karlo/t2i', params)
+            break
+          case 2:
+            params = {
+              prompt: {
+                image: await this.$refs.variation.onToDataURL(),
+                batch_size: this.selectedValue
+              }
             }
-          }
-          res = await this.$axios.post('/karlo/variations', params)
-          break
-        case 3:
-          params = {
-            prompt: {
-              text: this.inpaintingTxt,
-              image: this.$refs.inpainting.origin,
-              mask: await this.$refs.inpainting.onToDataURL(),
-              batch_size: this.selectedValue
+            res = await this.$axios.post('/karlo/variations', params)
+            break
+          case 3:
+            params = {
+              prompt: {
+                text: this.inpaintingTxt,
+                image: this.$refs.inpainting.origin,
+                mask: await this.$refs.inpainting.onToDataURL(),
+                batch_size: this.selectedValue
+              }
             }
-          }
-          res = await this.$axios.post('/karlo/inpainting', params)
-          break
+            res = await this.$axios.post('/karlo/inpainting', params)
+            break
+        }
+        this.resData[this.activeTab] = res.data
+        this.isGenerating = false
+      } catch (err) {
+        // console.log(err.response.data)
+        alert(`[${err.response.data.code}] 전송에 실패하였습니다. 담당자에게 문의하세요.`)
       }
-      this.resData[this.activeTab] = res.data
-      this.isGenerating = false
+    },
+    onDownload() {
+      if (this.resData[this.activeTab]) {
+        const zip = new JSZip()
+        const images = zip.folder('images')
+        this.resData[this.activeTab].images.forEach((item, index) => {
+          images.file(`karlo_${index}.png`, this.dataURLtoFile(this.$refs[`masking-canvas-${index}`][0].maskingSrc))
+        })
+
+        zip.generateAsync({
+          type: "blob"
+        }).then((content) => {
+          saveAs(content, "karlo_archive.zip")
+        })
+      }
+
+
+    },
+    dataURLtoFile(dataurl, filename) {
+        var arr = dataurl.split(','),
+            mime = arr[0].match(/:(.*?);/)[1],
+            bstr = atob(arr[1]),
+            n = bstr.length,
+            u8arr = new Uint8Array(n);
+
+        while(n--){
+            u8arr[n] = bstr.charCodeAt(n);
+        }
+
+
+
+        return new File([u8arr], filename, {type:mime});
     }
   }
 }
