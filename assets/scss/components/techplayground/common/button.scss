@@ -27,11 +27,14 @@ button.button {
   &.button__full {
     width: 100%;
   }
-  &.button__dark {
-    background-color: $surface-20;
+  &.button__mint {
+    background-color: $brain-mint;
     color: #2F3837;
     &:after {
       background-image: url('@/assets/images/icons/arrow_right_dark.png');
-    }
+    } 
+  }
+  &:disabled {
+    background-color: $surface-20;
   }
 }

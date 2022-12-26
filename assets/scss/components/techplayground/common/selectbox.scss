@@ -5,6 +5,7 @@
     background-color: #fff;
     height: 40px;
     width: 150px;
+    color: $surface-24;
     overflow: hidden;
     padding: 0 16px 0 20px;
     text-align: left;
@@ -76,6 +77,13 @@
         font-size: 16px;
         font-weight: 600;
       }
+    }
+  }
+}
+@include tablet {
+  .selectbox {
+    > button {
+      width: 100%;
     }
   }
 }

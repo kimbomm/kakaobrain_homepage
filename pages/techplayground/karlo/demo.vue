@@ -1,15 +1,17 @@
 <template>
   <div class="techplayground-karlo-demo-page">
     <div class="container">
-      <div class="intro"></div>
-      <h4 class="heading">AI Artist_<br>Karlo</h4>
-      <p class="description">
-        사용자가 입력한 문장을 기반으로 사실적인 이미지와 다양한 작품을 생성할 수 있는 AI 모델입니다.
-        <br>
-        1억 8천만장 규모의 이미지와 이미지를 설명하는 텍스트와의 관계를 학습한 멀티모달 AI 모델입니다.
-        <br><br>
-        Karlo는 학습된 결과를 바탕으로 사용자가 입력한 문장을 이해하고, 세상에 없던 새로운 이미지를 생성해냅니다. 여러분의 상상 속 영감이 우리의 AI 기술을 통해 더 새롭고, 다양한 크리에이티브로 창조되길 기대합니다.
-      </p>
+      <div class="inner">
+        <div class="intro"></div>
+        <h4 class="heading">AI Artist_<br>Karlo</h4>
+        <p class="description">
+          사용자가 입력한 문장을 기반으로 사실적인 이미지와 다양한 작품을 생성할 수 있는 AI 모델입니다.
+          <br>
+          1억 8천만장 규모의 이미지와 이미지를 설명하는 텍스트와의 관계를 학습한 멀티모달 AI 모델입니다.
+          <br><br>
+          Karlo는 학습된 결과를 바탕으로 사용자가 입력한 문장을 이해하고, 세상에 없던 새로운 이미지를 생성해냅니다. 여러분의 상상 속 영감이 우리의 AI 기술을 통해 더 새롭고, 다양한 크리에이티브로 창조되길 기대합니다.
+        </p>
+      </div>
       <div class="demo">
         <div class="demo-title">
           <span>Karlo Demo</span>
@@ -17,12 +19,19 @@
         </div>
         <div class="demo-contents">
           <ul class="demo-tab">
-            <li v-for="tab in tabs" :key="tab.name"><button :class="{ 'is-active': tab.value === activeTab }" @click="tabClick(tab)">{{ tab.name }}</button></li>
+            <li v-for="tab in tabs" :key="tab.name">
+              <button
+                :class="{ 'is-active': tab.value === activeTab }"
+                :disabled="isGenerating"
+                @click="tabClick(tab)"
+              >{{ tab.name }}</button>
+            </li>
           </ul>
           <tech-selectbox
             class="demo-select tablet-only"
             :value.sync="activeTab"
             :select-list="tabs"
+            :disabled="isGenerating"
             size="large"
           />
           <div class="tab-contents">
@@ -38,10 +47,21 @@
                     <span>Image Input</span>
                   </div>
                   <div v-if="activeTab === 2" class="experience-tool">
-                    <karlo-editor :crop="true" :key="'crop'" />
+                    <karlo-editor
+                      ref="variation"
+                      :crop="true"
+                      :key="'crop'"
+                      @fileUpload="onFileUpload"
+                    />
                   </div>
                   <div v-if="activeTab === 3" class="experience-tool">
-                    <karlo-editor :crop="true" :masking="true" :key="'masking'" />
+                    <karlo-editor
+                      ref="inpainting"
+                      :crop="true"
+                      :masking="true"
+                      :key="'masking'"
+                      @fileUpload="onFileUpload"
+                    />
                   </div>
                 </div>
                 <div v-if="activeTab !== 2" class="experience-content">
@@ -49,8 +69,24 @@
                     <span>Text Prompt</span>
                   </div>
                   <div class="experience-tool">
-                    <textarea v-model="textarea" placeholder="상상하는 문장이나, 생각나는 모습을 입력하세요." @keyup="onTextareaChange"></textarea>
-                    <div class="byte">{{ getStringToByte(textarea) }}/{{ maxByte }}</div>
+                    
+                    <textarea
+                      v-if="activeTab === 1"
+                      v-model="t2i"
+                      placeholder="상상하는 문장이나, 생각나는 모습을 입력하세요."
+                      :disabled="isGenerating"
+                      @keyup="onTextareaChange('t2i')"
+                      @change="onTextareaChange('t2i')"
+                    ></textarea>
+                    <textarea
+                      v-else-if="activeTab === 3"
+                      v-model="inpaintingTxt"
+                      placeholder="상상하는 문장이나, 생각나는 모습을 입력하세요."
+                      :disabled="isGenerating"
+                      @keyup="onTextareaChange('inpaintingTxt')"
+                      @change="onTextareaChange('inpaintingTxt')"
+                    ></textarea>
+                    <div class="byte">{{ activeTab === 1 ? getStringToByte(t2i) : getStringToByte(inpaintingTxt) }}/{{ maxByte }}</div>
                   </div>
                 </div>
               </div>
@@ -65,7 +101,12 @@
                 />
                 <p>*생성할 수 있는 이미지가 <span class="color-">16</span>장 남았습니다.</p>
               </div>
-              <tech-button text="Generate!" :full="true" />
+              <tech-button
+                text="Generate!"
+                :disabled="!getGenerateCondition || isGenerating"
+                :full="true"
+                @click.native="onGenerate()"
+              />
             </div>
           </div>
         </div>
@@ -79,12 +120,23 @@
         </div>
         <div class="result-contents">
           <div class="content">
-            <div class="proceeding">
+            <client-only>
+              <swiper
+                v-if="resData[activeTab]"
+                class="swiper"
+                :options="swiperOption"
+              >
+                <swiper-slide v-for="item in resData[activeTab].images" :key="item.id">
+                  <karlo-canvas :base64-data="item.image" />
+                </swiper-slide>
+              </swiper>
+            </client-only>
+            <div v-if="isGenerating" class="proceeding">
               <img src="@/assets/images/playground/loading.gif" />
               <p>Karlo가 열심히 그리고 있어요.</p>
             </div>
           </div>
-          <tech-button text="Download" theme="dark" :full="true" />
+          <tech-button text="Download" :disabled="!resData[activeTab] || isGenerating" theme="mint" :full="true" />
         </div>
       </div>
     </div>
@@ -94,16 +146,27 @@
 import { mapState } from 'vuex'
 import TechButton from '@/components/techplayground/common/Button'
 import TechSelectbox from '@/components/techplayground/common/Selectbox'
+import KarloCanvas from '@/components/techplayground/demo/KarloCanvas'
 import KarloEditor from '@/components/techplayground/demo/KarloEditor'
+import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
+import 'swiper/css/swiper.css'
 export default {
   components: {
     TechButton,
     TechSelectbox,
-    KarloEditor
+    KarloCanvas,
+    KarloEditor,
+    Swiper,
+    SwiperSlide
   },
   layout: 'playground',
   data() {
     return {
+      t2i: '',
+      inpaintingTxt: '',
+      variationFileUploaded: false,
+      inpaintingFileUploaded: false,
+      isGenerating: false,
       activeTab: 1,
       tabs: [
         { name: 'Image Generation', value: 1 },
@@ -118,12 +181,38 @@ export default {
         { name: '2장', value: 2 },
         { name: '3장', value: 3 }
       ],
+      resData: {
+        1: null,
+        2: null,
+        3: null,
+      },
+      swiperOption: {
+        slidesPerView: 1.1,
+        spaceBetween: 10,
+        mousewheel: false,
+        scrollbar: true,
+        breakpoints: {
+          1024: {
+            slidesPerView: 3
+          }
+        }
+      }
     }
   },
   computed: {
     ...mapState({
       device: state => state.device
     }),
+    getGenerateCondition() {
+      switch (this.activeTab) {
+        case 1:
+          return this.t2i
+        case 2:
+          return this.variationFileUploaded
+        case 3:
+          return this.inpaintingFileUploaded && this.inpaintingTxt
+      }
+    },
   },
   methods: {
     tabClick(tab) {
@@ -135,8 +224,8 @@ export default {
     onChange(selectItem) {
       console.log(selectItem)
     },
-    onTextareaChange() {
-      this.textarea = this.getLimitedByteText(this.textarea, 250)
+    onTextareaChange(model) {
+      this[model] = this.getLimitedByteText(this[model], 250)
     },
     getLimitedByteText(inputText, maxByte) {
       const characters = inputText.split('')
@@ -163,6 +252,54 @@ export default {
     getByteLength(decimal) {
       const LINE_FEED = 10
       return (decimal >> 7) || (LINE_FEED === decimal) ? 2 : 1
+    },
+    onFileUpload() {
+      switch (this.activeTab) {
+        case 2:
+          this.variationFileUploaded = true
+          break
+        case 3:
+          this.inpaintingFileUploaded = true
+          break
+      }
+    },
+    async onGenerate() {
+      this.isGenerating = true
+      let params = null
+      let res = ''
+      switch (this.activeTab) {
+        case 1:
+          params = {
+            prompt: {
+              text: this.t2i,
+              batch_size: this.selectedValue
+            }
+          }
+          res = await this.$axios.post('/karlo/t2i', params)
+          break
+        case 2:
+          params = {
+            prompt: {
+              image: await this.$refs.variation.onToDataURL(),
+              batch_size: this.selectedValue
+            }
+          }
+          res = await this.$axios.post('/karlo/variations', params)
+          break
+        case 3:
+          params = {
+            prompt: {
+              text: this.inpaintingTxt,
+              image: this.$refs.inpainting.origin,
+              mask: await this.$refs.inpainting.onToDataURL(),
+              batch_size: this.selectedValue
+            }
+          }
+          res = await this.$axios.post('/karlo/inpainting', params)
+          break
+      }
+      this.resData[this.activeTab] = res.data
+      this.isGenerating = false
     }
   }
 }
