@@ -168,6 +168,27 @@ export default {
     SwiperSlide
   },
   layout: 'playground',
+  head() {
+    return {
+      meta: [
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: 'AI Artist_Karlo'
+        },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: `${process.env.BASE_URL}/techplayground/karlo/demo`
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: `${process.env.BASE_URL}/meta/meta_techplayground_karlo.png`
+        }
+      ]
+    }
+  },
   data() {
     return {
       t2i: '',

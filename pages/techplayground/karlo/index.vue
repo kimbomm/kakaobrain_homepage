@@ -89,6 +89,27 @@ export default {
     TechButton
   },
   layout: 'playground',
+  head() {
+    return {
+      meta: [
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: '새로운 창조적 지능, Karlo'
+        },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: `${process.env.BASE_URL}/techplayground/karlo`
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: `${process.env.BASE_URL}/meta/meta_techplayground_karlo.png`
+        }
+      ]
+    }
+  },
   data() {
     return {
       totalImage: 13,
