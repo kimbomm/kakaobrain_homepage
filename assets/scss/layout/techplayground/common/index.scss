@@ -89,6 +89,9 @@ p.description {
 .color-mint {
   color: $brain-mint !important;
 }
+.color-orange {
+  color: $brain-orange !important;
+}
 
 @include tablet {
   h4.heading {
