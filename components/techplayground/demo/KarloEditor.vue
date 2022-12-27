@@ -12,7 +12,12 @@
       </label>
     </div>
     <client-only>
-      <image-editor ref="editor" :include-ui="false" :options="options" />
+      <image-editor
+        ref="editor"
+        class="tui-image-editor"
+        :include-ui="false"
+        :options="options"
+      />
     </client-only>
     <div class="buttons">
       <template v-if="crop && !masking">
@@ -61,15 +66,11 @@ export default {
     return {
       origin: null,
       brush: {
-        min: 1,
-        max: 20,
-        width: 5
+        min: 20,
+        max: 150,
+        width: 20
       },
       isUploadFile: false,
-      canvas: {
-        width: '894',
-        height: '292'
-      },
       isUploadFile: false,
       isCropMode: false,
       isMaskingMode: false,
@@ -78,9 +79,16 @@ export default {
         redo: false,
       },
       options: {
-        cssMaxHeight: '292px',
-        cssMaxWidth: '894px',
-        usageStatistics: false
+        includeUI: {
+          cssMaxWidth: 300,
+          cssMaxHeight: 300,
+          usageStatistics: false,
+          selectionStyle: {
+            borderColor: 'blue',
+            cornerColor: 'blue',
+            cornerSize: 6
+          }
+        }
       },
     }
   },
@@ -106,9 +114,24 @@ export default {
       this.$emit('fileUpload', true)
       this.isUploadFile = !this.isUploadFile
       this.$refs.editor.invoke('loadImageFromFile', event.target.files[0])
-      this.$nextTick(() => {
-        this.origin = this.onToDataURL()
-      })
+      this.fileToBase64(event.target.files[0])
+      setTimeout(() => {
+        const parentElementHeight = getComputedStyle(document.querySelector('.experience-tool')).minHeight.split('px')[0] * 1
+        const height = this.$refs.editor.$el.querySelector('.lower-canvas').style.maxHeight.split('px')[0] * 1
+        this.$refs.editor.$el.style.height = height > parentElementHeight
+          ? height + 'px'
+          : parentElementHeight + 'px'
+      }, 200)
+    },
+    /**
+     * Image file convert to base64
+     */
+    fileToBase64(file) {
+      const reader = new FileReader()
+      reader.readAsDataURL(file)
+      reader.onload = () => {
+        this.origin = reader.result
+      }
     },
     onUndo() {
       if (!this.$refs.editor.invoke('isEmptyUndoStack')) {
@@ -132,6 +155,7 @@ export default {
       })
     },
     onClear() {
+      this.$refs.editor.$el.style.height = 'auto'
       this.$refs.editor.invoke('stopDrawingMode')
       this.isUploadFile = false
       this.origin = null
@@ -178,10 +202,13 @@ export default {
       })
     },
     onToDataURL() {
-      return this.$refs.editor.invoke('toDataURL')
+      return this.$refs.editor.invoke('toDataURL').split('data:image/png;base64,')[1]
     },
     onGetOrigin() {
-      return this.origin
+      return this.origin.split('data:image/png;base64,')[1]
+    },
+    onAdded(event) {
+      console.log(event)
     }
   }
 }
