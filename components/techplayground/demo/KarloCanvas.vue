@@ -1,7 +1,7 @@
 <template>
   <div class="canvas">
     <img class="view" :src="maskingSrc" />
-    <canvas style="display: none;" id="canvas" width="305" height="305" ref="canvas" />
+    <canvas style="display: none;" id="canvas" width="1024" height="1024" ref="canvas" />
     <img class="mark" ref="mark" style="display: none;" src="@/assets/images/playground/symbol/karlo_symbol_mark.png" />
   </div>
 </template>
@@ -29,8 +29,8 @@ export default {
       const image = new Image()
       const mark = this.$refs.mark
       image.onload = () => {
-        this.context.drawImage(image, 0, 0, 305, 305)
-        this.context.drawImage(mark, 269, 269, 16, 16)
+        this.context.drawImage(image, 0, 0, 1024, 1024)
+        this.context.drawImage(mark, 930, 930, 54, 54)
 
         this.maskingSrc = this.$refs.canvas.toDataURL()
       }

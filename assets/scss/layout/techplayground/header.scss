@@ -1,10 +1,16 @@
 header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
   height: 75px;
   padding: 0 20px 0 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px $surface-1 solid;
+  z-index: 10;
 }
 .header {
   &-menu {
