@@ -15,7 +15,7 @@
       <div class="demo">
         <div class="demo-title">
           <span>Karlo Demo</span>
-          <span>v1.3.1</span>
+          <span>{{ version }}</span>
         </div>
         <div class="demo-contents">
           <ul class="demo-tab">
@@ -75,16 +75,14 @@
                       v-model="t2i"
                       placeholder="상상하는 문장이나, 생각나는 모습을 입력하세요."
                       :disabled="isGenerating"
-                      @keyup="onTextareaChange('t2i')"
-                      @change="onTextareaChange('t2i')"
+                      @input="onTextareaChange($event, 't2i')"
                     ></textarea>
                     <textarea
                       v-else-if="activeTab === 3"
                       v-model="inpaintingTxt"
                       placeholder="상상하는 문장이나, 생각나는 모습을 입력하세요."
                       :disabled="isGenerating"
-                      @keyup="onTextareaChange('inpaintingTxt')"
-                      @change="onTextareaChange('inpaintingTxt')"
+                      @input="onTextareaChange($event, 'inpaintingTxt')"
                     ></textarea>
                     <div class="byte">{{ activeTab === 1 ? getStringToByte(t2i) : getStringToByte(inpaintingTxt) }}/{{ maxByte }}</div>
                   </div>
@@ -99,7 +97,7 @@
                   :select-list="selectList"
                   @change="onChange"
                 />
-                <p>*생성할 수 있는 이미지가 <span class="color-orange">60</span>장 남았습니다.</p>
+                <p>*생성할 수 있는 이미지가 <span class="color-orange">{{ count.availableCount }}</span>장 남았습니다.</p>
               </div>
               <tech-button
                 text="Generate!"
@@ -191,6 +189,7 @@ export default {
   },
   data() {
     return {
+      version: 'v1.3.2',
       t2i: '',
       inpaintingTxt: '',
       variationFileUploaded: false,
@@ -225,6 +224,11 @@ export default {
             slidesPerView: 3
           }
         }
+      },
+      count: {
+        totalAvailableCount: 60,
+        availableCount: 60,
+        useCount: 0
       }
     }
   },
@@ -239,14 +243,21 @@ export default {
         case 2:
           return this.variationFileUploaded
         case 3:
-          return this.inpaintingFileUploaded && this.inpaintingTxt
+          return this.inpaintingFileUploaded
       }
     },
   },
-  mounted() {
-    this.onDownload()
+  async fetch() {
+    await this.getCount()
   },
   methods: {
+    /**
+     * karlo download 횟수 확인
+     */
+    async getCount() {
+      const res = await this.$axios.get('/karlo/count')
+      this.count = { ...res.data }
+    },
     tabClick(tab) {
       this.activeTab = tab.value
     },
@@ -256,8 +267,16 @@ export default {
     onChange(selectItem) {
       console.log(selectItem)
     },
-    onTextareaChange(model) {
-      this[model] = this.getLimitedByteText(this[model], 250)
+    onKeydown(model) {
+      this[model] = this[model]
+    },
+    onTextareaChange(event, model) {
+      if (/[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/g.test(event.target.value)) {
+        this[model] = this[model].replace(/[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/g, '')
+      }
+      setTimeout(() => {
+        this[model] = this.getLimitedByteText(this[model], 250)
+      }, 50)
     },
     getLimitedByteText(inputText, maxByte) {
       const characters = inputText.split('')
@@ -323,7 +342,7 @@ export default {
             params = {
               prompt: {
                 text: this.inpaintingTxt,
-                image: this.$refs.inpainting.origin,
+                image: this.$refs.inpainting.onGetOrigin(),
                 mask: await this.$refs.inpainting.onToDataURL(),
                 batch_size: this.selectedValue
               }
@@ -332,6 +351,11 @@ export default {
             break
         }
         this.resData[this.activeTab] = res.data
+        this.count = {
+          totalAvailableCount: res.data.totalAvailableCount,
+          availableCount: res.data.availableCount,
+          useCount: res.data.useCount,
+        }
         this.isGenerating = false
       } catch (err) {
         // console.log(err.response.data)

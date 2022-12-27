@@ -1,5 +1,4 @@
 .karlo-editor {
-  height: 100%;
   ::v-deep {
     .tui-image-editor-canvas-container {
       max-width: 100% !important;
@@ -84,6 +83,7 @@
       position: absolute;
       top: 73px;
       right: 7px;
+      height: 100px;
     }
   }
 }
