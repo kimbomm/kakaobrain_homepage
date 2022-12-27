@@ -28,6 +28,12 @@
             </div>
           </div>
         </li>
+        <li class="empty">
+          <img src="@/assets/images/playground/main/empty_card.png" />
+        </li>
+        <li class="empty">
+          <img src="@/assets/images/playground/main/empty_card.png" />
+        </li>
       </ul>
       <h4 class="heading">What is<br>Playground</h4>
       <p class="description">

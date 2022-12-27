@@ -3,7 +3,7 @@
     <div class="container">
       <div class="inner">
         <div class="intro"></div>
-        <h4 class="heading">AI Artist_<br>Karlo</h4>
+        <h4 class="heading">Generative AI_<br>Karlo</h4>
         <p class="description">
           사용자가 입력한 문장을 기반으로 사실적인 이미지와 다양한 작품을 생성할 수 있는 AI 모델입니다.
           <br>
@@ -172,7 +172,7 @@ export default {
         {
           hid: 'og:title',
           property: 'og:title',
-          content: 'AI Artist_Karlo'
+          content: 'Generative AI_Karlo'
         },
         {
           hid: 'og:url',
