@@ -213,8 +213,10 @@ h5.title {
   .tech {
     gap: 20px;
     margin-bottom: 100px;
+    flex-direction: column;
+    align-items: center;
     li {
-      flex: 0 0 320px;
+      width: 320px;
     }
   }
   h4.heading {
@@ -229,12 +231,6 @@ h5.title {
 @include mobile {
   h5.title {
     line-height: 1.3;
-  }
-  .tech {
-    justify-content: center;
-    li {
-      // flex: 1 1 auto;
-    }
   }
   .business {
     .mail {

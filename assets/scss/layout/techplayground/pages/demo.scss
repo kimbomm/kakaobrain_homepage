@@ -153,6 +153,7 @@
     overflow: hidden;
     position: relative;
     flex: 1;
+    font-size: 0;
   }
   &-content {
     width: 100%;
@@ -243,18 +244,6 @@ i.ic-caret_circle {
         flex: 0 0 305px;
         width: 305px;
         height: 305px;
-      }
-    }
-    .swiper {
-      height: 100%;
-      &::v-deep {
-        .swiper-wrapper {
-          justify-content: center;
-        }
-        .swiper-slide {
-          border-radius: 10px;
-          overflow: hidden;
-        }
       }
     }
   }
@@ -381,22 +370,24 @@ i.ic-caret_circle {
         overflow-x: auto;
         text-align: center;
         white-space: nowrap;
+        padding: 0 20px;
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+      
+        /* Firefox */
+        &::-webkit-scrollbar {
+          display: none;
+          /* Chrome, Safari, Opera*/
+        }
         li {
           display: inline-block;
           vertical-align: top;
-          width: 320px;
-          height: 320px;
+          width: 100%;
+          height: auto;
           margin-right: 10px;
           &:last-child {
             margin-right: 0;
-          }
-        }
-      }
-      .swiper {
-        &::v-deep {
-          .swiper-wrapper {
-            justify-content: initial;
-            padding-left: 20px;
           }
         }
       }
