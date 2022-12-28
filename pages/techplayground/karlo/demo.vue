@@ -118,7 +118,14 @@
         </div>
         <div class="result-contents">
           <div class="content" :class="{ 'is-active': resData[activeTab] }">
-            <client-only>
+            <ul
+              v-if="resData[activeTab]"
+            >
+              <li v-for="(item, idx) in resData[activeTab].images" :key="item.id">
+                <karlo-canvas :ref="`masking-canvas-${idx}`" :base64-data="item.image" />
+              </li>
+            </ul>
+            <!-- <client-only>
               <swiper
                 v-if="resData[activeTab]"
                 class="swiper"
@@ -128,7 +135,7 @@
                   <karlo-canvas :ref="`masking-canvas-${idx}`" :base64-data="item.image" />
                 </swiper-slide>
               </swiper>
-            </client-only>
+            </client-only> -->
             <div v-if="isGenerating" class="proceeding">
               <img src="@/assets/images/playground/loading.gif" />
               <p>Karlo가 열심히 그리고 있어요.</p>
@@ -215,8 +222,8 @@ export default {
         3: null,
       },
       swiperOption: {
-        slidesPerView: 1.1,
-        spaceBetween: 10,
+        slidesPerView: 1,
+        // spaceBetween: 10,
         mousewheel: false,
         scrollbar: true,
         breakpoints: {

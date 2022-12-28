@@ -8,7 +8,7 @@
       </div>
     </div>
     <div class="container">
-      <h5 class="title">카카오브레인의 AI 기술을 만나보세요.</h5>
+      <h5 class="title">카카오브레인의<br class="mo-only" /> AI 기술을 만나보세요.</h5>
       <ul class="tech">
         <li>
           <div class="tech-top"></div>

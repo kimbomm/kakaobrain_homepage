@@ -13,6 +13,8 @@
   height: calc(100vh - 75px - 40px);
   margin: 20px 20px 0 20px;
   border-radius: 20px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
   overflow: hidden;
   &:before {
     content: '';
@@ -23,6 +25,8 @@
     height: 100%;
     background-color: rgba(12, 23, 44, .7);
     z-index: 2;
+    border-radius: 20px;
+    overflow: hidden;
   }
   .karlo {
     position: absolute;
@@ -57,24 +61,37 @@
     height: 100%;
     background-repeat: no-repeat;
     background-position: center;
-    animation-fill-mode: both;
+    background-size: 140% auto;
     transition: opacity 2000ms ease 0s;
     opacity: 0;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      width: 150%;
+      animation-fill-mode: both;
+    }
     &.is-active {
       opacity: 1;
       z-index: 1;
     }
     @for $i from 1 through 13 {
       &:nth-child(#{$i}) {
-        transform-origin: math.div(random(100), 100) * 100% math.div(random(100), 100) * 100%;
-        background-image: url('@/assets/images/playground/karlo/img_#{$i}.png');
+        img {
+          transform-origin: math.div(random(100), 100) * 100% math.div(random(100), 100) * 100%;
+        }
         &.is-active {
-          @if($i%2 == 0) {
-            animation: more 8s ease;
-          } @else {
-            animation: less 8s ease;
+          img {
+            @if($i%2 == 0) {
+              animation: more 8s ease;
+            } @else {
+              animation: less 8s ease;
+            }
           }
         }
+        // background-image: url('@/assets/images/playground/karlo/img_#{$i}.png');
       }
     }
   }
@@ -89,10 +106,10 @@
 }
 @keyframes less {
   0% {
-    transform: translate3d(0, 0, 0) scale(1.2, 1.2);
+    transform: translate3d(0, 0, 0) scale(1.4, 1.4);
   }
   100% {
-    transform: translate3d(0, 0, 0) scale(1, 1);
+    transform: translate3d(0, 0, 0) scale(1.2, 1.2);
   }
 }
 
