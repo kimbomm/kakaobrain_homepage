@@ -27,9 +27,6 @@
         <img class="gallery-symbol" src="@/assets/images/playground/karlo/karlo_symbol_sm.png"/>
         <img class="gallery-symbol" src="@/assets/images/playground/karlo/diacritic.png"/>
         <img class="gallery-symbol" src="@/assets/images/playground/karlo/diacritic-1.png"/>
-        <img class="gallery-symbol tablet-only" src="@/assets/images/playground/karlo/karlo_symbol_sm_mo.png"/>
-        <img class="gallery-symbol tablet-only" src="@/assets/images/playground/karlo/diacritic_mo.png"/>
-        <img class="gallery-symbol tablet-only" src="@/assets/images/playground/karlo/diacritic-1_mo.png"/>
       </div>
       <h4 class="heading">
         START A NEW WORLD OF ART CREATION, with KARLO API
