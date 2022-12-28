@@ -15,7 +15,7 @@
       <image-editor
         ref="editor"
         class="tui-image-editor"
-        :include-ui="false"
+        :include-ui="true"
         :options="options"
       />
     </client-only>
@@ -45,7 +45,7 @@
         :min="brush.min"
         :max="brush.max"
         step="1"
-        @change="onMaskingChange()"
+        @change="onMaskingChange"
       >
     </div>
   </div>
@@ -80,15 +80,16 @@ export default {
       },
       options: {
         includeUI: {
-          cssMaxWidth: 300,
-          cssMaxHeight: 300,
-          usageStatistics: false,
-          selectionStyle: {
-            borderColor: 'blue',
-            cornerColor: 'blue',
-            cornerSize: 6
-          }
-        }
+          initMenu: 'filter'
+        },
+        cssMaxWidth: 300,
+        cssMaxHeight: 292,
+        usageStatistics: false,
+        selectionStyle: {
+          borderColor: 'blue',
+          cornerColor: 'blue',
+          cornerSize: 6
+        },
       },
     }
   },
@@ -115,13 +116,13 @@ export default {
       this.isUploadFile = !this.isUploadFile
       this.$refs.editor.invoke('loadImageFromFile', event.target.files[0])
       this.fileToBase64(event.target.files[0])
-      setTimeout(() => {
-        const parentElementHeight = getComputedStyle(document.querySelector('.experience-tool')).minHeight.split('px')[0] * 1
-        const height = this.$refs.editor.$el.querySelector('.lower-canvas').style.maxHeight.split('px')[0] * 1
-        this.$refs.editor.$el.style.height = height > parentElementHeight
-          ? height + 'px'
-          : parentElementHeight + 'px'
-      }, 200)
+      // setTimeout(() => {
+      //   const parentElementHeight = getComputedStyle(document.querySelector('.experience-tool')).minHeight.split('px')[0] * 1
+      //   const height = this.$refs.editor.$el.querySelector('.lower-canvas').style.maxHeight.split('px')[0] * 1
+      //   this.$refs.editor.$el.style.height = height > parentElementHeight
+      //     ? height + 'px'
+      //     : parentElementHeight + 'px'
+      // }, 200)
     },
     /**
      * Image file convert to base64
@@ -188,17 +189,20 @@ export default {
      */
     onMaking() {
       this.isMaskingMode = true
+      const strokeWidth = this.brush.width * 1
       this.$refs.editor.invoke('startDrawingMode', 'FREE_DRAWING', {
-        width: this.brush.width,
+        width: strokeWidth,
         color: 'rgba(0,0,0,1)'
       })
     },
     /**
      * slider 변경 이벤트
      */
-    onMaskingChange() {
+    onMaskingChange(e) {
+      const strokeWidth = this.brush.width * 1
       this.$refs.editor.invoke('setBrush', {
-        width: this.brush.width
+        width: strokeWidth,
+        color: 'rgba(0,0,0,1)'
       })
     },
     onToDataURL() {
@@ -207,9 +211,6 @@ export default {
     onGetOrigin() {
       return this.origin.split('data:image/png;base64,')[1]
     },
-    onAdded(event) {
-      console.log(event)
-    }
   }
 }
 </script>
