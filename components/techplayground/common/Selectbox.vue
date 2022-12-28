@@ -43,13 +43,18 @@ export default {
       return this.value ? this.selectList.find(item => item.value === this.value) : null
     }
   },
+  mounted() {
+    this.$nuxt.$on('pageClick', () => {
+      if (this.isFocus) {
+        this.onBlur()
+      }
+    })
+  },
   methods: {
     onClick() {
-      this.$nextTick(() => {
-        if (this.isFocus) {
-          this.onBlur()
-        }
-      })
+      if (this.isFocus) {
+        this.onBlur()
+      }
     },
     onFocus(event) {
       if (!this.isFocus) {

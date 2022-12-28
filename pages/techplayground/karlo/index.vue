@@ -6,7 +6,9 @@
         :key="i"
         class="intro-slide"
         :class="{ 'is-active': i === activeIdx }"
-      ></div>
+      >
+        <img :src="require(`@/assets/images/playground/karlo/img_${i}.png`)" alt="">
+      </div>
       <div class="karlo">
         <b class="karlo-title">
           새로운<br>창조적 지능,<br>Karlo
@@ -34,7 +36,7 @@
       <p class="description">
         Karlo API는 사용자가 입력한 문장과 이미지를 기반으로 새로운 이미지를 만드는 기능을 제공합니다. 생성형 인공지능 Karlo는 1억 8만 장 규모의 이미지-텍스트 쌍 데이터 학습을 통해 이미지와 텍스트 간의 연관성을 이해합니다. 사용자가 묘사한 내용을 이해하고, 픽셀 단위로 완전히 새로운 이미지를 생성합니다.
         <br><br>
-        또한 사용자가 원하는 콘셉트에 맞춰 창작 활동을 할 수 있도록<br>사물, 배경, 조명, 구도, 다양한 화풍을 지원합니다.
+        또한 사용자가 원하는 콘셉트에 맞춰 창작 활동을 할 수 있도록<br class="pc-only"> 사물, 배경, 조명, 구도, 다양한 화풍을 지원합니다.
       </p>
       <h4 class="heading lh-12">
         What is Karlo?

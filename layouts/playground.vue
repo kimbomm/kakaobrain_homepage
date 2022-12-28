@@ -1,5 +1,5 @@
 <template>
-  <div :class="classBind">
+  <div :class="classBind" @mouseup="pageClick()" @touchend="pageClick()">
     <playground-header />
     <Nuxt />
     <playground-footer />
@@ -81,6 +81,9 @@
       onWheel(e) {
         e.preventDefault()
         if (this.scrollLock) return false
+      },
+      pageClick(e) {
+        this.$nuxt.$emit('pageClick', e)
       }
     }
   }

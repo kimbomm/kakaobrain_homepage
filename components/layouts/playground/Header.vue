@@ -94,10 +94,21 @@ export default {
   watch: {
     $route(to, from) {
       this.setActivePage(to.path)
+      document.querySelector('.wrap').scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      })
     }
   },
   created() {
     this.setActivePage(this.$route.path)
+  },
+  mounted() {
+    this.$nuxt.$on('pageClick', () => {
+      if (this.isFocus) {
+        this.onBlur()
+      }
+    })
   },
   methods: {
     ...mapMutations({

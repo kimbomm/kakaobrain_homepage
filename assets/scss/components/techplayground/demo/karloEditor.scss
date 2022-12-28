@@ -1,16 +1,20 @@
 .karlo-editor {
+  height: 292px;
   ::v-deep {
-    .tui-image-editor-canvas-container {
-      max-width: 100% !important;
-      max-height: 100% !important;
-      width: 100% !important;
-      height: 100% !important;
+    .tui-image-editor-header,
+    .tui-image-editor-help-menu,
+    .tui-image-editor-controls {
+      display: none;
     }
-  
-    canvas {
-      top: 50% !important;
-      left: 50% !important;
-      transform: translate(-50%, -50%) !important;
+    .tui-image-editor-container {
+      background-color: transparent !important;
+    }
+    .tui-image-editor-main-container {
+      background-color: transparent !important;
+      bottom: 0 !important;
+    }
+    .tui-image-editor-main {
+      top: 0 !important;
     }
   }
 
