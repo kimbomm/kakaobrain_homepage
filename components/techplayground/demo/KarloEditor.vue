@@ -5,7 +5,6 @@
         for="file"
         @dragover="onDragover"
         @drop="onDrop"
-
       >
         <p>이미지를 끌어서 놓기 또는 클릭해서 업로드 하기</p>
         <input ref="file" id="file" name="file" type="file" accept="image/*" @change="onFileChange">
@@ -15,7 +14,8 @@
       <image-editor
         ref="editor"
         class="tui-image-editor"
-        :include-ui="true"
+        :class="{ 'no-ui': !includeUI }"
+        :include-ui="includeUI"
         :options="options"
       />
     </client-only>
@@ -61,6 +61,10 @@ export default {
       type: Boolean,
       default: false
     },
+    includeUI: {
+      type: Boolean,
+      default: false
+    },
   },
   data() {
     return {
@@ -79,17 +83,17 @@ export default {
         redo: false,
       },
       options: {
-        includeUI: {
-          initMenu: 'filter'
-        },
+        // includeUI: {
+        //   initMenu: 'crop'
+        // },
         cssMaxWidth: 300,
         cssMaxHeight: 292,
         usageStatistics: false,
-        selectionStyle: {
-          borderColor: 'blue',
-          cornerColor: 'blue',
-          cornerSize: 6
-        },
+        // selectionStyle: {
+        //   borderColor: 'blue',
+        //   cornerColor: 'blue',
+        //   cornerSize: 6
+        // },
       },
     }
   },
@@ -114,15 +118,34 @@ export default {
     onFileChange(event) {
       this.$emit('fileUpload', true)
       this.isUploadFile = !this.isUploadFile
-      this.$refs.editor.invoke('loadImageFromFile', event.target.files[0])
+      this.$refs.editor.invoke('loadImageFromFile', event.target.files[0]).then((result) => {
+        this.setCanvasSize(result)
+      })
       this.fileToBase64(event.target.files[0])
-      // setTimeout(() => {
-      //   const parentElementHeight = getComputedStyle(document.querySelector('.experience-tool')).minHeight.split('px')[0] * 1
-      //   const height = this.$refs.editor.$el.querySelector('.lower-canvas').style.maxHeight.split('px')[0] * 1
-      //   this.$refs.editor.$el.style.height = height > parentElementHeight
-      //     ? height + 'px'
-      //     : parentElementHeight + 'px'
-      // }, 200)
+    },
+    setCanvasSize(result) {
+      const ww = result.newWidth
+      const hh = result.newHeight
+      
+      let nw, nh
+      if (ww > 300 || hh > 292 ) {
+        if (ww !== hh) {
+          if (ww > hh) {
+            nh = Math.floor(300 * hh / ww)
+            nw = 300
+          } else {
+            nh = 292
+            nw = Math.floor(292 * ww / hh)
+          }
+        } else {
+          nh = 292
+          nw = 292
+        }
+        this.$refs.editor.$el.querySelector('.lower-canvas').style.maxWidth = nw+'px'
+        this.$refs.editor.$el.querySelector('.lower-canvas').style.maxHeight = nh+'px'
+        this.$refs.editor.$el.querySelector('.upper-canvas').style.maxWidth = nw+'px'
+        this.$refs.editor.$el.querySelector('.upper-canvas').style.maxHeight = nh+'px'
+      }
     },
     /**
      * Image file convert to base64
@@ -156,7 +179,6 @@ export default {
       })
     },
     onClear() {
-      this.$refs.editor.$el.style.height = 'auto'
       this.$refs.editor.invoke('stopDrawingMode')
       this.isUploadFile = false
       this.origin = null
@@ -170,8 +192,8 @@ export default {
         this.$refs.editor.invoke('startDrawingMode', 'CROPPER')
       } else {
         const rect = this.$refs.editor.invoke('getCropzoneRect')
-        this.$nextTick(() => {
-          this.$refs.editor.invoke('crop', rect)
+        this.$refs.editor.invoke('crop', rect).then((result) => {
+          this.setCanvasSize(result)
           this.$refs.editor.invoke('stopDrawingMode')
         })
       }
@@ -211,6 +233,18 @@ export default {
     onGetOrigin() {
       return this.origin.split('data:image/png;base64,')[1]
     },
+    objectScaled(props) {
+        console.log(props)
+    },
+    objectMoved(props) {
+        console.log(props)
+    },
+    objectActivated(props) {
+        console.log(props)
+    },
+    mousedown(props) {
+        console.log(props)
+    }
   }
 }
 </script>

@@ -59,6 +59,7 @@
                       ref="inpainting"
                       :crop="true"
                       :masking="true"
+                      :includeUI="true"
                       :key="'masking'"
                       @fileUpload="onFileUpload"
                     />
@@ -367,6 +368,7 @@ export default {
       } catch (err) {
         // console.log(err.response.data)
         alert(`[${err.response.data.code}] 전송에 실패하였습니다. 담당자에게 문의하세요.`)
+        this.isGenerating = false
       }
     },
     onDownload() {
