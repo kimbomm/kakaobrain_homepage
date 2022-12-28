@@ -17,6 +17,17 @@
       top: 0 !important;
     }
   }
+  .no-ui ::v-deep {
+    .tui-image-editor-canvas-container {
+      max-width: 100% !important;
+      max-height: 100% !important;
+    }
+    canvas {
+      top: 50% !important;
+      left: 50% !important;
+      transform: translate(-50%, -50%);
+    }
+  }
 
   .placeholder {
     position: absolute;
