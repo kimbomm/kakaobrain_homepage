@@ -10,7 +10,7 @@
 }
 .intro {
   position: relative;
-  height: 887px;
+  height: calc(100vh - 75px - 40px);
   margin: 20px 20px 0 20px;
   border-radius: 20px;
   overflow: hidden;
@@ -124,6 +124,7 @@
   }
   &-symbol {
     position: absolute;
+    filter: drop-shadow(20px 40px 30px #757A85);
     &:nth-of-type(1) {
       bottom: -56px;
       left: 180px;
@@ -245,18 +246,6 @@
   }
 }
 
-
-@include pc-large {
-  .intro {
-    height: 1247px;
-  }
-}
-@include pc-middle {
-  .intro {
-    height: 617px;
-  }
-}
-
 @include tablet {
   .container {
     padding: 75px 20px 200px;
@@ -314,22 +303,18 @@
       }
     }
     &-symbol {
-      &:nth-of-type(1),
-      &:nth-of-type(2),
-      &:nth-of-type(3) {
-        display: none;
+      width: 70px;
+      &:nth-of-type(1) {
+        left: 50px;
+        bottom: 128px;
       }
-      &:nth-of-type(4) {
-        left: 30px;
-        bottom: 58px;
-      }
-      &:nth-of-type(5) {
-        left: 250px;
+      &:nth-of-type(2) {
+        left: 276px;
         top: -30px;
         right: initial;
       }
-      &:nth-of-type(6) {
-        left: 200px;
+      &:nth-of-type(3) {
+        left: 224px;
         top: -30px;
         right: initial;
       }

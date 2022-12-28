@@ -117,7 +117,7 @@
           <span class="color-mint">Generated!</span>
         </div>
         <div class="result-contents">
-          <div class="content">
+          <div class="content" :class="{ 'is-active': resData[activeTab] }">
             <client-only>
               <swiper
                 v-if="resData[activeTab]"

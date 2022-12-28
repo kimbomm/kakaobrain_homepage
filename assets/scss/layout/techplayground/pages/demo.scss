@@ -210,6 +210,12 @@ i.ic-caret_circle {
     border-radius: 8px;
     background-color: $surface-23;
     height: 305px;
+    &.is-active {
+      background-color: transparent;
+      &:before {
+        display: none;
+      }
+    }
     &:before {
       content: '';
       display: inline-block;
@@ -281,9 +287,14 @@ i.ic-caret_circle {
     padding: 0 20px;
   }
   .intro {
+    height: 420px;
+    background-image: url('@/assets/images/playground/demo/top_intro_bg_mo.png');
     margin-bottom: 120px;
     &:after {
-      background-size: 90% auto;
+      background-image: url('@/assets/images/playground/demo/top_intro_content_mo.png');
+      // background-size: 90% auto;
+      background-size: auto;
+      background-position: calc(50% + 30px) center;
     }
   }
   .heading {
@@ -353,7 +364,14 @@ i.ic-caret_circle {
 
   .result {
     border-radius: 0 0 20px 20px;
-    padding: 50px 20px 30px;
+    padding: 50px 0 30px;
+    .demo-title {
+      padding: 0 20px;
+    }
+    button.button.button__full {
+      width: calc(100% - 40px);
+      margin: 30px 20px 0;
+    }
     .content {
       overflow: hidden;
       height: auto;
@@ -378,6 +396,7 @@ i.ic-caret_circle {
         &::v-deep {
           .swiper-wrapper {
             justify-content: initial;
+            padding-left: 20px;
           }
         }
       }
@@ -386,18 +405,6 @@ i.ic-caret_circle {
 }
 
 @include mobile {
-  .intro {
-    height: 420px;
-    background-image: url('@/assets/images/playground/demo/top_intro_bg_mo.png');
-    &:before {
-      display: none;
-    }
-    &:after {
-      background-image: url('@/assets/images/playground/demo/top_intro_content_mo.png');
-      background-size: auto;
-      background-position: calc(50% + 30px) center;
-    }
-  }
   .experience {
     display: block;
     &-content {
