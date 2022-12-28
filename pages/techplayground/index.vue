@@ -3,6 +3,7 @@
     <div class="intro">
       <div class="intro-content">
         <img src="@/assets/images/playground/main/img_pc_topvisual.png" alt="">
+        <img src="@/assets/images/playground/main/img_pc_topvisual_mo.png" alt="">
         <b>Play on<br>Playground</b>
       </div>
     </div>

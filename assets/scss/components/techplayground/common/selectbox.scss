@@ -48,8 +48,7 @@
     width: 100%;
     z-index: 4;
     border-radius: 8px;
-    box-shadow: 0 20px 30px #ccc;
-    mix-blend-mode: multiply;
+    filter: drop-shadow(20px 40px 30px #757A85);
     max-height: 120px;
     overflow-y: auto;
     button {

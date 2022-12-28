@@ -11,13 +11,13 @@
         </button>
         <ul v-if="isFocus" class="selectbox-list">
           <li>
-            <button @click="onPageMove(0)">
+            <button :class="{ 'is-active': activePage === 0 }" @click="onPageMove(0)">
               Playground
               <img src="@/assets/images/icons/ic_arrow_right_gray.png" />
             </button>
           </li>
           <li>
-            <button @click="onPageMove(1)">Karlo</button>
+            <button :class="{ 'is-active': activePage === 1 }" @click="onPageMove(1)">Karlo</button>
           </li>
         </ul>
       </div>
