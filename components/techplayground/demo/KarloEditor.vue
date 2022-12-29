@@ -23,7 +23,7 @@
       <template v-if="crop && !masking">
         <button @click="onCrop()">
           <img v-if="!isCropMode" src="@/assets/images/playground/demo/ic_tool-modify.png" />
-          <img v-else src="@/assets/images/playground/demo/ic_tool-close.png" />
+          <img v-else src="@/assets/images/icons/ic_check.png" />
         </button>
         <button v-if="!isCropMode" @click="onClear()">
           <img src="@/assets/images/playground/demo/ic_tool-close.png" />
@@ -120,6 +120,7 @@ export default {
       this.isUploadFile = !this.isUploadFile
       this.$refs.editor.invoke('loadImageFromFile', event.target.files[0]).then((result) => {
         this.setCanvasSize(result)
+        this.$emit('ready')
       })
       this.fileToBase64(event.target.files[0])
     },
@@ -180,6 +181,7 @@ export default {
     },
     onClear() {
       this.$refs.editor.invoke('stopDrawingMode')
+      this.$refs.editor.invoke('clearUndoStack')
       this.isUploadFile = false
       this.origin = null
     },
@@ -192,10 +194,12 @@ export default {
         this.$refs.editor.invoke('startDrawingMode', 'CROPPER')
       } else {
         const rect = this.$refs.editor.invoke('getCropzoneRect')
-        this.$refs.editor.invoke('crop', rect).then((result) => {
-          this.setCanvasSize(result)
-          this.$refs.editor.invoke('stopDrawingMode')
-        })
+        if (rect.width > 0.5 && rect.height > 0.5) {
+          this.$refs.editor.invoke('crop', rect).then((result) => {
+            this.setCanvasSize(result)
+            this.$refs.editor.invoke('stopDrawingMode')
+          })
+        }
       }
     },
     onMaskingEnd() {

@@ -23,7 +23,7 @@
     </div>
     <div class="container">
       <div class="gallery">
-        <ul>
+        <ul @touchmove="onTouchmove">
           <li v-for="i in 4" :key="i"><img :src="require(`@/assets/images/playground/karlo/karlo_${i-1}.png`)" /></li>
         </ul>
         <img class="gallery-symbol" src="@/assets/images/playground/karlo/karlo_symbol_sm.png"/>
@@ -140,6 +140,9 @@ export default {
   methods: {
     onClick() {
       this.$router.push('/techplayground/karlo/demo')
+    },
+    onTouchmove(e) {
+      e.preventDefault()
     }
   }
 }
