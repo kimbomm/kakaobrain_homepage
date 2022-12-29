@@ -122,7 +122,6 @@
           <div class="content" :class="{ 'is-active': resData[activeTab] }">
             <ul
               v-if="resData[activeTab]"
-              @touchmove="onTouchmove"
             >
               <li v-for="(item, idx) in resData[activeTab].images" :key="item.id">
                 <karlo-canvas :ref="`masking-canvas-${idx}`" :base64-data="item.image" />
@@ -396,9 +395,6 @@ export default {
 
 
         return new File([u8arr], filename, {type:mime});
-    },
-    onTouchmove(e) {
-      e.preventDefault()
     }
   }
 }
