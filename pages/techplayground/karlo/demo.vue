@@ -62,6 +62,7 @@
                       :includeUI="true"
                       :key="'masking'"
                       @fileUpload="onFileUpload"
+                      @ready="onMaskingReady()"
                     />
                   </div>
                 </div>
@@ -74,14 +75,14 @@
                     <textarea
                       v-if="activeTab === 1"
                       v-model="t2i"
-                      placeholder="상상하는 문장이나, 생각나는 모습을 입력하세요."
+                      placeholder="(영문만 입력 가능) 상상하는 문장이나, 생각나는 모습을 입력하세요."
                       :disabled="isGenerating"
                       @input="onTextareaChange($event, 't2i')"
                     ></textarea>
                     <textarea
                       v-else-if="activeTab === 3"
                       v-model="inpaintingTxt"
-                      placeholder="상상하는 문장이나, 생각나는 모습을 입력하세요."
+                      placeholder="(영문만 입력 가능) 상상하는 문장이나, 생각나는 모습을 입력하세요."
                       :disabled="isGenerating"
                       @input="onTextareaChange($event, 'inpaintingTxt')"
                     ></textarea>
@@ -121,22 +122,12 @@
           <div class="content" :class="{ 'is-active': resData[activeTab] }">
             <ul
               v-if="resData[activeTab]"
+              @touchmove="onTouchmove"
             >
               <li v-for="(item, idx) in resData[activeTab].images" :key="item.id">
                 <karlo-canvas :ref="`masking-canvas-${idx}`" :base64-data="item.image" />
               </li>
             </ul>
-            <!-- <client-only>
-              <swiper
-                v-if="resData[activeTab]"
-                class="swiper"
-                :options="swiperOption"
-              >
-                <swiper-slide v-for="(item, idx) in resData[activeTab].images" :key="item.id">
-                  <karlo-canvas :ref="`masking-canvas-${idx}`" :base64-data="item.image" />
-                </swiper-slide>
-              </swiper>
-            </client-only> -->
             <div v-if="isGenerating" class="proceeding">
               <img src="@/assets/images/playground/loading.gif" />
               <p>Karlo가 열심히 그리고 있어요.</p>
@@ -322,6 +313,9 @@ export default {
           break
       }
     },
+    onMaskingReady() {
+      this.$refs.inpainting.onMaking()
+    },
     async onGenerate() {
       try {
         this.isGenerating = true
@@ -402,6 +396,9 @@ export default {
 
 
         return new File([u8arr], filename, {type:mime});
+    },
+    onTouchmove(e) {
+      e.preventDefault()
     }
   }
 }
