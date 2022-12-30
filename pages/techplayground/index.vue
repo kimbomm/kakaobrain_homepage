@@ -80,6 +80,12 @@ export default {
       ]
     }
   },
+  mounted() {
+    document.querySelector('.wrap').scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }
 }
 </script>
 <style lang="scss" scoped>

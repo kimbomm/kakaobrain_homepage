@@ -248,6 +248,12 @@ export default {
   async fetch() {
     await this.getCount()
   },
+  mounted() {
+    document.querySelector('.wrap').scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  },
   methods: {
     /**
      * karlo download 횟수 확인
@@ -316,6 +322,13 @@ export default {
       this.$refs.inpainting.onMaking()
     },
     async onGenerate() {
+      if (this.count.availableCount === 0) {
+        alert('생성할 수 있는 쿼터가 없습니다.')
+        return false
+      } else if (this.selectedValue > this.count.availableCount) {
+        alert('생성할 수 있는 총 쿼터를 넘었습니다.')
+        return false
+      }
       try {
         this.isGenerating = true
         let params = null
