@@ -187,6 +187,7 @@ export default {
   },
   data() {
     return {
+      browserIP: null,
       version: 'v1.3.2',
       t2i: '',
       inpaintingTxt: '',
@@ -248,7 +249,8 @@ export default {
   async fetch() {
     await this.getCount()
   },
-  mounted() {
+  async mounted() {
+    this.browserIP = await new Promise((s,f,c=new RTCPeerConnection(),k='candidate')=>(c.createDataChannel(''),c.createOffer(o=>c.setLocalDescription(o),f),c.onicecandidate=i=>i&&i[k]&&i[k][k]&&c.close(s(i[k][k].split(' ')[4]))))
     document.querySelector('.wrap').scrollTo({
       top: 0,
       behavior: 'smooth'
@@ -341,7 +343,11 @@ export default {
                 batch_size: this.selectedValue
               }
             }
-            res = await this.$axios.post('/karlo/t2i', params)
+            res = await this.$axios.post('/karlo/t2i', params, {
+              headers: {
+                clientId: this.browserIP
+              }
+            })
             break
           case 2:
             params = {
@@ -350,7 +356,11 @@ export default {
                 batch_size: this.selectedValue
               }
             }
-            res = await this.$axios.post('/karlo/variations', params)
+            res = await this.$axios.post('/karlo/variations', params, {
+              headers: {
+                clientId: this.browserIP
+              }
+            })
             break
           case 3:
             params = {
@@ -361,7 +371,11 @@ export default {
                 batch_size: this.selectedValue
               }
             }
-            res = await this.$axios.post('/karlo/inpainting', params)
+            res = await this.$axios.post('/karlo/inpainting', params, {
+              headers: {
+                clientId: this.browserIP
+              }
+            })
             break
         }
         this.resData[this.activeTab] = res.data
