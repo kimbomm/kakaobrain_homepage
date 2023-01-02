@@ -211,6 +211,7 @@ i.ic-caret_circle {
     border-radius: 8px;
     background-color: $surface-23;
     height: 305px;
+    overflow: hidden;
     &.is-active {
       background-color: transparent;
       &:before {
