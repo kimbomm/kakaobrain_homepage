@@ -1,0 +1,40 @@
+button.button {
+  min-width: 238px;
+  max-width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  border-radius: 6px;
+  background-color: $brain-strong-blue;
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 700;
+  color: #fff;
+  position: relative;
+  &:after {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url('@/assets/images/icons/arrow_right_white.png');
+    background-size: cover;
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    margin-top: -10px;
+  }
+  &.button__full {
+    width: 100%;
+  }
+  &.button__mint {
+    background-color: $brain-mint;
+    color: #2F3837;
+    &:after {
+      background-image: url('@/assets/images/icons/arrow_right_dark.png');
+    } 
+  }
+  &:disabled {
+    background-color: $surface-20;
+  }
+}
