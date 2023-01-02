@@ -250,7 +250,8 @@ export default {
     await this.getCount()
   },
   async mounted() {
-    this.browserIP = await new Promise((s,f,c=new RTCPeerConnection(),k='candidate')=>(c.createDataChannel(''),c.createOffer(o=>c.setLocalDescription(o),f),c.onicecandidate=i=>i&&i[k]&&i[k][k]&&c.close(s(i[k][k].split(' ')[4]))))
+    // this.browserIP = await new Promise((s,f,c=new RTCPeerConnection(),k='candidate')=>(c.createDataChannel(''),c.createOffer(o=>c.setLocalDescription(o),f),c.onicecandidate=i=>i&&i[k]&&i[k][k]&&c.close(s(i[k][k].split(' ')[4]))))
+    this.browserIP = await sessionStorage.getItem('BrainPlayGroundUuidv4')
     document.querySelector('.wrap').scrollTo({
       top: 0,
       behavior: 'smooth'
