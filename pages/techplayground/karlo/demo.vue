@@ -246,12 +246,10 @@ export default {
       }
     },
   },
-  async beforeMount() {
-    await this.getCount()
-  },
   async mounted() {
     // this.browserIP = await new Promise((s,f,c=new RTCPeerConnection(),k='candidate')=>(c.createDataChannel(''),c.createOffer(o=>c.setLocalDescription(o),f),c.onicecandidate=i=>i&&i[k]&&i[k][k]&&c.close(s(i[k][k].split(' ')[4]))))
     this.browserIP = await localStorage.getItem('BrainPlayGroundUuidv4')
+    await this.getCount()
     document.querySelector('.wrap').scrollTo({
       top: 0,
       behavior: 'smooth'
