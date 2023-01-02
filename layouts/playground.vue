@@ -51,11 +51,13 @@
       Vue.prototype.scrollBody = document.querySelector('.wrap')
       Vue.prototype.scrollLock = false
     },
-    async mounted() {
-      if (!sessionStorage.getItem('BrainPlayGroundUuidv4')) {
+    async beforeMount() {
+      if (!localStorage.getItem('BrainPlayGroundUuidv4')) {
         const uuid = await uuidv4()
-        await sessionStorage.setItem('BrainPlayGroundUuidv4', uuid)
+        await localStorage.setItem('BrainPlayGroundUuidv4', uuid)
       }
+    },
+    async mounted() {
       await this.checkDevice()
     },
     beforeDestroy() {
