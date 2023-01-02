@@ -7,6 +7,7 @@
 </template>
 <script>
   import Vue from 'vue'
+  import {v4 as uuidv4 } from 'uuid'
   import PlaygroundHeader from '@/components/layouts/playground/Header'
   import PlaygroundFooter from '@/components/layouts/playground/Footer'
   import { mapState, mapMutations } from 'vuex'
@@ -51,6 +52,10 @@
       Vue.prototype.scrollLock = false
     },
     async mounted() {
+      if (!sessionStorage.getItem('BrainPlayGroundUuidv4')) {
+        const uuid = await uuidv4()
+        await this.sessionStorage.setItem('BrainPlayGroundUuidv4', uuid)
+      }
       await this.checkDevice()
     },
     beforeDestroy() {
