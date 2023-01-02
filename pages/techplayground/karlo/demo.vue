@@ -251,7 +251,7 @@ export default {
   },
   async mounted() {
     // this.browserIP = await new Promise((s,f,c=new RTCPeerConnection(),k='candidate')=>(c.createDataChannel(''),c.createOffer(o=>c.setLocalDescription(o),f),c.onicecandidate=i=>i&&i[k]&&i[k][k]&&c.close(s(i[k][k].split(' ')[4]))))
-    this.browserIP = await sessionStorage.getItem('BrainPlayGroundUuidv4')
+    this.browserIP = await localStorage.getItem('BrainPlayGroundUuidv4')
     document.querySelector('.wrap').scrollTo({
       top: 0,
       behavior: 'smooth'
@@ -262,7 +262,11 @@ export default {
      * karlo download 횟수 확인
      */
     async getCount() {
-      const res = await this.$axios.get('/karlo/count')
+      const res = await this.$axios.get('/karlo/count', {
+        headers: {
+          clientId: this.browserIP
+        }
+      })
       this.count = { ...res.data }
     },
     tabClick(tab) {
