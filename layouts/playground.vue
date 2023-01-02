@@ -54,7 +54,7 @@
     async mounted() {
       if (!sessionStorage.getItem('BrainPlayGroundUuidv4')) {
         const uuid = await uuidv4()
-        await this.sessionStorage.setItem('BrainPlayGroundUuidv4', uuid)
+        await sessionStorage.setItem('BrainPlayGroundUuidv4', uuid)
       }
       await this.checkDevice()
     },
