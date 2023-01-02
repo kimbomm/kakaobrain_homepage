@@ -42,11 +42,11 @@
             </div>
             <div class="content">
               <div class="experience">
-                <div v-if="activeTab !== 1" class="experience-content">
+                <div v-show="activeTab !== 1" class="experience-content">
                   <div class="head-title">
                     <span>Image Input</span>
                   </div>
-                  <div v-if="activeTab === 2" class="experience-tool">
+                  <div v-show="activeTab === 2" class="experience-tool">
                     <karlo-editor
                       ref="variation"
                       :crop="true"
@@ -54,7 +54,7 @@
                       @fileUpload="onFileUpload"
                     />
                   </div>
-                  <div v-if="activeTab === 3" class="experience-tool">
+                  <div v-show="activeTab === 3" class="experience-tool">
                     <karlo-editor
                       ref="inpainting"
                       :crop="true"
@@ -73,14 +73,14 @@
                   <div class="experience-tool">
                     
                     <textarea
-                      v-if="activeTab === 1"
+                      v-show="activeTab === 1"
                       v-model="t2i"
                       placeholder="(영문만 입력 가능) 상상하는 문장이나, 생각나는 모습을 입력하세요."
                       :disabled="isGenerating"
                       @input="onTextareaChange($event, 't2i')"
                     ></textarea>
                     <textarea
-                      v-else-if="activeTab === 3"
+                      v-show="activeTab === 3"
                       v-model="inpaintingTxt"
                       placeholder="(영문만 입력 가능) 상상하는 문장이나, 생각나는 모습을 입력하세요."
                       :disabled="isGenerating"
@@ -246,7 +246,7 @@ export default {
       }
     },
   },
-  async fetch() {
+  async beforeMount() {
     await this.getCount()
   },
   async mounted() {
