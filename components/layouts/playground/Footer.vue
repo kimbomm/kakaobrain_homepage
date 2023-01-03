@@ -3,14 +3,14 @@
     <div class="container">
       <ul class="footer-menus">
         <li>
-          <nuxt-link :to="'#'">main</nuxt-link>
+          <nuxt-link to="/techplayground">main</nuxt-link>
         </li>
         <li>
-          <a href="mailto:bizdev@kakaobrain.com">contract</a>
+          <a href="mailto:bizdev@kakaobrain.com">contact</a>
         </li>
-        <li>
+        <!-- <li>
           <a href="https://kakaobrain.com/privacy" target="_blank">privacy policy</a>
-        </li>
+        </li> -->
       </ul>
       <div class="ref">
         <button @click="onFocus()" @blur="onBlur()">Family Site</button>
