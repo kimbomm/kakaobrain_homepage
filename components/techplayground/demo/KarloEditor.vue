@@ -243,10 +243,10 @@ export default {
       })
     },
     onToDataURL() {
-      return this.$refs[`editor-${this.refKey}`].invoke('toDataURL').split('data:image/png;base64,')[1]
+      return this.$refs[`editor-${this.refKey}`].invoke('toDataURL').split(';base64,')[1]
     },
     onGetOrigin() {
-      return this.origin.split('data:image/png;base64,')[1]
+      return this.origin.split(';base64,')[1]
     },
     objectScaled(props) {
         console.log(props)
