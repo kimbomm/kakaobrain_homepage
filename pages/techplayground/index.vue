@@ -24,7 +24,7 @@
               <nuxt-link class="p-button p-button__icon ic-home" to="/techplayground/karlo">home</nuxt-link>
               <div>
                 <nuxt-link class="p-button p-button__outline" to="/techplayground/karlo/demo">Demo</nuxt-link>
-                <nuxt-link class="p-button p-button__outline" to="#">API</nuxt-link>
+                <a class="p-button p-button__outline" href="https://developers.kakao.com/product/karlo" target="_blank">API</a>
               </div>
             </div>
           </div>
