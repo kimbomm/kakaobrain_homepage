@@ -34,7 +34,7 @@ export default {
 
         this.maskingSrc = this.$refs.canvas.toDataURL()
       }
-      if (!this.base64Data.includes('data:image/png;base64,')) {
+      if (!this.base64Data.includes(';base64,')) {
         image.src = `data:image/png;base64,${this.base64Data}`
       } else {
         image.src = this.base64Data
