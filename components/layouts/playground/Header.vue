@@ -117,6 +117,8 @@ export default {
     setActivePage(path) {
       if (path.includes('karlo')) {
         this.activePage = 1
+      } else {
+        this.activePage = 0
       }
     },
     onFocus() {

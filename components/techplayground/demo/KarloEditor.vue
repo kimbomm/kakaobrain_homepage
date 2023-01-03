@@ -2,17 +2,17 @@
   <div class="karlo-editor">
     <div v-if="!isUploadFile" class="placeholder">
       <label
-        for="file"
+        :for="refKey"
         @dragover="onDragover"
         @drop="onDrop"
       >
         <p>이미지를 끌어서 놓기 또는 클릭해서 업로드 하기</p>
-        <input ref="file" id="file" name="file" type="file" accept="image/*" @change="onFileChange">
+        <input :ref="refKey" :id="refKey" :name="refKey" type="file" accept="image/*" @change="onFileChange">
       </label>
     </div>
     <client-only>
       <image-editor
-        ref="editor"
+        :ref="`editor-${refKey}`"
         class="tui-image-editor"
         :class="{ 'no-ui': !includeUI }"
         :include-ui="includeUI"
@@ -65,9 +65,14 @@ export default {
       type: Boolean,
       default: false
     },
+    divKey: {
+      type: Number,
+      default: Math.random()
+    }
   },
   data() {
     return {
+      refKey: 0,
       origin: null,
       brush: {
         min: 20,
@@ -95,7 +100,12 @@ export default {
         //   cornerSize: 6
         // },
       },
+      editorRef: null
     }
+  },
+  mounted() {
+    this.refKey = Math.floor(this.divKey * 100)
+    this.editorRef = this.$refs[`editor-${this.refKey}`]
   },
   methods: {
     onDragover (event) {
@@ -118,7 +128,7 @@ export default {
     onFileChange(event) {
       this.$emit('fileUpload', true)
       this.isUploadFile = !this.isUploadFile
-      this.$refs.editor.invoke('loadImageFromFile', event.target.files[0]).then((result) => {
+      this.$refs[`editor-${this.refKey}`].invoke('loadImageFromFile', event.target.files[0]).then((result) => {
         this.setCanvasSize(result)
         this.$emit('ready')
       })
@@ -142,10 +152,10 @@ export default {
           nh = 292
           nw = 292
         }
-        this.$refs.editor.$el.querySelector('.lower-canvas').style.maxWidth = nw+'px'
-        this.$refs.editor.$el.querySelector('.lower-canvas').style.maxHeight = nh+'px'
-        this.$refs.editor.$el.querySelector('.upper-canvas').style.maxWidth = nw+'px'
-        this.$refs.editor.$el.querySelector('.upper-canvas').style.maxHeight = nh+'px'
+        this.$refs[`editor-${this.refKey}`].$el.querySelector('.lower-canvas').style.maxWidth = nw+'px'
+        this.$refs[`editor-${this.refKey}`].$el.querySelector('.lower-canvas').style.maxHeight = nh+'px'
+        this.$refs[`editor-${this.refKey}`].$el.querySelector('.upper-canvas').style.maxWidth = nw+'px'
+        this.$refs[`editor-${this.refKey}`].$el.querySelector('.upper-canvas').style.maxHeight = nh+'px'
       }
     },
     /**
@@ -159,31 +169,32 @@ export default {
       }
     },
     onUndo() {
-      if (!this.$refs.editor.invoke('isEmptyUndoStack')) {
-        this.$refs.editor.invoke('undo')
+      if (!this.$refs[`editor-${this.refKey}`].invoke('isEmptyUndoStack')) {
+        this.$refs[`editor-${this.refKey}`].invoke('undo')
       }
       this.$nextTick(() => {
-        if (this.$refs.editor.invoke('isEmptyUndoStack')) {
+        if (this.$refs[`editor-${this.refKey}`].invoke('isEmptyUndoStack')) {
           this.stack.undo = false
         }
       })
     },
     onRedo() {
-      if (!this.$refs.editor.invoke('isEmptyRndoStack')) {
-        this.$refs.editor.invoke('redo')
+      if (!this.$refs[`editor-${this.refKey}`].invoke('isEmptyRndoStack')) {
+        this.$refs[`editor-${this.refKey}`].invoke('redo')
       }
 
       this.$nextTick(() => {
-        if (this.$refs.editor.invoke('isEmptyRndoStack')) {
+        if (this.$refs[`editor-${this.refKey}`].invoke('isEmptyRndoStack')) {
           this.stack.redo = false
         }
       })
     },
     onClear() {
-      this.$refs.editor.invoke('stopDrawingMode')
-      this.$refs.editor.invoke('clearUndoStack')
+      this.$refs[`editor-${this.refKey}`].invoke('stopDrawingMode')
+      this.$refs[`editor-${this.refKey}`].invoke('clearUndoStack')
       this.isUploadFile = false
       this.origin = null
+      this.$emit('clear')
     },
     /**
      * 이미지 crop mode
@@ -191,20 +202,20 @@ export default {
     onCrop() {
       this.isCropMode = !this.isCropMode
       if (this.isCropMode) {
-        this.$refs.editor.invoke('startDrawingMode', 'CROPPER')
+        this.$refs[`editor-${this.refKey}`].invoke('startDrawingMode', 'CROPPER')
       } else {
-        const rect = this.$refs.editor.invoke('getCropzoneRect')
+        const rect = this.$refs[`editor-${this.refKey}`].invoke('getCropzoneRect')
         if (rect.width > 0.5 && rect.height > 0.5) {
-          this.$refs.editor.invoke('crop', rect).then((result) => {
+          this.$refs[`editor-${this.refKey}`].invoke('crop', rect).then((result) => {
             this.setCanvasSize(result)
-            this.$refs.editor.invoke('stopDrawingMode')
+            this.$refs[`editor-${this.refKey}`].invoke('stopDrawingMode')
           })
         }
       }
     },
     onMaskingEnd() {
       if (this.isMaskingMode) {
-        this.$refs.editor.invoke('stopDrawingMode')
+        this.$refs[`editor-${this.refKey}`].invoke('stopDrawingMode')
         this.isMaskingMode = false
       } else {
         this.onClear()
@@ -216,7 +227,7 @@ export default {
     onMaking() {
       this.isMaskingMode = true
       const strokeWidth = this.brush.width * 1
-      this.$refs.editor.invoke('startDrawingMode', 'FREE_DRAWING', {
+      this.$refs[`editor-${this.refKey}`].invoke('startDrawingMode', 'FREE_DRAWING', {
         width: strokeWidth,
         color: 'rgba(0,0,0,1)'
       })
@@ -226,13 +237,13 @@ export default {
      */
     onMaskingChange(e) {
       const strokeWidth = this.brush.width * 1
-      this.$refs.editor.invoke('setBrush', {
+      this.$refs[`editor-${this.refKey}`].invoke('setBrush', {
         width: strokeWidth,
         color: 'rgba(0,0,0,1)'
       })
     },
     onToDataURL() {
-      return this.$refs.editor.invoke('toDataURL').split('data:image/png;base64,')[1]
+      return this.$refs[`editor-${this.refKey}`].invoke('toDataURL').split('data:image/png;base64,')[1]
     },
     onGetOrigin() {
       return this.origin.split('data:image/png;base64,')[1]

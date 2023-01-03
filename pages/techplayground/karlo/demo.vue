@@ -51,7 +51,9 @@
                       ref="variation"
                       :crop="true"
                       :key="'crop'"
+                      :divKey="1"
                       @fileUpload="onFileUpload"
+                      @clear="onClear()"
                     />
                   </div>
                   <div v-show="activeTab === 3" class="experience-tool">
@@ -61,8 +63,10 @@
                       :masking="true"
                       :includeUI="true"
                       :key="'masking'"
+                      :divKey="2"
                       @fileUpload="onFileUpload"
                       @ready="onMaskingReady()"
+                      @clear="onClear()"
                     />
                   </div>
                 </div>
@@ -312,6 +316,16 @@ export default {
     getByteLength(decimal) {
       const LINE_FEED = 10
       return (decimal >> 7) || (LINE_FEED === decimal) ? 2 : 1
+    },
+    onClear() {
+      switch (this.activeTab) {
+        case 2:
+          this.variationFileUploaded = false
+          break
+        case 3:
+          this.inpaintingFileUploaded = false
+          break
+      }
     },
     onFileUpload() {
       switch (this.activeTab) {
