@@ -340,6 +340,16 @@ export default {
     onMaskingReady() {
       this.$refs.inpainting.onMaking()
     },
+    async onVarificationText(inputText) {
+      const res = await this.$axios.post('https://asia-northeast3-karlo-for-kakao.cloudfunctions.net/detectBadWords', {
+        text: inputText
+      })
+      if (res.data.isDetect) {
+        this.isGenerating = false
+        alert('해당 프롬프트는 유해 키워드로 분류됩니다. 다른 프롬프트로 시도해주세요.')
+      }
+      return !res.data.isDetect
+    },
     async onGenerate() {
       if (this.count.availableCount === 0) {
         alert('생성할 수 있는 쿼터가 없습니다.')
@@ -352,19 +362,25 @@ export default {
         this.isGenerating = true
         let params = null
         let res = ''
+        let isPass = false
         switch (this.activeTab) {
           case 1:
-            params = {
-              prompt: {
-                text: this.t2i,
-                batch_size: this.selectedValue
+            isPass = await this.onVarificationText(this.t2i)
+            if (isPass) {
+              params = {
+                prompt: {
+                  text: this.t2i,
+                  batch_size: this.selectedValue
+                }
               }
+              res = await this.$axios.post('/karlo/t2i', params, {
+                headers: {
+                  clientId: this.browserIP
+                }
+              })
+            } else {
+              return false
             }
-            res = await this.$axios.post('/karlo/t2i', params, {
-              headers: {
-                clientId: this.browserIP
-              }
-            })
             break
           case 2:
             params = {
@@ -380,19 +396,24 @@ export default {
             })
             break
           case 3:
-            params = {
-              prompt: {
-                text: this.inpaintingTxt,
-                image: this.$refs.inpainting.onGetOrigin(),
-                mask: await this.$refs.inpainting.onToDataURL(),
-                batch_size: this.selectedValue
+            isPass = await this.onVarificationText(this.inpaintingTxt)
+            if (isPass) {
+              params = {
+                prompt: {
+                  text: this.inpaintingTxt,
+                  image: this.$refs.inpainting.onGetOrigin(),
+                  mask: await this.$refs.inpainting.onToDataURL(),
+                  batch_size: this.selectedValue
+                }
               }
+              res = await this.$axios.post('/karlo/inpainting', params, {
+                headers: {
+                  clientId: this.browserIP
+                }
+              })
+            } else {
+              return false
             }
-            res = await this.$axios.post('/karlo/inpainting', params, {
-              headers: {
-                clientId: this.browserIP
-              }
-            })
             break
         }
         this.resData[this.activeTab] = res.data
