@@ -8,9 +8,12 @@
         <li>
           <a href="mailto:bizdev@kakaobrain.com">contact</a>
         </li>
-        <!-- <li>
-          <a href="https://kakaobrain.com/privacy" target="_blank">privacy policy</a>
-        </li> -->
+        <li>
+          <nuxt-link to="/techplayground/terms">terms</nuxt-link>
+        </li>
+        <li>
+          <nuxt-link to="/techplayground/privacy">privacy policy</nuxt-link>
+        </li>
       </ul>
       <div class="ref">
         <button @click="onFocus()" @blur="onBlur()">Family Site</button>

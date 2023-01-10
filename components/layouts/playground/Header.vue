@@ -28,17 +28,17 @@
       </ul>
     </div>
     <div>
-      <button
+      <!-- <button
         :class="`btn-lang ${cookieLang} pc-only`"
         @click="selectLang(cookieLang === 'KR' ? 'EN' : 'KR')"
-      ></button>
+      ></button> -->
       <button class="btn-menu mo-only" @click="isMenuOpen = !isMenuOpen"></button>
     </div>
     <div v-if="isMenuOpen" class="mobile-menu mo-only">
-      <button
+      <!-- <button
         :class="`btn-lang ${cookieLang}`"
         @click="selectLang(cookieLang === 'KR' ? 'EN' : 'KR')"
-      ></button>
+      ></button> -->
       <ul class="menus">
         <li v-for="menu in menus[activePage]" :key="menu.name">
           <nuxt-link :to="menu.link" exact @click.native="onLink(menu.value)">{{ menu.name }}</nuxt-link>
