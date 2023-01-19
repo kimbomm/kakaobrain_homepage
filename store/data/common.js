@@ -221,14 +221,14 @@ const footer = [
   //   link: '#',
   //   target: '_blank'
   // },
-  {
-    name: {
-      KR: '오픈미니컨',
-      EN: 'Open Minicon'
-    },
-    link: 'https://openminicon.kakaobrain.com',
-    target: '_blank'
-  },
+  // {
+  //   name: {
+  //     KR: '오픈미니컨',
+  //     EN: 'Open Minicon'
+  //   },
+  //   link: 'https://openminicon.kakaobrain.com',
+  //   target: '_blank'
+  // },
   {
     name: {
       KR: '영입',
