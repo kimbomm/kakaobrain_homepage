@@ -52,6 +52,7 @@
                       :crop="true"
                       :key="'crop'"
                       :divKey="1"
+                      :isShow="activeTab === 2"
                       @fileUpload="onFileUpload"
                       @clear="onClear()"
                     />
@@ -64,6 +65,7 @@
                       :includeUI="true"
                       :key="'masking'"
                       :divKey="2"
+                      :isShow="activeTab === 3"
                       @fileUpload="onFileUpload"
                       @ready="onMaskingReady()"
                       @clear="onClear()"
