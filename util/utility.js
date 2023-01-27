@@ -77,24 +77,56 @@ function changeCategory2(category2) {
   return category
 }
 
-// function scrollControl(el, method) {
-//   switch (method) {
-//     case 'block':
-//       bodyScrollLock.disableBodyScroll(el)
-//       break
-//     case 'enable':
-//       bodyScrollLock.enableBodyScroll(el)
-//       break
-//     default:
-//       bodyScrollLock.clearAllBodyScrollLocks()
-//       break
-//   }
-// }
-// Vue.prototype.scrollControl = scrollControl
+/**
+ * 
+ * @param { string } dataUrl  image 미리보기 url
+ * @param { string } fileName 이미지 파일 이름
+ * @returns new File()
+ */
+const dataUrlToFile = (dataUrl, fileName) => {
+  const arr = dataUrl.split(',')
+  const mime = arr[0].match(/:(.*?);/)[1]
+  const bstr = atob(arr[1])
+  let n = bstr.length
+  const u8arr = new Uint8Array(n);
+      
+  while(n--){
+      u8arr[n] = bstr.charCodeAt(n);
+  }
+  
+  return new File([u8arr], fileName, {type:mime});
+}
+
+/**
+ * 
+ * @param { number } targetWidth 리사이즈 기준 이미지 width
+ * @param { number } targetHeight 리사이즈 기준 이미지 height
+ * @param { object } imageSize 기존 이미지 사이즈
+ * @param { object } imageSize.width 이미지 width
+ * @param { object } imageSize.height 이미지 height
+ * @returns { object } resizeImageSize
+ */
+const imageResize = (targetWidth, targetHeight, imageSize) => {
+  let nw = '',
+      nh = ''
+  if (imageSize.width > imageSize.height) {
+    nw = targetWidth
+    nh = Math.floor(targetWidth * imageSize.height / imageSize.width)
+  } else {
+    nw = Math.floor(targetHeight * imageSize.width / imageSize.height)
+    nh = targetHeight
+  }
+
+  return {
+    width: nw,
+    height: nh
+  }
+}
 
 export default {
   changeNumFont,
   setParameters,
-  changeCategory2
-  // scrollControl
+  changeCategory2,
+  dataUrlToFile,
+  imageResize
 }
