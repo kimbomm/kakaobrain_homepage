@@ -48,9 +48,11 @@
         @change="onMaskingChange"
       >
     </div>
+    <canvas id="canvas" width="1024" height="1024" :ref="`canvas-${refKey}`" style="display: none"></canvas>
   </div>
 </template>
 <script>
+import Utility from '@/util/utility.js'
 export default {
   props: {
     crop: {
@@ -68,6 +70,10 @@ export default {
     divKey: {
       type: Number,
       default: Math.random()
+    },
+    isShow: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -100,12 +106,24 @@ export default {
         //   cornerSize: 6
         // },
       },
-      editorRef: null
+      editorRef: null,
+      canvasRef: null,
     }
   },
+  watch: {
+    /**
+     * 탭 활성화시 ref element 등록
+     */
+    isShow() {
+      if (this.isShow) {
+        this.editorRef = this.$refs[`editor-${this.refKey}`]
+        this.canvasRef = this.$refs[`canvas-${this.refKey}`].getContext('2d')
+      }
+    }
+
+  },
   mounted() {
-    this.refKey = Math.floor(this.divKey * 100)
-    this.editorRef = this.$refs[`editor-${this.refKey}`]
+    this.refKey = Math.floor(Math.random() * this.divKey * 100)
   },
   methods: {
     onDragover (event) {
@@ -128,34 +146,65 @@ export default {
     onFileChange(event) {
       this.$emit('fileUpload', true)
       this.isUploadFile = !this.isUploadFile
-      this.$refs[`editor-${this.refKey}`].invoke('loadImageFromFile', event.target.files[0]).then((result) => {
+      this.setImageResize(event.target.files[0])
+    },
+    /**
+     * tui-image-editor 이미지 로드
+     */
+    setImage(fileObj) {
+      this.editorRef.invoke('loadImageFromFile', fileObj).then((result) => {
         this.setCanvasSize(result)
         this.$emit('ready')
       })
-      this.fileToBase64(event.target.files[0])
+      this.fileToBase64(fileObj)
     },
-    setCanvasSize(result) {
-      const ww = result.newWidth
-      const hh = result.newHeight
-      
-      let nw, nh
-      if (ww > 300 || hh > 292 ) {
-        if (ww !== hh) {
-          if (ww > hh) {
-            nh = Math.floor(300 * hh / ww)
-            nw = 300
+    /**
+     * 1024 X 1024 보다 클때 사이즈 줄이기
+     */
+    setImageResize(fileObj) {
+      const _this = this
+      const fr = new FileReader;
+      fr.onload = () => { // file is loaded
+        const img = new Image;
+        img.onload = async () => {
+          if (img.width > 1024 || img.height > 1024) {
+            const resizeImage = await Utility.imageResize(1024, 1024, img)
+            await _this.canvasRef.drawImage(img, 0, 0, resizeImage.width, resizeImage.height)
+            const newImage = await _this.$refs[`canvas-${this.refKey}`].toDataURL()
+            const newFileObj = await Utility.dataUrlToFile(newImage, 'resizeImage')
+            _this.setImage(newFileObj)
           } else {
-            nh = 292
-            nw = Math.floor(292 * ww / hh)
+            _this.setImage(fr.result)
           }
+        };
+        img.src = fr.result; // is the data URL because called with readAsDataURL
+      };
+      fr.readAsDataURL(fileObj);
+    },
+    /**
+     * tui-image-editor 이슈
+     * 이미지 사이즈에 따라서 canvas 커짐 비율대로 커지지 않음...
+     * 위 이슈에 대한 조치
+     */
+    setCanvasSize(result) {
+      const img = {
+        width: result.newWidth,
+        height: result.newHeight
+      }
+      let nw, nh
+      if (img.width > 300 || img.height > 292 ) {
+        if (img.width !== img.height) {
+          const resizeImage = Utility.imageResize(300, 294, img)
+          nw = resizeImage.width
+          nh = resizeImage.height
         } else {
           nh = 292
           nw = 292
         }
-        this.$refs[`editor-${this.refKey}`].$el.querySelector('.lower-canvas').style.maxWidth = nw+'px'
-        this.$refs[`editor-${this.refKey}`].$el.querySelector('.lower-canvas').style.maxHeight = nh+'px'
-        this.$refs[`editor-${this.refKey}`].$el.querySelector('.upper-canvas').style.maxWidth = nw+'px'
-        this.$refs[`editor-${this.refKey}`].$el.querySelector('.upper-canvas').style.maxHeight = nh+'px'
+        this.editorRef.$el.querySelector('.lower-canvas').style.maxWidth = nw+'px'
+        this.editorRef.$el.querySelector('.lower-canvas').style.maxHeight = nh+'px'
+        this.editorRef.$el.querySelector('.upper-canvas').style.maxWidth = nw+'px'
+        this.editorRef.$el.querySelector('.upper-canvas').style.maxHeight = nh+'px'
       }
     },
     /**
@@ -169,29 +218,29 @@ export default {
       }
     },
     onUndo() {
-      if (!this.$refs[`editor-${this.refKey}`].invoke('isEmptyUndoStack')) {
-        this.$refs[`editor-${this.refKey}`].invoke('undo')
+      if (!this.editorRef.invoke('isEmptyUndoStack')) {
+        this.editorRef.invoke('undo')
       }
       this.$nextTick(() => {
-        if (this.$refs[`editor-${this.refKey}`].invoke('isEmptyUndoStack')) {
+        if (this.editorRef.invoke('isEmptyUndoStack')) {
           this.stack.undo = false
         }
       })
     },
     onRedo() {
-      if (!this.$refs[`editor-${this.refKey}`].invoke('isEmptyRndoStack')) {
-        this.$refs[`editor-${this.refKey}`].invoke('redo')
+      if (!this.editorRef.invoke('isEmptyRndoStack')) {
+        this.editorRef.invoke('redo')
       }
 
       this.$nextTick(() => {
-        if (this.$refs[`editor-${this.refKey}`].invoke('isEmptyRndoStack')) {
+        if (this.editorRef.invoke('isEmptyRndoStack')) {
           this.stack.redo = false
         }
       })
     },
     onClear() {
-      this.$refs[`editor-${this.refKey}`].invoke('stopDrawingMode')
-      this.$refs[`editor-${this.refKey}`].invoke('clearUndoStack')
+      this.editorRef.invoke('stopDrawingMode')
+      this.editorRef.invoke('clearUndoStack')
       this.isUploadFile = false
       this.origin = null
       this.$emit('clear')
@@ -202,20 +251,20 @@ export default {
     onCrop() {
       this.isCropMode = !this.isCropMode
       if (this.isCropMode) {
-        this.$refs[`editor-${this.refKey}`].invoke('startDrawingMode', 'CROPPER')
+        this.editorRef.invoke('startDrawingMode', 'CROPPER')
       } else {
-        const rect = this.$refs[`editor-${this.refKey}`].invoke('getCropzoneRect')
+        const rect = this.editorRef.invoke('getCropzoneRect')
         if (rect.width > 0.5 && rect.height > 0.5) {
-          this.$refs[`editor-${this.refKey}`].invoke('crop', rect).then((result) => {
+          this.editorRef.invoke('crop', rect).then((result) => {
             this.setCanvasSize(result)
-            this.$refs[`editor-${this.refKey}`].invoke('stopDrawingMode')
+            this.editorRef.invoke('stopDrawingMode')
           })
         }
       }
     },
     onMaskingEnd() {
       if (this.isMaskingMode) {
-        this.$refs[`editor-${this.refKey}`].invoke('stopDrawingMode')
+        this.editorRef.invoke('stopDrawingMode')
         this.isMaskingMode = false
       } else {
         this.onClear()
@@ -227,7 +276,7 @@ export default {
     onMaking() {
       this.isMaskingMode = true
       const strokeWidth = this.brush.width * 1
-      this.$refs[`editor-${this.refKey}`].invoke('startDrawingMode', 'FREE_DRAWING', {
+      this.editorRef.invoke('startDrawingMode', 'FREE_DRAWING', {
         width: strokeWidth,
         color: 'rgba(0,0,0,1)'
       })
@@ -237,13 +286,13 @@ export default {
      */
     onMaskingChange(e) {
       const strokeWidth = this.brush.width * 1
-      this.$refs[`editor-${this.refKey}`].invoke('setBrush', {
+      this.editorRef.invoke('setBrush', {
         width: strokeWidth,
         color: 'rgba(0,0,0,1)'
       })
     },
     onToDataURL() {
-      return this.$refs[`editor-${this.refKey}`].invoke('toDataURL').split(';base64,')[1]
+      return this.editorRef.invoke('toDataURL').split(';base64,')[1]
     },
     onGetOrigin() {
       return this.origin.split(';base64,')[1]
