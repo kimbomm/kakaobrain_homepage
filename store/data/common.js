@@ -18,6 +18,13 @@ const menus = [
         name: 'HEALTHCARE',
         link: '/b/healthcare',
         target: ''
+      },
+      {
+        category: 'edit',
+        nick: 'EDIT',
+        name: 'EDIT',
+        link: 'https://bedit.kakaobrain.com',
+        target: '_blank'
       }
     ]
   },
