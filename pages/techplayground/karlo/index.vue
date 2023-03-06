@@ -70,7 +70,7 @@
           Karlo를 통해 사용자들에게<br>
           서비스 브랜드와 콘텐츠를 향한 영감을 불어넣어 보세요.
         </p>
-        <tech-button text="Go fot it!" @click.native="onClick()" />
+        <tech-button text="Go for it!" @click.native="onClick()" />
       </div>
     </div>
     <div class="karlo-mark">
