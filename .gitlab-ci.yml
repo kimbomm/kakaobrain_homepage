@@ -9,9 +9,23 @@ build-down-job:
   only:
     - master
 
+build-down-job:
+  stage: init
+  script:
+    - echo "down jop test"
+  only:
+    - release/staging
+
 build-up-job:
   stage: build
   script:
     - docker-compose up -d --build
   only:
     - master
+
+build-up-job:
+  stage: build
+  script:
+    - echo "up jop test"
+  only:
+    - release/staging
