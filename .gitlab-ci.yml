@@ -2,28 +2,28 @@ stages:
   - init
   - build
 
-build-down-job:
+build-down-job1:
   stage: init
   script:
     - docker-compose down
   only:
     - master
 
-build-down-job:
+build-down-job2:
   stage: init
   script:
     - echo "down jop test"
   only:
     - release/staging
 
-build-up-job:
+build-up-job1:
   stage: build
   script:
     - docker-compose up -d --build
   only:
     - master
 
-build-up-job:
+build-up-job2:
   stage: build
   script:
     - echo "up jop test"
