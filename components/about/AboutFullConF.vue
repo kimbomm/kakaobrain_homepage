@@ -3,25 +3,25 @@
     <div class="full-con">
       <!-- <img src="@/assets/images/about-full-conD_img_1.png"/> -->
       <div class="inner">
-        <div class="tit gl-8 l-ml-2">
+        <!-- <div class="tit gl-8 l-ml-2">
           <p v-html="data.title"></p>
         </div>
         <div class="text-box gl-6 l-ml-3">
           <div class="txt" v-html="data.text"></div>
         </div>
         <div class="material gl-6 l-ml-2">
-          <!-- <img src="@/assets/images/material_3.png"/> -->
+          <img src="@/assets/images/material_3.png"/>
           <ul class="material-box">
             <li class="material-item">
               <div class="material-text">
                 Principle of 100:0
-                <!-- <div class="tit" >Principle of 100:0</div> -->
+                <div class="tit" >Principle of 100:0</div>
               </div>
             </li>
             <li class="material-item">
               <div class="material-text">
                 Minimum principle
-                <!-- <div class="tit">Minimum principle</div> -->
+                <div class="tit">Minimum principle</div>
               </div>
               <div class="l-line"></div>
               <div class="r-line"></div>
@@ -29,7 +29,7 @@
             <li class="material-item">
               <div class="material-text">
                 The law of 1 cent
-                <!-- <div class="tit">The law of 1 cent</div> -->
+                <div class="tit">The law of 1 cent</div>
               </div>
             </li>
           </ul>
@@ -39,11 +39,11 @@
             <div class="item">
               <div class="text">
                 If it's ambiguous, I won't do it
-                <!-- <div class="tit">If it's ambiguous, I won't do it</div> -->
-              </div>
+                 <div class="tit">If it's ambiguous, I won't do it</div> -->
+        <!-- </div>
             </div>
           </div>
-        </div>
+        </div> -->
 
         <div class="link l-ml-3">
           <div class="txt">{{ data.recruit }}</div>

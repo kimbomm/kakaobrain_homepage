@@ -2,14 +2,36 @@ const ABOUT = {
   question: {
     KR: {
       aboutTitleText: {
-        text: '카카오브레인은 차별화된 요소 기술과 빅 모델 및 디지털 휴먼을 완성하는 AI 프론티어로서 기술 커뮤니티에 기여하고, 사용 가치와 삶의 질을 높이는 새로운 서비스 영역을 개척합니다.'
+        text: `Unthinkable!<br/>
+              카카오브레인은 ‘생각하지 못한 물음’으로부터 기술 난제를 해결하고, 모두의 생활을 변화시킵니다.<br/>
+              한국에 본사를 둔 글로벌 AI 기술 기업 카카오브레인은 세상을 변화시킬 AI 기술 및 서비스를 개발하여<br/>
+              미지의 시장과 영역에 도전하기 위해 2017년 2월에 설립되었습니다.
+              `
       },
       aboutConA: {
-        title: `생각하지 못한<br/>
-        물음으로부터 기술을 발전시키고,<br/>
-        모두의 생활을 변화시킵니다.
+        title: `Kakao Brain<br/>
+                Large-Scale Generative<br/>
+                AI Company
         `,
-        text: 'Unthinkable question makes impactful answer.'
+        text: 'Unthinkable question makes impactful answer.',
+        subtext: `Generative AI Generation!<br/>
+                  개와 고양이를 인식하는 수준을 포함하는 인간 수준의 창의력을 가지는<br/>
+                  고차원적인 과업 수행이 가능합니다.
+                  `,
+        description: `이미지를 생성하는 텍스트로 이미지를 생성하는 칼로 (Karlo) 모델 기반으로<br/>
+         이미지 생성 앱 B^ DISCOVER, 이미지 생성웹 B^ EDIT 등 서비스 출시와 Karlo 100X Program을 통해<br/>
+         신규 시장을 만들어가고자 합니다.
+         <br/>
+         <br/>
+        초거대 AI 기술을 통해 헬스케어에 도전합니다. AI CAD(Computer Aided Diagnosis) 사업을 준비중이며,<br/>
+        신약개발 스타트업 ‘갤럭스’와 ‘AI 기반 항체 신약 설계 플랫폼’ 구축 추진합니다.
+        <br/>
+        <br/>
+        한국어 특화 언어모델 Ko-GPT를 중심으로 보다 더 좋은 성능을 연구 개발하고 있습니다.
+        <br/>
+        <br/>
+        사업들을 강력하게 서포트할 수 있는 인프라 조직 그리고 데이터 엔지니어닝 조직이 있는 브레인 클라우드가 있습니다.
+        `
       },
       visionList: [
         {
@@ -28,7 +50,7 @@ const ABOUT = {
           num: '³',
           txt: 'open',
           subtxt:
-            '기술 노하우를 공개하고 공유하여, AI 생태계에 기여하고 새로운 가치를 창출합니다.'
+            '기술 노하우를 공개하고 공유하여, AI 생s태계에 기여하고 새로운 가치를 창출합니다.'
         },
         {
           num: '⁴',
@@ -38,31 +60,41 @@ const ABOUT = {
         }
       ],
       aboutConB: {
-        title: '누구도 생각하지 못했던 방식으로 세상의 임팩트를 만듭니다.',
-        content: [
-          {
-            title: 'Open Research.',
-            sub: [
-              {
-                title: 'Create Novel Algorithm',
-                text: '미래 딥러닝 선행 연구를 전망하고, 독창적인 알고리즘을 개발하여 새로운 도전을 할 수 있는 기반을 구축합니다.'
-              },
-              {
-                title: 'Develop Commercial-level Model',
-                text: '응용 연구를 진행하고 모델 스케일을 더욱 확장시켜, 서비스 개발에 필요한 기술과 디지털 휴먼을 완성해 나갑니다.'
-              }
-            ]
-          },
-          {
-            title: 'Open Studio.',
-            sub: [
-              {
-                title: 'Make Impact Product',
-                text: '독자적인 기술 포트폴리오를 바탕으로, 모든 사용자의 삶의 질을 높이는 고부가가치 서비스를 개발합니다.'
-              }
-            ]
-          }
-        ]
+        title: `누구도 생각하지 못했던 방식으로 <br/>
+        세상의 임팩트를 만듭니다.`,
+        content:
+          `우리는 다양한 물음과 생각을 가진 분야별 스페셜리스트들이 모여<br/>
+           서로의 생각과 영역의 노하우를 충돌시켜가며, 새로운 가능성과<br/>
+           변증적 가치를 만들어가는 AI 전문회사 입니다<br/>
+           <br/>
+
+          우리는 선도적인 AI 기술과 고부가 가치 서비스를 통해 누구나 다양한<br/>
+          혜택을 누리고, AI가 모두의 일상에 자연스럽게 스며들어 마치 공기처럼<br/>
+           당연해지는 세상을 준비하고 있습니다.
+          `
+          // {
+          //   title: 'Open Research.',
+          //   sub: [
+          //     {
+          //       title: 'Create Novel Algorithm',
+          //       text: '미래 딥러닝 선행 연구를 전망하고, 독창적인 알고리즘을 개발하여 새로운 도전을 할 수 있는 기반을 구축합니다.'
+          //     },
+          //     {
+          //       title: 'Develop Commercial-level Model',
+          //       text: '응용 연구를 진행하고 모델 스케일을 더욱 확장시켜, 서비스 개발에 필요한 기술과 디지털 휴먼을 완성해 나갑니다.'
+          //     }
+          //   ]
+          // },
+          // {
+          //   title: 'Open Studio.',
+          //   sub: [
+          //     {
+          //       title: 'Make Impact Product',
+          //       text: '독자적인 기술 포트폴리오를 바탕으로, 모든 사용자의 삶의 질을 높이는 고부가가치 서비스를 개발합니다.'
+          //     }
+          //   ]
+          // }
+
       },
       aboutConTitData: {
         title: 'Our Brand'
@@ -169,28 +201,94 @@ const ABOUT = {
         title: 'Our way</br><span class="string">of working.</span>'
       },
       aboutTitleText: {
-        text: '자기 주도적으로 성장할 수 있는 좋은 기회가 많이 주어지고, 훌륭한 동료들을 통해 함께 성장하는 우리가 어떻게 일을 하고 있을지 알아봅니다.'
+        text: '자기 주도적으로 성장할 수 있는 좋은 기회가 많이 주어지고,<br/> 훌륭한 동료들을 통해 함께 성장하는 우리가 어떻게 일을 하고 있을지 알아봅니다.'
       },
       aboutConD: {
-        title: '우리는 더 나은 결과를 위해 공개하고 공유해요',
-        text: '정보의 독점은 권력이 될 수 있고 수직적인 소통 구조를 만들어 크루들의 업무 자율성을 떨어뜨릴 수 있습니다. 하지만 정보가 공유되면 업무의 자율성을 높이고, 집단지성의 효과를 크게 할 수 있습니다. 그래서 우리는 공유/공개를 위해 Notion, Slack, Google Workspace, Github과 같은 협업툴을 사용하고 누구나 접근하고 참여할 수 있게 합니다.공유/공개도 해야 되는&lsquo;일&rsquo;이지만, 공유가 최종 목적은 아닙니다. 효율적으로 일하는 방식을 끊임없이 고민하며 우리가 함께 성장 할 수 있도록 서로 돕습니다.또한 올바른 공개 문화를 위해 보안을 지키고 크루끼리만 공유합니다.'
-      },
-      aboutConTit: {
-        title: '우리는 스스로 몰입하고<br/>자기 주도적으로 일해요.'
+        title: '우리는 3가지의 관점에서<br/>자율적으로 행동합니다.',
+        subtitle: '자율은 권한위임',
+        text: `<br/>자율은 권한 위임 받은 일을 스스로의 원칙에 따라 책임감을 갖고 주도적으로 진행하는 것입니다.<br/>
+              <br/>
+               우리는 적임자주의를 지향합니다.<br/> 의사결정을 가장 잘 할 수 있는 사람에게 결정할 수 있는 권한을 주며,<br/>
+               책임은 위임한 사람에게 있습니다. 적임자에게 의사결정 권한이 위임되어 업무가 진행될수록<br/>
+               (판단의 경험이 쌓이고 공유될수록) 조직은 자율적이 됩니다. <br/>
+               <br/>
+               자율은 신뢰를 기반으로 동작합니다.<br/> 우리는 스스로 생각하고 행동할 때 더욱 창의적이고 혁신적인 결과를 낼 수 있다고 믿습니다.<br/>
+               구체적인 규칙보다는 크루들의 선의와 판단력을 우선시합니다.<br/>자율적인 판단의 어려움은 공개, 공유, 토론을 통해 해소하며 신뢰를 쌓아갑니다.<br/>
+              애매하면 하지 않는 것도 방법이지만 드러내어 토론하는 것이 더 나은 방법입니다.`,
+},
+      aboutConTit1: {
+        title: 'Focus on<br/> Impact'
       },
       aboutConTxt: {
-        text: '우리는 어느 곳보다 빠르게 실험하고 변화할 수 있어야 하며, 새로운 것과 아무도 가보지 않은 길에 관심을 갖고 도전해야 합니다. 그래서 우리는 실패를 두려워하지 않습니다. 성과는 성공만이 아니라 의미있는 실패도 포함입니다.<br/>당연한 것을 당연한 것이라 그냥 넘어가지 않고 스스로 질문하며 개인의 창의성을 극대화해야 하는 상황이 잦은 만큼 문제점을 스스로 찾고 해결해내는 자기 주도성이 우선으로 요구됩니다.'
+        text: `우리의 소중한 에너지를 중요한 것에 온전히 집중합니다.<br>
+               우리가 에너지를 쏟아야 할 방법은 OKR에 있습니다.<br/>
+               OKR을 달성하기 위해 걸림돌이 되는 일이라면 과감히 패스합니다.
+        `
       },
       aboutConSubTit: {
-        title: '왜 이 일을 할까?'
+        title: 'Impact를 내는 것에 집중하기'
+      },
+      aboutConSubTxt: {
+        text: `우리의 미션(10억명 이상의 삶에 영향을 주는 일)에 더 빨리, 더 가까이 도달할 수 있는 방법에 집중합니다.<br>
+               우리의 모든 에너지를 온전히 모았을 때 미션 실현가능성을 높일 수 있다고 믿습니다.<br/>
+              <br/>
+              우리가 나아갈 방향이 명료할 때, 우선순위와 중요도에 대한 공감대를 맞출 수 있습니다. 우리가 에너지를 온전히 쏟고 있는지,<br/>
+              어떻게 하면 더 잘 협업할 수 있을지, 집중을 방해하는 것이 무엇인지, 어떻게 해결할 것인지를 고민합니다.`
+      },
+
+
+      aboutConTit2: {
+        title: 'Challenge<br/>Confidence<br/>Commitment'
       },
       aboutConTxt2: {
-        text: '카카오브레인 크루라면 가장 먼저 해야 하는 질문입니다. 우리는 일의 원동력을 스스로 만들어냅니다.<br/>일에 끌려 다니지 않고 끌고 가기 위해서 언제나 내가 먼저 생각하고, 질문하고, 움직입니다.<br/>이렇게 우리는 본인의 일에 대해 본인이 가장 잘 판단할 수 있다는 신뢰로 스스로 판단하고 스스로 자기의 일을 하는 것을 지향합니다.'
+        text: `신뢰를 바탕으로 치열하게 충돌하고, 결정한 이후에는 한 마음으로 헌신합니다.`
       },
-      aboutConE: {
-        title: '우리는 수평 커뮤니케이션을<br/>지향해요.',
-        text: '카카오브레인이 지향하는 "수평 커뮤니케이션 문화란?"<br/>논의에 있어서 의견을 거리낌 없이 자유롭게 개진하는 문화를 의미합니다. 논의 과정에서 누구나 자신의 생각을<br/>명확히 밝힐 수 있고, 지위와 관계없이 논의 주제에 대해 &lsquo;수평적&rsquo;으로 논의가 이루어 집니다. 또한 모든 건의 사항은<br/>대표에게 직접 이야기할 수 있으며, 전사 공론장이 상시 열립니다.<br/><br/>&lsquo;수평적&rsquo; 논의를 통해 전달되는 구성원의 생각과 의견들이 의사 결정자의 더 나은 결정을 이끌어 낼 수 있습니다.<br/>더 이상의 논의로 의사 결정이 어려워 책임을 갖고 &lsquo;선택&rsquo;을 해야 하는 순간이 온다면 각 정해진 의사결정자가 최종적인 의사결정을 하게 됩니다.'
+      aboutConSubTit2: {
+        title: '신뢰/충돌/헌신'
       },
+      aboutConSubTxt2: {
+        text: `‘신뢰’란 카카오브레인의 크루라면 누구나 브레인이 더 잘되길 바라는 마음으로 의견을 낼 것이라는 믿음입니다.<br/>
+                개인의 편함이나 쉬움보다, 우리의 성공을 우선순위로 할 것이라는 믿음이기도 합니다.<br/>
+                <br/>
+                ‘충돌’은 더 나은 의사결정을 내리고, 그 이후에 적극적으로 헌신하기 위한 논의 과정입니다.<br/>
+                 시간이 걸리더라도 서로가 이해하고 납득할 수 있도록 집요하게 질문하고, 답변합니다. (그래서 우리는 수평적 커뮤니케이션을 지향합니다)<br/>
+                 <br/>
+                 ‘헌신’은 해당 사안의 의사결정자가 결정을 내리면,<br/> 그 이후로는 모두가 (그 의견을 지지했던 사람과 반대했던 사람이 구분이 안 될 정도로) 합심하여 한 방향으로 빠르게 실행하는 것입니다.<br/>
+                 모든 사안에는 의사결정자가 존재합니다. 의사결정 권한은 CEO로부터 적임자에게, 그리고 적임자로부터 적임자에게 위임됩니다.`
+      },
+
+      aboutConTit3: {
+        title: '100:0'
+      },
+      aboutConTxt3: {
+        text: `안에서는 모든 정보를 공개하고, 밖으로는 그 어떤 것도 공유하지 않습니다.`
+      },
+      aboutConSubTit3: {
+        title: '공개공유와 소통'
+      },
+      aboutConSubTxt3: {
+        text: `우리는 공개적으로 소통합니다. DM으로 업무하지 않습니다.<br/>
+               <br/>
+             ‘공개’는 누구든 필요할 때 원하는 정보를 볼 수 있다는 의미입니다. 정보의 비대칭은 위계를 만들고 수평적 논의를 가로막습니다.<br/>
+              공개 공유는 신뢰 재생산에도 영향을 미칩니다. 비공개에는 이유가 있어야 하고, 설명할 수 있어야 합니다.</br>
+              <br/>
+             일의 시작부터 투명하게 공개하고 기록합니다. 왜 이 일이 시작되었는지, 어떤 논의가 진행 중인지,<br/>
+             어느 팀이 어떤 목표로 무엇을 하는지가 공개되고 공유되어짐으로 누구나 맥락을 파악할 수 있습니다.<br/>
+             모두가 맥락을 이해할 때 공감대가 생기고, 시너지(효율적으로 협력하고 빠르게 결과)가 난다고 믿습니다.<br/>
+             <br/>
+             반대로 외부인에게 브레인의 모든 정보는 비공개입니다.<br/>
+             <br/>
+            브레인 크루 이외에는 협업을 위해 업무상 필요한 정보만 공유합니다.<br/>
+            당연하지만 입사예정자는 입사날 이전까지, 퇴사자는 퇴사한 시점부터 우리 크루가 아닙니다.<br/>
+            공동체도, 교수님도, 남편과 아내도 외부인입니다. 업무상 필요한 정보는 업무를 수행하는 크루가 자율적으로 판단할 수 있다고 믿습니다.<br/>
+            외부인에게 어떤 정보를 공유했다는 사실을 떳떳하게 알릴 수 없다면 하지 않는 것이 맞습니다.`
+      },
+
+
+      // aboutConE: {
+      //   title: '우리는 수평 커뮤니케이션을<br/>지향해요.',
+      //   text: '카카오브레인이 지향하는 "수평 커뮤니케이션 문화란?"<br/>논의에 있어서 의견을 거리낌 없이 자유롭게 개진하는 문화를 의미합니다. 논의 과정에서 누구나 자신의 생각을<br/>명확히 밝힐 수 있고, 지위와 관계없이 논의 주제에 대해 &lsquo;수평적&rsquo;으로 논의가 이루어 집니다. 또한 모든 건의 사항은<br/>대표에게 직접 이야기할 수 있으며, 전사 공론장이 상시 열립니다.<br/><br/>&lsquo;수평적&rsquo; 논의를 통해 전달되는 구성원의 생각과 의견들이 의사 결정자의 더 나은 결정을 이끌어 낼 수 있습니다.<br/>더 이상의 논의로 의사 결정이 어려워 책임을 갖고 &lsquo;선택&rsquo;을 해야 하는 순간이 온다면 각 정해진 의사결정자가 최종적인 의사결정을 하게 됩니다.'
+      // },
       aboutConF: {
         title:
           '우리는 최소한의 원칙으로<br/>최대한의 자율성을 가져 가고자 해요.',
@@ -206,29 +304,101 @@ const ABOUT = {
       aboutTitleText: {
         text: 'We are given opportunities to grow together. Let’s look at how we work.'
       },
-      aboutConD: {
-        title: 'We strive for better results by sharing.',
-        text: 'The monopoly of information gives one too much power and creates a communication hierarchy which interferes with krew’s work autonomy. When information is shared, the work autonomy increases and contributes to collective intelligence. We use collaboration tools such as Notion, Slack, Google Workspace, and GitHub to allow everyone’s access and participation to share valuable information.'
-      },
-      aboutConTit: {
-        title: 'We work by self-directing and immersing ourselves.'
+        aboutConD: {
+        title: 'We act autonomously<br/>from the three perspectives below..',
+        subtitle: 'Autonomy and Delegation of Authority',
+        text: `<br/>Autonomy is taking responsibility of the delegated authority and leading a task in accordance with one’s own principles.<br/>
+              <br/>
+              Our principle is to strive for meritocracy.<br/> We delegate decision-making authority to those most apt at decision making,<br/>
+               and the responsibility lies with the person who delegates the task. As tasks progress through delegation of decision-making authority to the most competent individual <br/>
+              (experience of decision-making is accumulated and shared), the organization as a whole becomes more autonomous. <br/>
+               <br/>
+               Autonomous operation is based on trust.<br/> . We believe that self thinking and acting leads to more creative and innovative results.<br/>
+               We prioritize the good-faith and judgment of the crew rather than specific rules<br/> Trust is formed when the difficulty of autonomous decision-making is resolved through openness, sharing, and discussion. <br/>
+           Not doing something when it is ambiguous is one way to face the task, but sharing and discussing it is the better way.`,
+},
+
+      aboutConTit1: {
+        title: 'Focus on<br/> Impact'
       },
       aboutConTxt: {
-        text: 'We must be able to experiment and accept change faster than anyone else. We must always be looking to challenge ourselves with the new and to explore the uncharted while being unafraid of failure. The accomplishment not only includes success but also meaningful failure. We are often faced with situations where we must not skip over the obvious and keep asking questions to maximize our creativity. It foremost requires self-motivation to spot a problem and find a solution.'
+        text: `Focus our valuable energy entirely on what is importan.<br>
+               The direction to focus our energy is on OKR.<br/>
+               We must boldly pass on anything that becomes anobstacle to achieving OKR.
+        `
       },
       aboutConSubTit: {
-        title: 'Why do we do what we do?'
+        title: 'Focus on making an Impact?'
+      },
+      aboutConSubTxt: {
+        text: `Focus on ways to achieve our mission (to impact the lives of over one billion people) faster and closer.<br>
+              The possibility of achieving our mission is increased when we gather our energy completely.<br/>
+              <br/>
+              When our direction is clear, we can come to a consensus on priorities and importance. Contemplate on whether we are pouring our entire energy,<br/>
+               on how we can collaborate better, on what is hindering our focus, and how to resolve these questions.`
+      },
+
+       aboutConTit2: {
+        title: 'Challenge<br/>Confidence<br/>Commitment'
       },
       aboutConTxt2: {
-        text: 'This is a number one question for Kakao Brain krews. We motivate ourselves.To lead, not to be led, by work,  one should always be the first to think, question, and act. Our preferred way of work is to trust you to work on your own with the belief that you are the best judge of your work.'
+        text: `Fiercely collide with one another based on trust and dedicate ourselves after we make a decision.`
       },
-      aboutConE: {
-        title: 'We promote<br />“horizontal communication”.',
-        text: `
-        It means a culture in which everyone can freely express their opinions. Anyone can present their ideas in discussions regardless of their positions as if the organization is structured "horizontally". Also, everyone is welcome to talk directly to the CEO to discuss their concerns, and  our company-wide forums are held at all times.
-        <br /><br />
-        With Kakao Brain’s ‘horizontal communication’, ideas and opinions discussed can lead to a better decision.After inconclusive discussions, when the moment comes a 'decision' must be made, each designated decision-makers are to make the final call.`
+      aboutConSubTit2: {
+        title: 'Trust, Collide, and Dedicate'
       },
+      aboutConSubTxt2: {
+        text: `‘Trust’ means that as KakaoBrain’s crew, everyone will express their opinions with a collective desire for Brain’s success.<br/>
+                It is also a belief that our success is prioritized overpersonal comfort and ease..<br/>
+                <br/>
+                ‘Collide’ refers to the process of discussion for better decision-making and the subsequent active dedication.<br/>
+                 It involves persistent questions and answers until everyone understands and is convinced, even if it takes time (This is why we strive for horizontal communication).<br/>
+                 <br/>
+                ‘Dedication’ means that once the decision-maker makes a decision on a particular matter,<br/>, everyone comes together to quickly move in one direction (to the extent that it is indistinguishable whether one supported or opposed the decision).<br/>
+                 There is a decision-maker for every matter.  The decision-making authority is delegated from the CEO to a qualified person and from that person to the next qualified person.`
+      },
+
+      aboutConTit3: {
+        title: '100:0'
+      },
+      aboutConTxt3: {
+        text: `All information is shared internally but nothing is shared externally.`
+      },
+      aboutConSubTit3: {
+        title:`Open Sharing and Communication`
+      },
+      aboutConSubTxt3: {
+        text: `We communicate openly. We do not conduct work through DM’s.<br/>
+               <br/>
+             ‘Disclosure’ means that anyone can see the information they need when they need it. Asymmetric information creates hierarchy and blocks horizontal discussion.<br/>
+              Open sharing therefore also affects reciprocation of trust. There must be a valid reason and explanation for keeping information private.</br>
+              <br/>
+              There must be transparency and record from the beginning. Why the work was started, what discussions are in progress,<br/>
+            which team is doing what for what purpose must all be disclosed and shared so that anyone can understand the context of the work.<br/>
+             We believe that empathy is formed and synergy (efficient collaboration and rapid results) is created when everyone understands the context.<br/>
+             <br/>
+             However, all information about Brain is private to outsiders.<br/>
+             <br/>
+            We only share necessary information for collaborating with those outside of Brain’s crew.<br/>
+            It goes without saying that one is not officially a member of our crew until the first day of work.  Furthermore, those who left the company are no longer part of the crew.<br/>
+            Communal organizations, professors, and family members including spouses are all outsiders. We believe that the crew performing the task can autonomously decide on what information may be necessary to complete the task at hand.<br/>
+             If you cannot disclose why you have shared certain information with outsiders, it is best not to do so.`
+      },
+
+
+
+
+
+
+
+
+      // aboutConE: {
+      //   title: 'We promote<br />“horizontal communication”.',
+      //   text: `
+      //   It means a culture in which everyone can freely express their opinions. Anyone can present their ideas in discussions regardless of their positions as if the organization is structured "horizontally". Also, everyone is welcome to talk directly to the CEO to discuss their concerns, and  our company-wide forums are held at all times.
+      //   <br /><br />
+      //   With Kakao Brain’s ‘horizontal communication’, ideas and opinions discussed can lead to a better decision.After inconclusive discussions, when the moment comes a 'decision' must be made, each designated decision-makers are to make the final call.`
+      // },
       aboutConF: {
         title: 'We strive for greater autonomy with less rules.',
         text: `
@@ -251,7 +421,7 @@ const PRIVACY = {
         itemType: 'pagaraph',
         text: `
           카카오브레인은 귀하의 소중한 개인정보를 보호함으로써 정보주체가 안심하고 서비스를 이용할 수 있도록 『개인정보 보호법』 관련 법령 상의 개인정보 보호규정 및 가이드라인을 준수하고 있습니다.
-    
+
           카카오브레인은 개인정보 처리방침을 통해 정보주체가 제공하는 개인정보가 어떠한 용도와 방식으로 이용되고 있으며, 개인정보 보호를 위해 어떠한 조치가 취해지고 있는지 알려드립니다.
         `
       },
@@ -306,12 +476,12 @@ const PRIVACY = {
         itemType: 'pagaraph',
         text: `
           카카오브레인은 정보주체의 개인정보를 ‘2. 개인정보의 처리 목적'에서 고지한 범위 내에서 사용하며, 동 범위를 초과하여 이용하거나 타인 또는 타기업, 기관에 제공하지 않습니다.
-        
+
           단, 다음의 경우에 한해 정보주체의 개인정보를 제3자에게 제공할 수 있습니다.
 
             - 정보주체(귀하)로부터 별도의 동의를 받은 경우
             - 법률에 특별한 규정이 있거나 법령상 의무를 준수하기 위하여 불가피한 경우
-            
+
             [개인정보 국외이전]
 
             원활한 서비스 제공 및 이용자 편의 증진 등을 위하여 해외 클라우드 서비스 등을 이용하고 있습니다. 이와 관련하여 개인정보 국외이전에 대해 다음과 같이 안내드립니다.
@@ -370,7 +540,7 @@ const PRIVACY = {
 
           2) 개인정보 처리 및 보유 기간은 다음과 같으며, 아래 각 항목에 대하여 정보주체가 명시적으로 파기 요청을 하는 경우 지체없이 파기합니다. 단, 통신비밀보호법의 규정에 의하여 정보주체의 인터넷 로그기록 및 접속지 추적자료는 3개월간 별도 보관합니다
 
-          입사 지원 및 인재풀 등록 정보 : 입사자는 재직중 보관이며, 미입사자(전형탈락자)는 영입절차가 완료되는 시점까지 보관합니다    
+          입사 지원 및 인재풀 등록 정보 : 입사자는 재직중 보관이며, 미입사자(전형탈락자)는 영입절차가 완료되는 시점까지 보관합니다
         `
       },
       {
@@ -481,7 +651,7 @@ const PRIVACY = {
           해킹이나 컴퓨터 바이러스 등에 의한 개인정보 유출 및 훼손을 막기 위하여 보안프로그램을 설치하고 주기적인 갱신·점검을 하고 있습니다.
 
           7) 비인가자에 대한 출입 통제
-          개인정보를 보관하고 있는 장소에 대하여 보호구역으로 설정하여 출입을 통제하고 있습니다.    
+          개인정보를 보관하고 있는 장소에 대하여 보호구역으로 설정하여 출입을 통제하고 있습니다.
         `
       },
       {
@@ -505,8 +675,8 @@ const PRIVACY = {
 
           - 개인정보 분쟁조정위원회 : 1833-6972[www.kopico.go.kr))
           - 개인정보 침해신고센터 : (국번없이) 118 (privacy.kisa.or.kr)
-          - 경찰청 사이버안전국 : (국번없이) 182 (cyberbureau.police.go.kr)    
-          - 대검찰청 사이버수사과 : (국번없이) 1301 (www.spo.go.kr)  
+          - 경찰청 사이버안전국 : (국번없이) 182 (cyberbureau.police.go.kr)
+          - 대검찰청 사이버수사과 : (국번없이) 1301 (www.spo.go.kr)
         `
       },
       {
@@ -520,7 +690,7 @@ const PRIVACY = {
 
           다만, 이용자 권리의 중대한 변경이 발생할 때에는 최소 30일 전에 미리 알려드리겠습니다.
 
-          - 개인정보처리방침 버전번호 : v2.0 
+          - 개인정보처리방침 버전번호 : v2.0
         `
       },
       {
@@ -542,8 +712,8 @@ const PRIVACY = {
         itemType: 'pagaraph',
         text: `
           Kakao Brain complies with the personal information protection regulations and guidelines under the statutes of the Personal Information Protection Act related laws for data subjects to use the service with confidence by protecting their valuable personal information.
-        
-          According to the privacy policy, Kakao Brain may use personal information obtained from data subjects for the following purposes in the following method. We also take measures to protect such information. 
+
+          According to the privacy policy, Kakao Brain may use personal information obtained from data subjects for the following purposes in the following method. We also take measures to protect such information.
         `
       },
       {
@@ -582,8 +752,8 @@ const PRIVACY = {
 
           - Introduce the human resource hiring process and its stages
           - Review candidates for job openings among those who registered at the HR database
-          - Handle and notify of any inquiries received 
-          - Reference check   
+          - Handle and notify of any inquiries received
+          - Reference check
         `
       },
       {
@@ -596,7 +766,7 @@ const PRIVACY = {
         Kakao Brain uses personal information of the data subject within the scope stated in ‘2. Purpose of processing personal information,’ and it does not use or provide to other persons, companies, or institutions beyond such scope.
 
         However, the personal information of the data subject may be provided to a third party only in case of the following
-          
+
         - Where it obtained separate consent from the data subject (you)
         - Where it is inevitable as per special provisions in the law or to comply with statutory obligations
 
@@ -610,7 +780,7 @@ const PRIVACY = {
           b) Tel.: +1 (415) 458-2731
           c) Transferred items: applicant registration, application preparation and application through notice- and any and all information regarding registration for manpower pool
           d) Destination: U.S.
-          e) Date: from application with the job opening system f) Method: transmission through a network upon application with the job opening system 
+          e) Date: from application with the job opening system f) Method: transmission through a network upon application with the job opening system
           g) Purpose: provision of job opening service
           h) Retention-use period: until the end of recruitment
 
@@ -622,7 +792,7 @@ const PRIVACY = {
           d) Destination: the U.S.
           e) Date: upon registration of recruitment coding test
           f) Purpose: provision of coding test service
-          h) Retention-use period: until the end of recruitment          
+          h) Retention-use period: until the end of recruitment
         `
       },
       {
@@ -758,7 +928,7 @@ const PRIVACY = {
         3) Restricted access to personal information
         We restrict access to personal information and control unauthorized access from inside and outside by managing access rights to the database system processing personal information.
 
-        4) Storage and prevention of forgery or alteration of access records 
+        4) Storage and prevention of forgery or alteration of access records
         We store and manage the records of access to the personal information processing system (access logs) to comply with legal requirements and control access records to prevent forgery or alteration.
 
         5) Encryption of personal information
@@ -768,7 +938,7 @@ const PRIVACY = {
         We install and periodically update and inspect security programs to prevent divulgence and damage of personal information caused by hacking, computer virus, etc.
 
         7) Access restriction of unauthorized persons
-        We designate a protected area and restrict access concerning the place where personal information is stored.  
+        We designate a protected area and restrict access concerning the place where personal information is stored.
         `
       },
       {
@@ -786,7 +956,7 @@ const PRIVACY = {
 
         - Name: Gwang-sup Kim, CTO of Kakao Brain
         - Email Address :career@Kakao Brain.com
-            
+
 
         Furthermore, you may contact the Personal Information Dispute Mediation Committee or the Personal Information Infringement Report Center of the Korea Internet & Security Agency for remedy of damage, counseling, etc. from personal information infringement.
 
@@ -806,7 +976,7 @@ const PRIVACY = {
 
         Provided, That we will notify you of any significant changes in user rights at least 30 days in advance
 
-        - Privacy Policy Version Number: v2.0        
+        - Privacy Policy Version Number: v2.0
         `
       }
     ]
@@ -862,7 +1032,7 @@ const ETHICS = {
         itemType: 'pagaraph',
         text: `
         카카오브레인 직원 및 그 가족 구성원들은 이해관계의 충돌을 일으킬 수 있는 어떠한 금품 및 향응을 받아서는 아니되며 경쟁사, 고객, 기타 업무상의 비지니스 파트너들도 금품 및 향응을 제공해서는 안됩니다. 선물 및 금품 수령시 즉시 반환이 원칙이며 이미 수령한 선물 및 금품은 컬처팀에 반납하여 추후 안내를 받아야 합니다. 카카오브레인 직원은 본인 및 가족 또는 지인의 이익을 위하여 선물, 사례, 사업상의 우대를 청하여서는 아니되며, 아래의 경우 문제가 발생할 수 있습니다.
-        
+
         - 이해관계자가 카카오브레인 직원에게 식사, 향응 등을 제공하는 경우
         - 이해관계자가 카카오브레인 직원의 경조사에 경조금 또는 화환을 제공하는 경우
         - 이해관계자가 카카오브레인 직원에게 교육, 단합대회, 문화행사 등의 명분으로 강사료, 식대, 공연티켓 등을 제공하는 경우
@@ -879,7 +1049,7 @@ const ETHICS = {
         itemType: 'pagaraph',
         text: `
         Kakao Brain’s Cyber Ethics Office is responsible for receiving reports or providing counseling concerning unfair actions by Kakao Brain executives and employees; unreasonable demands such as money or service; improper use or abuse of company assets; improper investment in business partners; divulgence of confidential information, manipulation of documents or data; and other irregularities or misconduct.
-        
+
         In any case, we thoroughly protect the contents of the report and the identity of the informant for the informant to report with confidence, and we will do our best to handle it as soon as possible.
         `
       },
@@ -1160,7 +1330,7 @@ const PLG_PRIVACY = {
         text: `
         회사는 원칙적으로 개인정보의 수집 및 이용목적이 달성되면 이용자의 개인정보를 지체없이 파기합니다.
 
-        전자적 파일 형태인 경우 복구 및 재생되지 않도록 안전하게 삭제하고, 그 밖에 기록물, 인쇄물, 서면 등의 경우 분쇄하거나 소각하여 파기합니다. 
+        전자적 파일 형태인 경우 복구 및 재생되지 않도록 안전하게 삭제하고, 그 밖에 기록물, 인쇄물, 서면 등의 경우 분쇄하거나 소각하여 파기합니다.
 
         이 외에 법령에 따라 일정기간 보관해야 하는 개인정보 및 해당 법령은 아래와 같습니다.
 
@@ -1314,7 +1484,7 @@ const PLG_PRIVACY = {
         text: `
         회사는 원칙적으로 개인정보의 수집 및 이용목적이 달성되면 이용자의 개인정보를 지체없이 파기합니다.
 
-        전자적 파일 형태인 경우 복구 및 재생되지 않도록 안전하게 삭제하고, 그 밖에 기록물, 인쇄물, 서면 등의 경우 분쇄하거나 소각하여 파기합니다. 
+        전자적 파일 형태인 경우 복구 및 재생되지 않도록 안전하게 삭제하고, 그 밖에 기록물, 인쇄물, 서면 등의 경우 분쇄하거나 소각하여 파기합니다.
 
         이 외에 법령에 따라 일정기간 보관해야 하는 개인정보 및 해당 법령은 아래와 같습니다.
 
@@ -1425,7 +1595,7 @@ const PLG_TERMS = {
         - Playground 제공자 및 운영자 등 출처를 혼동하게 하는 행위
         - Playground를 이용하여 (저작권 등) 제3자의 권리 혹은 명예를 침해하는 행위
         - Playground를 이용하여 정보통신망법 등 관련법령을 위반하는 위법행위를 하는 행위
-        - Playground 제공 기능별 무료 제공량을 넘어서는 이용을 위해 의도적으로 수집 정보를 조작하는 행위 
+        - Playground 제공 기능별 무료 제공량을 넘어서는 이용을 위해 의도적으로 수집 정보를 조작하는 행위
 
         3. Playground는 회사의 다양한 생성형 AI 모델 및 기술을 많은 사람들이 쉽게 체험해 볼 수 있도록 제작되었습니다. 이용자에게 긍정적인 기술 경험을 지원하고 기술의 오용을 최소화 하기위해 다음과 같은 콘텐츠를 생성하거나 공유하는 목적으로 서비스를 이용하는것을 금지합니다.
         - 불법, 명예 훼손, 희롱, 학대, 사기, 침해, 외설 또는 불쾌한 내용에 상응하는 표현
@@ -1460,11 +1630,11 @@ const PLG_TERMS = {
         itemType: 'pagaraph',
         text: `
         1. Playground의 저작권(프로그램의 소스코드, 실행파일 및 UI/UX, 삽입된 이미지 등 프로그램과 관련된 모든 저작물을 포함함)은 회사(혹은 원저작권자)에게 있으며, 이용자는 본 이용약관에서 정한 바에 따른 제한적 사용권만을 취득할 뿐, 그 외 Playground에 대한 어떠한 권리도 취득하지 않습니다.
-        
+
         2. Playground에 삽입되어 있는 모든 회사의 관련 등록 표장들의 상표권은 회사에게 있으며, 이용자는 해당 표장들에 대해서 어떠한 권리도 취득하지 않습니다.
-        
+
         3. 이용자가 Playground의 이용으로 발생하거나 파생된 저작물 등에 대한 지식재산권 기타 권리는 이용자에게 귀속됩니다. 이에 따라 이용자는 저작물의 생성, 저장, 배포, 전송, 교환 등 저작물과 관련한 모든 책임이 이용자에게 있다는 것을 명시적으로 인정하고 동의합니다.
-        
+
         4. 본 이용약관의 어떠한 내용도 본 이용약관에서 정한 바에 따른 제한적 사용권을 넘어 Playground의 소스코드, 실행파일 및 UI/UX, 혹은 회사의 상표명, 상표, 서비스 마크, 로고, 도메인 이름 및 기타 고유한 브랜드 표시를 사용할 권리를 이용자에게 부여하는 것으로 해석되지 않습니다.
         `
       },
@@ -1476,9 +1646,9 @@ const PLG_TERMS = {
         itemType: 'pagaraph',
         text: `
         1. 회사는 무료로 제공되는 Playground의 완전성, 무결성, 적절성 등을 보증하지 않습니다.
-        
+
         2. 회사는 Playground를 통해 무료로 제공되는 기술의 정확성, 적절성 등을 보증하지 않으며, 제공되는 기술은 회사의 사정에 따라 변경될 수 있습니다.
-        
+
         3. 이용자는 Playground를 자신의 책임 하에 본 이용약관 및 관계법령을 준수하여 적법하게 이용하여야 하며, 회사는 이용자의 Playground를 이용한 위법행위에 대해 책임을 지지 않습니다.
         `
       },
@@ -1498,7 +1668,7 @@ const PLG_TERMS = {
         itemType: 'pagaraph',
         text: `
         1. 회사는 경영상의 이유로 Playground를 고지 없이 종료할 수 있습니다.
-        
+
         2. 이용자가 관련 법령을 위반하거나 본 이용약관을 준수하지 않는 경우, 회사는 임의로 이용자의 Playground 사용을 일시적 또는 영구적으로 제한할 수 있습니다.
         `
       },
@@ -1549,7 +1719,7 @@ const PLG_TERMS = {
         - Playground 제공자 및 운영자 등 출처를 혼동하게 하는 행위
         - Playground를 이용하여 (저작권 등) 제3자의 권리 혹은 명예를 침해하는 행위
         - Playground를 이용하여 정보통신망법 등 관련법령을 위반하는 위법행위를 하는 행위
-        - Playground 제공 기능별 무료 제공량을 넘어서는 이용을 위해 의도적으로 수집 정보를 조작하는 행위 
+        - Playground 제공 기능별 무료 제공량을 넘어서는 이용을 위해 의도적으로 수집 정보를 조작하는 행위
 
         3. Playground는 회사의 다양한 생성형 AI 모델 및 기술을 많은 사람들이 쉽게 체험해 볼 수 있도록 제작되었습니다. 이용자에게 긍정적인 기술 경험을 지원하고 기술의 오용을 최소화 하기위해 다음과 같은 콘텐츠를 생성하거나 공유하는 목적으로 서비스를 이용하는것을 금지합니다.
         - 불법, 명예 훼손, 희롱, 학대, 사기, 침해, 외설 또는 불쾌한 내용에 상응하는 표현
@@ -1584,11 +1754,11 @@ const PLG_TERMS = {
         itemType: 'pagaraph',
         text: `
         1. Playground의 저작권(프로그램의 소스코드, 실행파일 및 UI/UX, 삽입된 이미지 등 프로그램과 관련된 모든 저작물을 포함함)은 회사(혹은 원저작권자)에게 있으며, 이용자는 본 이용약관에서 정한 바에 따른 제한적 사용권만을 취득할 뿐, 그 외 Playground에 대한 어떠한 권리도 취득하지 않습니다.
-        
+
         2. Playground에 삽입되어 있는 모든 회사의 관련 등록 표장들의 상표권은 회사에게 있으며, 이용자는 해당 표장들에 대해서 어떠한 권리도 취득하지 않습니다.
-        
+
         3. 이용자가 Playground의 이용으로 발생하거나 파생된 저작물 등에 대한 지식재산권 기타 권리는 이용자에게 귀속됩니다. 이에 따라 이용자는 저작물의 생성, 저장, 배포, 전송, 교환 등 저작물과 관련한 모든 책임이 이용자에게 있다는 것을 명시적으로 인정하고 동의합니다.
-        
+
         4. 본 이용약관의 어떠한 내용도 본 이용약관에서 정한 바에 따른 제한적 사용권을 넘어 Playground의 소스코드, 실행파일 및 UI/UX, 혹은 회사의 상표명, 상표, 서비스 마크, 로고, 도메인 이름 및 기타 고유한 브랜드 표시를 사용할 권리를 이용자에게 부여하는 것으로 해석되지 않습니다.
         `
       },
@@ -1600,9 +1770,9 @@ const PLG_TERMS = {
         itemType: 'pagaraph',
         text: `
         1. 회사는 무료로 제공되는 Playground의 완전성, 무결성, 적절성 등을 보증하지 않습니다.
-        
+
         2. 회사는 Playground를 통해 무료로 제공되는 기술의 정확성, 적절성 등을 보증하지 않으며, 제공되는 기술은 회사의 사정에 따라 변경될 수 있습니다.
-        
+
         3. 이용자는 Playground를 자신의 책임 하에 본 이용약관 및 관계법령을 준수하여 적법하게 이용하여야 하며, 회사는 이용자의 Playground를 이용한 위법행위에 대해 책임을 지지 않습니다.
         `
       },
@@ -1622,7 +1792,7 @@ const PLG_TERMS = {
         itemType: 'pagaraph',
         text: `
         1. 회사는 경영상의 이유로 Playground를 고지 없이 종료할 수 있습니다.
-        
+
         2. 이용자가 관련 법령을 위반하거나 본 이용약관을 준수하지 않는 경우, 회사는 임의로 이용자의 Playground 사용을 일시적 또는 영구적으로 제한할 수 있습니다.
         `
       },

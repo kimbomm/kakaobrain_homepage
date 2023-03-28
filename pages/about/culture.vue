@@ -2,19 +2,32 @@
   <div class="layout-about">
     <BreadCrumb :data="breadcrumb" :full="true" />
     <div class="top-section">
-      <AboutTitle :data="data.aboutTitle" />
+      <AboutConTit :data="data.aboutTitle" />
       <div class="top-text">
         <AboutTitleText :data="data.aboutTitleText" />
       </div>
     </div>
     <AboutFullConD :data="data.aboutConD" />
     <div class="culture-text-box">
-      <AboutConTit :data="data.aboutConTit" />
+      <AboutConTit1 :data="data.aboutConTit1" />
       <AboutConTxt :data="data.aboutConTxt" />
       <AboutConSubTit :data="data.aboutConSubTit" />
-      <AboutConTxt :data="data.aboutConTxt2" />
+      <AboutConSubTxt :data="data.aboutConSubTxt" />
     </div>
-    <AboutFullConE :data="data.aboutConE" />
+    <div class="culture-text-box">
+      <AboutConTit2 :data="data.aboutConTit2" />
+      <AboutConTxt2 :data="data.aboutConTxt2" />
+      <AboutConSubTit2 :data="data.aboutConSubTit2" />
+      <AboutConSubTxt2 :data="data.aboutConSubTxt2" />
+    </div>
+    <div class="culture-text-box">
+      <AboutConTit3 :data="data.aboutConTit3" />
+      <AboutConTxt3 :data="data.aboutConTxt3" />
+      <AboutConSubTit3 :data="data.aboutConSubTit3" />
+      <AboutConSubTxt3 :data="data.aboutConSubTxt3" />
+    </div>
+
+    <!-- <AboutFullConE :data="data.aboutConE" /> -->
     <AboutFullConF :data="data.aboutConF" />
   </div>
 </template>
@@ -26,8 +39,18 @@
   import AboutTitleText from '@/components/about/AboutTitleText'
   import AboutFullConD from '@/components/about/AboutFullConD'
   import AboutConTit from '@/components/about/AboutConTit'
+  import AboutConTit1 from '@/components/about/AboutConTit1'
   import AboutConTxt from '@/components/about/AboutConTxt'
   import AboutConSubTit from '@/components/about/AboutConSubTit'
+  import AboutConSubTxt from '@/components/about/AboutConSubTxt'
+  import AboutConTit2 from '@/components/about/AboutConTit2'
+  import AboutConTxt2 from '@/components/about/AboutConTxt2'
+  import AboutConSubTit2 from '@/components/about/AboutConSubTit2'
+  import AboutConSubTxt2 from '@/components/about/AboutConSubTxt2'
+  import AboutConTit3 from '@/components/about/AboutConTit3'
+  import AboutConTxt3 from '@/components/about/AboutConTxt3'
+  import AboutConSubTit3 from '@/components/about/AboutConSubTit3'
+  import AboutConSubTxt3 from '@/components/about/AboutConSubTxt3'
   import AboutFullConE from '@/components/about/AboutFullConE'
   import AboutFullConF from '@/components/about/AboutFullConF'
   export default {
@@ -58,7 +81,17 @@
       AboutConTxt,
       AboutConSubTit,
       AboutFullConE,
-      AboutFullConF
+      AboutFullConF,
+      AboutConTit1,
+      AboutConSubTxt,
+      AboutConTit2,
+      AboutConTxt2,
+      AboutConSubTit2,
+      AboutConSubTxt2,
+      AboutConTit3,
+      AboutConTxt3,
+      AboutConSubTit3,
+      AboutConSubTxt3
     },
     data() {
       return {
@@ -107,6 +140,24 @@
       margin-bottom: 100px;
     }
     .about-con-sub-tit {
+      margin-bottom: 30px;
+    }
+    .about-con-tit2 {
+      margin-bottom: 100px;
+    }
+    .about-con-txt2 {
+      margin-bottom: 100px;
+    }
+    .about-con-sub-tit2 {
+      margin-bottom: 30px;
+    }
+    .about-con-tit3 {
+      margin-bottom: 100px;
+    }
+    .about-con-txt3 {
+      margin-bottom: 100px;
+    }
+    .about-con-sub-tit3 {
       margin-bottom: 30px;
     }
   }
@@ -166,6 +217,10 @@
   }
 
   @include tablet {
+    .top-section {
+      display: block;
+      height: auto;
+    }
     .about-title {
       margin-bottom: 60px;
     }

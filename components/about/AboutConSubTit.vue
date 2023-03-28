@@ -12,6 +12,9 @@
         default: () => [],
         require: true
       }
+    },
+    data() {
+      return {}
     }
   }
 </script>
@@ -24,16 +27,19 @@
     font-size: 40px;
     font-weight: 600;
   }
-  @include pc-4k {
-    .about-con-sub-tit {
-      font-size: 72px;
-    }
-  }
+
   @include pc-large {
     .about-con-sub-tit {
       font-size: 52px;
     }
   }
+  @include pc-4k {
+    .about-con-sub-tit {
+      font-size: 72px;
+      padding-bottom: 60px;
+    }
+  }
+
   @include tablet {
     .about-con-sub-tit {
       font-size: 24px;

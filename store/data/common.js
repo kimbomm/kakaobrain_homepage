@@ -1,33 +1,33 @@
 const menus = [
-  {
-    name: 'B^',
-    category: 'b',
-    nick: 'B^',
-    link: '',
-    sub: [
-      {
-        category: 'discover',
-        nick: 'DISCOVER',
-        name: 'DISCOVER',
-        link: '/b/discover',
-        target: ''
-      },
-      {
-        category: 'healthcare',
-        nick: 'HEALTHCARE',
-        name: 'HEALTHCARE',
-        link: '/b/healthcare',
-        target: ''
-      },
-      {
-        category: 'edit',
-        nick: 'EDIT',
-        name: 'EDIT',
-        link: 'https://bedit.kakaobrain.com',
-        target: '_blank'
-      }
-    ]
-  },
+  // {
+  //   name: 'B^',
+  //   category: 'b',
+  //   nick: 'B^',
+  //   link: '',
+  //   sub: [
+  //     {
+  //       category: 'discover',
+  //       nick: 'DISCOVER',
+  //       name: 'DISCOVER',
+  //       link: '/b/discover',
+  //       target: ''
+  //     },
+  //     {
+  //       category: 'healthcare',
+  //       nick: 'HEALTHCARE',
+  //       name: 'HEALTHCARE',
+  //       link: '/b/healthcare',
+  //       target: ''
+  //     },
+  //     {
+  //       category: 'edit',
+  //       nick: 'EDIT',
+  //       name: 'EDIT',
+  //       link: 'https://bedit.kakaobrain.com',
+  //       target: '_blank'
+  //     }
+  //   ]
+  // },
   {
     name: 'About',
     category: 'about',
