@@ -215,7 +215,7 @@
       margin-bottom: 800px;
     }
   }
-
+  //
   @include tablet {
     .top-section {
       display: block;
