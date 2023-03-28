@@ -9,8 +9,8 @@ const menus = [
         category: 'discover',
         nick: 'DISCOVER',
         name: 'DISCOVER',
-        link: '/b/discover',
-        target: ''
+        link: 'https://bdiscover.kakaobrain.com/',
+        target: '_blank'
       },
       {
         category: 'healthcare',
