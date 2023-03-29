@@ -170,6 +170,7 @@
   @include tablet {
     .goal {
       height: 1000px;
+      //margin-top: 100px;
 
       > div {
         width: fit-content !important;

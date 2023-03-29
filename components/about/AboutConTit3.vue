@@ -130,20 +130,20 @@
       .about-con-tit3 {
         &.gl-6 {
           width: fit-content !important;
-          .easter-egg {
+          .hundra_icon {
             position: absolute;
-            left: 50%;
-            top: 50%;
+            left: 320%;
+            top: 0%;
             transform: translate(-25%, -50%);
 
             img {
-              width: 50%;
-              height: 50%;
+              width: auto;
+              height: 80px;
             }
           }
 
           .tit {
-            font-size: 90px;
+            font-size: 80px;
             display: flex;
             justify-content: center;
           }

@@ -49,8 +49,8 @@
         top: 50%;
         transform: translate(-50%, -50%);
         img {
-          width: 100%;
-          height: 100%;
+          width: auto;
+          height: 147px;
         }
       }
     }
@@ -75,8 +75,8 @@
           transform: translate(-45%, -50%);
 
           img {
-            width: 110%;
-            height: 110%;
+            width: auto;
+            height: 195px;
           }
         }
       }
@@ -93,13 +93,14 @@
           width: fit-content !important;
         }
         .easter-egg {
-          left: 390px;
-          width: 110px;
-          height: 110px;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-45%, -50%);
 
           img {
-            width: 100%;
-            height: 100%;
+            width: auto;
+            height: 292px;
           }
         }
         .tit {

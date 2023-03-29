@@ -12,26 +12,20 @@
           <div class="column">
             <div class="rect">
               <p class="p-title">Karlo</p>
-              <p class="p-txt">
-                이미지 생성 모델<br />신규 시장 발굴 및 제품 출시
-              </p>
+              <p class="rect1" v-html="data.rect1"></p>
             </div>
             <div class="rect">
               <p class="p-title">HealthCare</p>
-              <p class="p-txt">
-                AI 판독 서비스 출시<br />네이처급 최첨단 기술 확보
-              </p>
+              <p class="rect2" v-html="data.rect2"></p>
             </div>
             <div class="rect">
-              <p class="p-title">Large-Scale Language</p>
-              <p class="p-txt">언어모델 / 챗봇 기술 확보</p>
+              <p class="p-title3">Large-Scale Language</p>
+              <p class="rect3" v-html="data.rect3"></p>
             </div>
           </div>
           <div class="column full">
             <div class="rect">
-              <p class="p-title" style="margin-bottom: 69px; margin-top: 69px">
-                Brain CLOUD
-              </p>
+              <p class="p-title">Brain CLOUD</p>
             </div>
           </div>
           <div class="imgbox mNone">
@@ -149,18 +143,34 @@
 
             .p-title {
               margin-top: 44px;
-              margin-bottom: 20px;
+              margin-bottom: 21px;
               font-size: 20px;
               font-weight: 900;
               text-align: center;
-              :nth-child(4) {
-                margin-bottom: 69px;
-              }
+            }
+            .p-title3 {
+              margin-top: 44px;
+              margin-bottom: 29px;
+              font-size: 20px;
+              font-weight: 900;
+              text-align: center;
             }
 
-            .p-txt {
+            .rect1 {
               font-size: 14px;
               margin-bottom: 39px;
+              line-height: 1.5;
+              text-align: center;
+            }
+            .rect2 {
+              font-size: 14px;
+              margin-bottom: 39px;
+              line-height: 1.5;
+              text-align: center;
+            }
+            .rect3 {
+              font-size: 14px;
+              margin-bottom: 48px;
               line-height: 1.5;
               text-align: center;
             }
@@ -174,6 +184,10 @@
             margin-top: 65px;
             .rect {
               width: 100%;
+              .p-title {
+                margin-top: 69px;
+                margin-bottom: 69px;
+              }
             }
           }
         }
@@ -245,15 +259,27 @@
           }
         }
         .container {
+          margin-top: 362px;
           .nav {
             max-width: 1504px;
             height: auto;
 
             .rect {
+              width: calc((100% - 80px) / 3);
               .p-title {
+                margin-top: 64px;
                 font-size: 26px;
               }
-              .p-txt {
+              .p-title3 {
+                font-size: 26px;
+              }
+              .rect1 {
+                font-size: 20px;
+              }
+              .rect2 {
+                font-size: 20px;
+              }
+              .rect3 {
                 font-size: 20px;
               }
             }
@@ -282,7 +308,7 @@
                 position: static;
                 transform: translate(0, 0);
                 width: auto;
-                max-height: 186px;
+                max-height: 182px;
               }
             }
           }
@@ -334,11 +360,26 @@
             height: auto;
 
             .rect {
+              width: calc((100% - 128px) / 3);
               .p-title {
+                margin-top: 64px;
                 font-size: 36px;
               }
-              .p-txt {
+              .p-title3 {
+                font-size: 36px;
+                margin-top: 120px;
+              }
+              .rect1 {
                 font-size: 26px;
+                margin-bottom: 80px;
+              }
+              .rect2 {
+                font-size: 26px;
+                margin-bottom: 80px;
+              }
+              .rect3 {
+                font-size: 26px;
+                margin-bottom: 80px;
               }
             }
 
@@ -346,10 +387,16 @@
               display: flex;
               justify-content: space-between;
               width: 100%;
+
               &.full {
                 margin-top: 128px;
                 .rect {
                   width: 100%;
+
+                  .p-title {
+                    margin-top: 120px;
+                    margin-bottom: 120px;
+                  }
                 }
               }
             }
@@ -390,6 +437,8 @@
   @media screen and (max-width: 1400px) {
     .about-full-con-a {
       .full-con {
+        width: 100%;
+        min-height: 1400px;
         .inner {
           padding-top: 100px;
           .txt {
@@ -407,7 +456,7 @@
           margin-top: 100px;
 
           .nav {
-            max-width: 782px;
+            width: 900px;
             .imgbox {
               gap: 159px;
               width: 100%;
@@ -495,12 +544,22 @@
             .rect {
               width: calc((100% - 19px) / 3);
               height: 120px;
+              border-radius: 140px;
 
               .p-title {
                 font-size: 16px;
               }
+              .p-title3 {
+                font-size: 16px;
+              }
 
-              .p-txt {
+              .rect1 {
+                font-size: 12px;
+              }
+              .rect2 {
+                font-size: 12px;
+              }
+              .rect3 {
                 font-size: 12px;
               }
             }
@@ -580,11 +639,19 @@
                   font-size: 22px;
                   margin-bottom: 8px;
                 }
+                .p-title3 {
+                  font-size: 22px;
+                  margin-bottom: 8px;
+                }
 
-                .p-txt {
+                .rect1 {
                   font-size: 12px;
-
-                  white-space: nowrap;
+                }
+                .rect2 {
+                  font-size: 12px;
+                }
+                .rect3 {
+                  font-size: 12px;
                 }
               }
               &.full {
@@ -593,6 +660,11 @@
                 margin-top: 0;
                 .rect {
                   width: 100%;
+
+                  .p-title {
+                    margin-top: 33px;
+                    margin-bottom: 33px;
+                  }
                 }
               }
             }

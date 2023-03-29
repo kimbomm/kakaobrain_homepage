@@ -129,20 +129,20 @@
       .about-con-tit2 {
         &.gl-6 {
           width: fit-content !important;
-          .easter-egg {
+          .challenge_icon {
             position: absolute;
-            left: 50%;
-            top: 50%;
+            left: 125%;
+            top: 70%;
             transform: translate(-25%, -50%);
 
             img {
-              width: 50%;
-              height: 50%;
+              width: auto;
+              height: 80px;
             }
           }
 
           .tit {
-            font-size: 90px;
+            font-size: 80px;
             display: flex;
             justify-content: center;
           }
@@ -166,7 +166,7 @@
           }
           .challenge_icon {
             position: absolute;
-            left: 125%;
+            left: 130%;
             top: 70%;
             transform: translate(-25%, -50%);
 

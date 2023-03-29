@@ -66,14 +66,16 @@
           line-height: 120%;
           font-weight: 900;
           font-size: 90px;
+          width: fit-content !important;
         }
         &-item {
           display: flex;
           justify-content: center;
+          width: fit-content !important;
           padding-top: 100px;
           font-family: 'Noto Sans KR';
-          font-style: normal;
-          font-weight: 400;
+          margin-left: getMargin(3);
+          margin-right: getMargin(2);
           font-size: 30px;
           line-height: 150%;
         }
@@ -169,10 +171,10 @@
       .full-con {
         .con {
           &-tit {
-            font-size: 46px;
+            font-size: 66px;
           }
           &-item {
-            font-size: 12px;
+            font-size: 30px;
           }
         }
         .item {
@@ -199,58 +201,56 @@
           padding-top: 140px;
           width: 100%;
           height: auto;
-          .con {
-            &-tit {
-              font-size: 46px;
-
-              width: fit-content !important;
-              max-width: 683px;
-              margin-bottom: 50px;
-            }
-            &-item {
-              font-size: 12px;
-              padding-top: 0;
-            }
+          .con-tit {
+            font-size: 46px;
+            width: fit-content !important;
+            max-width: 683px;
+            margin-bottom: 50px;
           }
-          // .item {
-          //   &.gl-2 {
-          //     width: getWidth(3) !important;
-          //   }
-          //   &-tit {
-          //     font-size: 30px;
-          //     margin-bottom: 70px;
-          //   }
-          //   &-txt-box {
-          //     &:not(:last-child) {
-          //       margin-bottom: 40px;
-          //     }
-          //   }
-          //   &-sub-tit {
-          //     font-size: 20px;
-          //     margin-bottom: 10px;
-          //   }
-          //   &-txt {
-          //     font-size: 14px;
-          //   }
-          // }
-          // .container {
-          //   .imgbox {
-          //     display: none;
-          //   }
-
-          //   .imgbox2 {
-          //     display: block;
-          //     // position: absolute;
-          //     top: 0px;
-
-          //     img {
-          //       height: 250px;
-          //       width: auto;
-          //       margin-top: 0px;
-          //     }
-          //   }
-          // }
+          .con-item {
+            font-size: 12px;
+            padding-top: 0;
+          }
         }
+        // .item {
+        //   &.gl-2 {
+        //     width: getWidth(3) !important;
+        //   }
+        //   &-tit {
+        //     font-size: 30px;
+        //     margin-bottom: 70px;
+        //   }
+        //   &-txt-box {
+        //     &:not(:last-child) {
+        //       margin-bottom: 40px;
+        //     }
+        //   }
+        //   &-sub-tit {
+        //     font-size: 20px;
+        //     margin-bottom: 10px;
+        //   }
+        //   &-txt {
+        //     font-size: 14px;
+        //   }
+        // }
+        // .container {
+        //   .imgbox {
+        //     display: none;
+        //   }
+
+        //   .imgbox2 {
+        //     display: block;
+        //     // position: absolute;
+        //     top: 0px;
+
+        //     img {
+        //       height: 250px;
+        //       width: auto;
+        //       margin-top: 0px;
+        //     }
+        //   }
+        // }
+
         .container {
           padding-top: 95px;
           padding-bottom: 150px;
@@ -283,59 +283,62 @@
 
         .inner {
           padding-top: 100px;
+
           .con {
             &-tit {
               font-size: 28px;
-
               margin-left: 0px !important;
-              width: getWidth(2) !important;
+              line-height: 120%;
+              font-family: 'Noto Sans KR';
 
               // &.l-ml-2 {
               //   margin-left: 0px !important;
               //   width: getWidth(2) !important;
               // }
-              &.gl-6 {
-                width: 100% !important;
-              }
+              // &.gl-6 {
+              //   width: 100% !important;
+              // }
             }
             &-item {
               flex-direction: column;
               padding-top: 0px;
               margin-left: getMargin(1) !important;
+              margin-right: getMargin(0) !important;
               font-size: 14px;
               // &.l-ml-2 {
               //   margin-left: getMargin(1) !important;
               // }
             }
           }
-          // .item {
-          //   &:not(:last-child) {
-          //     margin-bottom: 100px;
-          //   }
-          //   &:last-child {
-          //     margin-left: 0;
-          //   }
-          //   &.gl-2 {
-          //     width: getWidth(9) !important;
-          //   }
-          //   &-tit {
-          //     font-size: 26px;
-          //     margin-bottom: 50px;
-          //   }
-          //   &-txt-box {
-          //     &:not(:last-child) {
-          //       margin-bottom: 40px;
-          //     }
-          //   }
-          //   &-sub-tit {
-          //     font-size: 18px;
-          //     margin-bottom: 12px;
-          //   }
-          //   &-txt {
-          //     font-size: 14px;
-          //   }
-          // }
         }
+        // .item {
+        //   &:not(:last-child) {
+        //     margin-bottom: 100px;
+        //   }
+        //   &:last-child {
+        //     margin-left: 0;
+        //   }
+        //   &.gl-2 {
+        //     width: getWidth(9) !important;
+        //   }
+        //   &-tit {
+        //     font-size: 26px;
+        //     margin-bottom: 50px;
+        //   }
+        //   &-txt-box {
+        //     &:not(:last-child) {
+        //       margin-bottom: 40px;
+        //     }
+        //   }
+        //   &-sub-tit {
+        //     font-size: 18px;
+        //     margin-bottom: 12px;
+        //   }
+        //   &-txt {
+        //     font-size: 14px;
+        //   }
+        // }
+
         .container {
           margin-top: 111px;
           width: 100%;
@@ -347,7 +350,7 @@
 
           .imgbox2 {
             display: block;
-            // position: absolute;
+            //position: absolute;
 
             img {
               position: absolute;

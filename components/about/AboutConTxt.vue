@@ -35,6 +35,7 @@
       font-size: 60px;
     }
   }
+
   @include tablet {
     .about-con-txt {
       font-size: 18px;

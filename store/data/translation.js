@@ -14,10 +14,12 @@ const ABOUT = {
                 AI Company
         `,
         text: 'Unthinkable question makes impactful answer.',
-        subtext: `Generative AI Generation!<br/>
-                  개와 고양이를 인식하는 수준을 포함하는 인간 수준의 창의력을 가지는<br/>
-                  고차원적인 과업 수행이 가능합니다.
+        subtext: `카카오브레인은 ‘생각하지 물음’으로 부터 보편적 문제를 AI로 해결해서<br/> 10억 명 이상의 사람의 삶에 영향을 주는 글로벌 기술 기업입니다.
                   `,
+        rect1:`이미지 생성 모델<br/>신규 시장 발굴 및 제품 출시`,
+        rect2:`AI 판독 서비스 출시<br/>네이처급 최첨단 기술 확보`,
+        rect3:`언어모델/챗봇 기술 확보`,
+
         description: `이미지를 생성하는 텍스트로 이미지를 생성하는 칼로 (Karlo) 모델 기반으로<br/>
          이미지 생성 앱 B^ DISCOVER, 이미지 생성웹 B^ EDIT 등 서비스 출시와 Karlo 100X Program을 통해<br/>
          신규 시장을 만들어가고자 합니다.
@@ -60,8 +62,8 @@ const ABOUT = {
         }
       ],
       aboutConB: {
-        title: `누구도 생각하지 못했던 방식으로 <br/>
-        세상의 임팩트를 만듭니다.`,
+        title: `누구도 생각하지 못했던 방식으로<br>
+                세상의 임팩트를 만듭니다. `,
         content:
           `우리는 다양한 물음과 생각을 가진 분야별 스페셜리스트들이 모여<br/>
            서로의 생각과 영역의 노하우를 충돌시켜가며, 새로운 가능성과<br/>
@@ -115,68 +117,102 @@ const ABOUT = {
     EN: {
       aboutTitleText: {
         text: `
-        As a company at the AI frontier working on its core research,
-        large-scale AI model and digital humans, Kakao Brain contributes to the tech community and explores new service areas to improve value and quality of life.
+         Kakao Brain solves technology challenges by asking 'unthinkable questions' and transforms everyone's lives.<br/>
+         Kakao Brain, a global AI technology company headquartered in South Korea, was founded in February 2017<br/>
+         to challenge uncharted markets and areas by developing AI technologies and services that will change the world.
         `
       },
       aboutConA: {
-        title:
-          'We develop technology from unthinkable questions and bring changes to everyone’s life.',
-        text: 'Unthinkable question makes impactful answer.'
+        title:`Kakao Brain<br/>
+                Large-Scale Generative<br/>
+                AI Company
+        `,
+        text: 'Unthinkable question makes impactful answer.',
+        subtext: `Kakao Brain is a global technology company that impacts the lives of more than 1 billion people
+                  <br/>by solving universal problems with AI
+                  `,
+        rect1:`Image generation models<br/>Discover new markets and launch products`,
+        rect2:`Launching an AI reading service<br/>Acquire cutting-edge technology`,
+        rect3:`Secured language model / chatbot`,
+
+        description: `Based on the Karlo, a text-conditional image generation model,<br/>
+         we are launching services such as B^ DISCOVER, an image creation app, and B^ EDIT, an image creation web,<br/>
+         and creating new markets through the Karlo 100X Program.
+         <br/>
+         <br/>
+        Challenging healthcare with super-sized AI technology. We are preparing to launch an AI CAD (Computer Aided Diagnosis) business,<br/>
+        We are building a new drug development startup ‘Galux' and an AI-based Drug Discovery Platform.
+        <br/>
+        <br/>
+         We are researching and developing better performance around Ko-GPT, a language model specialized for Korean.
+        <br/>
+        <br/>
+        We have a brain cloud with an infrastructure organization and a data engineering organization that can strongly support our businesses.
+        `
       },
       visionList: [
         {
           num: '¹',
           txt: 'outstanding',
           subtxt:
-            'The world-class experts are developing innovative technologies that are fundamental to solving all kinds of problems.'
+            'We bring together the best minds to develop the innovative technologies that are at the root of every problem.'
         },
         {
           num: '²',
           txt: 'actualized',
           subtxt:
-            'We explore business areas built on technology and make services to improve quality of life into a reality.'
+            'We pioneer technology-based business areas and materialize them into services that improve the quality of life.'
         },
         {
           num: '³',
           txt: 'open',
           subtxt:
-            'By opening and sharing technical know-how, Kakao Brain contributes to the AI community to create new values.'
+            'We open and share our technical know-how to contribute to the AI ecosystem and create new value.'
         },
         {
           num: '⁴',
           txt: 'impactful',
           subtxt:
-            'We make valuable changes in the world so that everyone can live a better life.'
+            'Driving valuable change in the world to make life better for everyone.'
         }
       ],
       aboutConB: {
-        title:
-          'We seek to create an impact in the world with unthinkable ideas.',
-        content: [
-          {
-            title: 'Open Research.',
-            sub: [
-              {
-                title: 'Create Novel Algorithm',
-                text: 'We forecast the future in deep learning research and develop original algorithms to build the foundation for new challenges.'
-              },
-              {
-                title: 'Develop Commercial-level Model',
-                text: 'By conducting applied research and further scaling up the AI model size, we work towards completing digital humans and technologies required for our service development.'
-              }
-            ]
-          },
-          {
-            title: 'Open Studio.',
-            sub: [
-              {
-                title: 'Make Impact Product',
-                text: 'Based on our own technology portfolio, we develop high value services that improve users’ quality of life.'
-              }
-            ]
-          }
-        ]
+        title:`Make an impact in the world in ways no one has ever thought of
+               in ways no one else has thought of.`,
+        content:
+          `We bring together subject matter experts with different questions and ideas.
+           and collide with each other's ideas and domain know-how to create new possibilities and
+           to create new possibilities and dialectical value.
+           <br/>
+           <br/>
+           We provide leading AI technology and value-added services to enable anyone to benefit from a variety of
+           We are preparing for a world where everyone can benefit from leading AI technology and value-added services,
+           and where AI is as natural as air like air.
+          `
+        //   [
+        //   {
+        //     title: 'Open Research.',
+        //     sub: [
+        //       {
+        //         title: 'Create Novel Algorithm',
+        //         text: 'We forecast the future in deep learning research and develop original algorithms to build the foundation for new challenges.'
+        //       },
+        //       {
+        //         title: 'Develop Commercial-level Model',
+        //         text: 'By conducting applied research and further scaling up the AI model size, we work towards completing digital humans and technologies required for our service development.'
+        //       }
+        //     ]
+        //   },
+        //   {
+        //     title: 'Open Studio.',
+        //     sub: [
+        //       {
+        //         title: 'Make Impact Product',
+        //         text: 'Based on our own technology portfolio, we develop high value services that improve users’ quality of life.'
+        //       }
+        //     ]
+        //   }
+        // ]
       },
       aboutConTitData: {
         title: 'Our Brand'
@@ -305,7 +341,7 @@ const ABOUT = {
         text: 'We are given opportunities to grow together. Let’s look at how we work.'
       },
         aboutConD: {
-        title: 'We act autonomously<br/>from the three perspectives below..',
+        title: 'We act autonomously<br/>from the three perspectives below.',
         subtitle: 'Autonomy and Delegation of Authority',
         text: `<br/>Autonomy is taking responsibility of the delegated authority and leading a task in accordance with one’s own principles.<br/>
               <br/>
@@ -313,7 +349,7 @@ const ABOUT = {
                and the responsibility lies with the person who delegates the task. As tasks progress through delegation of decision-making authority to the most competent individual <br/>
               (experience of decision-making is accumulated and shared), the organization as a whole becomes more autonomous. <br/>
                <br/>
-               Autonomous operation is based on trust.<br/> . We believe that self thinking and acting leads to more creative and innovative results.<br/>
+               Autonomous operation is based on trust.<br/> We believe that self thinking and acting leads to more creative and innovative results.<br/>
                We prioritize the good-faith and judgment of the crew rather than specific rules<br/> Trust is formed when the difficulty of autonomous decision-making is resolved through openness, sharing, and discussion. <br/>
            Not doing something when it is ambiguous is one way to face the task, but sharing and discussing it is the better way.`,
 },

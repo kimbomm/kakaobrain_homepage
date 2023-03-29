@@ -131,20 +131,20 @@
       .about-con-tit1 {
         &.gl-6 {
           width: fit-content !important;
-          .easter-egg {
+          .focus_icon {
             position: absolute;
-            left: 50%;
+            left: 200%;
             top: 50%;
             transform: translate(-25%, -50%);
 
             img {
-              width: 50%;
-              height: 50%;
+              width: auto;
+              height: 80px;
             }
           }
 
           .tit {
-            font-size: 90px;
+            font-size: 80px;
             display: flex;
             justify-content: center;
           }
