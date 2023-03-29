@@ -1,27 +1,22 @@
 <template>
   <div class="about-full-con-b">
     <div class="full-con">
-      <img src="@/assets/images/about-full-conB_img.png" />
+      <img src="@/assets/images/about_uq_bg_2.png" />
       <div class="inner">
         <div class="con-tit gl-6 l-ml-2">
-          <div v-html="data.title"></div>
+          <div class="condata" v-html="data.title"></div>
         </div>
-        <div class="con-item l-ml-2">
-          <div
-            v-for="(item, index) in data.content"
-            :key="index"
-            class="item gl-2"
-          >
-            <div class="item-tit">{{ item.title }}</div>
-            <div
-              v-for="(subItem, idx) in item.sub"
-              :key="`sub-${idx}`"
-              class="item-txt-box"
-            >
-              <div class="item-sub-tit">{{ subItem.title }}</div>
-              <div class="item-txt"><p v-html="subItem.text"></p></div>
-            </div>
-          </div>
+
+        <div class="con-item">
+          <div v-html="data.content"></div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="imgbox">
+          <img src="@/assets/images/about_impactful answer.png" />
+        </div>
+        <div class="imgbox2">
+          <img src="@/assets/images/about_impactful answer2.png" />
         </div>
       </div>
     </div>
@@ -45,8 +40,10 @@
     .full-con {
       position: relative;
       width: 100%;
-      min-height:1689px;
-      padding: 400px 20px 400px;
+      height: auto;
+      min-height: 1689px;
+      object-fit: cover;
+      //padding: 400px 20px 400px;
       img {
         position: absolute;
         top: 50%;
@@ -54,82 +51,84 @@
         transform: translate(-50%, -50%);
         width: 100%;
         height: 100%;
-        
-        object-fit:cover;
+
+        object-fit: cover;
       }
 
       .inner {
         position: relative;
         color: $gray-0;
+
+        padding-top: 400px;
       }
       .con {
         &-tit {
-          margin-bottom: 200px;
           line-height: 120%;
           font-weight: 900;
           font-size: 90px;
+          width: fit-content !important;
         }
         &-item {
           display: flex;
+          justify-content: center;
+          width: fit-content !important;
+          padding-top: 100px;
+          font-family: 'Noto Sans KR';
+          margin-left: getMargin(3);
+          margin-right: getMargin(2);
+          font-size: 30px;
+          line-height: 150%;
         }
       }
-      .item {
-        &:last-child {
-          margin-left: getMargin(1);
-        }
-        &-tit {
-          margin-bottom: 70px;
-          line-height: 110%;
-          font-weight: 600;
-          font-size: 44px;
-        }
-        &-txt-box {
-          line-height: 150%;
-          &:not(:last-child) {
-            margin-bottom: 40px;
+      .container {
+        padding-top: 178px;
+        padding-bottom: 400px;
+        width: 100%;
+
+        .imgbox {
+          width: 100%;
+          height: 100%;
+
+          img {
+            position: static;
+            transform: translate(0, 0);
+            width: 100%;
+            max-height: 950px;
           }
         }
-        &-sub-tit {
-          line-height: 110%;
-          font-size: 20px;
-          font-weight: 600;
-          margin-bottom: 10px;
-        }
-        &-txt {
-          line-height: 150%;
-          font-size: 14px;
-          font-weight: 400;
+        .imgbox2 {
+          display: none;
         }
       }
     }
   }
+
   @include pc-large {
     .about-full-con-b {
       .full-con {
-        min-height:2252px;
-        padding: 530px 20px 533px;
+        min-height: 2560px;
+        // padding: 530px 20px 533px;
         .con {
           &-tit {
-            margin-bottom: 260px;
+            margin-bottom: 150px;
             font-size: 120px;
           }
+          &-item {
+            font-size: 40px;
+          }
         }
-        .item {
-          &-tit {
-            margin-bottom: 90px;
-            font-size: 52px;
-          }
-          &-txt-box {
-            &:not(:last-child) {
-              margin-bottom: 50px;
+        .container {
+          width: 100%;
+          .imgbox {
+            width: 100%;
+            height: 100%;
+
+            img {
+              position: static;
+              transform: translate(0, 0);
+              width: 100%;
+              max-height: 950px;
             }
-          }
-          &-sub-tit {
-            font-size: 28px;
-            margin-bottom: 14px;
-          }
-          &-txt {
-            font-size: 20px;
           }
         }
       }
@@ -138,30 +137,30 @@
   @include pc-4k {
     .about-full-con-b {
       .full-con {
-        min-height:3409px;
-        padding: 800px 20px 845px ;
+        min-height: 3409px;
+        //padding: 800px 20px 845px;
         .con {
           &-tit {
-            margin-bottom: 400px ;
-            font-size: 180px ;
+            margin-bottom: 260px;
+            font-size: 180px;
+          }
+          &-item {
+            font-size: 40px;
           }
         }
-        .item {
-          &-tit {
-            margin-bottom: 130px ;
-            font-size: 80px ;
-          }
-          &-txt-box {
-            &:not(:last-child) {
-              margin-bottom: 125px ;
+
+        .container {
+          width: 100%;
+          .imgbox {
+            width: 100%;
+            height: 100%;
+
+            img {
+              position: static;
+              transform: translate(0, 0);
+              width: 100%;
+              max-height: 1950px;
             }
-          }
-          &-sub-tit {
-            font-size: 40px ;
-            margin-bottom: 30px ;
-          }
-          &-txt {
-            font-size: 30px ;
           }
         }
       }
@@ -172,7 +171,10 @@
       .full-con {
         .con {
           &-tit {
-            font-size: 60px;
+            font-size: 66px;
+          }
+          &-item {
+            font-size: 30px;
           }
         }
         .item {
@@ -192,33 +194,81 @@
   @include tablet {
     .about-full-con-b {
       .full-con {
-        min-height:1141px;
-        padding: 200px 20px 200px;
-        .con {
-          &-tit {
+        min-height: 923px;
+        padding: 0px 0px 0px;
+
+        .inner {
+          padding-top: 140px;
+          width: 100%;
+          height: auto;
+          .con-tit {
             font-size: 46px;
-            margin-bottom: 165px;
+            width: fit-content !important;
+            max-width: 683px;
+            margin-bottom: 50px;
+          }
+          .con-item {
+            font-size: 12px;
+            padding-top: 0;
           }
         }
-        .item {
-          &.gl-2 {
-            width: getWidth(3) !important;
-          }
-          &-tit {
-            font-size: 30px;
-            margin-bottom: 70px;
-          }
-          &-txt-box {
-            &:not(:last-child) {
-              margin-bottom: 40px;
+        // .item {
+        //   &.gl-2 {
+        //     width: getWidth(3) !important;
+        //   }
+        //   &-tit {
+        //     font-size: 30px;
+        //     margin-bottom: 70px;
+        //   }
+        //   &-txt-box {
+        //     &:not(:last-child) {
+        //       margin-bottom: 40px;
+        //     }
+        //   }
+        //   &-sub-tit {
+        //     font-size: 20px;
+        //     margin-bottom: 10px;
+        //   }
+        //   &-txt {
+        //     font-size: 14px;
+        //   }
+        // }
+        // .container {
+        //   .imgbox {
+        //     display: none;
+        //   }
+
+        //   .imgbox2 {
+        //     display: block;
+        //     // position: absolute;
+        //     top: 0px;
+
+        //     img {
+        //       height: 250px;
+        //       width: auto;
+        //       margin-top: 0px;
+        //     }
+        //   }
+        // }
+
+        .container {
+          padding-top: 95px;
+          padding-bottom: 150px;
+          width: 100%;
+
+          .imgbox {
+            width: 100%;
+            height: 100%;
+
+            img {
+              position: static;
+              transform: translate(0, 0);
+              width: 100%;
+              max-height: 950px;
             }
           }
-          &-sub-tit {
-            font-size: 20px;
-            margin-bottom: 10px;
-          }
-          &-txt {
-            font-size: 14px;
+          .imgbox2 {
+            display: none;
           }
         }
       }
@@ -227,51 +277,87 @@
   @include mobile {
     .about-full-con-b {
       .full-con {
-        min-height:1128px;
-        padding: 107px 20px 100px;
-        .con {
-          &-tit {
-            font-size: 28px;
-            margin-bottom: 100px;
-            &.l-ml-2 {
+        height: 100%;
+        width: auto;
+        padding: 0px 20px 111px;
+
+        .inner {
+          padding-top: 100px;
+
+          .con {
+            &-tit {
+              font-size: 28px;
               margin-left: 0px !important;
+              line-height: 120%;
+              font-family: 'Noto Sans KR';
+
+              // &.l-ml-2 {
+              //   margin-left: 0px !important;
+              //   width: getWidth(2) !important;
+              // }
+              // &.gl-6 {
+              //   width: 100% !important;
+              // }
             }
-            &.gl-6 {
-              width: 100% !important;
-            }
-          }
-          &-item {
-            flex-direction: column;
-            &.l-ml-2 {
+            &-item {
+              flex-direction: column;
+              padding-top: 0px;
               margin-left: getMargin(1) !important;
+              margin-right: getMargin(0) !important;
+              font-size: 14px;
+              // &.l-ml-2 {
+              //   margin-left: getMargin(1) !important;
+              // }
             }
           }
         }
-        .item {
-          &:not(:last-child) {
-            margin-bottom: 100px;
+        // .item {
+        //   &:not(:last-child) {
+        //     margin-bottom: 100px;
+        //   }
+        //   &:last-child {
+        //     margin-left: 0;
+        //   }
+        //   &.gl-2 {
+        //     width: getWidth(9) !important;
+        //   }
+        //   &-tit {
+        //     font-size: 26px;
+        //     margin-bottom: 50px;
+        //   }
+        //   &-txt-box {
+        //     &:not(:last-child) {
+        //       margin-bottom: 40px;
+        //     }
+        //   }
+        //   &-sub-tit {
+        //     font-size: 18px;
+        //     margin-bottom: 12px;
+        //   }
+        //   &-txt {
+        //     font-size: 14px;
+        //   }
+        // }
+
+        .container {
+          margin-top: 111px;
+          width: 100%;
+          padding-bottom: 0;
+
+          .imgbox {
+            display: none;
           }
-          &:last-child {
-            margin-left: 0;
-          }
-          &.gl-2 {
-            width: getWidth(9) !important;
-          }
-          &-tit {
-            font-size: 26px;
-            margin-bottom: 50px;
-          }
-          &-txt-box {
-            &:not(:last-child) {
-              margin-bottom: 40px;
+
+          .imgbox2 {
+            display: block;
+            //position: absolute;
+
+            img {
+              position: absolute;
+              height: auto;
+              width: 100%;
+              padding-bottom: 0px;
             }
-          }
-          &-sub-tit {
-            font-size: 18px;
-            margin-bottom: 12px;
-          }
-          &-txt {
-            font-size: 14px;
           }
         }
       }

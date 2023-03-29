@@ -3,6 +3,7 @@
     <p v-html="data.text"></p>
   </div>
 </template>
+
 <script>
   export default {
     name: 'AboutConTxt',
@@ -12,12 +13,15 @@
         default: () => {},
         require: true
       }
+    },
+    data() {
+      return {}
     }
   }
 </script>
 <style lang="scss" scoped>
   .about-con-txt {
-    padding: 0 20px;
+    padding: 0 0 0 20px;
     line-height: 130%;
     font-size: 30px;
   }
@@ -31,6 +35,7 @@
       font-size: 60px;
     }
   }
+
   @include tablet {
     .about-con-txt {
       font-size: 18px;

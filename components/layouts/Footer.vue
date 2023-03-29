@@ -1,7 +1,7 @@
 <template>
   <footer :class="classBind">
     <div>
-      <div class="b-symbol"></div>
+      <!-- <div class="b-symbol"></div> -->
       <!-- <div class="b-w-symbol"></div> -->
       <div class="footer-con">
         <div class="menu">
@@ -23,14 +23,14 @@
       </div>
       <div class="footer-bottom">
         <div :class="{ copy: true, 'is-hide': onHide }">
-          <span class="info-txt">@2022</span>
+          <span class="info-txt">@2023</span>
           <div class="copyright">
             Copyright ⓒ Kakao Brain Corp. <span>All rights reserved.</span>
           </div>
         </div>
         <SnsLink />
       </div>
-      <div class="footer-shape"></div>
+      <!-- <div class="footer-shape"></div> -->
     </div>
   </footer>
 </template>
