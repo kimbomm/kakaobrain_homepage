@@ -11,7 +11,6 @@ const menus = [
         name: 'DISCOVER',
         link: 'https://bdiscover.kakaobrain.com/',
         target: '_blank'
-
       },
       {
         category: 'healthcare',
