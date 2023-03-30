@@ -443,6 +443,9 @@
       .team {
         margin-top: 140px;
       }
+      .braingoal {
+        top: 1140px;
+      }
     }
   }
 </style>

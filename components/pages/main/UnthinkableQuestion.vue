@@ -1,23 +1,18 @@
 <template>
   <div class="question gl-8">
     <div class="silk">
-      <!-- <img
-        src="@/assets/images/main_uq.png"
-        alt="Unthinkable Question 텍스트 이미지"
-      /> -->
-      <div class="uq-text gl-8">
+      <div class="uq-text gl-8" style="position: relative">
         <img
-          src="@/assets/images/main_uq.svg"
+          src="@/assets/images/UnthinkableQuestion.svg"
           alt="Unthinkable Question 텍스트 이미지"
+          style="display: flex; flex-direction: column; align-items: center"
         />
-      </div>
-      <div class="egg">
-        <EasterEgg />
-        <div class="egg-item"></div>
-        <div class="egg-item"></div>
-        <div class="egg-item"></div>
+        <div class="egg">
+          <img src="@/assets/images/obj1.png" />
+        </div>
       </div>
     </div>
+
     <div class="question-content">
       <p v-html="translation[language][0]"></p>
       <p class="gl-8" v-html="translation[language][1]"></p>
@@ -63,6 +58,43 @@
         img {
           width: 100%;
         }
+        .egg {
+          position: absolute;
+          left: 85%;
+          top: 45%;
+          transform: translate(0%, 21%);
+          height: 45%;
+          width: 16%;
+
+          &-item {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            z-index: 0;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            &:nth-of-type(2) {
+              right: 115px;
+              border: 1px solid #fd5000;
+              z-index: 3;
+            }
+            &:nth-of-type(3) {
+              right: 40px;
+              border: 1px solid #ffd200;
+              z-index: 2;
+            }
+            &:nth-of-type(4) {
+              right: 0;
+              background: radial-gradient(
+                49.99% 49.99% at 49.99% 49.99%,
+                #e31a82 33.87%,
+                #4b25b0 100%
+              );
+              z-index: 1;
+            }
+          }
+        }
       }
     }
     &-content {
@@ -76,49 +108,6 @@
       p:nth-child(2) {
         font-size: 18px;
         line-height: 1.4;
-      }
-    }
-  }
-  .egg {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    display: inline-flex;
-    align-items: center;
-    height: 50%;
-    .easter-egg {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      right: 180px;
-      z-index: 4;
-    }
-    &-item {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      z-index: 0;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      &:nth-of-type(2) {
-        right: 115px;
-        border: 1px solid #fd5000;
-        z-index: 3;
-      }
-      &:nth-of-type(3) {
-        right: 40px;
-        border: 1px solid #ffd200;
-        z-index: 2;
-      }
-      &:nth-of-type(4) {
-        right: 0;
-        background: radial-gradient(
-          49.99% 49.99% at 49.99% 49.99%,
-          #e31a82 33.87%,
-          #4b25b0 100%
-        );
-        z-index: 1;
       }
     }
   }
@@ -207,10 +196,10 @@
       &-content {
         margin-top: 40px;
         p:nth-child(1) {
-          font-size: 30px;
+          font-size: 18px;
         }
         p:nth-child(2) {
-          font-size: 18px;
+          font-size: 8px;
         }
       }
     }
@@ -234,50 +223,45 @@
   }
   @include mobile {
     .question {
-      width: 100% !important;
+      width: fit-content !important;
       padding: 0 20px;
+      max-width: 362px;
       .silk {
         .uq-text {
           &.gl-8 {
             width: 100% !important;
           }
+          .egg {
+            position: absolute;
+            //margin-top: 16px;
+            justify-content: center;
+            left: 50%;
+            top: 50%;
+            transform: translate(160%, 130%);
+
+            img {
+              position: static;
+              transform: translate(0, 0);
+              width: auto;
+              height: 50px;
+            }
+          }
         }
       }
       &-content {
-        margin-top: 50px;
+        margin-top: 111px;
         p:nth-child(1) {
           font-size: 20px;
           font-weight: 700;
+          width: 320px;
         }
         p:nth-child(2) {
           font-size: 14px;
-          width: 90% !important;
+          width: 100% !important;
           &.gl-8 {
             width: 100% !important;
           }
         }
-      }
-    }
-    .egg {
-      position: relative;
-      width: 100%;
-      height: 50px;
-      margin-top: 16px;
-      justify-content: flex-end;
-      &-item {
-        width: 50px;
-        height: 50px;
-        &:nth-of-type(2) {
-          right: 46px;
-        }
-        &:nth-of-type(3) {
-          right: 23px;
-        }
-      }
-      .easter-egg {
-        right: 85px;
-        width: 50px;
-        height: 50px;
       }
     }
   }

@@ -27,7 +27,7 @@
       DetailText,
       DetailSubTitle,
       DetailTextTitle,
-      DetailTextItem,
+      DetailTextItem
     },
     layout: 'playground',
     data() {
@@ -45,7 +45,7 @@
       data() {
         let data = this.privacyData[this.language]
         return data
-      },
+      }
     },
     async mounted() {
       await this.init()

@@ -27,7 +27,7 @@
 </script>
 <style lang="scss" scoped>
   .about-title-text {
-    width: getWidth(5);
+    width: getWidth(6);
     margin-left: getMargin(3);
     .txt-con {
       margin-bottom: 60px;
@@ -71,13 +71,13 @@
 
   @include tablet {
     .about-title-text {
-      width: getWidth(6);
+      width: getWidth(5);
       margin-left: getMargin(2);
       .txt-con {
         margin-bottom: 60px;
       }
       .txt {
-        font-size: 16px;
+        font-size: 12px;
         br {
           display: none;
         }
