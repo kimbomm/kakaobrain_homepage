@@ -17,11 +17,11 @@
       />
     </div>
     <AboutFullConB :data="data.aboutConB" />
-    <AboutConTit :data="data.aboutConTitData" />
-    <AboutConTxtB :data="data.aboutConTxtBData" />
-    <AboutLargeLogo />
-    <AboutFullConC :data="data.aboutConC" />
-    <AboutFullSlide />
+    <!-- <AboutConTit :data="data.aboutConTitData" /> -->
+    <!-- <AboutConTxtB :data="data.aboutConTxtBData" /> -->
+    <!-- <AboutLargeLogo /> -->
+    <!-- <AboutFullConC :data="data.aboutConC" />
+    <AboutFullSlide /> -->
   </div>
 </template>
 <script>

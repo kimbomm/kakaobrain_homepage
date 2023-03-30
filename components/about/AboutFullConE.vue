@@ -4,7 +4,7 @@
       <img src="@/assets/images/about-full-conE_img_1.png" />
       <div class="inner">
         <div class="con-tit gl-8 l-ml-2">
-          <div><span v-html="data.title"></span></div>
+          <div><span v-html="data.title1"></span></div>
         </div>
         <div class="text-box gl-6 l-ml-3">
           <div class="txt">
@@ -58,7 +58,7 @@
     .full-con {
       position: relative;
       width: 100%;
-      min-height:2091px;
+      min-height: 2091px;
       padding: 400px 0;
       img {
         position: absolute;
@@ -67,7 +67,7 @@
         transform: translate(-50%, -50%);
         width: 100%;
         height: 100%;
-        object-fit:cover;
+        object-fit: cover;
       }
 
       .inner {
@@ -174,7 +174,7 @@
   @include pc-large {
     .about-full-con-e {
       .full-con {
-        min-height:2774px;
+        min-height: 2774px;
         padding: 530px 0;
         .inner {
           .con {
@@ -224,7 +224,7 @@
     .about-full-con-e {
       .full-con {
         padding: 800px 0;
-        min-height:4120px;
+        min-height: 4120px;
         .inner {
           .con {
             &-tit {
@@ -375,7 +375,7 @@
   @include tablet {
     .about-full-con-e {
       .full-con {
-        min-height:1070px;
+        min-height: 1070px;
         padding: 200px 0;
         .inner {
           .con {
@@ -484,7 +484,7 @@
   @include mobile {
     .about-full-con-e {
       .full-con {
-        min-height:1448px;
+        min-height: 1448px;
         padding: 100px 0;
         .inner {
           .con {

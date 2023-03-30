@@ -1,8 +1,14 @@
 <template>
   <div class="about-title l-ml-2">
-    <div class="title-box gl-6">
-      <div class="tit" v-html="data.title"></div>
-      <EasterEgg />
+    <div class="title-box gl-6" style="position: relative">
+      <div
+        v-html="data.title"
+        class="tit"
+        style="display: flex; flex-direction: column"
+      />
+      <div class="easter-egg">
+        <img src="@/assets/images/obj1.png" />
+      </div>
     </div>
   </div>
 </template>
@@ -32,16 +38,20 @@
     padding: 0 20px;
     .title-box {
       position: relative;
+      width: fit-content !important;
       &.gl-6 {
-        width: getWidth(8) !important;
+        //width: getWidth(8) !important;
+        width: fit-content !important;
       }
       .easter-egg {
         position: absolute;
-        // left: 50%;
-        left: 485px;
+        left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
-        box-shadow: -30px 50px 80px rgba(0, 0, 0, 0.5);
+        img {
+          width: auto;
+          height: 147px;
+        }
       }
     }
     .tit {
@@ -55,12 +65,19 @@
     .about-title {
       .title-box {
         &.gl-6 {
-          width: getWidth(8) !important;
+          //width: getWidth(8) !important;
+          width: fit-content !important;
         }
         .easter-egg {
-          left: 652px;
-          width: 200px;
-          height: 200px;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-45%, -50%);
+
+          img {
+            width: auto;
+            height: 195px;
+          }
         }
       }
       .tit {
@@ -72,66 +89,103 @@
     .about-title {
       .title-box {
         &.gl-6 {
-          width: getWidth(6) !important;
+          //width: getWidth(6) !important;
+          width: fit-content !important;
         }
         .easter-egg {
-          left: 1268px;
-          width: 300px;
-          height: 300px;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-45%, -50%);
+
+          img {
+            width: auto;
+            height: 292px;
+          }
         }
-      }
-      .tit {
-        font-size: 400px;
+        .tit {
+          font-size: 400px;
+        }
       }
     }
   }
   @media screen and (max-width: 1500px) {
     .about-title {
       .title-box {
-        .easter-egg {
-          left: 390px;
-          width: 110px;
-          height: 110px;
+        &.gl-6 {
+          //width: fit-content !important;
+          .easter-egg {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-25%, -50%);
+
+            img {
+              width: 50%;
+              height: 50%;
+            }
+          }
+
+          .tit {
+            font-size: 106px;
+            display: flex;
+            justify-content: center;
+          }
         }
-      }
-      .tit {
-        font-size: 140px;
       }
     }
   }
   @include tablet {
     .about-title {
       .title-box {
-        .easter-egg {
-          left: 251px;
-          width: 80px;
-          height: 80px;
+        width: fit-content !important;
+
+        max-width: 1024px;
+
+        .tit {
+          font-size: 16px;
+          display: flex;
+          justify-content: center;
         }
-      }
-      .tit {
-        font-size: 106px;
         .easter-egg {
-          width: 80px;
-          height: 80px;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-28%, -50%);
+
+          img {
+            width: 60%;
+            height: 60%;
+          }
         }
       }
     }
   }
   @include mobile {
     .about-title {
+      min-width: 360px;
       .title-box {
-        .easter-egg {
-          left: 155px;
-          width: 50px;
-          height: 50px;
-        }
         &.gl-6 {
-          width: 100% !important;
-          display: inline-block;
+          //width: 100% !important;
+          // display: inline-block
+          width: fit-content !important;
+
+          .tit {
+            font-size: 50px;
+            height: auto;
+          }
+          .easter-egg {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-25%, -50%);
+
+            img {
+              width: 50%;
+              height: 50%;
+            }
+          }
         }
-      }
-      .tit {
-        font-size: 50px;
       }
     }
 
