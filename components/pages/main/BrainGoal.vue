@@ -36,10 +36,7 @@
           />
         </div>
       </div>
-      <div
-        class="goal-desp"
-        style="display: flex; flex-direction: column; align-items: flex-end"
-      >
+      <div class="goal-desp">
         <p>
           카카오브레인은 생각하지 못한 물음으로부터<br />
           기술을 발전시키고, 모두의 생활을 변화시킵니다.
@@ -91,6 +88,9 @@
       z-index: 1;
     }
     &-desp {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
       margin-top: 100px;
       p {
         text-align: right;
@@ -233,6 +233,11 @@
       }
       &-desp {
         margin-top: 20px;
+        display: flex;
+        //
+        flex-direction: column;
+        align-items: flex-start;
+
         p {
           text-align: left;
           font-size: 14px;
