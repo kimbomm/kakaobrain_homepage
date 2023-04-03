@@ -84,6 +84,7 @@
       }
       .txt-scroll {
         font-size: 16px;
+        margin-bottom: 143px;
       }
     }
   }
@@ -99,6 +100,7 @@
       }
       .txt-scroll {
         font-size: 16px;
+        margin-bottom: 80px;
       }
     }
   }

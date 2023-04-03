@@ -277,22 +277,22 @@
       top: -100%;
       left: -100%;
       &.prev-active-to-top {
-        animation-name: 'prev-slot-to-top';
+        -webkit-animation-name: 'prev-slot-to-top';
         left: 0 !important;
-        z-index: 0;
+        z-index: 1;
       }
       &.prev-active-to-bottom {
-        animation-name: 'prev-slot-to-bottom';
+        -webkit-animation-name: 'prev-slot-to-bottom';
         left: 0 !important;
-        z-index: 0;
+        z-index: 1;
       }
       &.active-to-bottom {
-        animation-name: 'slot-to-bottom';
+        -webkit-animation-name: 'slot-to-bottom';
         left: 0;
         z-index: 1;
       }
       &.active-to-top {
-        animation-name: 'slot-to-top';
+        -webkit-animation-name: 'slot-to-top';
         left: 0;
         z-index: 1;
       }
