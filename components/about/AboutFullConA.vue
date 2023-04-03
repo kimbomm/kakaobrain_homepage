@@ -239,7 +239,7 @@
     .about-full-con-a {
       .full-con {
         min-height: 2000px;
-        padding: 30px 20px 863px;
+        padding: 30px 20px 550px;
 
         .inner {
           .txt {
@@ -259,7 +259,8 @@
           }
         }
         .container {
-          margin-top: 362px;
+          margin-top: 298px;
+
           .nav {
             max-width: 1504px;
             height: auto;
@@ -292,6 +293,11 @@
                 margin-top: 90px;
                 .rect {
                   width: 100%;
+
+                  .p-title {
+                    margin-top: 86px;
+                    margin-bottom: 85px;
+                  }
                 }
               }
             }
@@ -301,9 +307,7 @@
               align-items: center;
               position: absolute;
               gap: 312px;
-              transform: translateY(-50%);
-              width: 100%;
-              height: auto;
+
               img {
                 position: static;
                 transform: translate(0, 0);
@@ -314,15 +318,15 @@
           }
         }
         .footer {
-          padding-top: 130px;
+          padding-top: 40px;
           display: flex;
-          position: relative;
+          //position: relative;
           //top: 100px;
           color: white;
           width: 100%;
           height: auto;
-          //max-width: 1120px;
-          min-width: 581px;
+          // max-width: 1270px;
+          //min-width: 581px;
 
           .description {
             font-size: 26px;
@@ -673,7 +677,9 @@
             }
 
             .imgbox2 {
-              display: block;
+              display: flex;
+              justify-content: center;
+              align-items: center;
               .rect_3 {
                 position: absolute;
                 height: 87px;

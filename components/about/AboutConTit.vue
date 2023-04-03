@@ -140,6 +140,13 @@
     .about-title {
       .about-con-tit {
         width: fit-content !important;
+        .tit {
+          font-size: 106px;
+          width: 783px;
+          height: auto;
+          display: flex;
+          justify-content: center;
+        }
 
         .easter-egg {
           position: absolute;
@@ -154,8 +161,8 @@
         }
       }
       .tit {
-        font-size: 70px;
-
+        font-size: 106px;
+        margin-top: 195px;
         display: flex;
         justify-content: center;
       }
@@ -174,6 +181,7 @@
             font-size: 50px;
             width: 100%;
             height: auto;
+            margin-top: 0px;
           }
 
           .easter-egg {

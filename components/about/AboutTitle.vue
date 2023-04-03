@@ -43,21 +43,22 @@
         //width: getWidth(8) !important;
         width: fit-content !important;
       }
-      .easter-egg {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        img {
-          width: auto;
-          height: 147px;
-        }
+
+      .tit {
+        line-height: 90%;
+        font-size: 200px;
+        font-weight: 100;
       }
     }
-    .tit {
-      line-height: 90%;
-      font-size: 200px;
-      font-weight: 100;
+    .easter-egg {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      img {
+        width: auto;
+        height: 147px;
+      }
     }
   }
 

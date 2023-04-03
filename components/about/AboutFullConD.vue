@@ -640,7 +640,7 @@
 
             .rect {
               width: calc((100% - 18px) / 3);
-              margin-left: 18px;
+
               width: 182px;
               height: 182px;
 

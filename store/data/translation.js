@@ -338,7 +338,7 @@ const ABOUT = {
         title: 'Our way</br><span class="string">of working.</span>'
       },
       aboutTitleText: {
-        text: 'We are given opportunities to grow together. Let’s look at how we work.'
+        text: 'kakaobrain krew are given a lot of good opportunities to grow self-directed, and we find out how we are doing to grow together through great colleagues.'
       },
         aboutConD: {
         title: 'We act autonomously<br/>from the three perspectives below.',
