@@ -19,7 +19,11 @@
           >
           </component>
         </template>
-        <Like :content-id="data.contentId" :good-count="data.goodCount" />
+        <Like
+          v-if="data.contentType !== 'TERMS'"
+          :content-id="data.contentId"
+          :good-count="data.goodCount"
+        />
       </div>
     </template>
   </div>
@@ -221,33 +225,35 @@
       },
       async setBreadcrumb(category1, category2) {
         let subClass = ''
-        const info = await this.getNickName({
-          category1,
-          category2
-        })
-
-        switch (category1) {
-          case 'document':
-            subClass = 'docu'
-            break
-          default:
-            subClass = category1
-            break
-        }
-
-        this.title = info.category2.name
-        this.breadcrumb = []
-        this.breadcrumb.push(
-          { text: info.category1.nick, sub: subClass, link: '' },
-          { text: info.category2.nick, sub: 'sub', link: info.category2.link }
-        )
-
-        for (let i = 0; i < this.data.ContentTags.length; i++) {
-          this.breadcrumb.push({
-            text: this.data.ContentTags[i].tag,
-            sub: '',
-            link: this.data.ContentTags[i].link
+        if (this.data.contentType !== 'TERMS') {
+          const info = await this.getNickName({
+            category1,
+            category2
           })
+  
+          switch (category1) {
+            case 'document':
+              subClass = 'docu'
+              break
+            default:
+              subClass = category1
+              break
+          }
+  
+          this.title = info.category2.name
+          this.breadcrumb = []
+          this.breadcrumb.push(
+            { text: info.category1.nick, sub: subClass, link: '' },
+            { text: info.category2.nick, sub: 'sub', link: info.category2.link }
+          )
+  
+          for (let i = 0; i < this.data.ContentTags.length; i++) {
+            this.breadcrumb.push({
+              text: this.data.ContentTags[i].tag,
+              sub: '',
+              link: this.data.ContentTags[i].link
+            })
+          }
         }
       }
     }
