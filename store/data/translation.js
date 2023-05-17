@@ -20,7 +20,7 @@ const ABOUT = {
         rect2:`AI 판독 서비스 출시<br/>네이처급 최첨단 기술 확보`,
         rect3:`언어모델/챗봇 기술 확보`,
 
-        description: `이미지를 생성하는 텍스트로 이미지를 생성하는 칼로 (Karlo) 모델 기반으로<br/>
+        description: `카카오브레인 이미지 생성 모델인 칼로 (Karlo) 모델 기반으로<br/>
          이미지 생성 앱 B^ DISCOVER, 이미지 생성웹 B^ EDIT 등 서비스 출시와 Karlo 100X Program을 통해<br/>
          신규 시장을 만들어가고자 합니다.
          <br/>
@@ -32,7 +32,7 @@ const ABOUT = {
         한국어 특화 언어모델 Ko-GPT를 중심으로 보다 더 좋은 성능을 연구 개발하고 있습니다.
         <br/>
         <br/>
-        사업들을 강력하게 서포트할 수 있는 인프라 조직 그리고 데이터 엔지니어닝 조직이 있는 브레인 클라우드가 있습니다.
+       이러한 사업들을 강력하게 서포트할 수 있는 브레인 클라우드가 있습니다.
         `
       },
       visionList: [
@@ -52,7 +52,7 @@ const ABOUT = {
           num: '³',
           txt: 'open',
           subtxt:
-            '기술 노하우를 공개하고 공유하여, AI 생s태계에 기여하고 새로운 가치를 창출합니다.'
+            '기술 노하우를 공개하고 공유하여, AI 생태계에 기여하고 새로운 가치를 창출합니다.'
         },
         {
           num: '⁴',
@@ -338,7 +338,7 @@ const ABOUT = {
         title: 'Our way</br><span class="string">of working.</span>'
       },
       aboutTitleText: {
-        text: 'We are given opportunities to grow together. Let’s look at how we work.'
+        text: 'kakaobrain krew are given a lot of good opportunities to grow self-directed, and we find out how we are doing to grow together through great colleagues.'
       },
         aboutConD: {
         title: 'We act autonomously<br/>from the three perspectives below.',

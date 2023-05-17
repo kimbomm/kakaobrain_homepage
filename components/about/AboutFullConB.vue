@@ -305,6 +305,7 @@
               margin-left: getMargin(1) !important;
               margin-right: getMargin(0) !important;
               font-size: 14px;
+
               // &.l-ml-2 {
               //   margin-left: getMargin(1) !important;
               // }
