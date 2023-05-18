@@ -71,6 +71,7 @@
       }
     },
     created() {
+      console.log('배포 테스트!!!')
       // this.isFooterShow = this.route == '/search' ? false : true
       this.$nuxt.$on('scrollLock', this.onScrollLock)
       this.$nuxt.$on('story-page', this.onStoryPage)
