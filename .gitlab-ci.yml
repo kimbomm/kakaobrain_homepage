@@ -1,0 +1,17 @@
+stages:
+  - init
+  - build
+
+build-down-job:
+  stage: init
+  script:
+    - docker-compose down --rmi all
+  only:
+    - develop
+
+build-up-job:
+  stage: build
+  script:
+    - docker-compose up -d --build
+  only:
+    - develop
