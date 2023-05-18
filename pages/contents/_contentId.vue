@@ -54,16 +54,13 @@
       DetailTextItem,
       Like
     },
-    async asyncData(ctx) {
-      console.log(ctx.route.params.contentId);
+    async fetch() {
       try {
-        const res = await ctx.store.dispatch(
+        const res = await this.$store.dispatch(
           'getContentDetail',
-          ctx.route.params.contentId
+          this.$route.params.contentId
         )
-        return {
-          contentData: res.data
-        }
+        this.contentData = res.data
       } catch (error) {
         console.error(error)
       }
@@ -100,6 +97,7 @@
     },
     data() {
       return {
+        contentData: null,
         contentId: null,
         contentType: null,
         isLoad: false,
