@@ -17,7 +17,7 @@
 </template>
 <script>
   import mixinGlobal from '@/mixin/global.js'
-  import { mapState } from 'vuex'
+  import { mapState, mapActions } from 'vuex'
   import BreadCrumb from '@/components/elements/BreadCrumb'
   import DetailImage from '@/components/detail/DetailImage'
   import DetailYoutube from '@/components/detail/DetailYoutube'
@@ -26,7 +26,6 @@
   import DetailSubTitle from '@/components/detail/DetailSubTitle'
   import DetailTextTitle from '@/components/detail/DetailTextTitle'
   import DetailTextItem from '@/components/detail/DetailTextItem'
-  import Like from '@/components/elements/Like'
   export default {
     mixins: [mixinGlobal],
     components: {
@@ -37,25 +36,23 @@
       DetailText,
       DetailSubTitle,
       DetailTextTitle,
-      DetailTextItem,
-      Like
+      DetailTextItem
     },
     data() {
       return {
         isLoad: false,
         categoryType: null,
-        thumbnail: null
+        thumbnail: null,
+        data: {
+          title: '',
+          ContentItems: []
+        }
       }
     },
     computed: {
       ...mapState({
-        language: state => state.language,
-        privacyData: state => state.translation.PRIVACY
+        language: state => state.language
       }),
-      data() {
-        let data = this.privacyData[this.language]
-        return data
-      },
       breadcrumb() {
         let breadcrumb = []
         switch (this.language) {
@@ -69,11 +66,21 @@
         return breadcrumb
       }
     },
-    async mounted() {
-      await this.init()
+    async created() {
+      const res = await this.getCategoryList({
+        category1: 'terms',
+        category2: 'privacy',
+        pageData: {
+          targetLang: this.language,
+          contentType: 'TERMS'
+        }
+      })
+      this.data = res.data.list[0]
     },
     methods: {
-      async init() {},
+      ...mapActions({
+        getCategoryList: 'getCategoryList'
+      }),
       validContent(content, index) {
         let componentName = ''
         switch (content.itemType) {
