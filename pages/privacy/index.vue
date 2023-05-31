@@ -67,15 +67,22 @@
       }
     },
     async created() {
-      const res = await this.getCategoryList({
-        category1: 'terms',
-        category2: 'privacy',
-        pageData: {
-          targetLang: this.language,
-          contentType: 'TERMS'
-        }
-      })
-      this.data = res.data.list[0]
+      if (process.client) {
+        await this.getCategoryList({
+          category1: 'terms',
+          category2: 'privacy',
+          pageData: {
+            targetLang: this.language,
+            contentType: 'TERMS'
+          }
+        }).then(async (res) => {
+          const response = await this.$store.dispatch(
+            'getContentDetail',
+            res.data.list[0].contentId
+          )
+          this.data = response.data
+        })
+      }
     },
     methods: {
       ...mapActions({
