@@ -198,7 +198,9 @@
         this.$nextTick(() => {
           if (
             this.$route.path === '/contents' ||
-            this.$route.path === '/contents/'
+            this.$route.path === '/contents/' ||
+            (this.$route.name === 'privacy-version-language' &&
+              this.$route.params)
           ) {
             this.$nuxt.$emit('langChange')
           } else {

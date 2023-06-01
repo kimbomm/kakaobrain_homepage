@@ -24,7 +24,8 @@ export const state = () => ({
     touch: null,
     mobile: null
   },
-  keyword: null
+  keyword: null,
+  privacy: []
 })
 
 export const getters = {
@@ -66,7 +67,11 @@ export const mutations = {
   },
   setKeyword(state, payload) {
     state.keyword = payload
+  },
+  setPrivacy(state, payload) {
+    state.privacy = payload
   }
+
 }
 export const actions = {
   changeFilterMenuOpen({ commit }, payload) {
@@ -88,6 +93,16 @@ export const actions = {
     // console.log('RES::', res)
     return res
   },
+  async getPrivacyDetail({commit}, payload)
+  {
+    const res = await this.$axios.get(`/content/${payload.targetLang}/${payload.alias}`)
+    //console.log(res.data);
+    commit('setPrivacy', res.data);
+    return res
+  },
+
+
+
   getFilterList({ commit }, payload) {
     commit('setFilterList', payload)
   },
