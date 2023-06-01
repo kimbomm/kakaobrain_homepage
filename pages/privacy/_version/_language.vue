@@ -94,10 +94,8 @@
           this.data.targetLang !== this.language
         ) {
           window.location = `/contents/${this.data.contentProp.langLink}`
-          //window.location = `/privacy/${this.$route.params.version}/${this.language}`
         } else {
           window.location = `/privacy/${this.$route.params.version}/${this.language}`
-          //await window.location.reload(true)
         }
       },
       validContent(content, index) {
