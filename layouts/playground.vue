@@ -7,14 +7,14 @@
 </template>
 <script>
   import Vue from 'vue'
-  import {v4 as uuidv4 } from 'uuid'
+  import { v4 as uuidv4 } from 'uuid'
   import PlaygroundHeader from '@/components/layouts/playground/Header'
   import PlaygroundFooter from '@/components/layouts/playground/Footer'
   import { mapState, mapMutations } from 'vuex'
   export default {
     components: {
       PlaygroundHeader,
-      PlaygroundFooter,
+      PlaygroundFooter
     },
     data() {
       return {
@@ -52,6 +52,7 @@
       Vue.prototype.scrollLock = false
     },
     async beforeMount() {
+      window.location.href = 'https://karlo.io'
       if (!localStorage.getItem('BrainPlayGroundUuidv4')) {
         const uuid = await uuidv4()
         await localStorage.setItem('BrainPlayGroundUuidv4', uuid)
@@ -65,7 +66,7 @@
     },
     methods: {
       ...mapMutations({
-        setTouchDevice: 'setTouchDevice',
+        setTouchDevice: 'setTouchDevice'
       }),
       onScrollLock(value) {
         this.scrollLock = value
@@ -96,5 +97,5 @@
   }
 </script>
 <style lang="scss" scoped>
-@import '/assets/scss/layout/techplayground/layout.scss';
+  @import '/assets/scss/layout/techplayground/layout.scss';
 </style>
