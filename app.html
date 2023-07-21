@@ -1,0 +1,13 @@
+<html {{ HTML_ATTRS }}>
+  <head {{ HEAD_ATTRS }}>
+    {{ HEAD }}
+    <script>
+      if (window.location.pathname.includes('/techplayground')) {
+        window.location.href = 'https://karlo.io/'
+      }
+    </script>
+  </head>
+  <body {{ BODY_ATTRS }}>
+    {{ APP }}
+  </body>
+</html>
