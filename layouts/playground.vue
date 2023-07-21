@@ -52,7 +52,6 @@
       Vue.prototype.scrollLock = false
     },
     async beforeMount() {
-      window.location.href = 'https://karlo.io'
       if (!localStorage.getItem('BrainPlayGroundUuidv4')) {
         const uuid = await uuidv4()
         await localStorage.setItem('BrainPlayGroundUuidv4', uuid)
