@@ -305,7 +305,7 @@
       span {
         display: block;
         width: 100%;
-        height: 100%;
+        // height: 100%;
         padding-bottom: 20px;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -553,7 +553,7 @@
       font-size: 40px;
       span {
         max-height: 130px;
-        height: 100%;
+        // height: 100%;
         white-space: normal;
         display: -webkit-box;
         word-wrap: break-word;
