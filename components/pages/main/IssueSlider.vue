@@ -1,14 +1,5 @@
 <template>
   <div class="issue-slider">
-    <div class="issue-slider-info l-ml-2">
-      <span class="gl-2">Monthly Issue</span>
-      <span class="gl-2">
-        {{ $dayjs().format('MMMM') }}@{{ $dayjs().format('YYYY') }}
-      </span>
-      <span class="gl-2">
-        <nuxt-link to="/monthly-issue">View List&nbsp;&nbsp;</nuxt-link>
-      </span>
-    </div>
     <div v-if="list.length > 0" ref="issue" class="issue">
       <div>
         <nuxt-link
@@ -24,55 +15,29 @@
                 }
           "
         >
-          <div class="issue-title">
-            <transition name="only-fade">
-              <span v-if="isShow" class="fade">
-                {{ activeContent.title }}
-              </span>
-            </transition>
-          </div>
-
-          <div class="issue-thumbnail">
-            <transition name="fade">
+          <div class="thumbnail">
+            <div class="fade">
               <div
-                v-if="isShow"
-                class="fade"
                 :style="`background-image: url(${envVariable(
                   activeContent.Media.url
                 )});`"
-              ></div>
-            </transition>
+              />
+            </div>
+          </div>
+
+          <div class="text">
+            <div class="title">
+              <span v-if="isShow">
+                {{ activeContent.title }}
+              </span>
+            </div>
+            <div class="subtitle">
+              <span v-if="isShow">
+                {{ activeContent.updateBy }}
+              </span>
+            </div>
           </div>
         </nuxt-link>
-      </div>
-      <div class="issue-info">
-        <BreadCrumb :data="breadcrumb" />
-        <div ref="issue-navi" class="issue-navi">
-          <div class="buttons">
-            <button
-              class="prev"
-              title="이전 페이지"
-              :disabled="list.length <= 1"
-              @click="onClick('prev', true)"
-            >
-              ←
-            </button>
-            <div class="number">
-              <sup class="cur">{{ activeIndex + 1 }}</sup>
-              <span class="slash">/</span>
-              <sub class="total">{{ list.length }}</sub>
-            </div>
-            <button
-              class="next"
-              title="다음 페이지"
-              :disabled="list.length <= 1"
-              @click="onClick('next', true)"
-            >
-              →
-            </button>
-          </div>
-          <div class="cur-page">{{ curPage }}</div>
-        </div>
       </div>
     </div>
   </div>
@@ -154,20 +119,7 @@
           Utility.changeCategory2(this.activeContent.Content.category2)
         )
       },
-      onScroll() {
-        const navi = this.$refs['issue-navi']
-        const issue = this.$refs['issue']
-        if (
-          this.scrollBody.scrollTop <=
-            issue.offsetTop + issue.offsetHeight - navi.offsetHeight &&
-          this.scrollBody.scrollTop + navi.offsetTop + navi.offsetHeight <=
-            issue.offsetTop + issue.offsetHeight
-        ) {
-          navi.style = `transform: translateY(${
-            this.navigatorY + this.scrollBody.scrollTop
-          }px)`
-        }
-      },
+
       onSetInterval() {
         const _this = this
         this.autoLoad = setInterval(() => {
@@ -223,22 +175,11 @@
           { text: info.category1.nick, sub: subClass, link: '' },
           { text: info.category2.nick, sub: 'sub', link: info.category2.link }
         )
-        // if (this.activeContent.Content.ContentTags.length > 0) {
-        //   for (
-        //     let i = 0;
-        //     i < this.activeContent.Content.ContentTags.length;
-        //     i++
-        //   ) {
-        //     this.breadcrumb.push({
-        //       text: this.activeContent.Content.ContentTags[i].tag,
-        //       sub: '',
-        //       link: this.activeContent.Content.ContentTags[i].link
-        //     })
-        //   }
-        // }
       },
       envVariable(url) {
-        return `${this.$config.baseURL}${url}`
+        const imageUrl = `${this.$config.baseURL}${url}`
+        console.log('Image URL:', imageUrl)
+        return imageUrl
       }
     }
   }
@@ -258,183 +199,129 @@
     opacity: 0;
   }
   .issue-slider {
-    font-size: 0;
-    padding: 0 20px;
-    &-info {
-      font-size: 16px;
-      color: #000;
-      margin-bottom: 30px;
-      font-family: 'Inter', sans-serif;
-      > span {
-        display: inline-block;
-        margin-right: 20px;
-        line-height: 130%;
-        &:last-child {
-          margin-right: 0;
-          text-align: right;
-        }
-      }
-    }
-  }
-  .issue {
-    width: getWidth(9);
-    display: flex;
-    justify-content: space-between;
-    > div:first-child {
-      flex: 0 0 getWidth(8);
-      width: getWidth(8);
-    }
-    &-info {
-      padding-top: 110px;
-      margin-left: 20px;
-      text-align: right;
-      .btn {
-        margin-right: 0;
-        margin-top: 10px;
-        &:first-child {
-          margin-top: 0;
-        }
-      }
-    }
-    &-title {
-      width: 100%;
-      font-size: 90px;
-      line-height: 1;
-      font-weight: 900;
-      font-style: italic;
-      span {
-        display: block;
-        width: 100%;
-        // height: 100%;
-        padding-bottom: 20px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      }
-    }
-    &-thumbnail {
+    .issue {
       position: relative;
-      height: 990px;
-      > div {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-size: cover;
-        background-position: center center;
-        background-repeat: no-repeat;
-        box-shadow: 30px 30px 50px -10px rgba(0, 0, 0, 0.2);
+      width: 1052px;
+      height: 410px;
+      left: 268px;
+
+      border-radius: 20px;
+      .thumbnail {
+        width: 1052px;
+        height: 410px;
+        border-radius: 20px;
+        border: solid;
       }
-    }
-    &-navi {
-      margin-top: 98px;
-      transition: transform 0.2s linear;
-      .buttons {
-        font-size: 16px;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        button {
-          font-family: 'Inter';
+      .text {
+        width: 918px;
+
+        padding-top: 30px;
+        .title {
+          color: var(--black, #000);
+          font-family: Noto Sans KR;
+          font-size: 30px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 120%; /* 36px */
+        }
+
+        .subtitle {
+          padding-top: 20px;
+          color: var(--black, #000);
+          font-family: Noto Sans KR;
           font-size: 16px;
-        }
-      }
-      .cur-page {
-        font-size: 50px;
-        margin-top: 20px;
-        line-height: 1.3;
-        font-weight: 900;
-        white-space: nowrap;
-      }
-      .number {
-        letter-spacing: -3px;
-        margin: 0 2px;
-        .cur {
-          margin-right: -2px;
-          vertical-align: super;
-          font-size: smaller;
-          //   position: relative;
-          //   top: -2px;
-          //   left: 3px;
-        }
-        .total {
-          vertical-align: sub;
-          font-size: smaller;
-          // position: relative;
-          // top: 2px;
-          // left: -3px;
-        }
-        .slash {
-          font-style: italic;
-          font-family: 'NotoSansKR';
+          font-style: normal;
+          font-weight: 400;
+          line-height: 150%; /* 24px */
         }
       }
     }
   }
+
+  @include pc-desktop {
+    .fade {
+      display: inline-block;
+      transition: all 0.2s linear;
+    }
+    .fade-enter,
+    .fade-leave-to {
+      opacity: 0;
+      transform: translateY(5%);
+    }
+    .only-fade-enter,
+    .only-fade-leave-to {
+      opacity: 0;
+    }
+    .issue-slider {
+      .issue {
+        width: 1500px;
+        height: 590px;
+        left: 400px;
+
+        .thumbnail {
+          width: 1500px;
+          height: 590px;
+        }
+        .text {
+          width: 740px;
+          height: 105px;
+          padding-top: 30px;
+          .title {
+          }
+
+          .subtitle {
+          }
+        }
+      }
+    }
+  }
+
   @include pc-large {
     .issue-slider {
-      &-info {
-        margin-bottom: 50px;
-        font-size: 22px;
-      }
-    }
-    .issue-info {
-      padding-top: 152px;
-    }
-    .issue-title {
-      font-size: 122px;
-      span {
-        padding-bottom: 30px;
-      }
-    }
-    .issue-thumbnail {
-      height: 1328px;
-    }
-    .issue-navi {
-      margin-top: 109px;
-      .buttons {
-        font-size: 22px;
-        button {
-          font-size: 22px;
+      .issue {
+        width: 2012px;
+        left: 528px;
+
+        .thumbnail {
+          width: 2012px;
+          height: 790px;
         }
-      }
-      .cur-page {
-        font-size: 66px;
+        .text {
+          width: 996px;
+          padding-top: 40px;
+          .title {
+            font-size: 40px;
+          }
+
+          .subtitle {
+            font-size: 21px;
+          }
+        }
       }
     }
   }
 
   @include pc-4k {
     .issue-slider {
-      &-info {
-        margin-bottom: 60px;
-        font-size: 34px;
-      }
-    }
-    .issue-info {
-      padding-top: 210px;
-    }
-    .issue-title {
-      font-size: 180px;
-      span {
-        padding-bottom: 30px;
-      }
-    }
-    .issue-thumbnail {
-      padding-top: 2010px;
-    }
-    .issue-navi {
-      margin-top: 150px;
-      .buttons {
-        font-size: 34px;
-        button {
-          font-size: 34px;
+      .issue {
+        width: 3036px;
+        left: 784px;
+
+        .thumbnail {
+          width: 3036px;
+          height: 784px;
         }
-      }
-      .cur-page {
-        margin-top: 30px;
-        font-size: 90px;
+        .text {
+          width: 1508px;
+          padding-top: 56px;
+          .title {
+            font-size: 60px;
+          }
+
+          .subtitle {
+            font-size: 32px;
+          }
+        }
       }
     }
   }
@@ -446,147 +333,79 @@
   }
 
   @include tablet {
+    //max-width:1024px
     .issue-slider {
-      &-info {
-        margin-bottom: 50px;
-        font-size: 16px;
-      }
-    }
-    .issue-info {
-      padding-top: 90px;
-    }
-    .issue-title {
-      font-size: 70px;
-      span {
-        padding-bottom: 20px;
-      }
-    }
-    .issue-thumbnail {
-      padding-top: 552px;
-      height: auto;
-    }
-    .issue-navi {
-      margin-top: 100px;
-      .buttons {
-        font-size: 20px;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        button {
-          font-size: 36px;
+      .issue {
+        width: 783px;
+        left: 221px;
+
+        .thumbnail {
+          width: 783px;
+          height: 380px;
         }
-        .next {
-          order: 2;
-        }
-        .number {
-          position: relative;
-          height: 20px;
-
-          order: 3;
-          flex: 0 0 100%;
-          text-align: center;
-          margin-top: 10px;
-          .cur {
-            position: absolute;
-            top: 3px;
-            margin-right: 0;
-            left: calc((50%) - 12px);
-            transform: translate(-50%, 0);
-
-            font-size: 12px;
-            // margin-right:-4px;
+        .text {
+          width: 683px;
+          padding-top: 20px;
+          .title {
+            font-size: 24px;
           }
-          .total {
-            position: absolute;
-            bottom: -1px;
-            margin-left: 0px;
-            left: calc((50%) + 8px);
-            transform: translate(-50%, 0);
 
-            font-size: 12px;
-            // margin-left:-4px;
-          }
-          .slash {
-            position: absolute;
-            top: 50%;
-            left: calc((50%) - 4px);
-            transform: translate(-50%, -50%);
+          .subtitle {
+            font-size: 14px;
           }
         }
-      }
-      .cur-page {
-        margin-top: 50px;
-        font-size: 28px;
       }
     }
   }
   @include mobile {
     .issue-slider {
-      &-info {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        font-size: 12px;
-        &.l-ml-2 {
-          margin: 0 0 20px !important;
+      .issue {
+        width: 578px;
+        left: 170px;
+
+        .thumbnail {
+          width: 578px;
+          height: 380px;
         }
-        > span:nth-child(1) {
-          display: block;
-          flex: 0 0 100%;
-          margin-bottom: 20px;
-          margin-right: 0;
-        }
-        > span:nth-child(3) {
-          &.gl-2 {
-            width: getWidth(3) !important;
+        .text {
+          width: 503px;
+          padding-top: 20px;
+          .title {
+            font-size: 24px;
+          }
+
+          .subtitle {
+            padding-top: 10px;
+            font-size: 14px;
           }
         }
       }
     }
-    .issue {
-      display: block;
-      width: 100%;
-      > div:first-child {
-        width: 100% !important;
-      }
-    }
-    .issue-title {
-      font-size: 40px;
-      span {
-        max-height: 130px;
-        // height: 100%;
-        white-space: normal;
-        display: -webkit-box;
-        word-wrap: break-word;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        padding-bottom: 10px;
-      }
-    }
-    .issue-thumbnail {
-      padding-top: 470px;
-      margin-bottom: 10px;
-      > div {
-        box-shadow: initial;
-      }
-    }
-    .issue-info {
-      padding-top: 0;
-      margin: 0;
-      text-align: left;
-      &.gl-1 {
-        width: 100% !important;
-      }
-      .sticker {
-        margin: {
-          right: 4px;
-          bottom: 6px;
+  }
+
+  @include mobile-small {
+    .issue-slider {
+      .issue {
+        width: 287px;
+        left: 53px;
+
+        .thumbnail {
+          width: 287px;
+          height: 380px;
+        }
+        .text {
+          width: 287px;
+          padding-top: 20px;
+          .title {
+            font-size: 24px;
+          }
+
+          .subtitle {
+            padding-top: 10px;
+            font-size: 16px;
+          }
         }
       }
-    }
-    .issue-navi {
-      display: none;
     }
   }
 </style>

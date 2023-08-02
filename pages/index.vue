@@ -2,8 +2,7 @@
   <div ref="main" class="main">
     <IssueSlider />
     <UnthinkableQuestion />
-    <TextFlow />
-    <div class="slogan-area">
+    <!-- <div class="slogan-area">
       <Slogan :data="sloganData1" />
     </div>
     <MainFullImage />
@@ -24,10 +23,11 @@
       :flag.sync="scroll.innovation.flag"
       :start.sync="scroll.innovation.start"
       :end.sync="scroll.innovation.end"
-    />
-    <BrainGoal />
-    <ArchiveList />
+    /> -->
     <TeamBrain />
+    <BrainGoal />
+    <TextFlow />
+    <!-- <ArchiveList />-->
   </div>
 </template>
 <script>
@@ -76,74 +76,74 @@
     },
     data() {
       return {
-        sloganData1: {
-          title: 'What We Do',
-          text: [
-            {
-              content:
-                "We create <span class='br'>an impact</span> <span class='br'>in the world</span>",
-              bold: true
-            },
-            {
-              content: 'with unthinkable questions.',
-              bold: false
-            }
-          ]
-          // desp: '<span class="br">누구도 생각하지 못했던 방식으로</span> 세상의 임팩트를 만듭니다.'
-        },
-        sloganData2: {
-          title: 'What is your Question?',
-          text: [
-            { content: 'We are looking ', bold: true },
-            { content: '<span class="br">for answers</span> ', bold: false },
-            {
-              content:
-                '<span class="br">to numerous</span> <span class="br">questions</span> ',
-              bold: true
-            },
-            { content: 'in the world.', bold: false }
-          ]
-          // desp: '<span class="br">우리는 세상의 수많은 질문들에 대한</span> 해답을 찾고 있습니다.'
-        },
-        sloganData3: {
-          title: 'Our Innovation',
-          text: [
-            { content: 'WE ', bold: false },
-            { content: 'CONT', bold: true },
-            { content: '<span class="R">R</span> ', bold: false },
-            {
-              content: 'IBUTE <span class="br">TO THE WORLD</span> FROM A ',
-              bold: true
-            },
-            {
-              content: 'UNIQUE <span class="br">& SPECIAL</span> ',
-              bold: false
-            },
-            { content: 'PERSPECTIVE.', bold: true }
-          ]
-          // desp: 'AI로 불가능한 영역에 적극적으로 도전하는 <span class="br">스타트업의 마인드로 카카오브레인만이 할 수 있는</span> <span class="br">AI 선행 연구와 기술 개발을 진행해 더 나은 세상을</span> 만드는데 기여하고자 합니다.'
-        },
-        stopFlag: false,
-        scroll: {
-          slot: {
-            flag: false,
-            start: true,
-            end: false
-          },
-          innovation: {
-            flag: false,
-            start: true,
-            end: false
-          }
-        },
-        isScrollUp: null,
-        touchInfo: {
-          start: null,
-          end: null
-        },
-        state: {
-          slotFinish: true
-        }
+        // sloganData1: {
+        //   title: 'What We Do',
+        //   text: [
+        //     {
+        //       content:
+        //         "We create <span class='br'>an impact</span> <span class='br'>in the world</span>",
+        //       bold: true
+        //     },
+        //     {
+        //       content: 'with unthinkable questions.',
+        //       bold: false
+        //     }
+        //   ]
+        //   // desp: '<span class="br">누구도 생각하지 못했던 방식으로</span> 세상의 임팩트를 만듭니다.'
+        // },
+        // sloganData2: {
+        //   title: 'What is your Question?',
+        //   text: [
+        //     { content: 'We are looking ', bold: true },
+        //     { content: '<span class="br">for answers</span> ', bold: false },
+        //     {
+        //       content:
+        //         '<span class="br">to numerous</span> <span class="br">questions</span> ',
+        //       bold: true
+        //     },
+        //     { content: 'in the world.', bold: false }
+        //   ]
+        //   // desp: '<span class="br">우리는 세상의 수많은 질문들에 대한</span> 해답을 찾고 있습니다.'
+        // },
+        // sloganData3: {
+        //   title: 'Our Innovation',
+        //   text: [
+        //     { content: 'WE ', bold: false },
+        //     { content: 'CONT', bold: true },
+        //     { content: '<span class="R">R</span> ', bold: false },
+        //     {
+        //       content: 'IBUTE <span class="br">TO THE WORLD</span> FROM A ',
+        //       bold: true
+        //     },
+        //     {
+        //       content: 'UNIQUE <span class="br">& SPECIAL</span> ',
+        //       bold: false
+        //     },
+        //     { content: 'PERSPECTIVE.', bold: true }
+        //   ]
+        //   // desp: 'AI로 불가능한 영역에 적극적으로 도전하는 <span class="br">스타트업의 마인드로 카카오브레인만이 할 수 있는</span> <span class="br">AI 선행 연구와 기술 개발을 진행해 더 나은 세상을</span> 만드는데 기여하고자 합니다.'
+        // },
+        // stopFlag: false,
+        // scroll: {
+        //   slot: {
+        //     flag: false,
+        //     start: true,
+        //     end: false
+        //   },
+        //   innovation: {
+        //     flag: false,
+        //     start: true,
+        //     end: false
+        //   }
+        // },
+        // isScrollUp: null,
+        // touchInfo: {
+        //   start: null,
+        //   end: null
+        // },
+        // state: {
+        //   slotFinish: true
+        // }
       }
     },
     computed: {
@@ -195,19 +195,19 @@
       touchMove(e) {
         this.touchInfo.end = e.touches[0].clientY
       },
-      async onScroll(e) {
-        // console.log(e.deltaY)
-        if (this.device.touch || window.innerWidth <= 1024) return false
-        if (e.type !== 'wheel') {
-          this.isScrollUp = this.touchInfo.end < this.touchInfo.start
-        }
-        if (this.stopFlag) {
-          this.$nuxt.$emit('scrollLock', true)
-          // this.scrollControl(document.querySelector('body'), 'block')
-        }
-        await this.slotScroll(e)
-        await this.innovationScroll(e)
-      },
+      // async onScroll(e) {
+      //   // console.log(e.deltaY)
+      //   if (this.device.touch || window.innerWidth <= 1024) return false
+      //   if (e.type !== 'wheel') {
+      //     this.isScrollUp = this.touchInfo.end < this.touchInfo.start
+      //   }
+      //   if (this.stopFlag) {
+      //     this.$nuxt.$emit('scrollLock', true)
+      //     // this.scrollControl(document.querySelector('body'), 'block')
+      //   }
+      //   await this.slotScroll(e)
+      //   await this.innovationScroll(e)
+      // },
       setState(type, target) {
         switch (type) {
           case 'stop':
@@ -249,70 +249,70 @@
             break
         }
         return condition
-      },
-      async slotScroll(e) {
-        const ref = this.$refs.slot
-        const refCenter = ref.$el.offsetTop + ref.$el.offsetHeight / 2
-        const scrollCenter = this.scrollBody.scrollTop + window.innerHeight / 2
-
-        if (await this.chkCondition('go', e, 'slot')) {
-          this.setState('go', 'slot')
-        } else if (
-          (await this.chkCondition('stop', e, 'slot')) &&
-          refCenter > scrollCenter - 20 &&
-          refCenter < scrollCenter + 20
-        ) {
-          await this.setState('stop', 'slot')
-          await this.scrollBody.scrollTo({
-            top: refCenter - window.innerHeight / 2,
-            behavior: 'smooth'
-          })
-          this.$nextTick(() => {
-            this.state.slotFinish = false
-          })
-        } else {
-          if (
-            !this.stopFlag &&
-            !this.state.slotFinish &&
-            (this.scrollBody.scrollTop + window.innerHeight <=
-              ref.$el.offsetTop ||
-              this.scrollBody.scrollTop >=
-                ref.$el.offsetTop + ref.$el.offsetHeight)
-          ) {
-            ref.setSlot()
-            this.state.slotFinish = true
-          }
-        }
-      },
-      async innovationScroll(e) {
-        const ref = this.$refs.innovation
-        const refCenter = ref.$el.offsetTop + ref.$el.offsetHeight / 2
-        const scrollCenter = this.scrollBody.scrollTop + window.innerHeight / 2
-
-        if (await this.chkCondition('go', e, 'innovation')) {
-          await this.setState('go', 'innovation')
-        } else if (
-          (await this.chkCondition('stop', e, 'innovation')) &&
-          refCenter > scrollCenter - 20 &&
-          refCenter < scrollCenter + 20
-        ) {
-          await this.setState('stop', 'innovation')
-          await this.scrollBody.scrollTo({
-            top: refCenter - window.innerHeight / 2,
-            behavior: 'smooth'
-          })
-          await this.$nextTick(() => {
-            this.scroll.innovation.flag = true
-          })
-        }
       }
+      // async slotScroll(e) {
+      //   const ref = this.$refs.slot
+      //   const refCenter = ref.$el.offsetTop + ref.$el.offsetHeight / 2
+      //   const scrollCenter = this.scrollBody.scrollTop + window.innerHeight / 2
+
+      //   if (await this.chkCondition('go', e, 'slot')) {
+      //     this.setState('go', 'slot')
+      //   } else if (
+      //     (await this.chkCondition('stop', e, 'slot')) &&
+      //     refCenter > scrollCenter - 20 &&
+      //     refCenter < scrollCenter + 20
+      //   ) {
+      //     await this.setState('stop', 'slot')
+      //     await this.scrollBody.scrollTo({
+      //       top: refCenter - window.innerHeight / 2,
+      //       behavior: 'smooth'
+      //     })
+      //     this.$nextTick(() => {
+      //       this.state.slotFinish = false
+      //     })
+      //   } else {
+      //     if (
+      //       !this.stopFlag &&
+      //       !this.state.slotFinish &&
+      //       (this.scrollBody.scrollTop + window.innerHeight <=
+      //         ref.$el.offsetTop ||
+      //         this.scrollBody.scrollTop >=
+      //           ref.$el.offsetTop + ref.$el.offsetHeight)
+      //     ) {
+      //       ref.setSlot()
+      //       this.state.slotFinish = true
+      //     }
+      //   }
+      // }
+      // async innovationScroll(e) {
+      //   const ref = this.$refs.innovation
+      //   const refCenter = ref.$el.offsetTop + ref.$el.offsetHeight / 2
+      //   const scrollCenter = this.scrollBody.scrollTop + window.innerHeight / 2
+
+      //   if (await this.chkCondition('go', e, 'innovation')) {
+      //     await this.setState('go', 'innovation')
+      //   } else if (
+      //     (await this.chkCondition('stop', e, 'innovation')) &&
+      //     refCenter > scrollCenter - 20 &&
+      //     refCenter < scrollCenter + 20
+      //   ) {
+      //     await this.setState('stop', 'innovation')
+      //     await this.scrollBody.scrollTo({
+      //       top: refCenter - window.innerHeight / 2,
+      //       behavior: 'smooth'
+      //     })
+      //     await this.$nextTick(() => {
+      //       this.scroll.innovation.flag = true
+      //     })
+      //   }
+      // }
     }
   }
 </script>
 <style lang="scss" scoped>
   .main {
     padding-top: 200px;
-    margin-bottom: 500px;
+
     .question {
       margin-top: 436px;
     }
@@ -420,7 +420,7 @@
       padding-top: 96px;
       margin-bottom: 200px;
       .question {
-        margin-top: 240px;
+        margin-top: 140px;
       }
       .slogan-wrap {
         margin-top: 240px;

@@ -7,14 +7,6 @@
         <DetailText :data="description[language]" />
       </div>
     </div>
-
-    <div>
-      <ul>
-        <li v-for="(content, index) in list" :key="index" class="detail-list">
-          <MonthlyList :data="content" />
-        </li>
-      </ul>
-    </div>
   </div>
 </template>
 <script>
@@ -75,6 +67,7 @@
         this.pageData.targetLang = this.$store.state.language
         const res = await this.getMonthlyList(this.pageData)
         this.list = this.list.concat(res.data.list)
+        console.log(res)
       }
     }
   }

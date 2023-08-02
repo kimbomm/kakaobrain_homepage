@@ -107,6 +107,7 @@
         })
 
         this.data = res.data.list
+
         this.slotLength = this.data.length > 5 ? 5 : this.data.length
       },
       onWheel(e) {
