@@ -83,7 +83,7 @@
         const res = await this.getCategoryList({
           pageData: this.pageData
         })
-        console.log(res)
+
         if (res) {
           this.list = res.data.list.sort((a, b) => {
             const dateA = new Date(a.showAt || a.acceptAt)
@@ -416,6 +416,7 @@
       }
       .tag {
         .list-date {
+          width: 84px;
           font-size: 14px;
         }
         .item-box {

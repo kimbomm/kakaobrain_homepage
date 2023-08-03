@@ -9,6 +9,7 @@
             class="menu-item"
             @mouseenter=";(hoverIndex = index), (isHover = true)"
             @mouseleave="isHover = false"
+            v-if="index < 5"
           >
             <button type="button" class="txt" @click="openMenu(index)">
               <sup
@@ -54,13 +55,6 @@
       }"
     >
       <template v-if="!isSearchShow">
-        <a
-          class="tag-link"
-          href="https://careers.kakaobrain.com/"
-          target="_blank"
-        >
-          Careers
-        </a>
         <button class="common-search" @click="onSearch(true)">검색하기</button>
         <button
           :class="`btn-lang ${cookieLang}`"
@@ -382,8 +376,23 @@
   }
 
   @include pc-large {
-    .menu > .menu {
-      top: -5px;
+    .menu {
+      > .menu {
+        top: -5px;
+      }
+      &-item {
+        ul {
+          width: 474px;
+          padding: 12px 40px;
+
+          li {
+            margin-right: 50px;
+          }
+          a {
+            font-size: 20px;
+          }
+        }
+      }
     }
     .menu-item {
       .txt {
@@ -403,6 +412,24 @@
     }
   }
   @include pc-4k {
+    .menu {
+      > .menu {
+        top: -5px;
+      }
+      &-item {
+        ul {
+          width: 732px;
+          padding: 16px 60px;
+
+          li {
+            margin-right: 60px;
+          }
+          a {
+            font-size: 34px;
+          }
+        }
+      }
+    }
     .menu-item {
       .txt {
         font-size: 34px;

@@ -55,7 +55,6 @@
           </div>
         </div>
         <div class="ethics">
-          <!-- <img src="@/assets/images/img_ai.png" alt="ethicsImg" /> -->
           <div class="ethicstext">
             <p class="wetitle">AI 윤리</p>
             <p id="wetext" v-html="ethicstext[language][0]"></p>
@@ -79,8 +78,8 @@
       return {
         subtitle: {
           KR: [
-            `우리의 혁신은 차별화된 요소 기술과 빅 모델 및<br class="mo-only"/> 디지털 휴먼을 완성하는 AI 프론티어로서<br />
-            기술 커뮤니티에 기여하고, 사용 가치와 삶의 질을<br class="mo-only"/> 높이는 새로운 서비스 영역을<br/>
+            `우리의 혁신은 차별화된 요소 기술과 빅 모델 및 디지털 휴먼을 완성하는 AI 프론티어로서<br/>
+            기술 커뮤니티에 기여하고, 사용 가치와 삶의 질을 높이는 새로운 서비스 영역을<br/>
             개척합니다.`
           ],
           EN: [
@@ -889,6 +888,7 @@
       }
       &-content {
         margin-top: 30px;
+
         word-break: keep-all;
         p {
           font-size: 16px;
@@ -1022,6 +1022,7 @@
     //max-width: 768px
     .question {
       margin-left: 170px;
+      margin-top: 200px;
       .silk {
         position: relative;
         .uq-text {
@@ -1051,7 +1052,9 @@
               font-size: 24px;
             }
             #wetext {
+              width: 503px;
               font-size: 14px;
+              height: 66px;
             }
             .llms {
               position: absolute;

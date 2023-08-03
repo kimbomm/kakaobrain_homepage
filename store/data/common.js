@@ -1,33 +1,33 @@
 const menus = [
-  {
-    name: 'B^',
-    category: 'b',
-    nick: 'B^',
-    link: '',
-    sub: [
-      {
-        category: 'discover',
-        nick: 'DISCOVER',
-        name: 'DISCOVER',
-        link: 'https://bdiscover.kakaobrain.com/',
-        target: '_blank'
-      },
-      {
-        category: 'healthcare',
-        nick: 'HEALTHCARE',
-        name: 'HEALTHCARE',
-        link: '/b/healthcare',
-        target: ''
-      },
-      {
-        category: 'edit',
-        nick: 'EDIT',
-        name: 'EDIT',
-        link: 'https://bedit.kakaobrain.com',
-        target: '_blank'
-      }
-    ]
-  },
+  // {
+  //   name: 'B^',
+  //   category: 'b',
+  //   nick: 'B^',
+  //   link: '',
+  //   sub: [
+  //     {
+  //       category: 'discover',
+  //       nick: 'DISCOVER',
+  //       name: 'DISCOVER',
+  //       link: 'https://bdiscover.kakaobrain.com/',
+  //       target: '_blank'
+  //     },
+  //     {
+  //       category: 'healthcare',
+  //       nick: 'HEALTHCARE',
+  //       name: 'HEALTHCARE',
+  //       link: '/b/healthcare',
+  //       target: ''
+  //     },
+  //     {
+  //       category: 'edit',
+  //       nick: 'EDIT',
+  //       name: 'EDIT',
+  //       link: 'https://bedit.kakaobrain.com',
+  //       target: '_blank'
+  //     }
+  //   ]
+  // },
   {
     name: 'About',
     category: 'about',
@@ -58,6 +58,74 @@ const menus = [
     ]
   },
   {
+    //임시설정
+    name: 'Carrer',
+    category: 'carrer',
+    nick: 'Carrer',
+    link: '',
+    sub: [
+      {
+        category: 'introduce',
+        nick: 'Introduce',
+        name: 'Unthinkable Question',
+        link: '/about',
+        target: ''
+      },
+      {
+        category: 'culture',
+        nick: 'Culture',
+        name: 'Culture',
+        link: '/about/culture',
+        target: ''
+      },
+      {
+        category: 'career',
+        nick: 'Careers',
+        name: 'Careers',
+        link: 'https://careers.kakaobrain.com/',
+        target: '_blank'
+      }
+    ]
+  },
+  {//임시설정
+    name: 'Product',
+    category: 'product',
+    nick: 'product',
+    link: '',
+    sub: [
+      {
+        category: 'llms',
+        nick: 'LLMs',
+        name: 'LLms',
+        link: '/LLms',
+        target: ''
+      },
+      {
+        category: 'karlo',
+        nick: 'Karlo',
+        name: 'Karlo',
+        link: '/Karlo',
+        target: ''
+      },
+      {
+        category: 'healthcare',
+        nick: 'Healthcare',
+        name: 'Healthcare',
+        link: '/Healthcare',
+        target: ''
+      },
+      {
+        category: 'brain cloud',
+        nick: 'Brain Cloud',
+        name: 'Brain Cloud',
+        link: 'https://cloud.kakaobrain.com/ ',
+        target: '_blank'
+      }
+    ]
+  },
+
+
+  {//임시설정
     name: 'Research',
     category: 'research',
     nick: 'Research',
@@ -86,44 +154,24 @@ const menus = [
       }
     ]
   },
-  {
-    name: 'Tech',
-    category: 'tech',
-    nick: 'Tech',
+  {//임시설정
+    name: 'News',
+    category: 'news',
+    nick: 'News',
     link: '',
     sub: [
-      // {
-      //   category: 'highlight',
-      //   nick: 'Highlight',
-      //   name: 'Highlight',
-      //   link: '/contents/tech/highlight'
-      // },
       {
-        category: 'dataset',
-        nick: 'Datasets',
-        name: 'Datasets',
-        link: '/contents/tech/datasets',
+        category: 'news',
+        nick: 'News',
+        name: 'News',
+        link: '/contents/document/news',
         target: ''
       },
       {
-        category: 'brain',
-        nick: 'Brain Cloud',
-        name: 'Brain Cloud',
-        link: '/contents/tech/brain_cloud',
-        target: ''
-      },
-      {
-        category: 'large',
-        nick: 'Large Scale AI',
-        name: 'Large Scale AI',
-        link: '/contents/tech/large_scale',
-        target: ''
-      },
-      {
-        category: 'digital',
-        nick: 'Digital Human',
-        name: 'Digital Human',
-        link: '/contents/tech/digital_human',
+        category: 'documentary',
+        nick: 'Documentary',
+        name: 'Documentary',
+        link: '/contents/document/documentary',
         target: ''
       }
     ]
@@ -186,6 +234,7 @@ const menus = [
       }
     ]
   }
+
 ]
 const footer = [
   {

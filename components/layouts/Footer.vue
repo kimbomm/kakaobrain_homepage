@@ -21,6 +21,9 @@
           </ul>
         </div>
       </div>
+      <div class="footerimg">
+        <img src="@/assets/images/gdmark.png" />
+      </div>
       <div class="footer-bottom">
         <div :class="{ copy: true, 'is-hide': onHide }">
           <span class="info-txt">@2023</span>
@@ -117,6 +120,13 @@
       margin-bottom: 116px;
       margin-left: getMargin(2);
     }
+    .footerimg {
+      img {
+        width: 32px;
+        height: 56px;
+      }
+    }
+
     &-bottom {
       z-index: 10;
       display: flex;
@@ -175,6 +185,12 @@
       &-con {
         margin-bottom: 150px;
       }
+      .footerimg {
+        img {
+          width: 56px;
+          height: 98px;
+        }
+      }
       &-bottom {
         font-size: 22px;
       }
@@ -196,6 +212,12 @@
       }
       &-con {
         margin-bottom: 218px;
+      }
+      .footerimg {
+        img {
+          width: 84px;
+          height: 146px;
+        }
       }
       &-bottom {
         font-size: 34px;
@@ -220,6 +242,12 @@
       }
       &-con {
         margin-bottom: 116px;
+      }
+      .footerimg {
+        img {
+          width: 40px;
+          height: 70px;
+        }
       }
       &-bottom {
         font-size: 16px;
@@ -248,6 +276,12 @@
       &-shape {
         display: none;
       }
+      .footerimg {
+        img {
+          width: 40px;
+          height: 70px;
+        }
+      }
       &-con {
         display: none;
       }
@@ -271,6 +305,45 @@
       height: 82px;
       margin-bottom: 30px;
       margin-left: 0;
+    }
+  }
+
+  @include mobile-small {
+    .copy {
+      position: initial;
+      &.is-hide {
+        opacity: 1;
+        transform: initial;
+      }
+    }
+    .footer {
+      padding-bottom: 50px;
+      &-shape {
+        display: none;
+      }
+      .footerimg {
+        img {
+          width: 24px;
+          height: 42px;
+        }
+      }
+      &-con {
+        display: none;
+      }
+      &-bottom {
+        font-size: 12px;
+        color: $surface-6;
+        padding-left: 0;
+        .info-txt {
+          display: none;
+        }
+        .copyright {
+          width: getWidth(6);
+          span {
+            display: block;
+          }
+        }
+      }
     }
   }
 </style>

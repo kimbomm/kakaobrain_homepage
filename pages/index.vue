@@ -1,61 +1,38 @@
 <template>
   <div ref="main" class="main">
     <IssueSlider />
-    <UnthinkableQuestion />
-    <!-- <div class="slogan-area">
-      <Slogan :data="sloganData1" />
-    </div>
-    <MainFullImage />
-    <div class="slogan-wrap">
-      <Slogan :data="sloganData2" />
-    </div>
-    <SlotMachine
-      ref="slot"
-      :flag.sync="scroll.slot.flag"
-      :start.sync="scroll.slot.start"
-      :end.sync="scroll.slot.end"
-    />
-    <div class="slogan-wrap">
-      <Slogan :data="sloganData3" />
-    </div>
-    <InnovationList
-      ref="innovation"
-      :flag.sync="scroll.innovation.flag"
-      :start.sync="scroll.innovation.start"
-      :end.sync="scroll.innovation.end"
-    /> -->
-    <TeamBrain />
-    <BrainGoal />
+    <Whatwedo />
+    <PublicationList />
+    <InnovationVision />
     <TextFlow />
-    <!-- <ArchiveList />-->
   </div>
 </template>
 <script>
   import { mapState } from 'vuex'
   import mixinGlobal from '@/mixin/global.js'
   import IssueSlider from '@/components/pages/main/IssueSlider'
-  import UnthinkableQuestion from '@/components/pages/main/UnthinkableQuestion'
+  import Whatwedo from '@/components/pages/main/Whatwedo'
   import TextFlow from '@/components/pages/main/TextFlow'
   import Slogan from '@/components/pages/main/Slogan'
   import MainFullImage from '@/components/pages/main/MainFullImage'
   import SlotMachine from '@/components/pages/main/SlotMachine'
   import InnovationList from '@/components/pages/main/InnovationList'
-  import BrainGoal from '@/components/pages/main/BrainGoal'
+  import InnovationVision from '@/components/pages/main/InnovationVision'
   import ArchiveList from '@/components/pages/main/ArchiveList'
-  import TeamBrain from '@/components/pages/main/TeamBrain'
+  import PublicationList from '@/components/pages/main/PublicationList'
   export default {
     mixins: [mixinGlobal],
     components: {
       IssueSlider,
-      UnthinkableQuestion,
+      Whatwedo,
       TextFlow,
       Slogan,
       MainFullImage,
       SlotMachine,
       InnovationList,
-      BrainGoal,
+      InnovationVision,
       ArchiveList,
-      TeamBrain
+      PublicationList
     },
     head() {
       return {
@@ -394,9 +371,9 @@
   @include tablet {
     .main {
       padding-top: 200px;
-      margin-bottom: 400px;
+      margin-bottom: 300px;
       .question {
-        margin-top: 400px;
+        margin-top: 200px;
       }
       .slogan-wrap {
         margin-top: 400px;
@@ -420,7 +397,7 @@
       padding-top: 96px;
       margin-bottom: 200px;
       .question {
-        margin-top: 140px;
+        margin-top: 200px;
       }
       .slogan-wrap {
         margin-top: 240px;

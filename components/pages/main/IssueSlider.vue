@@ -157,6 +157,7 @@
       async setBreadcrumb(category1, category2) {
         this.breadcrumb = []
         let subClass = ''
+
         const info = await this.getNickName({
           category1,
           category2
@@ -178,7 +179,7 @@
       },
       envVariable(url) {
         const imageUrl = `${this.$config.baseURL}${url}`
-        console.log('Image URL:', imageUrl)
+
         return imageUrl
       }
     }

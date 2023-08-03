@@ -624,7 +624,7 @@
           }
           .vision-list {
             width: 110px;
-            transform: translate(150%, -60%);
+            transform: translate(10%, -50%);
             z-index: -1;
             .list-con {
               img {

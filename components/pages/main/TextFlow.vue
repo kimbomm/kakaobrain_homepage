@@ -1,6 +1,12 @@
 <template>
   <div class="textflow">
-    <vue-marquee-slider id="marquee-slider" :speed="30000" v-if="data.length">
+    <vue-marquee-slider
+      id="marquee-slider"
+      :speed="45000"
+      :width="300"
+      :space="getSliderSpace()"
+      v-if="data.length"
+    >
       <div class="textbox" v-for="(item, index) in data" :key="index">
         <p class="txt">{{ item.contentKR }}</p>
       </div>
@@ -16,14 +22,19 @@
   export default {
     data() {
       return {
-        data: []
+        data: [],
+        refresh: 0
       }
     },
     computed: {
       ...mapState(['language', 'device'])
     },
     async mounted() {
+      window.addEventListener('resize', this.getSliderSpace)
       await this.init()
+    },
+    destroyed() {
+      window.removeEventListener('resize', this.getSliderSpace)
     },
 
     methods: {
@@ -38,6 +49,35 @@
         })
 
         this.data = res.data.list
+      },
+
+      getSliderSpace() {
+        this.refresh += 1
+        this.windowWidth = window.innerWidth
+        if (this.windowWidth > 1360) {
+          console.log(1360)
+          return 200
+        } else if (this.windowWidth >= 2560) {
+          console.log(2560)
+          return 270
+        } else if (this.windowWidth > 3840) {
+          console.log(3850)
+          return 400
+        } else if (this.windowWidth > 1024) {
+          console.log(1024)
+          return 200
+        } else if (this.windowWidth > 768) {
+          console.log(768)
+          return 120
+        } else if (this.windowWidth > 374) {
+          console.log(374)
+          return 120
+        } else if (this.windowWidth < 374) {
+          console.log(40)
+          return 40
+        } else {
+          return 200
+        }
       }
     }
   }
@@ -82,6 +122,7 @@
   //min-width:2560px
   @include pc-large {
     .textflow {
+      position: relative;
       width: 12654px;
       height: 264px;
       margin-top: 340px;
@@ -109,6 +150,7 @@
 
       #marquee-slider {
         .textbox {
+          margin-right: 300px;
           width: 600px;
           height: 400px;
           .txt {
@@ -119,12 +161,59 @@
       }
     }
   }
-  //max-width: 768px
+  //max-width: 1024px
   @include tablet {
+    .textflow {
+      width: 6090px;
+      height: 198px;
+      margin-top: 150px;
+
+      #marquee-slider {
+        .textbox {
+          height: 198px;
+          .txt {
+            font-size: 40px;
+          }
+        }
+      }
+    }
   }
-  //max-width: 374px
+  //max-width: 768px
   @include mobile {
+    .textflow {
+      width: 6090px;
+      height: 198px;
+      margin-top: 150px;
+      margin-bottom: px;
+      #marquee-slider {
+        .textbox {
+          height: 198px;
+          .txt {
+            font-size: 40px;
+          }
+        }
+      }
+    }
   }
   @include mobile-small {
+    .textflow {
+      width: 3769px;
+      height: 99px;
+      margin-top: 125px;
+      margin-bottom: 140px;
+
+      #marquee-slider {
+        .textbox {
+          width: 200px;
+          height: auto;
+
+          .txt {
+            width: 200px;
+            height: auto;
+            font-size: 30px;
+          }
+        }
+      }
+    }
   }
 </style>
