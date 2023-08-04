@@ -109,8 +109,8 @@ const menus = [
         category: 'brain',
         nick: 'Brain Cloud',
         name: 'Brain Cloud',
-        link: '/contents/tech/brain_cloud',
-        target: ''
+        link: 'https://cloud.kakaobrain.com/',
+        target: '_blank'
       },
       {
         category: 'large',
