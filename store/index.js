@@ -120,6 +120,7 @@ export const actions = {
   },
   getNickName({ state }, payload) {
     const menu = state.menus.filter(menu => menu.category === payload.category1)
+
     const sub = menu[0].sub.filter(item => item.category === payload.category2)
     return {
       category1: menu[0],

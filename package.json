@@ -33,7 +33,8 @@
     "swiper": "^5.3.7",
     "uuid": "^9.0.0",
     "vue-awesome-swiper": "^4.1.1",
-    "vue-device-detector": "^1.1.6"
+    "vue-device-detector": "^1.1.6",
+    "vue-marquee-slider": "^1.0.6"
   },
   "devDependencies": {
     "@nuxtjs/google-analytics": "^2.4.0",

@@ -16,6 +16,7 @@
             v-for="(menu, index) in menus"
             :key="`menu-${index}`"
             :class="`animation delay-${index} ${isAnimation ? 'fade-up' : ''}`"
+            v-if="index < 5"
           >
             <button
               :class="`${
@@ -50,7 +51,7 @@
           </li>
         </ul>
 
-        <div class="etc-menu">
+        <!-- <div class="etc-menu">
           <a
             href="https://careers.kakaobrain.com/"
             target="_blank"
@@ -61,7 +62,7 @@
           >
             Careers
           </a>
-        </div>
+        </div> -->
 
         <MobMenuFooter @onClose="onClose" />
       </div>

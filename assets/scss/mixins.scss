@@ -11,7 +11,12 @@
   }
 }
 @mixin pc-middle {
-  @media screen and (max-width: 1440px) {
+  @media screen and (max-width: 1360px) {
+    @content;
+  }
+}
+@mixin pc-desktop {
+  @media screen and (min-width: 1361px) {
     @content;
   }
 }
@@ -28,6 +33,14 @@
     @content;
   }
   @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+@mixin mobile-small {
+  .device-mobile {
+    @content;
+  }
+  @media screen and (max-width: 374px) {
     @content;
   }
 }

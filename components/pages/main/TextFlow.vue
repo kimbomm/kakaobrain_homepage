@@ -1,316 +1,217 @@
 <template>
-  <div ref="flow" class="flow">
-    <div ref="backgroundFlow" class="background-flow">
-      <div>
-        <div class="flow-txt ani__left">
-          <span>Our core Value →</span>
-          <MainEasterEgg :order="0" :sec="5000" />
-          <span>¹Outstanding</span>
-          <MainEasterEgg :order="1" :sec="6000" />
-          <span>²actualized</span>
-          <MainEasterEgg :order="2" :sec="7000" />
-          <span>³open</span>
-          <MainEasterEgg :order="3" :sec="5000" />
-          <span>⁴impactful</span>
-        </div>
-        <div class="flow-txt ani__left">
-          <span>Our core Value →</span>
-          <MainEasterEgg :order="0" :sec="5000" />
-          <span>¹Outstanding</span>
-          <MainEasterEgg :order="1" :sec="6000" />
-          <span>²actualized</span>
-          <MainEasterEgg :order="2" :sec="7000" />
-          <span>³open</span>
-          <MainEasterEgg :order="3" :sec="5000" />
-          <span>⁴impactful</span>
-        </div>
+  <div class="textflow">
+    <vue-marquee-slider
+      id="marquee-slider"
+      :speed="45000"
+      :width="300"
+      :space="getSliderSpace()"
+      v-if="data.length"
+    >
+      <div class="textbox" v-for="(item, index) in data" :key="index">
+        <p class="txt">{{ item.contentKR }}</p>
       </div>
-      <div>
-        <div class="flow-txt ani__right">
-          <span>
-            clr agent learning video qa video understanding multi-modal
-            understanding gm
-          </span>
-        </div>
-        <div class="flow-txt ani__right">
-          <span>
-            clr agent learning video qa video understanding multi-modal
-            understanding gm
-          </span>
-        </div>
-      </div>
-      <div>
-        <div class="flow-txt ani__left">
-          <span>
-            largescale / kogpt engpt align/clip dall-e digital human pose api
-            facetalk bg blur
-          </span>
-        </div>
-        <div class="flow-txt ani__left">
-          <span>
-            largescale / kogpt engpt align/clip dall-e digital human pose api
-            facetalk bg blur
-          </span>
-        </div>
-      </div>
-    </div>
-    <div ref="list" class="article-list">
-      <template v-for="(item, index) in list">
-        <Content
-          :key="index"
-          :data="item"
-          :order="item.contentProp.position.order"
-          :grid="item.contentProp.position.width"
-        />
-      </template>
-    </div>
+    </vue-marquee-slider>
   </div>
 </template>
+
 <script>
-  import { mapState, mapActions } from 'vuex'
-  import MainEasterEgg from '@/components/pages/main/MainEasterEgg'
-  import Content from '@/components/pages/main/Content'
+  import Vue from 'vue'
+  import VueMarqueeSlider from 'vue-marquee-slider'
+  import { mapActions, mapState } from 'vuex'
+  Vue.use(VueMarqueeSlider)
   export default {
-    components: {
-      Content,
-      MainEasterEgg
-    },
     data() {
       return {
-        list: []
+        data: [],
+        refresh: 0
       }
     },
     computed: {
-      ...mapState({
-        language: state => state.language
-      })
+      ...mapState(['language', 'device'])
     },
     async mounted() {
+      window.addEventListener('resize', this.getSliderSpace)
       await this.init()
-      await this.scrollBody.addEventListener('scroll', this.onScroll)
     },
-    beforeDestroy() {
-      this.scrollBody.removeEventListener('scroll', this.onScroll)
+    destroyed() {
+      window.removeEventListener('resize', this.getSliderSpace)
     },
+
     methods: {
-      ...mapActions({
-        getMainGridList: 'getMainGridList'
-      }),
+      ...mapActions(['getLibraryCategory']),
       async init() {
-        const res = await this.getMainGridList({
-          targetLang: this.language
-        })
-        this.list = res.data.list
-      },
-      onScroll(e) {
-        const ref = this.$refs['flow']
-        const refList = this.$refs['list']
-        const refFlow = this.$refs['backgroundFlow']
-        let top = 0
-        if (
-          this.scrollBody.scrollTop + window.innerHeight / 2 >=
-            ref.offsetTop + refList.offsetTop + refFlow.offsetHeight / 2 &&
-          refFlow.offsetTop + refFlow.offsetHeight <=
-            refList.offsetTop + refList.offsetHeight
-        ) {
-          top =
-            this.scrollBody.scrollTop +
-            window.innerHeight / 2 -
-            (ref.offsetTop + refList.offsetTop + refFlow.offsetHeight / 2) +
-            refList.offsetTop
-          if (
-            top + refFlow.offsetHeight >
-            refList.offsetTop + refList.offsetHeight
-          ) {
-            top =
-              refList.offsetTop + refList.offsetHeight - refFlow.offsetHeight
-            refFlow.style = `position:absolute; top: ${top}px; transform: translateY(0)`
-          } else {
-            refFlow.style = ''
-            refFlow.classList.add('scrolled')
+        const res = await this.getLibraryCategory({
+          category: 'rollingText',
+          params: {
+            offset: 0,
+            limit: 99
           }
-        } else if (this.scrollBody.scrollTop < this.$refs['flow'].offsetTop) {
-          refFlow.style = ''
-          refFlow.classList.remove('scrolled')
+        })
+
+        this.data = res.data.list
+      },
+
+      getSliderSpace() {
+        this.refresh += 1
+        this.windowWidth = window.innerWidth
+        if (this.windowWidth > 1360) {
+          console.log(1360)
+          return 200
+        } else if (this.windowWidth >= 2560) {
+          console.log(2560)
+          return 270
+        } else if (this.windowWidth > 3840) {
+          console.log(3850)
+          return 400
+        } else if (this.windowWidth > 1024) {
+          console.log(1024)
+          return 200
+        } else if (this.windowWidth > 768) {
+          console.log(768)
+          return 120
+        } else if (this.windowWidth > 374) {
+          console.log(374)
+          return 120
+        } else if (this.windowWidth < 374) {
+          console.log(40)
+          return 40
+        } else {
+          return 200
         }
       }
     }
   }
 </script>
-<style lang="scss" scoped>
-  .flow {
-    position: relative;
-    padding: 510px 0;
-  }
-  .background-flow {
-    position: absolute;
-    left: 0;
-    transition: top linear;
-    > div {
-      width: 100%;
-      display: inline-block;
-      vertical-align: middle;
-      white-space: nowrap;
-      &:nth-child(1) {
-        .flow-txt {
-          font-weight: 600;
-          color: $surface-1;
-          text-shadow: -1px -1px 0 $kakao-black, 1px -1px 0 $kakao-black,
-            -1px 1px 0 $kakao-black, 1px 1px 0 $kakao-black;
-        }
-      }
-      &:nth-child(2) {
-        font-weight: 400;
-        color: $kakao-black;
-        .flow-txt {
-          animation-duration: 100s;
-          &:nth-child(2) {
-            animation-delay: 50s;
-          }
-        }
-      }
-      &:nth-child(3) {
-        font-weight: 100;
-        color: $kakao-black;
-      }
-    }
-    &.scrolled {
-      position: fixed;
-      top: 50%;
-      transform: translateY(-50%);
 
-      > div {
-        &:nth-child(1) {
-          .flow-txt {
-            text-shadow: -1px -1px 0 $surface-4, 1px -1px 0 $surface-4,
-              -1px 1px 0 $surface-4, 1px 1px 0 $surface-4;
+<style lang="scss" scoped>
+  .textflow {
+    width: 9451px;
+    height: 198px;
+    margin-top: 236px;
+    margin-bottom: 300px;
+    #marquee-slider {
+      .textbox {
+        height: 198px;
+        .txt {
+          color: var(--black, #000);
+          font-family: Noto Sans KR;
+          font-size: 45px;
+          font-style: normal;
+          font-weight: 900;
+          line-height: 110%;
+        }
+      }
+    }
+  }
+  //min-width: 1361px
+  @include pc-desktop {
+    .textflow {
+      width: 9451px;
+      height: 198px;
+      margin-top: 234px;
+      margin-bottom: 400px;
+      #marquee-slider {
+        .textbox {
+          height: 198px;
+          .txt {
           }
         }
-        &:nth-child(2),
-        &:nth-child(3) {
-          color: $surface-3;
+      }
+    }
+  }
+  //min-width:2560px
+  @include pc-large {
+    .textflow {
+      position: relative;
+      width: 12654px;
+      height: 264px;
+      margin-top: 340px;
+      margin-bottom: 540px;
+
+      #marquee-slider {
+        .textbox {
+          width: 430px;
+          height: 400px;
+          .txt {
+            width: 430px;
+            font-size: 60px;
+          }
         }
       }
     }
   }
-  .flow-txt {
-    &:nth-child(2) {
-      animation-delay: 50s;
-      animation-duration: 100s;
-      &.ani__left {
-        animation-name: ani-left2;
-      }
-      &.ani__right {
-        animation-name: ani-right2;
-      }
-    }
-    font-size: 180px;
-    width: auto;
-    display: inline-flex;
-    flex-wrap: nowrap;
-    white-space: nowrap;
-    align-items: center;
-    animation-duration: 100s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-    transition: text-shadow 0.5s linear, color 0.5s linear;
-    &.ani__left {
-      animation-name: ani-left;
-    }
-    &.ani__right {
-      animation-name: ani-right;
-    }
-    .easter-egg {
-      flex: 0 0 190px;
-      height: 190px;
-    }
-    > span {
-      text-transform: uppercase;
-    }
-  }
-  .article-list {
-    padding: {
-      top: 550px;
-      left: 20px;
-      right: 20px;
-    }
-    position: relative;
-    z-index: 1;
-    .article {
-      margin-top: 370px;
-    }
-  }
-  @include pc-large {
-    .flow {
-      padding: 1004px 0;
-    }
-    .article-list {
-      padding-top: 700px;
-      .article {
-        margin-top: 460px;
-      }
-    }
-    .flow-txt {
-      font-size: 230px;
-      .easter-egg {
-        flex: 0 0 240px;
-        height: 240px;
-      }
-    }
-  }
+  //min-width: 3840px
   @include pc-4k {
-    .flow {
-      padding: 1545px 0;
-    }
-    .article-list {
-      padding-top: 840px;
-      .article {
-        margin-top: 770px;
-      }
-    }
-    .flow-txt {
-      font-size: 270px;
-      .easter-egg {
-        flex: 0 0 300px;
-        height: 300px;
+    .textflow {
+      width: 18897px;
+      height: 400px;
+      margin-top: 340px;
+      margin-bottom: 500px;
+
+      #marquee-slider {
+        .textbox {
+          margin-right: 300px;
+          width: 600px;
+          height: 400px;
+          .txt {
+            width: 600px;
+            font-size: 80px;
+          }
+        }
       }
     }
   }
+  //max-width: 1024px
   @include tablet {
-    .flow {
-      padding: 407px 0;
-    }
-    .article-list {
-      padding-top: 366px;
-      .article {
-        margin-top: 164px;
-      }
-    }
-    .flow-txt {
-      font-size: 120px;
-      .easter-egg {
-        flex: 0 0 126px;
-        height: 126px;
+    .textflow {
+      width: 6090px;
+      height: 198px;
+      margin-top: 150px;
+
+      #marquee-slider {
+        .textbox {
+          height: 198px;
+          .txt {
+            font-size: 40px;
+          }
+        }
       }
     }
   }
+  //max-width: 768px
   @include mobile {
-    .flow {
-      padding: 245px 0;
-    }
-    .flow-txt {
-      font-size: 50px;
-      .easter-egg {
-        flex: 0 0 60px;
-        height: 60px;
+    .textflow {
+      width: 6090px;
+      height: 198px;
+      margin-top: 150px;
+      margin-bottom: px;
+      #marquee-slider {
+        .textbox {
+          height: 198px;
+          .txt {
+            font-size: 40px;
+          }
+        }
       }
     }
-    .article-list {
-      padding-top: 150px;
-      .article {
-        margin-top: 70px;
-        &[class*='l-ml'] {
-          margin-left: 0 !important;
+  }
+  @include mobile-small {
+    .textflow {
+      width: 3769px;
+      height: 99px;
+      margin-top: 125px;
+      margin-bottom: 140px;
+
+      #marquee-slider {
+        .textbox {
+          width: 200px;
+          height: auto;
+
+          .txt {
+            width: 200px;
+            height: auto;
+            font-size: 30px;
+          }
         }
       }
     }
