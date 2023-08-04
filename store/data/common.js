@@ -20,9 +20,9 @@ const menus = [
         target: ''
       },
       {
-        category: 'edit',
-        nick: 'EDIT',
-        name: 'EDIT',
+        category: 'Karlo',
+        nick: 'Karlo',
+        name: 'Karlo',
         link: 'https://bedit.kakaobrain.com',
         target: '_blank'
       }
