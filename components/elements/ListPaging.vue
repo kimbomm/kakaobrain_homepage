@@ -232,6 +232,28 @@
       }
     }
   }
+  @include pc-middle {
+    .paging {
+      &-prev {
+        margin-right: 10px;
+        font-size: 16px;
+      }
+      &-next {
+        margin-left: 10px;
+        font-size: 16px;
+      }
+      &-num {
+        li {
+          &:not(:last-child) {
+            margin-right: 10px;
+          }
+        }
+        .link {
+          font-size: 16px;
+        }
+      }
+    }
+  }
 
   @include tablet {
     .paging {

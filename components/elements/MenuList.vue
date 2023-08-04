@@ -96,7 +96,7 @@
     .item-box {
       .item {
         display: inline-block;
-        font-size: 12px;
+        font-size: 20px;
         line-height: 130%;
         &:not(:last-child) {
           margin-right: 10px;
@@ -104,7 +104,7 @@
       }
     }
     .list-date {
-      font-size: 12px;
+      font-size: 20px;
       line-height: 130%;
       &::before {
         content: '@';
@@ -112,7 +112,6 @@
       }
     }
   }
-
   @include pc-large {
     .menu-thumbnail > div {
       height: 146px;
@@ -127,11 +126,11 @@
     .tag {
       .item-box {
         .item {
-          font-size: 16px;
+          font-size: 24px;
         }
       }
       .list-date {
-        font-size: 16px;
+        font-size: 24px;
       }
     }
   }
@@ -148,11 +147,11 @@
     .tag {
       .item-box {
         .item {
-          font-size: 24px;
+          font-size: 44px;
         }
       }
       .list-date {
-        font-size: 24px;
+        font-size: 44px;
       }
     }
   }
@@ -161,6 +160,18 @@
     .list-data {
       .tit {
         font-size: 22px;
+      }
+    }
+  }
+  @include pc-middle {
+    .tag {
+      .item-box {
+        .item {
+          font-size: 18px;
+        }
+      }
+      .list-date {
+        font-size: 18px;
       }
     }
   }
