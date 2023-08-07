@@ -4,7 +4,6 @@
       id="marquee-slider"
       :speed="45000"
       :width="300"
-      :space="getSliderSpace()"
       v-if="data.length"
     >
       <div class="textbox" v-for="(item, index) in data" :key="index">
@@ -49,36 +48,36 @@
         })
 
         this.data = res.data.list
-      },
-
-      getSliderSpace() {
-        this.refresh += 1
-        this.windowWidth = window.innerWidth
-        if (this.windowWidth > 1360) {
-          console.log(1360)
-          return 200
-        } else if (this.windowWidth >= 2560) {
-          console.log(2560)
-          return 270
-        } else if (this.windowWidth > 3840) {
-          console.log(3850)
-          return 400
-        } else if (this.windowWidth > 1024) {
-          console.log(1024)
-          return 200
-        } else if (this.windowWidth > 768) {
-          console.log(768)
-          return 120
-        } else if (this.windowWidth > 374) {
-          console.log(374)
-          return 120
-        } else if (this.windowWidth < 374) {
-          console.log(40)
-          return 40
-        } else {
-          return 200
-        }
       }
+
+      // getSliderSpace() {
+      //   this.refresh += 1
+      //   this.windowWidth = window.innerWidth
+      //   if (this.windowWidth > 1360) {
+      //     console.log(1360)
+      //     return 200
+      //   } else if (this.windowWidth >= 2560) {
+      //     console.log(2560)
+      //     return 270
+      //   } else if (this.windowWidth > 3840) {
+      //     console.log(3850)
+      //     return 400
+      //   } else if (this.windowWidth > 1024) {
+      //     console.log(1024)
+      //     return 200
+      //   } else if (this.windowWidth > 768) {
+      //     console.log(768)
+      //     return 120
+      //   } else if (this.windowWidth > 374) {
+      //     console.log(374)
+      //     return 120
+      //   } else if (this.windowWidth < 374) {
+      //     console.log(40)
+      //     return 40
+      //   } else {
+      //     return 200
+      //   }
+      // }
     }
   }
 </script>
@@ -182,9 +181,10 @@
   @include mobile {
     .textflow {
       width: 6090px;
-      height: 198px;
-      margin-top: 150px;
-      margin-bottom: px;
+      height: auto;
+      margin-top: 220px;
+      margin-bottom: 249;
+
       #marquee-slider {
         .textbox {
           height: 198px;
