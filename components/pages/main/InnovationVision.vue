@@ -175,7 +175,7 @@
 
         .text {
           width: 100%;
-          background-color: red;
+
           display: flex;
           justify-content: space-between;
 
