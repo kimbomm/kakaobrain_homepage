@@ -1,7 +1,7 @@
 <template>
-  <div class="question gl-8">
+  <div class="question gl-6 l-ml-2">
     <div class="silk">
-      <div class="uq-text gl-8" style="position: relative">
+      <div class="uq-text" style="position: relative">
         <img
           src="@/assets/images/Whatwedo.svg"
           alt="whatwedo"
@@ -132,9 +132,12 @@
 <style lang="scss" scoped>
   //max-width: 1440px
   .question {
-    margin-left: 268px;
-
-    // margin: 0;
+    &.gl-6 {
+      width: getWidth(6) !important;
+    }
+    &.l-ml-2 {
+      margin-left: getMargin(2) !important;
+    }
     .silk {
       position: relative;
       .uq-text {
@@ -154,7 +157,6 @@
     }
     .container {
       margin-top: 100px;
-      width: 784px;
 
       .wedobox {
         .imgbox {
@@ -868,15 +870,24 @@
 
   @media screen and (min-width: 5120px) {
     .question.gl-8 {
-      width: getWidth(7) !important;
-      margin-left: getMargin(2);
+      &.gl-6 {
+        width: getWidth(6) !important;
+      }
+      &.l-ml-2 {
+        margin-left: getMargin(2) !important;
+      }
     }
   }
 
   @include tablet {
     //max-width: 1024px
     .question {
-      margin-left: 221px;
+      &.gl-6 {
+        width: getWidth(8) !important;
+      }
+      &.l-ml-2 {
+        margin-left: getMargin(2) !important;
+      }
       .silk {
         position: relative;
         .uq-text {
@@ -1021,8 +1032,12 @@
   @include mobile {
     //max-width: 768px
     .question {
-      margin-left: 170px;
-      margin-top: 200px;
+      &.gl-6 {
+        width: getWidth(6) !important;
+      }
+      &.l-ml-2 {
+        margin-left: getMargin(2) !important;
+      }
       .silk {
         position: relative;
         .uq-text {
@@ -1154,7 +1169,12 @@
   @include mobile-small {
     //max-width: 374px
     .question {
-      margin-left: 53px;
+      &.gl-6 {
+        width: getWidth(9) !important;
+      }
+      &.l-ml-2 {
+        margin-left: getMargin(1.5) !important;
+      }
       .silk {
         position: relative;
         .uq-text {

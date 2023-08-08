@@ -1,5 +1,5 @@
 <template>
-  <div class="issue-slider">
+  <div class="issue-slider gl-8 l-ml-2">
     <div v-if="list.length > 0" ref="issue" class="issue">
       <div>
         <nuxt-link
@@ -186,81 +186,59 @@
   }
 </script>
 <style lang="scss" scoped>
-  .fade {
-    display: inline-block;
-    transition: all 0.2s linear;
-  }
-  .fade-enter,
-  .fade-leave-to {
-    opacity: 0;
-    transform: translateY(5%);
-  }
-  .only-fade-enter,
-  .only-fade-leave-to {
-    opacity: 0;
-  }
   .issue-slider {
+    // max-width: 1360px;
+    // margin-left: 268px;
+    &.gl-8 {
+      width: getWidth(8) !important;
+    }
+    &.l-ml-2 {
+      margin-left: getMargin(2) !important;
+    }
+
     .issue {
       position: relative;
-      width: 1052px;
-      height: 410px;
-      left: 268px;
 
-      border-radius: 20px;
+      height: 410px;
+
       .thumbnail {
-        width: 1052px;
         height: 410px;
         border-radius: 20px;
         border: solid;
       }
-      .text {
-        width: 918px;
+    }
+    .text {
+      width: 918px;
+      padding-top: 30px;
+      .title {
+        color: var(--black, #000);
+        font-family: Noto Sans KR;
+        font-size: 30px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 120%; /* 36px */
+      }
 
-        padding-top: 30px;
-        .title {
-          color: var(--black, #000);
-          font-family: Noto Sans KR;
-          font-size: 30px;
-          font-style: normal;
-          font-weight: 700;
-          line-height: 120%; /* 36px */
-        }
-
-        .subtitle {
-          padding-top: 20px;
-          color: var(--black, #000);
-          font-family: Noto Sans KR;
-          font-size: 16px;
-          font-style: normal;
-          font-weight: 400;
-          line-height: 150%; /* 24px */
-        }
+      .subtitle {
+        padding-top: 20px;
+        color: var(--black, #000);
+        font-family: Noto Sans KR;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 150%; /* 24px */
       }
     }
   }
 
   @include pc-desktop {
-    .fade {
-      display: inline-block;
-      transition: all 0.2s linear;
-    }
-    .fade-enter,
-    .fade-leave-to {
-      opacity: 0;
-      transform: translateY(5%);
-    }
-    .only-fade-enter,
-    .only-fade-leave-to {
-      opacity: 0;
-    }
     .issue-slider {
       .issue {
-        width: 1500px;
+        width: 100%;
         height: 590px;
-        left: 400px;
 
         .thumbnail {
-          width: 1500px;
+          width: 100%;
           height: 590px;
         }
         .text {
@@ -280,11 +258,10 @@
   @include pc-large {
     .issue-slider {
       .issue {
-        width: 2012px;
-        left: 528px;
-
+        width: 100%;
+        height: 790px;
         .thumbnail {
-          width: 2012px;
+          width: 100%;
           height: 790px;
         }
         .text {
@@ -305,11 +282,11 @@
   @include pc-4k {
     .issue-slider {
       .issue {
-        width: 3036px;
-        left: 784px;
+        width: 100%;
+        height: 784px;
 
         .thumbnail {
-          width: 3036px;
+          width: 100%;
           height: 784px;
         }
         .text {
@@ -327,9 +304,14 @@
     }
   }
 
-  @media screen and (max-width: 1600px) {
-    .issue-navi .cur-page {
-      font-size: 36px;
+  @media screen and (min-width: 5120px) {
+    .issue-slider {
+      &.gl-8 {
+        width: getWidth(8) !important;
+      }
+      &.l-ml-2 {
+        margin-left: getMargin(2) !important;
+      }
     }
   }
 
@@ -337,11 +319,11 @@
     //max-width:1024px
     .issue-slider {
       .issue {
-        width: 783px;
-        left: 221px;
+        width: 100%;
+        height: 380px;
 
         .thumbnail {
-          width: 783px;
+          width: 100%;
           height: 380px;
         }
         .text {
@@ -361,11 +343,11 @@
   @include mobile {
     .issue-slider {
       .issue {
-        width: 578px;
-        left: 170px;
+        width: 100%;
+        height: 380px;
 
         .thumbnail {
-          width: 578px;
+          width: 100%;
           height: 380px;
         }
         .text {
@@ -386,12 +368,18 @@
 
   @include mobile-small {
     .issue-slider {
+      &.gl-8 {
+        width: getWidth(9) !important;
+      }
+      &.l-ml-2 {
+        margin-left: getMargin(1.5) !important;
+      }
       .issue {
-        width: 287px;
-        left: 53px;
+        width: 100%;
+        height: 380px;
 
         .thumbnail {
-          width: 287px;
+          width: 100%;
           height: 380px;
         }
         .text {

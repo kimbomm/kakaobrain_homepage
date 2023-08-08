@@ -382,35 +382,33 @@
       }
       &-item {
         ul {
-          width: 474px;
-          padding: 12px 40px;
+          width: auto;
+          padding: 12px 50px;
 
-          li {
-            margin-right: 50px;
-          }
           a {
             font-size: 20px;
           }
         }
       }
     }
-    .menu-item {
-      .txt {
-        font-size: 22px;
-      }
-    }
-    .common-menu {
-      margin-left: 36px;
-      button {
-        width: 26px;
-        height: 26px;
-      }
-      a.tag-link {
-        padding: 6px 14px;
-        font-size: 14px;
-      }
+  }
+  .menu-item {
+    .txt {
+      font-size: 22px;
     }
   }
+  .common-menu {
+    margin-left: 36px;
+    button {
+      width: 26px;
+      height: 26px;
+    }
+    a.tag-link {
+      padding: 6px 14px;
+      font-size: 14px;
+    }
+  }
+
   @include pc-4k {
     .menu {
       > .menu {
@@ -421,9 +419,6 @@
           width: 732px;
           padding: 16px 60px;
 
-          li {
-            margin-right: 60px;
-          }
           a {
             font-size: 34px;
           }

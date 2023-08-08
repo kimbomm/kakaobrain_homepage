@@ -1,9 +1,10 @@
 <template>
-  <div class="textflow">
+  <div class="textflow" :key="refresh">
     <vue-marquee-slider
       id="marquee-slider"
       :speed="45000"
-      :width="300"
+      :width="350"
+      :space="getSliderSpace()"
       v-if="data.length"
     >
       <div class="textbox" v-for="(item, index) in data" :key="index">
@@ -22,15 +23,16 @@
     data() {
       return {
         data: [],
-        refresh: 0
+        refresh: 0,
+        previousSpace: null
       }
     },
     computed: {
       ...mapState(['language', 'device'])
     },
     async mounted() {
-      window.addEventListener('resize', this.getSliderSpace)
       await this.init()
+      window.addEventListener('resize', this.getSliderSpace)
     },
     destroyed() {
       window.removeEventListener('resize', this.getSliderSpace)
@@ -48,36 +50,33 @@
         })
 
         this.data = res.data.list
-      }
+      },
 
-      // getSliderSpace() {
-      //   this.refresh += 1
-      //   this.windowWidth = window.innerWidth
-      //   if (this.windowWidth > 1360) {
-      //     console.log(1360)
-      //     return 200
-      //   } else if (this.windowWidth >= 2560) {
-      //     console.log(2560)
-      //     return 270
-      //   } else if (this.windowWidth > 3840) {
-      //     console.log(3850)
-      //     return 400
-      //   } else if (this.windowWidth > 1024) {
-      //     console.log(1024)
-      //     return 200
-      //   } else if (this.windowWidth > 768) {
-      //     console.log(768)
-      //     return 120
-      //   } else if (this.windowWidth > 374) {
-      //     console.log(374)
-      //     return 120
-      //   } else if (this.windowWidth < 374) {
-      //     console.log(40)
-      //     return 40
-      //   } else {
-      //     return 200
-      //   }
-      // }
+      getSliderSpace() {
+        this.windowWidth = window.innerWidth
+        let space = 200
+        if (this.windowWidth > 3840) {
+          space = 400
+        } else if (this.windowWidth > 2560) {
+          space = 270
+        } else if (this.windowWidth > 1360) {
+          space = 200
+        } else if (this.windowWidth > 1024) {
+          space = 200
+        } else if (this.windowWidth > 768) {
+          space = 120
+        } else if (this.windowWidth > 374) {
+          space = 120
+        } else if (this.windowWidth < 374) {
+          space = 40
+        }
+        if (space !== this.previousSpace) {
+          this.previousSpace = space
+          this.refresh += 1
+        }
+
+        return space
+      }
     }
   }
 </script>
@@ -165,7 +164,7 @@
     .textflow {
       width: 6090px;
       height: 198px;
-      margin-top: 150px;
+      top: 4599px;
 
       #marquee-slider {
         .textbox {
@@ -199,7 +198,7 @@
     .textflow {
       width: 3769px;
       height: 99px;
-      margin-top: 125px;
+      top: 4308px;
       margin-bottom: 140px;
 
       #marquee-slider {

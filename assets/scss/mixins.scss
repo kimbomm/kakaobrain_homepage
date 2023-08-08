@@ -5,6 +5,11 @@
     @content;
   }
 }
+@mixin pc-5k {
+  @media screen and (min-width: 5120px) {
+    @content;
+  }
+}
 @mixin pc-large {
   @media screen and (min-width: 2560px) {
     @content;

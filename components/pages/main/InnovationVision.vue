@@ -1,15 +1,15 @@
 <template>
-  <div class="innovation">
+  <div class="innovation gl-10">
     <div class="gl-6">
-      <div class="content" width="100%">
-        <div class="head">
-          <div class="title" v-html="headtitle[language][0]"></div>
-          <div class="subtitle" v-html="headsubtitle[language][0]"></div>
-          <a>
-            <p class="unthink">
+      <div class="content l-pl-2">
+        <div class="head gl-8">
+          <div class="text">
+            <div class="title" v-html="headtitle[language][0]"></div>
+            <div class="unthink">
               Unthinkable<br />Question<br />makes<br />impactful<br />answer
-            </p>
-          </a>
+            </div>
+          </div>
+          <div class="subtitle" v-html="headsubtitle[language][0]"></div>
         </div>
         <div class="container">
           <div class="context">
@@ -30,7 +30,7 @@
           </div>
           <div class="vision-list">
             <div
-              class="list-con"
+              class="list-con l-ml-9"
               v-for="(data, index) in 4"
               :key="index"
               :data="data"
@@ -60,7 +60,7 @@
         setTime: [600, 800, 700, 600],
         headtitle: {
           KR: [`혁신은<br/>물음에서<br/>시작합니다.`],
-          EN: [`Innovation<br/>begins with<br/> a question.`]
+          EN: [`Innovation<br/>begins with a<br/> question.`]
         },
         headsubtitle: {
           KR: [
@@ -68,7 +68,7 @@
              10억 명 이상의 사람의 삶에 영향을 주는 글로벌 기술 기업입니다.`
           ],
           EN: [
-            `Kakao Brain is a global technology company that impacts the lives of more than 1 billion people <br/>
+            `Kakao Brain is a global technology company that impacts the lives of more than 1 billion people
              by solving universal problems with AI`
           ]
         },
@@ -148,31 +148,59 @@
 </script>
 <style lang="scss" scoped>
   .innovation {
-    width: 1320px;
     height: 1617px;
     top: 3896px;
-    left: 20px;
+    margin-left: 20px;
+
     border-radius: 20px;
     background: #eff1f6;
+    &.gl-10 {
+      width: getWidth(10);
+    }
 
     .content {
+      &.l-pl-2 {
+        padding-left: getMargin(2) !important;
+      }
       .head {
+        &.gl-8 {
+          width: getWidth(8) !important;
+        }
         display: flex;
-        width: 890px;
+
         flex-direction: column;
         align-items: flex-start;
         gap: 30px;
         padding-top: 300px;
-        padding-left: 268px;
 
-        .title {
-          color: var(--black, #000);
-          font-family: Noto Sans KR;
-          font-size: 70px;
-          font-style: normal;
-          font-weight: 900;
-          line-height: 110%;
-          align-self: stretch;
+        .text {
+          width: 100%;
+          background-color: red;
+          display: flex;
+          justify-content: space-between;
+
+          .title {
+            color: var(--black, #000);
+            font-family: Noto Sans KR;
+            font-size: 70px;
+            font-style: normal;
+            font-weight: 900;
+            line-height: 110%;
+          }
+
+          .unthink {
+            width: 333px;
+            height: 230px;
+            color: var(--surface-3, #e8ecf1);
+            text-align: right;
+            font-family: Inter;
+            font-size: 46px;
+            font-style: normal;
+            font-weight: 800;
+            line-height: 100%;
+
+            text-transform: uppercase;
+          }
         }
 
         .subtitle {
@@ -183,29 +211,12 @@
           font-weight: 400;
           line-height: 140%; /* 28px */
         }
-        .unthink {
-          position: absolute;
-          width: 333px;
-
-          height: 230px;
-          transform: translate(210%, -150%);
-
-          color: var(--surface-3, #e8ecf1);
-          text-align: right;
-          font-family: Inter;
-          font-size: 46px;
-          font-style: normal;
-          font-weight: 800;
-          line-height: 100%; /* 46px */
-          text-transform: uppercase;
-        }
       }
       .container {
         width: 890px;
         height: 540px;
 
         top: 160px;
-        left: 268px;
 
         .context {
           margin-bottom: 80px;
@@ -253,39 +264,34 @@
   //min-width: 1361px
   @include pc-desktop {
     .innovation {
-      width: 1880px;
       height: 1988px;
       top: 4377px;
-      left: 20px;
+      margin-left: 20px;
 
       .content {
         .head {
           width: 1120px;
-
           gap: 30px;
           padding-top: 400px;
-          padding-left: 380px;
 
-          .title {
-            font-size: 90px;
-          }
+          .text {
+            .title {
+              font-size: 90px;
+            }
+            .unthink {
+              width: 434px;
+              height: 300px;
+              font-size: 60px;
+            }
 
-          .subtitle {
-            font-size: 20px;
-          }
-          .unthink {
-            width: 434px;
-
-            height: 300px;
-            transform: translate(245%, -140%);
-
-            font-size: 60px;
+            .subtitle {
+              font-size: 20px;
+            }
           }
         }
         .container {
           width: 1120px;
           height: 540px;
-          left: 380px;
 
           .context {
             margin-bottom: 80px;
@@ -321,7 +327,6 @@
   //min-width:2560px
   @include pc-large {
     .innovation {
-      width: 2520px;
       height: 2498px;
       top: 5759px;
 
@@ -331,31 +336,30 @@
 
           gap: 40px;
           padding-top: 540px;
-          padding-left: 512px;
 
-          .title {
-            width: 1120px;
-            font-size: 120px;
-            height: 396px;
-          }
+          .text {
+            .title {
+              width: 1120px;
+              font-size: 120px;
+              height: 396px;
+            }
+            .unthink {
+              width: 564px;
 
-          .subtitle {
-            width: 990px;
-            font-size: 26px;
-          }
-          .unthink {
-            width: 564px;
+              height: 390px;
 
-            height: 390px;
-            transform: translate(255%, -140%);
+              font-size: 78px;
+            }
 
-            font-size: 78px;
+            .subtitle {
+              width: 990px;
+              font-size: 26px;
+            }
           }
         }
         .container {
           width: 1120px;
           height: 710px;
-          left: 512px;
 
           .context {
             margin-bottom: 110px;
@@ -390,7 +394,6 @@
   //min-width: 3840px
   @include pc-4k {
     .innovation {
-      width: 3800px;
       height: 3724px;
       top: 8542px;
 
@@ -400,7 +403,6 @@
 
           gap: 60px;
           padding-top: 800px;
-          padding-left: 764px;
 
           .title {
             width: 1508px;
@@ -417,14 +419,12 @@
             width: 564px;
             height: 390px;
 
-            transform: translate(435%, -220%);
             font-size: 78px;
           }
         }
         .container {
           width: 1508px;
           height: 1508px;
-          left: 764px;
 
           .context {
             margin-bottom: 170px;
@@ -457,41 +457,52 @@
       }
     }
   }
+
+  @media screen and (min-width: 5120px) {
+    .innovation {
+      &.gl-10 {
+        width: getWidth(10);
+      }
+
+      .content {
+        &.l-pl-2 {
+          padding-left: getMargin(2) !important;
+        }
+      }
+    }
+  }
   //max-width: 1024px
   @include tablet {
     .innovation {
-      width: 984px;
       height: 1372px;
       top: 3077px;
-      margin-left: 20px;
+
       .content {
         .head {
           width: 482px;
           gap: 30px;
           padding-top: 200px;
-          padding-left: 201px;
+          .text {
+            .title {
+              width: 482px;
+              font-size: 60px;
+            }
 
-          .title {
-            width: 482px;
-            font-size: 60px;
-          }
+            .subtitle {
+              width: 500px;
+              font-size: 16px;
+            }
+            .unthink {
+              width: 289px;
+              height: 200px;
 
-          .subtitle {
-            width: 500px;
-            font-size: 16px;
-          }
-          .unthink {
-            width: 289px;
-            height: 200px;
-
-            transform: translate(170%, -150%);
-            font-size: 40px;
+              font-size: 40px;
+            }
           }
         }
         .container {
           width: 583px;
           height: 516px;
-          left: 201px;
 
           .context {
             margin-bottom: 80px;
@@ -507,7 +518,6 @@
           .vision-list {
             width: 180px;
 
-            transform: translate(293%, -49%);
             z-index: -1;
             .list-con {
               img {
@@ -524,28 +534,25 @@
   //max-width: 768px
   @include mobile {
     .innovation {
-      width: 728px;
       height: 1420px;
       top: 3263px;
-      margin-left: 20px;
+
       .content {
         .head {
-          padding-left: 150px;
+          .text {
+            .title {
+            }
 
-          .title {
-          }
-
-          .subtitle {
-            width: 500px;
-          }
-          .unthink {
-            transform: translate(100%, -150%);
+            .subtitle {
+              width: 500px;
+            }
+            .unthink {
+            }
           }
         }
         .container {
           width: 503px;
           height: 588px;
-          left: 150px;
 
           .context {
             margin-bottom: 80px;
@@ -579,35 +586,43 @@
   //max-width: 374px
   @include mobile-small {
     .innovation {
-      width: 320px;
-      height: 1092px;
+      height: 1152px;
       top: 3091px;
 
       .content {
+        &.l-pl-2 {
+          padding-left: getMargin(1) !important;
+        }
         .head {
-          width: 254px;
+          &.gl-8 {
+            width: getWidth(9) !important;
+          }
+          width: 354px;
           padding-top: 140px;
-          padding-left: 33px;
-          gap: 20px;
-          .title {
-            font-size: 40px;
-            z-index: 1;
-          }
 
-          .subtitle {
-            width: 254px;
-          }
-          .unthink {
-            width: 188px;
-            height: 133px;
-            font-size: 26px;
-            transform: translate(50%, -195%);
+          gap: 20px;
+          .text {
+            .title {
+              font-size: 40px;
+              z-index: 1;
+            }
+
+            .subtitle {
+              width: 254px;
+              font-size: 12px;
+            }
+            .unthink {
+              transform: translate(-60%, 0);
+              width: 188px;
+              height: 133px;
+              font-size: 26px;
+            }
           }
         }
         .container {
           width: 254px;
           height: 472px;
-          left: 33px;
+
           top: 100px;
 
           .context {
@@ -624,7 +639,7 @@
           }
           .vision-list {
             width: 110px;
-            transform: translate(130%, -63%);
+            transform: translate(140%, -50%);
             z-index: -1;
             .list-con {
               img {
