@@ -30,7 +30,7 @@
           </div>
           <div class="vision-list">
             <div
-              class="list-con l-ml-9"
+              class="list-con"
               v-for="(data, index) in 4"
               :key="index"
               :data="data"
@@ -68,7 +68,7 @@
              10억 명 이상의 사람의 삶에 영향을 주는 글로벌 기술 기업입니다.`
           ],
           EN: [
-            `Kakao Brain is a global technology company that impacts the lives of more than 1 billion people
+            `Kakao Brain is a global technology company <br/> that impacts the lives of more than 1 billion people
              by solving universal problems with AI`
           ]
         },
@@ -517,7 +517,7 @@
           }
           .vision-list {
             width: 180px;
-
+            transform: translate(293%, -49%);
             z-index: -1;
             .list-con {
               img {

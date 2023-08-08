@@ -1,33 +1,5 @@
 const menus = [
-  // {
-  //   name: 'B^',
-  //   category: 'b',
-  //   nick: 'B^',
-  //   link: '',
-  //   sub: [
-  //     {
-  //       category: 'discover',
-  //       nick: 'DISCOVER',
-  //       name: 'DISCOVER',
-  //       link: 'https://bdiscover.kakaobrain.com/',
-  //       target: '_blank'
-  //     },
-  //     {
-  //       category: 'healthcare',
-  //       nick: 'HEALTHCARE',
-  //       name: 'HEALTHCARE',
-  //       link: '/b/healthcare',
-  //       target: ''
-  //     },
-  //     {
-  //       category: 'edit',
-  //       nick: 'EDIT',
-  //       name: 'EDIT',
-  //       link: 'https://bedit.kakaobrain.com',
-  //       target: '_blank'
-  //     }
-  //   ]
-  // },
+
   {
     name: 'About',
     category: 'about',
@@ -87,13 +59,14 @@ const menus = [
       }
     ]
   },
-  {//임시설정
+  {
     name: 'Product',
     category: 'product',
     nick: 'product',
     link: '',
     sub: [
       {
+        //임시설정
         category: 'llms',
         nick: 'LLMs',
         name: 'LLms',
@@ -104,14 +77,14 @@ const menus = [
         category: 'karlo',
         nick: 'Karlo',
         name: 'Karlo',
-        link: '/Karlo',
-        target: ''
+        link: 'https://karlo.ai/',
+        target: '_blank'
       },
       {
         category: 'healthcare',
         nick: 'Healthcare',
         name: 'Healthcare',
-        link: '/Healthcare',
+        link: '/b/healthcare',
         target: ''
       },
       {
@@ -125,7 +98,7 @@ const menus = [
   },
 
 
-  {//임시설정
+  {
     name: 'Research',
     category: 'research',
     nick: 'Research',
@@ -233,7 +206,36 @@ const menus = [
         target: ''
       }
     ]
-  }
+  },
+    {
+    name: 'B^',
+    category: 'b',
+    nick: 'B^',
+    link: '',
+    sub: [
+      {
+        category: 'discover',
+        nick: 'DISCOVER',
+        name: 'DISCOVER',
+        link: 'https://bdiscover.kakaobrain.com/',
+        target: '_blank'
+      },
+      {
+        category: 'healthcare',
+        nick: 'HEALTHCARE',
+        name: 'HEALTHCARE',
+        link: '/b/healthcare',
+        target: ''
+      },
+      {
+        category: 'edit',
+        nick: 'EDIT',
+        name: 'EDIT',
+        link: 'https://bedit.kakaobrain.com',
+        target: '_blank'
+      }
+    ]
+  },
 
 ]
 const footer = [

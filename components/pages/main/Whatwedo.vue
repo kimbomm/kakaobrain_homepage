@@ -12,6 +12,7 @@
     <div class="question-content">
       <p v-html="subtitle[language][0]"></p>
     </div>
+    <!-- 링크들 다시 한번 점검 필요  -->
     <div class="container">
       <div class="wedobox">
         <div class="imgbox">
@@ -36,7 +37,7 @@
               <div class="karloimg">
                 <img src="@/assets/images/sandglass.png" alt="img_healthcare" />
               </div>
-              <a class="karloarrow" href="">
+              <a class="karloarrow" href="https://karlo.ai/" target="_blank">
                 <img src="@/assets/images/arrow.png" alt="karlo_arrow" />
               </a>
             </div>
@@ -48,7 +49,7 @@
               <div class="healthcareai">
                 <p>Health<br />care<br />ai</p>
               </div>
-              <a class="aiarrow" href="">
+              <a class="aiarrow" href="/b/healthcare">
                 <img src="@/assets/images/arrow.png" alt="ai_arrow" />
               </a>
             </div>
@@ -62,7 +63,7 @@
           <div class="ethicsai">
             <p>ai<br />ethics</p>
           </div>
-          <a class="ethicsarrow" href="">
+          <a class="ethicsarrow" href="/ethics">
             <img src="@/assets/images/ethics_arrow.png" alt="ethics_arrow" />
           </a>
         </div>
