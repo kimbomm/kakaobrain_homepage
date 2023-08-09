@@ -1,7 +1,7 @@
 <template>
   <div class="issue-slider gl-8 l-ml-2">
     <div v-if="list.length > 0" ref="issue" class="issue">
-      <div>
+      <div class="container">
         <nuxt-link
           :to="
             activeContent.Content.contentType !== 'STORY'
@@ -27,17 +27,26 @@
 
           <div class="text">
             <div class="title">
-              <span v-if="isShow">
+              <span>
                 {{ activeContent.title }}
               </span>
             </div>
             <div class="subtitle">
-              <span v-if="isShow">
-                {{ activeContent.updateBy }}
+              <span>
+                {{ activeContent.updateAt }}
               </span>
             </div>
           </div>
         </nuxt-link>
+        <div class="pagination-dots">
+          <span
+            v-for="(item, index) in list"
+            :key="index"
+            :class="{ active: index === activeIndex }"
+            class="dot"
+            @click="goToSlide(index)"
+          ></span>
+        </div>
       </div>
     </div>
   </div>
@@ -112,6 +121,16 @@
           await this.setContent()
         }
       },
+
+      goToSlide(index) {
+        this.isShow = false
+        clearInterval(this.autoLoad)
+        this.autoLoad = null
+
+        this.activeIndex = index
+        this.setContent()
+        this.onSetInterval()
+      },
       async setContent() {
         this.activeContent = this.list[this.activeIndex]
         await this.setBreadcrumb(
@@ -181,14 +200,18 @@
         const imageUrl = `${this.$config.baseURL}${url}`
 
         return imageUrl
+      },
+      updateActiveDot() {
+        const dots = this.$el.querySelectorAll('.dot')
+        dots.forEach((dot, index) => {
+          dot.classList.toggle('active', index === this.activeIndex)
+        })
       }
     }
   }
 </script>
 <style lang="scss" scoped>
   .issue-slider {
-    // max-width: 1360px;
-    // margin-left: 268px;
     &.gl-8 {
       width: getWidth(8) !important;
     }
@@ -197,36 +220,63 @@
     }
 
     .issue {
-      position: relative;
+      .container {
+        position: relative;
+        .pagination-dots {
+          display: flex;
+          flex-direction: column;
+          width: 6px;
+          position: absolute;
+          top: 0;
+          margin: 10px 0 0 -20px;
+          .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            margin: 4px 0;
 
-      height: 410px;
+            cursor: pointer;
+            background-color: #e8ecf1;
+            transition: background-color 0.3s ease;
 
-      .thumbnail {
-        height: 410px;
-        border-radius: 20px;
-        border: solid;
-      }
-    }
-    .text {
-      width: 918px;
-      padding-top: 30px;
-      .title {
-        color: var(--black, #000);
-        font-family: Noto Sans KR;
-        font-size: 30px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: 120%; /* 36px */
-      }
+            &.active {
+              background-color: var(--active-color, #001eff);
+            }
 
-      .subtitle {
-        padding-top: 20px;
-        color: var(--black, #000);
-        font-family: Noto Sans KR;
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 150%; /* 24px */
+            &:hover {
+              background-color: var(--hover-color, #001eff);
+            }
+          }
+        }
+
+        .thumbnail {
+          height: 410px;
+          border-radius: 20px;
+          border: solid;
+        }
+
+        .text {
+          width: 918px;
+          padding-top: 30px;
+          .title {
+            color: var(--black, #000);
+            font-family: Noto Sans KR;
+            font-size: 30px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 120%; /* 36px */
+          }
+
+          .subtitle {
+            padding-top: 20px;
+            color: var(--black, #000);
+            font-family: Noto Sans KR;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 150%; /* 24px */
+          }
+        }
       }
     }
   }
@@ -237,18 +287,20 @@
         width: 100%;
         height: 590px;
 
-        .thumbnail {
-          width: 100%;
-          height: 590px;
-        }
-        .text {
-          width: 740px;
-          height: 105px;
-          padding-top: 30px;
-          .title {
+        .container {
+          .thumbnail {
+            width: 100%;
+            height: 590px;
           }
+          .text {
+            width: 740px;
+            height: 105px;
+            padding-top: 30px;
+            .title {
+            }
 
-          .subtitle {
+            .subtitle {
+            }
           }
         }
       }
@@ -260,19 +312,32 @@
       .issue {
         width: 100%;
         height: 790px;
-        .thumbnail {
-          width: 100%;
-          height: 790px;
-        }
-        .text {
-          width: 996px;
-          padding-top: 40px;
-          .title {
-            font-size: 40px;
-          }
 
-          .subtitle {
-            font-size: 21px;
+        .container {
+          .pagination-dots {
+            width: 8px;
+            margin: 20px 0 0 -30px;
+            .dot {
+              width: 8px;
+              height: 8px;
+
+              margin: 6px 0;
+            }
+          }
+          .thumbnail {
+            width: 100%;
+            height: 790px;
+          }
+          .text {
+            width: 996px;
+            padding-top: 40px;
+            .title {
+              font-size: 40px;
+            }
+
+            .subtitle {
+              font-size: 21px;
+            }
           }
         }
       }
@@ -285,19 +350,32 @@
         width: 100%;
         height: 784px;
 
-        .thumbnail {
-          width: 100%;
-          height: 784px;
-        }
-        .text {
-          width: 1508px;
-          padding-top: 56px;
-          .title {
-            font-size: 60px;
+        .container {
+          .pagination-dots {
+            width: 14px;
+            margin: 10px 0 0 -40px;
+            .dot {
+              width: 14px;
+              height: 14px;
+
+              margin: 10px 0;
+            }
           }
 
-          .subtitle {
-            font-size: 32px;
+          .thumbnail {
+            width: 100%;
+            height: 784px;
+          }
+          .text {
+            width: 1508px;
+            padding-top: 56px;
+            .title {
+              font-size: 60px;
+            }
+
+            .subtitle {
+              font-size: 32px;
+            }
           }
         }
       }
@@ -321,20 +399,21 @@
       .issue {
         width: 100%;
         height: 380px;
-
-        .thumbnail {
-          width: 100%;
-          height: 380px;
-        }
-        .text {
-          width: 683px;
-          padding-top: 20px;
-          .title {
-            font-size: 24px;
+        .container {
+          .thumbnail {
+            width: 100%;
+            height: 380px;
           }
+          .text {
+            width: 683px;
+            padding-top: 20px;
+            .title {
+              font-size: 24px;
+            }
 
-          .subtitle {
-            font-size: 14px;
+            .subtitle {
+              font-size: 14px;
+            }
           }
         }
       }
@@ -346,20 +425,22 @@
         width: 100%;
         height: 380px;
 
-        .thumbnail {
-          width: 100%;
-          height: 380px;
-        }
-        .text {
-          width: 503px;
-          padding-top: 20px;
-          .title {
-            font-size: 24px;
+        .container {
+          .thumbnail {
+            width: 100%;
+            height: 380px;
           }
+          .text {
+            width: 503px;
+            padding-top: 20px;
+            .title {
+              font-size: 24px;
+            }
 
-          .subtitle {
-            padding-top: 10px;
-            font-size: 14px;
+            .subtitle {
+              padding-top: 10px;
+              font-size: 14px;
+            }
           }
         }
       }
@@ -377,21 +458,22 @@
       .issue {
         width: 100%;
         height: 380px;
-
-        .thumbnail {
-          width: 100%;
-          height: 380px;
-        }
-        .text {
-          width: 287px;
-          padding-top: 20px;
-          .title {
-            font-size: 24px;
+        .container {
+          .thumbnail {
+            width: 100%;
+            height: 380px;
           }
+          .text {
+            width: 287px;
+            padding-top: 20px;
+            .title {
+              font-size: 24px;
+            }
 
-          .subtitle {
-            padding-top: 10px;
-            font-size: 16px;
+            .subtitle {
+              padding-top: 10px;
+              font-size: 16px;
+            }
           }
         }
       }

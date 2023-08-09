@@ -16,17 +16,19 @@
     <div class="container">
       <div class="wedobox">
         <div class="imgbox">
-          <div class="llms">
-            <div class="llmstext">
-              <p class="wetitle" v-html="llmstext[language][0]"></p>
-              <p id="wetext" v-html="llmstext[language][1]"></p>
+          <div class="llmscontent">
+            <div class="llms">
+              <div class="llmstext">
+                <p class="wetitle" v-html="llmstext[language][0]"></p>
+                <p id="wetext" v-html="llmstext[language][1]"></p>
+              </div>
+              <div class="LargeLanguageModels">
+                <p>Large<br />Language<br />Models</p>
+              </div>
+              <a class="limsarrow" href="">
+                <img src="@/assets/images/arrow.png" alt="llms_arrow" />
+              </a>
             </div>
-            <div class="LargeLanguageModels">
-              <p>Large<br />Language<br />Models</p>
-            </div>
-            <a class="limsarrow" href="">
-              <img src="@/assets/images/arrow.png" alt="llms_arrow" />
-            </a>
           </div>
           <div class="content">
             <div class="karlo">
@@ -179,41 +181,44 @@
             font-weight: 400;
             line-height: 130%;
           }
-          .llms {
-            background-image: url('@/assets/images/img_llms.png');
-            background-size: cover;
-            background-position: 50% 50%;
-            position: relative;
-            width: 382px;
-            height: 700px;
-            border-radius: 20px;
-            .llmstext {
-              position: absolute;
-              top: 50px;
-              left: 50px;
-            }
-            .LargeLanguageModels {
-              position: absolute;
-              top: 560px;
-              left: 162px;
-              color: white;
-              text-align: right;
-              opacity: 10%;
-              font-family: Inter;
-              font-size: 30px;
-              font-style: normal;
-              font-weight: 700;
-              line-height: 100%; /* 30px */
-              text-transform: uppercase;
-            }
 
-            .limsarrow {
-              position: absolute;
-              width: 36px;
-              height: 18px;
-              top: 632px;
-              left: 50px;
-              opacity: 0.20000000298023224px;
+          .llmscontent {
+            .llms {
+              background-image: url('@/assets/images/img_llms.png');
+              background-size: cover;
+              background-position: 50% 50%;
+              position: relative;
+              width: 382px;
+              height: 700px;
+              border-radius: 20px;
+              .llmstext {
+                position: absolute;
+                top: 50px;
+                left: 50px;
+              }
+              .LargeLanguageModels {
+                position: absolute;
+                top: 560px;
+                left: 162px;
+                color: white;
+                text-align: right;
+                opacity: 10%;
+                font-family: Inter;
+                font-size: 30px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 100%; /* 30px */
+                text-transform: uppercase;
+              }
+
+              .limsarrow {
+                position: absolute;
+                width: 36px;
+                height: 18px;
+                top: 632px;
+                left: 50px;
+                opacity: 0.20000000298023224px;
+              }
             }
           }
           .content {
@@ -388,27 +393,30 @@
               font-size: 16px;
               width: 486px;
             }
-            .llms {
-              width: 550px;
-              height: 700px;
 
-              .llmstext {
-                top: 50px;
-                left: 50px;
-              }
-              .LargeLanguageModels {
-                width: 170px;
-                height: 90px;
-                top: 560px;
-                left: 330px;
-                font-size: 30px;
-              }
+            .llmscontent {
+              .llms {
+                width: 550px;
+                height: 700px;
 
-              .limsarrow {
-                width: 36px;
-                height: 18px;
-                top: 632px;
-                left: 50px;
+                .llmstext {
+                  top: 50px;
+                  left: 50px;
+                }
+                .LargeLanguageModels {
+                  width: 170px;
+                  height: 90px;
+                  top: 560px;
+                  left: 330px;
+                  font-size: 30px;
+                }
+
+                .limsarrow {
+                  width: 36px;
+                  height: 18px;
+                  top: 632px;
+                  left: 50px;
+                }
               }
             }
             .content {
@@ -537,27 +545,29 @@
               font-size: 20px;
               width: 404px;
             }
-            .llms {
-              width: 742px;
-              height: 930px;
+            .llmscontent {
+              .llms {
+                width: 742px;
+                height: 930px;
 
-              .llmstext {
-                top: 60px;
-                left: 60px;
-              }
-              .LargeLanguageModels {
-                width: 226px;
-                height: 120px;
-                top: 750px;
-                left: 456px;
-                font-size: 40px;
-              }
+                .llmstext {
+                  top: 60px;
+                  left: 60px;
+                }
+                .LargeLanguageModels {
+                  width: 226px;
+                  height: 120px;
+                  top: 750px;
+                  left: 456px;
+                  font-size: 40px;
+                }
 
-              .limsarrow {
-                width: 48px;
-                height: 24px;
-                top: 846px;
-                left: 60px;
+                .limsarrow {
+                  width: 48px;
+                  height: 24px;
+                  top: 846px;
+                  left: 60px;
+                }
               }
             }
             .content {
@@ -699,42 +709,45 @@
               font-weight: 400;
               line-height: 130%; /* 39px */
             }
-            .llms {
-              background-image: url('@/assets/images/img_llms.png');
-              background-size: cover;
-              background-position: 50% 50%;
-              width: 1126px;
-              height: 1380px;
-              border-radius: 20px;
-              .llmstext {
-                position: absolute;
-                top: 90px;
-                left: 90px;
-              }
-              .LargeLanguageModels {
-                position: absolute;
-                width: 339px;
-                height: 180px;
-                top: 1110px;
-                left: 697px;
 
-                color: white;
-                text-align: right;
-                font-family: Inter;
-                font-size: 60px;
-                font-style: normal;
-                font-weight: 700;
-                line-height: 100%; /* 60px */
-                text-transform: uppercase;
-              }
+            .llmscontent {
+              .llms {
+                background-image: url('@/assets/images/img_llms.png');
+                background-size: cover;
+                background-position: 50% 50%;
+                width: 1126px;
+                height: 1380px;
+                border-radius: 20px;
+                .llmstext {
+                  position: absolute;
+                  top: 90px;
+                  left: 90px;
+                }
+                .LargeLanguageModels {
+                  position: absolute;
+                  width: 339px;
+                  height: 180px;
+                  top: 1110px;
+                  left: 697px;
 
-              .limsarrow {
-                position: absolute;
-                width: 68p;
-                height: 34px;
-                top: 1256px;
-                left: 90px;
-                opacity: 0.20000000298023224px;
+                  color: white;
+                  text-align: right;
+                  font-family: Inter;
+                  font-size: 60px;
+                  font-style: normal;
+                  font-weight: 700;
+                  line-height: 100%; /* 60px */
+                  text-transform: uppercase;
+                }
+
+                .limsarrow {
+                  position: absolute;
+                  width: 68p;
+                  height: 34px;
+                  top: 1256px;
+                  left: 90px;
+                  opacity: 0.20000000298023224px;
+                }
               }
             }
             .content {
@@ -918,28 +931,30 @@
             #wetext {
               font-size: 14px;
             }
-            .llms {
-              width: 381px;
-              height: 600px;
+            .llmscontent {
+              .llms {
+                width: 381px;
+                height: 600px;
 
-              .llmstext {
-                top: 30px;
-                left: 30px;
-              }
-              .LargeLanguageModels {
-                position: absolute;
-                width: 136px;
-                height: 72px;
-                top: 498px;
-                left: 215px;
-                font-size: 24px;
-              }
+                .llmstext {
+                  top: 30px;
+                  left: 30px;
+                }
+                .LargeLanguageModels {
+                  position: absolute;
+                  width: 136px;
+                  height: 72px;
+                  top: 498px;
+                  left: 215px;
+                  font-size: 24px;
+                }
 
-              .limsarrow {
-                width: 36px;
-                height: 18px;
-                top: 552px;
-                left: 30px;
+                .limsarrow {
+                  width: 36px;
+                  height: 18px;
+                  top: 552px;
+                  left: 30px;
+                }
               }
             }
             .content {
@@ -1072,22 +1087,24 @@
               font-size: 14px;
               height: 66px;
             }
-            .llms {
-              position: absolute;
-              width: 578px;
-              height: 200px;
+            .llmscontent {
+              .llms {
+                position: absolute;
+                width: 578px;
+                height: 200px;
 
-              .llmstext {
-                top: 30px;
-                left: 30px;
-              }
-              .LargeLanguageModels {
-                top: 88px;
-                left: 412px;
-              }
+                .llmstext {
+                  top: 30px;
+                  left: 30px;
+                }
+                .LargeLanguageModels {
+                  top: 88px;
+                  left: 412px;
+                }
 
-              .limsarrow {
-                top: 142px;
+                .limsarrow {
+                  top: 142px;
+                }
               }
             }
             .content {
@@ -1209,26 +1226,28 @@
 
               font-size: 14px;
             }
-            .llms {
-              position: absolute;
-              width: 300px;
-              height: 210px;
+            .llmscontent {
+              .llms {
+                position: absolute;
+                width: 300px;
+                height: 210px;
 
-              .llmstext {
-                top: 20px;
-                left: 20px;
-              }
-              .LargeLanguageModels {
-                width: 80px;
-                height: 42px;
-                top: 148px;
-                left: 200px;
-                font-size: 14px;
-              }
+                .llmstext {
+                  top: 20px;
+                  left: 20px;
+                }
+                .LargeLanguageModels {
+                  width: 80px;
+                  height: 42px;
+                  top: 148px;
+                  left: 200px;
+                  font-size: 14px;
+                }
 
-              .limsarrow {
-                top: 172px;
-                left: 20px;
+                .limsarrow {
+                  top: 172px;
+                  left: 20px;
+                }
               }
             }
             .content {

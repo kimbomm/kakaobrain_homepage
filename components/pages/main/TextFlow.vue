@@ -54,10 +54,10 @@
 
       getSliderSpace() {
         this.windowWidth = window.innerWidth
-        let space = 200
-        if (this.windowWidth > 3840) {
+        let space = 400
+        if (this.windowWidth >= 3840) {
           space = 400
-        } else if (this.windowWidth > 2560) {
+        } else if (this.windowWidth >= 2560) {
           space = 270
         } else if (this.windowWidth > 1360) {
           space = 200

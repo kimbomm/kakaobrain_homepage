@@ -28,20 +28,20 @@
             <div class="contitle">⁴impactful</div>
             <div class="consubtitle" v-html="impactful[language][0]"></div>
           </div>
-          <div class="vision-list">
-            <div
-              class="list-con"
-              v-for="(data, index) in 4"
-              :key="index"
-              :data="data"
-              :index="index"
-            >
-              <img
-                :src="
-                  require(`@/assets/images/about/visual_${index}_${NUMBER}.png`)
-                "
-              />
-            </div>
+        </div>
+        <div class="vision-list">
+          <div
+            class="list-con"
+            v-for="(data, index) in 4"
+            :key="index"
+            :data="data"
+            :index="index"
+          >
+            <img
+              :src="
+                require(`@/assets/images/about/visual_${index}_${NUMBER}.png`)
+              "
+            />
           </div>
         </div>
       </div>
@@ -149,9 +149,9 @@
 <style lang="scss" scoped>
   .innovation {
     height: 1617px;
-    top: 3896px;
+    // top: 3896px;
     margin-left: 20px;
-
+    position: relative;
     border-radius: 20px;
     background: #eff1f6;
     &.gl-10 {
@@ -160,7 +160,7 @@
 
     .content {
       &.l-pl-2 {
-        padding-left: getMargin(2) !important;
+        padding-left: getMargin(1.9) !important;
       }
       .head {
         &.gl-8 {
@@ -215,7 +215,6 @@
       .container {
         width: 890px;
         height: 540px;
-
         top: 160px;
 
         .context {
@@ -244,18 +243,19 @@
             line-height: 130%; /* 20.8px */
           }
         }
-        .vision-list {
-          position: relative;
-          width: 280px;
-          height: auto;
-          transform: translate(193%, -53%);
-          z-index: -1;
-          .list-con {
-            img {
-              margin: -50px 0 0 0;
-              width: 280px;
-              height: 280px;
-            }
+      }
+      .vision-list {
+        position: absolute;
+        width: 280px;
+        height: auto;
+        bottom: 0;
+        right: 268px;
+        margin: 0 0 -140px 0;
+        .list-con {
+          img {
+            margin: -50px 0 0 0;
+            width: 280px;
+            height: 280px;
           }
         }
       }
@@ -265,7 +265,7 @@
   @include pc-desktop {
     .innovation {
       height: 1988px;
-      top: 4377px;
+      // top: 4377px;
       margin-left: 20px;
 
       .content {
@@ -306,18 +306,16 @@
               font-size: 16px;
             }
           }
-          .vision-list {
-            position: relative;
-            width: 280px;
-            height: auto;
-            transform: translate(293%, -31%);
-            z-index: -1;
-            .list-con {
-              img {
-                margin: -50px 0 0 0;
-                width: 280px;
-                height: 280px;
-              }
+        }
+        .vision-list {
+          width: 280px;
+          height: auto;
+          right: 380px;
+          .list-con {
+            img {
+              margin: -50px 0 0 0;
+              width: 280px;
+              height: 280px;
             }
           }
         }
@@ -328,7 +326,6 @@
   @include pc-large {
     .innovation {
       height: 2498px;
-      top: 5759px;
 
       .content {
         .head {
@@ -374,17 +371,16 @@
               font-size: 22px;
             }
           }
-          .vision-list {
-            width: 380px;
-
-            transform: translate(293%, -41%);
-            z-index: -1;
-            .list-con {
-              img {
-                margin: -68px 0 0 0;
-                width: 380px;
-                height: 380px;
-              }
+        }
+        .vision-list {
+          width: 380px;
+          right: 508px;
+          margin: 0 0 -190px 0;
+          .list-con {
+            img {
+              margin: -68px 0 0 0;
+              width: 380px;
+              height: 380px;
             }
           }
         }
@@ -395,7 +391,6 @@
   @include pc-4k {
     .innovation {
       height: 3724px;
-      top: 8542px;
 
       .content {
         .head {
@@ -440,17 +435,16 @@
               width: 1508px;
             }
           }
-          .vision-list {
-            width: 578px;
-
-            transform: translate(293%, -41%);
-            z-index: -1;
-            .list-con {
-              img {
-                margin: -100px 0 0 0;
-                width: 578px;
-                height: 578px;
-              }
+        }
+        .vision-list {
+          width: 578px;
+          right: 784px;
+          margin: 0 0 -289px 0;
+          .list-con {
+            img {
+              margin: -100px 0 0 0;
+              width: 578px;
+              height: 578px;
             }
           }
         }
@@ -475,7 +469,6 @@
   @include tablet {
     .innovation {
       height: 1372px;
-      top: 3077px;
 
       .content {
         .head {
@@ -515,16 +508,17 @@
               width: 583px;
             }
           }
-          .vision-list {
-            width: 180px;
-            transform: translate(293%, -49%);
-            z-index: -1;
-            .list-con {
-              img {
-                margin: -30px 0 0 0;
-                width: 180px;
-                height: 180px;
-              }
+        }
+
+        .vision-list {
+          width: 180px;
+          right: 100px;
+          margin: 0 0 -90px 0;
+          .list-con {
+            img {
+              margin: -30px 0 0 0;
+              width: 180px;
+              height: 180px;
             }
           }
         }
@@ -534,8 +528,7 @@
   //max-width: 768px
   @include mobile {
     .innovation {
-      height: 1420px;
-      top: 3263px;
+      height: 1520px;
 
       .content {
         .head {
@@ -566,17 +559,16 @@
               width: 300px;
             }
           }
-          .vision-list {
-            width: 180px;
+        }
+        .vision-list {
+          width: 180px;
+          right: 75px;
 
-            transform: translate(180%, -55%);
-            z-index: -1;
-            .list-con {
-              img {
-                margin: -30px 0 0 0;
-                width: 180px;
-                height: 180px;
-              }
+          .list-con {
+            img {
+              margin: -30px 0 0 0;
+              width: 180px;
+              height: 180px;
             }
           }
         }
@@ -587,7 +579,6 @@
   @include mobile-small {
     .innovation {
       height: 1152px;
-      top: 3091px;
 
       .content {
         &.l-pl-2 {
@@ -637,16 +628,16 @@
               width: 254px;
             }
           }
-          .vision-list {
-            width: 110px;
-            transform: translate(140%, -50%);
-            z-index: -1;
-            .list-con {
-              img {
-                margin: -20px 0 0 0;
-                width: 110px;
-                height: 110px;
-              }
+        }
+        .vision-list {
+          width: 110px;
+          right: 34px;
+          margin: 0 0 -55px 0;
+          .list-con {
+            img {
+              margin: -20px 0 0 0;
+              width: 110px;
+              height: 110px;
             }
           }
         }

@@ -196,11 +196,11 @@
             }
           }
         }
-        .link {
-          img {
-            width: 37px;
-            height: 40px;
-          }
+      }
+      .link {
+        img {
+          width: 37px;
+          height: 40px;
         }
       }
     }
@@ -352,11 +352,11 @@
               }
             }
           }
-          .link {
-            img {
-              width: 59px;
-              height: 42px;
-            }
+        }
+        .link {
+          img {
+            width: 60px;
+            height: 60px;
           }
         }
       }
