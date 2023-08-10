@@ -1,4 +1,7 @@
 const menus = [
+
+
+
   {
     name: 'About',
     category: 'about',
@@ -117,6 +120,94 @@ const menus = [
       }
     ]
   },
+   {
+    name: 'Log B',
+    category: 'log_b',
+    nick: 'Log B',
+    link: '/log_b',
+    sub: [
+      {
+        category: 'home',
+        nick: 'Home',
+        name: 'Home',
+        link: '/contents/log_b',
+        target: ''
+      },
+      {
+        category: 'talk',
+        nick: 'Talk',
+        name: 'Talk',
+        link: '/contents/log_b/talk',
+        target: ''
+      },
+      {
+        category: 'conference',
+        nick: 'Conference',
+        name: 'Conference',
+        link: '/contents/log_b/conference',
+        target: ''
+      },
+      {
+        category: 'v_log',
+        nick: 'VLog',
+        name: 'VLog',
+        link: '/contents/log_b/v_log',
+        target: ''
+      }
+    ]
+  },
+  {
+    name: 'Docu.B',
+    category: 'document',
+    nick: 'Docu.B',
+    link: '',
+    sub: [
+      {
+        category: 'news',
+        nick: 'News',
+        name: 'News',
+        link: '/contents/document/news',
+        target: ''
+      },
+      {
+        category: 'documentary',
+        nick: 'Documentary',
+        name: 'Documentary',
+        link: '/contents/document/documentary',
+        target: ''
+      }
+    ]
+  },
+    {
+    name: 'B^',
+    category: 'b',
+    nick: 'B^',
+    link: '',
+    sub: [
+      {
+        category: 'discover',
+        nick: 'DISCOVER',
+        name: 'DISCOVER',
+        link: 'https://bdiscover.kakaobrain.com/',
+        target: '_blank'
+      },
+      {
+        category: 'healthcare',
+        nick: 'HEALTHCARE',
+        name: 'HEALTHCARE',
+        link: '/b/healthcare',
+        target: ''
+      },
+      {
+        category: 'edit',
+        nick: 'EDIT',
+        name: 'EDIT',
+        link: 'https://bedit.kakaobrain.com',
+        target: '_blank'
+      }
+    ]
+  },
+
 ]
 const footer = [
   {
