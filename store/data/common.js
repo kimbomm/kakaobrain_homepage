@@ -20,44 +20,16 @@ const menus = [
         link: '/about/culture',
         target: ''
       },
-      {
-        category: 'career',
-        nick: 'Careers',
-        name: 'Careers',
-        link: 'https://careers.kakaobrain.com/',
-        target: '_blank'
-      }
     ]
   },
   {
-    //임시설정
-    name: 'Carrer',
-    category: 'carrer',
-    nick: 'Carrer',
-    link: '',
-    sub: [
-      {
-        category: 'introduce',
-        nick: 'Introduce',
-        name: 'Unthinkable Question',
-        link: '/about',
-        target: ''
-      },
-      {
-        category: 'culture',
-        nick: 'Culture',
-        name: 'Culture',
-        link: '/about/culture',
-        target: ''
-      },
-      {
-        category: 'career',
-        nick: 'Careers',
-        name: 'Careers',
-        link: 'https://careers.kakaobrain.com/',
-        target: '_blank'
-      }
-    ]
+    name: 'Carrers',
+    category: 'carrers',
+    nick: 'Carrers',
+    link: 'https://careers.kakaobrain.com/',
+
+
+
   },
   {
     name: 'Product',

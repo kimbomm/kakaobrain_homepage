@@ -12,18 +12,20 @@
             v-if="index < 5"
           >
             <button type="button" class="txt" @click="openMenu(index)">
-              <sup
-                v-if="
-                  Object.keys(count).includes(menu.category) &&
-                  count[menu.category]
-                "
-                class="num"
-                >{{ count[menu.category] }}</sup
+              <a
+                v-if="menu.name === 'Carrers'"
+                :href="menu.link"
+                target="_blank"
               >
-              {{ menu.name }}
+                {{ menu.name }}</a
+              >
+
+              <sup class="num">{{ count[menu.category] }}</sup>
+
+              <a v-if="menu.name != 'Carrers'">{{ menu.name }}</a>
             </button>
             <ul
-              v-show="clickIndex === index"
+              v-show="clickIndex === index && index !== 1"
               :ref="`subMenu-${index}`"
               :id="`subMenu-${index}`"
               :class="`subMenu-${index}`"
@@ -294,8 +296,10 @@
         background-color: #000;
         display: flex;
         white-space: nowrap;
+
         li {
           margin-right: 30px;
+
           &:last-child {
             margin-right: 0;
           }
