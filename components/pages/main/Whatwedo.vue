@@ -9,15 +9,15 @@
         />
       </div>
     </div>
-    <div class="question-content">
+    <div class="question-content gl-6">
       <p v-html="subtitle[language][0]"></p>
     </div>
     <!-- 링크들 다시 한번 점검 필요  -->
-    <div class="container">
+    <div class="container gl-6">
       <div class="wedobox">
         <div class="imgbox">
           <div class="llmscontent">
-            <div class="llms">
+            <div class="llms gl-9">
               <div class="llmstext">
                 <p class="wetitle" v-html="llmstext[language][0]"></p>
                 <p id="wetext" v-html="llmstext[language][1]"></p>
@@ -31,7 +31,7 @@
             </div>
           </div>
           <div class="content">
-            <div class="karlo">
+            <div class="karlo gl-9">
               <div class="karlotext">
                 <p class="wetitle">Karlo</p>
                 <p id="wetext" v-html="karlotext[language][0]"></p>
@@ -43,7 +43,7 @@
                 <img src="@/assets/images/arrow.png" alt="karlo_arrow" />
               </a>
             </div>
-            <div class="healthcare">
+            <div class="healthcare gl-9">
               <div class="healthcaretext">
                 <p class="wetitle">Health Care AI</p>
                 <p id="wetext" v-html="aitext[language][0]"></p>
@@ -57,7 +57,7 @@
             </div>
           </div>
         </div>
-        <div class="ethics">
+        <div class="ethics gl-9">
           <div class="ethicstext">
             <p class="wetitle">AI 윤리</p>
             <p id="wetext" v-html="ethicstext[language][0]"></p>
@@ -150,6 +150,7 @@
       margin-top: 30px;
       word-break: keep-all;
       p {
+        width: getWidth(6) !important;
         color: #000;
         font-family: Noto Sans KR;
         font-size: 20px;
@@ -160,6 +161,9 @@
     }
     .container {
       margin-top: 100px;
+      &.gl-6 {
+        width: getWidht(6) !important;
+      }
 
       .wedobox {
         .imgbox {
@@ -184,11 +188,13 @@
 
           .llmscontent {
             .llms {
+              &.gl-9 {
+                width: getWidth(3) !important;
+              }
               background-image: url('@/assets/images/img_llms.png');
               background-size: cover;
               background-position: 50% 50%;
               position: relative;
-              width: 382px;
               height: 700px;
               border-radius: 20px;
               .llmstext {
@@ -199,7 +205,7 @@
               .LargeLanguageModels {
                 position: absolute;
                 top: 560px;
-                left: 162px;
+                right: 50px;
                 color: white;
                 text-align: right;
                 opacity: 10%;
@@ -225,11 +231,14 @@
             padding-left: 20px;
 
             .karlo {
+              &.gl-9 {
+                width: getWidth(3) !important;
+              }
               position: relative;
               background-image: url('@/assets/images/img_karlo.png');
               background-size: cover;
               background-position: 50% 50%;
-              width: 393px;
+
               height: 380px;
               border-radius: 20px;
 
@@ -245,7 +254,7 @@
                 width: 140px;
                 height: 70px;
                 top: 260px;
-                left: 192px;
+                right: 50px;
               }
               .karloarrow {
                 position: absolute;
@@ -258,12 +267,15 @@
             }
 
             .healthcare {
+              &.gl-9 {
+                width: getWidth(3) !important;
+              }
               margin-top: 20px;
               position: relative;
               background-image: url('@/assets/images/img_healthcare.png');
               background-size: cover;
               background-position: 50% 50%;
-              width: 393px;
+
               height: 300px;
               border-radius: 20px;
               .healthcaretext {
@@ -275,7 +287,7 @@
                 position: absolute;
                 width: 120px;
                 top: 160px;
-                left: 212px;
+                right: 50px;
                 text-align: right;
                 font-family: Inter;
                 font-size: 30px;
@@ -299,12 +311,15 @@
           }
         }
         .ethics {
+          &.gl-9 {
+            width: getWidth(6) !important;
+          }
           margin-top: 20px;
           position: relative;
           background-image: url('@/assets/images/img_ai.png');
           background-size: cover;
           background-position: 50% 50%;
-          width: 784px;
+
           height: 225px;
           border-radius: 20px;
           .ethicstext {
@@ -337,7 +352,7 @@
             width: 112px;
             height: 60px;
             top: 115px;
-            left: 622px;
+            right: 50px;
 
             text-align: right;
             font-family: Inter;
@@ -396,7 +411,9 @@
 
             .llmscontent {
               .llms {
-                width: 550px;
+                &.gl-9 {
+                  width: getWidth(3) !important;
+                }
                 height: 700px;
 
                 .llmstext {
@@ -407,7 +424,7 @@
                   width: 170px;
                   height: 90px;
                   top: 560px;
-                  left: 330px;
+
                   font-size: 30px;
                 }
 
@@ -423,7 +440,9 @@
               padding-left: 20px;
 
               .karlo {
-                width: 550px;
+                &.gl-9 {
+                  width: getWidth(3) !important;
+                }
                 height: 380px;
 
                 .karlotext {
@@ -436,7 +455,6 @@
                   width: 140px;
                   height: 70px;
                   top: 260px;
-                  left: 360px;
                 }
                 .karloarrow {
                   width: 36px;
@@ -447,7 +465,9 @@
               }
 
               .healthcare {
-                width: 550px;
+                &.gl-9 {
+                  width: getWidth(3) !important;
+                }
                 height: 300px;
 
                 .healthcaretext {
@@ -459,7 +479,6 @@
                   width: 120px;
                   height: 90px;
                   top: 160px;
-                  left: 380px;
 
                   font-size: 30px;
                 }
@@ -474,9 +493,11 @@
             }
           }
           .ethics {
-            width: 1120px;
+            &.gl-9 {
+              width: getWidth(6) !important;
+            }
             height: 225px;
-            border-radius: 20px;
+
             .ethicstext {
               position: absolute;
               top: 50px;
@@ -494,8 +515,7 @@
               width: 112px;
               height: 60px;
               top: 115px;
-              left: 958px;
-
+              right: 50px;
               font-size: 30px;
             }
             .ethicsarrow {
@@ -547,7 +567,9 @@
             }
             .llmscontent {
               .llms {
-                width: 742px;
+                &.gl-9 {
+                  width: getWidth(3) !important;
+                }
                 height: 930px;
 
                 .llmstext {
@@ -558,7 +580,7 @@
                   width: 226px;
                   height: 120px;
                   top: 750px;
-                  left: 456px;
+                  right: 60px;
                   font-size: 40px;
                 }
 
@@ -574,7 +596,9 @@
               padding-left: 20px;
 
               .karlo {
-                width: 742px;
+                &.gl-9 {
+                  width: getWidth(3) !important;
+                }
                 height: 540px;
 
                 .karlotext {
@@ -587,7 +611,7 @@
                   width: 160px;
                   height: 80px;
                   top: 400px;
-                  left: 522px;
+                  right: 60px;
                 }
                 .karloarrow {
                   width: 48px;
@@ -598,8 +622,9 @@
               }
 
               .healthcare {
-                background-position: 50% 50%;
-                width: 742px;
+                &.gl-9 {
+                  width: getWidth(3) !important;
+                }
                 height: 370px;
 
                 .healthcaretext {
@@ -610,7 +635,7 @@
                   width: 160px;
                   height: 120px;
                   top: 190px;
-                  left: 522px;
+                  right: 60px;
 
                   font-size: 40px;
                 }
@@ -625,7 +650,9 @@
             }
           }
           .ethics {
-            width: 1504px;
+            &.gl-9 {
+              width: getWidth(6) !important;
+            }
             height: 300px;
             border-radius: 20px;
             .ethicstext {
@@ -645,7 +672,7 @@
               width: 149px;
               height: 80px;
               top: 160px;
-              left: 1295px;
+              right: 60px;
 
               font-size: 40px;
             }
@@ -664,26 +691,18 @@
   @include pc-4k {
     //min-width: 3840px
     .question {
-      margin-left: 784px;
       .silk {
-        position: relative;
         .uq-text {
           img {
-            width: auto;
             height: 363px;
           }
         }
       }
       &-content {
         margin-top: 40px;
-        word-break: keep-all;
+
         p {
-          color: #000;
-          font-family: Noto Sans KR;
           font-size: 40px;
-          font-style: normal;
-          font-weight: 400;
-          line-height: 140%; /* 56px */
         }
       }
       .container {
@@ -693,60 +712,38 @@
           .imgbox {
             display: flex;
             .wetitle {
-              color: var(--white, #fff);
-              font-family: Inter;
               font-size: 50px;
-              font-style: normal;
-              font-weight: 700;
-              line-height: 130%; /* 65px */
             }
             #wetext {
-              color: var(--white, #fff);
-              font-family: Noto Sans CJK KR;
               font-size: 30px;
               width: 598px;
-              font-style: normal;
-              font-weight: 400;
-              line-height: 130%; /* 39px */
             }
 
             .llmscontent {
               .llms {
-                background-image: url('@/assets/images/img_llms.png');
-                background-size: cover;
-                background-position: 50% 50%;
-                width: 1126px;
+                &.gl-9 {
+                  width: getWidth(3) !important;
+                }
                 height: 1380px;
-                border-radius: 20px;
+
                 .llmstext {
-                  position: absolute;
                   top: 90px;
                   left: 90px;
                 }
                 .LargeLanguageModels {
-                  position: absolute;
                   width: 339px;
                   height: 180px;
                   top: 1110px;
-                  left: 697px;
+                  right: 90px;
 
-                  color: white;
-                  text-align: right;
-                  font-family: Inter;
                   font-size: 60px;
-                  font-style: normal;
-                  font-weight: 700;
-                  line-height: 100%; /* 60px */
-                  text-transform: uppercase;
                 }
 
                 .limsarrow {
-                  position: absolute;
-                  width: 68p;
+                  width: 68px;
                   height: 34px;
                   top: 1256px;
                   left: 90px;
-                  opacity: 0.20000000298023224px;
                 }
               }
             }
@@ -754,123 +751,88 @@
               padding-left: 20px;
 
               .karlo {
-                position: relative;
-                background-image: url('@/assets/images/img_karlo.png');
-                background-size: cover;
-                background-position: 50% 50%;
-                width: 1126px;
+                &.gl-9 {
+                  width: getWidth(3) !important;
+                }
                 height: 800px;
-                border-radius: 20px;
 
                 .karlotext {
-                  position: absolute;
                   width: 605px;
                   left: 101px;
                   top: 90px;
                 }
 
                 .karloimg {
-                  position: absolute;
                   width: 160px;
                   height: 80px;
                   top: 660px;
-                  left: 906px;
+                  right: 90px;
                 }
                 .karloarrow {
-                  position: absolute;
                   width: 68px;
                   height: 34px;
                   top: 676px;
                   left: 90px;
-                  opacity: 0.20000000298023224px;
                 }
               }
 
               .healthcare {
-                margin-top: 20px;
-                position: relative;
-                background-image: url('@/assets/images/img_healthcare.png');
-                background-size: cover;
-                background-position: 50% 50%;
-                width: 1126px;
+                &.gl-9 {
+                  width: getWidth(3) !important;
+                }
+
                 height: 560px;
-                border-radius: 20px;
+
                 .healthcaretext {
-                  position: absolute;
+                  width: 352px;
                   padding-top: 90px;
                   left: 90px;
                 }
                 .healthcareai {
-                  position: absolute;
                   width: 240px;
                   height: 180px;
                   top: 290px;
-                  left: 796px;
-
+                  right: 90px;
                   font-size: 60px;
                 }
 
                 .aiarrow {
-                  position: absolute;
                   width: 68px;
                   height: 34px;
                   top: 436px;
                   left: 90px;
-                  opacity: 0.20000000298023224px;
                 }
               }
             }
           }
           .ethics {
-            margin-top: 20px;
-            position: relative;
-            background-image: url('@/assets/images/img_ai.png');
-            background-size: cover;
-            background-position: 50% 50%;
-            width: 2272px;
+            &.gl-9 {
+              width: getWidth(6) !important;
+            }
             height: 453px;
-            border-radius: 20px;
+
             .ethicstext {
               position: absolute;
               top: 90px;
               left: 90px;
 
               .wetitle {
-                color: var(--black, #000);
-                font-family: Inter;
                 font-size: 50px;
-                font-style: normal;
-                font-weight: 700;
-                line-height: 130%; /* 65px */
               }
               #wetext {
-                color: var(--black, #000);
-                font-family: Noto Sans CJK KR;
                 font-size: 30px;
-                font-style: normal;
-                font-weight: 400;
-                line-height: 130%; /* 39px */
               }
             }
 
             .ethicsai {
-              position: absolute;
-              color: #d99c00;
               width: 223px;
               height: 120px;
               top: 243px;
-              left: 1959px;
+              right: 90px;
 
-              text-align: right;
-              font-family: Inter;
               font-size: 60px;
-              font-style: normal;
-              font-weight: 700;
-              line-height: 100%; /* 40px */
-              text-transform: uppercase;
             }
             .ethicsarrow {
-              position: absolute;
               width: 68px;
               height: 34px;
               top: 329px;
@@ -933,7 +895,9 @@
             }
             .llmscontent {
               .llms {
-                width: 381px;
+                &.gl-9 {
+                  width: getWidth(4) !important;
+                }
                 height: 600px;
 
                 .llmstext {
@@ -941,11 +905,10 @@
                   left: 30px;
                 }
                 .LargeLanguageModels {
-                  position: absolute;
                   width: 136px;
                   height: 72px;
                   top: 498px;
-                  left: 215px;
+                  right: 30px;
                   font-size: 24px;
                 }
 
@@ -961,7 +924,9 @@
               padding-left: 20px;
 
               .karlo {
-                width: 382px;
+                &.gl-9 {
+                  width: getWidth(4) !important;
+                }
                 height: 330px;
 
                 .karlotext {
@@ -974,7 +939,7 @@
                   width: 140px;
                   height: 70px;
                   top: 230px;
-                  left: 212px;
+                  right: 30px;
                 }
                 .karloarrow {
                   width: 36px;
@@ -985,7 +950,9 @@
               }
 
               .healthcare {
-                width: 382px;
+                &.gl-9 {
+                  width: getWidth(4) !important;
+                }
                 height: 250px;
 
                 .healthcaretext {
@@ -996,7 +963,7 @@
                   width: 96px;
                   height: 72px;
                   top: 148px;
-                  left: 256px;
+                  right: 30px;
                   font-size: 24px;
                 }
 
@@ -1010,7 +977,9 @@
             }
           }
           .ethics {
-            width: 784px;
+            &.gl-9 {
+              width: getWidth(8) !important;
+            }
             height: 190px;
 
             .ethicstext {
@@ -1029,7 +998,7 @@
               width: 90px;
               height: 48px;
               top: 112px;
-              left: 664px;
+              right: 30px;
 
               font-size: 24px;
             }
@@ -1067,14 +1036,17 @@
         margin-top: 30px;
         word-break: keep-all;
         p {
-          width: 503px;
+          width: getWidth(7) !important;
+
           font-size: 16px;
           line-height: 140%;
         }
       }
       .container {
         margin-top: 70px;
-        width: 578px;
+        &.gl-6 {
+          width: getWidth(8) !important;
+        }
         .wedobox {
           .imgbox {
             display: flex;
@@ -1090,7 +1062,9 @@
             .llmscontent {
               .llms {
                 position: absolute;
-                width: 578px;
+                &.gl-9 {
+                  width: getWidth(8) !important;
+                }
                 height: 200px;
 
                 .llmstext {
@@ -1099,7 +1073,7 @@
                 }
                 .LargeLanguageModels {
                   top: 88px;
-                  left: 412px;
+                  right: 30px;
                 }
 
                 .limsarrow {
@@ -1112,7 +1086,9 @@
               margin-top: 220px;
 
               .karlo {
-                width: 578px;
+                &.gl-9 {
+                  width: getWidth(8) !important;
+                }
                 height: 190px;
                 .karlotext {
                   width: 280px;
@@ -1124,7 +1100,7 @@
                   width: 146px;
 
                   top: 90px;
-                  left: 408px;
+                  right: 30px;
                 }
                 .karloarrow {
                   top: 142px;
@@ -1133,7 +1109,9 @@
               }
 
               .healthcare {
-                width: 578px;
+                &.gl-9 {
+                  width: getWidth(8) !important;
+                }
                 height: 190px;
 
                 .healthcaretext {
@@ -1143,7 +1121,8 @@
                 }
                 .healthcareai {
                   top: 88px;
-                  left: 452px;
+
+                  right: 30px;
                 }
 
                 .aiarrow {
@@ -1153,7 +1132,9 @@
             }
           }
           .ethics {
-            width: 578px;
+            &.gl-9 {
+              width: getWidth(8) !important;
+            }
             height: 190px;
 
             .ethicstext {
@@ -1164,13 +1145,13 @@
                 font-size: 24px;
               }
               #wetext {
-                font-size: 1px;
+                font-size: 16px;
                 line-height: 130%;
               }
             }
 
             .ethicsai {
-              left: 458px;
+              right: 30px;
             }
             .ethicsarrow {
               width: 36px;
@@ -1206,15 +1187,21 @@
         margin-top: 30px;
         word-break: keep-all;
         p {
-          width: 254px;
+          &.gl-6 {
+            width: getWidth(8) !important;
+          }
+
           font-size: 16px;
           line-height: 140%;
         }
       }
       .container {
         margin-top: 50px;
-        width: 300px;
+        &.gl-6 {
+          width: getWidth(9) !important;
+        }
         .wedobox {
+          gap: 10px;
           .imgbox {
             display: flex;
 
@@ -1228,9 +1215,11 @@
             }
             .llmscontent {
               .llms {
-                position: absolute;
-                width: 300px;
                 height: 210px;
+
+                &.gl-9 {
+                  width: getWidth(9) !important;
+                }
 
                 .llmstext {
                   top: 20px;
@@ -1240,7 +1229,7 @@
                   width: 80px;
                   height: 42px;
                   top: 148px;
-                  left: 200px;
+                  right: 20px;
                   font-size: 14px;
                 }
 
@@ -1255,8 +1244,10 @@
               margin-top: 220px;
 
               .karlo {
-                width: 300px;
                 height: 210px;
+                &.gl-9 {
+                  width: getWidth(9) !important;
+                }
                 .karlotext {
                   width: 212px;
                   left: 20px;
@@ -1267,7 +1258,7 @@
                   width: 72px;
                   height: 36px;
                   top: 154px;
-                  left: 208px;
+                  right: 20px;
                   img {
                     width: 72px;
                     height: 36px;
@@ -1280,8 +1271,11 @@
               }
 
               .healthcare {
-                width: 300px;
                 height: 210px;
+                margin-top: 10px;
+                &.gl-9 {
+                  width: getWidth(9) !important;
+                }
                 .healthcaretext {
                   padding-top: 20px;
                   left: 20px;
@@ -1291,7 +1285,7 @@
                   width: 56px;
                   height: 42px;
                   top: 148px;
-                  left: 224px;
+                  right: 20px;
                   font-size: 14px;
                 }
 
@@ -1303,8 +1297,11 @@
             }
           }
           .ethics {
-            width: 300px;
             height: 210px;
+            margin-top: 10px;
+            &.gl-9 {
+              width: getWidth(9) !important;
+            }
 
             .ethicstext {
               width: 212px;
@@ -1322,7 +1319,7 @@
             .ethicsai {
               width: 52px;
               height: 28px;
-              left: 228px;
+              right: 20px;
               top: 162px;
               font-size: 14px;
             }

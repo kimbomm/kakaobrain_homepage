@@ -21,11 +21,18 @@
             <button
               :class="`${
                 active.includes(index) ? 'is-active ' : ''
-              }menu-toggle`"
+              }menu-toggle ${index === 1 ? 'hide-toggle' : ''} `"
               @click="onClick(index)"
             >
               <span class="menu-name">
-                {{ menu.name }}
+                <a
+                  v-if="menu.name === 'Carrers'"
+                  :href="menu.link"
+                  target="_blank"
+                >
+                  {{ menu.name }}</a
+                >
+
                 <sup
                   v-if="
                     Object.keys(count).includes(menu.category) &&
@@ -35,9 +42,10 @@
                 >
                   {{ count[menu.category] }}
                 </sup>
+                <a v-if="menu.name != 'Carrers'">{{ menu.name }}</a>
               </span>
             </button>
-            <ul class="sub-menu">
+            <ul class="sub-menu" v-if="index !== 1">
               <li
                 v-for="(subMenu, idx) in menu.sub"
                 :key="`sub-${idx}`"
@@ -122,6 +130,7 @@
         e.stopPropagation()
         return false
       },
+
       onClose() {
         this.setIsMenuOpen(false)
       },
@@ -237,6 +246,7 @@
   }
   .menu-toggle {
     color: #fff;
+
     &:after {
       content: '▼';
       transform: rotate(180deg);
@@ -251,6 +261,12 @@
       }
     }
   }
+  .hide-toggle {
+    &:after {
+      display: none;
+    }
+  }
+
   .menu-name {
     font-size: 24px;
     font-weight: 900;
