@@ -75,13 +75,14 @@ const menus = [
     nick: 'Research',
     link: '',
     sub: [
-      {
-        category: 'challenge',
-        nick: 'Challenge',
-        name: 'Challenge',
-        link: '/contents/research/challenge',
+       {
+        category: 'dataset',
+        nick: 'Datasets',
+        name: 'Datasets',
+        link: '/contents/tech/datasets',
         target: ''
       },
+
       {
         category: 'publications',
         nick: 'Publications',
@@ -90,11 +91,11 @@ const menus = [
         target: ''
       },
       {
-        category: 'collaborative',
-        nick: 'Collabo',
-        name: 'Collaborative Research',
-        link: '/contents/research/collaborative',
-        target: ''
+        category: 'ethics',
+        nick: 'AI 윤리',
+        name: 'AI 윤리',
+        link: '/ethics',
+        target: '_blank'
       }
     ]
   },
@@ -111,13 +112,7 @@ const menus = [
         link: '/contents/document/news',
         target: ''
       },
-      {
-        category: 'documentary',
-        nick: 'Documentary',
-        name: 'Documentary',
-        link: '/contents/document/documentary',
-        target: ''
-      }
+
     ]
   },
    {
@@ -207,6 +202,49 @@ const menus = [
       }
     ]
   },
+    {
+    name: 'Tech',
+    category: 'tech',
+    nick: 'Tech',
+    link: '',
+    sub: [
+      // {
+      //   category: 'highlight',
+      //   nick: 'Highlight',
+      //   name: 'Highlight',
+      //   link: '/contents/tech/highlight'
+      // },
+      {
+        category: 'dataset',
+        nick: 'Datasets',
+        name: 'Datasets',
+        link: '/contents/tech/datasets',
+        target: ''
+      },
+      {
+        category: 'brain',
+        nick: 'Brain Cloud',
+        name: 'Brain Cloud',
+        link: '/contents/tech/brain_cloud',
+        target: ''
+      },
+      {
+        category: 'large',
+        nick: 'Large Scale AI',
+        name: 'Large Scale AI',
+        link: '/contents/tech/large_scale',
+        target: ''
+      },
+      {
+        category: 'digital',
+        nick: 'Digital Human',
+        name: 'Digital Human',
+        link: '/contents/tech/digital_human',
+        target: ''
+      }
+    ]
+  },
+
 
 ]
 const footer = [

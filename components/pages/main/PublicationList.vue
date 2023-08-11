@@ -60,18 +60,6 @@
 <script>
   import { mapActions } from 'vuex'
   export default {
-    props: {
-      category1: {
-        type: String,
-        default: '',
-        require: true
-      },
-      category2: {
-        type: String,
-        default: '',
-        require: true
-      }
-    },
     data() {
       return {
         list: [],
@@ -98,8 +86,8 @@
       async fetchList() {
         this.pageData.targetLang = this.$store.state.language
         const res = await this.getCategoryList({
-          category1: 'document',
-          category2: 'news',
+          category1: 'research',
+          category2: 'publications',
           pageData: this.pageData
         })
 
@@ -195,7 +183,7 @@
             flex: 0 0 109px;
             display: inline-flex;
             padding: 8px 14px;
-            height: 34px;
+            height: 100%;
             align-items: center;
             border-radius: 27px;
             background: var(--black, #000);
@@ -427,7 +415,7 @@
             }
             .academy {
               flex: 0 0 86px;
-              height: 29px;
+
               .txt {
                 font-size: 10px;
               }
@@ -481,7 +469,7 @@
             }
             .academy {
               flex: 0 0 86px;
-              height: 29px;
+
               .txt {
                 font-size: 10px;
               }
@@ -541,7 +529,7 @@
             }
             .academy {
               flex: 0 0 86px;
-              height: 29px;
+
               .txt {
                 font-size: 10px;
               }
