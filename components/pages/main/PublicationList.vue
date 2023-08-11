@@ -60,6 +60,18 @@
 <script>
   import { mapActions } from 'vuex'
   export default {
+    props: {
+      category1: {
+        type: String,
+        default: '',
+        require: true
+      },
+      category2: {
+        type: String,
+        default: '',
+        require: true
+      }
+    },
     data() {
       return {
         list: [],
@@ -86,6 +98,8 @@
       async fetchList() {
         this.pageData.targetLang = this.$store.state.language
         const res = await this.getCategoryList({
+          category1: 'document',
+          category2: 'news',
           pageData: this.pageData
         })
 

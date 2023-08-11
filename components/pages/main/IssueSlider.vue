@@ -18,6 +18,7 @@
           <div class="thumbnail">
             <div class="fade">
               <div
+                class="issueimg"
                 :style="`background-image: url(${envVariable(
                   activeContent.Media.url
                 )});`"
@@ -251,8 +252,15 @@
 
         .thumbnail {
           height: 410px;
-          border-radius: 20px;
-          border: solid;
+
+          .fade {
+            .issueimg {
+              background-size: cover;
+              background-position: 50% 50%;
+              height: 100%;
+              border-radius: 20px;
+            }
+          }
         }
 
         .text {
@@ -291,6 +299,14 @@
           .thumbnail {
             width: 100%;
             height: 590px;
+            .fade {
+              .issueimg {
+                background-size: cover;
+                background-position: 50% 50%;
+                height: 100%;
+                border-radius: 20px;
+              }
+            }
           }
           .text {
             width: 740px;
@@ -327,6 +343,14 @@
           .thumbnail {
             width: 100%;
             height: 790px;
+            .fade {
+              .issueimg {
+                background-size: cover;
+                background-position: 50% 50%;
+                height: 100%;
+                border-radius: 20px;
+              }
+            }
           }
           .text {
             width: 996px;
@@ -365,6 +389,14 @@
           .thumbnail {
             width: 100%;
             height: 784px;
+            .fade {
+              .issueimg {
+                background-size: cover;
+                background-position: 50% 50%;
+                height: 100%;
+                border-radius: 20px;
+              }
+            }
           }
           .text {
             width: 1508px;
@@ -403,6 +435,15 @@
           .thumbnail {
             width: 100%;
             height: 380px;
+
+            .fade {
+              .issueimg {
+                background-size: cover;
+                background-position: 50% 50%;
+                height: 100%;
+                border-radius: 20px;
+              }
+            }
           }
           .text {
             width: 683px;
@@ -429,6 +470,15 @@
           .thumbnail {
             width: 100%;
             height: 380px;
+
+            .fade {
+              .issueimg {
+                background-size: cover;
+                background-position: 50% 50%;
+                height: 100%;
+                border-radius: 20px;
+              }
+            }
           }
           .text {
             width: 503px;
@@ -462,6 +512,15 @@
           .thumbnail {
             width: 100%;
             height: 380px;
+
+            .fade {
+              .issueimg {
+                background-size: cover;
+                background-position: 50% 50%;
+                height: 100%;
+                border-radius: 20px;
+              }
+            }
           }
           .text {
             width: 287px;
