@@ -1,34 +1,7 @@
 const menus = [
-  {
-    name: 'B^',
-    category: 'b',
-    nick: 'B^',
-    link: '',
-    sub: [
-      {
-        category: 'discover',
-        nick: 'DISCOVER',
-        name: 'DISCOVER',
-        link: 'https://bdiscover.kakaobrain.com/',
-        target: '_blank'
-      },
-      {
-        category: 'healthcare',
-        nick: 'HEALTHCARE',
-        name: 'HEALTHCARE',
-        link: '/b/healthcare',
-        target: ''
-      },
-      {
-        category: 'Karlo',
-        nick: 'Karlo',
-        name: 'Karlo',
-        link: 'https://bedit.kakaobrain.com',
-        target: '_blank'
-      }
-    ]
-  },
->>>>>>> store/data/common.js
+
+
+
   {
     name: 'About',
     category: 'about',
@@ -56,9 +29,6 @@ const menus = [
     category: 'carrers',
     nick: 'Carrers',
     link: 'https://careers.kakaobrain.com/',
-
-
-
   },
   {
     name: 'Product',
@@ -150,7 +120,7 @@ const menus = [
       }
     ]
   },
-  {
+   {
     name: 'Log B',
     category: 'log_b',
     nick: 'Log B',

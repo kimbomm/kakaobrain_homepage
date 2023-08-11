@@ -19,8 +19,10 @@
           <div class="llmscontent">
             <div class="llms gl-9">
               <div class="llmstext">
-                <p class="wetitle" v-html="llmstext[language][0]"></p>
-                <p id="wetext" v-html="llmstext[language][1]"></p>
+                <div>
+                  <p class="wetitle" v-html="llmstext[language][0]"></p>
+                  <p id="wetext" v-html="llmstext[language][1]"></p>
+                </div>
               </div>
               <div class="LargeLanguageModels">
                 <p>Large<br />Language<br />Models</p>
@@ -199,6 +201,7 @@
               border-radius: 20px;
               .llmstext {
                 position: absolute;
+                width: calc(100% - 40px);
                 top: 50px;
                 left: 50px;
               }
@@ -238,13 +241,12 @@
               background-image: url('@/assets/images/img_karlo.png');
               background-size: cover;
               background-position: 50% 50%;
-
               height: 380px;
               border-radius: 20px;
 
               .karlotext {
                 position: absolute;
-                width: 280px;
+
                 left: 50px;
                 top: 50px;
               }
@@ -285,7 +287,7 @@
               }
               .healthcareai {
                 position: absolute;
-                width: 120px;
+                width: calc(100% - 40px);
                 top: 160px;
                 right: 50px;
                 text-align: right;
@@ -930,7 +932,6 @@
                 height: 330px;
 
                 .karlotext {
-                  width: 280px;
                   left: 30px;
                   top: 30px;
                 }
@@ -1037,7 +1038,6 @@
         word-break: keep-all;
         p {
           width: getWidth(7) !important;
-
           font-size: 16px;
           line-height: 140%;
         }
@@ -1051,14 +1051,6 @@
           .imgbox {
             display: flex;
 
-            .wetitle {
-              font-size: 24px;
-            }
-            #wetext {
-              width: 503px;
-              font-size: 14px;
-              height: 66px;
-            }
             .llmscontent {
               .llms {
                 position: absolute;
@@ -1070,6 +1062,12 @@
                 .llmstext {
                   top: 30px;
                   left: 30px;
+                  .wetitle {
+                    font-size: 24px;
+                  }
+                  #wetext {
+                    font-size: 14px;
+                  }
                 }
                 .LargeLanguageModels {
                   top: 88px;
@@ -1091,9 +1089,14 @@
                 }
                 height: 190px;
                 .karlotext {
-                  width: 280px;
                   left: 30px;
                   top: 30px;
+                  .wetitle {
+                    font-size: 24px;
+                  }
+                  #wetext {
+                    font-size: 14px;
+                  }
                 }
 
                 .karloimg {
@@ -1117,7 +1120,12 @@
                 .healthcaretext {
                   padding-top: 30px;
                   left: 30px;
-                  width: 283px;
+                  .wetitle {
+                    font-size: 24px;
+                  }
+                  #wetext {
+                    font-size: 14px;
+                  }
                 }
                 .healthcareai {
                   top: 88px;
@@ -1205,17 +1213,9 @@
           .imgbox {
             display: flex;
 
-            .wetitle {
-              font-size: 20px;
-            }
-            #wetext {
-              width: 212px;
-
-              font-size: 14px;
-            }
             .llmscontent {
               .llms {
-                height: 210px;
+                min-height: 210px;
 
                 &.gl-9 {
                   width: getWidth(9) !important;
@@ -1224,6 +1224,14 @@
                 .llmstext {
                   top: 20px;
                   left: 20px;
+                  min-height: 100px;
+
+                  .wetitle {
+                    font-size: 20px;
+                  }
+                  #wetext {
+                    font-size: 14px;
+                  }
                 }
                 .LargeLanguageModels {
                   width: 80px;
@@ -1244,14 +1252,21 @@
               margin-top: 220px;
 
               .karlo {
-                height: 210px;
+                min-height: 210px;
                 &.gl-9 {
                   width: getWidth(9) !important;
                 }
                 .karlotext {
-                  width: 212px;
                   left: 20px;
                   top: 20px;
+                  width: calc(100% - 40px);
+
+                  .wetitle {
+                    font-size: 20px;
+                  }
+                  #wetext {
+                    font-size: 14px;
+                  }
                 }
 
                 .karloimg {
@@ -1271,7 +1286,7 @@
               }
 
               .healthcare {
-                height: 210px;
+                min-height: 210px;
                 margin-top: 10px;
                 &.gl-9 {
                   width: getWidth(9) !important;
@@ -1279,7 +1294,12 @@
                 .healthcaretext {
                   padding-top: 20px;
                   left: 20px;
-                  width: 283px;
+                  .wetitle {
+                    font-size: 20px;
+                  }
+                  #wetext {
+                    font-size: 14px;
+                  }
                 }
                 .healthcareai {
                   width: 56px;
@@ -1304,10 +1324,6 @@
             }
 
             .ethicstext {
-              width: 212px;
-              top: 20px;
-              left: 20px;
-
               .wetitle {
                 font-size: 20px;
               }
@@ -1318,7 +1334,7 @@
 
             .ethicsai {
               width: 52px;
-              height: 28px;
+
               right: 20px;
               top: 162px;
               font-size: 14px;

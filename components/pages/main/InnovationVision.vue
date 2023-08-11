@@ -11,7 +11,7 @@
           </div>
           <div class="subtitle" v-html="headsubtitle[language][0]"></div>
         </div>
-        <div class="container">
+        <div class="container gl-8">
           <div class="context">
             <div class="contitle">¹outstanding</div>
             <div class="consubtitle" v-html="outstanding[language][0]"></div>
@@ -213,7 +213,6 @@
         }
       }
       .container {
-        width: 890px;
         height: 540px;
         top: 160px;
 
@@ -472,29 +471,34 @@
 
       .content {
         .head {
-          width: 482px;
           gap: 30px;
           padding-top: 200px;
+
+          &.gl-8 {
+            width: getWidth(8) !important;
+          }
           .text {
+            position: relative;
             .title {
-              width: 482px;
               font-size: 60px;
+              z-index: 1;
             }
 
             .subtitle {
-              width: 500px;
               font-size: 16px;
+              position: relative;
             }
             .unthink {
+              position: absolute;
               width: 289px;
               height: 200px;
-
               font-size: 40px;
+              top: 0;
+              right: 0;
             }
           }
         }
         .container {
-          width: 583px;
           height: 516px;
 
           .context {
@@ -505,7 +509,6 @@
             }
             .consubtitle {
               font-size: 14px;
-              width: 583px;
             }
           }
         }
@@ -544,7 +547,6 @@
           }
         }
         .container {
-          width: 503px;
           height: 588px;
 
           .context {
@@ -556,7 +558,6 @@
             .consubtitle {
               padding-top: 12px;
               font-size: 14px;
-              width: 300px;
             }
           }
         }
@@ -588,11 +589,12 @@
           &.gl-8 {
             width: getWidth(9) !important;
           }
-          width: 354px;
-          padding-top: 140px;
 
+          padding-top: 140px;
           gap: 20px;
           .text {
+            width: 100%;
+            position: relative;
             .title {
               font-size: 40px;
               z-index: 1;
@@ -601,18 +603,24 @@
             .subtitle {
               width: 254px;
               font-size: 12px;
+              position: relative;
+              z-index: 1;
             }
             .unthink {
-              transform: translate(-60%, 0);
+              position: absolute;
               width: 188px;
               height: 133px;
               font-size: 26px;
+              top: 0;
+              right: 0;
             }
           }
         }
         .container {
-          width: 254px;
-          height: 472px;
+          &.gl-8 {
+            width: getWidth(8) !important;
+          }
+          min-height: 472px;
 
           top: 100px;
 
@@ -625,7 +633,6 @@
             .consubtitle {
               padding-top: 12px;
               font-size: 14px;
-              width: 254px;
             }
           }
         }
