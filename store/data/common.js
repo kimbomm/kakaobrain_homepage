@@ -1,7 +1,4 @@
 const menus = [
-
-
-
   {
     name: 'About',
     category: 'about',
@@ -67,21 +64,20 @@ const menus = [
       }
     ]
   },
-
-
   {
     name: 'Research',
     category: 'research',
     nick: 'Research',
     link: '',
     sub: [
-      {
+       {
         category: 'challenge',
         nick: 'Challenge',
         name: 'Challenge',
         link: '/contents/research/challenge',
         target: ''
       },
+
       {
         category: 'publications',
         nick: 'Publications',
@@ -207,7 +203,48 @@ const menus = [
       }
     ]
   },
-
+    {
+    name: 'Tech',
+    category: 'tech',
+    nick: 'Tech',
+    link: '',
+    sub: [
+      // {
+      //   category: 'highlight',
+      //   nick: 'Highlight',
+      //   name: 'Highlight',
+      //   link: '/contents/tech/highlight'
+      // },
+      {
+        category: 'dataset',
+        nick: 'Datasets',
+        name: 'Datasets',
+        link: '/contents/tech/datasets',
+        target: ''
+      },
+      {
+        category: 'brain',
+        nick: 'Brain Cloud',
+        name: 'Brain Cloud',
+        link: '/contents/tech/brain_cloud',
+        target: ''
+      },
+      {
+        category: 'large',
+        nick: 'Large Scale AI',
+        name: 'Large Scale AI',
+        link: '/contents/tech/large_scale',
+        target: ''
+      },
+      {
+        category: 'digital',
+        nick: 'Digital Human',
+        name: 'Digital Human',
+        link: '/contents/tech/digital_human',
+        target: ''
+      }
+    ]
+  },
 ]
 const footer = [
   {
