@@ -1,7 +1,4 @@
 const menus = [
-
-
-
   {
     name: 'About',
     category: 'about',
@@ -67,8 +64,6 @@ const menus = [
       }
     ]
   },
-
-
   {
     name: 'Research',
     category: 'research',
@@ -76,10 +71,10 @@ const menus = [
     link: '',
     sub: [
        {
-        category: 'dataset',
-        nick: 'Datasets',
-        name: 'Datasets',
-        link: '/contents/tech/datasets',
+        category: 'challenge',
+        nick: 'Challenge',
+        name: 'Challenge',
+        link: '/contents/research/challenge',
         target: ''
       },
 
@@ -91,11 +86,11 @@ const menus = [
         target: ''
       },
       {
-        category: 'ethics',
-        nick: 'AI 윤리',
-        name: 'AI 윤리',
-        link: '/ethics',
-        target: '_blank'
+        category: 'collaborative',
+        nick: 'Collabo',
+        name: 'Collaborative Research',
+        link: '/contents/research/collaborative',
+        target: ''
       }
     ]
   },
@@ -112,7 +107,6 @@ const menus = [
     //     link: '/contents/document/news',
     //     target: ''
     //   },
-
     // ]
   },
    {
@@ -244,8 +238,6 @@ const menus = [
       }
     ]
   },
-
-
 ]
 const footer = [
   {
