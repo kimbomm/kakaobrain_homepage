@@ -32,6 +32,7 @@
                 {{ activeContent.title }}
               </span>
             </div>
+            <!-- 임의로 설정. 데이터 생성시 -->
             <div class="subtitle">
               <span>
                 {{ activeContent.updateAt }}
@@ -229,12 +230,12 @@
           width: 6px;
           position: absolute;
           top: 0;
-          margin: 10px 0 0 -20px;
+          margin: 20px 0 0 -20px;
           .dot {
             width: 6px;
             height: 6px;
             border-radius: 50%;
-            margin: 4px 0;
+            margin-bottom: 4px;
 
             cursor: pointer;
             background-color: #e8ecf1;
@@ -292,12 +293,8 @@
   @include pc-desktop {
     .issue-slider {
       .issue {
-        width: 100%;
-        height: 590px;
-
         .container {
           .thumbnail {
-            width: 100%;
             height: 590px;
             .fade {
               .issueimg {
@@ -326,22 +323,18 @@
   @include pc-large {
     .issue-slider {
       .issue {
-        width: 100%;
-        height: 790px;
-
         .container {
           .pagination-dots {
             width: 8px;
-            margin: 20px 0 0 -30px;
+            margin: 25px 0 0 -30px;
+
             .dot {
               width: 8px;
               height: 8px;
-
-              margin: 6px 0;
+              margin-bottom: 6px;
             }
           }
           .thumbnail {
-            width: 100%;
             height: 790px;
             .fade {
               .issueimg {
@@ -355,10 +348,10 @@
           .text {
             width: 996px;
             padding-top: 40px;
+            height: auto;
             .title {
               font-size: 40px;
             }
-
             .subtitle {
               font-size: 21px;
             }
@@ -371,9 +364,6 @@
   @include pc-4k {
     .issue-slider {
       .issue {
-        width: 100%;
-        height: 784px;
-
         .container {
           .pagination-dots {
             width: 14px;
@@ -382,7 +372,7 @@
               width: 14px;
               height: 14px;
 
-              margin: 10px 0;
+              margin-bottom: 10px;
             }
           }
 
@@ -429,8 +419,6 @@
     //max-width:1024px
     .issue-slider {
       .issue {
-        width: 100%;
-        height: 380px;
         .container {
           .thumbnail {
             width: 100%;
@@ -463,9 +451,6 @@
   @include mobile {
     .issue-slider {
       .issue {
-        width: 100%;
-        height: 380px;
-
         .container {
           .thumbnail {
             width: 100%;
@@ -506,8 +491,6 @@
         margin-left: getMargin(1.5) !important;
       }
       .issue {
-        width: 100%;
-        height: 380px;
         .container {
           .thumbnail {
             width: 100%;

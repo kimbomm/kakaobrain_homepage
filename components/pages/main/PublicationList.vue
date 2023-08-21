@@ -5,16 +5,23 @@
         <p>Publication</p>
       </div>
     </div>
+
     <div class="container l-ml-3">
       <div class="publication" v-for="(item, index) in list" :key="index">
         <div class="tit">
-          <div class="headline">
-            <div class="academy">
-              <div class="txt">
-                {{ item.academy }}
+          <div class="headline" v-if="Array.isArray(item.academy)">
+            <div
+              class="academyList"
+              v-for="(itemacademy, index) in item.academy"
+              :key="index"
+            >
+              <div class="academy">
+                <div class="txt">
+                  {{ itemacademy }}
+                </div>
               </div>
             </div>
-            <div class="text">
+            <div class="text gl-6">
               <nuxt-link
                 :to="{
                   path: '/contents',
@@ -27,17 +34,35 @@
                 <div class="list-date">
                   @{{
                     item &&
-                    $dayjs(item.showAt || item.acceptAt).format('YYYYMMDD')
+                    $dayjs(item.showAt || item.acceptAt).format('YYYY.MM.DD')
                   }}
                 </div>
-                <div class="item-box">
-                  <div
-                    class="box"
-                    v-for="(itemtag, index) in item.ContentTags"
-                    :key="index"
-                  >
-                    #{{ itemtag.tag }}
-                  </div>
+              </div>
+            </div>
+          </div>
+          <div class="headline" v-else>
+            <div class="academyList" :key="index">
+              <div class="academy">
+                <div class="txt">
+                  {{ item.academy }}
+                </div>
+              </div>
+            </div>
+            <div class="text gl-6">
+              <nuxt-link
+                :to="{
+                  path: '/contents',
+                  query: { contentId: item.contentId }
+                }"
+              >
+                {{ item.title }}</nuxt-link
+              >
+              <div class="tag">
+                <div class="list-date">
+                  @{{
+                    item &&
+                    $dayjs(item.showAt || item.acceptAt).format('YYYY.MM.DD')
+                  }}
                 </div>
               </div>
             </div>
@@ -104,7 +129,6 @@
     }
   }
 </script>
-
 <style lang="scss" scoped>
   .main {
     margin-bottom: 0;
@@ -123,7 +147,7 @@
         font-family: Inter;
         font-size: 40px;
         font-style: normal;
-        font-weight: 700;
+        font-weight: 600;
         line-height: 100%; /* 40px */
       }
     }
@@ -142,9 +166,11 @@
         //제목
 
         .headline {
-          display: flex;
-          gap: 12px;
           .text {
+            &.gl-6 {
+              width: getWidth(6) !important;
+            }
+            margin-top: 20px;
             color: #000;
             font-family: Inter;
             font-size: 30px;
@@ -166,35 +192,28 @@
                 font-weight: 400;
                 line-height: 140%;
               }
-              .item-box {
-                .box {
-                  color: #000;
-                  display: inline-block;
-                  font-family: Noto Sans KR;
-                  font-size: 14px;
-                  font-style: normal;
-                  font-weight: 400;
-                  line-height: 140%;
-                }
-              }
             }
           }
-          .academy {
-            flex: 0 0 109px;
-            display: inline-flex;
-            padding: 8px 14px;
-            height: 100%;
-            align-items: center;
-            border-radius: 27px;
-            background: var(--black, #000);
+          .academyList {
+            display: inline;
+            .academy {
+              flex: 0 0 109px;
+              display: inline-flex;
+              padding: 8px 14px;
+              height: 100%;
+              margin-right: 10px;
+              align-items: center;
+              border-radius: 27px;
+              background: var(--black, #000);
 
-            .txt {
-              color: var(--white, #fff);
-              font-family: Inter;
-              font-size: 14px;
-              font-style: italic;
-              font-weight: 400;
-              line-height: 130%; /* 18.2px */
+              .txt {
+                color: var(--white, #fff);
+                font-family: Inter;
+                font-size: 14px;
+                font-style: italic;
+                font-weight: 400;
+                line-height: 130%; /* 18.2px */
+              }
             }
           }
         }
@@ -231,15 +250,13 @@
               .tag {
                 .list-date {
                 }
-                .item-box {
-                  .box {
-                  }
-                }
               }
             }
 
-            .academy {
-              .txt {
+            .academyList {
+              .academy {
+                .txt {
+                }
               }
             }
           }
@@ -275,24 +292,23 @@
           .headline {
             .text {
               font-size: 34px;
+              margin-top: 30px;
 
               .tag {
                 padding-top: 14px;
                 .list-date {
                   font-size: 18px;
                 }
-                .item-box {
-                  .box {
-                    font-size: 18px;
-                  }
-                }
               }
             }
-            .academy {
-              flex: 0 0 133px;
-              margin-top: 5px;
-              .txt {
-                font-size: 18px;
+            .academyList {
+              .academy {
+                flex: 0 0 133px;
+                margin-top: 5px;
+                height: 100%;
+                .txt {
+                  font-size: 18px;
+                }
               }
             }
           }
@@ -322,7 +338,7 @@
       }
       .container {
         padding: 260px 0 0 0;
-        gap: 220px;
+        gap: 160px;
 
         .tit {
           //제목
@@ -331,7 +347,7 @@
             gap: 30px;
             .text {
               font-size: 50px;
-
+              margin-top: 34px;
               .tag {
                 padding-top: 24px;
                 gap: 40px;
@@ -339,18 +355,17 @@
                   width: 155px;
                   font-size: 26px;
                 }
-                .item-box {
-                  .box {
-                    font-size: 26px;
-                  }
-                }
               }
             }
-            .academy {
-              flex: 0 0 210px;
-              margin-top: 10px;
-              .txt {
-                font-size: 28px;
+
+            .academyList {
+              .academy {
+                flex: 0 0 210px;
+                padding: 14px 24px;
+                height: 100%;
+                .txt {
+                  font-size: 28px;
+                }
               }
             }
           }
@@ -390,8 +405,8 @@
         }
       }
       .container {
-        padding: 72px 0 0 0;
-        gap: 82px;
+        padding: 70px 0 0 0;
+        gap: 50px;
 
         .tit {
           //제목
@@ -399,17 +414,12 @@
           .headline {
             .text {
               font-size: 21px;
-
+              margin-top: 10px;
               .tag {
                 gap: 30px;
                 .list-date {
                   width: 84px;
                   font-size: 14px;
-                }
-                .item-box {
-                  .box {
-                    font-size: 14px;
-                  }
                 }
               }
             }
@@ -461,10 +471,6 @@
                 gap: 20px;
                 .list-date {
                 }
-                .item-box {
-                  .box {
-                  }
-                }
               }
             }
             .academy {
@@ -514,6 +520,9 @@
             .text {
               font-size: 21px;
 
+              &.gl-6 {
+                width: getWidth(8) !important;
+              }
               .tag {
                 display: flex;
                 flex-direction: column-reverse;
@@ -521,17 +530,16 @@
 
                 .list-date {
                 }
-                .item-box {
-                  .box {
-                  }
-                }
               }
             }
-            .academy {
-              flex: 0 0 86px;
+            .academyList {
+              .academy {
+                flex: 0 0 86px;
+                margin-right: 6px;
 
-              .txt {
-                font-size: 10px;
+                .txt {
+                  font-size: 10px;
+                }
               }
             }
           }
