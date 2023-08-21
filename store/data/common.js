@@ -59,7 +59,7 @@ const menus = [
         category: 'brain cloud',
         nick: 'Brain Cloud',
         name: 'Brain Cloud',
-        link: 'https://cloud.kakaobrain.com/ ',
+        link: 'https://cloud.kakaobrain.com/',
         target: '_blank'
       }
     ]
@@ -94,27 +94,20 @@ const menus = [
       }
     ]
   },
-  {//임시설정
+  {
     name: 'News',
     category: 'news',
     nick: 'News',
-    link: '',
-    sub: [
-      {
-        category: 'news',
-        nick: 'News',
-        name: 'News',
-        link: '/contents/document/news',
-        target: ''
-      },
-      {
-        category: 'documentary',
-        nick: 'Documentary',
-        name: 'Documentary',
-        link: '/contents/document/documentary',
-        target: ''
-      }
-    ]
+    link: '/contents/document/news',
+    // sub: [
+    //   {
+    //     category: 'news',
+    //     nick: 'News',
+    //     name: 'News',
+    //     link: '/contents/document/news',
+    //     target: ''
+    //   },
+    // ]
   },
    {
     name: 'Log B',

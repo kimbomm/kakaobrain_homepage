@@ -2,11 +2,12 @@
   <div class="question gl-6 l-ml-2">
     <div class="silk">
       <div class="uq-text" style="position: relative">
-        <img
+        <!-- <img
           src="@/assets/images/Whatwedo.svg"
           alt="whatwedo"
           style="display: flex; flex-direction: column; align-items: center"
-        />
+        /> -->
+        <p>What<br />we do.</p>
       </div>
     </div>
     <div class="question-content gl-6">
@@ -83,8 +84,8 @@
       return {
         subtitle: {
           KR: [
-            `우리의 혁신은 차별화된 요소 기술과 빅 모델 및 디지털 휴먼을 완성하는 AI 프론티어로서<br/>
-            기술 커뮤니티에 기여하고, 사용 가치와 삶의 질을 높이는 새로운 서비스 영역을<br/>
+            `우리의 혁신은 차별화된 요소 기술과 빅 모델 및 디지털 휴먼을 완성하는 AI 프론티어로서<br>
+            기술 커뮤니티에 기여하고, 사용 가치와 삶의 질을 높이는 새로운 서비스 영역을<br>
             개척합니다.`
           ],
           EN: [
@@ -144,15 +145,20 @@
       margin-left: getMargin(2) !important;
     }
     .silk {
-      position: relative;
-      .uq-text {
+      p {
+        color: var(--black, #000);
+        font-family: Inter;
+        font-size: 70px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 100%; /* 70px */
+        text-transform: uppercase;
       }
     }
     &-content {
       margin-top: 30px;
-      word-break: keep-all;
+
       p {
-        width: getWidth(6) !important;
         color: #000;
         font-family: Noto Sans KR;
         font-size: 20px;
@@ -215,7 +221,7 @@
                 font-family: Inter;
                 font-size: 30px;
                 font-style: normal;
-                font-weight: 700;
+                font-weight: 600;
                 line-height: 100%; /* 30px */
                 text-transform: uppercase;
               }
@@ -296,7 +302,7 @@
                 font-style: normal;
                 opacity: 10%;
                 color: white;
-                font-weight: 700;
+                font-weight: 600;
                 line-height: 100%; /* 30px */
                 text-transform: uppercase;
               }
@@ -360,7 +366,7 @@
             font-family: Inter;
             font-size: 30px;
             font-style: normal;
-            font-weight: 700;
+            font-weight: 600;
             line-height: 100%; /* 30px */
             text-transform: uppercase;
           }
@@ -384,9 +390,8 @@
       .silk {
         position: relative;
         .uq-text {
-          img {
-            width: auto;
-            height: 180px;
+          p {
+            font-size: 90px;
           }
         }
       }
@@ -540,9 +545,8 @@
       .silk {
         position: relative;
         .uq-text {
-          img {
-            width: auto;
-            height: 240px;
+          p {
+            font-size: 120px;
           }
         }
       }
@@ -554,7 +558,7 @@
         }
       }
       .container {
-        margin-top: 100px;
+        margin-top: 120px;
         width: 1504px;
 
         .wedobox {
@@ -605,7 +609,7 @@
 
                 .karlotext {
                   width: 404px;
-                  left: 71px;
+                  left: 60px;
                   top: 60px;
                 }
 
@@ -695,13 +699,13 @@
     .question {
       .silk {
         .uq-text {
-          img {
-            height: 363px;
+          p {
+            font-size: 180px;
           }
         }
       }
       &-content {
-        margin-top: 40px;
+        margin-top: 60px;
 
         p {
           font-size: 40px;
@@ -760,7 +764,7 @@
 
                 .karlotext {
                   width: 605px;
-                  left: 101px;
+                  left: 90px;
                   top: 90px;
                 }
 
@@ -869,23 +873,25 @@
       .silk {
         position: relative;
         .uq-text {
-          img {
-            width: auto;
-            height: 120px;
+          p {
+            font-size: 60px;
           }
         }
       }
       &-content {
         margin-top: 30px;
-
-        word-break: keep-all;
-        p {
-          font-size: 16px;
+        &.gl-6 {
+          width: getWidth(8) !important;
+          p {
+            font-size: 16px;
+            line-height: 140%;
+          }
         }
       }
       .container {
         margin-top: 70px;
         width: 784px;
+
         .wedobox {
           .imgbox {
             display: flex;
@@ -1017,6 +1023,7 @@
 
   @include mobile {
     //max-width: 768px
+
     .question {
       &.gl-6 {
         width: getWidth(6) !important;
@@ -1027,21 +1034,24 @@
       .silk {
         position: relative;
         .uq-text {
-          img {
-            width: auto;
-            height: 120px;
+          p {
+            font-size: 60px;
           }
         }
       }
       &-content {
         margin-top: 30px;
-        word-break: keep-all;
-        p {
-          width: getWidth(7) !important;
-          font-size: 16px;
-          line-height: 140%;
+
+        &.gl-6 {
+          width: getWidth(8) !important;
+
+          p {
+            font-size: 16px;
+            line-height: 140%;
+          }
         }
       }
+
       .container {
         margin-top: 70px;
         &.gl-6 {
@@ -1120,6 +1130,7 @@
                 .healthcaretext {
                   padding-top: 30px;
                   left: 30px;
+
                   .wetitle {
                     font-size: 24px;
                   }
@@ -1185,14 +1196,13 @@
       .silk {
         position: relative;
         .uq-text {
-          img {
-            width: auto;
-            height: 80px;
+          p {
+            font-size: 40px;
           }
         }
       }
       &-content {
-        margin-top: 30px;
+        margin-top: 20px;
         word-break: keep-all;
         p {
           &.gl-6 {
@@ -1324,6 +1334,7 @@
             }
 
             .ethicstext {
+              left: 20px;
               .wetitle {
                 font-size: 20px;
               }

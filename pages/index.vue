@@ -287,141 +287,146 @@
   }
 </script>
 <style lang="scss" scoped>
+  //min-width:1360px
   .main {
-    padding-top: 200px;
+    margin-top: 126px;
+
+    .issue-slider {
+      top: 0px;
+      bottom: 0px;
+    }
 
     .question {
-      margin-top: 436px;
+      margin-top: 300px;
     }
-    .slogan-area {
-      padding: 0 20px;
-    }
-    .slogan-wrap {
-      padding: 0 20px;
-      margin-top: 500px;
-    }
-    .full-image {
-      margin-top: 100px;
-    }
-    .machine-wrap {
-      margin-top: 100px;
-    }
+
     .innovation {
-      margin-top: 100px;
+      margin-top: 300px;
     }
-    .main-archive {
-      margin-top: 500px;
-    }
-    .team {
-      margin-top: 440px;
-    }
-  }
-  @include pc-large {
-    .main {
-      padding-top: 300px;
-      margin-bottom: 670px;
-      .question {
-        margin-top: 990px;
-      }
-      .slogan-wrap {
-        margin-top: 1000px;
-        // margin-top: 990px;
-      }
-      .full-image {
-        margin-top: 100px;
-      }
-      .machine-wrap {
-        margin-top: 200px;
-      }
-      .main-archive {
-        margin-top: 700px;
-      }
-      .team {
-        margin-top: 640px;
-      }
-    }
-  }
-  @include pc-4k {
-    .main {
-      padding-top: 260px;
-      margin-bottom: 1000px;
-      .question {
-        margin-top: 1500px;
-      }
-      .slogan-wrap {
-        margin-top: 1500px;
-      }
-      .full-image {
-        margin-top: 442px;
-      }
-      .machine-wrap {
-        margin-top: 442px;
-      }
-      .innovation {
-        margin-top: 200px;
-      }
-      .main-archive {
-        margin-top: 1000px;
-      }
-      .team {
-        margin-top: 1440px;
-      }
-    }
-  }
-  @include tablet {
-    .main {
-      padding-top: 200px;
+    .textflow {
+      margin-top: 236px;
       margin-bottom: 300px;
-      .question {
-        margin-top: 200px;
+    }
+  }
+  //min-width: 1361px
+  @include pc-desktop {
+    .main {
+      margin-top: 120px;
+
+      .issue-slider {
+        top: 0px;
+        bottom: 0px;
       }
-      .slogan-wrap {
+      .question {
         margin-top: 400px;
       }
-      .machine-wrap {
-        margin-top: 100px;
-      }
       .innovation {
-        margin-top: 100px;
+        margin-top: 400px;
       }
-      .main-archive {
-        margin-top: 300px;
-      }
-      .team {
-        margin-top: 340px;
+      .textflow {
+        margin-top: 234px;
+        margin-bottom: 400px;
       }
     }
   }
-  @include mobile {
+  //min-width:2560px
+  @include pc-large {
     .main {
-      padding-top: 96px;
-      margin-bottom: 200px;
+      margin-top: 160px;
+
+      .issue-slider {
+        top: 0px;
+        bottom: 0px;
+      }
+      .question {
+        margin-top: 540px;
+      }
+      .innovation {
+        margin-top: 547px;
+      }
+      .textflow {
+        margin-top: 340px;
+        margin-bottom: 540px;
+      }
+    }
+  }
+  //min-width: 3840px
+  @include pc-4k {
+    .main {
+      margin-top: 237px;
+
+      .question {
+        margin-top: 803px;
+      }
+
+      .innovation {
+        margin-top: 800px;
+      }
+
+      .textflow {
+        margin-top: 500px;
+        margin-bottom: 800px;
+      }
+    }
+  }
+  //max-width: 1024px
+  @include tablet {
+    .main {
+      margin-top: 80px;
+
+      .issue-slider {
+        top: 0px;
+        bottom: 0px;
+      }
       .question {
         margin-top: 200px;
       }
-      .slogan-wrap {
-        margin-top: 240px;
-      }
-      .full-image {
-        margin-top: 40px;
-      }
-      .machine-wrap {
-        margin-top: 40px;
-        & + .slogan-wrap {
-          margin-top: 372px;
-        }
-      }
       .innovation {
-        margin-top: 40px;
+        margin-top: 200px;
       }
-      .main-archive {
-        margin-top: 300px;
+      .textflow {
+        margin-top: 150px;
+        margin-bottom: 150px;
       }
-      .team {
+    }
+  }
+  //max-width: 768px
+  @include mobile {
+    .main {
+      margin-top: 80px;
+
+      .issue-slider {
+        top: 0px;
+        bottom: 0px;
+      }
+      .question {
+        margin-top: 200px;
+      }
+
+      .innovation {
+        margin-top: 200px;
+      }
+      .textflow {
+        margin-top: 125px;
+      }
+    }
+  }
+  //max-width: 374px
+  @include mobile-small {
+    .main {
+      margin-top: 110px;
+      .issue-slider {
+        top: 0px;
+        bottom: 0px;
+      }
+      .question {
         margin-top: 140px;
       }
-      .braingoal {
-        top: 1140px;
+      .innovation {
+        margin-top: 140px;
+      }
+      .textflow {
+        margin-top: 125px;
       }
     }
   }

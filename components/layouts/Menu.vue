@@ -19,13 +19,16 @@
               >
                 {{ menu.name }}</a
               >
-
+              <a v-if="menu.name === 'News'" :href="menu.link">
+                {{ menu.name }}</a
+              >
               <sup class="num">{{ count[menu.category] }}</sup>
-
-              <a v-if="menu.name != 'Carrers'">{{ menu.name }}</a>
+              <a v-if="menu.name != 'Carrers' && menu.name != 'News'">{{
+                menu.name
+              }}</a>
             </button>
             <ul
-              v-show="clickIndex === index && index !== 1"
+              v-show="clickIndex === index && index !== 1 && index !== 4"
               :ref="`subMenu-${index}`"
               :id="`subMenu-${index}`"
               :class="`subMenu-${index}`"

@@ -21,8 +21,8 @@
           </ul>
         </div>
       </div>
-      <div class="footerimg">
-        <img src="@/assets/images/gdmark.png" />
+      <div class="footerimg" :class="{ copy: true, 'is-hide': onHide }">
+        <img src="@/assets/images/gdmark.svg" />
       </div>
       <div class="footer-bottom">
         <div :class="{ copy: true, 'is-hide': onHide }">
@@ -124,6 +124,7 @@
       img {
         width: 32px;
         height: 56px;
+        margin-bottom: 40px;
       }
     }
 
@@ -141,6 +142,7 @@
       }
       .copyright {
         width: getWidth(5);
+
         span {
           display: inline-block;
         }
@@ -175,6 +177,48 @@
     }
   }
 
+  @include pc-desktop {
+    .footer {
+      padding: 0 20px 20px;
+      > div {
+        position: relative;
+      }
+      &-con {
+        position: relative;
+        margin-bottom: 116px;
+        margin-left: getMargin(2);
+      }
+      .footerimg {
+        img {
+          width: 40px;
+          height: 70px;
+          margin-bottom: 40px;
+        }
+      }
+
+      &-bottom {
+        z-index: 10;
+        display: flex;
+        align-items: flex-end;
+        padding-left: getMargin(7);
+        font-size: 16px;
+        line-height: 1.3;
+        color: $gray-9;
+        .info-txt {
+          width: getWidth(2);
+          margin-right: $gutter;
+        }
+        .copyright {
+          width: getWidth(5);
+
+          span {
+            display: inline-block;
+          }
+        }
+      }
+    }
+  }
+
   @include pc-large {
     .footer {
       &-shape {
@@ -189,10 +233,14 @@
         img {
           width: 56px;
           height: 98px;
+          margin-bottom: 60px;
         }
       }
       &-bottom {
         font-size: 22px;
+        .copy {
+          height: 30px;
+        }
       }
     }
     .menu-list {
@@ -217,6 +265,7 @@
         img {
           width: 84px;
           height: 146px;
+          margin-bottom: 84px;
         }
       }
       &-bottom {
@@ -272,7 +321,6 @@
       }
     }
     .footer {
-      padding-bottom: 50px;
       &-shape {
         display: none;
       }
@@ -280,6 +328,7 @@
         img {
           width: 40px;
           height: 70px;
+          margin-bottom: 20px;
         }
       }
       &-con {
@@ -317,7 +366,6 @@
       }
     }
     .footer {
-      padding-bottom: 50px;
       &-shape {
         display: none;
       }

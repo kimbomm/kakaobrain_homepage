@@ -9,39 +9,38 @@
               Unthinkable<br />Question<br />makes<br />impactful<br />answer
             </div>
           </div>
-          <div class="subtitle" v-html="headsubtitle[language][0]"></div>
+          <div class="subtitle gl-6" v-html="headsubtitle[language][0]"></div>
         </div>
         <div class="container gl-8">
           <div class="context">
-            <div class="contitle">¹outstanding</div>
-            <div class="consubtitle" v-html="outstanding[language][0]"></div>
+            <div class="contitle"><span class="num">¹</span>outstanding</div>
+            <div
+              class="consubtitle gl-4"
+              v-html="outstanding[language][0]"
+            ></div>
           </div>
           <div class="context">
-            <div class="contitle">²actualized</div>
-            <div class="consubtitle" v-html="actualized[language][0]"></div>
+            <div class="contitle"><span class="num">²</span>actualized</div>
+            <div
+              class="consubtitle gl-4"
+              v-html="actualized[language][0]"
+            ></div>
           </div>
           <div class="context">
-            <div class="contitle">³open</div>
-            <div class="consubtitle" v-html="open[language][0]"></div>
+            <div class="contitle"><span class="num">³</span>open</div>
+            <div class="consubtitle gl-4" v-html="open[language][0]"></div>
           </div>
           <div class="context">
-            <div class="contitle">⁴impactful</div>
-            <div class="consubtitle" v-html="impactful[language][0]"></div>
+            <div class="contitle"><span class="num">⁴</span>impactful</div>
+            <div class="consubtitle gl-4" v-html="impactful[language][0]"></div>
           </div>
         </div>
         <div class="vision-list">
-          <div
-            class="list-con"
-            v-for="(data, index) in 4"
-            :key="index"
-            :data="data"
-            :index="index"
-          >
-            <img
-              :src="
-                require(`@/assets/images/about/visual_${index}_${NUMBER}.png`)
-              "
-            />
+          <div class="list-con">
+            <InnovationEasterEgg :index="0" :sec="4000" class="egg" />
+            <InnovationEasterEgg :index="1" :sec="5000" class="egg" />
+            <InnovationEasterEgg :index="2" :sec="6000" class="egg" />
+            <InnovationEasterEgg :index="3" :sec="3000" class="egg" />
           </div>
         </div>
       </div>
@@ -50,14 +49,19 @@
 </template>
 <script>
   import { mapState } from 'vuex'
+  import InnovationEasterEgg from '@/components/pages/main/InnovationEasterEgg'
 
   export default {
+    components: {
+      InnovationEasterEgg
+    },
+
     data() {
       return {
         NUMBER: 0,
         timer: null,
         isChange: false,
-        setTime: [600, 800, 700, 600],
+        interval: null,
         headtitle: {
           KR: [`혁신은<br/>물음에서<br/>시작합니다.`],
           EN: [`Innovation<br/>begins with a<br/> question.`]
@@ -111,45 +115,45 @@
       ...mapState({
         language: state => state.language
       })
-    },
-    mounted() {
-      this.scrollBody.addEventListener('scroll', this.onScroll)
-    },
-    beforeDestroy() {
-      this.scrollBody.removeEventListener('scroll', this.onScroll)
-    },
-    methods: {
-      onScroll() {
-        const _this = this
-        if (this.timer !== null) {
-          clearTimeout(this.timer)
-          this.handleCircle(true)
-        }
-
-        this.timer = setTimeout(function () {
-          _this.handleCircle(false)
-        }, 200)
-      },
-      handleCircle(isScroll) {
-        if (isScroll) {
-          if (!this.isChange) {
-            this.NUMBER = Math.floor(Math.random() * 5) + 1
-            this.isChange = true
-            setTimeout(() => {
-              this.isChange = false
-            }, this.setTime[this.index])
-          }
-        } else {
-          this.NUMBER = 0
-        }
-      }
     }
+    // mounted() {
+    //   this.scrollBody.addEventListener('scroll', this.onScroll)
+    // },
+    // beforeDestroy() {
+    //   this.scrollBody.removeEventListener('scroll', this.onScroll)
+    // },
+    // methods: {
+    //   onScroll() {
+    //     const _this = this
+    //     if (this.timer !== null) {
+    //       clearTimeout(this.timer)
+    //       this.handleCircle(true)
+    //     }
+
+    //     this.timer = setTimeout(function () {
+    //       _this.handleCircle(false)
+    //     }, 200)
+    //   },
+    //   handleCircle(isScroll) {
+    //     if (isScroll) {
+    //       if (!this.isChange) {
+    //         this.NUMBER = Math.floor(Math.random() * 5) + 1
+    //         this.isChange = true
+    //         setTimeout(() => {
+    //           this.isChange = false
+    //         }, this.setTime[this.index])
+    //       }
+    //     } else {
+    //       this.NUMBER = 0
+    //     }
+    //   }
+    // }
   }
 </script>
 <style lang="scss" scoped>
   .innovation {
     height: 1617px;
-    // top: 3896px;
+
     margin-left: 20px;
     position: relative;
     border-radius: 20px;
@@ -164,7 +168,7 @@
       }
       .head {
         &.gl-8 {
-          width: getWidth(8) !important;
+          width: getWidth(8.1) !important;
         }
         display: flex;
 
@@ -196,7 +200,7 @@
             font-family: Inter;
             font-size: 46px;
             font-style: normal;
-            font-weight: 800;
+            font-weight: 700;
             line-height: 100%;
 
             text-transform: uppercase;
@@ -223,6 +227,10 @@
           }
 
           .contitle {
+            .num {
+              font-weight: 100;
+            }
+
             color: var(--black, #000);
             font-feature-settings: 'calt' off;
             font-family: Inter;
@@ -251,7 +259,7 @@
         right: 268px;
         margin: 0 0 -140px 0;
         .list-con {
-          img {
+          .egg {
             margin: -50px 0 0 0;
             width: 280px;
             height: 280px;
@@ -282,10 +290,9 @@
               height: 300px;
               font-size: 60px;
             }
-
-            .subtitle {
-              font-size: 20px;
-            }
+          }
+          .subtitle {
+            font-size: 20px;
           }
         }
         .container {
@@ -311,7 +318,7 @@
           height: auto;
           right: 380px;
           .list-con {
-            img {
+            .egg {
               margin: -50px 0 0 0;
               width: 280px;
               height: 280px;
@@ -346,16 +353,16 @@
 
               font-size: 78px;
             }
-
-            .subtitle {
-              width: 990px;
-              font-size: 26px;
-            }
+          }
+          .subtitle {
+            width: 990px;
+            font-size: 26px;
           }
         }
         .container {
           width: 1120px;
           height: 710px;
+          top: 200px;
 
           .context {
             margin-bottom: 110px;
@@ -376,7 +383,7 @@
           right: 508px;
           margin: 0 0 -190px 0;
           .list-con {
-            img {
+            .egg {
               margin: -68px 0 0 0;
               width: 380px;
               height: 380px;
@@ -394,32 +401,30 @@
       .content {
         .head {
           width: 1508px;
-
           gap: 60px;
           padding-top: 800px;
 
-          .title {
-            width: 1508px;
-
-            font-size: 180px;
-            height: 594px;
+          .text {
+            .title {
+              width: 1508px;
+              font-size: 180px;
+              height: 594px;
+            }
+            .unthink {
+              width: 564px;
+              height: 390px;
+              font-size: 78px;
+            }
           }
-
           .subtitle {
             width: 1333px;
             font-size: 40px;
-          }
-          .unthink {
-            width: 564px;
-            height: 390px;
-
-            font-size: 78px;
           }
         }
         .container {
           width: 1508px;
           height: 1508px;
-
+          top: 300px;
           .context {
             margin-bottom: 170px;
             &:nth-child(4) {
@@ -440,7 +445,7 @@
           right: 784px;
           margin: 0 0 -289px 0;
           .list-con {
-            img {
+            .egg {
               margin: -100px 0 0 0;
               width: 578px;
               height: 578px;
@@ -474,32 +479,25 @@
           gap: 30px;
           padding-top: 200px;
 
-          &.gl-8 {
-            width: getWidth(8) !important;
-          }
           .text {
             position: relative;
             .title {
               font-size: 60px;
               z-index: 1;
             }
-
-            .subtitle {
-              font-size: 16px;
-              position: relative;
-            }
             .unthink {
-              position: absolute;
               width: 289px;
               height: 200px;
               font-size: 40px;
-              top: 0;
-              right: 0;
             }
+          }
+          .subtitle {
+            font-size: 16px;
           }
         }
         .container {
           height: 516px;
+          top: 160px;
 
           .context {
             margin-bottom: 80px;
@@ -518,7 +516,7 @@
           right: 100px;
           margin: 0 0 -90px 0;
           .list-con {
-            img {
+            .egg {
               margin: -30px 0 0 0;
               width: 180px;
               height: 180px;
@@ -531,18 +529,21 @@
   //max-width: 768px
   @include mobile {
     .innovation {
-      height: 1520px;
-
       .content {
         .head {
           .text {
+            position: relative;
             .title {
             }
 
-            .subtitle {
-              width: 500px;
-            }
             .unthink {
+              position: absolute;
+              right: 0;
+            }
+          }
+          .subtitle {
+            &.gl-6 {
+              width: getWidth(8) !important;
             }
           }
         }
@@ -558,6 +559,9 @@
             .consubtitle {
               padding-top: 12px;
               font-size: 14px;
+              &.gl-4 {
+                width: getWidth(4) !important;
+              }
             }
           }
         }
@@ -566,7 +570,7 @@
           right: 75px;
 
           .list-con {
-            img {
+            .egg {
               margin: -30px 0 0 0;
               width: 180px;
               height: 180px;
@@ -579,7 +583,7 @@
   //max-width: 374px
   @include mobile-small {
     .innovation {
-      height: 1152px;
+      height: 1072px;
 
       .content {
         &.l-pl-2 {
@@ -600,12 +604,6 @@
               z-index: 1;
             }
 
-            .subtitle {
-              width: 254px;
-              font-size: 12px;
-              position: relative;
-              z-index: 1;
-            }
             .unthink {
               position: absolute;
               width: 188px;
@@ -615,13 +613,21 @@
               right: 0;
             }
           }
+          .subtitle {
+            font-size: 14px;
+            position: relative;
+            z-index: 1;
+            &.gl-6 {
+              width: getWidth(8) !important;
+            }
+          }
         }
         .container {
           &.gl-8 {
             width: getWidth(8) !important;
           }
           min-height: 472px;
-
+          bottom: 0px;
           top: 100px;
 
           .context {
@@ -633,6 +639,9 @@
             .consubtitle {
               padding-top: 12px;
               font-size: 14px;
+              &.gl-4 {
+                width: getWidth(8) !important;
+              }
             }
           }
         }
@@ -641,7 +650,7 @@
           right: 34px;
           margin: 0 0 -55px 0;
           .list-con {
-            img {
+            .egg {
               margin: -20px 0 0 0;
               width: 110px;
               height: 110px;
