@@ -92,8 +92,22 @@
       }
     }
   }
-  @include mobile {
+  @include mobile() {
     .bread-crumb {
+      &__full {
+        padding: 100px 20px 38px;
+      }
+      li {
+        margin-bottom: 4px;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+  @include mobile-small() {
+    .bread-crumb {
+      margin-left: 20px;
       li {
         display: inline-flex;
         // margin-bottom: 20px;
