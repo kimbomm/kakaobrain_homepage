@@ -14,7 +14,7 @@ const ABOUT = {
                 AI Company
         `,
         text: 'Unthinkable question makes impactful answer.',
-        subtext: `카카오브레인은 ‘생각하지 물음’으로 부터 보편적 문제를 AI로 해결해서<br/> 10억 명 이상의 사람의 삶에 영향을 주는 글로벌 기술 기업입니다.
+        subtext: `카카오브레인은 ‘생각하지 못한 물음’으로 부터 보편적 문제를 AI로 해결해서<br/> 10억 명 이상의 사람의 삶에 영향을 주는 글로벌 기술 기업입니다.
                   `,
         rect1:`이미지 생성 모델<br/>신규 시장 발굴 및 제품 출시`,
         rect2:`AI 판독 서비스 출시<br/>네이처급 최첨단 기술 확보`,

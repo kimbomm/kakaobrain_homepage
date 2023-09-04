@@ -18,6 +18,9 @@
         default: () => {},
         require: true
       }
+    },
+    mounted() {
+      console.log(this.data.text)
     }
   }
 </script>

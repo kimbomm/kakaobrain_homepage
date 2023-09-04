@@ -86,11 +86,11 @@ const menus = [
         target: ''
       },
       {
-        category: 'collaborative',
-        nick: 'Collabo',
-        name: 'Collaborative Research',
-        link: '/contents/research/collaborative',
-        target: ''
+      category: 'ethics',
+        nick: 'AI 윤리',
+        name: 'AI 윤리',
+        link: '/ethics',
+        target: '_blank'
       }
     ]
   },
