@@ -32,12 +32,6 @@
                 {{ activeContent.title }}
               </span>
             </div>
-            <!-- 임의로 설정. 데이터 생성시 -->
-            <div class="subtitle">
-              <span>
-                {{ activeContent.updateAt }}
-              </span>
-            </div>
           </div>
         </nuxt-link>
         <div class="pagination-dots">
