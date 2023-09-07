@@ -68,7 +68,7 @@
               <nuxt-link :to="`/publicationDetail/${item.contentId}`">
                 {{ item.title }}</nuxt-link
               >
-              <!-- 데이터 추가시 수정 v-if="item.titleMediaId" -->
+
               <div class="publiImg">
                 <div
                   class="mediaImg"
@@ -82,7 +82,7 @@
                   {{ item && $dayjs(item.showAt).format('MMMM D, YYYY') }}
                 </div>
               </div>
-              <!-- 데이터 추가시 수정  -->
+
               <div class="writerInfo">
                 <div class="writer">
                   <template v-for="(author, index) in item.writer">
@@ -94,13 +94,9 @@
                   </template>
                 </div>
               </div>
-              <!-- 데이터 추가시 수정  -->
+
               <div class="btnGroup">
                 <div class="firstGroup">
-                  <!-- <button onclick="location.href=`${item.pdf}`">
-                    <img src="@/assets/images/icons/pdf.svg" />PDF
-                  </button> -->
-
                   <button onclick="window.open(`${item.contentProp.github}`)">
                     <img src="@/assets/images/icons/github.svg" />github
                   </button>
@@ -188,6 +184,7 @@
         ],
         list: [],
         tags: [],
+        contentProp: { github: '', dataset: '', googlescholar: '' },
         total: null,
         pageData: {
           offset: 0,
@@ -1079,6 +1076,38 @@
     }
   }
   @media screen and (min-width: 5120px) {
+    .publications {
+      .head {
+        &.l-ml-2 {
+          margin-left: getMargin(2) !important;
+        }
+
+        &.gl-6 {
+          width: getWidth(6) !important;
+        }
+        .subtitle {
+          &.gl-5 {
+            width: getWidth(5) !important;
+          }
+          &.l-ml-1 {
+            margin-left: getMargin(1) !important;
+          }
+        }
+      }
+      .container {
+        &.l-ml-3 {
+          margin-left: getMargin(3) !important;
+        }
+        &.gl-6 {
+          width: getWidth(5) !important;
+        }
+      }
+      .listPaging {
+        &.gl-5 {
+          width: getWidth(5) !important;
+        }
+      }
+    }
   }
   //max-width: 1024px
   @include tablet {

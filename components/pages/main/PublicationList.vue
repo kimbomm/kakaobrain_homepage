@@ -172,6 +172,7 @@
             &.gl-6 {
               width: getWidth(6) !important;
             }
+
             margin-top: 20px;
             color: #000;
             font-family: Inter;
@@ -185,8 +186,9 @@
               .mediaImg {
                 height: 126px;
                 width: 270px;
-                border: 1px solid black;
                 border-radius: 10px;
+                border: 1px solid black;
+                background-repeat: no-repeat;
                 background-size: cover;
                 background-position: 50% 50%;
               }
@@ -550,11 +552,14 @@
           //제목
 
           .headline {
+            &.gl-6 {
+              width: getWidth(7) !important;
+            }
             &::after {
               content: '';
               display: block;
               height: 1px;
-              background-color: black;
+
               margin-top: 40px;
             }
             .text {

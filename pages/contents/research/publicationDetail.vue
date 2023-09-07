@@ -62,16 +62,16 @@
         </div>
         <div class="linkGroup">
           <div class="btnGroup">
-            <button onclick="location.href=`${list.contentProp.github}`">
+            <button onclick="window.open(`${list.contentProp.github}`)">
               <img src="@/assets/images/icons/github_detail.svg" />github
             </button>
 
-            <button onclick="location.href=`${list.contentProp.dataset}`">
+            <button onclick="window.open(`${list.contentProp.dataset}`)">
               <img src="@/assets/images/icons/dataset_detail.svg" />
               Data Set
             </button>
 
-            <button onclick="location.href=`${list.contentProp.googlescholar}`">
+            <button onclick="window.open(`${list.contentProp.googlescholar}`)">
               <img src="@/assets/images/icons/huggingface_detail.svg" />
               google scholar
             </button>
@@ -117,6 +117,7 @@
     data() {
       return {
         list: [],
+
         contentId: null,
         breadcrumb: [
           { text: 'Research', sub: 'research' },
@@ -738,6 +739,29 @@
           }
         }
       } //publidetail
+    }
+  }
+  @media screen and (min-width: 5120px) {
+    .publidetail {
+      &.gl-7 {
+        width: getWidth(6) !important;
+      }
+      &.l-ml-2 {
+        margin-left: getMargin(2.1) !important;
+      }
+      .head {
+        &.gl-7 {
+          width: getWidth(6) !important;
+        }
+      }
+      .container {
+        &.gl-6 {
+          width: getWidth(5) !important;
+        }
+        &.l-ml-1 {
+          margin-left: getMargin(1) !important;
+        }
+      }
     }
   }
   @include tablet {
