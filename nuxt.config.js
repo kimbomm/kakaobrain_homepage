@@ -62,7 +62,15 @@ export default {
   },
 
   router: {
-    middleware: ['middleRouter']
+    middleware: ['middleRouter'],
+     extendRoutes(routes, resolve) {
+      routes.push({
+        name: 'publication-detail',
+        path: '/publicationDetail/:contentId',
+        component: resolve(__dirname, 'pages/contents/research/publicationDetail.vue'),
+      });
+    },
+
   },
 
   css: ['~assets/scss/index.scss'],
@@ -130,6 +138,7 @@ export default {
       // '/contents/document/news',
       // '/contents/document/documentary'
     ]
+
   },
 
   styleResources: {

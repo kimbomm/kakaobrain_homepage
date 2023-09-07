@@ -25,80 +25,93 @@
       </div>
     </div>
     <div class="container l-ml-3 gl-6">
-      <!-- <select class="selectedBox" v-model="selectedYear">
-        <option v-for="year in yearOptions" :key="year">
-          {{ year }}
-        </option>
-      </select> -->
-
-      <!-- <v-select class="selectbox" :options="yearOptions"  @input="filterByYear"></v-select> -->
-
-      <select class="selectbox" v-model="selectedYear" @change="filterByYear">
-        <option v-for="year in yearOptions" :key="year">{{ year }}</option>
-      </select>
-      <div class="publication" v-for="(item, index) in list" :key="index">
+      <div class="custom-select">
+        <div class="select-styled" @click="toggleOptions">
+          {{ selectedOption }}
+          <img src="@/assets/images/icons/arrow_down.svg" />
+        </div>
+        <ul class="select-options" v-if="isOpen">
+          <li
+            v-for="(option, index) in options"
+            :key="index"
+            @click="selectOption(option)"
+            :style="{
+              'padding-bottom': index === options.length - 1 ? '0' : '24px'
+            }"
+          >
+            {{ option }}
+          </li>
+        </ul>
+      </div>
+      <div
+        class="publication"
+        v-for="(item, index) in filteredPublications"
+        :key="index"
+      >
         <div class="tit">
           <div class="headline gl-6">
-            <div class="academyList">
+            <div
+              class="academyList"
+              v-for="(scholar, index) in item.academy"
+              :key="index"
+            >
               <div class="academy">
                 <div class="txt">
-                  <div class="year" v-if="item.year">
-                    {{ item.year }}
+                  <div class="year" v-if="scholar.year">
+                    {{ scholar.year }}
                   </div>
-                  {{ item.academy }}
+                  {{ scholar.name }}
                 </div>
               </div>
             </div>
             <div class="text gl-6">
-              <nuxt-link
-                :to="{
-                  path: '/contents',
-                  query: { contentId: item.contentId }
-                }"
-              >
+              <nuxt-link :to="`/publicationDetail/${item.contentId}`">
                 {{ item.title }}</nuxt-link
               >
-              <!-- 데이터 추가시 수정 -->
-              <div class="publiImg" v-if="item && item.titleMediaId">
-                <div class="mediaImg">
-                  <img :src="item.titleMediaId" />
-                </div>
+
+              <div class="publiImg">
+                <div
+                  class="mediaImg"
+                  :style="`background-image: url(${envVariable(
+                    item.titleMediaId
+                  )})`"
+                ></div>
               </div>
               <div class="tag">
                 <div class="list-date">
                   {{ item && $dayjs(item.showAt).format('MMMM D, YYYY') }}
                 </div>
               </div>
-              <!-- 데이터 추가시 수정  -->
+
               <div class="writerInfo">
                 <div class="writer">
-                  <template v-for="(tagitem, index) in item.ContentTags">
-                    {{ tagitem.tag }}
-                    <span class="team"> ({{ tagitem.updateAt }}) </span>
-                    <span v-if="index < item.ContentTags.length - 1">,</span>
+                  <template v-for="(author, index) in item.writer">
+                    {{ author.name }}
+                    <span class="team" v-if="author.affiliation">
+                      ({{ author.affiliation }})
+                    </span>
+                    <span v-if="index < item.writer.length - 1">,</span>
                   </template>
                 </div>
               </div>
-              <!-- 데이터 추가시 수정  -->
+
               <div class="btnGroup">
                 <div class="firstGroup">
-                  <button onclick="location.href=`${item.pdf}`">
-                    <img src="@/assets/images/icons/pdf.svg" />PDF
-                  </button>
-
-                  <button onclick="location.href=`${item.github}`">
+                  <button onclick="window.open(`${item.contentProp.github}`)">
                     <img src="@/assets/images/icons/github.svg" />github
                   </button>
                 </div>
                 <div class="secondGroup">
-                  <button onclick="location.href=`${item.dataset}`">
+                  <button onclick="window.open(`${item.contentProp.dataset}`)">
                     <img src="@/assets/images/icons/dataset.svg" />
                     Data Set
                   </button>
 
-                  <button onclick="location.href=`${item.huggingface}`">
+                  <button
+                    onclick="window.open(`${item.contentProp.googlescholar}`"
+                  >
                     <img src="@/assets/images/icons/huggingface.svg" />
-                    Hugging Face
+                    google scholar
                   </button>
                 </div>
               </div>
@@ -127,36 +140,26 @@
   import 'vue-select/dist/vue-select.css'
   Vue.component('v-select', vSelect)
 
-  // vSelect.props.components.default = () => ({
-  //   Deselect: {
-  //     render: createElement => createElement('span', '❌')
-  //   },
-  //   OpenIndicator: {
-  //     render: createElement => createElement('span', '▽')
-  //   }
-  // })
-
   export default {
-    // head() {
-    //   return {
-    //     meta: [
-    //       {
-    //         hid: 'og:url',
-    //         property: 'og:url',
-    //         content: `${process.env.BASE_URL}/contents/research/publications`
-    //       },
-    //       {
-    //         hid: 'og:image',
-    //         property: 'og:image',
-    //         content: `${process.env.BASE_URL}/meta/meta_homepage_research.png`
-    //       }
-    //     ]
-    //   }
-    // },
+    head() {
+      return {
+        meta: [
+          {
+            hid: 'og:url',
+            property: 'og:url',
+            content: `${process.env.BASE_URL}/contents/research/publications`
+          },
+          {
+            hid: 'og:image',
+            property: 'og:image',
+            content: `${process.env.BASE_URL}/meta/meta_homepage_research.png`
+          }
+        ]
+      }
+    },
     components: {
       BreadCrumb,
-      ListPaging,
-      'v-select': vSelect
+      ListPaging
     },
     data() {
       return {
@@ -173,11 +176,15 @@
         },
         breadcrumb: [
           { text: 'Research', sub: 'research' },
-          { text: 'Article', sub: 'sub' },
-          { text: 'Multi-modal', sub: 'multi-modal' }
+          {
+            text: 'Publications',
+            sub: 'sub',
+            link: '/contents/research/publications'
+          }
         ],
         list: [],
         tags: [],
+        contentProp: { github: '', dataset: '', googlescholar: '' },
         total: null,
         pageData: {
           offset: 0,
@@ -185,9 +192,10 @@
           targetLang: this.$store.state.language,
           tag: ''
         },
-        filteredPublications: [],
-        selectedYear: 'ALL',
-        yearOptions: ['ALL', '2023', '2022', '2021']
+        isOpen: false,
+        selectedOption: 'ALL',
+        options: ['ALL', '2023', '2022', '2021'],
+        filteredPublications: []
       }
     },
 
@@ -201,32 +209,40 @@
     },
 
     methods: {
-      filterByYear() {
-        if (this.selectedYear === 'ALL') {
+      toggleOptions() {
+        this.isOpen = !this.isOpen
+      },
+      selectOption(option) {
+        if (option === 'ALL') {
           this.filteredPublications = this.list
         } else {
-          const selectedYear = parseInt(this.selectedYear)
           this.filteredPublications = this.list.filter(item => {
             const publicationYear = item.showAt
               ? new Date(item.showAt).getFullYear()
               : null
-            return publicationYear === selectedYear
+            return publicationYear === parseInt(option)
           })
         }
+        this.selectedOption = option
+        this.isOpen = false
       },
+
       async init() {
         await this.setBreadcrumb()
+        this.selectedOption = 'ALL'
+        this.filteredPublications = this.list
       },
-      getOptionStyle(year) {
-        return {
-          'border-radius': '25px'
-        }
-      },
+
       created() {
         this.init()
       },
       async setBreadcrumb() {
         this.breadcrumb.push()
+      },
+      envVariable(url) {
+        const imageUrl = `${this.$config.baseURL}${url}`
+
+        return imageUrl
       },
       ...mapActions({
         getCategoryList: 'getCategoryList'
@@ -250,6 +266,8 @@
           })
           this.total = res.data.count
           this.tags = res.data.tags
+          this.selectedOption = 'ALL'
+          this.filteredPublications = this.list
         }
       },
       onPagingChange(val) {
@@ -334,10 +352,55 @@
       flex-direction: column;
       justify-content: space-between;
       padding: 130px 0 0 0;
-
-      &.l-ml-3 {
-        margin-left: getMargin(3) !important;
+      .custom-select {
+        position: relative;
+        display: inline-block;
+        margin-bottom: 20px;
       }
+
+      .select-styled {
+        display: flex;
+        justify-content: space-around;
+        padding: 8px 26px 8px 20px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 27px;
+        width: 109px;
+        gap: 40px;
+        height: 32px;
+        font-size: 12px;
+        background: var(--black, #000);
+        color: white;
+        cursor: pointer;
+        font-style: italic;
+      }
+
+      .select-options {
+        position: absolute;
+        margin-top: 10px;
+        padding: 20px 12px 20px 20px;
+        width: 109px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 20px;
+        z-index: 1;
+      }
+
+      .select-options li {
+        padding-bottom: 24px;
+        cursor: pointer;
+        color: #000;
+        font-family: Inter;
+        font-size: 12px;
+        font-style: italic;
+        font-weight: 400;
+        line-height: 130%; /* 18.2px */
+      }
+
+      .custom-select.active .select-options {
+        display: block;
+      }
+
       &.gl-6 {
         width: getWidth(5) !important;
       }
@@ -372,18 +435,10 @@
               .mediaImg {
                 height: 126px;
                 width: 270px;
-                // &.gl-2 {
-                //   width: getWidth(2) !important;
-                // }
-
-                img {
-                  border-radius: 10px;
-                  background-size: cover;
-                  background-position: 50% 50%;
-                  height: 100%;
-                  //임시테스트용
-                  background-image: url('https://t1.kakaocdn.net/friends/www/talk/kakaofriends_talk_2018.png');
-                }
+                border: 1px solid black;
+                border-radius: 10px;
+                background-size: cover;
+                background-position: 50% 50%;
               }
             }
 
@@ -441,7 +496,7 @@
                 button {
                   display: flex;
                   padding: 10px 16px;
-
+                  gap: 10px;
                   align-items: center;
                   gap: 10px;
                   border-radius: 4px;
@@ -466,12 +521,13 @@
           }
           .academyList {
             display: inline;
+            column-gap: 10px;
             .academy {
               flex: 0 0 109px;
               display: inline-flex;
               padding: 8px 14px;
               height: 100%;
-              margin-right: 10px;
+              margin: 10px 10px 0 0;
               align-items: center;
               border-radius: 27px;
               background: var(--black, #000);
@@ -480,12 +536,13 @@
                 display: flex;
                 color: var(--white, #fff);
                 font-family: Inter;
-                font-size: 14px;
+                font-size: 12px;
                 font-style: italic;
                 font-weight: 400;
                 line-height: 130%; /* 18.2px */
                 .year {
                   padding-right: 5px;
+                  font-size: 12px;
                 }
               }
             }
@@ -557,18 +614,28 @@
         }
       }
       .container {
-        select {
+        .custom-select {
+        }
+
+        .select-styled {
           width: 117px;
+          height: 34px;
           font-size: 14px;
         }
 
-        option {
+        .select-options {
+          width: 117px;
         }
 
-        select::-ms-expand {
+        .select-options li {
+          padding-bottom: 24px;
+          cursor: pointer;
+          font-size: 14px;
         }
-        padding: 140px 0 0 0;
 
+        .custom-select.active .select-options {
+          display: block;
+        }
         &.l-ml-3 {
           margin-left: getMargin(3) !important;
         }
@@ -625,7 +692,9 @@
             .academyList {
               .academy {
                 .txt {
+                  font-size: 14px;
                   .year {
+                    font-size: 14px;
                   }
                 }
               }
@@ -695,20 +764,33 @@
         }
       }
       .container {
-        select {
-          width: 124px;
-          font-size: 18px;
-          height: 39px;
-          margin-bottom: 28px;
-        }
-
-        option {
-        }
-
-        select::-ms-expand {
-        }
         padding: 200px 0 0 0;
+        .custom-select {
+        }
 
+        .select-styled {
+          width: 124px;
+          height: 39px;
+          font-size: 18px;
+          img {
+            width: 19px;
+            height: 8px;
+          }
+        }
+
+        .select-options {
+          width: 124px;
+        }
+
+        .select-options li {
+          padding-bottom: 24px;
+          cursor: pointer;
+          font-size: 18px;
+        }
+
+        .custom-select.active .select-options {
+          display: block;
+        }
         &.l-ml-3 {
           margin-left: getMargin(3) !important;
         }
@@ -760,6 +842,7 @@
               }
               .btnGroup {
                 margin: 30px 0 80px 0;
+                gap: 16px;
                 .firstGroup {
                   gap: 16px;
                   button {
@@ -793,6 +876,7 @@
                 .txt {
                   font-size: 18px;
                   .year {
+                    font-size: 18px;
                   }
                 }
               }
@@ -820,16 +904,19 @@
   @include pc-4k {
     .publications {
       .breadcrumb {
+        margin: 200px 20px 0 0;
       }
       .head {
+        margin-top: 170px;
         &.l-ml-2 {
           margin-left: getMargin(2) !important;
         }
 
         &.gl-6 {
-          width: getWidth(7) !important;
+          width: getWidth(6) !important;
         }
         .title {
+          font-size: 180px;
         }
 
         .subtitle {
@@ -839,36 +926,67 @@
           &.l-ml-1 {
             margin-left: getMargin(1) !important;
           }
+          margin-top: 150px;
+          font-size: 32px;
 
           .tab {
+            margin-top: 70px;
+            font-size: 28px;
             .datasetTab {
+              width: 187px;
+              padding: 14px 24px;
+              text-align: center;
             }
 
             .challengesTab {
+              width: 207px;
+              padding: 14px 24px;
+              text-align: center;
             }
           }
         }
       }
       .container {
-        select {
-        }
-
-        option {
-        }
-
-        select::-ms-expand {
-        }
-
+        padding: 300px 0 0 0;
         &.l-ml-3 {
           margin-left: getMargin(3) !important;
         }
         &.gl-6 {
           width: getWidth(5) !important;
         }
+        .custom-select {
+          margin-bottom: 30px;
+        }
+
+        .select-styled {
+          border-radius: 1000px;
+          width: 192px;
+          height: 64px;
+          font-size: 28px;
+          img {
+            width: 29px;
+            height: 18px;
+          }
+        }
+
+        .select-options {
+          width: 194px;
+        }
+
+        .select-options li {
+          padding-bottom: 20px;
+          cursor: pointer;
+          font-size: 28px;
+        }
+
+        .custom-select.active .select-options {
+          display: block;
+        }
 
         .tit {
           .headline {
             &::before {
+              margin-bottom: 110px;
             }
 
             &.gl-6 {
@@ -878,37 +996,62 @@
               &.gl-6 {
                 width: getWidth(5) !important;
               }
-
+              font-size: 40px;
               .publiImg {
+                margin-top: 50px;
                 .mediaImg {
+                  width: 480px;
+                  height: 224px;
                   img {
                   }
                 }
               }
 
               .tag {
+                margin-top: 50px;
                 .list-date {
+                  width: 100%;
+                  font-size: 26px;
                 }
               }
 
               .writerInfo {
                 .writer {
+                  font-size: 24px;
                   .team {
+                    font-size: 16px;
                   }
                   &:last-child::after {
                   }
                 }
               }
-              .firstGroup {
-                button {
+
+              .btnGroup {
+                margin: 50px 0 110px 0;
+                .firstGroup {
+                  button {
+                    border-radius: 6px;
+                    padding: 10px 21px;
+                    font-size: 18px;
+                  }
+                }
+                .secondGroup {
+                  button {
+                    border-radius: 6px;
+                    padding: 10px 21px;
+                    font-size: 18px;
+                  }
                 }
               }
             }
             .academyList {
               .academy {
+                padding: 14px 24px;
+                border-radius: 100px;
                 .txt {
-                  font-size: 12px;
+                  font-size: 28px;
                   .year {
+                    font-size: 28px;
                   }
                 }
               }
@@ -916,7 +1059,7 @@
           }
         }
 
-        .link .link {
+        .link {
           img {
           }
         }
@@ -927,11 +1070,44 @@
         }
         &::before {
           content: '';
+          margin-bottom: 170px;
         }
       }
     }
   }
   @media screen and (min-width: 5120px) {
+    .publications {
+      .head {
+        &.l-ml-2 {
+          margin-left: getMargin(2) !important;
+        }
+
+        &.gl-6 {
+          width: getWidth(6) !important;
+        }
+        .subtitle {
+          &.gl-5 {
+            width: getWidth(5) !important;
+          }
+          &.l-ml-1 {
+            margin-left: getMargin(1) !important;
+          }
+        }
+      }
+      .container {
+        &.l-ml-3 {
+          margin-left: getMargin(3) !important;
+        }
+        &.gl-6 {
+          width: getWidth(5) !important;
+        }
+      }
+      .listPaging {
+        &.gl-5 {
+          width: getWidth(5) !important;
+        }
+      }
+    }
   }
   //max-width: 1024px
   @include tablet {
@@ -1047,7 +1223,9 @@
             .academyList {
               .academy {
                 .txt {
+                  font-size: 12px;
                   .year {
+                    font-size: 12px;
                   }
                 }
               }
@@ -1186,6 +1364,7 @@
                 .txt {
                   font-size: 12px;
                   .year {
+                    font-size: 12px;
                   }
                 }
               }
@@ -1253,13 +1432,31 @@
         }
       }
       .container {
-        select {
+        .custom-select {
         }
 
-        option {
+        .select-styled {
+          width: 115px;
+          height: 35px;
+          font-size: 15px;
+          img {
+            width: 19px;
+            height: 8px;
+          }
         }
 
-        select::-ms-expand {
+        .select-options {
+          width: 115px;
+        }
+
+        .select-options li {
+          padding-bottom: 24px;
+          cursor: pointer;
+          font-size: 15px;
+        }
+
+        .custom-select.active .select-options {
+          display: block;
         }
 
         &.l-ml-3 {
@@ -1309,18 +1506,28 @@
                 }
               }
               .btnGroup {
-                display: flex;
-                flex-wrap: wrap;
                 .firstGroup {
+                  gap: 10px;
+                  button {
+                    padding: 10px 16px;
+                    gap: 5px;
+                  }
                 }
                 .secondGroup {
+                  gap: 10px;
+                  button {
+                    padding: 10px 16px;
+                    gap: 5px;
+                  }
                 }
               }
             }
             .academyList {
               .academy {
                 .txt {
+                  font-size: 10px;
                   .year {
+                    font-size: 10px;
                   }
                 }
               }
@@ -1342,6 +1549,7 @@
         }
         &::before {
           content: '';
+          margin-bottom: 90px;
         }
       }
     }

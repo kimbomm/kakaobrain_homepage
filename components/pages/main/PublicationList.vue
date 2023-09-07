@@ -9,75 +9,48 @@
     <div class="container l-ml-3 gl-6">
       <div class="publication" v-for="(item, index) in list" :key="index">
         <div class="tit">
-          <div class="headline" v-if="Array.isArray(item.academy)">
+          <div class="headline gl-6">
             <div
               class="academyList"
-              v-for="(itemacademy, index) in item.academy"
+              v-for="(scholar, index) in item.academy"
               :key="index"
             >
               <div class="academy">
                 <div class="txt">
-                  {{ itemacademy }}
-                </div>
-              </div>
-            </div>
-            <div class="text gl-6">
-              <nuxt-link
-                :to="{
-                  path: '/contents',
-                  query: { contentId: item.contentId }
-                }"
-              >
-                {{ item.title }}</nuxt-link
-              >
-              <div class="tag">
-                <div class="list-date">
-                  @{{
-                    item &&
-                    $dayjs(item.showAt || item.acceptAt).format('YYYY.MM.DD')
-                  }}
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="headline gl-6" v-else>
-            <div class="academyList">
-              <div class="academy">
-                <div class="txt">
-                  <div class="year" v-if="item.year">
-                    {{ item.year }}
+                  <div class="year" v-if="scholar.year">
+                    {{ scholar.year }}
                   </div>
-                  {{ item.academy }}
+                  {{ scholar.name }}
                 </div>
               </div>
             </div>
             <div class="text gl-6">
-              <nuxt-link
-                :to="{
-                  path: '/contents',
-                  query: { contentId: item.contentId }
-                }"
-              >
+              <nuxt-link :to="`/publicationDetail/${item.contentId}`">
                 {{ item.title }}</nuxt-link
               >
-              <!-- 데이터 추가시 수정 -->
+
               <div class="publiImg">
-                <div class="mediaImg">
-                  <img :src="item.titleMediaId" />
-                </div>
+                <div
+                  class="mediaImg"
+                  :style="`background-image: url(${envVariable(
+                    item.titleMediaId
+                  )})`"
+                ></div>
               </div>
               <div class="tag">
                 <div class="list-date">
                   {{ item && $dayjs(item.showAt).format('MMMM D, YYYY') }}
                 </div>
               </div>
-              <!-- 데이터 추가시 수정  -->
+
               <div class="writerInfo">
                 <div class="writer">
-                  <template v-for="(tagitem, index) in item.ContentTags">
-                    {{ tagitem.tag }}
-                    <span class="team"> ({{ tagitem.updateAt }}) </span>
-                    <span v-if="index < item.ContentTags.length - 1">,</span>
+                  <template v-for="(author, index) in item.writer">
+                    {{ author.name }}
+                    <span class="team" v-if="author.affiliation">
+                      ({{ author.affiliation }})
+                    </span>
+                    <span v-if="index < item.writer.length - 1">,</span>
                   </template>
                 </div>
               </div>
@@ -142,6 +115,11 @@
           this.total = res.data.count
           this.tags = res.data.tags
         }
+      },
+      envVariable(url) {
+        const imageUrl = `${this.$config.baseURL}${url}`
+
+        return imageUrl
       }
     }
   }
@@ -194,6 +172,7 @@
             &.gl-6 {
               width: getWidth(6) !important;
             }
+
             margin-top: 20px;
             color: #000;
             font-family: Inter;
@@ -207,18 +186,11 @@
               .mediaImg {
                 height: 126px;
                 width: 270px;
-                // &.gl-2 {
-                //   width: getWidth(2) !important;
-                // }
-
-                img {
-                  border-radius: 10px;
-                  background-size: cover;
-                  background-position: 50% 50%;
-                  height: 100%;
-                  //임시테스트용
-                  background-image: url('https://t1.kakaocdn.net/friends/www/talk/kakaofriends_talk_2018.png');
-                }
+                border-radius: 10px;
+                border: 1px solid black;
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: 50% 50%;
               }
             }
 
@@ -280,12 +252,13 @@
                 display: flex;
                 color: var(--white, #fff);
                 font-family: Inter;
-                font-size: 14px;
+                font-size: 12px;
                 font-style: italic;
                 font-weight: 400;
                 line-height: 130%; /* 18.2px */
                 .year {
                   padding-right: 5px;
+                  font-size: 12px;
                 }
               }
             }
@@ -355,6 +328,11 @@
             .academyList {
               .academy {
                 .txt {
+                  font-size: 14px;
+                  .year {
+                    padding-right: 5px;
+                    font-size: 14px;
+                  }
                 }
               }
             }
@@ -436,6 +414,9 @@
                 height: 100%;
                 .txt {
                   font-size: 18px;
+                  .year {
+                    font-size: 18px;
+                  }
                 }
               }
             }
@@ -460,12 +441,13 @@
 
         .title {
           p {
-            font-size: 74px;
+            font-size: 180px;
           }
         }
       }
       .container {
         padding: 260px 0 0 0;
+
         gap: 160px;
 
         .tit {
@@ -473,15 +455,42 @@
 
           .headline {
             gap: 30px;
+            &::after {
+              content: '';
+              display: block;
+              height: 1px;
+              background-color: black;
+              margin-top: 110px;
+            }
             .text {
-              font-size: 50px;
-              margin-top: 34px;
+              font-size: 40px;
+              margin-top: 30px;
+
+              .publiImg {
+                margin-top: 50px;
+                .mediaImg {
+                  height: 224px;
+                  width: 480px;
+                  img {
+                  }
+                }
+              }
               .tag {
-                padding-top: 24px;
-                gap: 40px;
+                padding-top: 50px;
                 .list-date {
-                  width: 155px;
+                  width: 100%;
                   font-size: 26px;
+                }
+              }
+              .writerInfo {
+                .writer {
+                  font-size: 24px;
+                  .team {
+                    font-size: 24px;
+                  }
+                }
+                &::after {
+                  margin-top: 110px;
                 }
               }
             }
@@ -493,6 +502,9 @@
                 height: 100%;
                 .txt {
                   font-size: 28px;
+                  .year {
+                    font-size: 28px;
+                  }
                 }
               }
             }
@@ -540,11 +552,14 @@
           //제목
 
           .headline {
+            &.gl-6 {
+              width: getWidth(7) !important;
+            }
             &::after {
               content: '';
               display: block;
               height: 1px;
-              background-color: black;
+
               margin-top: 40px;
             }
             .text {
@@ -583,6 +598,9 @@
 
               .txt {
                 font-size: 10px;
+                .year {
+                  font-size: 12px;
+                }
               }
             }
           }
@@ -664,6 +682,9 @@
 
               .txt {
                 font-size: 10px;
+                .year {
+                  font-size: 10px;
+                }
               }
             }
           }
@@ -751,6 +772,9 @@
 
                 .txt {
                   font-size: 10px;
+                  .year {
+                    font-size: 10px;
+                  }
                 }
               }
             }
