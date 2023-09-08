@@ -89,7 +89,7 @@
         breadcrumb: [
           { text: 'About', sub: 'about', link: '' },
           { text: 'Introduce', sub: 'sub', link: '/about' },
-          { text: 'Yeah!!!', sub: '', link: '' }
+          { text: 'Question', sub: '', link: '' }
         ],
 
         visionList: [
@@ -144,6 +144,7 @@
   }
   .about-title {
     margin-bottom: 60px;
+    font-size: 90px;
   }
   .about-full-con-a {
     margin-bottom: 420px;

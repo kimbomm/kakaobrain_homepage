@@ -52,6 +52,7 @@
           <div class="headline gl-6">
             <div
               class="academyList"
+              v-if="item.academy"
               v-for="(scholar, index) in item.academy"
               :key="index"
             >
@@ -66,12 +67,13 @@
             </div>
             <div class="text gl-6">
               <nuxt-link :to="`/publicationDetail/${item.contentId}`">
-                {{ item.title }}</nuxt-link
-              >
+                {{ item.title }}
+              </nuxt-link>
 
               <div class="publiImg">
                 <div
                   class="mediaImg"
+                  v-if="item.titleMediaId"
                   :style="`background-image: url(${envVariable(
                     item.titleMediaId
                   )})`"
@@ -84,7 +86,7 @@
               </div>
 
               <div class="writerInfo">
-                <div class="writer">
+                <div class="writer" v-if="item.writer">
                   <template v-for="(author, index) in item.writer">
                     {{ author.name }}
                     <span class="team" v-if="author.affiliation">
@@ -97,18 +99,25 @@
 
               <div class="btnGroup">
                 <div class="firstGroup">
-                  <button onclick="window.open(`${item.contentProp.github}`)">
+                  <button
+                    v-if="item.contentProp?.github"
+                    @click="openUrl(`${item.contentProp?.github}`)"
+                  >
                     <img src="@/assets/images/icons/github.svg" />github
                   </button>
                 </div>
                 <div class="secondGroup">
-                  <button onclick="window.open(`${item.contentProp.dataset}`)">
+                  <button
+                    v-if="item.contentProp?.dataset"
+                    @click="openUrl(`${item.contentProp?.dataset}`)"
+                  >
                     <img src="@/assets/images/icons/dataset.svg" />
                     Data Set
                   </button>
 
                   <button
-                    onclick="window.open(`${item.contentProp.googlescholar}`"
+                    v-if="item.contentProp?.googlescholar"
+                    @click="openUrl(`${item.contentProp?.googlescholar}`)"
                   >
                     <img src="@/assets/images/icons/huggingface.svg" />
                     google scholar
@@ -135,10 +144,6 @@
   import { mapState, mapActions } from 'vuex'
   import BreadCrumb from '@/components/elements/BreadCrumb'
   import ListPaging from '@/components/elements/ListPaging'
-  import vSelect from 'vue-select'
-  import Vue from 'vue'
-  import 'vue-select/dist/vue-select.css'
-  Vue.component('v-select', vSelect)
 
   export default {
     head() {
@@ -204,6 +209,7 @@
         language: state => state.language
       })
     },
+
     async mounted() {
       await this.init()
     },
@@ -225,6 +231,8 @@
         }
         this.selectedOption = option
         this.isOpen = false
+
+        window.scrollTo(0, 0)
       },
 
       async init() {
@@ -273,6 +281,9 @@
       onPagingChange(val) {
         this.pageData.offset = val * this.pageData.limit
         this.fetchList()
+      },
+      openUrl(url) {
+        window.open(url)
       }
     }
   }
@@ -286,10 +297,11 @@
     }
     .head {
       width: 784px;
-      margin-top: 48px;
+      margin-top: 150px;
       position: relative;
+
       &.l-ml-2 {
-        margin-left: getMargin(2) !important;
+        margin-left: getMargin(2.1) !important;
       }
 
       &.gl-6 {
@@ -404,6 +416,9 @@
       &.gl-6 {
         width: getWidth(5) !important;
       }
+      &.l-ml-3 {
+        margin-left: getMargin(3.1) !important;
+      }
 
       .tit {
         .headline {
@@ -435,7 +450,7 @@
               .mediaImg {
                 height: 126px;
                 width: 270px;
-                border: 1px solid black;
+
                 border-radius: 10px;
                 background-size: cover;
                 background-position: 50% 50%;
@@ -580,9 +595,10 @@
       .breadcrumb {
       }
       .head {
-        margin-top: 98px;
+        margin-top: 158px;
+
         &.l-ml-2 {
-          margin-left: getMargin(2) !important;
+          margin-left: getMargin(2.1) !important;
         }
 
         &.gl-6 {
@@ -637,7 +653,7 @@
           display: block;
         }
         &.l-ml-3 {
-          margin-left: getMargin(3) !important;
+          margin-left: getMargin(3.1) !important;
         }
         &.gl-6 {
           width: getWidth(5) !important;
@@ -907,7 +923,7 @@
         margin: 200px 20px 0 0;
       }
       .head {
-        margin-top: 170px;
+        margin-top: 250px;
         &.l-ml-2 {
           margin-left: getMargin(2) !important;
         }
@@ -1116,7 +1132,7 @@
       .breadcrumb {
       }
       .head {
-        margin-top: 13px;
+        margin-top: 35px;
         &.l-ml-2 {
           margin-left: getMargin(2) !important;
         }

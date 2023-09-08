@@ -401,7 +401,7 @@
   }
   .menu-item {
     .txt {
-      font-size: 22px;
+      font-size: 16px;
     }
   }
   .common-menu {
