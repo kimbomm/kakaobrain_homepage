@@ -111,7 +111,7 @@
       }
     }
     .top {
-      padding: 440px 0 0;
+      padding: 400px 0 0;
     }
     .detail-text {
       margin-bottom: 200px;
@@ -119,7 +119,7 @@
   }
   @include pc-4k {
     .top {
-      padding: 660px 0 0;
+      padding: 600px 0 0;
     }
     .content-detail {
       .con-box {

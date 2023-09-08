@@ -8,6 +8,7 @@
         <div class="academyList">
           <div
             class="academy"
+            v-if="list.academy"
             v-for="(scholar, index) in list.academy"
             :key="index"
           >
@@ -28,7 +29,7 @@
           </div>
         </div>
         <div class="writerInfo">
-          <div class="writer">
+          <div class="writer" v-if="list.writer">
             <template v-for="(author, index) in list.writer">
               {{ author.name }}
               <span class="team" v-if="author.affiliation">
@@ -56,22 +57,32 @@
         </div>
         <div class="titleImg">
           <div
+            v-if="list.titleMediaId"
             class="mediaImg"
             :style="`background-image: url(${envVariable(list.titleMediaId)})`"
           ></div>
         </div>
         <div class="linkGroup">
           <div class="btnGroup">
-            <button onclick="window.open(`${list.contentProp.github}`)">
+            <button
+              v-if="list.contentProp?.github"
+              @click="openUrl(`${list.contentProp?.github}`)"
+            >
               <img src="@/assets/images/icons/github_detail.svg" />github
             </button>
 
-            <button onclick="window.open(`${list.contentProp.dataset}`)">
+            <button
+              v-if="list.contentProp?.dataset"
+              @click="openUrl(`${list.contentProp?.dataset}`)"
+            >
               <img src="@/assets/images/icons/dataset_detail.svg" />
               Data Set
             </button>
 
-            <button onclick="window.open(`${list.contentProp.googlescholar}`)">
+            <button
+              v-if="list.contentProp?.googlescholar"
+              @click="openUrl(`${list.contentProp?.googlescholar}`)"
+            >
               <img src="@/assets/images/icons/huggingface_detail.svg" />
               google scholar
             </button>
@@ -79,7 +90,11 @@
           <div class="shareGroup">
             <div class="share" @click="copyCurrentLink">
               <img src="@/assets/images/icons/link.svg" />
+              <div class="copy-link-alert" v-if="showAlert">
+                <p v-html="linktext[language][0]"></p>
+              </div>
             </div>
+
             <div class="facebook" @click="shareOnFacebook">
               <img src="@/assets/images/icons/Facebook.svg" />
             </div>
@@ -126,7 +141,12 @@
             sub: 'sub',
             link: '/contents/research/publications'
           }
-        ]
+        ],
+        showAlert: false,
+        linktext: {
+          KR: [`URL이 복사되었습니다.`],
+          EN: [`URL has been copied.`]
+        }
       }
     },
 
@@ -152,6 +172,10 @@
     async created() {
       this.contentId = this.$route.params.contentId
       await this.fetchList()
+      this.scrollBody.scrollTo({
+        top: 0
+        // behavior: 'smooth'
+      })
     },
     async mounted() {
       await this.fetchList()
@@ -181,6 +205,11 @@
         // console.log('Fetched list:', this.list)
       },
       copyCurrentLink() {
+        this.showAlert = true
+        setTimeout(() => {
+          this.showAlert = false
+        }, 5000)
+
         const currentURL = window.location.href
         const tempInput = document.createElement('input')
         tempInput.value = currentURL
@@ -206,6 +235,9 @@
         )}&text=${encodeURIComponent(message)}`
 
         window.open(twitterURL, 'Share on Twitter')
+      },
+      openUrl(url) {
+        window.open(url)
       }
     }
   }
@@ -222,10 +254,12 @@
       &.l-ml-2 {
         margin-left: getMargin(2.1) !important;
       }
+
       .head {
         &.gl-7 {
           width: getWidth(7) !important;
         }
+
         display: flex;
         padding: 50px;
         flex-direction: column;
@@ -233,13 +267,12 @@
 
         border-radius: 20px;
         background: var(--black, #000);
-        margin-top: 28px;
+        margin-top: 150px;
         .academyList {
           display: flex;
-          flex-wrap: wrap;
-          .academy {
-            display: flex;
 
+          .academy {
+            display: inline-flex;
             padding: 8px 14px;
             height: 100%;
             margin: 10px 10px 0 0;
@@ -330,7 +363,7 @@
             padding-top: 40px;
             color: var(--black, #000);
             font-family: Inter;
-            font-size: 22px;
+            font-size: 100%;
             font-style: normal;
             font-weight: 400;
             line-height: 150%;
@@ -344,7 +377,7 @@
 
           .mediaImg {
             min-height: 315px;
-            border: 1px solid black;
+
             border-radius: 10px;
             background-size: cover;
             background-position: 50% 50%;
@@ -381,6 +414,24 @@
             justify-content: center;
             align-items: center;
             cursor: pointer;
+            position: relative;
+
+            .copy-link-alert {
+              position: absolute;
+              background: var(--black, #000);
+              padding: 10px 16px;
+              border-radius: 5px;
+              color: var(--white, #fff);
+              text-align: center;
+              font-family: Inter;
+              font-size: 12px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 130%;
+              left: -65%;
+              margin-top: 10px;
+              white-space: nowrap;
+            }
           }
         }
       }
@@ -433,8 +484,8 @@
           &.gl-7 {
             width: getWidth(6) !important;
           }
-          margin-top: 98px;
-          .academyList {
+          margin-top: 158px;
+          b .academyList {
             .academy {
               .txt {
                 font-size: 14px;
@@ -490,6 +541,8 @@
               }
             }
             .shareGroup {
+              .copy-link-alert {
+              }
             }
           }
         }
@@ -514,7 +567,7 @@
   @include pc-large {
     .publication-detail {
       .breadcrumb {
-        margin: 130px 0 170px 0;
+        margin: 130px 0 270px 0;
       }
       .publidetail {
         &.gl-7 {
@@ -574,7 +627,7 @@
               font-size: 52px;
             }
             .subtext {
-              font-size: 22px;
+              font-size: 100%;
             }
           }
           .titleImg {
@@ -598,6 +651,12 @@
                 width: 32px;
                 height: 32px;
               }
+              .copy-link-alert {
+                font-size: 16px;
+                padding: 10px 22px;
+                left: -76%;
+                margin-top: 16px;
+              }
             }
           }
         }
@@ -619,7 +678,7 @@
             height: 26px;
           }
         }
-      } //publidetail
+      }
     }
   }
   @include pc-4k {
@@ -688,7 +747,7 @@
               font-size: 78px;
             }
             .subtext {
-              font-size: 32px;
+              font-size: 100%;
             }
           }
           .titleImg {
@@ -715,6 +774,16 @@
               img {
                 width: 44px;
                 height: 44px;
+              }
+              .copy-link-alert {
+                height: 70px;
+                padding: 10px 22px;
+                font-size: 22px;
+                border-radius: 6px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                left: -80%;
               }
             }
           }
@@ -767,7 +836,7 @@
   @include tablet {
     .publication-detail {
       .breadcrumb {
-        margin: 100px 0 5px 0;
+        margin: 100px 0 0 0;
       }
       .publidetail {
         &.gl-7 {
@@ -777,6 +846,7 @@
           margin-left: getMargin(1.1) !important;
         }
         .head {
+          margin-top: 35px;
           &.gl-7 {
             width: getWidth(8) !important;
           }
@@ -830,7 +900,7 @@
               font-size: 38px;
             }
             .subtext {
-              font-size: 14px;
+              font-size: 100%;
             }
           }
           .titleImg {
@@ -857,6 +927,14 @@
               img {
                 width: 30px;
                 height: 30px;
+              }
+              .copy-link-alert {
+                height: 36px;
+                padding: 10px 16px;
+                font-size: 12px;
+                border-radius: 4px;
+
+                left: -60%;
               }
             }
           }
@@ -982,6 +1060,9 @@
                 width: 30px;
                 height: 30px;
               }
+              .copy-link-alert {
+                left: -13%;
+              }
             }
           }
         }
@@ -1010,7 +1091,7 @@
   @include mobile-small {
     .publication-detail {
       .breadcrumb {
-        margin: 76px 0 60px 0;
+        margin: 96px 0 0px 0;
       }
       .publidetail {
         &.gl-7 {
@@ -1023,7 +1104,7 @@
           &.gl-7 {
             width: getWidth(10) !important;
           }
-
+          margin-top: 70px;
           padding: 20px;
 
           .academyList {
@@ -1106,6 +1187,9 @@
               img {
                 width: 36px;
                 height: 36px;
+              }
+              .copy-link-alert {
+                left: 11%;
               }
             }
           }

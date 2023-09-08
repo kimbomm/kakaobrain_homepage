@@ -12,6 +12,7 @@
           <div class="headline gl-6">
             <div
               class="academyList"
+              v-if="item.academy"
               v-for="(scholar, index) in item.academy"
               :key="index"
             >
@@ -31,6 +32,7 @@
 
               <div class="publiImg">
                 <div
+                  v-if="item.titleMediaId"
                   class="mediaImg"
                   :style="`background-image: url(${envVariable(
                     item.titleMediaId
@@ -64,7 +66,7 @@
             path: 'contents/research/publications'
           }"
         >
-          <img src="@/assets/images/link.png" />
+          <img src="@/assets/images/link.svg" />
         </nuxt-link>
       </div>
     </div>
@@ -187,7 +189,7 @@
                 height: 126px;
                 width: 270px;
                 border-radius: 10px;
-                border: 1px solid black;
+
                 background-repeat: no-repeat;
                 background-size: cover;
                 background-position: 50% 50%;
@@ -423,8 +425,8 @@
           }
           .link {
             img {
-              width: 54px;
-              height: 54px;
+              width: 40px;
+              height: 40px;
             }
           }
         }
@@ -547,7 +549,9 @@
       .container {
         padding: 70px 0 0 0;
         gap: 40px;
-
+        &.gl-6 {
+          width: getWidth(7) !important;
+        }
         .tit {
           //제목
 
@@ -565,6 +569,7 @@
             .text {
               font-size: 20px;
               margin-top: 20px;
+
               &.gl-6 {
                 width: getWidth(7) !important;
               }
@@ -605,6 +610,11 @@
             }
           }
           .link {
+            display: flex;
+            justify-content: flex-end;
+            &.gl-6 {
+              width: getWidth(7) !important;
+            }
             img {
               width: 37px;
               height: 40px;

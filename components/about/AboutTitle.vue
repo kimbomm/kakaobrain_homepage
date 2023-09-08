@@ -112,6 +112,7 @@
   }
   @media screen and (max-width: 1500px) {
     .about-title {
+      margin-top: 50px;
       .title-box {
         &.gl-6 {
           //width: fit-content !important;
@@ -128,7 +129,7 @@
           }
 
           .tit {
-            font-size: 106px;
+            font-size: 90px;
             display: flex;
             justify-content: center;
           }
