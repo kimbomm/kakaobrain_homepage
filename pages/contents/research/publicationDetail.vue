@@ -170,15 +170,17 @@
     },
 
     async created() {
-      this.contentId = this.$route.params.contentId
+      this.contentId = this.$route.query.contentId
       await this.fetchList()
       this.scrollBody.scrollTo({
         top: 0
         // behavior: 'smooth'
       })
-    },
-    async mounted() {
-      await this.fetchList()
+      this.$store.commit('setPrevPageData', {
+        option: this.$route.query.option,
+        contentId: this.contentId,
+        page: this.$route.query.page
+      })
     },
 
     methods: {
@@ -218,7 +220,6 @@
         document.execCommand('copy')
 
         document.body.removeChild(tempInput)
-
         // alert('링크가 복사되었습니다')
       },
       shareOnFacebook() {
