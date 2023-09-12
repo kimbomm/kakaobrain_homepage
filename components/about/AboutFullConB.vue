@@ -1,4 +1,4 @@
-<!-- <template>
+<template>
   <div class="about-full-con-b">
     <div class="full-con">
       <img src="@/assets/images/about_uq_bg_2.png" />
@@ -364,4 +364,4 @@
       }
     }
   }
-</style> -->
+</style>

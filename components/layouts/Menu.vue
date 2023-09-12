@@ -398,21 +398,22 @@
         }
       }
     }
-  }
-  .menu-item {
-    .txt {
-      font-size: 16px;
+
+    .menu-item {
+      .txt {
+        font-size: 22px;
+      }
     }
-  }
-  .common-menu {
-    margin-left: 36px;
-    button {
-      width: 26px;
-      height: 26px;
-    }
-    a.tag-link {
-      padding: 6px 14px;
-      font-size: 14px;
+    .common-menu {
+      margin-left: 36px;
+      button {
+        width: 26px;
+        height: 26px;
+      }
+      a.tag-link {
+        padding: 6px 14px;
+        font-size: 14px;
+      }
     }
   }
 

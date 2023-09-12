@@ -20,7 +20,7 @@
 </script>
 <style lang="scss" scoped>
   .detail-subTit {
-    width: getWidth(5);
+    width: getWidth(4);
     margin-left: getMargin(3);
     line-height: 130%;
     font-weight: 900;
