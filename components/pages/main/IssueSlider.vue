@@ -26,7 +26,7 @@
             </div>
             <div class="text">
               <div class="title">
-                <span>{{ activeContent.title }}</span>
+                <span :style="titleStyle">{{ activeContent.title }}</span>
               </div>
             </div>
           </nuxt-link>
@@ -74,9 +74,10 @@
         pageData: {
           offset: 0,
           limit: 20,
-          contentType: 'ALL', // ALL, ARTICLE, STORY, THESIS
+          contentType: 'ALL',
           targetLang: this.$store.state.language
         },
+
         image: require('~/assets/images/main_img_dummy.png'),
         list: [],
         activeContent: null,
@@ -86,10 +87,17 @@
     },
     computed: {
       ...mapState({
-        issueList: state => state.issue.list
+        issueList: state => state.issue.list,
+        language: state => state.language
       }),
       curPage() {
         return Utility.changeNumFont(this.activeIndex + 1)
+      },
+      titleStyle() {
+        return {
+          fontFamily:
+            this.pageData.targetLang === 'EN' ? 'Inter' : 'NotoSans KR'
+        }
       }
     },
     watch: {
@@ -286,7 +294,7 @@
           padding-top: 30px;
           .title {
             color: var(--black, #000);
-            font-family: Noto Sans KR;
+
             font-size: 30px;
             font-style: normal;
             font-weight: 700;

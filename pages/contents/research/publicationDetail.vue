@@ -3,8 +3,8 @@
     <div class="breadcrumb">
       <BreadCrumb :data="breadcrumb" />
     </div>
-    <div class="publidetail gl-7 l-ml-2">
-      <div class="head gl-7">
+    <div class="publidetail">
+      <div class="head gl-7 l-ml-2">
         <div class="academyList">
           <div
             class="academy"
@@ -104,7 +104,7 @@
           </div>
         </div>
       </div>
-      <div class="footer gl-7">
+      <div class="footer gl-7 l-ml-2">
         <div class="viewList">
           <p>view List</p>
           <div class="link">
@@ -176,6 +176,7 @@
         top: 0
         // behavior: 'smooth'
       })
+      //넘어온 값들을 store에 저장함
       this.$store.commit('setPrevPageData', {
         option: this.$route.query.option,
         contentId: this.contentId,
@@ -200,11 +201,9 @@
       },
       async fetchList() {
         const contentId = this.contentId
-        // console.log('Fetching list contentId:', contentId)
 
         const res = await this.getContentDetail(contentId)
         this.list = res.data
-        // console.log('Fetched list:', this.list)
       },
       copyCurrentLink() {
         this.showAlert = true
@@ -220,7 +219,6 @@
         document.execCommand('copy')
 
         document.body.removeChild(tempInput)
-        // alert('링크가 복사되었습니다')
       },
       shareOnFacebook() {
         const currentURL = window.location.href
@@ -249,16 +247,14 @@
       margin: 100px 20px 0 0;
     }
     .publidetail {
-      &.gl-7 {
-        width: getWidth(7) !important;
-      }
-      &.l-ml-2 {
-        margin-left: getMargin(2.1) !important;
-      }
+      margin: 0 20px 0 20px;
 
       .head {
         &.gl-7 {
           width: getWidth(7) !important;
+        }
+        &.l-ml-2 {
+          margin-left: getMargin(2) !important;
         }
 
         display: flex;
@@ -268,7 +264,7 @@
 
         border-radius: 20px;
         background: var(--black, #000);
-        margin-top: 150px;
+        margin-top: 142px;
         .academyList {
           display: flex;
 
@@ -345,7 +341,7 @@
           width: getWidth(6) !important;
         }
         &.l-ml-1 {
-          margin-left: getMargin(1) !important;
+          margin-left: getMargin(3) !important;
         }
 
         margin-top: 100px;
@@ -479,14 +475,14 @@
           width: getWidth(6) !important;
         }
         &.l-ml-2 {
-          margin-left: getMargin(2.1) !important;
+          margin-left: getMargin(2) !important;
         }
         .head {
           &.gl-7 {
             width: getWidth(6) !important;
           }
-          margin-top: 158px;
-          b .academyList {
+          margin-top: 142px;
+          .academyList {
             .academy {
               .txt {
                 font-size: 14px;
@@ -520,7 +516,7 @@
             width: getWidth(5) !important;
           }
           &.l-ml-1 {
-            margin-left: getMargin(1) !important;
+            margin-left: getMargin(3) !important;
           }
 
           .text {
@@ -568,21 +564,19 @@
   @include pc-large {
     .publication-detail {
       .breadcrumb {
-        margin: 130px 0 270px 0;
+        margin: 130px 20px 222px 0;
       }
       .publidetail {
         &.gl-7 {
           width: getWidth(6) !important;
         }
         &.l-ml-2 {
-          margin-left: getMargin(2.1) !important;
+          margin-left: getMargin(2) !important;
         }
         .head {
           &.gl-7 {
             width: getWidth(6) !important;
           }
-
-          padding: 70px;
 
           .academyList {
             .academy {
@@ -620,7 +614,7 @@
             width: getWidth(5) !important;
           }
           &.l-ml-1 {
-            margin-left: getMargin(1) !important;
+            margin-left: getMargin(3) !important;
           }
 
           .text {
@@ -685,14 +679,14 @@
   @include pc-4k {
     .publication-detail {
       .breadcrumb {
-        margin: 200px 0 248px 0;
+        margin: 200px 0 322px 0;
       }
       .publidetail {
         &.gl-7 {
           width: getWidth(6) !important;
         }
         &.l-ml-2 {
-          margin-left: getMargin(2.1) !important;
+          margin-left: getMargin(2) !important;
         }
         .head {
           &.gl-7 {
@@ -740,7 +734,7 @@
             width: getWidth(5) !important;
           }
           &.l-ml-1 {
-            margin-left: getMargin(1) !important;
+            margin-left: getMargin(3) !important;
           }
 
           .text {
@@ -837,19 +831,22 @@
   @include tablet {
     .publication-detail {
       .breadcrumb {
-        margin: 100px 0 0 0;
+        margin: 100px 0 38px 0;
       }
       .publidetail {
         &.gl-7 {
           width: getWidth(8) !important;
         }
         &.l-ml-2 {
-          margin-left: getMargin(1.1) !important;
+          margin-left: getMargin(1) !important;
         }
         .head {
           margin-top: 35px;
           &.gl-7 {
             width: getWidth(8) !important;
+          }
+          &.l-ml-2 {
+            margin-left: getMargin(1) !important;
           }
 
           padding: 30px;
@@ -893,7 +890,7 @@
             width: getWidth(7) !important;
           }
           &.l-ml-1 {
-            margin-left: getMargin(1) !important;
+            margin-left: getMargin(2) !important;
           }
           margin-top: 100px;
           .text {
@@ -945,6 +942,9 @@
           &.gl-7 {
             width: getWidth(8) !important;
           }
+          &.l-ml-2 {
+            margin-left: getMargin(1) !important;
+          }
 
           &::before {
             margin-bottom: 30px;
@@ -972,11 +972,14 @@
           width: getWidth(8) !important;
         }
         &.l-ml-2 {
-          margin-left: getMargin(1.1) !important;
+          margin-left: getMargin(1) !important;
         }
         .head {
           &.gl-7 {
             width: getWidth(8) !important;
+          }
+          &.l-ml-2 {
+            margin-left: getMargin(1) !important;
           }
 
           padding: 30px;
@@ -1021,7 +1024,7 @@
             width: getWidth(7) !important;
           }
           &.l-ml-1 {
-            margin-left: getMargin(1) !important;
+            margin-left: getMargin(2) !important;
           }
           margin-top: 100px;
           .text {
@@ -1092,18 +1095,15 @@
   @include mobile-small {
     .publication-detail {
       .breadcrumb {
-        margin: 96px 0 0px 0;
+        margin: 96px 0 0 0;
       }
       .publidetail {
-        &.gl-7 {
-          width: getWidth(10) !important;
-        }
-        &.l-ml-2 {
-          margin-left: getMargin(0.4) !important;
-        }
         .head {
           &.gl-7 {
             width: getWidth(10) !important;
+          }
+          &.l-ml-2 {
+            margin-left: getMargin(0) !important;
           }
           margin-top: 70px;
           padding: 20px;
@@ -1148,7 +1148,7 @@
             width: getWidth(10) !important;
           }
           &.l-ml-1 {
-            margin-left: getMargin(0.4) !important;
+            margin-left: getMargin(0) !important;
           }
           margin-top: 100px;
           .text {
@@ -1199,6 +1199,9 @@
           margin: 100px 0 100px 0;
           &.gl-7 {
             width: getWidth(10) !important;
+          }
+          &.l-ml-2 {
+            margin-left: getMargin(0) !important;
           }
 
           &::before {

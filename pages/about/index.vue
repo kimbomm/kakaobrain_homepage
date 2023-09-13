@@ -88,7 +88,7 @@
 
         breadcrumb: [
           { text: 'About', sub: 'about', link: '' },
-          { text: 'Introduce', sub: 'sub', link: '/about' },
+          { text: 'Unthinkable', sub: 'sub', link: '/about' },
           { text: 'Question', sub: '', link: '' }
         ],
 
@@ -134,7 +134,6 @@
 </script>
 <style lang="scss" scoped>
   .top-section {
-    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -143,8 +142,10 @@
     }
   }
   .about-title {
-    margin-bottom: 60px;
-    font-size: 90px;
+    margin: 300px 0 60px 0;
+  }
+  .about-title-text {
+    margin-bottom: 204px;
   }
   .about-full-con-a {
     margin-bottom: 420px;
@@ -170,7 +171,10 @@
 
   @include pc-large {
     .about-title {
-      margin-bottom: 80px;
+      margin: 400px 0 80px 0;
+    }
+    .about-title-text {
+      margin-bottom: 268px;
     }
     .about-full-con-a {
       margin-bottom: 530px;
@@ -196,9 +200,9 @@
   }
 
   @include pc-4k {
-    .top-section {
-      height: 2160px;
-    }
+    // .top-section {
+    //   height: 2160px;
+    // }
     .about-full-con-a {
       margin-bottom: 800px;
     }
@@ -207,6 +211,12 @@
         margin-bottom: 360px;
       }
       margin-bottom: 800px;
+    }
+    .about-title {
+      margin: 600px 0 130px 0;
+    }
+    .about-title-text {
+      margin-bottom: 388px;
     }
     .about-full-con-b {
       margin-bottom: 800px;
@@ -223,7 +233,10 @@
   }
   @include tablet {
     .about-title {
-      margin-bottom: 60px;
+      margin: 195px 0 60px 0;
+    }
+    .about-title-text {
+      margin-bottom: 143px;
     }
     .about-full-con-a {
       margin-bottom: 200px;
@@ -251,13 +264,49 @@
     .top-section {
       display: block;
       height: auto;
-      margin-top: 60px;
     }
     .bread-crumb {
-      padding: 0 20px;
+      margin: 100px 20px 0 0;
+    }
+    .about-title {
+      margin: 100px 0 40px 0;
+    }
+    .about-title-text {
+      margin-bottom: 80px;
+    }
+    .about-full-con-a {
+      margin-bottom: 100px;
+    }
+    .vision-list-con {
+      .vision-list {
+        margin-bottom: 80px;
+      }
+      margin-bottom: 100px;
+    }
+    .about-full-con-b {
+      margin-bottom: 100px;
+    }
+    .about-con-tit {
+      margin-bottom: 30px;
+    }
+    .about-con-txt-b {
+      margin-bottom: 100px;
+    }
+    .about-large-logo {
+      margin-bottom: 100px;
+    }
+  }
+  @include mobile-small {
+    .top-section {
+      display: block;
+      height: auto;
+    }
+    .bread-crumb {
+      margin: 0;
     }
     .about-title {
       margin-bottom: 40px;
+      margin-top: 60px;
     }
     .about-title-text {
       margin-bottom: 80px;

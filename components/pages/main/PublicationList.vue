@@ -16,7 +16,7 @@
               v-for="(scholar, index) in item.academy"
               :key="index"
             >
-              <div class="academy">
+              <div class="academy" v-if="scholar.name">
                 <div class="txt">
                   <div class="year" v-if="scholar.year">
                     {{ scholar.year }}
@@ -26,7 +26,9 @@
               </div>
             </div>
             <div class="text gl-6">
-              <nuxt-link :to="`/publicationDetail/${item.contentId}`">
+              <nuxt-link
+                :to="`/contents/research/publicationDetail?contentId=${item.contentId}`"
+              >
                 {{ item.title }}</nuxt-link
               >
 
@@ -45,10 +47,10 @@
                 </div>
               </div>
 
-              <div class="writerInfo">
+              <div class="writerInfo" v-if="item.writer">
                 <div class="writer">
                   <template v-for="(author, index) in item.writer">
-                    {{ author.name }}
+                    <span v-if="author.name">{{ author.name }}</span>
                     <span class="team" v-if="author.affiliation">
                       ({{ author.affiliation }})
                     </span>
@@ -202,7 +204,6 @@
               margin-top: 30px;
               width: auto;
               .list-date {
-                width: 120px;
                 color: #000;
                 font-family: Noto Sans KR;
                 font-size: 14px;

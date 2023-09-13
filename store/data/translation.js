@@ -1221,7 +1221,7 @@ const MAP = {
 
 const SUBTITLE = {
   research: {
-    KR: `왜 카카오브레인은 끊임없이 AI 기술을 오픈할까요? 공개와 공유의 문화가 기술을 진화시킵니다. 카카오브레인은 논문 발표와 코드 공개를 통해서 실질적인 핵심적인 기술로 쓰시고, 이것이 우리의 삶을 좀더 풍요롭게 할 수 있도록 최선을 다합니다.`,
+    KR: `왜 카카오브레인은 끊임없이 AI 기술을 오픈할까요? 공개와 공유의 문화가 기술을 진화시킵니다. 카카오브레인은 논문 발표와 코드 공개를 통해서 실질적인 핵심적인 기술로, 이것이 우리의 삶을 좀더 풍요롭게 할 수 있도록 최선을 다합니다.`,
     EN: `Why does Kakao Brain constantly open its AI technology? A culture of openness and sharing evolves technology. Kakao Brain publishes theses and opens the codes to make them available as practical core technologies. This way, we are doing our best to make our lives richer.`
   },
   tech: {

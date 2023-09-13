@@ -34,6 +34,7 @@
     margin-left: getMargin(2);
     margin-bottom: 60px;
     width: getWidth(6);
+
     line-height: 120%;
     font-size: map-get($font, h1);
     font-weight: 900;
