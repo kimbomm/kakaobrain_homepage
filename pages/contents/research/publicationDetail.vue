@@ -170,15 +170,18 @@
     },
 
     async created() {
-      this.contentId = this.$route.params.contentId
+      this.contentId = this.$route.query.contentId
       await this.fetchList()
       this.scrollBody.scrollTo({
         top: 0
         // behavior: 'smooth'
       })
-    },
-    async mounted() {
-      await this.fetchList()
+      //넘어온 값들을 store에 저장함
+      this.$store.commit('setPrevPageData', {
+        option: this.$route.query.option,
+        contentId: this.contentId,
+        page: this.$route.query.page
+      })
     },
 
     methods: {
@@ -198,11 +201,9 @@
       },
       async fetchList() {
         const contentId = this.contentId
-        // console.log('Fetching list contentId:', contentId)
 
         const res = await this.getContentDetail(contentId)
         this.list = res.data
-        // console.log('Fetched list:', this.list)
       },
       copyCurrentLink() {
         this.showAlert = true
@@ -218,8 +219,6 @@
         document.execCommand('copy')
 
         document.body.removeChild(tempInput)
-
-        // alert('링크가 복사되었습니다')
       },
       shareOnFacebook() {
         const currentURL = window.location.href

@@ -590,41 +590,6 @@
               }
             }
           }
-          // .material {
-          //   &-item {
-          //     width: 146px;
-          //     height: 146px;
-          //     .l-line {
-          //       left: -62px;
-          //       width: 62px;
-          //       &::before {
-          //         content: '';
-          //         border-top: 7px solid transparent;
-          //         border-bottom: 7px solid transparent;
-          //         border-right: 7px solid $gray-0;
-          //       }
-          //     }
-          //     .r-line {
-          //       right: -62px;
-          //       width: 62px;
-          //       &::before {
-          //         content: '';
-          //         border-top: 7px solid transparent;
-          //         border-bottom: 7px solid transparent;
-          //         border-left: 7px solid $gray-0;
-          //       }
-          //     }
-          //   }
-          //   &-text {
-          //     .tit {
-          //       font-size: 15px;
-          //       margin-bottom: 0px;
-          //     }
-          //     .txt {
-          //       display: none;
-          //     }
-          //   }
-          // }
         }
         .container {
           margin-top: 100px;
@@ -705,7 +670,30 @@
     }
   }
 
-  @media screen and (max-width: 850px) {
+  @media screen and (max-width: 1000px) {
+    .about-full-con-d {
+      .full-con {
+        .inner {
+          .material {
+            &-item {
+              width: 120px;
+              height: 120px;
+              .l-line {
+                left: -50px;
+                width: 50px;
+              }
+              .r-line {
+                right: -50px;
+                width: 50px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include mobile {
     .about-full-con-d {
       .full-con {
         .inner {
@@ -728,7 +716,7 @@
     }
   }
 
-  @include mobile {
+  @include mobile-small {
     .about-full-con-d {
       .full-con {
         min-height: 1400px;

@@ -28,19 +28,19 @@
       <div class="container l-ml-3 gl-6">
         <div class="custom-select">
           <div class="select-styled" @click="toggleOptions">
-            {{ selectedOption }}
+            {{ selectedOption.label }}
             <img src="@/assets/images/icons/arrow_down.svg" />
           </div>
           <ul class="select-options" v-if="isOpen">
             <li
               v-for="(option, index) in options"
               :key="index"
-              @click="selectOption(option)"
+              @click="selectOption(option.value)"
               :style="{
                 'padding-bottom': index === options.length - 1 ? '0' : '24px'
               }"
             >
-              {{ option }}
+              {{ option.label }}
             </li>
           </ul>
         </div>
@@ -48,6 +48,7 @@
           class="publication"
           v-for="(item, index) in filteredPublications"
           :key="index"
+          :data-content-id="item.contentId"
         >
           <div class="tit">
             <div class="headline gl-6">
@@ -67,16 +68,18 @@
                 </div>
               </div>
               <div class="text gl-6">
-                <nuxt-link :to="`/publicationDetail/${item.contentId}`">
+                <!--넉스트 링크의 쿼리값으로 page와 옵션 추가해서 리스트에서 년도 선택및 scrollto 가능하게함-->
+                <nuxt-link
+                  :to="`/contents/research/publicationDetail?contentId=${item.contentId}&page=${page}&option=${selectedOption.value}`"
+                >
                   {{ item.title }}
                 </nuxt-link>
-
                 <div class="publiImg">
                   <div
                     class="mediaImg"
                     v-if="item.titleMediaId"
                     :style="`background-image: url(${envVariable(
-                      item.titleMediaId
+                      item.titleMediaId ?? ''
                     )})`"
                   ></div>
                 </div>
@@ -90,10 +93,18 @@
                   <div class="writer" v-if="item.writer">
                     <template v-for="(author, index) in item.writer">
                       {{ author.name }}
-                      <span class="team" v-if="author.affiliation">
+                      <span
+                        class="team"
+                        v-if="author.affiliation"
+                        :key="`${index}`"
+                      >
                         ({{ author.affiliation }})
                       </span>
-                      <span v-if="index < item.writer.length - 1">,</span>
+                      <span
+                        v-if="index < item.writer.length - 1"
+                        :key="`${index}_`"
+                        >,</span
+                      >
                     </template>
                   </div>
                 </div>
@@ -137,6 +148,7 @@
         :offset="pageData.offset"
         :total="total"
         @onChange="onPagingChange"
+        ref="paging"
       />
     </div>
   </div>
@@ -200,12 +212,32 @@
           tag: ''
         },
         isOpen: false,
-        selectedOption: 'ALL',
-        options: ['ALL', '2023', '2022', '2021'],
-        filteredPublications: []
+        selectedOption: {
+          label: 'ALL',
+          value: ''
+        },
+        options: [
+          {
+            label: 'ALL',
+            value: ''
+          },
+          {
+            label: '2023',
+            value: '2023'
+          },
+          {
+            label: '2022',
+            value: '2022'
+          },
+          {
+            label: '2021',
+            value: '2021'
+          }
+        ],
+        filteredPublications: [],
+        page: 0
       }
     },
-
     computed: {
       ...mapState({
         language: state => state.language
@@ -213,38 +245,41 @@
     },
 
     async mounted() {
-      await this.init()
-    },
+      this.scrollBody.scrollTo({
+        top: 0
+      })
 
+      if (this.$store.state.prevPageData.contentId === '') {
+        this.fetchList()
+      } else {
+        await this.selectOption(this.$store.state.prevPageData.option)
+        this.pageData.offset = Number(this.$store.state.prevPageData.page)
+        await this.onPagingChange(this.pageData.offset)
+        this.moveToPub(this.$store.state.prevPageData)
+      }
+    },
     methods: {
       toggleOptions() {
         this.isOpen = !this.isOpen
       },
-      selectOption(option) {
-        if (option === 'ALL') {
-          this.filteredPublications = this.list
-        } else {
-          this.filteredPublications = this.list.filter(item => {
-            const publicationYear = item.showAt
-              ? new Date(item.showAt).getFullYear()
-              : null
-            return publicationYear === parseInt(option)
+      async selectOption(option) {
+        this.selectedOption = !option
+          ? this.options[0]
+          : this.options.find(item => item.value === option)
+
+        this.pageData.offset = 0
+        this.page = 0
+
+        await this.fetchList()
+
+        if (this.total > 0) {
+          this.$nextTick(() => {
+            console.log(this.$refs)
+            this.$refs.paging.activeIndex = 0
           })
         }
-        this.selectedOption = option
+
         this.isOpen = false
-
-        window.scrollTo(0, 0)
-      },
-
-      async init() {
-        await this.setBreadcrumb()
-        this.selectedOption = 'ALL'
-        this.filteredPublications = this.list
-      },
-
-      created() {
-        this.init()
       },
       async setBreadcrumb() {
         this.breadcrumb.push()
@@ -257,15 +292,15 @@
       ...mapActions({
         getCategoryList: 'getCategoryList'
       }),
-      async init() {
-        await this.fetchList()
-      },
       async fetchList() {
         this.pageData.targetLang = this.$store.state.language
         const res = await this.getCategoryList({
           category1: 'research',
           category2: 'publications',
-          pageData: this.pageData
+          pageData: {
+            ...this.pageData,
+            year: this.selectedOption.value
+          }
         })
 
         if (res) {
@@ -276,16 +311,41 @@
           })
           this.total = res.data.count
           this.tags = res.data.tags
-          this.selectedOption = 'ALL'
           this.filteredPublications = this.list
         }
       },
-      onPagingChange(val) {
+      async onPagingChange(val) {
+        this.$refs.paging.activeIndex = val
+        this.page = val
         this.pageData.offset = val * this.pageData.limit
-        this.fetchList()
+        await this.fetchList()
       },
       openUrl(url) {
         window.open(url)
+      },
+      moveToPub(prevData) {
+        //중앙위치
+        this.$nextTick(() => {
+          const contentEl = document.querySelector(
+            `[data-content-id="${prevData.contentId}"]`
+          )
+          const contentAbOffset =
+            window.pageYOffset + contentEl.getBoundingClientRect().top
+
+          const scrollValue =
+            contentAbOffset -
+            (document.documentElement.clientHeight - contentEl.offsetHeight) / 2
+
+          this.scrollBody.scrollTo({
+            top: scrollValue,
+            behavior: 'smooth'
+          })
+        })
+        this.$store.commit('setPrevPageData', {
+          option: '',
+          contentId: '',
+          page: 0
+        })
       }
     }
   }

@@ -61,17 +61,17 @@ export default {
     baseURL: process.env.VUE_APP_API_BASE_URL
   },
 
-  router: {
-    middleware: ['middleRouter'],
-     extendRoutes(routes, resolve) {
-      routes.push({
-        name: 'publication-detail',
-        path: '/publicationDetail/:contentId',
-        component: resolve(__dirname, 'pages/contents/research/publicationDetail.vue'),
-      });
-    },
+  // router: {
+  //   middleware: ['middleRouter'],
+  //    extendRoutes(routes, resolve) {
+  //     routes.push({
+  //       name: 'publication-detail',
+  //       path: '/publicationDetail/:contentId',
+  //       component: resolve(__dirname, 'pages/contents/research/publicationDetail.vue'),
+  //     });
+  //   },
 
-  },
+  // },
 
   css: ['~assets/scss/index.scss'],
 
@@ -82,7 +82,7 @@ export default {
     { src: '@/plugins/vue-device-detector.js', ssr: false },
     { src: '@/plugins/vue-masonry-css.js', ssr: false },
     { src: '@/plugins/tui-image-editor.js', ssr: false },
-    { src: '@/plugins/jszip.js', ssr: false },
+    { src: '@/plugins/jszip.js', ssr: false }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -138,7 +138,6 @@ export default {
       // '/contents/document/news',
       // '/contents/document/documentary'
     ]
-
   },
 
   styleResources: {
