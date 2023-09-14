@@ -152,6 +152,7 @@
     &.l-ml-2 {
       margin-left: getMargin(2) !important;
     }
+    padding-left: 20px;
     .silk {
       p {
         color: var(--black, #000);
@@ -1205,13 +1206,12 @@
                   width: getWidth(8) !important;
                 }
                 height: 200px;
-
                 .llmstext {
                   top: 30px;
                   left: 30px;
 
                   &.gl-3 {
-                    width: getWidth(4) !important;
+                    width: getWidth(5) !important;
                   }
                 }
                 .LargeLanguageModels {

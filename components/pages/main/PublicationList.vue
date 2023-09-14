@@ -141,6 +141,7 @@
 </script>
 <style lang="scss" scoped>
   .main {
+    padding-left: 20px;
     .head {
       width: 221px;
       height: 40px;

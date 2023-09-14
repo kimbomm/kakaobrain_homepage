@@ -110,7 +110,7 @@
       li {
         display: inline-flex;
         // margin-bottom: 20px;
-        margin-bottom: 0px;
+        margin-bottom: 5px;
         margin-right: 4px;
       }
       &__full {
