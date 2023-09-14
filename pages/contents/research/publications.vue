@@ -4,8 +4,8 @@
       <BreadCrumb :data="breadcrumb" />
     </div>
     <div class="publiList">
-      <div class="head l-ml-2 gl-6">
-        <div class="title">
+      <div class="head gl-6">
+        <div class="title l-ml-2">
           <p>Publications</p>
         </div>
         <div class="subtitle l-ml-1 gl-5">
@@ -367,9 +367,6 @@
         width: 784px;
         margin-top: 142px;
         position: relative;
-        &.l-ml-2 {
-          margin-left: getMargin(2) !important;
-        }
 
         &.gl-6 {
           width: getWidth(7) !important;
@@ -381,6 +378,9 @@
 
           font-weight: 900;
           line-height: 120%; /* 96px */
+          &.l-ml-2 {
+            margin-left: getMargin(2) !important;
+          }
         }
 
         .subtitle {
@@ -388,7 +388,7 @@
             width: getWidth(5) !important;
           }
           &.l-ml-1 {
-            margin-left: getMargin(1) !important;
+            margin-left: getMargin(3) !important;
           }
 
           margin-top: 60px;
@@ -666,15 +666,14 @@
         .head {
           margin-top: 142px;
 
-          &.l-ml-2 {
-            margin-left: getMargin(2) !important;
-          }
-
           &.gl-6 {
             width: getWidth(6) !important;
           }
           .title {
             font-size: 90px;
+            &.l-ml-2 {
+              margin-left: getMargin(2) !important;
+            }
           }
 
           .subtitle {
@@ -682,7 +681,7 @@
               width: getWidth(5) !important;
             }
             &.l-ml-1 {
-              margin-left: getMargin(1) !important;
+              margin-left: getMargin(3) !important;
             }
             margin-top: 60px;
             font-size: 16px;
@@ -814,15 +813,15 @@
       .publiList {
         .head {
           margin-top: 182px;
-          &.l-ml-2 {
-            margin-left: getMargin(2) !important;
-          }
 
           &.gl-6 {
             width: getWidth(6) !important;
           }
           .title {
             font-size: 120px;
+            &.l-ml-2 {
+              margin-left: getMargin(2) !important;
+            }
           }
 
           .subtitle {
@@ -830,7 +829,7 @@
               width: getWidth(5) !important;
             }
             &.l-ml-1 {
-              margin-left: getMargin(1) !important;
+              margin-left: getMargin(3) !important;
             }
             margin-top: 100px;
             font-size: 22px;
@@ -999,15 +998,15 @@
       .publiList {
         .head {
           margin-top: 263px;
-          &.l-ml-2 {
-            margin-left: getMargin(2) !important;
-          }
 
           &.gl-6 {
             width: getWidth(6) !important;
           }
           .title {
             font-size: 180px;
+            &.l-ml-2 {
+              margin-left: getMargin(2) !important;
+            }
           }
 
           .subtitle {
@@ -1015,7 +1014,7 @@
               width: getWidth(5) !important;
             }
             &.l-ml-1 {
-              margin-left: getMargin(1) !important;
+              margin-left: getMargin(3) !important;
             }
             margin-top: 150px;
             font-size: 32px;
@@ -1210,15 +1209,15 @@
       .publiList {
         .head {
           margin-top: 38px;
-          &.l-ml-2 {
-            margin-left: getMargin(2) !important;
-          }
 
           &.gl-6 {
             width: getWidth(7) !important;
           }
           .title {
             font-size: 50px;
+            &.l-ml-2 {
+              margin-left: getMargin(1) !important;
+            }
           }
 
           .subtitle {
@@ -1226,7 +1225,7 @@
               width: getWidth(6) !important;
             }
             &.l-ml-1 {
-              margin-left: getMargin(0) !important;
+              margin-left: getMargin(2) !important;
             }
             margin-top: 40px;
             font-size: 14px;
@@ -1356,15 +1355,15 @@
       .publiList {
         .head {
           margin-top: -10px;
-          &.l-ml-2 {
-            margin-left: getMargin(0) !important;
-          }
 
           &.gl-6 {
             width: getWidth(10) !important;
           }
           .title {
             font-size: 30px;
+            &.l-ml-2 {
+              margin-left: getMargin(0) !important;
+            }
           }
 
           .subtitle {

@@ -27,7 +27,8 @@
 <style lang="scss" scoped>
   .detail-text {
     width: getMargin(5);
-    margin-left: getMargin(3);
+    margin-left: getMargin(3) !important;
+
     line-height: 150%;
     font-size: map-get($font, defualt);
     font-weight: 400;
@@ -39,6 +40,7 @@
 
   @include pc-large {
     .detail-text {
+      margin-left: getMargin(3);
       font-size: map-get($font-large, defualt);
     }
   }
@@ -52,12 +54,19 @@
   @include tablet {
     .detail-text {
       width: getWidth(6);
-      margin-left: getMargin(2);
+      margin-left: getMargin(2) !important;
       font-size: map-get($font-tablet, defualt);
     }
   }
 
   @include mobile {
+    .detail-text {
+      width: 100%;
+      margin-left: getMargin(0) !important;
+      font-size: map-get($font-mobile, defualt);
+    }
+  }
+  @include mobile-small {
     .detail-text {
       width: 100%;
       margin-left: 0;

@@ -230,7 +230,7 @@
     &.l-ml-2 {
       margin-left: getMargin(2) !important;
     }
-
+    padding-left: 20px;
     .issue {
       .container {
         position: relative;

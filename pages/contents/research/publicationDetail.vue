@@ -1096,7 +1096,7 @@
   @include mobile-small {
     .publication-detail {
       .breadcrumb {
-        margin: 96px 0 0 0;
+        margin: 96px 0 0 20px;
       }
       .publidetail {
         .head {

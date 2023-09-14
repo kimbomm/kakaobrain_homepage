@@ -125,10 +125,10 @@
         height: auto;
         .txt {
           color: var(--black, #000);
-          font-family: Noto Sans KR;
+
           font-size: 60px;
           font-style: normal;
-          font-weight: 1000;
+          font-weight: 900;
           line-height: 110%;
         }
       }

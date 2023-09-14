@@ -82,7 +82,7 @@
             `최고 수준의 전문가들이 모여, 모든 문제 해결의 근간이 되는 혁신적인 기술을 개발합니다.`
           ],
           EN: [
-            `We bring together the best minds to develop the innovative technologies that are at the root of every problem.`
+            `We bring together the best minds to develop <br> the innovative technologies that are at the root of every problem.`
           ]
         },
         actualized: {
@@ -90,7 +90,7 @@
             `기술 기반의 비즈니스 영역을 개척하고, 삶의 질을 높이는 서비스로 실체화 합니다.`
           ],
           EN: [
-            `We pioneer technology-based business areas and materialize them into services that improve the quality of life.`
+            `We pioneer technology-based business areas and <br> materialize them into services that improve the quality of life.`
           ]
         },
         open: {
@@ -98,7 +98,7 @@
             `기술 노하우를 공개하고 공유하여, AI 생태계에 기여하고 새로운 가치를 창출합니다.`
           ],
           EN: [
-            `We open and share our technical know-how to contribute to the AI ecosystem and create new value.`
+            `We open and share our technical know-how to <br> contribute to the AI ecosystem and create new value.`
           ]
         },
         impactful: {
@@ -106,7 +106,7 @@
             `모든 사람이 더 나은 삶을 살 수 있도록, 세상의 가치 있는 변화를 주도합니다.`
           ],
           EN: [
-            `Driving valuable change in the world to make life better for everyone.`
+            `Driving valuable change in the world to <br> make life better for everyone.`
           ]
         }
       }
@@ -164,7 +164,7 @@
 
     .content {
       &.l-pl-2 {
-        padding-left: getMargin(1.9) !important;
+        padding-left: getMargin(2) !important;
       }
       .head {
         &.gl-8 {
