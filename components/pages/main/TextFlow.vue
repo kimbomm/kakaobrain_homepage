@@ -8,7 +8,7 @@
       v-if="data.length"
     >
       <div class="textbox" v-for="(item, index) in data" :key="index">
-        <p class="txt">
+        <p class="txt" :style="titleStyle">
           {{ language === 'KR' ? item.contentKR : item.contentEN }}
         </p>
       </div>
@@ -31,7 +31,12 @@
       }
     },
     computed: {
-      ...mapState(['language', 'device'])
+      ...mapState(['language', 'device']),
+      titleStyle() {
+        return {
+          fontFamily: this.language === 'EN' ? 'Inter' : 'NotoSans KR'
+        }
+      }
     },
     async mounted() {
       await this.init()

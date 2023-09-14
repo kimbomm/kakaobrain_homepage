@@ -49,12 +49,23 @@
 
               <div class="writerInfo" v-if="item.writer">
                 <div class="writer">
-                  <template v-for="(author, index) in item.writer">
-                    <span v-if="author.name">{{ author.name }}</span>
-                    <span class="team" v-if="author.affiliation">
+                  <template
+                    v-for="(author, index) in item.writer"
+                    v-if="author.name"
+                  >
+                    {{ author.name }}
+                    <span
+                      class="team"
+                      v-if="author.affiliation"
+                      :key="`${index}`"
+                    >
                       ({{ author.affiliation }})
                     </span>
-                    <span v-if="index < item.writer.length - 1">,</span>
+                    <span
+                      v-if="index < item.writer.length - 1"
+                      :key="`${index}_`"
+                      >,</span
+                    >
                   </template>
                 </div>
               </div>

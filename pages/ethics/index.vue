@@ -95,12 +95,14 @@
   }
   .content-detail {
     margin-bottom: 300px;
+
     .con-box {
       margin-bottom: 100px;
     }
   }
   .detail-text {
     margin-bottom: 100px;
+    font-size: 16px;
   }
 
   @include pc-large {
@@ -115,6 +117,7 @@
     }
     .detail-text {
       margin-bottom: 200px;
+      font-size: 22px;
     }
   }
   @include pc-4k {
@@ -128,6 +131,7 @@
     }
     .detail-text {
       margin-bottom: 250px;
+      font-size: 32px;
     }
   }
   @include tablet {
@@ -139,6 +143,7 @@
     }
     .detail-text {
       margin-bottom: 100px;
+      font-size: 14px;
     }
   }
   @include mobile {
@@ -152,6 +157,9 @@
     .top {
       display: block;
       padding: 60px 0 0;
+    }
+    .detail-text {
+      font-size: 14px;
     }
   }
 </style>

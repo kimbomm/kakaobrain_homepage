@@ -107,11 +107,10 @@
   }
   @include mobile-small() {
     .bread-crumb {
-      margin-left: 20px;
       li {
         display: inline-flex;
         // margin-bottom: 20px;
-        margin-bottom: 6px;
+        margin-bottom: 0px;
         margin-right: 4px;
       }
       &__full {
