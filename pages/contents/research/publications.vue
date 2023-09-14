@@ -58,7 +58,7 @@
                 v-for="(scholar, index) in item.academy"
                 :key="index"
               >
-                <div class="academy">
+                <div class="academy" v-if="scholar.name">
                   <div class="txt">
                     <div class="year" v-if="scholar.year">
                       {{ scholar.year }}
@@ -91,7 +91,10 @@
 
                 <div class="writerInfo">
                   <div class="writer" v-if="item.writer">
-                    <template v-for="(author, index) in item.writer">
+                    <template
+                      v-for="(author, index) in item.writer"
+                      v-if="author.name"
+                    >
                       {{ author.name }}
                       <span
                         class="team"
@@ -525,7 +528,7 @@
                 margin-top: 30px;
                 width: auto;
                 .list-date {
-                  width: 120px;
+                  width: 100%;
                   color: #000;
                   font-family: Noto Sans KR;
                   font-size: 14px;
@@ -571,6 +574,7 @@
                   margin: 0 0 0 0;
 
                   button {
+                    color: black;
                     display: flex;
                     padding: 10px 16px;
                     gap: 10px;
@@ -585,6 +589,7 @@
                   gap: 10px;
                   margin: 0 0 0 0;
                   button {
+                    color: black;
                     display: flex;
                     padding: 10px 16px;
                     justify-content: center;
@@ -847,7 +852,7 @@
           }
         }
         .container {
-          margin: 230px 0 0 0;
+          margin: 181px 0 0 0;
           .custom-select {
           }
 
@@ -1033,7 +1038,7 @@
           }
         }
         .container {
-          margin: 339px 0 0 0;
+          margin: 265px 0 0 0;
           &.l-ml-3 {
             margin-left: getMargin(3) !important;
           }
@@ -1255,7 +1260,7 @@
           &.gl-6 {
             width: getWidth(7) !important;
           }
-          margin: 172px 0 0 0;
+          margin: 151px 0 0 0;
 
           .tit {
             .headline {
@@ -1401,7 +1406,7 @@
           &.gl-6 {
             width: getWidth(10) !important;
           }
-          margin: 106px 0 0 0;
+          margin: 127px 0 0 0;
           .tit {
             .headline {
               &::before {
@@ -1487,10 +1492,12 @@
   //max-width: 374px
   @include mobile-small {
     .publications {
-      margin-bottom: 250px;
+      margin: 100px 0 250px 0;
       .breadcrumb {
-        margin: -24px 0 0 20px;
+        margin-left: 20px;
+        margin-top: -23px;
       }
+
       .publiList {
         .head {
           margin-top: 60px;
@@ -1558,7 +1565,7 @@
           &.gl-6 {
             width: getWidth(10) !important;
           }
-          margin-top: 203px;
+          margin-top: 162px;
 
           .tit {
             .headline {

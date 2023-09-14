@@ -424,7 +424,7 @@
       }
       &-item {
         ul {
-          width: 732px;
+          width: auto;
           padding: 16px 60px;
 
           a {

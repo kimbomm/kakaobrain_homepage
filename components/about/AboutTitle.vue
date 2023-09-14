@@ -7,7 +7,7 @@
         style="display: flex; flex-direction: column"
       />
       <div class="easter-egg">
-        <img src="@/assets/images/obj1.png" />
+        <img src="@/assets/images/unthinkableObj.png" />
       </div>
     </div>
   </div>
@@ -53,10 +53,10 @@
         position: absolute;
         left: 50%;
         top: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(-42%, -50%);
 
         img {
-          width: auto;
+          width: 100%;
           height: 147px;
         }
       }
@@ -72,7 +72,7 @@
         }
         .easter-egg {
           img {
-            width: auto;
+            width: 100%;
             height: 195px;
           }
         }
@@ -96,7 +96,7 @@
           transform: translate(-45%, -50%);
 
           img {
-            width: auto;
+            width: 100%;
             height: 292px;
           }
         }
@@ -106,9 +106,8 @@
       }
     }
   }
-  @media screen and (min-width: 1024px) and (max-width: 1500px) {
+  @media screen and (min-width: 1025px) and (max-width: 1500px) {
     .about-title {
-      margin-top: 50px;
       .title-box {
         &.gl-6 {
           //width: fit-content !important;
@@ -143,11 +142,11 @@
           position: absolute;
           left: 50%;
           top: 50%;
-          transform: translate(-28%, -50%);
+          transform: translate(-50%, -50%);
 
           img {
-            width: 60%;
-            height: 60%;
+            width: 100%;
+            height: 78px;
           }
         }
         .tit {
@@ -158,7 +157,7 @@
   }
   @include mobile {
     .about-title {
-      margin-top: 0px;
+      margin-top: 100px;
       .title-box {
         &.gl-6 {
           width: fit-content !important;
@@ -174,11 +173,11 @@
           position: absolute;
           left: 50%;
           top: 50%;
-          transform: translate(-25%, -50%);
+          transform: translate(-50%, -50%);
 
           img {
-            width: 50%;
-            height: 50%;
+            width: auto;
+            height: 66px;
           }
         }
       }
@@ -188,6 +187,7 @@
   @include mobile-small {
     .about-title {
       min-width: 360px;
+      margin-top: 60px;
       .title-box {
         &.gl-6 {
           //width: 100% !important;
@@ -206,11 +206,11 @@
           position: absolute;
           left: 50%;
           top: 50%;
-          transform: translate(-25%, -50%);
+          transform: translate(-20%, -50%);
 
           img {
-            width: 50%;
-            height: 50%;
+            width: auto;
+            height: 49px;
           }
         }
       }

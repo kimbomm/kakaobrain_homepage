@@ -42,7 +42,11 @@
               <div class="karloimg">
                 <img src="@/assets/images/sandglass.png" alt="img_healthcare" />
               </div>
-              <a class="karloarrow" href="https://karlo.ai/" target="_blank">
+              <a
+                class="karloarrow"
+                href="https://karlo.ai/about"
+                target="_blank"
+              >
                 <img src="@/assets/images/arrow.png" alt="karlo_arrow" />
               </a>
             </div>

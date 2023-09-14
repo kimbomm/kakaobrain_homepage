@@ -5,13 +5,13 @@
     </div>
     <div class="publidetail">
       <div class="head gl-7 l-ml-2">
-        <div class="academyList">
-          <div
-            class="academy"
-            v-if="list.academy"
-            v-for="(scholar, index) in list.academy"
-            :key="index"
-          >
+        <div
+          class="academyList"
+          v-if="list.academy"
+          v-for="(scholar, index) in list.academy"
+          :key="index"
+        >
+          <div class="academy" v-if="scholar.name">
             <div class="txt">
               <div class="year" v-if="scholar.year">
                 {{ scholar.year }}
@@ -30,7 +30,7 @@
         </div>
         <div class="writerInfo">
           <div class="writer" v-if="list.writer">
-            <template v-for="(author, index) in list.writer">
+            <template v-for="(author, index) in list.writer" v-if="author.name">
               {{ author.name }}
               <span class="team" v-if="author.affiliation">
                 ({{ author.affiliation }})
@@ -306,6 +306,7 @@
           margin-top: 40px;
           width: auto;
           .list-date {
+            width: 100%;
             color: var(--white, #fff);
             font-family: Inter;
             font-size: 16px;
