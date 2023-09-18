@@ -277,7 +277,7 @@
 
         if (this.total > 0) {
           this.$nextTick(() => {
-            console.log(this.$refs)
+            // console.log(this.$refs)
             this.$refs.paging.activeIndex = 0
           })
         }

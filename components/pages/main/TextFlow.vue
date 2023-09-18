@@ -34,7 +34,8 @@
       ...mapState(['language', 'device']),
       titleStyle() {
         return {
-          fontFamily: this.language === 'EN' ? 'Inter' : 'NotoSans KR'
+          fontFamily: this.language === 'EN' ? 'Inter' : 'NotoSans KR',
+          fontWeight: this.language === 'EN' ? '600' : '900'
         }
       }
     },

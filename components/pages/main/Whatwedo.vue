@@ -28,7 +28,7 @@
               <div class="LargeLanguageModels">
                 <p>Large<br />Language<br />Models</p>
               </div>
-              <a class="limsarrow" href="">
+              <a class="limsarrow">
                 <img src="@/assets/images/arrow.png" alt="llms_arrow" />
               </a>
             </div>
@@ -1211,7 +1211,7 @@
                   left: 30px;
 
                   &.gl-3 {
-                    width: getWidth(5) !important;
+                    width: getWidth(6) !important;
                   }
                 }
                 .LargeLanguageModels {
@@ -1237,7 +1237,7 @@
                   left: 30px;
                   top: 30px;
                   &.gl-3 {
-                    width: getWidth(4) !important;
+                    width: getWidth(5.5) !important;
                   }
                   .wetitle {
                     font-size: 24px;
@@ -1269,7 +1269,7 @@
                   padding-top: 30px;
                   left: 30px;
                   &.gl-3 {
-                    width: getWidth(4) !important;
+                    width: getWidth(5.5) !important;
                   }
 
                   .wetitle {
@@ -1334,7 +1334,7 @@
         width: getWidth(9) !important;
       }
       &.l-ml-2 {
-        margin-left: getMargin(1.5) !important;
+        margin-left: getMargin(1) !important;
       }
       .silk {
         position: relative;

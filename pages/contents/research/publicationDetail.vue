@@ -5,18 +5,20 @@
     </div>
     <div class="publidetail">
       <div class="head gl-7 l-ml-2">
-        <div
-          class="academyList"
-          v-if="list.academy"
-          v-for="(scholar, index) in list.academy"
-          :key="index"
-        >
-          <div class="academy" v-if="scholar.name">
-            <div class="txt">
-              <div class="year" v-if="scholar.year">
-                {{ scholar.year }}
+        <div class="aaaa">
+          <div
+            class="academyList"
+            v-if="list.academy"
+            v-for="(scholar, index) in list.academy"
+            :key="index"
+          >
+            <div class="academy" v-if="scholar.name">
+              <div class="txt">
+                <div class="year" v-if="scholar.year">
+                  {{ scholar.year }}
+                </div>
+                {{ scholar.name }}
               </div>
-              {{ scholar.name }}
             </div>
           </div>
         </div>
@@ -173,8 +175,8 @@
       this.contentId = this.$route.query.contentId
       await this.fetchList()
       this.scrollBody.scrollTo({
-        top: 0
-        // behavior: 'smooth'
+        top: 0,
+        behavior: 'smooth'
       })
       //넘어온 값들을 store에 저장함
       this.$store.commit('setPrevPageData', {
@@ -260,33 +262,34 @@
         display: flex;
         padding: 50px;
         flex-direction: column;
-        align-items: flex-start;
 
         border-radius: 20px;
         background: var(--black, #000);
         margin-top: 142px;
-        .academyList {
+        .aaaa {
           display: flex;
+          flex-wrap: wrap;
+          .academyList {
+            .academy {
+              display: inline-flex;
+              padding: 8px 14px;
 
-          .academy {
-            display: inline-flex;
-            padding: 8px 14px;
-            height: 100%;
-            margin: 10px 10px 0 0;
-            align-items: center;
-            border-radius: 27px;
-            background: var(--white, #fff);
-            .txt {
-              display: flex;
-              color: var(--black, black);
-              font-family: Inter;
-              font-size: 12px;
-              font-style: italic;
-              font-weight: 400;
-              line-height: 130%; /* 18.2px */
-              .year {
-                padding-right: 5px;
+              margin: 10px 10px 0 0;
+              align-items: center;
+              border-radius: 27px;
+              background: var(--white, #fff);
+              .txt {
+                display: flex;
+                color: var(--black, black);
+                font-family: Inter;
                 font-size: 12px;
+                font-style: italic;
+                font-weight: 400;
+                line-height: 130%; /* 18.2px */
+                .year {
+                  padding-right: 5px;
+                  font-size: 12px;
+                }
               }
             }
           }

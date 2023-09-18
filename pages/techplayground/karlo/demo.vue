@@ -3,15 +3,21 @@
     <div class="container">
       <div class="inner">
         <div class="intro"></div>
-        <h4 class="heading">Generative AI_<br>Karlo</h4>
+        <h4 class="heading">Generative AI_<br />Karlo</h4>
         <p class="description">
-          사용자가 입력한 문장을 기반으로 사실적인 이미지와 다양한 작품을 생성할 수 있는 AI 모델입니다.
-          <br>
-          1억 8천만장 규모의 이미지와 이미지를 설명하는 텍스트와의 관계를 학습한 멀티모달 AI 모델입니다.
-          <br><br>
-          Karlo는 학습된 결과를 바탕으로 사용자가 입력한 문장을 이해하고, 세상에 없던 새로운 이미지를 생성해냅니다. 여러분의 상상 속 영감이 우리의 AI 기술을 통해 더 새롭고, 다양한 크리에이티브로 창조되길 기대합니다.
-          <br><br>
-          최신 칼로 2.0 모델을 탑재한 웹서비스는 <a href="https://karlo.ai/" target="_blank">Karlo.ai</a> 에서 경험할 수 있습니다.
+          사용자가 입력한 문장을 기반으로 사실적인 이미지와 다양한 작품을 생성할
+          수 있는 AI 모델입니다.
+          <br />
+          1억 8천만장 규모의 이미지와 이미지를 설명하는 텍스트와의 관계를 학습한
+          멀티모달 AI 모델입니다.
+          <br /><br />
+          Karlo는 학습된 결과를 바탕으로 사용자가 입력한 문장을 이해하고, 세상에
+          없던 새로운 이미지를 생성해냅니다. 여러분의 상상 속 영감이 우리의 AI
+          기술을 통해 더 새롭고, 다양한 크리에이티브로 창조되길 기대합니다.
+          <br /><br />
+          최신 칼로 2.0 모델을 탑재한 웹서비스는
+          <a href="https://karlo.ai/" target="_blank">Karlo.ai</a> 에서 경험할
+          수 있습니다.
         </p>
       </div>
       <div class="demo">
@@ -26,7 +32,9 @@
                 :class="{ 'is-active': tab.value === activeTab }"
                 :disabled="isGenerating"
                 @click="tabClick(tab)"
-              >{{ tab.name }}</button>
+              >
+                {{ tab.name }}
+              </button>
             </li>
           </ul>
           <tech-selectbox
@@ -38,9 +46,19 @@
           />
           <div class="tab-contents">
             <div class="info">
-              <p v-if="activeTab === 1">사용자가 입력한 단어나 문장을 기반으로 관련된 이미지와 다양한 작품을 생성합니다.</p>
-              <p v-else-if="activeTab === 2">사용자가 업로드한 이미지를 기반으로 관련된 이미지와 다양한 작품을 생성합니다.</p>
-              <p v-else-if="activeTab === 3">이미지에 그리기 도구로 편집할 부분을 마스킹하고, 입력 단어나 문장(공백 가능)을 기반으로 지운 부분을 채워 새로운 작품을 생성합니다.</p>
+              <p v-if="activeTab === 1">
+                사용자가 입력한 단어나 문장을 기반으로 관련된 이미지와 다양한
+                작품을 생성합니다.
+              </p>
+              <p v-else-if="activeTab === 2">
+                사용자가 업로드한 이미지를 기반으로 관련된 이미지와 다양한
+                작품을 생성합니다.
+              </p>
+              <p v-else-if="activeTab === 3">
+                이미지에 그리기 도구로 편집할 부분을 마스킹하고, 입력 단어나
+                문장(공백 가능)을 기반으로 지운 부분을 채워 새로운 작품을
+                생성합니다.
+              </p>
             </div>
             <div class="content">
               <div class="experience">
@@ -79,7 +97,6 @@
                     <span>Text Prompt</span>
                   </div>
                   <div class="experience-tool">
-                    
                     <textarea
                       v-show="activeTab === 1"
                       v-model="t2i"
@@ -94,7 +111,13 @@
                       :disabled="isGenerating"
                       @input="onTextareaChange($event, 'inpaintingTxt')"
                     ></textarea>
-                    <div class="byte">{{ activeTab === 1 ? getStringToByte(t2i) : getStringToByte(inpaintingTxt) }}/{{ maxByte }}</div>
+                    <div class="byte">
+                      {{
+                        activeTab === 1
+                          ? getStringToByte(t2i)
+                          : getStringToByte(inpaintingTxt)
+                      }}/{{ maxByte }}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -107,7 +130,11 @@
                   :select-list="selectList"
                   @change="onChange"
                 />
-                <p>*생성할 수 있는 이미지가 <span class="color-orange">{{ count.availableCount }}</span>장 남았습니다.</p>
+                <p>
+                  *생성할 수 있는 이미지가
+                  <span class="color-orange">{{ count.availableCount }}</span
+                  >장 남았습니다.
+                </p>
               </div>
               <tech-button
                 text="Generate!"
@@ -128,11 +155,15 @@
         </div>
         <div class="result-contents">
           <div class="content" :class="{ 'is-active': resData[activeTab] }">
-            <ul
-              v-if="resData[activeTab]"
-            >
-              <li v-for="(item, idx) in resData[activeTab].images" :key="item.id">
-                <karlo-canvas :ref="`masking-canvas-${idx}`" :base64-data="item.image" />
+            <ul v-if="resData[activeTab]">
+              <li
+                v-for="(item, idx) in resData[activeTab].images"
+                :key="item.id"
+              >
+                <karlo-canvas
+                  :ref="`masking-canvas-${idx}`"
+                  :base64-data="item.image"
+                />
               </li>
             </ul>
             <div v-if="isGenerating" class="proceeding">
@@ -153,321 +184,331 @@
   </div>
 </template>
 <script>
-import { mapState } from 'vuex'
-import TechButton from '@/components/techplayground/common/Button'
-import TechSelectbox from '@/components/techplayground/common/Selectbox'
-import KarloCanvas from '@/components/techplayground/demo/KarloCanvas'
-import KarloEditor from '@/components/techplayground/demo/KarloEditor'
-import JSZip from 'jszip'
-import { saveAs } from 'file-saver'
-import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
-import 'swiper/css/swiper.css'
-export default {
-  components: {
-    TechButton,
-    TechSelectbox,
-    KarloCanvas,
-    KarloEditor,
-    Swiper,
-    SwiperSlide
-  },
-  layout: 'playground',
-  head() {
-    return {
-      meta: [
-        {
-          hid: 'og:title',
-          property: 'og:title',
-          content: 'Generative AI_Karlo'
-        },
-        {
-          hid: 'og:url',
-          property: 'og:url',
-          content: `${process.env.BASE_URL}/techplayground/karlo/demo`
-        },
-        {
-          hid: 'og:image',
-          property: 'og:image',
-          content: `${process.env.BASE_URL}/meta/meta_techplayground_karlo.png`
-        }
-      ]
-    }
-  },
-  data() {
-    return {
-      browserIP: null,
-      version: 'v1.3.2',
-      t2i: '',
-      inpaintingTxt: '',
-      variationFileUploaded: false,
-      inpaintingFileUploaded: false,
-      isGenerating: false,
-      activeTab: 1,
-      tabs: [
-        { name: 'Image Generation', value: 1 },
-        { name: 'Image Variation', value: 2 },
-        { name: 'Image Inpainting', value: 3 },
-      ],
-      textarea: '',
-      maxByte: 250,
-      selectedValue: 1,
-      selectList: [
-        { name: '1장', value: 1 },
-        { name: '2장', value: 2 },
-        { name: '3장', value: 3 }
-      ],
-      resData: {
-        1: null,
-        2: null,
-        3: null,
-      },
-      swiperOption: {
-        slidesPerView: 1,
-        // spaceBetween: 10,
-        mousewheel: false,
-        scrollbar: true,
-        breakpoints: {
-          1024: {
-            slidesPerView: 3
+  import { mapState } from 'vuex'
+  import TechButton from '@/components/techplayground/common/Button'
+  import TechSelectbox from '@/components/techplayground/common/Selectbox'
+  import KarloCanvas from '@/components/techplayground/demo/KarloCanvas'
+  import KarloEditor from '@/components/techplayground/demo/KarloEditor'
+  import JSZip from 'jszip'
+  import { saveAs } from 'file-saver'
+  import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
+  import 'swiper/css/swiper.css'
+  export default {
+    components: {
+      TechButton,
+      TechSelectbox,
+      KarloCanvas,
+      KarloEditor,
+      Swiper,
+      SwiperSlide
+    },
+    layout: 'playground',
+    head() {
+      return {
+        meta: [
+          {
+            hid: 'og:title',
+            property: 'og:title',
+            content: 'Generative AI_Karlo'
+          },
+          {
+            hid: 'og:url',
+            property: 'og:url',
+            content: `${process.env.BASE_URL}/techplayground/karlo/demo`
+          },
+          {
+            hid: 'og:image',
+            property: 'og:image',
+            content: `${process.env.BASE_URL}/meta/meta_techplayground_karlo.png`
           }
-        }
-      },
-      count: {
-        totalAvailableCount: 60,
-        availableCount: 60,
-        useCount: 0
-      }
-    }
-  },
-  computed: {
-    ...mapState({
-      device: state => state.device
-    }),
-    getGenerateCondition() {
-      switch (this.activeTab) {
-        case 1:
-          return this.t2i
-        case 2:
-          return this.variationFileUploaded
-        case 3:
-          return this.inpaintingFileUploaded
+        ]
       }
     },
-  },
-  async mounted() {
-    // this.browserIP = await new Promise((s,f,c=new RTCPeerConnection(),k='candidate')=>(c.createDataChannel(''),c.createOffer(o=>c.setLocalDescription(o),f),c.onicecandidate=i=>i&&i[k]&&i[k][k]&&c.close(s(i[k][k].split(' ')[4]))))
-    this.browserIP = await localStorage.getItem('BrainPlayGroundUuidv4')
-    await this.getCount()
-    document.querySelector('.wrap').scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    })
-  },
-  methods: {
-    /**
-     * karlo download 횟수 확인
-     */
-    async getCount() {
-      const res = await this.$axios.get('/karlo/count', {
-        headers: {
-          clientId: this.browserIP
-        }
-      })
-      this.count = { ...res.data }
-    },
-    tabClick(tab) {
-      this.activeTab = tab.value
-    },
-    getStringToByte(string) {
-      return string.replace(/[\0-\x7f]|([0-\u07ff]|(.))/g,"$&$1$2").length
-    },
-    onChange(selectItem) {
-      console.log(selectItem)
-    },
-    onKeydown(model) {
-      this[model] = this[model]
-    },
-    onTextareaChange(event, model) {
-      if (/[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/g.test(event.target.value)) {
-        this[model] = this[model].replace(/[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/g, '')
-      }
-      setTimeout(() => {
-        this[model] = this.getLimitedByteText(this[model], 250)
-      }, 50)
-    },
-    getLimitedByteText(inputText, maxByte) {
-      const characters = inputText.split('')
-      let validText = ''
-      let totalByte = 0
-
-      for (let i = 0; i < characters.length; i += 1) {
-        const character = characters[i]
-        const decimal = character.charCodeAt(0)
-        const byte = this.getByteLength(decimal) // 글자 한 개가 몇 바이트 길이인지 구해주기
-
-        // 현재까지의 바이트 길이와 더해 최대 바이트 길이를 넘지 않으면 
-        if (totalByte + byte <= maxByte) { 
-          totalByte += byte      // 바이트 길이 값을 더해 현재까지의 총 바이트 길이 값을 구함
-          validText += character // 글자를 더해 현재까지의 총 문자열 값을 구함
-        } else {      
-          alert('최대 250byte를 넘길 수 없습니다.')           // 최대 바이트 길이를 넘으면
-          break                  // for 루프 종료
+    data() {
+      return {
+        browserIP: null,
+        version: 'v1.3.2',
+        t2i: '',
+        inpaintingTxt: '',
+        variationFileUploaded: false,
+        inpaintingFileUploaded: false,
+        isGenerating: false,
+        activeTab: 1,
+        tabs: [
+          { name: 'Image Generation', value: 1 },
+          { name: 'Image Variation', value: 2 },
+          { name: 'Image Inpainting', value: 3 }
+        ],
+        textarea: '',
+        maxByte: 250,
+        selectedValue: 1,
+        selectList: [
+          { name: '1장', value: 1 },
+          { name: '2장', value: 2 },
+          { name: '3장', value: 3 }
+        ],
+        resData: {
+          1: null,
+          2: null,
+          3: null
+        },
+        swiperOption: {
+          slidesPerView: 1,
+          // spaceBetween: 10,
+          mousewheel: false,
+          scrollbar: true,
+          breakpoints: {
+            1024: {
+              slidesPerView: 3
+            }
+          }
+        },
+        count: {
+          totalAvailableCount: 60,
+          availableCount: 60,
+          useCount: 0
         }
       }
-
-      return validText
     },
-    getByteLength(decimal) {
-      const LINE_FEED = 10
-      return (decimal >> 7) || (LINE_FEED === decimal) ? 2 : 1
-    },
-    onClear() {
-      switch (this.activeTab) {
-        case 2:
-          this.variationFileUploaded = false
-          break
-        case 3:
-          this.inpaintingFileUploaded = false
-          break
-      }
-    },
-    onFileUpload() {
-      switch (this.activeTab) {
-        case 2:
-          this.variationFileUploaded = true
-          break
-        case 3:
-          this.inpaintingFileUploaded = true
-          break
-      }
-    },
-    onMaskingReady() {
-      this.$refs.inpainting.onMaking()
-    },
-    async onVarificationText(inputText) {
-      const res = await this.$axios.post('https://asia-northeast3-karlo-for-kakao.cloudfunctions.net/detectBadWords', {
-        text: inputText
-      })
-      if (res.data.isDetect) {
-        this.isGenerating = false
-        alert('해당 프롬프트는 유해 키워드로 분류됩니다. 다른 프롬프트로 시도해주세요.')
-      }
-      return !res.data.isDetect
-    },
-    async onGenerate() {
-      if (this.count.availableCount === 0) {
-        alert('생성할 수 있는 쿼터가 없습니다.')
-        return false
-      } else if (this.selectedValue > this.count.availableCount) {
-        alert('생성할 수 있는 총 쿼터를 넘었습니다.')
-        return false
-      }
-      try {
-        this.isGenerating = true
-        let params = null
-        let res = ''
-        let isPass = false
+    computed: {
+      ...mapState({
+        device: state => state.device
+      }),
+      getGenerateCondition() {
         switch (this.activeTab) {
           case 1:
-            isPass = await this.onVarificationText(this.t2i)
-            if (isPass) {
-              params = {
-                prompt: {
-                  text: this.t2i,
-                  batch_size: this.selectedValue
-                }
-              }
-              res = await this.$axios.post('/karlo/t2i', params, {
-                headers: {
-                  clientId: this.browserIP
-                }
-              })
-            } else {
-              return false
-            }
-            break
+            return this.t2i
           case 2:
-            params = {
-              prompt: {
-                image: await this.$refs.variation.onToDataURL(),
-                batch_size: this.selectedValue
-              }
-            }
-            res = await this.$axios.post('/karlo/variations', params, {
-              headers: {
-                clientId: this.browserIP
-              }
-            })
+            return this.variationFileUploaded
+          case 3:
+            return this.inpaintingFileUploaded
+        }
+      }
+    },
+    async mounted() {
+      // this.browserIP = await new Promise((s,f,c=new RTCPeerConnection(),k='candidate')=>(c.createDataChannel(''),c.createOffer(o=>c.setLocalDescription(o),f),c.onicecandidate=i=>i&&i[k]&&i[k][k]&&c.close(s(i[k][k].split(' ')[4]))))
+      this.browserIP = await localStorage.getItem('BrainPlayGroundUuidv4')
+      await this.getCount()
+      document.querySelector('.wrap').scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      })
+    },
+    methods: {
+      /**
+       * karlo download 횟수 확인
+       */
+      async getCount() {
+        const res = await this.$axios.get('/karlo/count', {
+          headers: {
+            clientId: this.browserIP
+          }
+        })
+        this.count = { ...res.data }
+      },
+      tabClick(tab) {
+        this.activeTab = tab.value
+      },
+      getStringToByte(string) {
+        return string.replace(/[\0-\x7f]|([0-\u07ff]|(.))/g, '$&$1$2').length
+      },
+      onChange(selectItem) {
+        console.log(selectItem)
+      },
+      onKeydown(model) {
+        this[model] = this[model]
+      },
+      onTextareaChange(event, model) {
+        if (/[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/g.test(event.target.value)) {
+          this[model] = this[model].replace(/[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/g, '')
+        }
+        setTimeout(() => {
+          this[model] = this.getLimitedByteText(this[model], 250)
+        }, 50)
+      },
+      getLimitedByteText(inputText, maxByte) {
+        const characters = inputText.split('')
+        let validText = ''
+        let totalByte = 0
+
+        for (let i = 0; i < characters.length; i += 1) {
+          const character = characters[i]
+          const decimal = character.charCodeAt(0)
+          const byte = this.getByteLength(decimal) // 글자 한 개가 몇 바이트 길이인지 구해주기
+
+          // 현재까지의 바이트 길이와 더해 최대 바이트 길이를 넘지 않으면
+          if (totalByte + byte <= maxByte) {
+            totalByte += byte // 바이트 길이 값을 더해 현재까지의 총 바이트 길이 값을 구함
+            validText += character // 글자를 더해 현재까지의 총 문자열 값을 구함
+          } else {
+            alert('최대 250byte를 넘길 수 없습니다.') // 최대 바이트 길이를 넘으면
+            break // for 루프 종료
+          }
+        }
+
+        return validText
+      },
+      getByteLength(decimal) {
+        const LINE_FEED = 10
+        return decimal >> 7 || LINE_FEED === decimal ? 2 : 1
+      },
+      onClear() {
+        switch (this.activeTab) {
+          case 2:
+            this.variationFileUploaded = false
             break
           case 3:
-            isPass = await this.onVarificationText(this.inpaintingTxt)
-            if (isPass) {
+            this.inpaintingFileUploaded = false
+            break
+        }
+      },
+      onFileUpload() {
+        switch (this.activeTab) {
+          case 2:
+            this.variationFileUploaded = true
+            break
+          case 3:
+            this.inpaintingFileUploaded = true
+            break
+        }
+      },
+      onMaskingReady() {
+        this.$refs.inpainting.onMaking()
+      },
+      async onVarificationText(inputText) {
+        const res = await this.$axios.post(
+          'https://asia-northeast3-karlo-for-kakao.cloudfunctions.net/detectBadWords',
+          {
+            text: inputText
+          }
+        )
+        if (res.data.isDetect) {
+          this.isGenerating = false
+          alert(
+            '해당 프롬프트는 유해 키워드로 분류됩니다. 다른 프롬프트로 시도해주세요.'
+          )
+        }
+        return !res.data.isDetect
+      },
+      async onGenerate() {
+        if (this.count.availableCount === 0) {
+          alert('생성할 수 있는 쿼터가 없습니다.')
+          return false
+        } else if (this.selectedValue > this.count.availableCount) {
+          alert('생성할 수 있는 총 쿼터를 넘었습니다.')
+          return false
+        }
+        try {
+          this.isGenerating = true
+          let params = null
+          let res = ''
+          let isPass = false
+          switch (this.activeTab) {
+            case 1:
+              isPass = await this.onVarificationText(this.t2i)
+              if (isPass) {
+                params = {
+                  prompt: {
+                    text: this.t2i,
+                    batch_size: this.selectedValue
+                  }
+                }
+                res = await this.$axios.post('/karlo/t2i', params, {
+                  headers: {
+                    clientId: this.browserIP
+                  }
+                })
+              } else {
+                return false
+              }
+              break
+            case 2:
               params = {
                 prompt: {
-                  text: this.inpaintingTxt,
-                  image: this.$refs.inpainting.onGetOrigin(),
-                  mask: await this.$refs.inpainting.onToDataURL(),
+                  image: await this.$refs.variation.onToDataURL(),
                   batch_size: this.selectedValue
                 }
               }
-              res = await this.$axios.post('/karlo/inpainting', params, {
+              res = await this.$axios.post('/karlo/variations', params, {
                 headers: {
                   clientId: this.browserIP
                 }
               })
-            } else {
-              return false
-            }
-            break
+              break
+            case 3:
+              isPass = await this.onVarificationText(this.inpaintingTxt)
+              if (isPass) {
+                params = {
+                  prompt: {
+                    text: this.inpaintingTxt,
+                    image: this.$refs.inpainting.onGetOrigin(),
+                    mask: await this.$refs.inpainting.onToDataURL(),
+                    batch_size: this.selectedValue
+                  }
+                }
+                res = await this.$axios.post('/karlo/inpainting', params, {
+                  headers: {
+                    clientId: this.browserIP
+                  }
+                })
+              } else {
+                return false
+              }
+              break
+          }
+          this.resData[this.activeTab] = res.data
+          this.count = {
+            totalAvailableCount: res.data.totalAvailableCount,
+            availableCount: res.data.availableCount,
+            useCount: res.data.useCount
+          }
+          this.isGenerating = false
+        } catch (err) {
+          // console.log(err.response.data)
+          alert(
+            `[${err.response.data.code}] 전송에 실패하였습니다. 담당자에게 문의하세요.`
+          )
+          this.isGenerating = false
         }
-        this.resData[this.activeTab] = res.data
-        this.count = {
-          totalAvailableCount: res.data.totalAvailableCount,
-          availableCount: res.data.availableCount,
-          useCount: res.data.useCount,
+      },
+      onDownload() {
+        if (this.resData[this.activeTab]) {
+          const zip = new JSZip()
+          const images = zip.folder('images')
+          this.resData[this.activeTab].images.forEach((item, index) => {
+            images.file(
+              `karlo_${index}.png`,
+              this.dataURLtoFile(
+                this.$refs[`masking-canvas-${index}`][0].maskingSrc
+              )
+            )
+          })
+
+          zip
+            .generateAsync({
+              type: 'blob'
+            })
+            .then(content => {
+              saveAs(content, 'karlo_archive.zip')
+            })
         }
-        this.isGenerating = false
-      } catch (err) {
-        // console.log(err.response.data)
-        alert(`[${err.response.data.code}] 전송에 실패하였습니다. 담당자에게 문의하세요.`)
-        this.isGenerating = false
-      }
-    },
-    onDownload() {
-      if (this.resData[this.activeTab]) {
-        const zip = new JSZip()
-        const images = zip.folder('images')
-        this.resData[this.activeTab].images.forEach((item, index) => {
-          images.file(`karlo_${index}.png`, this.dataURLtoFile(this.$refs[`masking-canvas-${index}`][0].maskingSrc))
-        })
-
-        zip.generateAsync({
-          type: "blob"
-        }).then((content) => {
-          saveAs(content, "karlo_archive.zip")
-        })
-      }
-
-
-    },
-    dataURLtoFile(dataurl, filename) {
+      },
+      dataURLtoFile(dataurl, filename) {
         var arr = dataurl.split(','),
-            mime = arr[0].match(/:(.*?);/)[1],
-            bstr = atob(arr[1]),
-            n = bstr.length,
-            u8arr = new Uint8Array(n);
+          mime = arr[0].match(/:(.*?);/)[1],
+          bstr = atob(arr[1]),
+          n = bstr.length,
+          u8arr = new Uint8Array(n)
 
-        while(n--){
-            u8arr[n] = bstr.charCodeAt(n);
+        while (n--) {
+          u8arr[n] = bstr.charCodeAt(n)
         }
 
-
-
-        return new File([u8arr], filename, {type:mime});
+        return new File([u8arr], filename, { type: mime })
+      }
     }
   }
-}
 </script>
 <style lang="scss" scoped>
-@import '@/assets/scss/layout/techplayground/pages/demo.scss';
+  @import '@/assets/scss/layout/techplayground/pages/demo.scss';
 </style>

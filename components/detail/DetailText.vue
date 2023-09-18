@@ -20,7 +20,7 @@
       }
     },
     mounted() {
-      console.log(this.data.text)
+      // console.log(this.data.text)
     }
   }
 </script>

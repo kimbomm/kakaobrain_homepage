@@ -729,7 +729,7 @@
         height: 30px;
         margin-top: 140px;
         &.l-ml-2 {
-          margin-left: getMargin(1.5) !important;
+          margin-left: getMargin(1) !important;
         }
 
         .title {
@@ -740,7 +740,7 @@
         padding: 50px 0 0 0;
         gap: 50px;
         &.l-ml-3 {
-          margin-left: getMargin(1.5) !important;
+          margin-left: getMargin(1) !important;
         }
         &.gl-6 {
           width: getWidth(9) !important;

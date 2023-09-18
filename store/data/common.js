@@ -33,14 +33,14 @@ const menus = [
     nick: 'product',
     link: '',
     sub: [
-      {
-        //임시설정
-        category: 'llms',
-        nick: 'LLMs',
-        name: 'LLms',
-        link: '/LLms',
-        target: ''
-      },
+      // {
+      //   //임시설정
+      //   category: 'llms',
+      //   nick: 'LLMs',
+      //   name: 'LLms',
+      //   link: '/LLms',
+      //   target: ''
+      // },
       {
         category: 'karlo',
         nick: 'Karlo',
