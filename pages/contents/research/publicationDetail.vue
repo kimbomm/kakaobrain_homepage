@@ -5,7 +5,7 @@
     </div>
     <div class="publidetail">
       <div class="head gl-7 l-ml-2">
-        <div class="aaaa">
+        <div class="academyGroup">
           <div
             class="academyList"
             v-if="list.academy"
@@ -266,7 +266,7 @@
         border-radius: 20px;
         background: var(--black, #000);
         margin-top: 142px;
-        .aaaa {
+        .academyGroup {
           display: flex;
           flex-wrap: wrap;
           .academyList {

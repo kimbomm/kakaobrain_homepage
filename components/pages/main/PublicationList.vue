@@ -258,7 +258,7 @@
               display: inline-flex;
               padding: 8px 14px;
               height: 100%;
-              margin-right: 10px;
+              margin: 10px 10px 0 0;
               align-items: center;
               border-radius: 27px;
               background: var(--black, #000);
