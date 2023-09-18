@@ -1,13 +1,13 @@
 <template>
-  <div class="about-title l-ml-2">
-    <div class="about-con-tit gl-6" style="position: relative">
+  <div class="about-title">
+    <div class="about-con-tit gl-6 l-ml-2" style="position: relative">
       <div
         v-html="data.title"
         class="tit"
         style="display: flex; flex-direction: column"
       />
       <div class="easter-egg">
-        <img src="@/assets/images/obj2.png" />
+        <img src="@/assets/images/cultureObj.png" />
       </div>
     </div>
   </div>
@@ -51,14 +51,14 @@
         transform: translate(-50%, -50%);
         img {
           width: 100%;
-          height: 100%;
+          height: 147px;
         }
       }
-    }
-    .tit {
-      line-height: 90%;
-      font-size: 200px;
-      font-weight: 100;
+      .tit {
+        line-height: 90%;
+        font-size: 200px;
+        font-weight: 100;
+      }
     }
   }
 
@@ -73,16 +73,16 @@
           position: absolute;
           left: 50%;
           top: 50%;
-          transform: translate(-45%, -50%);
+          transform: translate(-50%, -50%);
 
           img {
-            width: 110%;
-            height: 110%;
+            width: 100%;
+            height: 195px;
           }
         }
-      }
-      .tit {
-        font-size: 267px;
+        .tit {
+          font-size: 267px;
+        }
       }
     }
   }
@@ -97,11 +97,11 @@
           position: absolute;
           left: 50%;
           top: 50%;
-          transform: translate(-45%, -50%);
+          transform: translate(-50%, -50%);
 
           img {
-            width: auto;
-            height: 290px;
+            width: 100%;
+            height: 292px;
           }
         }
         .tit {
@@ -110,7 +110,7 @@
       }
     }
   }
-  @media screen and (max-width: 1500px) {
+  @media screen and (min-width: 1025px) and (max-width: 1500px) {
     .about-title {
       .about-con-tit {
         &.gl-6 {
@@ -128,7 +128,7 @@
           }
 
           .tit {
-            font-size: 90px;
+            font-size: 106px;
             display: flex;
             justify-content: center;
           }
@@ -142,66 +142,85 @@
         width: fit-content !important;
         .tit {
           font-size: 106px;
-          width: 783px;
-          height: auto;
           display: flex;
           justify-content: center;
+        }
+        .easter-egg {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+
+          img {
+            width: 100%;
+            height: 78px;
+          }
+        }
+      }
+    }
+  }
+  @include mobile {
+    .about-title {
+      margin-top: 100px;
+      .about-con-tit {
+        &.gl-6 {
+          width: fit-content !important;
+        }
+        &.l-ml-2 {
+          margin-left: getMargin(2) !important;
+        }
+        .tit {
+          font-size: 80px;
         }
 
         .easter-egg {
           position: absolute;
           left: 50%;
           top: 50%;
-          transform: translate(-28%, -50%);
+          transform: translate(-50%, -50%);
+          //background-color: green;
 
           img {
-            width: 60%;
-            height: 60%;
+            width: auto;
+            height: 66px;
           }
         }
       }
-      .tit {
-        font-size: 106px;
-        margin-top: 195px;
-        display: flex;
-        justify-content: center;
-      }
     }
   }
-  @include mobile {
+
+  @include mobile-small {
     .about-title {
       min-width: 360px;
+      margin-top: 60px;
       .about-con-tit {
         &.gl-6 {
           //width: 100% !important;
           //display: inline-block
           width: fit-content !important;
+        }
+        &.l-ml-2 {
+          margin-left: getMargin(0) !important;
+        }
+        .tit {
+          font-size: 50px;
 
-          .tit {
-            font-size: 50px;
-            width: 100%;
-            height: auto;
-            margin-top: 0px;
-          }
+          height: auto;
+        }
 
-          .easter-egg {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-35%, -50%);
-            //background-color: green;
+        .easter-egg {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-35%, -50%);
+          //background-color: green;
 
-            img {
-              width: auto;
-              height: 49px;
-            }
+          img {
+            width: auto;
+            height: 49px;
           }
         }
       }
-    }
-
-    .l-ml-2 {
-      margin-left: 0px !important;
     }
   }
 </style>

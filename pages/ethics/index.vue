@@ -1,7 +1,7 @@
 <template>
   <div class="content-detail">
     <template v-if="data">
-      <BreadCrumb :data="breadcrumb" :full="true" />
+      <BreadCrumb :data="breadcrumb" :full="true" class="breadcrumb" />
       <div class="top"></div>
       <DetailTitle :text="data.title" />
       <template v-for="(content, index) in data.ContentItems">
@@ -95,12 +95,19 @@
   }
   .content-detail {
     margin-bottom: 300px;
+
     .con-box {
       margin-bottom: 100px;
     }
   }
   .detail-text {
     margin-bottom: 100px;
+    padding-left: 20px;
+  }
+
+  .detail-title {
+    margin-left: getMargin(2) !important;
+    padding-left: 20px;
   }
 
   @include pc-large {
@@ -111,15 +118,16 @@
       }
     }
     .top {
-      padding: 440px 0 0;
+      padding: 400px 0 0;
     }
     .detail-text {
+      font-size: 22px;
       margin-bottom: 200px;
     }
   }
   @include pc-4k {
     .top {
-      padding: 660px 0 0;
+      padding: 600px 0 0;
     }
     .content-detail {
       .con-box {
@@ -127,6 +135,7 @@
       }
     }
     .detail-text {
+      font-size: 32px;
       margin-bottom: 250px;
     }
   }
@@ -139,11 +148,41 @@
     }
     .detail-text {
       margin-bottom: 100px;
+      font-size: 14px;
+    }
+
+    .detail-title {
+      margin-left: getMargin(1) !important;
+      padding-left: 20px;
+      font-size: 50px;
     }
   }
   @include mobile {
     .detail-title {
-      font-size: 40px;
+      margin-left: getMargin(0) !important;
+      font-size: 30px;
+      padding-left: 0;
+    }
+    .content-detail {
+      padding: 76px 20px 0;
+      margin-bottom: 100px;
+    }
+    .detail-text {
+      margin-bottom: 100px;
+      font-size: 14px;
+      padding-left: 0;
+    }
+    .top {
+      display: block;
+      padding: 60px 0 0;
+    }
+  }
+  @include mobile-small {
+    .detail-title {
+      font-size: 30px;
+    }
+    .breadcrumb {
+      margin-left: 0;
     }
     .content-detail {
       padding: 76px 20px 0;

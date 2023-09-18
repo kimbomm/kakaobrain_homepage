@@ -1,14 +1,13 @@
 <template>
   <div class="about-full-con-a">
     <div class="full-con">
-      <img src="@/assets/images/about_uq_bg_1.png" />
       <div class="inner">
         <div class="txt gl-8 l-ml-2" v-html="data.title"></div>
         <div class="sub-txt gl-6 l-ml-3" v-html="data.text"></div>
         <div class="sub-sub-txt gl-6 l-ml-3" v-html="data.subtext"></div>
       </div>
       <div class="container">
-        <div class="nav">
+        <div class="nav gl-8">
           <div class="column">
             <div class="rect">
               <p class="p-title">Karlo</p>
@@ -66,23 +65,19 @@
     .full-con {
       position: relative;
       width: 100%;
-      height: 100%;
-      min-height: 2331px;
+      padding: 30px 20px 550px;
       object-fit: cover;
 
       // padding: 400px 20px 643px;
       // &::before {
       //   position: absolute;
       // }
-      img {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 100%;
-        height: 100%;
-        // object-fit:cover;
-      }
+
+      background-image: url('@/assets/images/about_uq_bg_1.png');
+      background-size: cover;
+      background-position: 50% 50%;
+      // object-fit:cover;
+
       .inner {
         position: relative;
         padding-top: 400px;
@@ -124,10 +119,11 @@
           flex-direction: column;
           justify-content: space-between;
           position: relative;
-          width: 100%;
-          max-width: 1120px;
-          min-width: 782px;
+
           margin: 0 auto;
+          &.gl-8 {
+            width: getWidth(6) !important;
+          }
 
           // top: 200px;
           // gap: 90px 60px;
@@ -206,7 +202,7 @@
             position: static;
             transform: translate(0, 0);
             width: auto;
-            max-height: 146.03px;
+            max-height: 146px;
           }
         }
         .imgbox2 {
@@ -238,7 +234,6 @@
   @include pc-large {
     .about-full-con-a {
       .full-con {
-        min-height: 2000px;
         padding: 30px 20px 550px;
 
         .inner {
@@ -262,9 +257,6 @@
           margin-top: 298px;
 
           .nav {
-            max-width: 1504px;
-            height: auto;
-
             .rect {
               width: calc((100% - 80px) / 3);
               .p-title {
@@ -312,7 +304,7 @@
                 position: static;
                 transform: translate(0, 0);
                 width: auto;
-                max-height: 182px;
+                max-height: 276px;
               }
             }
           }
@@ -338,7 +330,6 @@
   @include pc-4k {
     .about-full-con-a {
       .full-con {
-        min-height: 3000px;
         padding: 800px 20px 1293px;
         .inner {
           .txt {
@@ -417,7 +408,7 @@
                 position: static;
                 transform: translate(0, 0);
                 width: auto;
-                max-height: 265px;
+                height: 1276px;
               }
             }
           }
@@ -441,8 +432,7 @@
   @media screen and (max-width: 1400px) {
     .about-full-con-a {
       .full-con {
-        width: 100%;
-        min-height: 1400px;
+        padding: 30px 20px 350px;
         .inner {
           padding-top: 100px;
           .txt {
@@ -513,7 +503,6 @@
   @include tablet {
     .about-full-con-a {
       .full-con {
-        min-height: 600px;
         padding: 140px 20px 221px;
 
         .inner {
@@ -532,9 +521,11 @@
           margin-top: 100px;
 
           .nav {
-            max-width: 768px;
+            &.gl-8 {
+              width: getWidth(8) !important;
+            }
             .imgbox {
-              gap: 159px;
+              gap: 160px;
               width: 100%;
               height: auto;
               margin-top: 0;
@@ -542,7 +533,7 @@
                 position: static;
                 transform: translate(0, 0);
                 width: auto;
-                max-height: 88px;
+                max-height: 90px;
               }
             }
             .rect {
@@ -590,7 +581,84 @@
   @include mobile {
     .about-full-con-a {
       .full-con {
-        min-height: 600px;
+        padding: 140px 20px 221px;
+
+        .inner {
+          .txt {
+            margin-bottom: 50px;
+            font-size: 35px;
+          }
+          .sub-txt {
+            font-size: 12px;
+          }
+          .sub-sub-txt {
+            font-size: 8px;
+          }
+        }
+        .container {
+          margin-top: 100px;
+
+          .nav {
+            &.gl-8 {
+              width: getWidth(8) !important;
+            }
+            .imgbox {
+              gap: 109px;
+              width: 100%;
+              height: auto;
+              margin-top: 0;
+              img {
+                position: static;
+                transform: translate(0, 0);
+                width: auto;
+                max-height: 78px;
+              }
+            }
+            .rect {
+              width: calc((100% - 19px) / 3);
+              height: 120px;
+              border-radius: 140px;
+
+              .p-title {
+                font-size: 12px;
+              }
+              .p-title3 {
+                font-size: 12px;
+              }
+
+              .rect1 {
+                font-size: 12px;
+              }
+              .rect2 {
+                font-size: 12px;
+              }
+              .rect3 {
+                font-size: 12px;
+              }
+            }
+          }
+
+          .imgbox2 {
+            display: none;
+          }
+          .column {
+            &.full {
+              margin-top: 22px;
+            }
+          }
+        }
+
+        .footer {
+          .description {
+            font-size: 8px;
+          }
+        }
+      }
+    }
+  }
+  @include mobile-small {
+    .about-full-con-a {
+      .full-con {
         padding: 0px 20px 252px;
         .inner {
           .txt {
@@ -626,6 +694,9 @@
           margin-top: 40px;
 
           .nav {
+            &.gl-8 {
+              width: getWidth(10) !important;
+            }
             .column {
               display: flex;
               flex-direction: column;
@@ -650,6 +721,7 @@
 
                 .rect1 {
                   font-size: 12px;
+                  width: 100%;
                 }
                 .rect2 {
                   font-size: 12px;
@@ -685,24 +757,24 @@
                 height: 87px;
                 width: auto;
                 //transform: translateY(-50%);
-                left: 37%;
-                top: 94%;
+                left: 71%;
+                top: 85%;
               }
               .rect_4 {
                 position: absolute;
                 height: 88px;
                 width: auto;
                 //transform: translateY(-50%);
-                left: 3%;
-                top: 47%;
+                left: -10%;
+                top: 37%;
               }
               .rect_5 {
                 position: absolute;
                 height: 85px;
                 width: auto;
                 //transform: translateY(-50%);
-                left: 40%;
-                top: 20%;
+                left: 86%;
+                top: 13%;
               }
             }
           }

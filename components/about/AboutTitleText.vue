@@ -1,5 +1,5 @@
 <template>
-  <div class="about-title-text">
+  <div class="about-title-text gl-6">
     <div class="txt-con">
       <div class="txt" v-html="data.text"></div>
     </div>
@@ -27,7 +27,7 @@
 </script>
 <style lang="scss" scoped>
   .about-title-text {
-    width: getWidth(6);
+    width: getWidth(6) !important;
     margin-left: getMargin(3);
     .txt-con {
       margin-bottom: 60px;
@@ -71,13 +71,13 @@
 
   @include tablet {
     .about-title-text {
-      width: getWidth(5);
+      width: getWidth(6) !important;
       margin-left: getMargin(2);
       .txt-con {
         margin-bottom: 60px;
       }
       .txt {
-        font-size: 12px;
+        font-size: 14px;
         br {
           display: none;
         }
@@ -90,7 +90,23 @@
   }
   @include mobile {
     .about-title-text {
-      width: auto;
+      width: getWidth(6) !important;
+      margin-left: getMargin(2);
+      .txt-con {
+        margin-bottom: 40px;
+      }
+      .txt {
+        font-size: 14px;
+      }
+      .txt-scroll {
+        font-size: 16px;
+        margin-bottom: 80px;
+      }
+    }
+  }
+  @include mobile-small {
+    .about-title-text {
+      width: getWidth(8) !important;
       margin-left: getMargin(1);
       .txt-con {
         margin-bottom: 40px;

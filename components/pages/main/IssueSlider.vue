@@ -2,44 +2,43 @@
   <div class="issue-slider gl-8 l-ml-2">
     <div v-if="list.length > 0" ref="issue" class="issue">
       <div class="container">
-        <nuxt-link
-          :to="
-            activeContent.Content.contentType !== 'STORY'
-              ? {
-                  path: '/contents',
-                  query: { contentId: activeContent.contentId }
-                }
-              : {
-                  path: '/story-telling',
-                  query: { contentId: activeContent.contentId }
-                }
-          "
-        >
-          <div class="thumbnail">
+        <div class="thumbnail">
+          <nuxt-link
+            :to="
+              activeContent.Content.contentType !== 'STORY'
+                ? {
+                    path: '/contents',
+                    query: { contentId: activeContent.contentId }
+                  }
+                : {
+                    path: '/story-telling',
+                    query: { contentId: activeContent.contentId }
+                  }
+            "
+          >
             <div class="fade">
               <div
                 class="issueimg"
                 :style="`background-image: url(${envVariable(
                   activeContent.Media.url
                 )});`"
-              />
+              ></div>
             </div>
+            <div class="text">
+              <div class="title">
+                <span :style="titleStyle">{{ activeContent.title }}</span>
+              </div>
+            </div>
+          </nuxt-link>
+          <div class="pagination-controls">
+            <button @click="onClick('prev')" class="prev-button">
+              <img src="@/assets/images/icons/prev.svg" />
+            </button>
+            <button @click="onClick('next')" class="next-button">
+              <img src="@/assets/images/icons/next.svg" />
+            </button>
           </div>
-
-          <div class="text">
-            <div class="title">
-              <span>
-                {{ activeContent.title }}
-              </span>
-            </div>
-            <!-- 임의로 설정. 데이터 생성시 -->
-            <div class="subtitle">
-              <span>
-                {{ activeContent.updateAt }}
-              </span>
-            </div>
-          </div>
-        </nuxt-link>
+        </div>
         <div class="pagination-dots">
           <span
             v-for="(item, index) in list"
@@ -53,6 +52,9 @@
     </div>
   </div>
 </template>
+
+<!-- Rest of your script and style code remains the same -->
+
 <script>
   import { mapState, mapActions } from 'vuex'
   import Utility from '@/util/utility.js'
@@ -72,9 +74,10 @@
         pageData: {
           offset: 0,
           limit: 20,
-          contentType: 'ALL', // ALL, ARTICLE, STORY, THESIS
+          contentType: 'ALL',
           targetLang: this.$store.state.language
         },
+
         image: require('~/assets/images/main_img_dummy.png'),
         list: [],
         activeContent: null,
@@ -84,10 +87,17 @@
     },
     computed: {
       ...mapState({
-        issueList: state => state.issue.list
+        issueList: state => state.issue.list,
+        language: state => state.language
       }),
       curPage() {
         return Utility.changeNumFont(this.activeIndex + 1)
+      },
+      titleStyle() {
+        return {
+          fontFamily:
+            this.pageData.targetLang === 'EN' ? 'Inter' : 'NotoSans KR'
+        }
       }
     },
     watch: {
@@ -220,7 +230,7 @@
     &.l-ml-2 {
       margin-left: getMargin(2) !important;
     }
-
+    padding-left: 20px;
     .issue {
       .container {
         position: relative;
@@ -253,9 +263,14 @@
 
         .thumbnail {
           height: 410px;
+          position: relative;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
 
           .fade {
             .issueimg {
+              border: 1px solid black;
               background-size: cover;
               background-position: 50% 50%;
               height: 100%;
@@ -263,13 +278,23 @@
             }
           }
         }
+        .pagination-controls {
+          display: flex;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          z-index: 1;
+          justify-content: space-between;
+          width: 100%;
+        }
 
         .text {
           width: 918px;
           padding-top: 30px;
           .title {
             color: var(--black, #000);
-            font-family: Noto Sans KR;
+
             font-size: 30px;
             font-style: normal;
             font-weight: 700;
@@ -388,6 +413,14 @@
               }
             }
           }
+          .pagination-controls {
+            button {
+              img {
+                width: 60px;
+                height: 60px;
+              }
+            }
+          }
           .text {
             width: 1508px;
             padding-top: 56px;
@@ -488,7 +521,7 @@
         width: getWidth(9) !important;
       }
       &.l-ml-2 {
-        margin-left: getMargin(1.5) !important;
+        margin-left: getMargin(1) !important;
       }
       .issue {
         .container {

@@ -73,7 +73,7 @@
     head() {
       let ogImageURL = `${process.env.BASE_URL}/metaimg.png`
       if (this.contentData) {
-        if (this.contentData.contentProp.mediaId) {
+        if (this.contentData.contentProp?.mediaId) {
           ogImageURL = `${this.$config.baseURL}${this.contentData.contentProp.mediaId}`
         } else if (this.contentData.titleMediaId) {
           ogImageURL = `${this.$config.baseURL}${this.contentData.titleMediaId}`
@@ -230,7 +230,7 @@
             category1,
             category2
           })
-  
+
           switch (category1) {
             case 'document':
               subClass = 'docu'
@@ -239,14 +239,14 @@
               subClass = category1
               break
           }
-  
+
           this.title = info.category2.name
           this.breadcrumb = []
           this.breadcrumb.push(
             { text: info.category1.nick, sub: subClass, link: '' },
             { text: info.category2.nick, sub: 'sub', link: info.category2.link }
           )
-  
+
           for (let i = 0; i < this.data.ContentTags.length; i++) {
             this.breadcrumb.push({
               text: this.data.ContentTags[i].tag,

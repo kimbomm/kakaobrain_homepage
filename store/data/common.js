@@ -33,14 +33,14 @@ const menus = [
     nick: 'product',
     link: '',
     sub: [
-      {
-        //임시설정
-        category: 'llms',
-        nick: 'LLMs',
-        name: 'LLms',
-        link: '/LLms',
-        target: ''
-      },
+      // {
+      //   //임시설정
+      //   category: 'llms',
+      //   nick: 'LLMs',
+      //   name: 'LLms',
+      //   link: '/LLms',
+      //   target: ''
+      // },
       {
         category: 'karlo',
         nick: 'Karlo',
@@ -86,11 +86,11 @@ const menus = [
         target: ''
       },
       {
-        category: 'collaborative',
-        nick: 'Collabo',
-        name: 'Collaborative Research',
-        link: '/contents/research/collaborative',
-        target: ''
+      category: 'ethics',
+        nick: 'AI 윤리',
+        name: 'AI 윤리',
+        link: '/ethics',
+        target: '_blank'
       }
     ]
   },

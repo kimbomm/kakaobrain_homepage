@@ -8,7 +8,7 @@
       v-if="data.length"
     >
       <div class="textbox" v-for="(item, index) in data" :key="index">
-        <p class="txt">
+        <p class="txt" :style="titleStyle">
           {{ language === 'KR' ? item.contentKR : item.contentEN }}
         </p>
       </div>
@@ -31,7 +31,13 @@
       }
     },
     computed: {
-      ...mapState(['language', 'device'])
+      ...mapState(['language', 'device']),
+      titleStyle() {
+        return {
+          fontFamily: this.language === 'EN' ? 'Inter' : 'NotoSans KR',
+          fontWeight: this.language === 'EN' ? '600' : '900'
+        }
+      }
     },
     async mounted() {
       await this.init()
@@ -120,10 +126,10 @@
         height: auto;
         .txt {
           color: var(--black, #000);
-          font-family: Noto Sans KR;
+
           font-size: 60px;
           font-style: normal;
-          font-weight: 1000;
+          font-weight: 900;
           line-height: 110%;
         }
       }

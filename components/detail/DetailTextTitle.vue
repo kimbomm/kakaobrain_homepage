@@ -20,8 +20,9 @@
 </script>
 <style lang="scss" scoped>
   .detail-subTit {
-    width: getWidth(5);
+    width: getWidth(4);
     margin-left: getMargin(3);
+    padding-left: 20px;
     line-height: 130%;
     font-weight: 900;
     font-size: map-get($font, h2);
@@ -53,7 +54,9 @@
   @include mobile {
     .detail-subTit {
       width: 100%;
-      margin-left: 0;
+      padding-left: 0px;
+
+      margin-left: getMargin(0);
       font-size: map-get($font-mobile, h2);
       margin-bottom: calc(#{map-get($font-mobile, h2)} * 1.3);
     }
