@@ -521,7 +521,7 @@
         width: getWidth(9) !important;
       }
       &.l-ml-2 {
-        margin-left: getMargin(1.5) !important;
+        margin-left: getMargin(1) !important;
       }
       .issue {
         .container {

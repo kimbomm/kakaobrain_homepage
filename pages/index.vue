@@ -164,7 +164,7 @@
           start: null,
           end: null
         }
-        this.$refs.slot.setSlot(true)
+        this.$refs.slot?.setSlot(true)
       },
       touchStart(e) {
         this.touchInfo.start = e.touches[0].clientY
