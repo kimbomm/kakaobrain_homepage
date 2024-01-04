@@ -26,7 +26,7 @@
             >
               <span class="menu-name">
                 <a
-                  v-if="menu.name === 'Carrers'"
+                  v-if="menu.name === 'Careers'"
                   :href="menu.link"
                   target="_blank"
                 >
@@ -46,7 +46,7 @@
                 >
                   {{ count[menu.category] }}
                 </sup>
-                <a v-if="menu.name != 'Carrers' && menu.name != 'News'">{{
+                <a v-if="menu.name != 'Careers' && menu.name != 'News'">{{
                   menu.name
                 }}</a>
               </span>

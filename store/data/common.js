@@ -22,9 +22,9 @@ const menus = [
     ]
   },
   {
-    name: 'Carrers',
-    category: 'carrers',
-    nick: 'Carrers',
+    name: 'Careers',
+    category: 'careers',
+    nick: 'Careers',
     link: 'https://careers.kakaobrain.com/',
   },
   {
