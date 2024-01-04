@@ -13,7 +13,7 @@
           >
             <button type="button" class="txt" @click="openMenu(index)">
               <a
-                v-if="menu.name === 'Carrers'"
+                v-if="menu.name === 'Careers'"
                 :href="menu.link"
                 target="_blank"
               >
@@ -22,7 +22,7 @@
 
               <sup class="num">{{ count[menu.category] }}</sup>
 
-              <a v-if="menu.name != 'Carrers'">{{ menu.name }}</a>
+              <a v-if="menu.name != 'Careers'">{{ menu.name }}</a>
             </button>
             <ul
               v-show="clickIndex === index && index !== 1"
