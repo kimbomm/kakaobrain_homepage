@@ -116,7 +116,6 @@
 </script>
 <style lang="scss" scoped>
   .top-section {
-    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -125,7 +124,10 @@
     }
   }
   .about-title {
-    margin-bottom: 60px;
+    margin: 300px 0 60px 0;
+  }
+  .about-title-text {
+    margin-bottom: 204px;
   }
   .about-full-con-d {
     margin-bottom: 400px;
@@ -167,7 +169,10 @@
 
   @include pc-large {
     .about-title {
-      margin-bottom: 80px;
+      margin: 400px 0 80px 0;
+    }
+    .about-title-text {
+      margin-bottom: 268px;
     }
     .about-full-con-d {
       margin-bottom: 530px;
@@ -192,7 +197,10 @@
 
   @include pc-4k {
     .about-title {
-      margin-bottom: 130px;
+      margin: 600px 0 130px 0;
+    }
+    .about-title-text {
+      margin-bottom: 388px;
     }
     .about-full-con-d {
       margin-bottom: 800px;
@@ -218,11 +226,14 @@
   //
   @include tablet {
     .top-section {
-      display: block;
       height: auto;
     }
     .about-title {
-      margin-bottom: 60px;
+      margin: 195px 0 60px 0;
+    }
+
+    .about-title-text {
+      margin-bottom: 143px;
     }
     .about-full-con-d {
       margin-bottom: 200px;
@@ -248,13 +259,49 @@
     .top-section {
       display: block;
       height: auto;
-      margin-top: 60px;
     }
     .bread-crumb {
-      padding: 0 20px;
+      margin: 100px 20px 0 0;
     }
     .about-title {
-      margin-bottom: 40px;
+      margin: 100px 0 40px 0;
+    }
+    .about-title-text {
+      margin-bottom: 80px;
+    }
+    .about-full-con-d {
+      margin-bottom: 100px;
+    }
+    .culture-text-box {
+      margin-bottom: 100px;
+      .about-con-tit {
+        margin-bottom: 30px;
+      }
+      .about-con-txt {
+        margin-bottom: 50px;
+      }
+      .about-con-sub-tit {
+        margin-bottom: 24px;
+      }
+    }
+
+    .about-full-con-e {
+      margin-bottom: 100px;
+    }
+  }
+  @include mobile-small {
+    .top-section {
+      display: block;
+      height: auto;
+    }
+    .bread-crumb {
+      margin: 0;
+    }
+    .about-title {
+      margin: 60px 0 40px 0;
+    }
+    .about-title-text {
+      margin-bottom: 80px;
     }
     .about-title-text {
       margin-bottom: 80px;

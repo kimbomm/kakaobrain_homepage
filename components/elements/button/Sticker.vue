@@ -123,6 +123,8 @@
       background-color: $brain-mint;
       border: none;
       color: $gray-0;
+      display: flex;
+
       .txt {
         &::before {
           content: '★';

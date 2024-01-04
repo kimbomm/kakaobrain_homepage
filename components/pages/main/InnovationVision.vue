@@ -9,39 +9,38 @@
               Unthinkable<br />Question<br />makes<br />impactful<br />answer
             </div>
           </div>
-          <div class="subtitle" v-html="headsubtitle[language][0]"></div>
+          <div class="subtitle gl-6" v-html="headsubtitle[language][0]"></div>
         </div>
         <div class="container gl-8">
           <div class="context">
-            <div class="contitle">¹outstanding</div>
-            <div class="consubtitle" v-html="outstanding[language][0]"></div>
+            <div class="contitle"><span class="num">¹</span>outstanding</div>
+            <div
+              class="consubtitle gl-4"
+              v-html="outstanding[language][0]"
+            ></div>
           </div>
           <div class="context">
-            <div class="contitle">²actualized</div>
-            <div class="consubtitle" v-html="actualized[language][0]"></div>
+            <div class="contitle"><span class="num">²</span>actualized</div>
+            <div
+              class="consubtitle gl-4"
+              v-html="actualized[language][0]"
+            ></div>
           </div>
           <div class="context">
-            <div class="contitle">³open</div>
-            <div class="consubtitle" v-html="open[language][0]"></div>
+            <div class="contitle"><span class="num">³</span>open</div>
+            <div class="consubtitle gl-4" v-html="open[language][0]"></div>
           </div>
           <div class="context">
-            <div class="contitle">⁴impactful</div>
-            <div class="consubtitle" v-html="impactful[language][0]"></div>
+            <div class="contitle"><span class="num">⁴</span>impactful</div>
+            <div class="consubtitle gl-4" v-html="impactful[language][0]"></div>
           </div>
         </div>
         <div class="vision-list">
-          <div
-            class="list-con"
-            v-for="(data, index) in 4"
-            :key="index"
-            :data="data"
-            :index="index"
-          >
-            <img
-              :src="
-                require(`@/assets/images/about/visual_${index}_${NUMBER}.png`)
-              "
-            />
+          <div class="list-con">
+            <InnovationEasterEgg :index="0" :sec="4000" class="egg" />
+            <InnovationEasterEgg :index="1" :sec="5000" class="egg" />
+            <InnovationEasterEgg :index="2" :sec="6000" class="egg" />
+            <InnovationEasterEgg :index="3" :sec="3000" class="egg" />
           </div>
         </div>
       </div>
@@ -50,25 +49,30 @@
 </template>
 <script>
   import { mapState } from 'vuex'
+  import InnovationEasterEgg from '@/components/pages/main/InnovationEasterEgg'
 
   export default {
+    components: {
+      InnovationEasterEgg
+    },
+
     data() {
       return {
         NUMBER: 0,
         timer: null,
         isChange: false,
-        setTime: [600, 800, 700, 600],
+        interval: null,
         headtitle: {
           KR: [`혁신은<br/>물음에서<br/>시작합니다.`],
           EN: [`Innovation<br/>begins with a<br/> question.`]
         },
         headsubtitle: {
           KR: [
-            `카카오브레인은 ‘생각하지 물음’으로 부터 보편적 문제를 AI로 해결하여<br/>
+            `카카오브레인은 ‘생각하지 못한 물음’으로 부터 보편적 문제를 AI로 해결하여<br/>
              10억 명 이상의 사람의 삶에 영향을 주는 글로벌 기술 기업입니다.`
           ],
           EN: [
-            `Kakao Brain is a global technology company <br/> that impacts the lives of more than 1 billion people
+            `Kakao Brain is a global technology company that impacts the lives of more than 1 billion people
              by solving universal problems with AI`
           ]
         },
@@ -78,7 +82,7 @@
             `최고 수준의 전문가들이 모여, 모든 문제 해결의 근간이 되는 혁신적인 기술을 개발합니다.`
           ],
           EN: [
-            `We bring together the best minds to develop the innovative technologies that are at the root of every problem.`
+            `We bring together the best minds to develop <br class='pc-only'> the innovative technologies that are at the root of every problem.`
           ]
         },
         actualized: {
@@ -86,7 +90,7 @@
             `기술 기반의 비즈니스 영역을 개척하고, 삶의 질을 높이는 서비스로 실체화 합니다.`
           ],
           EN: [
-            `We pioneer technology-based business areas and materialize them into services that improve the quality of life.`
+            `We pioneer technology-based business areas and <br class='pc-only'> materialize them into services that improve the quality of life.`
           ]
         },
         open: {
@@ -94,7 +98,7 @@
             `기술 노하우를 공개하고 공유하여, AI 생태계에 기여하고 새로운 가치를 창출합니다.`
           ],
           EN: [
-            `We open and share our technical know-how to contribute to the AI ecosystem and create new value.`
+            `We open and share our technical know-how to <br class='pc-only'> contribute to the AI ecosystem and create new value.`
           ]
         },
         impactful: {
@@ -102,7 +106,7 @@
             `모든 사람이 더 나은 삶을 살 수 있도록, 세상의 가치 있는 변화를 주도합니다.`
           ],
           EN: [
-            `Driving valuable change in the world to make life better for everyone.`
+            `Driving valuable change in the world to <br class='pc-only'> make life better for everyone.`
           ]
         }
       }
@@ -111,60 +115,58 @@
       ...mapState({
         language: state => state.language
       })
-    },
-    mounted() {
-      this.scrollBody.addEventListener('scroll', this.onScroll)
-    },
-    beforeDestroy() {
-      this.scrollBody.removeEventListener('scroll', this.onScroll)
-    },
-    methods: {
-      onScroll() {
-        const _this = this
-        if (this.timer !== null) {
-          clearTimeout(this.timer)
-          this.handleCircle(true)
-        }
-
-        this.timer = setTimeout(function () {
-          _this.handleCircle(false)
-        }, 200)
-      },
-      handleCircle(isScroll) {
-        if (isScroll) {
-          if (!this.isChange) {
-            this.NUMBER = Math.floor(Math.random() * 5) + 1
-            this.isChange = true
-            setTimeout(() => {
-              this.isChange = false
-            }, this.setTime[this.index])
-          }
-        } else {
-          this.NUMBER = 0
-        }
-      }
     }
+    // mounted() {
+    //   this.scrollBody.addEventListener('scroll', this.onScroll)
+    // },
+    // beforeDestroy() {
+    //   this.scrollBody.removeEventListener('scroll', this.onScroll)
+    // },
+    // methods: {
+    //   onScroll() {
+    //     const _this = this
+    //     if (this.timer !== null) {
+    //       clearTimeout(this.timer)
+    //       this.handleCircle(true)
+    //     }
+
+    //     this.timer = setTimeout(function () {
+    //       _this.handleCircle(false)
+    //     }, 200)
+    //   },
+    //   handleCircle(isScroll) {
+    //     if (isScroll) {
+    //       if (!this.isChange) {
+    //         this.NUMBER = Math.floor(Math.random() * 5) + 1
+    //         this.isChange = true
+    //         setTimeout(() => {
+    //           this.isChange = false
+    //         }, this.setTime[this.index])
+    //       }
+    //     } else {
+    //       this.NUMBER = 0
+    //     }
+    //   }
+    // }
   }
 </script>
 <style lang="scss" scoped>
   .innovation {
-    height: 1617px;
-    // top: 3896px;
     margin-left: 20px;
     position: relative;
     border-radius: 20px;
     background: #eff1f6;
     &.gl-10 {
-      width: getWidth(10);
+      width: getWidth(10) !important;
     }
 
     .content {
       &.l-pl-2 {
-        padding-left: getMargin(1.9) !important;
+        padding-left: getMargin(2) !important;
       }
       .head {
         &.gl-8 {
-          width: getWidth(8) !important;
+          width: getWidth(8.1) !important;
         }
         display: flex;
 
@@ -196,7 +198,7 @@
             font-family: Inter;
             font-size: 46px;
             font-style: normal;
-            font-weight: 800;
+            font-weight: 700;
             line-height: 100%;
 
             text-transform: uppercase;
@@ -210,11 +212,15 @@
           font-style: normal;
           font-weight: 400;
           line-height: 140%; /* 28px */
+          &.gl-6 {
+            width: getWidth(6) !important;
+          }
         }
       }
       .container {
-        height: 540px;
-        top: 160px;
+        margin-top: 160px;
+
+        padding-bottom: 300px;
 
         .context {
           margin-bottom: 80px;
@@ -223,6 +229,10 @@
           }
 
           .contitle {
+            .num {
+              font-weight: 100;
+            }
+
             color: var(--black, #000);
             font-feature-settings: 'calt' off;
             font-family: Inter;
@@ -240,6 +250,9 @@
             font-style: normal;
             font-weight: 400;
             line-height: 130%; /* 20.8px */
+            &.gl-4 {
+              width: getWidth(10) !important;
+            }
           }
         }
       }
@@ -251,7 +264,7 @@
         right: 268px;
         margin: 0 0 -140px 0;
         .list-con {
-          img {
+          .egg {
             margin: -50px 0 0 0;
             width: 280px;
             height: 280px;
@@ -263,8 +276,6 @@
   //min-width: 1361px
   @include pc-desktop {
     .innovation {
-      height: 1988px;
-      // top: 4377px;
       margin-left: 20px;
 
       .content {
@@ -282,15 +293,13 @@
               height: 300px;
               font-size: 60px;
             }
-
-            .subtitle {
-              font-size: 20px;
-            }
+          }
+          .subtitle {
+            font-size: 20px;
           }
         }
         .container {
-          width: 1120px;
-          height: 540px;
+          padding-bottom: 505px;
 
           .context {
             margin-bottom: 80px;
@@ -311,7 +320,7 @@
           height: auto;
           right: 380px;
           .list-con {
-            img {
+            .egg {
               margin: -50px 0 0 0;
               width: 280px;
               height: 280px;
@@ -324,8 +333,6 @@
   //min-width:2560px
   @include pc-large {
     .innovation {
-      height: 2498px;
-
       .content {
         .head {
           width: 1120px;
@@ -346,16 +353,15 @@
 
               font-size: 78px;
             }
-
-            .subtitle {
-              width: 990px;
-              font-size: 26px;
-            }
+          }
+          .subtitle {
+            width: 990px;
+            font-size: 26px;
           }
         }
         .container {
-          width: 1120px;
-          height: 710px;
+          padding-bottom: 540px;
+          margin-top: 200px;
 
           .context {
             margin-bottom: 110px;
@@ -376,7 +382,7 @@
           right: 508px;
           margin: 0 0 -190px 0;
           .list-con {
-            img {
+            .egg {
               margin: -68px 0 0 0;
               width: 380px;
               height: 380px;
@@ -389,37 +395,32 @@
   //min-width: 3840px
   @include pc-4k {
     .innovation {
-      height: 3724px;
-
       .content {
         .head {
           width: 1508px;
-
           gap: 60px;
           padding-top: 800px;
 
-          .title {
-            width: 1508px;
-
-            font-size: 180px;
-            height: 594px;
+          .text {
+            .title {
+              width: 1508px;
+              font-size: 180px;
+              height: 594px;
+            }
+            .unthink {
+              width: 564px;
+              height: 390px;
+              font-size: 78px;
+            }
           }
-
           .subtitle {
             width: 1333px;
             font-size: 40px;
           }
-          .unthink {
-            width: 564px;
-            height: 390px;
-
-            font-size: 78px;
-          }
         }
         .container {
-          width: 1508px;
-          height: 1508px;
-
+          margin-top: 300px;
+          padding-bottom: 800px;
           .context {
             margin-bottom: 170px;
             &:nth-child(4) {
@@ -440,7 +441,7 @@
           right: 784px;
           margin: 0 0 -289px 0;
           .list-con {
-            img {
+            .egg {
               margin: -100px 0 0 0;
               width: 578px;
               height: 578px;
@@ -467,39 +468,30 @@
   //max-width: 1024px
   @include tablet {
     .innovation {
-      height: 1372px;
-
       .content {
         .head {
           gap: 30px;
           padding-top: 200px;
 
-          &.gl-8 {
-            width: getWidth(8) !important;
-          }
           .text {
             position: relative;
             .title {
               font-size: 60px;
               z-index: 1;
             }
-
-            .subtitle {
-              font-size: 16px;
-              position: relative;
-            }
             .unthink {
-              position: absolute;
               width: 289px;
               height: 200px;
               font-size: 40px;
-              top: 0;
-              right: 0;
             }
+          }
+          .subtitle {
+            font-size: 16px;
           }
         }
         .container {
-          height: 516px;
+          margin-top: 160px;
+          padding-bottom: 224px;
 
           .context {
             margin-bottom: 80px;
@@ -509,6 +501,9 @@
             }
             .consubtitle {
               font-size: 14px;
+              &.gl-4 {
+                width: getWidth(6) !important;
+              }
             }
           }
         }
@@ -518,7 +513,7 @@
           right: 100px;
           margin: 0 0 -90px 0;
           .list-con {
-            img {
+            .egg {
               margin: -30px 0 0 0;
               width: 180px;
               height: 180px;
@@ -531,24 +526,26 @@
   //max-width: 768px
   @include mobile {
     .innovation {
-      height: 1520px;
-
       .content {
         .head {
           .text {
+            position: relative;
             .title {
             }
 
-            .subtitle {
-              width: 500px;
-            }
             .unthink {
+              position: absolute;
+              right: 0;
+            }
+          }
+          .subtitle {
+            &.gl-6 {
+              width: getWidth(6) !important;
             }
           }
         }
         .container {
-          height: 588px;
-
+          padding-bottom: 200px;
           .context {
             margin-bottom: 80px;
 
@@ -558,6 +555,10 @@
             .consubtitle {
               padding-top: 12px;
               font-size: 14px;
+
+              &.gl-4 {
+                width: getWidth(4) !important;
+              }
             }
           }
         }
@@ -566,7 +567,7 @@
           right: 75px;
 
           .list-con {
-            img {
+            .egg {
               margin: -30px 0 0 0;
               width: 180px;
               height: 180px;
@@ -579,8 +580,6 @@
   //max-width: 374px
   @include mobile-small {
     .innovation {
-      height: 1152px;
-
       .content {
         &.l-pl-2 {
           padding-left: getMargin(1) !important;
@@ -600,12 +599,6 @@
               z-index: 1;
             }
 
-            .subtitle {
-              width: 254px;
-              font-size: 12px;
-              position: relative;
-              z-index: 1;
-            }
             .unthink {
               position: absolute;
               width: 188px;
@@ -615,14 +608,22 @@
               right: 0;
             }
           }
+          .subtitle {
+            font-size: 14px;
+            position: relative;
+            z-index: 1;
+            &.gl-6 {
+              width: getWidth(8) !important;
+            }
+          }
         }
         .container {
           &.gl-8 {
             width: getWidth(8) !important;
           }
-          min-height: 472px;
 
-          top: 100px;
+          margin-top: 100px;
+          padding-bottom: 140px;
 
           .context {
             margin-bottom: 40px;
@@ -633,6 +634,9 @@
             .consubtitle {
               padding-top: 12px;
               font-size: 14px;
+              &.gl-4 {
+                width: getWidth(8) !important;
+              }
             }
           }
         }
@@ -641,7 +645,7 @@
           right: 34px;
           margin: 0 0 -55px 0;
           .list-con {
-            img {
+            .egg {
               margin: -20px 0 0 0;
               width: 110px;
               height: 110px;

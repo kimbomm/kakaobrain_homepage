@@ -1,7 +1,6 @@
 <template>
   <div class="about-full-con-b">
     <div class="full-con">
-      <img src="@/assets/images/about_uq_bg_2.png" />
       <div class="inner">
         <div class="con-tit gl-6 l-ml-2">
           <div class="condata" v-html="data.title"></div>
@@ -12,8 +11,8 @@
         </div>
       </div>
       <div class="container">
-        <div class="imgbox">
-          <img src="@/assets/images/about_impactful answer.png" />
+        <div class="imgbox gl-10">
+          <img src="@/assets/images/uq_image.svg" />
         </div>
         <div class="imgbox2">
           <img src="@/assets/images/about_impactful answer2.png" />
@@ -40,19 +39,13 @@
     .full-con {
       position: relative;
       width: 100%;
-      height: auto;
-      min-height: 1689px;
-      object-fit: cover;
+
+      background-image: url('@/assets/images/about_uq_bg_2.png');
+      background-size: cover;
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
       //padding: 400px 20px 400px;
       img {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 100%;
-        height: 100%;
-
-        object-fit: cover;
       }
 
       .inner {
@@ -81,10 +74,7 @@
         }
       }
       .container {
-        padding-top: 178px;
-        padding-bottom: 400px;
-        width: 100%;
-
+        margin-top: 150px;
         .imgbox {
           width: 100%;
           height: 100%;
@@ -93,7 +83,6 @@
             position: static;
             transform: translate(0, 0);
             width: 100%;
-            max-height: 950px;
           }
         }
         .imgbox2 {
@@ -106,7 +95,7 @@
   @include pc-large {
     .about-full-con-b {
       .full-con {
-        min-height: 2560px;
+        min-height: 2851px;
         // padding: 530px 20px 533px;
         .con {
           &-tit {
@@ -119,6 +108,7 @@
         }
         .container {
           width: 100%;
+          margin-top: 200px;
           .imgbox {
             width: 100%;
             height: 100%;
@@ -137,11 +127,18 @@
   @include pc-4k {
     .about-full-con-b {
       .full-con {
-        min-height: 3409px;
+        min-height: 3809px;
+        .inner {
+          position: relative;
+          color: $gray-0;
+
+          padding-top: 600px;
+        }
         //padding: 800px 20px 845px;
         .con {
           &-tit {
             margin-bottom: 260px;
+
             font-size: 180px;
           }
           &-item {
@@ -168,6 +165,7 @@
   }
   @media screen and (max-width: 1400px) {
     .about-full-con-b {
+      margin-bottom: 200px;
       .full-con {
         .con {
           &-tit {
@@ -188,77 +186,52 @@
             font-size: 14px;
           }
         }
+        .container {
+          width: 100%;
+          .imgbox {
+            width: 100%;
+            height: 50%;
+            img {
+              position: static;
+              transform: translate(0, 0);
+              width: 100%;
+              max-height: 1950px;
+            }
+          }
+        }
       }
     }
   }
   @include tablet {
     .about-full-con-b {
       .full-con {
+        background-position: 50% 70%;
         min-height: 923px;
-        padding: 0px 0px 0px;
-
         .inner {
           padding-top: 140px;
           width: 100%;
-          height: auto;
+
           .con-tit {
             font-size: 46px;
-            width: fit-content !important;
-            max-width: 683px;
             margin-bottom: 50px;
+            &.gl-6 {
+              width: getWidth(7) !important;
+            }
           }
           .con-item {
             font-size: 12px;
             padding-top: 0;
           }
         }
-        // .item {
-        //   &.gl-2 {
-        //     width: getWidth(3) !important;
-        //   }
-        //   &-tit {
-        //     font-size: 30px;
-        //     margin-bottom: 70px;
-        //   }
-        //   &-txt-box {
-        //     &:not(:last-child) {
-        //       margin-bottom: 40px;
-        //     }
-        //   }
-        //   &-sub-tit {
-        //     font-size: 20px;
-        //     margin-bottom: 10px;
-        //   }
-        //   &-txt {
-        //     font-size: 14px;
-        //   }
-        // }
-        // .container {
-        //   .imgbox {
-        //     display: none;
-        //   }
-
-        //   .imgbox2 {
-        //     display: block;
-        //     // position: absolute;
-        //     top: 0px;
-
-        //     img {
-        //       height: 250px;
-        //       width: auto;
-        //       margin-top: 0px;
-        //     }
-        //   }
-        // }
 
         .container {
-          padding-top: 95px;
+          margin-top: 80px;
           padding-bottom: 150px;
           width: 100%;
 
           .imgbox {
             width: 100%;
-            height: 100%;
+            height: auto;
 
             img {
               position: static;
@@ -277,7 +250,51 @@
   @include mobile {
     .about-full-con-b {
       .full-con {
-        height: 100%;
+        background-position: 50% 70%;
+        min-height: 753px;
+        .inner {
+          padding-top: 140px;
+          width: 100%;
+
+          .con-tit {
+            font-size: 30px;
+            margin-bottom: 50px;
+            &.gl-6 {
+              width: getWidth(7) !important;
+            }
+          }
+          .con-item {
+            font-size: 12px;
+            padding-top: 0;
+          }
+        }
+
+        .container {
+          margin-top: 80px;
+
+          width: 100%;
+
+          .imgbox {
+            width: 100%;
+            height: auto;
+            img {
+              position: static;
+              transform: translate(0, 0);
+              width: 100%;
+              max-height: 950px;
+            }
+          }
+          .imgbox2 {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+  @include mobile-small {
+    .about-full-con-b {
+      .full-con {
+        min-height: 923px;
         width: auto;
         padding: 0px 20px 111px;
 
@@ -287,17 +304,16 @@
           .con {
             &-tit {
               font-size: 28px;
-              margin-left: 0px !important;
+
               line-height: 120%;
               font-family: 'Noto Sans KR';
 
-              // &.l-ml-2 {
-              //   margin-left: 0px !important;
-              //   width: getWidth(2) !important;
-              // }
-              // &.gl-6 {
-              //   width: 100% !important;
-              // }
+              &.l-ml-2 {
+                margin-left: getMargin(0) !important;
+              }
+              &.gl-6 {
+                width: getWidth(10) !important;
+              }
             }
             &-item {
               flex-direction: column;
@@ -305,43 +321,12 @@
               margin-left: getMargin(1) !important;
               margin-right: getMargin(0) !important;
               font-size: 14px;
-
-              // &.l-ml-2 {
-              //   margin-left: getMargin(1) !important;
-              // }
             }
           }
         }
-        // .item {
-        //   &:not(:last-child) {
-        //     margin-bottom: 100px;
-        //   }
-        //   &:last-child {
-        //     margin-left: 0;
-        //   }
-        //   &.gl-2 {
-        //     width: getWidth(9) !important;
-        //   }
-        //   &-tit {
-        //     font-size: 26px;
-        //     margin-bottom: 50px;
-        //   }
-        //   &-txt-box {
-        //     &:not(:last-child) {
-        //       margin-bottom: 40px;
-        //     }
-        //   }
-        //   &-sub-tit {
-        //     font-size: 18px;
-        //     margin-bottom: 12px;
-        //   }
-        //   &-txt {
-        //     font-size: 14px;
-        //   }
-        // }
 
         .container {
-          margin-top: 111px;
+          margin-top: 80px;
           width: 100%;
           padding-bottom: 0;
 
@@ -351,11 +336,13 @@
 
           .imgbox2 {
             display: block;
-            //position: absolute;
+
+            width: 100%;
+            height: auto;
 
             img {
               position: absolute;
-              height: auto;
+
               width: 100%;
               padding-bottom: 0px;
             }

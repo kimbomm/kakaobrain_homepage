@@ -2,43 +2,43 @@
   <div class="issue-slider gl-8 l-ml-2">
     <div v-if="list.length > 0" ref="issue" class="issue">
       <div class="container">
-        <nuxt-link
-          :to="
-            activeContent.Content.contentType !== 'STORY'
-              ? {
-                  path: '/contents',
-                  query: { contentId: activeContent.contentId }
-                }
-              : {
-                  path: '/story-telling',
-                  query: { contentId: activeContent.contentId }
-                }
-          "
-        >
-          <div class="thumbnail">
+        <div class="thumbnail">
+          <nuxt-link
+            :to="
+              activeContent.Content.contentType !== 'STORY'
+                ? {
+                    path: '/contents',
+                    query: { contentId: activeContent.contentId }
+                  }
+                : {
+                    path: '/story-telling',
+                    query: { contentId: activeContent.contentId }
+                  }
+            "
+          >
             <div class="fade">
               <div
                 class="issueimg"
                 :style="`background-image: url(${envVariable(
                   activeContent.Media.url
                 )});`"
-              />
+              ></div>
             </div>
+            <div class="text">
+              <div class="title">
+                <span :style="titleStyle">{{ activeContent.title }}</span>
+              </div>
+            </div>
+          </nuxt-link>
+          <div class="pagination-controls">
+            <button @click="onClick('prev')" class="prev-button">
+              <img src="@/assets/images/icons/prev.svg" />
+            </button>
+            <button @click="onClick('next')" class="next-button">
+              <img src="@/assets/images/icons/next.svg" />
+            </button>
           </div>
-
-          <div class="text">
-            <div class="title">
-              <span>
-                {{ activeContent.title }}
-              </span>
-            </div>
-            <div class="subtitle">
-              <span>
-                {{ activeContent.updateAt }}
-              </span>
-            </div>
-          </div>
-        </nuxt-link>
+        </div>
         <div class="pagination-dots">
           <span
             v-for="(item, index) in list"
@@ -52,6 +52,9 @@
     </div>
   </div>
 </template>
+
+<!-- Rest of your script and style code remains the same -->
+
 <script>
   import { mapState, mapActions } from 'vuex'
   import Utility from '@/util/utility.js'
@@ -71,9 +74,10 @@
         pageData: {
           offset: 0,
           limit: 20,
-          contentType: 'ALL', // ALL, ARTICLE, STORY, THESIS
+          contentType: 'ALL',
           targetLang: this.$store.state.language
         },
+
         image: require('~/assets/images/main_img_dummy.png'),
         list: [],
         activeContent: null,
@@ -83,10 +87,17 @@
     },
     computed: {
       ...mapState({
-        issueList: state => state.issue.list
+        issueList: state => state.issue.list,
+        language: state => state.language
       }),
       curPage() {
         return Utility.changeNumFont(this.activeIndex + 1)
+      },
+      titleStyle() {
+        return {
+          fontFamily:
+            this.pageData.targetLang === 'EN' ? 'Inter' : 'NotoSans KR'
+        }
       }
     },
     watch: {
@@ -219,7 +230,7 @@
     &.l-ml-2 {
       margin-left: getMargin(2) !important;
     }
-
+    padding-left: 20px;
     .issue {
       .container {
         position: relative;
@@ -229,12 +240,12 @@
           width: 6px;
           position: absolute;
           top: 0;
-          margin: 10px 0 0 -20px;
+          margin: 20px 0 0 -20px;
           .dot {
             width: 6px;
             height: 6px;
             border-radius: 50%;
-            margin: 4px 0;
+            margin-bottom: 4px;
 
             cursor: pointer;
             background-color: #e8ecf1;
@@ -252,9 +263,14 @@
 
         .thumbnail {
           height: 410px;
+          position: relative;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
 
           .fade {
             .issueimg {
+              border: 1px solid black;
               background-size: cover;
               background-position: 50% 50%;
               height: 100%;
@@ -262,13 +278,23 @@
             }
           }
         }
+        .pagination-controls {
+          display: flex;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          z-index: 1;
+          justify-content: space-between;
+          width: 100%;
+        }
 
         .text {
           width: 918px;
           padding-top: 30px;
           .title {
             color: var(--black, #000);
-            font-family: Noto Sans KR;
+
             font-size: 30px;
             font-style: normal;
             font-weight: 700;
@@ -292,12 +318,8 @@
   @include pc-desktop {
     .issue-slider {
       .issue {
-        width: 100%;
-        height: 590px;
-
         .container {
           .thumbnail {
-            width: 100%;
             height: 590px;
             .fade {
               .issueimg {
@@ -326,22 +348,18 @@
   @include pc-large {
     .issue-slider {
       .issue {
-        width: 100%;
-        height: 790px;
-
         .container {
           .pagination-dots {
             width: 8px;
-            margin: 20px 0 0 -30px;
+            margin: 25px 0 0 -30px;
+
             .dot {
               width: 8px;
               height: 8px;
-
-              margin: 6px 0;
+              margin-bottom: 6px;
             }
           }
           .thumbnail {
-            width: 100%;
             height: 790px;
             .fade {
               .issueimg {
@@ -355,10 +373,10 @@
           .text {
             width: 996px;
             padding-top: 40px;
+            height: auto;
             .title {
               font-size: 40px;
             }
-
             .subtitle {
               font-size: 21px;
             }
@@ -371,9 +389,6 @@
   @include pc-4k {
     .issue-slider {
       .issue {
-        width: 100%;
-        height: 784px;
-
         .container {
           .pagination-dots {
             width: 14px;
@@ -382,7 +397,7 @@
               width: 14px;
               height: 14px;
 
-              margin: 10px 0;
+              margin-bottom: 10px;
             }
           }
 
@@ -395,6 +410,14 @@
                 background-position: 50% 50%;
                 height: 100%;
                 border-radius: 20px;
+              }
+            }
+          }
+          .pagination-controls {
+            button {
+              img {
+                width: 60px;
+                height: 60px;
               }
             }
           }
@@ -429,8 +452,6 @@
     //max-width:1024px
     .issue-slider {
       .issue {
-        width: 100%;
-        height: 380px;
         .container {
           .thumbnail {
             width: 100%;
@@ -463,9 +484,6 @@
   @include mobile {
     .issue-slider {
       .issue {
-        width: 100%;
-        height: 380px;
-
         .container {
           .thumbnail {
             width: 100%;
@@ -503,11 +521,9 @@
         width: getWidth(9) !important;
       }
       &.l-ml-2 {
-        margin-left: getMargin(1.5) !important;
+        margin-left: getMargin(1) !important;
       }
       .issue {
-        width: 100%;
-        height: 380px;
         .container {
           .thumbnail {
             width: 100%;

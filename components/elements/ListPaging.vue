@@ -278,7 +278,7 @@
       }
     }
   }
-  @include mobile {
+  @include mobile-small {
     .paging {
       margin-top: 80px;
       &-inner {

@@ -14,7 +14,7 @@ const ABOUT = {
                 AI Company
         `,
         text: 'Unthinkable question makes impactful answer.',
-        subtext: `카카오브레인은 ‘생각하지 물음’으로 부터 보편적 문제를 AI로 해결해서<br/> 10억 명 이상의 사람의 삶에 영향을 주는 글로벌 기술 기업입니다.
+        subtext: `카카오브레인은 ‘생각하지 못한 물음’으로 부터 보편적 문제를 AI로 해결해서<br/> 10억 명 이상의 사람의 삶에 영향을 주는 글로벌 기술 기업입니다.
                   `,
         rect1:`이미지 생성 모델<br/>신규 시장 발굴 및 제품 출시`,
         rect2:`AI 판독 서비스 출시<br/>네이처급 최첨단 기술 확보`,
@@ -1221,7 +1221,7 @@ const MAP = {
 
 const SUBTITLE = {
   research: {
-    KR: `왜 카카오브레인은 끊임없이 AI 기술을 오픈할까요? 공개와 공유의 문화가 기술을 진화시킵니다. 카카오브레인은 논문 발표와 코드 공개를 통해서 실질적인 핵심적인 기술로 쓰시고, 이것이 우리의 삶을 좀더 풍요롭게 할 수 있도록 최선을 다합니다.`,
+    KR: `왜 카카오브레인은 끊임없이 AI 기술을 오픈할까요? 공개와 공유의 문화가 기술을 진화시킵니다. 카카오브레인은 논문 발표와 코드 공개를 통해서 실질적인 핵심적인 기술로, 이것이 우리의 삶을 좀더 풍요롭게 할 수 있도록 최선을 다합니다.`,
     EN: `Why does Kakao Brain constantly open its AI technology? A culture of openness and sharing evolves technology. Kakao Brain publishes theses and opens the codes to make them available as practical core technologies. This way, we are doing our best to make our lives richer.`
   },
   tech: {

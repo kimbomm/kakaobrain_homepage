@@ -92,12 +92,25 @@
       }
     }
   }
-  @include mobile {
+  @include mobile() {
+    .bread-crumb {
+      &__full {
+        padding: 100px 20px 38px;
+      }
+      li {
+        margin-bottom: 4px;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+  @include mobile-small() {
     .bread-crumb {
       li {
         display: inline-flex;
         // margin-bottom: 20px;
-        margin-bottom: 6px;
+        margin-bottom: 5px;
         margin-right: 4px;
       }
       &__full {

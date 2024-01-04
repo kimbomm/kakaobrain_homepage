@@ -19,13 +19,16 @@
               >
                 {{ menu.name }}</a
               >
-
+              <a v-if="menu.name === 'News'" :href="menu.link">
+                {{ menu.name }}</a
+              >
               <sup class="num">{{ count[menu.category] }}</sup>
-
-              <a v-if="menu.name != 'Careers'">{{ menu.name }}</a>
+              <a v-if="menu.name != 'Careers' && menu.name != 'News'">{{
+                menu.name
+              }}</a>
             </button>
             <ul
-              v-show="clickIndex === index && index !== 1"
+              v-show="clickIndex === index && index !== 1 && index !== 4"
               :ref="`subMenu-${index}`"
               :id="`subMenu-${index}`"
               :class="`subMenu-${index}`"
@@ -395,21 +398,22 @@
         }
       }
     }
-  }
-  .menu-item {
-    .txt {
-      font-size: 22px;
+
+    .menu-item {
+      .txt {
+        font-size: 22px;
+      }
     }
-  }
-  .common-menu {
-    margin-left: 36px;
-    button {
-      width: 26px;
-      height: 26px;
-    }
-    a.tag-link {
-      padding: 6px 14px;
-      font-size: 14px;
+    .common-menu {
+      margin-left: 36px;
+      button {
+        width: 26px;
+        height: 26px;
+      }
+      a.tag-link {
+        padding: 6px 14px;
+        font-size: 14px;
+      }
     }
   }
 
@@ -420,7 +424,7 @@
       }
       &-item {
         ul {
-          width: 732px;
+          width: auto;
           padding: 16px 60px;
 
           a {

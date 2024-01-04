@@ -21,7 +21,7 @@
             <button
               :class="`${
                 active.includes(index) ? 'is-active ' : ''
-              }menu-toggle ${index === 1 ? 'hide-toggle' : ''} `"
+              }menu-toggle ${index === 1 || index === 4 ? 'hide-toggle' : ''} `"
               @click="onClick(index)"
             >
               <span class="menu-name">
@@ -30,6 +30,10 @@
                   :href="menu.link"
                   target="_blank"
                 >
+                  {{ menu.name }}</a
+                >
+
+                <a v-if="menu.name === 'News'" :href="menu.link">
                   {{ menu.name }}</a
                 >
 
@@ -42,10 +46,12 @@
                 >
                   {{ count[menu.category] }}
                 </sup>
-                <a v-if="menu.name != 'Careers'">{{ menu.name }}</a>
+                <a v-if="menu.name != 'Careers' && menu.name != 'News'">{{
+                  menu.name
+                }}</a>
               </span>
             </button>
-            <ul class="sub-menu" v-if="index !== 1">
+            <ul class="sub-menu" v-if="index !== 1 && index !== 4">
               <li
                 v-for="(subMenu, idx) in menu.sub"
                 :key="`sub-${idx}`"

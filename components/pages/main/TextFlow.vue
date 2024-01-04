@@ -3,12 +3,14 @@
     <vue-marquee-slider
       id="marquee-slider"
       :speed="45000"
-      :width="350"
+      :width="getSliderWidth()"
       :space="getSliderSpace()"
       v-if="data.length"
     >
       <div class="textbox" v-for="(item, index) in data" :key="index">
-        <p class="txt">{{ item.contentKR }}</p>
+        <p class="txt" :style="titleStyle">
+          {{ language === 'KR' ? item.contentKR : item.contentEN }}
+        </p>
       </div>
     </vue-marquee-slider>
   </div>
@@ -24,11 +26,18 @@
       return {
         data: [],
         refresh: 0,
-        previousSpace: null
+        previousSpace: null,
+        previousWidth: null
       }
     },
     computed: {
-      ...mapState(['language', 'device'])
+      ...mapState(['language', 'device']),
+      titleStyle() {
+        return {
+          fontFamily: this.language === 'EN' ? 'Inter' : 'NotoSans KR',
+          fontWeight: this.language === 'EN' ? '600' : '900'
+        }
+      }
     },
     async mounted() {
       await this.init()
@@ -76,6 +85,31 @@
         }
 
         return space
+      },
+      getSliderWidth() {
+        this.windowWidth = window.innerWidth
+        let width = 450
+        if (this.windowWidth >= 3840) {
+          width = 950
+        } else if (this.windowWidth >= 2560) {
+          width = 650
+        } else if (this.windowWidth > 1360) {
+          width = 450
+        } else if (this.windowWidth > 1024) {
+          width = 450
+        } else if (this.windowWidth > 768) {
+          width = 300
+        } else if (this.windowWidth > 374) {
+          width = 300
+        } else if (this.windowWidth < 374) {
+          width = 250
+        }
+        if (width !== this.previousWidth) {
+          this.previousWidth = width
+          this.refresh += 1
+        }
+
+        return width
       }
     }
   }
@@ -84,16 +118,16 @@
 <style lang="scss" scoped>
   .textflow {
     width: 9451px;
-    height: 198px;
-    margin-top: 236px;
-    margin-bottom: 300px;
+    height: auto;
+
     #marquee-slider {
       .textbox {
-        height: 198px;
+        width: auto;
+        height: auto;
         .txt {
           color: var(--black, #000);
-          font-family: Noto Sans KR;
-          font-size: 45px;
+
+          font-size: 60px;
           font-style: normal;
           font-weight: 900;
           line-height: 110%;
@@ -105,12 +139,11 @@
   @include pc-desktop {
     .textflow {
       width: 9451px;
-      height: 198px;
+
       margin-top: 234px;
       margin-bottom: 400px;
       #marquee-slider {
         .textbox {
-          height: 198px;
           .txt {
           }
         }
@@ -122,17 +155,15 @@
     .textflow {
       position: relative;
       width: 12654px;
-      height: 264px;
+
       margin-top: 340px;
       margin-bottom: 540px;
 
       #marquee-slider {
         .textbox {
-          width: 430px;
-          height: 400px;
+          height: auto;
           .txt {
-            width: 430px;
-            font-size: 60px;
+            font-size: 80px;
           }
         }
       }
@@ -142,18 +173,17 @@
   @include pc-4k {
     .textflow {
       width: 18897px;
-      height: 400px;
+
       margin-top: 340px;
       margin-bottom: 500px;
 
       #marquee-slider {
         .textbox {
           margin-right: 300px;
-          width: 600px;
-          height: 400px;
+
+          height: auto;
           .txt {
-            width: 600px;
-            font-size: 80px;
+            font-size: 120px;
           }
         }
       }
@@ -163,12 +193,12 @@
   @include tablet {
     .textflow {
       width: 6090px;
-      height: 198px;
+
       top: 4599px;
 
       #marquee-slider {
         .textbox {
-          height: 198px;
+          height: auto;
           .txt {
             font-size: 40px;
           }
@@ -181,12 +211,12 @@
     .textflow {
       width: 6090px;
       height: auto;
-      margin-top: 220px;
+
       margin-bottom: 249;
 
       #marquee-slider {
         .textbox {
-          height: 198px;
+          height: auto;
           .txt {
             font-size: 40px;
           }
@@ -203,11 +233,9 @@
 
       #marquee-slider {
         .textbox {
-          width: 200px;
           height: auto;
 
           .txt {
-            width: 200px;
             height: auto;
             font-size: 30px;
           }
