@@ -23,7 +23,7 @@ const menus = [
         category: 'Karlo',
         nick: 'Karlo',
         name: 'Karlo',
-        link: 'https://bedit.kakaobrain.com',
+        link: 'https://karlo.ai/',
         target: '_blank'
       }
     ]
