@@ -8,5 +8,6 @@ export const state = () => ({
   SUBTITLE: translation.SUBTITLE,
   LOGB: translation.LOGB,
   PLG_PRIVACY: translation.PLG_PRIVACY,
-  PLG_TERMS: translation.PLG_TERMS
+  PLG_TERMS: translation.PLG_TERMS,
+  POPUP: translation.POPUP,
 })

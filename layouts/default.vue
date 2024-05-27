@@ -1,29 +1,33 @@
 <template>
-  <div :class="classBind" @click="pageClick">
-    <div class="l-pages">
-      <FilterList v-if="!isStoryPage" />
-      <transition name="fade">
-        <SearchPage v-if="isSearchShow" />
-      </transition>
-      <Header />
-      <div class="container">
-        <Nuxt />
+  <div>
+    <div :class="classBind" @click="pageClick">
+      <div class="l-pages">
+        <FilterList v-if="!isStoryPage" />
+        <transition name="fade">
+          <SearchPage v-if="isSearchShow" />
+        </transition>
+        <Header />
+        <div class="container">
+          <Nuxt />
+        </div>
+        <Footer v-if="isFooterShow" :class="{ footer__story: isStoryPage }" />
       </div>
-      <Footer v-if="isFooterShow" :class="{ footer__story: isStoryPage }" />
+      <CardinalPoints v-show="!isStoryPage" />
+      <TopButton v-show="!isStoryPage" />
     </div>
-    <CardinalPoints v-show="!isStoryPage" />
-    <TopButton v-show="!isStoryPage" />
+    <Popup v-if="privacyPopup" @close="privacyPopup = false" />
   </div>
 </template>
 <script>
-  import Vue from 'vue'
-  import Header from '@/components/layouts/Header'
-  import Footer from '@/components/layouts/Footer'
-  import FilterList from '@/components/elements/filter/FilterList'
-  import CardinalPoints from '@/components/elements/button/CardinalPoints'
-  import TopButton from '@/components/elements/button/TopButton'
-  import SearchPage from '@/components/pages/search/index'
-  import { mapState, mapMutations } from 'vuex'
+  import Popup from '@/components/Popup.vue'
+import CardinalPoints from '@/components/elements/button/CardinalPoints'
+import TopButton from '@/components/elements/button/TopButton'
+import FilterList from '@/components/elements/filter/FilterList'
+import Footer from '@/components/layouts/Footer'
+import Header from '@/components/layouts/Header'
+import SearchPage from '@/components/pages/search/index'
+import Vue from 'vue'
+import { mapMutations, mapState } from 'vuex'
   export default {
     components: {
       Header,
@@ -31,7 +35,8 @@
       FilterList,
       CardinalPoints,
       TopButton,
-      SearchPage
+      SearchPage,
+      Popup
     },
     data() {
       return {
@@ -43,7 +48,8 @@
         touchInfo: {
           start: null,
           end: null
-        }
+        },
+        privacyPopup: false
       }
     },
     computed: {
@@ -68,7 +74,7 @@
         if (val) {
           this.setIsScrollUp(false)
         }
-      }
+      },
     },
     created() {
       // this.isFooterShow = this.route == '/search' ? false : true
@@ -91,6 +97,8 @@
       this.scrollBody.addEventListener('scroll', this.onScroll)
       this.scrollBody.addEventListener('wheel', this.onWheel)
       this.scrollBody.addEventListener('resize', this.checkDevice)
+
+      this.privacyPopup = new Date() <= new Date('2024-06-03')
     },
     beforeDestroy() {
       this.$nuxt.$off('story-page', this.onStoryPage)
