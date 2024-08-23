@@ -5,7 +5,7 @@ stages:
 build-down-job:
   stage: init
   script:
-    - docker-compose down
+    - sudo docker-compose down
   only:
     - release/main
   tags:
@@ -13,10 +13,8 @@ build-down-job:
 
 build-up-job:
   stage: build
-  before_script:
-    - docker-compose down
   script:
-    - docker-compose up -d --build
+    - sudo docker-compose up -d --build
   only:
     - release/main
   tags:
