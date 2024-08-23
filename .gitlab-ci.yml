@@ -1,22 +1,5 @@
 stages:
-  - init
   - build
-
-variables:
-  DOCKER_HOST: tcp://docker:2375/
-
-before_script:
-  - apk add --no-cache sudo
-  - adduser gitlab-runner docker  # gitlab-runner 사용자를 docker 그룹에 추가
-
-build-down-job:
-  stage: init
-  script:
-    - docker-compose down  # sudo 없이 실행
-  only:
-    - master
-  tags:
-    - prod
 
 build-up-job:
   stage: build
