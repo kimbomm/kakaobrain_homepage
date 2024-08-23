@@ -7,11 +7,15 @@ build-down-job:
   script:
     - docker-compose down --rmi all
   only:
-    - develop
+    - release/main
+  tags:
+    - prod
 
 build-up-job:
   stage: build
   script:
     - docker-compose up -d --build
   only:
-    - develop
+    - release/main
+  tags:
+    - prod
