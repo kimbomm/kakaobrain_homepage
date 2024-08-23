@@ -4,7 +4,8 @@ stages:
 build-up-job:
   stage: build
   script:
-    - docker-compose up -d --build  # sudo 없이 실행
+    - docker build -t gcr.io/website-335906/kakaobrain_homepage_app_prod .
+    - docker run -it-d -p 8086:8086 --name kkakaobrain gcr.io/website-335906/kakaobrain_homepage_app_prod
   only:
     - master
   tags:
