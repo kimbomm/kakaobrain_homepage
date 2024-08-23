@@ -1844,6 +1844,166 @@ const PLG_TERMS = {
   },
 }
 
+const POPUP = {
+  KR: {
+    title: '개인정보처리방침 변경 안내',
+    description: '안녕하세요. 주식회사 카카오브레인입니다.<br/>카카오브레인의 서비스를 이용해주시는 분들께 감사드리며, 카카오브레인 홈페이지 개인정보처리방침 변경에 대한 안내 말씀 드립니다.<br/><br/>1. 변경 내용<br/>주식회사 카카오브레인은 2024년 6월 3일(예정) 주식회사 카카오에 AI 서비스 경쟁력 강화를 위해 영업양도 계약을 체결, 브레인클라우드 서비스를 영업양도 방식으로 이관할 예정입니다. 이에 기존 개인정보처리방침에서 브레인클라우드 관련 내용이 삭제되었습니다.<br/><br/>2. 변경 상세',
+    before: {
+      title: '변경전',
+      data: [
+        `
+          1. 수집하는 개인정보의 항목 카카오브레인에서 수집하는 개인정보 항목은 아래와 같습니다.<br/>
+          <span class="highlight">&lsaquo;카카오브레인 서비스&rsaquo;-Brain Cloud (회원가입 시) [필수] 이름, 이메일 (서비스 사용 및 정보 신청 시) [필수] 회사명, 이름, 이메일, 휴대전화번호 (유료 서비스 이용 시) 결제 정보</span>
+        `,
+        `
+          2. 개인정보의 처리 목적<br/><br/>
+          카카오브레인에서는 아래와 같은 목적으로 여러분의 개인정보를 처리합니다.<br/><br/>
+          <div class="highlight">
+            &lsaquo;서비스 제공&rsaquo;<br/>
+            - 회원 관리 : 회원제 서비스 제공, 개인식별, 이용약관 위반 회원(또는 멤버)에 대한 이용제한 조치, 서비스의 원활한 운영에 지장을 주는 행위 및 서비스 부정이용 행위 제재, 분쟁 조정을 위한 기록보존, 불만처리 등 민원처리, 고지사항 전달 등<br/>
+            - 서비스 분석 : 인구 통계학적 특성에 따른 서비스 제공, 서비스 고도화 및 신규 서비스 개발을 위한 수집 데이터 분석 및 통계 처리, 서비스의 유효성 확인 등<br/>
+            - 인구통계학적 이용자 행태에 대한 연구 및 기업용 인구통계학적 데이터 서비스- 서비스 제공에 대한 계약 이행 및 요금 정산<br/>
+            - 서비스 이용 상담 및 문의- 광고성 정보 전송(수신 동의자에 한함)
+          </div>
+        `, 
+        `
+          4. 개인정보 처리의 위탁<br/><br/>
+          카카오브레인은 원활한 개인정보 업무처리 및 서비스 향상을 위하여 다음과 같이 개인정보 처리업무를 위탁하고 있습니다.<br/>
+          위탁받은 업체가 위탁받은 업무 목적 외로 개인정보를 처리하는 것을 제한하고, 기술적・관리적 보호조치 적용 및 재위탁 제한 등 위탁받은 업체의 개인정보 보호 관련 법령 준수 여부를 관리·감독하고 있습니다.<br/><br/>
+          (1) 국내 위탁업체<br/>
+          - 위탁받는 자 1 (수탁자) : (주)위크루트<br/>
+          - 위탁하는 업무의 내용 : 평판조회 (해당자에 한함)<br/>
+          - 보유 및 이용 기간 : 영입 종료 시까지<br/><br/>
+          <div class="highlight">
+          - 위탁받는 자 2 (수탁자) : (주)카카오<br/>
+          - 위탁하는 업무의 내용 : 서비스 인프라의 유지 및 관리 (해당자에 한함)<br/>
+          - 보유 및 이용 기간 : 위탁 계약 종료 시까지
+          </div>
+        `,  
+      ]
+    },
+    after: {
+      title: '변경후',
+      data: [
+        `
+          1. 수집하는 개인정보의 항목 카카오브레인에서 수집하는 개인정보 항목은 아래와 같습니다.<br/>
+          <span class="highlight">&lsaquo;삭제&rsaquo;</span>
+        `,
+        `
+          2. 개인정보의 처리 목적<br/><br/>
+          카카오브레인에서는 아래와 같은 목적으로 여러분의 개인정보를 처리합니다.<br/><br/>
+          <div class="highlight">
+            &lsaquo;삭제&rsaquo;
+          </div>
+        `, 
+        `
+          4. 개인정보 처리의 위탁<br/><br/>
+          카카오브레인은 원활한 개인정보 업무처리 및 서비스 향상을 위하여 다음과 같이 개인정보 처리업무를 위탁하고 있습니다.<br/>
+          위탁받은 업체가 위탁받은 업무 목적 외로 개인정보를 처리하는 것을 제한하고, 기술적・관리적 보호조치 적용 및 재위탁 제한 등 위탁받은 업체의 개인정보 보호 관련 법령 준수 여부를 관리·감독하고 있습니다.<br/><br/>
+          (1) 국내 위탁업체<br/>
+          - 위탁받는 자 1 (수탁자) : (주)위크루트<br/>
+          - 위탁하는 업무의 내용 : 평판조회 (해당자에 한함)<br/>
+          - 보유 및 이용 기간 : 영입 종료 시까지<br/><br/>
+          <div class="highlight">
+          &lsaquo;삭제&rsaquo;
+          </div>
+        `,  
+      ]
+    },
+    final: `
+      3. 변경 시기<br/><br/>
+      2024년 6월 3일<br/><br/>
+
+      4. 문의 및 동의 철회<br/><br/>
+      새로운 개인정보 처리방침 내용에 동의하지 않으시는 경우, 브레인 클라우드 이용 해지를 문의해주시면 해지를 진행하실 수 있습니다. 개인정보 처리방침에 내용에 대한 문의사항이 있으신 경우, contact@kakaobrain.com으로 문의주시면 안내해 드리겠습니다.
+      <br/><br/><br/>
+      감사합니다.
+    `
+  },
+  EN: {
+    title: 'Notice of Changes to the Privacy Policy',
+    description: `
+      Greetings from Kakao Brain<br/><br/>
+      We would like to thank all our members for using Kakao Brain Services.<br/><br/>
+      Please be informed that amendments will be made to the Kakao Brain Privacy Policy, effective June 3, 2024. Kakao Brain will transfer the Brain Cloud service through a business transfer agreement with Kakao Corporation on June 3, 2024 (scheduled), to enhance AI service competitiveness. As a result, the sections related to Brain Cloud in the existing privacy policy have been removed.
+      <br/><br/><br/>
+      1. Amendments
+    `,
+    before: {
+      title: 'Amendments',
+      data: [
+        `
+          1. Particulars of personal information provided The following personal information items are collected by Kakao Brain.<br/>
+          <div class="highlight">-Brain Cloud (When signing up)<br/>[Required] Name, email (When using the service and applying for information) [Required] Company name, name, email, mobile phone number (When using paid services) Payment information</div>
+        `,
+        `
+          2. Purpose of processing personal information<br/><br/>
+          Kakao Brain processes your personal information for the following purposes.<br/><br/>
+          <div class="highlight">
+            - Member management: Provision of membership services, personal identification, restriction of use for members (or members) who violate the terms of use, sanctions for acts that interfere with the smooth operation of the service and unauthorized use of the service, record keeping for dispute settlement, handling of complaints, delivery of notices, etc.<br/>
+            - Service analysis: Provision of services according to demographic characteristics, analysis and statistical processing of collected data for service advancement and new service development, validation of services, etc.<br/>
+            - Research on demographic user behavior and demographic data services for companies<br/>
+            - Fulfillment of contracts and settlement of fees for the provision of services<br/>
+            - Service use consultation and inquiries<br/>
+            - Sending advertising information (only to those who agree to receive it)
+          </div>
+        `, 
+        `
+          4. Outsourcing of Personal Information Processing<br/><br/>
+          Kakao Brain consigns personal information processing tasks as follows to ensure smooth personal information processing and service improvement.<br/>
+          Kakao Brain restricts the outsourced companies from processing personal information for purposes other than the outsourced business, and manages and supervises the outsourced companies' compliance with personal information protection-related laws and regulations, including the application of technical and administrative protection measures and restrictions on re-consignment.<br/><br/>
+          (1) Domestic outsourcers<br/>
+          - Consignee 1 (Trustee): Wecruit Corp.<br/>
+          - Contents of entrusted work: Reputation check (only for applicable persons)<br/>
+          - Retention and use period: Until the end of recruitment<br/><br/>
+          <div class="highlight">
+          - Consignee 2 (Trustee): Kakao Corp.<br/>
+          - Contents of consigned work: Maintenance and management of service infrastructure (only for applicable persons)<br/>
+          - Period of retention and use: Until the end of the consignment contract
+          </div>
+        `,  
+      ]
+    },
+    after: {
+      title: 'After Amendments',
+      data: [
+        `
+          1. Particulars of personal information provided The following personal information items are collected by Kakao Brain.<br/>
+          <div class="highlight">&lsaquo;Deleted&rsaquo;</div>
+        `,
+        `
+          2. Purpose of processing personal information<br/><br/>
+          Kakao Brain processes your personal information for the following purposes.<br/><br/>
+          <div class="highlight">
+            &lsaquo;Deleted&rsaquo;
+          </div>
+        `, 
+        `
+          4. Outsourcing of Personal Information Processing<br/><br/>
+          Kakao Brain consigns personal information processing tasks as follows to ensure smooth personal information processing and service improvement.<br/>
+          Kakao Brain restricts the outsourced companies from processing personal information for purposes other than the outsourced business, and manages and supervises the outsourced companies' compliance with personal information protection-related laws and regulations, including the application of technical and administrative protection measures and restrictions on re-consignment.<br/><br/>
+          (1) Domestic outsourcers<br/>
+          - Consignee 1 (Trustee): Wecruit Corp.<br/>
+          - Contents of entrusted work: Reputation check (only for applicable persons)<br/>
+          - Retention and use period: Until the end of recruitment<br/><br/>
+          <div class="highlight">
+          &lsaquo;Deleted&rsaquo;
+          </div>
+        `,  
+      ]
+    },
+    final: `
+      2. Effective date<br/><br/>
+      The amended Privacy Policy will take effect on June 3, 2024.<br/><br/>
+
+      3. Inquiries and Withdrawal of Consent<br/><br/>
+      If you do not agree to the amended privacy policy, you can inquire about terminating your Brain Cloud usage. If you have any inquiries regarding the contents of the privacy policy, please contact us at contact@kakaobrain.com, and we will provide assistance.
+      <br/><br/><br/>
+      Thank you.
+    `
+  },
+}
+
 export default {
   ABOUT,
   PRIVACY,
@@ -1852,5 +2012,6 @@ export default {
   SUBTITLE,
   LOGB,
   PLG_PRIVACY,
-  PLG_TERMS
+  PLG_TERMS,
+  POPUP,
 }

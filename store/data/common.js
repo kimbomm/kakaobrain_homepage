@@ -1,5 +1,34 @@
 const menus = [
   {
+    name: 'B^',
+    category: 'b',
+    nick: 'B^',
+    link: '',
+    sub: [
+      {
+        category: 'discover',
+        nick: 'DISCOVER',
+        name: 'DISCOVER',
+        link: 'https://bdiscover.kakaobrain.com/',
+        target: '_blank'
+      },
+      {
+        category: 'healthcare',
+        nick: 'HEALTHCARE',
+        name: 'HEALTHCARE',
+        link: '/b/healthcare',
+        target: ''
+      },
+      {
+        category: 'Karlo',
+        nick: 'Karlo',
+        name: 'Karlo',
+        link: 'https://karlo.ai/',
+        target: '_blank'
+      }
+    ]
+  },
+  {
     name: 'About',
     category: 'about',
     nick: 'About',

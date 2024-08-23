@@ -2,6 +2,18 @@ stages:
   - init
   - build
 
+<<<<<<< HEAD
+=======
+build-down-job:
+  stage: init
+  script:
+    - docker-compose down
+  only:
+    - release/main
+  tags:
+    - prod
+
+>>>>>>> origin/release/main
 build-up-job:
   stage: build
   before_script:
