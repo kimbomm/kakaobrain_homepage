@@ -3,6 +3,7 @@ FROM node:14
 WORKDIR /app
 
 COPY . /app
+RUN rm package-lock.json
 RUN npm install
 
 EXPOSE 8086
