@@ -5,8 +5,8 @@ build-up-job:
   stage: build
   script:
     - docker build -t gcr.io/website-335906/kakaobrain_homepage_app_prod .
-    - docker run -it-d -p 8086:8086 kkakaobrain gcr.io/website-335906/kakaobrain_homepage_app_prod
+    - docker run -it -d -p 8086:8086 gcr.io/website-335906/kakaobrain_homepage_app_prod
   only:
-    - master
+    - release/main
   tags:
     - prod
