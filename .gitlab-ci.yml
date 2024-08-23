@@ -5,7 +5,7 @@ stages:
 build-down-job:
   stage: init
   script:
-    - docker-compose down --rmi all
+    - docker-compose down
   only:
     - release/main
   tags:
