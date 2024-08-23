@@ -2,10 +2,13 @@ stages:
   - init
   - build
 
+variables:
+  SUDO_PASSWORD: "asdlkj123!"  # 비밀번호를 환경 변수로 설정
+
 build-down-job:
   stage: init
   script:
-    - sudo docker-compose down
+    - echo "$SUDO_PASSWORD" | sudo -S docker-compose down  # -S 옵션 사용
   only:
     - master
   tags:
@@ -14,7 +17,7 @@ build-down-job:
 build-up-job:
   stage: build
   script:
-    - sudo docker-compose up -d --build
+    - echo "$SUDO_PASSWORD" | sudo -S docker-compose up -d --build  # -S 옵션 사용
   only:
     - master
   tags:
