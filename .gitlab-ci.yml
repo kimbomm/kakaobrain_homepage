@@ -7,11 +7,11 @@ build-down-job:
   script:
     - docker-compose down --rmi all
   only:
-    - develop
+    - master
 
 build-up-job:
   stage: build
   script:
     - docker-compose up -d --build
   only:
-    - develop
+    - master
