@@ -7,7 +7,7 @@ build-down-job:
   script:
     - sudo docker-compose down
   only:
-    - release/main
+    - master
   tags:
     - prod
 
@@ -16,6 +16,6 @@ build-up-job:
   script:
     - sudo docker-compose up -d --build
   only:
-    - release/main
+    - master
   tags:
     - prod
