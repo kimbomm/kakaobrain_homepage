@@ -16,18 +16,20 @@
       <TopButton v-show="!isStoryPage" />
     </div>
     <Popup v-if="privacyPopup" @close="privacyPopup = false" />
+    <NoticePopup v-if="noticePopup" @close="noticePopup = false" />
   </div>
 </template>
 <script>
+  import NoticePopup from '@/components/NoticePopup.vue'
   import Popup from '@/components/Popup.vue'
-import CardinalPoints from '@/components/elements/button/CardinalPoints'
-import TopButton from '@/components/elements/button/TopButton'
-import FilterList from '@/components/elements/filter/FilterList'
-import Footer from '@/components/layouts/Footer'
-import Header from '@/components/layouts/Header'
-import SearchPage from '@/components/pages/search/index'
-import Vue from 'vue'
-import { mapMutations, mapState } from 'vuex'
+  import CardinalPoints from '@/components/elements/button/CardinalPoints'
+  import TopButton from '@/components/elements/button/TopButton'
+  import FilterList from '@/components/elements/filter/FilterList'
+  import Footer from '@/components/layouts/Footer'
+  import Header from '@/components/layouts/Header'
+  import SearchPage from '@/components/pages/search/index'
+  import Vue from 'vue'
+  import { mapMutations, mapState } from 'vuex'
   export default {
     components: {
       Header,
@@ -36,7 +38,8 @@ import { mapMutations, mapState } from 'vuex'
       CardinalPoints,
       TopButton,
       SearchPage,
-      Popup
+      Popup,
+      NoticePopup
     },
     data() {
       return {
@@ -49,7 +52,8 @@ import { mapMutations, mapState } from 'vuex'
           start: null,
           end: null
         },
-        privacyPopup: false
+        privacyPopup: false,
+        noticePopup: true
       }
     },
     computed: {
@@ -74,7 +78,7 @@ import { mapMutations, mapState } from 'vuex'
         if (val) {
           this.setIsScrollUp(false)
         }
-      },
+      }
     },
     created() {
       // this.isFooterShow = this.route == '/search' ? false : true
