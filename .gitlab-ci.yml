@@ -2,8 +2,6 @@ stages:
   - init
   - build
 
-<<<<<<< HEAD
-=======
 build-down-job:
   stage: init
   script:
@@ -13,7 +11,6 @@ build-down-job:
   tags:
     - prod
 
->>>>>>> origin/release/main
 build-up-job:
   stage: build
   before_script:
